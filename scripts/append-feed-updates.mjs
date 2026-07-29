@@ -178,6 +178,7 @@ function buildPrompt({ candidates, radar, scannedSnapshot }) {
 - bucket=dynamic 只用于已经发生的明确状态变化：发布、财报、监管、融资、产品上线、政策决定或有实质新证据的事件。必须有足够正文和可核验事实；官方一手来源可以单独成立。
 - bucket=explore 用于有清晰 thesis、二阶影响、跨界连接或值得持续验证的非共识判断。不能只是把单篇内容换句话复述。
 - 内容单薄、题目党、未经验证的规模数字、过窄教程、个人随感、与 Radar 重点弱相关的条目放进 ignored，并在 reason 前加“归档：”。“已处理”不等于“必须发布”。
+- valueScore 必须是 0–99 的绝对编辑价值分，不是第1、第2、第3的名次。综合评估：影响范围 30%、信息增量 25%、证据强度 25%、对 AI/科技/投资判断的可行动性 20%。同一批内容将按此分数从高到低排列。
 - 单一 Blog、YouTube、Newsletter、Fed 或 SEC 来源都允许收录，并标为“单一来源”；出现更多独立来源时再做 cross-validation。
 - 多条新增内容讲同一事件时合并成一篇稿件，逐项列出不同来源提供的事实或观点。
 - 若新增内容只是在佐证现有事件，或为现有事件补充了后续进展，放进 existingUpdates，追加“最新进展”和新 evidence；不得重写旧稿正文。只有出现可独立理解的新事件时才新建 feedStory。
@@ -195,7 +196,7 @@ ${existingTitles}
   "feedStories": [
     {
       "bucket": "dynamic|explore",
-      "priority": 0,
+      "valueScore": 0,
       "signal": {
         "category": "AI & 模型|Agents|算力|投资|科技|宏观",
         "eyebrow": "最新进展|趋势变化|资本信号|风险预警|产品信号|观点",
@@ -248,7 +249,7 @@ ${existingTitles}
   "existingUpdates": [
     {
       "existingSignalId": 1,
-      "priority": 0,
+      "valueScore": 0,
       "update": {
         "title": "中文更新标题，不超过28字",
         "summary": "只写这次新增了什么，不超过120字",
@@ -463,7 +464,12 @@ export function hydrateFeedStories({
     ? [...raw.feedStories]
         .sort(
           (left, right) =>
-            (Number(right?.priority) || 0) - (Number(left?.priority) || 0),
+            (Number(right?.valueScore) ||
+              Number(right?.signal?.score) ||
+              0) -
+            (Number(left?.valueScore) ||
+              Number(left?.signal?.score) ||
+              0),
         )
         .slice(0, maxFeedStoriesPerRun)
     : [];
@@ -535,7 +541,7 @@ export function hydrateFeedStories({
         0,
         Math.min(
           99,
-          Number(event.priority) || Number(event.signal.score) || 50,
+          Number(event.valueScore) || Number(event.signal.score) || 50,
         ),
       ),
       tone: tones[(id - 1) % tones.length],
@@ -661,7 +667,10 @@ export function hydrateExistingUpdates({
     }));
     hydrated.push({
       existingSignalId,
-      priority: Math.max(0, Math.min(99, Number(entry.priority) || 50)),
+      valueScore: Math.max(
+        0,
+        Math.min(99, Number(entry.valueScore) || 50),
+      ),
       update: {
         addedAt: newest,
         title,
@@ -693,7 +702,10 @@ export function mergeFeedStories({
 }) {
   if (!hydratedStories.length && !hydratedUpdates.length) return radar;
   const addedAt = new Date().toISOString();
-  const signals = hydratedStories.map((event) => event.signal);
+  const signals = hydratedStories.map((event) => ({
+    ...event.signal,
+    feedBatchAt: addedAt,
+  }));
   const zhSignals = hydratedStories.map((event) => event.zhTranslation);
   const enSignals = hydratedStories.map((event) => event.enTranslation);
   const existingSignals = radar.signals.map((signal) => ({ ...signal }));
@@ -731,7 +743,8 @@ export function mergeFeedStories({
         ({ role: _role, takeaway: _takeaway, ...reference }) => reference,
       ),
       updatedAt: hydrated.update.addedAt,
-      score: Math.max(Number(previous.score) || 0, hydrated.priority),
+      feedBatchAt: addedAt,
+      score: Math.max(Number(previous.score) || 0, hydrated.valueScore),
       updates: [hydrated.update, ...(previous.updates ?? [])],
     };
 

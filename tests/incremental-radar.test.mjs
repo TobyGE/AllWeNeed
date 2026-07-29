@@ -229,7 +229,7 @@ test("includes a single-source feed story without changing an old article", () =
     feedStories: [
       {
         bucket: "dynamic",
-        priority: 95,
+        valueScore: 95,
         signal: {
           category: "宏观",
           eyebrow: "必须知道",
@@ -293,6 +293,11 @@ test("includes a single-source feed story without changing an old article", () =
   });
   assert.equal(merged.signals.length, 2);
   assert.equal(merged.signals[0].title, "FOMC 发布最新政策声明");
+  assert.equal(
+    merged.signals[0].feedBatchAt,
+    merged.incremental.lastAddedAt,
+  );
+  assert.equal(merged.signals[0].score, 95);
   assert.deepEqual(merged.signals[1], oldSignal);
   assert.equal(
     merged.translations.en.signals[0].title,
@@ -378,7 +383,7 @@ test("appends new evidence and progress to an existing story without rewriting i
     existingUpdates: [
       {
         existingSignalId: 7,
-        priority: 72,
+        valueScore: 72,
         update: {
           title: "出现新的佐证",
           summary: "Example Blog 补充了新的公开证据。",
@@ -416,6 +421,11 @@ test("appends new evidence and progress to an existing story without rewriting i
 
   assert.deepEqual(merged.signals[0].article, oldArticle);
   assert.equal(merged.signals[0].updates[0].title, "出现新的佐证");
+  assert.equal(
+    merged.signals[0].feedBatchAt,
+    merged.incremental.lastAddedAt,
+  );
+  assert.equal(merged.signals[0].score, 72);
   assert.equal(merged.signals[0].evidence[0].url, candidates[0].url);
   assert.equal(
     merged.translations.en.signals[0].updates[0].title,

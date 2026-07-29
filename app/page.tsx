@@ -31,6 +31,7 @@ type Signal = {
   id: number;
   editorialBucket: "dynamic" | "explore" | "archive";
   permanent?: boolean;
+  feedBatchAt?: string;
   publishedAt?: string | null;
   updatedAt?: string | null;
   category: string;
@@ -97,6 +98,22 @@ const curatedExploreSignals = dailyRadar.exploreSignals as ExploreSignal[];
 const coveredKinds = [
   ...new Set(dynamicSignals.flatMap((signal) => signal.sources)),
 ];
+
+function compareEditorialOrder(left: Signal, right: Signal) {
+  const batchDifference =
+    Date.parse(right.feedBatchAt ?? "") -
+    Date.parse(left.feedBatchAt ?? "");
+  if (Number.isFinite(batchDifference) && batchDifference !== 0) {
+    return batchDifference;
+  }
+  const valueDifference = right.score - left.score;
+  if (valueDifference !== 0) return valueDifference;
+  return (
+    Date.parse(right.updatedAt ?? right.publishedAt ?? "") -
+    Date.parse(left.updatedAt ?? left.publishedAt ?? "")
+  );
+}
+
 const configuredKindCounts = sourceCatalog.reduce<Record<string, number>>(
   (counts, source) => {
     const kind = getSourceKind(source.url);
@@ -164,54 +181,59 @@ export default function Home() {
 
   const localizedSignals = useMemo(
     () =>
-      signals.map((signal, index) => {
-        const translated = languageCopy.signals[index];
-        const translatedUpdates = (
-          translated as typeof translated & {
-            updates?: Array<{
-              addedAt: string;
-              title: string;
-              summary: string;
-              evidence: Array<{ role: string; takeaway: string }>;
-            }>;
-          }
-        ).updates;
-        return {
-          ...signal,
-          ...translated,
-          categoryKey: signal.category,
-          article: translated.article
-            ? {
-                ...signal.article,
-                ...translated.article,
-                sections:
-                  translated.article.sections ?? signal.article?.sections ?? [],
-              }
-            : signal.article,
-          evidence: signal.evidence.map((evidence, evidenceIndex) => ({
-            ...evidence,
-            role: translated.evidence[evidenceIndex]?.role ?? evidence.role,
-            takeaway:
-              translated.evidence[evidenceIndex]?.takeaway ?? evidence.takeaway,
-          })),
-          updates: signal.updates?.map((update, updateIndex) => {
-            const translatedUpdate = translatedUpdates?.[updateIndex];
-            return {
-              ...update,
-              ...translatedUpdate,
-              evidence: update.evidence.map((evidence, evidenceIndex) => ({
-                ...evidence,
-                role:
-                  translatedUpdate?.evidence[evidenceIndex]?.role ??
-                  evidence.role,
-                takeaway:
-                  translatedUpdate?.evidence[evidenceIndex]?.takeaway ??
-                  evidence.takeaway,
-              })),
-            };
-          }),
-        };
-      }),
+      signals
+        .map((signal, index) => {
+          const translated = languageCopy.signals[index];
+          const translatedUpdates = (
+            translated as typeof translated & {
+              updates?: Array<{
+                addedAt: string;
+                title: string;
+                summary: string;
+                evidence: Array<{ role: string; takeaway: string }>;
+              }>;
+            }
+          ).updates;
+          return {
+            ...signal,
+            ...translated,
+            categoryKey: signal.category,
+            article: translated.article
+              ? {
+                  ...signal.article,
+                  ...translated.article,
+                  sections:
+                    translated.article.sections ??
+                    signal.article?.sections ??
+                    [],
+                }
+              : signal.article,
+            evidence: signal.evidence.map((evidence, evidenceIndex) => ({
+              ...evidence,
+              role: translated.evidence[evidenceIndex]?.role ?? evidence.role,
+              takeaway:
+                translated.evidence[evidenceIndex]?.takeaway ??
+                evidence.takeaway,
+            })),
+            updates: signal.updates?.map((update, updateIndex) => {
+              const translatedUpdate = translatedUpdates?.[updateIndex];
+              return {
+                ...update,
+                ...translatedUpdate,
+                evidence: update.evidence.map((evidence, evidenceIndex) => ({
+                  ...evidence,
+                  role:
+                    translatedUpdate?.evidence[evidenceIndex]?.role ??
+                    evidence.role,
+                  takeaway:
+                    translatedUpdate?.evidence[evidenceIndex]?.takeaway ??
+                    evidence.takeaway,
+                })),
+              };
+            }),
+          };
+        })
+        .sort(compareEditorialOrder),
     [languageCopy],
   );
 
@@ -778,8 +800,8 @@ export default function Home() {
                 {view === "brief" ? (
                   <>
                     {locale === "zh"
-                      ? `持续接收 ${dailyRadar.totalFetchedItemCount.toLocaleString()} 条真实内容，去重后聚类成可追踪事件；新内容随到随加，不按日期清空。`
-                      : `${dailyRadar.totalFetchedItemCount.toLocaleString()} live source entries are continuously deduplicated into trackable events. New items are added as they arrive; the feed never resets by date. `}
+                      ? `持续接收 ${dailyRadar.totalFetchedItemCount.toLocaleString()} 条真实内容，去重后聚类成可追踪事件；新批次置顶，批内按价值排序。`
+                      : `${dailyRadar.totalFetchedItemCount.toLocaleString()} live source entries are continuously deduplicated into trackable events. New batches lead the feed, ranked internally by editorial value.`}
                   </>
                 ) : (
                   <>

@@ -59,6 +59,17 @@ test("server-renders the Signal Radar product shell", async () => {
   assert.ok(html.includes(radar.translations.zh.signals[firstDynamicIndex].title));
   assert.match(html, /11(?:<!-- -->)? 条动态/);
   assert.doesNotMatch(html, /30 个信号|30 signals|30 条动态|30 updates/);
+  assert.match(html, /新批次置顶，批内按价值排序/);
+  const translatedTitle = (id) => {
+    const index = radar.signals.findIndex((signal) => signal.id === id);
+    return radar.translations.zh.signals[index].title;
+  };
+  const latestHighValueIndex = html.indexOf(translatedTitle(16));
+  const latestLowerValueIndex = html.indexOf(translatedTitle(30));
+  const olderHighValueIndex = html.indexOf(translatedTitle(10));
+  assert.ok(latestHighValueIndex >= 0);
+  assert.ok(latestHighValueIndex < latestLowerValueIndex);
+  assert.ok(latestLowerValueIndex < olderHighValueIndex);
   assert.match(html, /href="\?article=1"/);
   assert.match(html, /跨平台验证/);
   assert.ok(!html.includes(radar.translations.zh.signals[0].shiftTo));
@@ -201,6 +212,19 @@ test("removes all disposable starter preview code", async () => {
     JSON.parse(radar).signals.every((signal) =>
       ["dynamic", "explore", "archive"].includes(signal.editorialBucket),
     ),
+  );
+  assert.ok(
+    JSON.parse(radar).signals.every(
+      (signal) =>
+        signal.feedBatchAt &&
+        Number.isFinite(Date.parse(signal.feedBatchAt)) &&
+        signal.score >= 0 &&
+        signal.score <= 99,
+    ),
+  );
+  assert.equal(
+    JSON.parse(radar).signals.find((signal) => signal.id === 30).score,
+    74,
   );
   assert.deepEqual(
     JSON.parse(radar).signals
