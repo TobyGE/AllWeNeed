@@ -811,11 +811,42 @@ button {
   line-height: 1.35;
 }
 
+.explore-card h3 a {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.explore-card h3 a:hover span {
+  color: var(--explore-accent);
+}
+
+.explore-card h3 i {
+  display: grid;
+  width: 25px;
+  height: 25px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 9px;
+  font-style: normal;
+  opacity: 0.58;
+}
+
 .explore-featured h3 {
   max-width: 680px;
   color: #fff;
   font-size: clamp(28px, 4vw, 44px);
   line-height: 1.18;
+}
+
+.explore-featured h3 a:hover span {
+  color: #d8cbff;
 }
 
 .explore-thesis {

@@ -64,6 +64,15 @@ type ExploreSignal = {
   sourceKinds: string[];
   sourceCount: number;
   tone: "violet" | "cyan" | "amber" | "coral";
+  crossValidation?: string;
+  article?: {
+    lead: string;
+    sections: Array<{
+      heading: string;
+      body: string;
+    }>;
+    outlook: string;
+  };
   evidence: SignalEvidence[];
 };
 
@@ -97,7 +106,7 @@ export default function Home() {
   const [view, setView] = useState<"brief" | "explore">("brief");
   const [section, setSection] = useState<"radar" | "sources">("radar");
   const [notice, setNotice] = useState("");
-  const [articleId, setArticleId] = useState<number | null>(null);
+  const [articleId, setArticleId] = useState<string | null>(null);
   const languageCopy = dailyRadar.translations[locale];
   const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
 
@@ -116,8 +125,7 @@ export default function Home() {
   useEffect(() => {
     const readArticleId = () => {
       const value = new URLSearchParams(window.location.search).get("article");
-      const parsed = value ? Number.parseInt(value, 10) : Number.NaN;
-      setArticleId(Number.isFinite(parsed) ? parsed : null);
+      setArticleId(value || null);
     };
     readArticleId();
     window.addEventListener("popstate", readArticleId);
@@ -159,6 +167,16 @@ export default function Home() {
           ...signal,
           ...translated,
           categoryKey: signal.category,
+          crossValidation:
+            translated.crossValidation ?? signal.crossValidation ?? "",
+          article: translated.article
+            ? {
+                ...signal.article,
+                ...translated.article,
+                sections:
+                  translated.article.sections ?? signal.article?.sections ?? [],
+              }
+            : signal.article,
           evidence: signal.evidence.map((evidence, evidenceIndex) => ({
             ...evidence,
             takeaway:
@@ -278,7 +296,7 @@ export default function Home() {
     window.setTimeout(() => setNotice(""), 2600);
   }
 
-  function openArticle(id: number) {
+  function openArticle(id: number | string) {
     const url = new URL(window.location.href);
     url.searchParams.set("article", String(id));
     window.history.pushState({}, "", url);
@@ -295,6 +313,9 @@ export default function Home() {
   }
 
   const activeArticle = localizedSignals.find(
+    (signal) => String(signal.id) === articleId,
+  );
+  const activeExploreArticle = localizedExploreSignals.find(
     (signal) => signal.id === articleId,
   );
   if (activeArticle) {
@@ -305,6 +326,37 @@ export default function Home() {
         generatedAt={dailyRadar.generatedAt}
         onLocaleChange={setLocale}
         onBack={closeArticle}
+      />
+    );
+  }
+  if (activeExploreArticle) {
+    return (
+      <ArticleView
+        signal={{
+          id: activeExploreArticle.id,
+          category: activeExploreArticle.category,
+          eyebrow: activeExploreArticle.label,
+          title: activeExploreArticle.title,
+          summary: activeExploreArticle.thesis,
+          why: activeExploreArticle.whyNow,
+          impact: activeExploreArticle.counterpoint,
+          crossValidation:
+            activeExploreArticle.crossValidation ??
+            activeExploreArticle.thesis,
+          validationType: activeExploreArticle.validationType,
+          sourceCount: activeExploreArticle.sourceCount,
+          confidence: activeExploreArticle.confidence,
+          article: activeExploreArticle.article,
+          evidence: activeExploreArticle.evidence,
+        }}
+        locale={locale}
+        generatedAt={dailyRadar.generatedAt}
+        kind="explore"
+        onLocaleChange={setLocale}
+        onBack={() => {
+          setView("explore");
+          closeArticle();
+        }}
       />
     );
   }
@@ -920,7 +972,18 @@ export default function Home() {
                         <span className="explore-label">{signal.label}</span>
                       </div>
 
-                      <h3>{signal.title}</h3>
+                      <h3>
+                        <a
+                          href={`?article=${signal.id}`}
+                          onClick={(event) => {
+                            event.preventDefault();
+                            openArticle(signal.id);
+                          }}
+                        >
+                          <span>{signal.title}</span>
+                          <i aria-hidden="true">↗</i>
+                        </a>
+                      </h3>
                       <p className="explore-thesis">{signal.thesis}</p>
 
                       <div className="explore-reasoning">

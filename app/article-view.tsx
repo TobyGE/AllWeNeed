@@ -20,7 +20,7 @@ type ArticleEvidence = {
 };
 
 export type ArticleSignal = {
-  id: number;
+  id: number | string;
   category: string;
   eyebrow: string;
   title: string;
@@ -30,7 +30,8 @@ export type ArticleSignal = {
   crossValidation: string;
   validationType: "跨平台验证" | "多账号验证" | "单一来源";
   sourceCount: number;
-  score: number;
+  score?: number;
+  confidence?: string;
   article?: {
     lead: string;
     sections: ArticleSection[];
@@ -75,16 +76,19 @@ export function ArticleView({
   signal,
   locale,
   generatedAt,
+  kind = "brief",
   onLocaleChange,
   onBack,
 }: {
   signal: ArticleSignal;
   locale: Locale;
   generatedAt: string;
+  kind?: "brief" | "explore";
   onLocaleChange: (locale: Locale) => void;
   onBack: () => void;
 }) {
   const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
+  const isExplore = kind === "explore";
   const article = signal.article ?? fallbackArticle(signal, locale);
   useEffect(() => {
     const previousTitle = document.title;
@@ -143,7 +147,9 @@ export function ArticleView({
             </button>
           </div>
           <span className="article-edition">
-            {t("RADAR 编辑稿", "RADAR EDITORIAL")}
+            {isExplore
+              ? t("EXPLORE 探索稿", "EXPLORE ESSAY")
+              : t("RADAR 编辑稿", "RADAR EDITORIAL")}
           </span>
         </div>
       </header>
@@ -157,7 +163,9 @@ export function ArticleView({
               onBack();
             }}
           >
-            {t("今日简报", "Today’s Brief")}
+            {isExplore
+              ? t("探索", "Explore")
+              : t("今日简报", "Today’s Brief")}
           </a>
           <span>/</span>
           <span>{signal.category}</span>
@@ -179,7 +187,12 @@ export function ArticleView({
               )}
             </span>
             <span>
-              {t("信号置信度", "Signal confidence")} {signal.score}/100
+              {isExplore
+                ? t(
+                    `探索置信度 · ${signal.confidence ?? "观察中"}`,
+                    `Explore confidence · ${signal.confidence ?? "Watching"}`,
+                  )
+                : `${t("信号置信度", "Signal confidence")} ${signal.score}/100`}
             </span>
           </div>
         </header>
@@ -198,7 +211,11 @@ export function ArticleView({
               <span className="article-section-number">
                 {t("下一步", "NEXT")}
               </span>
-              <h2>{t("接下来观察什么", "What to watch next")}</h2>
+              <h2>
+                {isExplore
+                  ? t("接下来如何验证", "How to test this thesis")
+                  : t("接下来观察什么", "What to watch next")}
+              </h2>
               <p>{article.outlook}</p>
             </section>
 
@@ -206,8 +223,12 @@ export function ArticleView({
               <span>{t("编辑说明", "EDITOR’S NOTE")}</span>
               <p>
                 {t(
-                  "本文由 Signal Radar 根据下列公开来源综合撰写。事实、来源共识与编辑推断已尽量分开；原始来源保留在文末，便于逐项核查。",
-                  "Signal Radar synthesized this article from the public sources below. Facts, source consensus, and editorial inference are separated where possible, with originals preserved for verification.",
+                  isExplore
+                    ? "本文是 Signal Radar 根据下列公开来源形成的探索性判断，不是已被证实的结论。事实、编辑推断与反方观点已分开；原始来源保留在文末，便于逐项核查。"
+                    : "本文由 Signal Radar 根据下列公开来源综合撰写。事实、来源共识与编辑推断已尽量分开；原始来源保留在文末，便于逐项核查。",
+                  isExplore
+                    ? "This is an exploratory thesis synthesized from the public sources below, not a settled conclusion. Facts, editorial inference, and counterarguments are separated, with originals preserved for verification."
+                    : "Signal Radar synthesized this article from the public sources below. Facts, source consensus, and editorial inference are separated where possible, with originals preserved for verification.",
                 )}
               </p>
             </aside>
@@ -215,7 +236,11 @@ export function ArticleView({
 
           <aside className="article-rail">
             <div className="article-validation-card">
-              <span>{t("交叉验证结论", "CROSS-VALIDATION")}</span>
+              <span>
+                {isExplore
+                  ? t("证据如何支撑判断", "HOW THE EVIDENCE CONNECTS")
+                  : t("交叉验证结论", "CROSS-VALIDATION")}
+              </span>
               <p>{signal.crossValidation}</p>
             </div>
             <div className="article-rail-stat">
@@ -266,7 +291,10 @@ export function ArticleView({
               onBack();
             }}
           >
-            ← {t("返回今日简报", "Back to today’s brief")}
+            ←{" "}
+            {isExplore
+              ? t("返回探索", "Back to Explore")
+              : t("返回今日简报", "Back to today’s brief")}
           </a>
           <span>Signal Radar · {dateLabel}</span>
         </footer>

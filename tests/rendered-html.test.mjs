@@ -78,6 +78,7 @@ test("removes all disposable starter preview code", async () => {
     radar,
     sourceCatalog,
     articleView,
+    exploreArticleScript,
   ] =
     await Promise.all([
     readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
@@ -89,6 +90,10 @@ test("removes all disposable starter preview code", async () => {
     readFile(new URL("../data/daily-radar.json", import.meta.url), "utf8"),
     readFile(new URL("../app/source-catalog.ts", import.meta.url), "utf8"),
     readFile(new URL("../app/article-view.tsx", import.meta.url), "utf8"),
+    readFile(
+      new URL("../scripts/expand-explore-articles.mjs", import.meta.url),
+      "utf8",
+    ),
   ]);
 
   assert.match(page, /Signal Radar/);
@@ -210,11 +215,39 @@ test("removes all disposable starter preview code", async () => {
       (signal) => signal.sourceCount >= 2,
     ).length >= 5,
   );
+  assert.ok(
+    JSON.parse(radar).exploreSignals.every(
+      (signal) =>
+        signal.crossValidation &&
+        signal.article?.lead &&
+        signal.article?.sections?.length === 3 &&
+        signal.article?.sections.every(
+          (section) => section.heading && section.body,
+        ) &&
+        signal.article?.outlook,
+    ),
+  );
+  for (const locale of ["zh", "en"]) {
+    assert.ok(
+      JSON.parse(radar).translations[locale].exploreSignals.every(
+        (signal) =>
+          signal.crossValidation &&
+          signal.article?.lead &&
+          signal.article?.sections?.length === 3 &&
+          signal.article?.outlook,
+      ),
+    );
+  }
   assert.match(page, /explore-grid/);
   assert.match(page, /signal-radar-locale/);
   assert.match(page, /href=\{`\?article=\$\{signal\.id\}`\}/);
+  assert.match(page, /activeExploreArticle/);
+  assert.match(page, /kind="explore"/);
   assert.match(articleView, /这篇稿子基于什么/);
   assert.match(articleView, /evidence\.url/);
+  assert.match(articleView, /返回探索/);
+  assert.match(exploreArticleScript, /single-source hypothesis/);
+  assert.match(packageJson, /expand-explore-articles\.mjs/);
   assert.match(page, /SourceLibrary locale=\{locale\}/);
   assert.match(page, /最强反方观点/);
   assert.doesNotMatch(page, /SkeletonPreview|codex-preview/);
