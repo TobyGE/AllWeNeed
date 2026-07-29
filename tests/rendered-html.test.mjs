@@ -41,8 +41,10 @@ test("server-renders the Signal Radar product shell", async () => {
   assert.match(html, /今天真正需要知道的/);
   assert.match(html, /必须知道/);
   assert.match(html, /正在升温/);
-  assert.match(html, /投资 &amp; Company Signals/);
-  assert.match(html, /GPT ANALYZED/);
+  assert.match(html, /今日简报/);
+  assert.match(html, /探索/);
+  assert.match(html, /投资与公司信号/);
+  assert.match(html, /GPT 已分析/);
   assert.match(html, /language-switch/);
   assert.match(html, />EN</);
   assert.match(html, /信源库/);
@@ -52,10 +54,14 @@ test("server-renders the Signal Radar product shell", async () => {
   assert.match(html, /跨平台验证/);
   assert.ok(html.includes(radar.translations.zh.signals[0].shiftTo));
   assert.ok(html.includes(radar.translations.zh.companySignals[0].headline));
-  assert.match(html, /INVESTMENT READ/);
-  assert.match(html, /潜在 catalyst/);
+  assert.match(html, /投资解读/);
+  assert.match(html, /潜在催化因素/);
   assert.match(html, /反证风险/);
   assert.match(html, /GPT 分析完成/);
+  assert.doesNotMatch(
+    html,
+    /今日 Brief|Explore 信息流|MUST KNOW|WHY NOW|EVIDENCE TRAIL|INVESTMENT READ|CAPITAL &amp; COMPANY SIGNALS|GPT ANALYZED/,
+  );
   assert.doesNotMatch(html, /codex-preview/);
   assert.doesNotMatch(html, /Your site is taking shape/);
 });
@@ -76,8 +82,8 @@ test("removes all disposable starter preview code", async () => {
   assert.match(page, /t\("搜索情报", "Search intelligence"\)/);
   assert.match(styles, /prefers-reduced-motion/);
   assert.match(layout, /lang="zh-CN"/);
-  assert.match(sourceLibrary, /JUST FETCHED/);
-  assert.match(sourceLibrary, /Bearer Token/);
+  assert.match(sourceLibrary, /刚刚抓取/);
+  assert.match(sourceLibrary, /官方 API 凭证/);
   const snapshotData = JSON.parse(snapshot);
   assert.equal(snapshotData.totalSources, 159);
   assert.ok(snapshotData.successfulSources >= 120);
@@ -153,7 +159,7 @@ test("removes all disposable starter preview code", async () => {
   assert.match(page, /explore-grid/);
   assert.match(page, /signal-radar-locale/);
   assert.match(page, /SourceLibrary locale=\{locale\}/);
-  assert.match(page, /最强 counterpoint/);
+  assert.match(page, /最强反方观点/);
   assert.doesNotMatch(page, /SkeletonPreview|codex-preview/);
   assert.doesNotMatch(layout, /Starter Project|codex-preview/);
   assert.doesNotMatch(packageJson, /react-loading-skeleton/);

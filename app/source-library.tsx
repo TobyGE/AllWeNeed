@@ -42,6 +42,14 @@ function hostLabel(url: string) {
   }
 }
 
+function sourceKindLabel(kind: SourceKind, locale: "zh" | "en") {
+  if (locale === "zh") {
+    if (kind === "Newsletter") return "邮件简报";
+    if (kind === "Blog") return "博客";
+  }
+  return kind;
+}
+
 export function SourceLibrary({
   locale,
   onNotice,
@@ -108,7 +116,9 @@ export function SourceLibrary({
     <section className="source-library">
       <div className="source-hero">
         <div>
-          <span className="section-kicker">LIVE SOURCE NETWORK</span>
+          <span className="section-kicker">
+            {t("实时信源网络", "LIVE SOURCE NETWORK")}
+          </span>
           <h1>
             {t("信源库已经开始", "The source network is")}
             <br />
@@ -126,7 +136,7 @@ export function SourceLibrary({
             onClick={() =>
               onNotice(
                 t(
-                  "Fetcher 已配置；自动定时任务将在下一阶段接入",
+                  "抓取器已配置；自动定时任务将在下一阶段接入",
                   "The fetcher is configured; scheduled runs will arrive in the next phase",
                 ),
               )
@@ -156,24 +166,24 @@ export function SourceLibrary({
         <article className="stat-blue">
           <span>{t("真实内容", "Live items")}</span>
           <strong>{snapshot.items.length.toLocaleString()}</strong>
-          <small>{t("当前本地 snapshot", "Current local snapshot")}</small>
+          <small>{t("当前本地快照", "Current local snapshot")}</small>
         </article>
         <article className="stat-orange">
           <span>{t("X 待授权", "X needs auth")}</span>
           <strong>{snapshot.needsAuthSources}</strong>
-          <small>{t("需官方 Bearer Token", "Official Bearer Token required")}</small>
+          <small>{t("需官方 API 凭证", "Official Bearer Token required")}</small>
         </article>
         <article>
           <span>{t("需处理", "Needs review")}</span>
           <strong>{snapshot.failedSources}</strong>
-          <small>{t("未发现公开 Feed", "No public feed found")}</small>
+          <small>{t("未发现公开订阅源", "No public feed found")}</small>
         </article>
       </div>
 
       <section className="live-items">
         <div className="section-heading">
           <div>
-            <span className="section-kicker">JUST FETCHED</span>
+            <span className="section-kicker">{t("刚刚抓取", "JUST FETCHED")}</span>
             <h2>{t("刚刚抓到的内容", "Just Fetched")}</h2>
           </div>
           <span className="live-caption">
@@ -191,7 +201,7 @@ export function SourceLibrary({
             >
               <div>
                 <span className={`kind-badge kind-${item.sourceKind.toLowerCase()}`}>
-                  {item.sourceKind}
+                  {sourceKindLabel(item.sourceKind as SourceKind, locale)}
                 </span>
                 <time>{formatTime(item.publishedAt, locale)}</time>
               </div>
@@ -208,7 +218,7 @@ export function SourceLibrary({
       <section className="catalog-section">
         <div className="section-heading catalog-heading">
           <div>
-            <span className="section-kicker">ALL SOURCES</span>
+            <span className="section-kicker">{t("全部信源", "ALL SOURCES")}</span>
             <h2>{t("全部 159 个信源", "All 159 Sources")}</h2>
           </div>
           <label className="catalog-search">
@@ -240,7 +250,9 @@ export function SourceLibrary({
                   setLimit(30);
                 }}
               >
-                {filter === "全部" ? t("全部", "All") : filter}
+                {filter === "全部"
+                  ? t("全部", "All")
+                  : sourceKindLabel(filter, locale)}
                 <span>
                   {filter === "全部" ? sourceCatalog.length : counts[filter]}
                 </span>
@@ -297,7 +309,9 @@ export function SourceLibrary({
                     <i />
                     {statusLabel[status?.status ?? "error"]}
                   </span>
-                  <span className="source-kind">{sourceKind}</span>
+                  <span className="source-kind">
+                    {sourceKindLabel(sourceKind, locale)}
+                  </span>
                   {status?.itemCount ? (
                     <span className="item-count">
                       {status.itemCount} {t("条", "items")}

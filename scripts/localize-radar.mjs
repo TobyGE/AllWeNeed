@@ -96,6 +96,8 @@ Chinese style rules:
 - Keep standard industry terms in English when Chinese professionals naturally use them: AI, Agent, LLM, token, context, cache, inference, benchmark, open-source, open-weight, API, workflow, product-market fit, moat, margin, hyperscaler.
 - Prefer phrases like "AI coding 工具的 benchmark" over stiff fully translated jargon.
 - Do not sprinkle English randomly into ordinary Chinese. Code-switch only for proper nouns and established technical/business terms.
+- Treat category, eyebrow, label, signalType, stance, horizon, confidence, and evidence role as interface taxonomy. These fields must use concise Simplified Chinese, except for true proper nouns such as AI, GPT, X, YouTube, company names, product names, and model names.
+- In those interface-taxonomy fields, translate generic terms such as Agent to 智能体, Models to 模型, Compute to 算力, Risk to 风险, Watch to 观察, and Product signal to 产品信号. Use Chinese punctuation and “与”, never “&”.
 - Keep numbers and factual meaning unchanged.
 
 English style rules:
