@@ -295,7 +295,7 @@ test("includes a single-source feed story without changing an old article", () =
   assert.equal(merged.signals[0].title, "FOMC 发布最新政策声明");
   assert.equal(
     merged.signals[0].feedBatchAt,
-    merged.incremental.lastAddedAt,
+    "2026-07-29T19:00:00.000Z",
   );
   assert.equal(merged.signals[0].score, 95);
   assert.deepEqual(merged.signals[1], oldSignal);
@@ -423,7 +423,7 @@ test("appends new evidence and progress to an existing story without rewriting i
   assert.equal(merged.signals[0].updates[0].title, "出现新的佐证");
   assert.equal(
     merged.signals[0].feedBatchAt,
-    merged.incremental.lastAddedAt,
+    "2026-07-29T21:00:00.000Z",
   );
   assert.equal(merged.signals[0].score, 72);
   assert.equal(merged.signals[0].evidence[0].url, candidates[0].url);

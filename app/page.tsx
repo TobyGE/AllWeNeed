@@ -65,6 +65,9 @@ type Signal = {
 
 type ExploreSignal = {
   id: string;
+  feedBatchAt: string;
+  valueScore: number;
+  relatedSignalId?: number;
   category: string;
   label: string;
   title: string;
@@ -112,6 +115,18 @@ function compareEditorialOrder(left: Signal, right: Signal) {
     Date.parse(right.updatedAt ?? right.publishedAt ?? "") -
     Date.parse(left.updatedAt ?? left.publishedAt ?? "")
   );
+}
+
+function compareExploreOrder(
+  left: Pick<ExploreSignal, "feedBatchAt" | "valueScore">,
+  right: Pick<ExploreSignal, "feedBatchAt" | "valueScore">,
+) {
+  const batchDifference =
+    Date.parse(right.feedBatchAt) - Date.parse(left.feedBatchAt);
+  if (Number.isFinite(batchDifference) && batchDifference !== 0) {
+    return batchDifference;
+  }
+  return right.valueScore - left.valueScore;
 }
 
 const configuredKindCounts = sourceCatalog.reduce<Record<string, number>>(
@@ -315,6 +330,8 @@ export default function Home() {
                 ? "中"
                 : "Medium",
         validationType: signal.validationType,
+        feedBatchAt: signal.feedBatchAt ?? "",
+        valueScore: signal.score,
         sourceNames: signal.sourceNames,
         sourceKinds: signal.sources,
         sourceCount: signal.sourceCount,
@@ -323,18 +340,57 @@ export default function Home() {
         article: signal.article,
         evidence: signal.evidence,
       }));
+    const linkedCuratedIds = new Set<string>();
+    const mergedStorySignals = storySignals.map((signal) => {
+      const relatedCurated = localizedCuratedExploreSignals.filter(
+        (curated) => curated.relatedSignalId === Number(signal.id),
+      );
+      relatedCurated.forEach((curated) => linkedCuratedIds.add(curated.id));
+      const mergedEvidence = [
+        ...signal.evidence,
+        ...relatedCurated.flatMap((curated) => curated.evidence),
+      ].filter(
+        (evidence, index, items) =>
+          items.findIndex((item) => item.url === evidence.url) === index,
+      );
+      const sourceNames = [
+        ...new Set(mergedEvidence.map((evidence) => evidence.sourceName)),
+      ];
+      return {
+        ...signal,
+        valueScore: Math.max(
+          signal.valueScore,
+          ...relatedCurated.map((curated) => curated.valueScore),
+        ),
+        sourceNames,
+        sourceKinds: [
+          ...new Set(mergedEvidence.map((evidence) => evidence.sourceKind)),
+        ],
+        sourceCount: sourceNames.length,
+        crossValidation: [
+          signal.crossValidation,
+          ...relatedCurated.map((curated) => curated.crossValidation),
+        ]
+          .filter(Boolean)
+          .join(" "),
+        evidence: mergedEvidence,
+      };
+    });
     const storyEvidenceUrls = new Set(
-      storySignals.flatMap((signal) =>
+      mergedStorySignals.flatMap((signal) =>
         signal.evidence.map((evidence) => evidence.url),
       ),
     );
     const deduplicatedCurated = localizedCuratedExploreSignals.filter(
       (signal) =>
+        !linkedCuratedIds.has(signal.id) &&
         !signal.evidence.some((evidence) =>
           storyEvidenceUrls.has(evidence.url),
         ),
     );
-    return [...storySignals, ...deduplicatedCurated];
+    return [...mergedStorySignals, ...deduplicatedCurated].sort(
+      compareExploreOrder,
+    );
   }, [locale, localizedCuratedExploreSignals, localizedSignals]);
 
   const exploreKinds = useMemo(

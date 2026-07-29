@@ -64,12 +64,16 @@ test("server-renders the Signal Radar product shell", async () => {
     const index = radar.signals.findIndex((signal) => signal.id === id);
     return radar.translations.zh.signals[index].title;
   };
-  const latestHighValueIndex = html.indexOf(translatedTitle(16));
-  const latestLowerValueIndex = html.indexOf(translatedTitle(30));
-  const olderHighValueIndex = html.indexOf(translatedTitle(10));
-  assert.ok(latestHighValueIndex >= 0);
-  assert.ok(latestHighValueIndex < latestLowerValueIndex);
-  assert.ok(latestLowerValueIndex < olderHighValueIndex);
+  const fomcIndex = html.indexOf(translatedTitle(10));
+  const metaIndex = html.indexOf(translatedTitle(11));
+  const wordIndex = html.indexOf(translatedTitle(16));
+  const cloudflareIndex = html.indexOf(translatedTitle(30));
+  const morningPermanentIndex = html.indexOf(translatedTitle(1));
+  assert.ok(fomcIndex >= 0);
+  assert.ok(fomcIndex < metaIndex);
+  assert.ok(metaIndex < wordIndex);
+  assert.ok(wordIndex < cloudflareIndex);
+  assert.ok(cloudflareIndex < morningPermanentIndex);
   assert.match(html, /href="\?article=1"/);
   assert.match(html, /跨平台验证/);
   assert.ok(!html.includes(radar.translations.zh.signals[0].shiftTo));
@@ -222,6 +226,10 @@ test("removes all disposable starter preview code", async () => {
         signal.score <= 99,
     ),
   );
+  assert.deepEqual(
+    [...new Set(JSON.parse(radar).signals.map((signal) => signal.feedBatchAt))],
+    ["2026-07-29T20:21:07.772Z", "2026-07-29T13:02:22.855Z"],
+  );
   assert.equal(
     JSON.parse(radar).signals.find((signal) => signal.id === 30).score,
     74,
@@ -302,6 +310,34 @@ test("removes all disposable starter preview code", async () => {
     ),
   );
   assert.equal(JSON.parse(radar).exploreSignals.length, 8);
+  assert.ok(
+    JSON.parse(radar).exploreSignals.every(
+      (signal) =>
+        signal.feedBatchAt === "2026-07-29T13:02:22.855Z" &&
+        signal.valueScore >= 0 &&
+        signal.valueScore <= 99,
+    ),
+  );
+  assert.deepEqual(
+    JSON.parse(radar).exploreSignals
+      .filter((signal) => signal.relatedSignalId)
+      .map((signal) => [signal.id, signal.relatedSignalId]),
+    [
+      ["explore-2", 2],
+      ["explore-4", 6],
+      ["explore-6", 12],
+      ["explore-7", 8],
+    ],
+  );
+  assert.equal(
+    JSON.parse(radar).signals.filter(
+      (signal) => signal.editorialBucket === "explore",
+    ).length +
+      JSON.parse(radar).exploreSignals.filter(
+        (signal) => !signal.relatedSignalId,
+      ).length,
+    11,
+  );
   assert.ok(
     new Set(
       JSON.parse(radar).exploreSignals.map((signal) => signal.category),

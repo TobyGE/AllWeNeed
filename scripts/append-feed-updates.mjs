@@ -704,7 +704,7 @@ export function mergeFeedStories({
   const addedAt = new Date().toISOString();
   const signals = hydratedStories.map((event) => ({
     ...event.signal,
-    feedBatchAt: addedAt,
+    feedBatchAt: scannedSnapshot.generatedAt,
   }));
   const zhSignals = hydratedStories.map((event) => event.zhTranslation);
   const enSignals = hydratedStories.map((event) => event.enTranslation);
@@ -743,7 +743,7 @@ export function mergeFeedStories({
         ({ role: _role, takeaway: _takeaway, ...reference }) => reference,
       ),
       updatedAt: hydrated.update.addedAt,
-      feedBatchAt: addedAt,
+      feedBatchAt: scannedSnapshot.generatedAt,
       score: Math.max(Number(previous.score) || 0, hydrated.valueScore),
       updates: [hydrated.update, ...(previous.updates ?? [])],
     };
