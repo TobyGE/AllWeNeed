@@ -123,7 +123,10 @@ test("removes all disposable starter preview code", async () => {
           status.feedUrl,
       ),
   );
-  assert.equal(JSON.parse(radar).signals.length, 6);
+  assert.ok(
+    JSON.parse(radar).signals.length >= 6 &&
+      JSON.parse(radar).signals.length <= 12,
+  );
   assert.ok(JSON.parse(radar).analyzedItemCount > 100);
   assert.ok(
     ["gpt-5.6-sol", "gpt-5.5"].includes(JSON.parse(radar).model),
@@ -143,7 +146,7 @@ test("removes all disposable starter preview code", async () => {
   assert.ok(JSON.parse(radar).translations.en.signals[0].title);
   assert.ok(
     JSON.parse(radar).signals.filter((signal) => signal.sourceCount >= 2)
-      .length >= 4,
+      .length >= Math.ceil((JSON.parse(radar).signals.length * 2) / 3),
   );
   assert.ok(
     JSON.parse(radar).signals.every(

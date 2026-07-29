@@ -248,7 +248,7 @@ function buildPrompt(snapshot, items) {
   ]
 }
 
-硬性数量：signals 恰好 6 条，exploreSignals 恰好 8 条，trends 恰好 4 条，discoveries 恰好 3 条，companySignals 恰好 3 条。每个 signal 的 evidence 为 1-4 条；交叉验证时每条 evidence 必须来自不同 sourceName。至少 4 个 signal 必须有 2 个或以上不同 sourceName。
+数量规则：signals 动态输出 6-12 条，正常信息密度默认 8 条。只有在存在彼此独立、证据充分的额外事件簇时才增加到 9-12 条；如果不足以支撑 8 条，允许减少到 6-7 条，绝不为凑数加入弱信号。exploreSignals 恰好 8 条，trends 恰好 4 条，discoveries 恰好 3 条，companySignals 恰好 3 条。每个 signal 的 evidence 为 1-4 条；交叉验证时每条 evidence 必须来自不同 sourceName。至少三分之二的 signals 必须有 2 个或以上不同 sourceName。
 
 exploreSignals 质量门槛：
 - 它不是今日雷达的重复版。寻找非共识观点、二阶影响、跨领域连接和早期弱信号。
@@ -370,6 +370,20 @@ function requireArray(value, length, label) {
   }
 }
 
+function requireArrayRange(value, minLength, maxLength, label) {
+  if (
+    !Array.isArray(value) ||
+    value.length < minLength ||
+    value.length > maxLength
+  ) {
+    throw new Error(
+      `${label} 必须包含 ${minLength}-${maxLength} 条，实际为 ${
+        Array.isArray(value) ? value.length : 0
+      } 条`,
+    );
+  }
+}
+
 function formatAge(publishedAt, generatedAt) {
   if (!publishedAt) return "时间未知";
   const hours = Math.max(
@@ -428,7 +442,7 @@ function barsFor(index, change) {
 }
 
 function validateAndHydrate(raw, snapshot, items, model) {
-  requireArray(raw.signals, 6, "signals");
+  requireArrayRange(raw.signals, 6, 12, "signals");
   requireArray(raw.exploreSignals, 8, "exploreSignals");
   requireArray(raw.trends, 4, "trends");
   requireArray(raw.discoveries, 3, "discoveries");
@@ -489,9 +503,10 @@ function validateAndHydrate(raw, snapshot, items, model) {
   const crossValidatedCount = signals.filter(
     (signal) => signal.sourceCount >= 2,
   ).length;
-  if (crossValidatedCount < 4) {
+  const requiredCrossValidatedCount = Math.ceil((signals.length * 2) / 3);
+  if (crossValidatedCount < requiredCrossValidatedCount) {
     throw new Error(
-      `只有 ${crossValidatedCount} 个 signal 达到独立账号交叉验证，至少需要 4 个`,
+      `只有 ${crossValidatedCount} 个 signal 达到独立账号交叉验证，${signals.length} 条中至少需要 ${requiredCrossValidatedCount} 个`,
     );
   }
 
