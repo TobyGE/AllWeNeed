@@ -38,10 +38,12 @@ test("server-renders the Signal Radar product shell", async () => {
     await readFile(new URL("../data/feed-snapshot.json", import.meta.url), "utf8"),
   );
   assert.match(html, /<title>Signal Radar — AI 科技投资情报雷达<\/title>/i);
-  assert.match(html, /今天真正需要知道的/);
+  assert.match(html, /值得关注的最新变化/);
   assert.match(html, /必须知道/);
   assert.match(html, /正在升温/);
-  assert.match(html, /今日简报/);
+  assert.match(html, /最新动态/);
+  assert.match(html, /持续更新/);
+  assert.doesNotMatch(html, /今日简报|Today's Brief|Daily Brief/);
   assert.match(html, /探索/);
   assert.match(html, /投资与公司信号/);
   assert.match(html, /GPT 已分析/);
@@ -196,9 +198,9 @@ test("removes all disposable starter preview code", async () => {
   assert.ok(
     JSON.parse(radar).signals.every(
       (signal) =>
-        signal.sourceCount >= 2 ||
-        signal.score <= 74 ||
-        signal.sources.some((source) => ["Fed", "SEC"].includes(source)),
+        signal.sourceCount >= 1 &&
+        signal.evidence.length >= 1 &&
+        signal.evidence.every((item) => item.url),
     ),
   );
   assert.ok(

@@ -143,8 +143,8 @@ export function SourceLibrary({
             onClick={() =>
               onNotice(
                 t(
-                  "新增信源已配置；每日自动任务会在下次运行时纳入抓取",
-                  "New sources are configured and will join the next scheduled daily fetch",
+                  "新增信源已配置；持续增量流程会在下次更新时纳入抓取",
+                  "New sources are configured and will join the continuous update flow",
                 ),
               )
             }

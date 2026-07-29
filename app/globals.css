@@ -1288,6 +1288,45 @@ button {
   line-height: 1.6;
 }
 
+.signal-analysis > .feed-update-list {
+  grid-column: 1 / -1;
+  border-left: 3px solid var(--accent);
+  background: color-mix(in srgb, var(--accent) 5%, white);
+}
+
+.feed-update-list > .analysis-label {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.feed-update {
+  padding: 8px 0;
+  border-top: 1px solid color-mix(in srgb, var(--accent) 16%, #e4e2db);
+}
+
+.feed-update:first-of-type {
+  border-top: 0;
+}
+
+.feed-update > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.feed-update strong {
+  color: #2f302c;
+  font-size: 10px;
+}
+
+.feed-update time {
+  flex: none;
+  color: #969790;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 7px;
+}
+
 .signal-analysis > .signal-shift {
   display: grid;
   grid-column: 1 / -1;
@@ -3054,6 +3093,58 @@ button {
   min-width: 0;
 }
 
+.article-copy > .article-updates {
+  margin: 0 0 46px;
+  border: 1px solid #dcd8cc;
+  border-radius: 15px;
+  background:
+    linear-gradient(120deg, rgba(255, 92, 53, 0.08), transparent 55%),
+    var(--surface);
+  padding: 25px 25px 25px 76px;
+}
+
+.article-updates .article-section-number {
+  top: 29px;
+  left: 24px;
+}
+
+.article-updates > div {
+  display: grid;
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.article-updates article {
+  border-top: 1px solid var(--line);
+  padding-top: 17px;
+}
+
+.article-updates article:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.article-updates time {
+  color: #92938d;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 8px;
+  letter-spacing: 0.04em;
+}
+
+.article-updates h3 {
+  margin: 6px 0 0;
+  font-family: Georgia, "Songti SC", serif;
+  font-size: 19px;
+}
+
+.article-updates article p {
+  margin: 8px 0 0;
+  color: #555650;
+  font-family: Georgia, "Songti SC", serif;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
 .article-copy > section {
   position: relative;
   padding: 0 0 46px 52px;
@@ -3600,6 +3691,16 @@ button {
 
   .article-copy > section {
     padding: 0 0 36px 36px;
+  }
+
+  .article-copy > .article-updates {
+    margin-bottom: 36px;
+    padding: 20px 20px 21px 56px;
+  }
+
+  .article-updates .article-section-number {
+    top: 24px;
+    left: 18px;
   }
 
   .article-copy h2 {

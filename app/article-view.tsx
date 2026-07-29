@@ -21,6 +21,8 @@ type ArticleEvidence = {
 
 export type ArticleSignal = {
   id: number | string;
+  publishedAt?: string | null;
+  updatedAt?: string | null;
   category: string;
   eyebrow: string;
   title: string;
@@ -37,6 +39,12 @@ export type ArticleSignal = {
     sections: ArticleSection[];
     outlook: string;
   };
+  updates?: Array<{
+    addedAt: string;
+    title: string;
+    summary: string;
+    evidence: ArticleEvidence[];
+  }>;
   evidence: ArticleEvidence[];
 };
 
@@ -101,6 +109,15 @@ export function ArticleView({
       document.title = previousTitle;
     };
   }, [signal.title]);
+  const articleTimestamp =
+    signal.updatedAt ??
+    signal.publishedAt ??
+    signal.evidence
+      .map((item) => item.publishedAt)
+      .filter((value): value is string => Boolean(value))
+      .sort()
+      .at(-1) ??
+    generatedAt;
   const dateLabel = new Intl.DateTimeFormat(
     locale === "zh" ? "zh-CN" : "en-US",
     {
@@ -109,7 +126,7 @@ export function ArticleView({
       day: "numeric",
       timeZone: "America/New_York",
     },
-  ).format(new Date(generatedAt));
+  ).format(new Date(articleTimestamp));
 
   return (
     <main className="article-page">
@@ -169,7 +186,7 @@ export function ArticleView({
           >
             {isExplore
               ? t("探索", "Explore")
-              : t("今日简报", "Today’s Brief")}
+              : t("最新动态", "Latest Updates")}
           </a>
           <span>/</span>
           <span>{signal.category}</span>
@@ -203,6 +220,34 @@ export function ArticleView({
 
         <div className="article-body-grid">
           <div className="article-copy">
+            {signal.updates?.length ? (
+              <section className="article-updates">
+                <span className="article-section-number">
+                  {t("更新", "UPDATES")}
+                </span>
+                <h2>{t("最新进展", "Latest developments")}</h2>
+                <div>
+                  {signal.updates.map((update) => (
+                    <article key={`${update.addedAt}-${update.title}`}>
+                      <time dateTime={update.addedAt}>
+                        {new Intl.DateTimeFormat(
+                          locale === "zh" ? "zh-CN" : "en-US",
+                          {
+                            month: "short",
+                            day: "numeric",
+                            hour: "2-digit",
+                            minute: "2-digit",
+                            timeZone: "America/New_York",
+                          },
+                        ).format(new Date(update.addedAt))}
+                      </time>
+                      <h3>{update.title}</h3>
+                      <p>{update.summary}</p>
+                    </article>
+                  ))}
+                </div>
+              </section>
+            ) : null}
             {article.sections.map((section, index) => (
               <section key={`${section.heading}-${index}`}>
                 <span className="article-section-number">0{index + 1}</span>
@@ -298,7 +343,7 @@ export function ArticleView({
             ←{" "}
             {isExplore
               ? t("返回探索", "Back to Explore")
-              : t("返回今日简报", "Back to today’s brief")}
+              : t("返回最新动态", "Back to latest updates")}
           </a>
           <span>Signal Radar · {dateLabel}</span>
         </footer>
