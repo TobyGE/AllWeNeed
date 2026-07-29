@@ -314,10 +314,11 @@ export default function Home() {
   }
 
   function openArticle(id: number | string) {
+    const normalizedId = String(id);
     const url = new URL(window.location.href);
-    url.searchParams.set("article", String(id));
+    url.searchParams.set("article", normalizedId);
     window.history.pushState({}, "", url);
-    setArticleId(id);
+    setArticleId(normalizedId);
     window.scrollTo({ top: 0, behavior: "instant" });
   }
 
