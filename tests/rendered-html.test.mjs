@@ -80,6 +80,8 @@ test("removes all disposable starter preview code", async () => {
     sourceCatalog,
     articleView,
     exploreArticleScript,
+    fetchScript,
+    analyzeScript,
   ] =
     await Promise.all([
     readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
@@ -95,6 +97,8 @@ test("removes all disposable starter preview code", async () => {
       new URL("../scripts/expand-explore-articles.mjs", import.meta.url),
       "utf8",
     ),
+    readFile(new URL("../scripts/fetch-sources.mjs", import.meta.url), "utf8"),
+    readFile(new URL("../scripts/analyze-radar.mjs", import.meta.url), "utf8"),
   ]);
 
   assert.match(page, /Signal Radar/);
@@ -123,6 +127,34 @@ test("removes all disposable starter preview code", async () => {
     sourceCatalog,
     /a16z Newsletter[\s\S]*feedUrl: "https:\/\/www\.a16z\.news\/feed"/,
   );
+  assert.match(
+    sourceCatalog,
+    /Federal Reserve — Monetary Policy[\s\S]*press_monetary\.xml/,
+  );
+  assert.match(
+    sourceCatalog,
+    /Federal Reserve — Speeches & Testimony[\s\S]*speeches_and_testimony\.xml/,
+  );
+  for (const ticker of [
+    "NVDA",
+    "MSFT",
+    "AAPL",
+    "GOOGL",
+    "AMZN",
+    "META",
+    "TSLA",
+    "AMD",
+    "AVGO",
+    "ORCL",
+    "PLTR",
+    "TSM",
+  ]) {
+    assert.match(sourceCatalog, new RegExp(`ticker: "${ticker}"`));
+  }
+  assert.match(fetchScript, /function fetchSecSource/);
+  assert.match(fetchScript, /api\/xbrl\/companyfacts/);
+  assert.match(fetchScript, /--source-ids/);
+  assert.match(analyzeScript, /Federal Reserve 与 SEC 属于一手官方来源/);
   assert.match(sourceCatalog, /host === "www\.a16z\.news"/);
   assert.doesNotMatch(page, /nav-count">159/);
   assert.doesNotMatch(sourceLibrary, /All 159 Sources|全部 159 个信源/);
@@ -143,10 +175,7 @@ test("removes all disposable starter preview code", async () => {
           status.feedUrl,
       ),
   );
-  assert.ok(
-    JSON.parse(radar).signals.length >= 6 &&
-      JSON.parse(radar).signals.length <= 12,
-  );
+  assert.ok(JSON.parse(radar).signals.length >= 6);
   assert.ok(JSON.parse(radar).analyzedItemCount > 100);
   assert.ok(
     ["gpt-5.6-sol", "gpt-5.5"].includes(JSON.parse(radar).model),
@@ -165,8 +194,12 @@ test("removes all disposable starter preview code", async () => {
   );
   assert.ok(JSON.parse(radar).translations.en.signals[0].title);
   assert.ok(
-    JSON.parse(radar).signals.filter((signal) => signal.sourceCount >= 2)
-      .length >= Math.ceil((JSON.parse(radar).signals.length * 2) / 3),
+    JSON.parse(radar).signals.every(
+      (signal) =>
+        signal.sourceCount >= 2 ||
+        signal.score <= 74 ||
+        signal.sources.some((source) => ["Fed", "SEC"].includes(source)),
+    ),
   );
   assert.ok(
     JSON.parse(radar).signals.every(

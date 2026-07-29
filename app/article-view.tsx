@@ -43,11 +43,15 @@ export type ArticleSignal = {
 function shortKind(kind: string, locale: Locale) {
   if (locale === "zh") {
     if (kind === "Newsletter") return "简报";
+    if (kind === "Fed") return "美联储";
+    if (kind === "SEC") return "SEC";
     if (kind === "Blog") return "博客";
     return kind;
   }
   if (kind === "YouTube") return "YT";
   if (kind === "Newsletter") return "NL";
+  if (kind === "Fed") return "Fed";
+  if (kind === "SEC") return "SEC";
   return kind;
 }
 

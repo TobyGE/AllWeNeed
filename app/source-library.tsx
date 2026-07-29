@@ -21,6 +21,8 @@ const kindFilters: Array<"全部" | SourceKind> = [
   "YouTube",
   "X",
   "Newsletter",
+  "Fed",
+  "SEC",
   "Blog",
 ];
 
@@ -45,6 +47,8 @@ function hostLabel(url: string) {
 function sourceKindLabel(kind: SourceKind, locale: "zh" | "en") {
   if (locale === "zh") {
     if (kind === "Newsletter") return "邮件简报";
+    if (kind === "Fed") return "美联储";
+    if (kind === "SEC") return "SEC 财报";
     if (kind === "Blog") return "博客";
   }
   return kind;
@@ -67,6 +71,7 @@ export function SourceLibrary({
     empty: t("已连接", "Connected"),
     needs_auth: t("待授权", "Needs auth"),
     error: t("需处理", "Needs review"),
+    pending: t("待首次抓取", "Awaiting first fetch"),
   };
 
   const statuses = snapshot.statuses as SourceStatus[];
@@ -80,6 +85,8 @@ export function SourceLibrary({
       YouTube: 0,
       X: 0,
       Newsletter: 0,
+      Fed: 0,
+      SEC: 0,
       Blog: 0,
     };
     sourceCatalog.forEach((source) => {
@@ -136,8 +143,8 @@ export function SourceLibrary({
             onClick={() =>
               onNotice(
                 t(
-                  "抓取器已配置；自动定时任务将在下一阶段接入",
-                  "The fetcher is configured; scheduled runs will arrive in the next phase",
+                  "新增信源已配置；每日自动任务会在下次运行时纳入抓取",
+                  "New sources are configured and will join the next scheduled daily fetch",
                 ),
               )
             }
@@ -150,7 +157,7 @@ export function SourceLibrary({
       <div className="source-stats">
         <article>
           <span>{t("总信源", "Total sources")}</span>
-          <strong>{snapshot.totalSources}</strong>
+          <strong>{sourceCatalog.length}</strong>
           <small>{t("完整进入目录", "In the full catalog")}</small>
         </article>
         <article className="stat-green">
@@ -158,7 +165,7 @@ export function SourceLibrary({
           <strong>{snapshot.successfulSources}</strong>
           <small>
             {Math.round(
-              (snapshot.successfulSources / snapshot.totalSources) * 100,
+              (snapshot.successfulSources / sourceCatalog.length) * 100,
             )}
             % {t("可自动采集", "auto-fetchable")}
           </small>
@@ -269,6 +276,7 @@ export function SourceLibrary({
           {filteredSources.slice(0, limit).map((source) => {
             const sourceKind = getSourceKind(source.url);
             const status = statusMap.get(source.id);
+            const displayStatus = status?.status ?? "pending";
             const isDisabled = disabled.includes(source.id);
             return (
               <article
@@ -305,9 +313,9 @@ export function SourceLibrary({
                     : `${sourceKind} source monitored for AI, technology, and investment intelligence.`}
                 </p>
                 <footer>
-                  <span className={`status-chip status-${status?.status ?? "error"}`}>
+                  <span className={`status-chip status-${displayStatus}`}>
                     <i />
-                    {statusLabel[status?.status ?? "error"]}
+                    {statusLabel[displayStatus]}
                   </span>
                   <span className="source-kind">
                     {sourceKindLabel(sourceKind, locale)}

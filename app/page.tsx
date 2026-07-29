@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import dailyRadar from "../data/daily-radar.json";
 import snapshot from "../data/feed-snapshot.json";
 import { ArticleView } from "./article-view";
+import { getSourceKind, sourceCatalog } from "./source-catalog";
 import { SourceLibrary } from "./source-library";
 
 type SignalReference = {
@@ -84,15 +85,27 @@ const coveredKinds = [
 const exploreKinds = [
   ...new Set(exploreSignals.flatMap((signal) => signal.sourceKinds)),
 ];
+const configuredKindCounts = sourceCatalog.reduce<Record<string, number>>(
+  (counts, source) => {
+    const kind = getSourceKind(source.url);
+    counts[kind] = (counts[kind] ?? 0) + 1;
+    return counts;
+  },
+  {},
+);
 
 function shortKind(kind: string, locale: "zh" | "en") {
   if (locale === "zh") {
     if (kind === "Newsletter") return "简报";
+    if (kind === "Fed") return "美联储";
+    if (kind === "SEC") return "SEC";
     if (kind === "Blog") return "博客";
     return kind;
   }
   if (kind === "YouTube") return "YT";
   if (kind === "Newsletter") return "NL";
+  if (kind === "Fed") return "Fed";
+  if (kind === "SEC") return "SEC";
   return kind;
 }
 
@@ -478,8 +491,14 @@ export default function Home() {
           <strong>{snapshot.items.length.toLocaleString()}</strong>
           <p>{t("条真实内容已抓取", "real items fetched")}</p>
           <div className="coverage-grid">
-            <span>YouTube · 23</span>
-            <span>{t("博客", "Blog")} · 108</span>
+            <span>YouTube · {configuredKindCounts.YouTube ?? 0}</span>
+            <span>
+              {t("博客", "Blog")} · {configuredKindCounts.Blog ?? 0}
+            </span>
+            <span>
+              {t("美联储", "Fed")} · {configuredKindCounts.Fed ?? 0}
+            </span>
+            <span>SEC · {configuredKindCounts.SEC ?? 0}</span>
             <span>
               X · {snapshot.needsAuthSources} {t("待授权", "pending auth")}
             </span>

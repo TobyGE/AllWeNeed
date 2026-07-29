@@ -1,4 +1,10 @@
-export type SourceKind = "YouTube" | "X" | "Newsletter" | "Blog";
+export type SourceKind =
+  | "YouTube"
+  | "X"
+  | "Newsletter"
+  | "Fed"
+  | "SEC"
+  | "Blog";
 
 export type SourceItem = {
   id: number;
@@ -6,12 +12,21 @@ export type SourceItem = {
   description: string;
   url: string;
   feedUrl?: string;
+  publisher?: string;
+  secCik?: string;
+  ticker?: string;
 };
 
 export function getSourceKind(url: string): SourceKind {
   const host = new URL(url).hostname;
   if (host.includes("youtube.com")) return "YouTube";
   if (host === "x.com") return "X";
+  if (host === "www.federalreserve.gov" || host === "federalreserve.gov") {
+    return "Fed";
+  }
+  if (host === "www.sec.gov" || host === "sec.gov" || host === "data.sec.gov") {
+    return "SEC";
+  }
   if (
     host.includes("substack.com") ||
     host === "a16z.news" ||
@@ -184,4 +199,20 @@ export const sourceCatalog: SourceItem[] = [
   { id: 159, name: "Product Hunt", description: "Product Hunt 每日 Top 新产品。", url: "https://www.producthunt.com/" },
   { id: 160, name: "a16z Newsletter", description: "a16z 的公开 Newsletter，涵盖 AI、科技、创业、投资与客座专家观点。", url: "https://www.a16z.news", feedUrl: "https://www.a16z.news/feed" },
   { id: 161, name: "SAIR Foundation", description: "Science & AI Research Foundation 官方频道，发布 On The SAIR、AI for Science、数学与科学研究访谈。", url: "https://www.youtube.com/channel/UC7Ali6YE6lik1w8MS7Hr55Q" },
+  { id: 162, name: "Federal Reserve — Monetary Policy", publisher: "Federal Reserve", description: "Federal Reserve Board 官方货币政策发布，包括 FOMC 决议、声明和政策行动。", url: "https://www.federalreserve.gov/monetarypolicy.htm", feedUrl: "https://www.federalreserve.gov/feeds/press_monetary.xml" },
+  { id: 163, name: "Federal Reserve — Speeches & Testimony", publisher: "Federal Reserve", description: "Federal Reserve Board 成员的官方讲话与国会证词，用于跟踪政策措辞和观点变化。", url: "https://www.federalreserve.gov/newsevents/speeches.htm", feedUrl: "https://www.federalreserve.gov/feeds/speeches_and_testimony.xml" },
+  { id: 164, name: "Federal Reserve — FEDS Notes", publisher: "Federal Reserve", description: "Federal Reserve Board 研究人员发布的 FEDS Notes，覆盖金融市场、经济与政策研究。", url: "https://www.federalreserve.gov/econres/notes/feds-notes/default.htm", feedUrl: "https://www.federalreserve.gov/feeds/feds_notes.xml" },
+  { id: 165, name: "Federal Reserve — Policy Rates", publisher: "Federal Reserve", description: "Federal Reserve 官方政策利率数据与发布更新。", url: "https://www.federalreserve.gov/datadownload/Choose.aspx?rel=PRATES", feedUrl: "https://www.federalreserve.gov/feeds/prates.xml" },
+  { id: 166, name: "NVIDIA SEC Filings", publisher: "NVIDIA", ticker: "NVDA", secCik: "0001045810", description: "NVIDIA 向 SEC 提交的 10-K、10-Q、earnings 8-K 等一手财务披露。", url: "https://www.sec.gov/edgar/browse/?CIK=0001045810" },
+  { id: 167, name: "Microsoft SEC Filings", publisher: "Microsoft", ticker: "MSFT", secCik: "0000789019", description: "Microsoft 向 SEC 提交的 10-K、10-Q、earnings 8-K 等一手财务披露。", url: "https://www.sec.gov/edgar/browse/?CIK=0000789019" },
+  { id: 168, name: "Apple SEC Filings", publisher: "Apple", ticker: "AAPL", secCik: "0000320193", description: "Apple 向 SEC 提交的 10-K、10-Q、earnings 8-K 等一手财务披露。", url: "https://www.sec.gov/edgar/browse/?CIK=0000320193" },
+  { id: 169, name: "Alphabet SEC Filings", publisher: "Alphabet", ticker: "GOOGL", secCik: "0001652044", description: "Alphabet 向 SEC 提交的 10-K、10-Q、earnings 8-K 等一手财务披露。", url: "https://www.sec.gov/edgar/browse/?CIK=0001652044" },
+  { id: 170, name: "Amazon SEC Filings", publisher: "Amazon", ticker: "AMZN", secCik: "0001018724", description: "Amazon 向 SEC 提交的 10-K、10-Q、earnings 8-K 等一手财务披露。", url: "https://www.sec.gov/edgar/browse/?CIK=0001018724" },
+  { id: 171, name: "Meta SEC Filings", publisher: "Meta", ticker: "META", secCik: "0001326801", description: "Meta 向 SEC 提交的 10-K、10-Q、earnings 8-K 等一手财务披露。", url: "https://www.sec.gov/edgar/browse/?CIK=0001326801" },
+  { id: 172, name: "Tesla SEC Filings", publisher: "Tesla", ticker: "TSLA", secCik: "0001318605", description: "Tesla 向 SEC 提交的 10-K、10-Q、earnings 8-K 等一手财务披露。", url: "https://www.sec.gov/edgar/browse/?CIK=0001318605" },
+  { id: 173, name: "AMD SEC Filings", publisher: "AMD", ticker: "AMD", secCik: "0000002488", description: "AMD 向 SEC 提交的 10-K、10-Q、earnings 8-K 等一手财务披露。", url: "https://www.sec.gov/edgar/browse/?CIK=0000002488" },
+  { id: 174, name: "Broadcom SEC Filings", publisher: "Broadcom", ticker: "AVGO", secCik: "0001730168", description: "Broadcom 向 SEC 提交的 10-K、10-Q、earnings 8-K 等一手财务披露。", url: "https://www.sec.gov/edgar/browse/?CIK=0001730168" },
+  { id: 175, name: "Oracle SEC Filings", publisher: "Oracle", ticker: "ORCL", secCik: "0001341439", description: "Oracle 向 SEC 提交的 10-K、10-Q、earnings 8-K 等一手财务披露。", url: "https://www.sec.gov/edgar/browse/?CIK=0001341439" },
+  { id: 176, name: "Palantir SEC Filings", publisher: "Palantir", ticker: "PLTR", secCik: "0001321655", description: "Palantir 向 SEC 提交的 10-K、10-Q、earnings 8-K 等一手财务披露。", url: "https://www.sec.gov/edgar/browse/?CIK=0001321655" },
+  { id: 177, name: "TSMC SEC Filings", publisher: "TSMC", ticker: "TSM", secCik: "0001046179", description: "TSMC 向 SEC 提交的 20-F、6-K 等一手财务披露。", url: "https://www.sec.gov/edgar/browse/?CIK=0001046179" },
 ];

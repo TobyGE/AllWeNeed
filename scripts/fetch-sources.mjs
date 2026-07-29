@@ -7,17 +7,40 @@ import {
 } from "../app/source-catalog.ts";
 
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-const outputPath = resolve(projectRoot, "data/feed-snapshot.json");
+const canonicalOutputPath = resolve(projectRoot, "data/feed-snapshot.json");
+const outputArgument = process.argv.find((argument) =>
+  argument.startsWith("--output="),
+);
+const outputPath = outputArgument
+  ? resolve(projectRoot, outputArgument.split("=", 2)[1])
+  : canonicalOutputPath;
 const checkedAt = new Date().toISOString();
 const xBearerToken = process.env.X_BEARER_TOKEN?.trim();
 const concurrency = 5;
 const itemsPerSource = 12;
+const dryRun = process.argv.includes("--dry-run");
+const sourceIdsArgument = process.argv.find((argument) =>
+  argument.startsWith("--source-ids="),
+);
+const selectedSourceIds = new Set(
+  (sourceIdsArgument?.split("=", 2)[1] ?? "")
+    .split(",")
+    .map((value) => value.trim())
+    .filter(Boolean)
+    .map(Number)
+    .filter(Number.isInteger),
+);
+if (selectedSourceIds.size && !dryRun) {
+  throw new Error("--source-ids 只能与 --dry-run 一起使用，避免局部覆盖完整快照");
+}
 const crawlerUserAgent =
-  "SignalRadar/1.0 (+https://yingqiangge.github.io/intelligence/)";
+  "SignalRadar/1.0 gyq1101@gmail.com";
+let secRequestGate = Promise.resolve();
+let secLastRequestAt = 0;
 
 let previousSnapshot = { items: [], statuses: [] };
 try {
-  previousSnapshot = JSON.parse(await readFile(outputPath, "utf8"));
+  previousSnapshot = JSON.parse(await readFile(canonicalOutputPath, "utf8"));
 } catch {
   // The first run has no cache to reuse.
 }
@@ -116,6 +139,7 @@ function parseFeed(xml, source, feedUrl) {
         id: `${source.id}-${index}-${url}`,
         sourceId: source.id,
         sourceName: source.name,
+        sourcePublisher: source.publisher ?? source.name,
         sourceKind,
         title,
         url,
@@ -191,6 +215,7 @@ function parseYouTubePage(html, source) {
       id: `${source.id}-${videoId}`,
       sourceId: source.id,
       sourceName: source.name,
+      sourcePublisher: source.publisher ?? source.name,
       sourceKind: "YouTube",
       title: cleanText(title),
       url,
@@ -295,7 +320,7 @@ function commonFeedUrls(sourceUrl) {
 async function fetchText(url, timeoutMs = 10_000, validators = {}) {
   const headers = {
     accept:
-      "application/atom+xml, application/rss+xml, application/xml, text/xml, text/html;q=0.8, */*;q=0.5",
+      "application/json, application/atom+xml, application/rss+xml, application/xml, text/xml, text/html;q=0.8, */*;q=0.5",
     "user-agent": crawlerUserAgent,
   };
   if (validators.etag) headers["if-none-match"] = validators.etag;
@@ -328,6 +353,28 @@ async function fetchText(url, timeoutMs = 10_000, validators = {}) {
     etag: response.headers.get("etag"),
     lastModified: response.headers.get("last-modified"),
   };
+}
+
+async function fetchSecText(url, timeoutMs = 25_000, validators = {}) {
+  const turn = secRequestGate.then(async () => {
+    const waitMs = Math.max(0, 150 - (Date.now() - secLastRequestAt));
+    if (waitMs) {
+      await new Promise((resolveDelay) => setTimeout(resolveDelay, waitMs));
+    }
+    secLastRequestAt = Date.now();
+  });
+  secRequestGate = turn.catch(() => {});
+  await turn;
+
+  try {
+    return await fetchText(url, timeoutMs, validators);
+  } catch (error) {
+    if (!(error instanceof Error) || !error.message.includes("HTTP 403")) {
+      throw error;
+    }
+    await new Promise((resolveDelay) => setTimeout(resolveDelay, 1_000));
+    return fetchText(url, timeoutMs, validators);
+  }
 }
 
 function successStatus(source, feedUrl, itemCount, metadata = {}) {
@@ -386,6 +433,7 @@ async function fetchXSource(source) {
       id: `${source.id}-${post.id}`,
       sourceId: source.id,
       sourceName: source.name,
+      sourcePublisher: source.publisher ?? source.name,
       sourceKind: "X",
       title: cleanText(post.text).slice(0, 180),
       url: `https://x.com/${username}/status/${post.id}`,
@@ -414,9 +462,286 @@ async function fetchXSource(source) {
   }
 }
 
+const secFinancialConcepts = [
+  {
+    label: "Revenue",
+    concepts: [
+      ["us-gaap", "RevenueFromContractWithCustomerExcludingAssessedTax"],
+      ["us-gaap", "Revenues"],
+      ["us-gaap", "SalesRevenueNet"],
+      ["ifrs-full", "Revenue"],
+    ],
+  },
+  {
+    label: "Net income",
+    concepts: [
+      ["us-gaap", "NetIncomeLoss"],
+      ["ifrs-full", "ProfitLoss"],
+    ],
+  },
+  {
+    label: "Operating income",
+    concepts: [
+      ["us-gaap", "OperatingIncomeLoss"],
+      ["ifrs-full", "ProfitLossFromOperatingActivities"],
+    ],
+  },
+  {
+    label: "Diluted EPS",
+    concepts: [
+      ["us-gaap", "EarningsPerShareDiluted"],
+      ["ifrs-full", "DilutedEarningsLossPerShare"],
+    ],
+  },
+  {
+    label: "Operating cash flow",
+    concepts: [
+      ["us-gaap", "NetCashProvidedByUsedInOperatingActivities"],
+      ["ifrs-full", "CashFlowsFromUsedInOperatingActivities"],
+    ],
+  },
+];
+
+function secFilingUrl(cik, accessionNumber, primaryDocument) {
+  const cikWithoutLeadingZeros = String(Number(cik));
+  const accessionPath = accessionNumber.replaceAll("-", "");
+  return `https://www.sec.gov/Archives/edgar/data/${cikWithoutLeadingZeros}/${accessionPath}/${primaryDocument}`;
+}
+
+function secDuration(entry) {
+  if (!entry.start || !entry.end) return null;
+  const duration = Date.parse(entry.end) - Date.parse(entry.start);
+  return Number.isFinite(duration) ? duration : null;
+}
+
+function selectSecFactEntry(fact, accessionNumber, form) {
+  const candidates = Object.entries(fact?.units ?? {}).flatMap(
+    ([unit, entries]) =>
+      entries
+        .filter((entry) => entry.accn === accessionNumber)
+        .map((entry) => ({ ...entry, unit })),
+  );
+  if (!candidates.length) return null;
+
+  const annual = form.startsWith("10-K") || form.startsWith("20-F");
+  return candidates.sort((left, right) => {
+    const leftDuration = secDuration(left);
+    const rightDuration = secDuration(right);
+    if (leftDuration === null && rightDuration === null) return 0;
+    if (leftDuration === null) return 1;
+    if (rightDuration === null) return -1;
+    return annual
+      ? rightDuration - leftDuration
+      : leftDuration - rightDuration;
+  })[0];
+}
+
+function formatSecValue(value, unit) {
+  if (typeof value !== "number" || !Number.isFinite(value)) {
+    return String(value ?? "");
+  }
+  if (unit === "USD") {
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+      notation: "compact",
+      maximumFractionDigits: 2,
+    }).format(value);
+  }
+  if (unit === "USD/shares") return `$${value.toFixed(2)}`;
+  return new Intl.NumberFormat("en-US", {
+    notation: Math.abs(value) >= 1_000_000 ? "compact" : "standard",
+    maximumFractionDigits: 2,
+  }).format(value);
+}
+
+function extractSecMetrics(companyFacts, accessionNumber, form) {
+  const facts = companyFacts?.facts ?? {};
+  const metrics = [];
+  for (const metric of secFinancialConcepts) {
+    let selected = null;
+    for (const [taxonomy, concept] of metric.concepts) {
+      const entry = selectSecFactEntry(
+        facts[taxonomy]?.[concept],
+        accessionNumber,
+        form,
+      );
+      if (entry) {
+        selected = entry;
+        break;
+      }
+    }
+    if (!selected) continue;
+    metrics.push(
+      `${metric.label}: ${formatSecValue(selected.val, selected.unit)}`,
+    );
+    if (metrics.length === 4) break;
+  }
+  return metrics;
+}
+
+function isEarningsFiling(form, filingItems = "") {
+  const normalizedForm = form.replace(/\/A$/, "");
+  if (["10-K", "10-Q", "20-F", "6-K"].includes(normalizedForm)) {
+    return true;
+  }
+  return (
+    normalizedForm === "8-K" &&
+    filingItems
+      .split(",")
+      .map((item) => item.trim())
+      .includes("2.02")
+  );
+}
+
+async function fetchSecSource(source) {
+  const previousStatus = previousStatuses.get(source.id);
+  const cachedItems = previousItems.get(source.id) ?? [];
+  const submissionsUrl = `https://data.sec.gov/submissions/CIK${source.secCik}.json`;
+
+  try {
+    const submissions = await fetchSecText(
+      submissionsUrl,
+      25_000,
+      previousStatus?.requestUrl === submissionsUrl
+        ? {
+            etag: previousStatus.etag,
+            lastModified: previousStatus.lastModified,
+          }
+        : {},
+    );
+    if (submissions.notModified) {
+      return {
+        items: cachedItems,
+        status: successStatus(
+          source,
+          previousStatus?.feedUrl ?? submissionsUrl,
+          cachedItems.length,
+          {
+            requestUrl: submissionsUrl,
+            etag: submissions.etag,
+            lastModified: submissions.lastModified,
+            message: "SEC submissions 未变化，已复用缓存",
+          },
+        ),
+      };
+    }
+
+    const payload = JSON.parse(submissions.text);
+    const recent = payload.filings?.recent;
+    if (!recent?.form) throw new Error("SEC submissions missing filings.recent");
+
+    let companyFacts = null;
+    let factsMessage = "";
+    try {
+      const factsResponse = await fetchSecText(
+        `https://data.sec.gov/api/xbrl/companyfacts/CIK${source.secCik}.json`,
+        30_000,
+      );
+      companyFacts = JSON.parse(factsResponse.text);
+    } catch (error) {
+      factsMessage =
+        error instanceof Error ? `；XBRL 暂不可用：${error.message}` : "";
+    }
+
+    const items = [];
+    for (
+      let index = 0;
+      index < recent.form.length && items.length < itemsPerSource;
+      index += 1
+    ) {
+      const form = recent.form[index] ?? "";
+      const filingItems = recent.items?.[index] ?? "";
+      if (!isEarningsFiling(form, filingItems)) continue;
+
+      const accessionNumber = recent.accessionNumber[index];
+      const primaryDocument = recent.primaryDocument[index];
+      if (!accessionNumber || !primaryDocument) continue;
+
+      const reportDate = recent.reportDate?.[index] || recent.filingDate[index];
+      const filingDate = recent.filingDate[index];
+      const metrics = companyFacts
+        ? extractSecMetrics(companyFacts, accessionNumber, form)
+        : [];
+      const itemDetails = filingItems ? ` SEC items ${filingItems}.` : "";
+      const metricDetails = metrics.length
+        ? ` Reported XBRL facts: ${metrics.join("; ")}.`
+        : "";
+      const tickerLabel = source.ticker ? `${source.ticker} ` : "";
+
+      items.push({
+        id: `${source.id}-${accessionNumber}`,
+        sourceId: source.id,
+        sourceName: source.name,
+        sourcePublisher: source.publisher ?? source.name,
+        sourceKind: "SEC",
+        title: `${tickerLabel}${form} filing — period ended ${reportDate}`,
+        url: secFilingUrl(
+          source.secCik,
+          accessionNumber,
+          primaryDocument,
+        ),
+        publishedAt:
+          normalizeDate(recent.acceptanceDateTime?.[index]) ??
+          normalizeDate(filingDate),
+        summary: cleanText(
+          `${payload.name} filed ${form} with the SEC for the period ended ${reportDate}.${itemDetails}${metricDetails}`,
+        ).slice(0, 420),
+        fetchedAt: checkedAt,
+      });
+    }
+
+    return {
+      items,
+      status: successStatus(source, submissionsUrl, items.length, {
+        requestUrl: submissionsUrl,
+        etag: submissions.etag,
+        lastModified: submissions.lastModified,
+        message: items.length
+          ? `SEC filings 与 XBRL 抓取成功${factsMessage}`
+          : "SEC 暂无匹配的财报披露",
+      }),
+    };
+  } catch (error) {
+    if (cachedItems.length) {
+      return {
+        items: cachedItems,
+        status: successStatus(
+          source,
+          previousStatus?.feedUrl ?? submissionsUrl,
+          cachedItems.length,
+          {
+            requestUrl: submissionsUrl,
+            etag: previousStatus?.etag,
+            lastModified: previousStatus?.lastModified,
+            message: `SEC 暂时不可用，已复用缓存：${
+              error instanceof Error ? error.message : "抓取失败"
+            }`,
+          },
+        ),
+      };
+    }
+    return {
+      items: [],
+      status: {
+        sourceId: source.id,
+        name: source.name,
+        kind: "SEC",
+        status: "error",
+        feedUrl: submissionsUrl,
+        requestUrl: submissionsUrl,
+        itemCount: 0,
+        message: error instanceof Error ? error.message : "SEC 抓取失败",
+        checkedAt,
+      },
+    };
+  }
+}
+
 async function fetchFeedSource(source) {
   const kind = getSourceKind(source.url);
   if (kind === "X") return fetchXSource(source);
+  if (kind === "SEC") return fetchSecSource(source);
   const previousStatus = previousStatuses.get(source.id);
   const cachedItems = previousItems.get(source.id) ?? [];
 
@@ -645,8 +970,11 @@ async function mapWithConcurrency(items, limit, worker) {
   return results;
 }
 
+const sourcesToFetch = selectedSourceIds.size
+  ? sourceCatalog.filter((source) => selectedSourceIds.has(source.id))
+  : sourceCatalog;
 const results = await mapWithConcurrency(
-  sourceCatalog,
+  sourcesToFetch,
   concurrency,
   fetchFeedSource,
 );
@@ -666,7 +994,7 @@ const items = results
 
 const snapshot = {
   generatedAt: checkedAt,
-  totalSources: sourceCatalog.length,
+  totalSources: sourcesToFetch.length,
   successfulSources: statuses.filter((status) =>
     ["ok", "empty"].includes(status.status),
   ).length,
@@ -678,9 +1006,23 @@ const snapshot = {
   statuses,
 };
 
-await mkdir(dirname(outputPath), { recursive: true });
-await writeFile(outputPath, `${JSON.stringify(snapshot, null, 2)}\n`, "utf8");
+if (!dryRun) {
+  await mkdir(dirname(outputPath), { recursive: true });
+  await writeFile(outputPath, `${JSON.stringify(snapshot, null, 2)}\n`, "utf8");
+}
 
 console.log(
-  `Done: ${snapshot.successfulSources} sources connected, ${snapshot.items.length} items, ${snapshot.needsAuthSources} need auth, ${snapshot.failedSources} failed.`,
+  `${dryRun ? "Dry run" : "Done"}: ${snapshot.successfulSources} sources connected, ${snapshot.items.length} items, ${snapshot.needsAuthSources} need auth, ${snapshot.failedSources} failed.`,
 );
+if (dryRun) {
+  console.log(
+    JSON.stringify(
+      {
+        statuses: snapshot.statuses,
+        sampleItems: snapshot.items.slice(0, 20),
+      },
+      null,
+      2,
+    ),
+  );
+}

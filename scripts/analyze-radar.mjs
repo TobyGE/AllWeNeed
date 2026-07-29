@@ -54,6 +54,22 @@ function relevanceScore(item, snapshotTime) {
     "startup",
     "venture",
     "investment",
+    "earnings",
+    "revenue",
+    "net income",
+    "cash flow",
+    "guidance",
+    "10-q",
+    "10-k",
+    "8-k",
+    "6-k",
+    "20-f",
+    "federal reserve",
+    "fomc",
+    "monetary policy",
+    "interest rate",
+    "inflation",
+    "employment",
     "security",
     "research",
     "launch",
@@ -121,6 +137,7 @@ function selectItems(snapshot) {
     ref: `I${index + 1}`,
     sourceId: item.sourceId,
     sourceName: item.sourceName,
+    sourcePublisher: item.sourcePublisher ?? item.sourceName,
     sourceKind: item.sourceKind,
     title: cleanText(item.title).slice(0, 220),
     summary: cleanText(item.summary).slice(0, 420),
@@ -155,6 +172,7 @@ function buildPrompt(snapshot, items) {
 - 优先使用最近 72 小时的高影响信息，必要时用最近 7 天内容提供背景。
 - 区分事实、跨来源共识和编辑推断；没有证据时不要补充细节。
 - 所有标题、判断、数字和实体信号都必须能从所引用条目得到支持。
+- Federal Reserve 与 SEC 属于一手官方来源。涉及利率、政策措辞和财务数字时优先使用这些来源，并明确区分公司披露、官方数据与外部解读。
 - 输出简体中文，短句、高信息密度，适合直接展示在产品首页。
 
 只返回一个合法 JSON 对象，不要 Markdown、代码围栏或额外说明。必须严格符合以下形状：
@@ -164,7 +182,7 @@ function buildPrompt(snapshot, items) {
   "signalQualityChange": -20到20的整数,
   "signals": [
     {
-      "category": "AI & 模型|Agents|算力|投资|科技",
+      "category": "AI & 模型|Agents|算力|投资|科技|宏观",
       "eyebrow": "必须知道|趋势变化|资本信号|风险预警|产品信号",
       "title": "不超过28个汉字",
       "summary": "不超过90个汉字，只写已知事实与共识",
@@ -208,7 +226,7 @@ function buildPrompt(snapshot, items) {
   ],
   "exploreSignals": [
     {
-      "category": "AI工程|开发工具|机器人|安全|消费科技|商业模式|科学|社会影响|投资",
+      "category": "AI工程|开发工具|机器人|安全|消费科技|商业模式|科学|社会影响|投资|宏观",
       "label": "反常识|二阶影响|早期拐点|跨界连接|高风险高潜",
       "title": "大胆、具体但不夸大的标题，不超过28个汉字",
       "thesis": "这个探索方向真正值得思考的核心判断，不超过95个汉字",
@@ -426,19 +444,20 @@ function hydrateRefs(refs, itemMap) {
 
 function hydrateEvidence(evidence, itemMap) {
   const seenRefs = new Set();
-  const seenSources = new Set();
+  const seenPublishers = new Set();
   const hydrated = [];
   for (const entry of Array.isArray(evidence) ? evidence : []) {
     const item = itemMap.get(entry?.ref);
+    const publisher = item?.sourcePublisher ?? item?.sourceName;
     if (
       !item ||
       seenRefs.has(entry.ref) ||
-      seenSources.has(item.sourceName)
+      seenPublishers.has(publisher)
     ) {
       continue;
     }
     seenRefs.add(entry.ref);
-    seenSources.add(item.sourceName);
+    seenPublishers.add(publisher);
     hydrated.push({
       ...item,
       role: ["主张", "佐证", "背景", "反例"].includes(entry.role)
@@ -504,7 +523,11 @@ function validateAndHydrate(raw, snapshot, items, model) {
     if (!evidence.length) {
       throw new Error(`signal ${index + 1} 没有有效 evidence`);
     }
-    const sourceNames = [...new Set(evidence.map((item) => item.sourceName))];
+    const sourceNames = [
+      ...new Set(
+        evidence.map((item) => item.sourcePublisher ?? item.sourceName),
+      ),
+    ];
     const sourceKinds = [...new Set(evidence.map((item) => item.sourceKind))];
     const newest = evidence
       .map((item) => item.publishedAt)
@@ -564,7 +587,11 @@ function validateAndHydrate(raw, snapshot, items, model) {
     if (!evidence.length) {
       throw new Error(`exploreSignal ${index + 1} 没有有效 evidence`);
     }
-    const sourceNames = [...new Set(evidence.map((item) => item.sourceName))];
+    const sourceNames = [
+      ...new Set(
+        evidence.map((item) => item.sourcePublisher ?? item.sourceName),
+      ),
+    ];
     const sourceKinds = [...new Set(evidence.map((item) => item.sourceKind))];
     const singleSource = sourceNames.length === 1;
     const label =
@@ -652,7 +679,11 @@ function validateAndHydrate(raw, snapshot, items, model) {
   );
   const companySignals = raw.companySignals.map((item) => {
     const evidence = hydrateEvidence(item.evidence, itemMap);
-    const sourceNames = [...new Set(evidence.map((ref) => ref.sourceName))];
+    const sourceNames = [
+      ...new Set(
+        evidence.map((ref) => ref.sourcePublisher ?? ref.sourceName),
+      ),
+    ];
     const sourceKinds = [...new Set(evidence.map((ref) => ref.sourceKind))];
     if (sourceNames.length < 2) {
       throw new Error(
