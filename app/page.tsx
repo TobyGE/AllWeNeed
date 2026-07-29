@@ -791,7 +791,9 @@ export default function Home() {
                           }}
                         >
                           <span>{signal.title}</span>
-                          <span aria-hidden="true">↗</span>
+                          <span className="story-link-icon" aria-hidden="true">
+                            ↗
+                          </span>
                         </a>
                         <p className="signal-summary">{signal.summary}</p>
 
@@ -981,7 +983,9 @@ export default function Home() {
                           }}
                         >
                           <span>{signal.title}</span>
-                          <i aria-hidden="true">↗</i>
+                          <span className="story-link-icon" aria-hidden="true">
+                            ↗
+                          </span>
                         </a>
                       </h3>
                       <p className="explore-thesis">{signal.thesis}</p>

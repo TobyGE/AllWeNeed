@@ -824,20 +824,6 @@ button {
   color: var(--explore-accent);
 }
 
-.explore-card h3 i {
-  display: grid;
-  width: 25px;
-  height: 25px;
-  flex: 0 0 auto;
-  place-items: center;
-  border: 1px solid currentColor;
-  border-radius: 50%;
-  font-family: var(--font-geist-mono), monospace;
-  font-size: 9px;
-  font-style: normal;
-  opacity: 0.58;
-}
-
 .explore-featured h3 {
   max-width: 680px;
   color: #fff;
@@ -1187,7 +1173,7 @@ button {
   line-height: 1.35;
 }
 
-.signal-title span:last-child {
+.story-link-icon {
   display: grid;
   width: 23px;
   height: 23px;
@@ -1196,7 +1182,15 @@ button {
   border: 1px solid var(--line);
   border-radius: 50%;
   color: #8a8b85;
+  font-family: var(--font-geist-mono), monospace;
   font-size: 12px;
+  font-style: normal;
+  line-height: 1;
+}
+
+.explore-featured .story-link-icon {
+  border-color: #5a5c56;
+  color: #c4c6bf;
 }
 
 .signal-summary {

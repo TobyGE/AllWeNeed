@@ -243,6 +243,7 @@ test("removes all disposable starter preview code", async () => {
   assert.match(page, /href=\{`\?article=\$\{signal\.id\}`\}/);
   assert.match(page, /activeExploreArticle/);
   assert.match(page, /kind="explore"/);
+  assert.equal(page.match(/className="story-link-icon"/g)?.length, 2);
   assert.match(articleView, /这篇稿子基于什么/);
   assert.match(articleView, /evidence\.url/);
   assert.match(articleView, /返回探索/);
