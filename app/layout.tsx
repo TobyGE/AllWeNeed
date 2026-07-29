@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { headers } from "next/headers";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,11 +13,44 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Signal Radar — AI 科技投资情报雷达",
-  description:
-    "从 X、YouTube、Reddit、Hugging Face 和博客中发现、验证并解释真正重要的 AI 与科技投资信号。",
-};
+const title = "Signal Radar — AI 科技投资情报雷达";
+const description =
+  "从 X、YouTube、Reddit、Hugging Face 和博客中发现、验证并解释真正重要的 AI 与科技投资信号。";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const requestHeaders = await headers();
+  const host =
+    requestHeaders.get("x-forwarded-host") ?? requestHeaders.get("host");
+  const forwardedProtocol = requestHeaders.get("x-forwarded-proto");
+  const protocol =
+    forwardedProtocol ?? (host?.startsWith("localhost") ? "http" : "https");
+  const metadataBase = host ? new URL(`${protocol}://${host}`) : undefined;
+
+  return {
+    metadataBase,
+    title,
+    description,
+    openGraph: {
+      type: "website",
+      title,
+      description,
+      images: [
+        {
+          url: "/og.png",
+          width: 1731,
+          height: 908,
+          alt: "Signal Radar — AI, Tech, and Investment Intelligence",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["/og.png"],
+    },
+  };
+}
 
 export default function RootLayout({
   children,

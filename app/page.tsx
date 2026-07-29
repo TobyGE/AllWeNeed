@@ -1,6 +1,22 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import dailyRadar from "../data/daily-radar.json";
+import snapshot from "../data/feed-snapshot.json";
+import { SourceLibrary } from "./source-library";
+
+type SignalReference = {
+  sourceName: string;
+  sourceKind: string;
+  title: string;
+  url: string;
+  publishedAt: string | null;
+};
+
+type SignalEvidence = SignalReference & {
+  role: string;
+  takeaway: string;
+};
 
 type Signal = {
   id: number;
@@ -10,135 +26,198 @@ type Signal = {
   summary: string;
   why: string;
   impact: string;
+  shiftFrom: string;
+  shiftTo: string;
+  crossValidation: string;
+  validationType: "跨平台验证" | "多账号验证" | "单一来源";
   sources: string[];
+  sourceNames: string[];
   sourceCount: number;
   age: string;
   score: number;
   tone: "orange" | "blue" | "green";
+  evidence: SignalEvidence[];
+  references: SignalReference[];
 };
 
-const signals: Signal[] = [
-  {
-    id: 1,
-    category: "AI & 模型",
-    eyebrow: "必须知道",
-    title: "开源小模型正在抢占端侧推理场景",
-    summary:
-      "过去 24 小时，多个独立信源都指向同一个变化：更小的模型开始在编码、语音和设备端任务上达到可用阈值。",
-    why: "这不是一次单点发布，而是模型能力、硬件适配和部署工具链同时成熟形成的事件簇。",
-    impact:
-      "如果趋势持续，价值可能从通用 API 进一步转向设备分发、推理优化与垂直数据。",
-    sources: ["HF", "Reddit", "Blog"],
-    sourceCount: 12,
-    age: "18 分钟前",
-    score: 94,
-    tone: "orange",
-  },
-  {
-    id: 2,
-    category: "Agents",
-    eyebrow: "必须知道",
-    title: "Coding Agent 从个人工具走向团队工作流",
-    summary:
-      "讨论焦点正在从“能不能写代码”转向权限、审查、任务编排和多人协作，企业采用信号明显增多。",
-    why: "来自开发者社区、产品更新和工程负责人访谈的信号互相印证，而不是单一厂商叙事。",
-    impact:
-      "下一阶段竞争壁垒可能来自工作流控制面、上下文沉淀和企业治理，而非单纯模型能力。",
-    sources: ["X", "YouTube", "Blog"],
-    sourceCount: 9,
-    age: "46 分钟前",
-    score: 91,
-    tone: "blue",
-  },
-  {
-    id: 3,
-    category: "算力",
-    eyebrow: "趋势变化",
-    title: "推理价格战开始转向延迟与可靠性",
-    summary:
-      "公开报价继续下降，但高质量讨论更多集中在首 token 延迟、峰值稳定性和批处理吞吐。",
-    why: "成本仍重要，但开发者选择供应商时正在加入更接近生产环境的评价指标。",
-    impact:
-      "只卖便宜算力的服务商将承压，具备调度能力、硬件优化和稳定 SLA 的平台更有机会。",
-    sources: ["Reddit", "X", "Blog"],
-    sourceCount: 7,
-    age: "1 小时前",
-    score: 87,
-    tone: "green",
-  },
-  {
-    id: 4,
-    category: "投资",
-    eyebrow: "资本信号",
-    title: "AI 基础设施融资正在向数据与评测层扩散",
-    summary:
-      "近期被关注的早期项目不再只做训练或推理，而是围绕数据质量、持续评测和可观测性建立产品。",
-    why: "招聘、开源活跃度和投资人讨论同时上升，说明需求可能正在从试验阶段进入生产阶段。",
-    impact:
-      "值得建立一组“模型生产基础设施”观察名单，并持续跟踪客户采用而不只是融资金额。",
-    sources: ["X", "HF", "Blog"],
-    sourceCount: 6,
-    age: "2 小时前",
-    score: 82,
-    tone: "orange",
-  },
+type ExploreSignal = {
+  id: string;
+  category: string;
+  label: string;
+  title: string;
+  thesis: string;
+  whyNow: string;
+  counterpoint: string;
+  horizon: string;
+  confidence: string;
+  validationType: "跨平台验证" | "多账号验证" | "单一来源";
+  sourceNames: string[];
+  sourceKinds: string[];
+  sourceCount: number;
+  tone: "violet" | "cyan" | "amber" | "coral";
+  evidence: SignalEvidence[];
+};
+
+const signals = dailyRadar.signals as Signal[];
+const exploreSignals = dailyRadar.exploreSignals as ExploreSignal[];
+const coveredKinds = [
+  ...new Set(signals.flatMap((signal) => signal.sources)),
+];
+const exploreKinds = [
+  ...new Set(exploreSignals.flatMap((signal) => signal.sourceKinds)),
 ];
 
-const trends = [
-  { name: "端侧模型", change: "+38%", bars: [32, 48, 44, 61, 73, 92] },
-  { name: "Agent 评测", change: "+24%", bars: [26, 31, 45, 39, 58, 75] },
-  { name: "推理芯片", change: "+17%", bars: [41, 37, 50, 56, 61, 68] },
-  { name: "合成数据", change: "+11%", bars: [34, 42, 38, 46, 52, 57] },
-];
-
-const discoveries = [
-  {
-    mark: "DS",
-    name: "模型数据谱系",
-    detail: "3 个高信号作者开始连续讨论",
-    source: "跨 X · Blog · HF",
-    color: "blue",
-  },
-  {
-    mark: "RL",
-    name: "强化学习环境",
-    detail: "过去一周新增 8 个活跃项目",
-    source: "Hugging Face · GitHub",
-    color: "orange",
-  },
-  {
-    mark: "VC",
-    name: "垂直 AI 工作流",
-    detail: "投资人关注度连续 4 天上升",
-    source: "X · YouTube · Blog",
-    color: "green",
-  },
-];
-
-const categories = ["全部", "AI & 模型", "Agents", "算力", "投资"];
+function shortKind(kind: string) {
+  if (kind === "YouTube") return "YT";
+  if (kind === "Newsletter") return "NL";
+  return kind;
+}
 
 export default function Home() {
+  const [locale, setLocale] = useState<"zh" | "en">("zh");
   const [activeCategory, setActiveCategory] = useState("全部");
   const [query, setQuery] = useState("");
   const [expanded, setExpanded] = useState<number[]>([1]);
   const [saved, setSaved] = useState<number[]>([]);
   const [following, setFollowing] = useState<string[]>([]);
   const [view, setView] = useState<"brief" | "explore">("brief");
+  const [section, setSection] = useState<"radar" | "sources">("radar");
   const [notice, setNotice] = useState("");
+  const languageCopy = dailyRadar.translations[locale];
+  const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
+
+  useEffect(() => {
+    const storedLocale = window.localStorage.getItem("signal-radar-locale");
+    if (storedLocale === "zh" || storedLocale === "en") {
+      setLocale(storedLocale);
+    }
+  }, []);
+
+  useEffect(() => {
+    document.documentElement.lang = locale === "zh" ? "zh-CN" : "en";
+    window.localStorage.setItem("signal-radar-locale", locale);
+  }, [locale]);
+
+  const localizedSignals = useMemo(
+    () =>
+      signals.map((signal, index) => {
+        const translated = languageCopy.signals[index];
+        return {
+          ...signal,
+          ...translated,
+          categoryKey: signal.category,
+          evidence: signal.evidence.map((evidence, evidenceIndex) => ({
+            ...evidence,
+            role: translated.evidence[evidenceIndex]?.role ?? evidence.role,
+            takeaway:
+              translated.evidence[evidenceIndex]?.takeaway ?? evidence.takeaway,
+          })),
+        };
+      }),
+    [languageCopy],
+  );
+
+  const localizedExploreSignals = useMemo(
+    () =>
+      exploreSignals.map((signal, index) => {
+        const translated = languageCopy.exploreSignals[index];
+        return {
+          ...signal,
+          ...translated,
+          categoryKey: signal.category,
+          evidence: signal.evidence.map((evidence, evidenceIndex) => ({
+            ...evidence,
+            takeaway:
+              translated.evidence[evidenceIndex]?.takeaway ?? evidence.takeaway,
+          })),
+        };
+      }),
+    [languageCopy],
+  );
+
+  const localizedTrends = dailyRadar.trends.map((trend, index) => ({
+    ...trend,
+    ...languageCopy.trends[index],
+  }));
+  const localizedDiscoveries = dailyRadar.discoveries.map((item, index) => ({
+    ...item,
+    ...languageCopy.discoveries[index],
+  }));
+  const localizedCompanySignals = dailyRadar.companySignals.map((item, index) => {
+    const translated = languageCopy.companySignals[index];
+    return {
+      ...item,
+      ...translated,
+      evidence: item.evidence.map((evidence, evidenceIndex) => ({
+        ...evidence,
+        takeaway:
+          translated.evidence[evidenceIndex]?.takeaway ?? evidence.takeaway,
+      })),
+    };
+  });
+
+  const radarDateLabel = new Intl.DateTimeFormat(
+    locale === "zh" ? "zh-CN" : "en-US",
+    {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      weekday: "long",
+      timeZone: "America/New_York",
+    },
+  )
+    .format(new Date(dailyRadar.generatedAt))
+    .replace("星期", " · 星期");
+  const analysisTimeLabel = new Intl.DateTimeFormat(
+    locale === "zh" ? "zh-CN" : "en-US",
+    {
+      hour: "2-digit",
+      minute: "2-digit",
+      timeZone: "America/New_York",
+    },
+  ).format(new Date(dailyRadar.generatedAt));
 
   const visibleSignals = useMemo(() => {
     const normalized = query.trim().toLowerCase();
-    return signals.filter((signal) => {
+    return localizedSignals.filter((signal) => {
       const matchesCategory =
-        activeCategory === "全部" || signal.category === activeCategory;
+        activeCategory === "全部" || signal.categoryKey === activeCategory;
       const matchesQuery =
         !normalized ||
-        `${signal.title} ${signal.summary} ${signal.sources.join(" ")}`
+        `${signal.title} ${signal.summary} ${signal.sources.join(" ")} ${signal.sourceNames.join(" ")}`
           .toLowerCase()
           .includes(normalized);
       return matchesCategory && matchesQuery;
     });
-  }, [activeCategory, query]);
+  }, [activeCategory, localizedSignals, query]);
+
+  const visibleExploreSignals = useMemo(() => {
+    const normalized = query.trim().toLowerCase();
+    return localizedExploreSignals.filter((signal) => {
+      const matchesCategory =
+        activeCategory === "全部" || signal.categoryKey === activeCategory;
+      const matchesQuery =
+        !normalized ||
+        `${signal.title} ${signal.thesis} ${signal.whyNow} ${signal.sourceNames.join(" ")}`
+          .toLowerCase()
+          .includes(normalized);
+      return matchesCategory && matchesQuery;
+    });
+  }, [activeCategory, localizedExploreSignals, query]);
+
+  const activeCategories = useMemo(() => {
+    const baseItems = view === "explore" ? exploreSignals : signals;
+    const displayItems =
+      view === "explore" ? localizedExploreSignals : localizedSignals;
+    const labels = new Map<string, string>();
+    baseItems.forEach((item, index) => {
+      labels.set(item.category, displayItems[index].category);
+    });
+    return [
+      { value: "全部", label: t("全部", "All") },
+      ...[...labels].map(([value, label]) => ({ value, label })),
+    ];
+  }, [locale, localizedExploreSignals, localizedSignals, view]);
 
   function toggleExpanded(id: number) {
     setExpanded((items) =>
@@ -175,31 +254,65 @@ export default function Home() {
           <span>Signal Radar</span>
         </div>
 
-        <nav className="side-nav" aria-label="主要导航">
-          <button className="nav-item active" type="button">
+        <nav className="side-nav" aria-label={t("主要导航", "Primary navigation")}>
+          <button
+            className={`nav-item ${section === "radar" && view === "brief" ? "active" : ""}`}
+            type="button"
+            onClick={() => {
+              setSection("radar");
+              setView("brief");
+              setActiveCategory("全部");
+            }}
+          >
             <span aria-hidden="true">⌁</span>
-            今日雷达
-            <span className="nav-count">6</span>
+            {t("今日 Radar", "Today's Radar")}
+            <span className="nav-count">{signals.length}</span>
           </button>
-          <button className="nav-item" type="button">
+          <button
+            className={`nav-item ${section === "radar" && view === "explore" ? "active" : ""}`}
+            type="button"
+            onClick={() => {
+              setSection("radar");
+              setView("explore");
+              setActiveCategory("全部");
+            }}
+          >
             <span aria-hidden="true">◎</span>
-            探索
+            {t("探索", "Explore")}
           </button>
-          <button className="nav-item" type="button">
+          <button
+            className={`nav-item ${section === "sources" ? "active" : ""}`}
+            type="button"
+            onClick={() => setSection("sources")}
+          >
             <span aria-hidden="true">◇</span>
-            追踪清单
-            <span className="nav-count">{12 + following.length}</span>
+            {t("信源库", "Sources")}
+            <span className="nav-count">159</span>
           </button>
-          <button className="nav-item" type="button">
+          <button
+            className="nav-item"
+            type="button"
+            onClick={() =>
+              showNotice(
+                t(
+                  `已收藏 ${saved.length} 条情报`,
+                  `${saved.length} signals saved`,
+                ),
+              )
+            }
+          >
             <span aria-hidden="true">☆</span>
-            已收藏
+            {t("已收藏", "Saved")}
             {saved.length > 0 && <span className="nav-count">{saved.length}</span>}
           </button>
         </nav>
 
         <div className="side-section">
-          <p className="side-label">你的雷达</p>
-          {["AI & 模型", "Agents", "算力与芯片", "创投动态"].map(
+          <p className="side-label">{t("你的 Radar", "YOUR RADAR")}</p>
+          {(locale === "zh"
+            ? ["AI & Models", "Agents", "算力 & Chips", "VC 动态"]
+            : ["AI & Models", "Agents", "Compute & Chips", "Venture"]
+          ).map(
             (item, index) => (
               <button className="topic-item" type="button" key={item}>
                 <span className={`topic-dot dot-${index + 1}`} />
@@ -210,37 +323,55 @@ export default function Home() {
           <button
             className="add-topic"
             type="button"
-            onClick={() => showNotice("主题管理将在数据接入阶段开放")}
+            onClick={() =>
+              showNotice(
+                t(
+                  "Topic 管理将在数据接入阶段开放",
+                  "Topic management will arrive with data connections",
+                ),
+              )
+            }
           >
-            ＋ 添加主题
+            {t("＋ 添加 Topic", "+ Add topic")}
           </button>
         </div>
 
         <div className="coverage-card">
           <div className="coverage-top">
-            <span>今日覆盖</span>
-            <span className="live-dot">实时</span>
+            <span>{t("真实采集", "LIVE INGEST")}</span>
+            <span className="live-dot">{t("已运行", "Running")}</span>
           </div>
-          <strong>1,284</strong>
-          <p>条内容已扫描</p>
+          <strong>{snapshot.items.length.toLocaleString()}</strong>
+          <p>{t("条真实内容已抓取", "real items fetched")}</p>
           <div className="coverage-grid">
-            <span>X · 468</span>
-            <span>Blog · 243</span>
-            <span>Reddit · 311</span>
-            <span>HF · 262</span>
+            <span>YT · 23</span>
+            <span>Blog · 108</span>
+            <span>
+              X · {snapshot.needsAuthSources} {t("待授权", "pending auth")}
+            </span>
+            <span>
+              {t("连接", "Live")} · {snapshot.successfulSources}
+            </span>
           </div>
         </div>
 
         <div className="profile">
           <span className="avatar">YQ</span>
           <div>
-            <strong>研究小组</strong>
-            <span>3 位成员</span>
+            <strong>{t("Research 小组", "Research Group")}</strong>
+            <span>{t("3 位成员", "3 members")}</span>
           </div>
           <button
             type="button"
-            aria-label="打开账户设置"
-            onClick={() => showNotice("账户与成员设置尚未接入")}
+            aria-label={t("打开账户设置", "Open account settings")}
+            onClick={() =>
+              showNotice(
+                t(
+                  "账户与成员设置尚未接入",
+                  "Account and member settings are not connected yet",
+                ),
+              )
+            }
           >
             •••
           </button>
@@ -253,23 +384,64 @@ export default function Home() {
             <span className="brand-mark">S</span>
             <span>Signal Radar</span>
           </div>
-          <label className="search">
-            <span aria-hidden="true">⌕</span>
-            <input
-              value={query}
-              onChange={(event) => setQuery(event.target.value)}
-              placeholder="搜索事件、公司、人物或主题"
-              aria-label="搜索情报"
-            />
-            <kbd>⌘ K</kbd>
-          </label>
+          {section === "radar" ? (
+            <label className="search">
+              <span aria-hidden="true">⌕</span>
+              <input
+                value={query}
+                onChange={(event) => setQuery(event.target.value)}
+                placeholder={t(
+                  "搜索事件、公司、人物或 Topic",
+                  "Search events, companies, people, or topics",
+                )}
+                aria-label={t("搜索情报", "Search intelligence")}
+              />
+              <kbd>⌘ K</kbd>
+            </label>
+          ) : (
+            <div className="source-top-context">
+              <span className="live-dot">
+                {t("Fetcher 在线", "Fetcher online")}
+              </span>
+              <span>
+                {snapshot.successfulSources} / {snapshot.totalSources}{" "}
+                {t("个来源已连接", "sources connected")}
+              </span>
+            </div>
+          )}
           <div className="top-actions">
-            <span className="demo-label">DEMO DATA</span>
+            <div
+              className="language-switch"
+              role="group"
+              aria-label={t("语言切换", "Language switcher")}
+            >
+              <button
+                type="button"
+                className={locale === "zh" ? "selected" : ""}
+                aria-pressed={locale === "zh"}
+                onClick={() => setLocale("zh")}
+              >
+                中文
+              </button>
+              <button
+                type="button"
+                className={locale === "en" ? "selected" : ""}
+                aria-pressed={locale === "en"}
+                onClick={() => setLocale("en")}
+              >
+                EN
+              </button>
+            </div>
+            <span className="demo-label">
+              {section === "sources" ? "LIVE SNAPSHOT" : "GPT ANALYZED"}
+            </span>
             <button
               className="icon-button"
               type="button"
-              aria-label="查看通知"
-              onClick={() => showNotice("目前没有新的通知")}
+              aria-label={t("查看通知", "View notifications")}
+              onClick={() =>
+                showNotice(t("目前没有新的通知", "No new notifications"))
+              }
             >
               ♢
               <span className="notification-dot" />
@@ -278,78 +450,166 @@ export default function Home() {
               className="digest-button"
               type="button"
               onClick={() =>
-                showNotice("今日简报已准备好，将在 08:00 自动发送")
+                showNotice(
+                  t(
+                    `今日 Brief 已由 ${dailyRadar.model} 基于真实采集内容生成`,
+                    `Today's brief was generated by ${dailyRadar.model} from live source data`,
+                  ),
+                )
               }
             >
               <span aria-hidden="true">✦</span>
-              每日简报
+              {t("每日 Brief", "Daily Brief")}
             </button>
           </div>
         </header>
 
         <div className="content">
+          {section === "sources" ? (
+            <SourceLibrary locale={locale} onNotice={showNotice} />
+          ) : (
+            <>
           <section className="page-intro">
             <div>
-              <p className="date-line">2026 年 7 月 28 日 · 星期二</p>
+              <p className="date-line">{radarDateLabel}</p>
               <h1>
-                今天真正需要知道的，
-                <br />
-                只有 <span>6 件事</span>
+                {view === "brief" ? (
+                  <>
+                    {t("今天真正需要知道的，", "The only signals")}
+                    <br />
+                    {locale === "zh" ? (
+                      <>
+                        只有 <span>{signals.length} 个 signals</span>
+                      </>
+                    ) : (
+                      <>
+                        that matter today: <span>{signals.length}</span>
+                      </>
+                    )}
+                  </>
+                ) : (
+                  <>
+                    {t("去 consensus 之外，", "Look beyond consensus.")}
+                    <br />
+                    {locale === "zh" ? (
+                      <>
+                        发现 <span>{exploreSignals.length} 个 possibilities</span>
+                      </>
+                    ) : (
+                      <>
+                        Explore <span>{exploreSignals.length} possibilities</span>
+                      </>
+                    )}
+                  </>
+                )}
               </h1>
               <p className="intro-copy">
-                从 1,284 条跨平台内容中识别并合并。事实、共识与推断分开呈现。
+                {view === "brief" ? (
+                  <>
+                    {locale === "zh"
+                      ? `从 ${dailyRadar.totalFetchedItemCount.toLocaleString()} 条真实内容中筛选 ${dailyRadar.analyzedItemCount} 条 high-signal 信息并聚类。`
+                      : `${dailyRadar.analyzedItemCount} high-relevance items clustered from ${dailyRadar.totalFetchedItemCount.toLocaleString()} live source entries. `}
+                    {languageCopy.editorNote}
+                  </>
+                ) : (
+                  <>
+                    {t(
+                      "不追逐同一条新闻，而是寻找 non-consensus 观点、二阶影响、跨界连接和高风险高潜的 early signals。",
+                      "Not another news feed: this view hunts for contrarian ideas, second-order effects, cross-domain connections, and early high-risk signals.",
+                    )}
+                  </>
+                )}
               </p>
             </div>
             <div className="brief-score">
               <div>
-                <span className="score-ring">92</span>
+                <span className="score-ring">
+                  {view === "brief"
+                    ? dailyRadar.signalQuality
+                    : new Set(exploreSignals.map((signal) => signal.category)).size}
+                </span>
                 <span>
-                  今日信号质量
-                  <small>比过去 7 天高 8%</small>
+                  {view === "brief"
+                    ? t("今日 Signal Quality", "Today's Signal Quality")
+                    : t("Explore 主题覆盖", "Explore Coverage")}
+                  <small>
+                    {view === "brief"
+                      ? t(
+                          `较 baseline ${
+                            dailyRadar.signalQualityChange >= 0 ? "高" : "低"
+                          } ${Math.abs(dailyRadar.signalQualityChange)}%`,
+                          `${Math.abs(dailyRadar.signalQualityChange)}% ${
+                            dailyRadar.signalQualityChange >= 0 ? "above" : "below"
+                          } baseline`,
+                        )
+                      : t(
+                          `${exploreSignals.filter((signal) => signal.label === "高风险高潜").length} 条高风险高潜`,
+                          `${exploreSignals.filter((signal) => signal.label === "高风险高潜").length} high-risk / high-upside`,
+                        )}
+                  </small>
                 </span>
               </div>
-              <div className="source-stack" aria-label="已覆盖平台">
-                <span>X</span>
-                <span>YT</span>
-                <span>R</span>
-                <span>HF</span>
-                <span>+9</span>
+              <div
+                className="source-stack"
+                aria-label={t("已覆盖平台", "Platforms covered")}
+              >
+                {(view === "brief" ? coveredKinds : exploreKinds).map((kind) => (
+                  <span key={kind}>{shortKind(kind)}</span>
+                ))}
               </div>
             </div>
           </section>
 
           <div className="view-row">
-            <div className="view-switch" aria-label="内容视图">
+            <div
+              className="view-switch"
+              aria-label={t("内容视图", "Content view")}
+            >
               <button
                 type="button"
                 className={view === "brief" ? "selected" : ""}
-                onClick={() => setView("brief")}
+                onClick={() => {
+                  setView("brief");
+                  setActiveCategory("全部");
+                }}
               >
-                今日简报
+                {t("今日 Brief", "Today's Brief")}
               </button>
               <button
                 type="button"
                 className={view === "explore" ? "selected" : ""}
-                onClick={() => setView("explore")}
+                onClick={() => {
+                  setView("explore");
+                  setActiveCategory("全部");
+                }}
               >
-                探索信息流
+                {t("Explore 信息流", "Explore Feed")}
               </button>
             </div>
-            <div className="category-filters" aria-label="主题筛选">
-              {categories.map((category) => (
+            <div
+              className="category-filters"
+              aria-label={t("主题筛选", "Topic filters")}
+            >
+              {activeCategories.map((category) => (
                 <button
                   type="button"
-                  key={category}
-                  className={activeCategory === category ? "selected" : ""}
-                  onClick={() => setActiveCategory(category)}
+                  key={category.value}
+                  className={
+                    activeCategory === category.value ? "selected" : ""
+                  }
+                  onClick={() => setActiveCategory(category.value)}
                 >
-                  {category}
+                  {category.label}
                 </button>
               ))}
             </div>
           </div>
 
-          <div className="dashboard-grid">
+          <div
+            className={`dashboard-grid ${
+              view === "explore" ? "explore-layout" : ""
+            }`}
+          >
             <section className="feed-column">
               <div className="section-heading">
                 <div>
@@ -357,12 +617,25 @@ export default function Home() {
                     {view === "brief" ? "MUST KNOW" : "DISCOVERY FEED"}
                   </span>
                   <h2>
-                    {view === "brief" ? "必须知道" : "为你发现的高信号内容"}
+                    {view === "brief"
+                      ? t("必须知道", "Must Know")
+                      : t("为你发现的 high-signal 内容", "High-Signal Discoveries")}
                   </h2>
                 </div>
-                <span className="result-count">{visibleSignals.length} 个事件簇</span>
+                <span className="result-count">
+                  {view === "brief"
+                    ? t(
+                        `${visibleSignals.length} 个事件簇`,
+                        `${visibleSignals.length} event clusters`,
+                      )
+                    : t(
+                        `${visibleExploreSignals.length} 个探索方向`,
+                        `${visibleExploreSignals.length} directions`,
+                      )}
+                </span>
               </div>
 
+              {view === "brief" ? (
               <div className="signal-list">
                 {visibleSignals.map((signal, index) => {
                   const isExpanded = expanded.includes(signal.id);
@@ -378,7 +651,15 @@ export default function Home() {
                           <span className="eyebrow">{signal.eyebrow}</span>
                           <span>{signal.category}</span>
                           <span>·</span>
-                          <span>{signal.age}</span>
+                          <span>
+                            {locale === "zh"
+                              ? signal.age
+                              : signal.age
+                                  .replace("刚刚", "Just now")
+                                  .replace("时间未知", "Time unknown")
+                                  .replace(" 小时前", "h ago")
+                                  .replace(" 天前", "d ago")}
+                          </span>
                         </div>
                         <button
                           type="button"
@@ -393,13 +674,84 @@ export default function Home() {
 
                         {isExpanded && (
                           <div className="signal-analysis">
+                            <div className="signal-shift">
+                              <div>
+                                <span>{t("此前", "BEFORE")}</span>
+                                <strong>{signal.shiftFrom}</strong>
+                              </div>
+                              <i aria-hidden="true">→</i>
+                              <div>
+                                <span>{t("现在", "NOW")}</span>
+                                <strong>{signal.shiftTo}</strong>
+                              </div>
+                            </div>
                             <div>
-                              <span className="analysis-label">为什么重要</span>
+                              <span className="analysis-label">
+                                {t("为什么重要", "WHY IT MATTERS")}
+                              </span>
                               <p>{signal.why}</p>
                             </div>
                             <div>
-                              <span className="analysis-label">可能影响</span>
+                              <span className="analysis-label">
+                                {t("可能影响", "POTENTIAL IMPACT")}
+                              </span>
                               <p>{signal.impact}</p>
+                            </div>
+                            <div className="validation-summary">
+                              <span className="analysis-label">
+                                {t(
+                                  signal.validationType,
+                                  signal.validationType === "跨平台验证"
+                                    ? "Cross-platform validation"
+                                    : signal.validationType === "多账号验证"
+                                      ? "Multi-source validation"
+                                      : "Single source",
+                                )}
+                              </span>
+                              <p>{signal.crossValidation}</p>
+                            </div>
+                            <div className="evidence-block">
+                              <div className="evidence-heading">
+                                <span className="analysis-label">
+                                  {t(
+                                    `结论依据 · ${signal.evidence.length} 个账号`,
+                                    `EVIDENCE · ${signal.evidence.length} sources`,
+                                  )}
+                                </span>
+                                <small>
+                                  {t("点击查看原始内容", "Open original content")}
+                                </small>
+                              </div>
+                              <div className="evidence-widget-grid">
+                                {signal.evidence.map((evidence, evidenceIndex) => (
+                                  <a
+                                    href={evidence.url}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="evidence-widget"
+                                    key={evidence.url}
+                                    title={evidence.title}
+                                  >
+                                    <div className="evidence-widget-top">
+                                      <span className="evidence-number">
+                                        0{evidenceIndex + 1}
+                                      </span>
+                                      <span className="evidence-platform">
+                                        {shortKind(evidence.sourceKind)}
+                                      </span>
+                                      <span className="evidence-role">
+                                        {evidence.role}
+                                      </span>
+                                    </div>
+                                    <strong>{evidence.sourceName}</strong>
+                                    <p>{evidence.takeaway}</p>
+                                    <footer>
+                                      <span>{evidence.title}</span>
+                                      <i>↗</i>
+                                    </footer>
+                                  </a>
+                                ))}
+                              </div>
                             </div>
                           </div>
                         )}
@@ -409,7 +761,18 @@ export default function Home() {
                             {signal.sources.map((source) => (
                               <span key={source}>{source}</span>
                             ))}
-                            <small>{signal.sourceCount} 个来源相互印证</small>
+                            <small>
+                              {t(
+                                `${signal.validationType} · ${signal.sourceCount} 个独立账号`,
+                                `${
+                                  signal.validationType === "跨平台验证"
+                                    ? "Cross-platform"
+                                    : signal.validationType === "多账号验证"
+                                      ? "Multi-source"
+                                      : "Single source"
+                                } · ${signal.sourceCount} independent sources`,
+                              )}
+                            </small>
                           </div>
                           <div className="card-actions">
                             <span className="signal-score">
@@ -419,7 +782,11 @@ export default function Home() {
                             <button
                               type="button"
                               className={isSaved ? "saved" : ""}
-                              aria-label={isSaved ? "取消收藏" : "收藏此信号"}
+                              aria-label={
+                                isSaved
+                                  ? t("取消收藏", "Remove from saved")
+                                  : t("收藏此 signal", "Save this signal")
+                              }
                               onClick={() => toggleSaved(signal.id)}
                             >
                               {isSaved ? "★" : "☆"}
@@ -434,8 +801,15 @@ export default function Home() {
                 {visibleSignals.length === 0 && (
                   <div className="empty-state">
                     <span>⌕</span>
-                    <strong>没有找到匹配的情报</strong>
-                    <p>换一个关键词或清除主题筛选。</p>
+                    <strong>
+                      {t("没有找到匹配的情报", "No matching intelligence")}
+                    </strong>
+                    <p>
+                      {t(
+                        "换一个关键词或清除 Topic 筛选。",
+                        "Try another keyword or clear the topic filter.",
+                      )}
+                    </p>
                     <button
                       type="button"
                       onClick={() => {
@@ -443,30 +817,150 @@ export default function Home() {
                         setActiveCategory("全部");
                       }}
                     >
-                      清除筛选
+                      {t("清除筛选", "Clear filters")}
                     </button>
                   </div>
                 )}
               </div>
+              ) : (
+                <div className="explore-grid">
+                  {visibleExploreSignals.map((signal, index) => (
+                    <article
+                      className={`explore-card explore-tone-${signal.tone} ${
+                        index === 0 ? "explore-featured" : ""
+                      }`}
+                      key={signal.id}
+                    >
+                      <div className="explore-card-top">
+                        <span className="explore-number">0{index + 1}</span>
+                        <span className="explore-category">{signal.category}</span>
+                        <span className="explore-label">{signal.label}</span>
+                      </div>
+
+                      <h3>{signal.title}</h3>
+                      <p className="explore-thesis">{signal.thesis}</p>
+
+                      <div className="explore-reasoning">
+                        <div>
+                          <span>WHY NOW</span>
+                          <p>{signal.whyNow}</p>
+                        </div>
+                        <div className="explore-counterpoint">
+                          <span>
+                            {t("最强 counterpoint", "STRONGEST COUNTERPOINT")}
+                          </span>
+                          <p>{signal.counterpoint}</p>
+                        </div>
+                      </div>
+
+                      <div className="explore-metrics">
+                        <span>
+                          <small>{t("时间跨度", "HORIZON")}</small>
+                          <strong>{signal.horizon}</strong>
+                        </span>
+                        <span>
+                          <small>{t("置信度", "CONFIDENCE")}</small>
+                          <strong>{signal.confidence}</strong>
+                        </span>
+                        <span>
+                          <small>{t("验证状态", "VALIDATION")}</small>
+                          <strong>
+                            {t(
+                              signal.validationType,
+                              signal.validationType === "跨平台验证"
+                                ? "Cross-platform"
+                                : signal.validationType === "多账号验证"
+                                  ? "Multi-source"
+                                  : "Single source",
+                            )}
+                          </strong>
+                        </span>
+                      </div>
+
+                      <div className="explore-evidence">
+                        <div>
+                          <span>EVIDENCE TRAIL</span>
+                          <small>
+                            {t(
+                              `${signal.sourceCount} 个独立账号`,
+                              `${signal.sourceCount} independent sources`,
+                            )}
+                          </small>
+                        </div>
+                        {signal.evidence.map((evidence) => (
+                          <a
+                            href={evidence.url}
+                            target="_blank"
+                            rel="noreferrer"
+                            key={evidence.url}
+                          >
+                            <span>{shortKind(evidence.sourceKind)}</span>
+                            <div>
+                              <strong>{evidence.sourceName}</strong>
+                              <p>{evidence.takeaway}</p>
+                            </div>
+                            <i>↗</i>
+                          </a>
+                        ))}
+                      </div>
+                    </article>
+                  ))}
+
+                  {visibleExploreSignals.length === 0 && (
+                    <div className="empty-state explore-empty">
+                      <span>⌁</span>
+                      <strong>
+                        {t(
+                          "这个方向暂时没有 Explore signal",
+                          "No Explore signals in this direction",
+                        )}
+                      </strong>
+                      <p>
+                        {t(
+                          "换一个 Topic 或清除筛选。",
+                          "Try another topic or clear the filters.",
+                        )}
+                      </p>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setQuery("");
+                          setActiveCategory("全部");
+                        }}
+                      >
+                        {t("清除筛选", "Clear filters")}
+                      </button>
+                    </div>
+                  )}
+                </div>
+              )}
             </section>
 
+            {view === "brief" && (
             <aside className="insight-column">
               <section className="panel trend-panel">
                 <div className="panel-heading">
                   <div>
                     <span className="section-kicker">MOMENTUM</span>
-                    <h2>正在升温</h2>
+                    <h2>{t("正在升温", "Heating Up")}</h2>
                   </div>
                   <button
                     type="button"
-                    aria-label="查看所有趋势"
-                    onClick={() => showNotice("完整趋势图谱将在下一阶段开放")}
+                    aria-label={t("查看所有趋势", "View all trends")}
+                    onClick={() =>
+                      showNotice(
+                        t(
+                          "完整 trend map 将在下一阶段开放",
+                          "The full trend map will arrive in the next phase",
+                        ),
+                      )
+                    }
                   >
                     ↗
                   </button>
                 </div>
                 <div className="trend-list">
-                  {trends.map((trend) => (
+                  {localizedTrends.map((trend) => (
                     <div className="trend-row" key={trend.name}>
                       <div>
                         <strong>{trend.name}</strong>
@@ -483,19 +977,24 @@ export default function Home() {
                     </div>
                   ))}
                 </div>
-                <p className="panel-note">基于讨论速度、跨平台扩散和信源质量综合计算</p>
+                <p className="panel-note">
+                  {t(
+                    "基于讨论速度、跨平台扩散和信源质量综合计算",
+                    "Computed from discussion velocity, cross-platform spread, and source quality",
+                  )}
+                </p>
               </section>
 
               <section className="panel discovery-panel">
                 <div className="panel-heading">
                   <div>
                     <span className="section-kicker">DISCOVERED FOR YOU</span>
-                    <h2>新发现</h2>
+                    <h2>{t("新发现", "New Discoveries")}</h2>
                   </div>
                   <span className="new-badge">3 NEW</span>
                 </div>
                 <div className="discovery-list">
-                  {discoveries.map((item) => {
+                  {localizedDiscoveries.map((item) => {
                     const isFollowing = following.includes(item.name);
                     return (
                       <article key={item.name}>
@@ -512,7 +1011,9 @@ export default function Home() {
                           className={isFollowing ? "following" : ""}
                           onClick={() => toggleFollowing(item.name)}
                         >
-                          {isFollowing ? "已追踪" : "＋ 追踪"}
+                          {isFollowing
+                            ? t("已追踪", "Following")
+                            : t("＋ 追踪", "+ Follow")}
                         </button>
                       </article>
                     );
@@ -522,81 +1023,197 @@ export default function Home() {
 
               <section className="panel thesis-panel">
                 <span className="section-kicker">INVESTMENT LENS</span>
-                <h2>今日投资假设</h2>
+                <h2>{t("今日 Investment Thesis", "Today's Investment Thesis")}</h2>
                 <blockquote>
-                  “模型能力正在商品化，差异化价值将更快向部署、数据和分发迁移。”
+                  “{languageCopy.investmentThesis.quote}”
                 </blockquote>
                 <div className="thesis-footer">
                   <div className="confidence">
-                    <span>置信度</span>
-                    <strong>中高</strong>
+                    <span>{t("置信度", "Confidence")}</span>
+                    <strong>{languageCopy.investmentThesis.confidence}</strong>
                   </div>
                   <span className="team-avatars">
                     <i>Y</i>
                     <i>L</i>
                     <i>W</i>
                   </span>
-                  <span className="team-agree">3 人认同</span>
+                  <span className="team-agree">
+                    {t(
+                      `${dailyRadar.investmentThesis.evidenceCount} 个证据信源`,
+                      `${dailyRadar.investmentThesis.evidenceCount} evidence sources`,
+                    )}
+                  </span>
                 </div>
                 <button
                   className="thesis-action"
                   type="button"
-                  onClick={() => showNotice("已加入小组研究议程")}
+                  onClick={() =>
+                    showNotice(
+                      t(
+                        "已加入小组 Research agenda",
+                        "Added to the group research agenda",
+                      ),
+                    )
+                  }
                 >
-                  加入研究议程
+                  {t("加入 Research agenda", "Add to research agenda")}
                   <span>→</span>
                 </button>
               </section>
             </aside>
+            )}
           </div>
 
+          {view === "brief" && (
           <section className="signal-table-section">
             <div className="section-heading">
               <div>
                 <span className="section-kicker">CAPITAL & COMPANY SIGNALS</span>
-                <h2>投资与公司信号</h2>
+                <h2>
+                  {t("投资 & Company Signals", "Investment & Company Signals")}
+                </h2>
+                <p className="investment-section-copy">
+                  {t(
+                    "从 product adoption、竞争格局与 platform expansion 中提炼公司级判断；每条都包含 catalyst、反证风险和可追踪指标。",
+                    "Company-level reads distilled from product adoption, competitive dynamics, and platform expansion—each with catalysts, disconfirming risks, and trackable indicators.",
+                  )}
+                </p>
               </div>
-              <button
-                type="button"
-                className="text-action"
-                onClick={() => showNotice("完整公司追踪清单将在数据接入后显示")}
-              >
-                查看全部 24 条 →
-              </button>
+              <span className="investment-method">
+                {t(
+                  `${dailyRadar.companySignals.length} 个高确信度观察`,
+                  `${dailyRadar.companySignals.length} high-conviction observations`,
+                )}
+              </span>
             </div>
-            <div className="signal-table">
-              <div className="table-head">
-                <span>实体 / 主题</span>
-                <span>信号</span>
-                <span>来源</span>
-                <span>强度</span>
-                <span>变化</span>
-              </div>
-              {[
-                ["端侧 AI", "招聘与开源贡献同步增长", "8 个来源", "高", "↑ 18%"],
-                ["模型评测", "新项目集中出现", "6 个来源", "中高", "↑ 12%"],
-                ["推理平台", "开发者迁移讨论增加", "11 个来源", "中", "↑ 7%"],
-              ].map((row) => (
-                <div className="table-row" key={row[0]}>
-                  <strong>{row[0]}</strong>
-                  <span>{row[1]}</span>
-                  <span>{row[2]}</span>
-                  <span>
-                    <i className={`strength strength-${row[3]}`} />
-                    {row[3]}
-                  </span>
-                  <span className="change">{row[4]}</span>
-                </div>
-              ))}
+            <div className="investment-board">
+              {localizedCompanySignals.map((item, index) => {
+                const baseStance = dailyRadar.companySignals[index].stance;
+                const stanceTone =
+                  baseStance === "偏积极"
+                    ? "positive"
+                    : baseStance === "风险"
+                      ? "risk"
+                      : baseStance === "分化"
+                        ? "split"
+                        : "watch";
+                return (
+                  <article
+                    className={`investment-card stance-${stanceTone}`}
+                    key={item.entity}
+                  >
+                    <header className="investment-card-head">
+                      <span className="investment-rank">0{index + 1}</span>
+                      <div>
+                        <span className="investment-type">{item.signalType}</span>
+                        <h3>{item.entity}</h3>
+                      </div>
+                      <div className="investment-score">
+                        <strong>{item.score}</strong>
+                        <span>{t("Signal 分", "SCORE")}</span>
+                      </div>
+                    </header>
+
+                    <h4>{item.headline}</h4>
+
+                    <div className="investment-change">
+                      <span>{t("发生了什么变化", "WHAT CHANGED")}</span>
+                      <p>{item.whatChanged}</p>
+                    </div>
+
+                    <div className="investment-read">
+                      <span>INVESTMENT READ</span>
+                      <p>{item.investmentRead}</p>
+                    </div>
+
+                    <div className="investment-checks">
+                      <div>
+                        <span className="check-icon catalyst">↗</span>
+                        <p>
+                          <strong>{t("潜在 catalyst", "POTENTIAL CATALYST")}</strong>
+                          {item.catalyst}
+                        </p>
+                      </div>
+                      <div>
+                        <span className="check-icon risk">!</span>
+                        <p>
+                          <strong>{t("反证风险", "DISCONFIRMING RISK")}</strong>
+                          {item.risk}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="investment-watch">
+                      <span>{t("下一步观察", "WATCH NEXT")}</span>
+                      <p>{item.watchNext}</p>
+                    </div>
+
+                    <div className="investment-evidence">
+                      <div className="investment-evidence-head">
+                        <span>{t("Evidence chain", "EVIDENCE CHAIN")}</span>
+                        <small>
+                          {t(
+                            `${item.validationType} · ${item.sourceCount} 个账号`,
+                            `${
+                              item.validationType === "跨平台验证"
+                                ? "Cross-platform"
+                                : "Multi-source"
+                            } · ${item.sourceCount} sources`,
+                          )}
+                        </small>
+                      </div>
+                      {item.evidence.map((evidence) => (
+                        <a
+                          href={evidence.url}
+                          target="_blank"
+                          rel="noreferrer"
+                          key={evidence.url}
+                        >
+                          <span className="investment-source-mark">
+                            {shortKind(evidence.sourceKind)}
+                          </span>
+                          <div>
+                            <strong>{evidence.sourceName}</strong>
+                            <p>{evidence.takeaway}</p>
+                          </div>
+                          <i>↗</i>
+                        </a>
+                      ))}
+                    </div>
+
+                    <footer className="investment-card-footer">
+                      <span className={`stance-badge stance-${stanceTone}`}>
+                        {item.stance}
+                      </span>
+                      <span>
+                        {t(
+                          "非投资建议 · 持续验证",
+                          "Not investment advice · Ongoing validation",
+                        )}
+                      </span>
+                    </footer>
+                  </article>
+                );
+              })}
             </div>
           </section>
+          )}
 
           <footer className="footer">
             <span>
-              <i className="status-dot" /> 原型数据 · 真实信源连接器尚未启用
+              <i className="status-dot" />{" "}
+              {t(
+                `GPT 分析完成 · 基于 ${dailyRadar.analyzedItemCount} 条高相关内容`,
+                `GPT analysis complete · ${dailyRadar.analyzedItemCount} high-relevance items`,
+              )}
             </span>
-            <span>最后刷新于 2 分钟前</span>
+            <span>
+              {dailyRadar.model} ·{" "}
+              {t(`${analysisTimeLabel} 生成`, `Generated ${analysisTimeLabel}`)}
+            </span>
           </footer>
+            </>
+          )}
         </div>
       </section>
 

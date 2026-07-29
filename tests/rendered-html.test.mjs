@@ -31,28 +31,129 @@ test("server-renders the Signal Radar product shell", async () => {
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
+  const radar = JSON.parse(
+    await readFile(new URL("../data/daily-radar.json", import.meta.url), "utf8"),
+  );
+  const snapshot = JSON.parse(
+    await readFile(new URL("../data/feed-snapshot.json", import.meta.url), "utf8"),
+  );
   assert.match(html, /<title>Signal Radar — AI 科技投资情报雷达<\/title>/i);
   assert.match(html, /今天真正需要知道的/);
   assert.match(html, /必须知道/);
   assert.match(html, /正在升温/);
-  assert.match(html, /投资与公司信号/);
-  assert.match(html, /DEMO DATA/);
+  assert.match(html, /投资 &amp; Company Signals/);
+  assert.match(html, /GPT ANALYZED/);
+  assert.match(html, /language-switch/);
+  assert.match(html, />EN</);
+  assert.match(html, /信源库/);
+  assert.ok(html.includes(snapshot.items.length.toLocaleString()));
+  assert.ok(html.includes(String(snapshot.successfulSources)));
+  assert.ok(html.includes(radar.translations.zh.signals[0].title));
+  assert.match(html, /跨平台验证/);
+  assert.ok(html.includes(radar.translations.zh.signals[0].shiftTo));
+  assert.ok(html.includes(radar.translations.zh.companySignals[0].headline));
+  assert.match(html, /INVESTMENT READ/);
+  assert.match(html, /潜在 catalyst/);
+  assert.match(html, /反证风险/);
+  assert.match(html, /GPT 分析完成/);
   assert.doesNotMatch(html, /codex-preview/);
   assert.doesNotMatch(html, /Your site is taking shape/);
 });
 
 test("removes all disposable starter preview code", async () => {
-  const [page, layout, styles, packageJson] = await Promise.all([
+  const [page, layout, styles, packageJson, sourceLibrary, snapshot, radar] =
+    await Promise.all([
     readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
     readFile(new URL("../package.json", import.meta.url), "utf8"),
+    readFile(new URL("../app/source-library.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../data/feed-snapshot.json", import.meta.url), "utf8"),
+    readFile(new URL("../data/daily-radar.json", import.meta.url), "utf8"),
   ]);
 
   assert.match(page, /Signal Radar/);
-  assert.match(page, /aria-label="搜索情报"/);
+  assert.match(page, /t\("搜索情报", "Search intelligence"\)/);
   assert.match(styles, /prefers-reduced-motion/);
   assert.match(layout, /lang="zh-CN"/);
+  assert.match(sourceLibrary, /JUST FETCHED/);
+  assert.match(sourceLibrary, /Bearer Token/);
+  const snapshotData = JSON.parse(snapshot);
+  assert.equal(snapshotData.totalSources, 159);
+  assert.ok(snapshotData.successfulSources >= 120);
+  assert.ok(snapshotData.items.length > 1000);
+  const repairedBlogIds = new Set([
+    57, 62, 66, 90, 91, 92, 94, 99, 117, 127, 131, 135, 142,
+  ]);
+  assert.ok(
+    snapshotData.statuses
+      .filter((status) => repairedBlogIds.has(status.sourceId))
+      .every(
+        (status) =>
+          status.status === "ok" &&
+          status.itemCount > 0 &&
+          status.feedUrl,
+      ),
+  );
+  assert.equal(JSON.parse(radar).signals.length, 6);
+  assert.ok(JSON.parse(radar).analyzedItemCount > 100);
+  assert.equal(JSON.parse(radar).model, "gpt-5.6-sol");
+  assert.ok(JSON.parse(radar).translations?.zh);
+  assert.ok(JSON.parse(radar).translations?.en);
+  assert.equal(
+    JSON.parse(radar).translations.en.signals.length,
+    JSON.parse(radar).signals.length,
+  );
+  assert.match(
+    JSON.parse(radar).translations.zh.signals[0].summary,
+    /AI coding|Agent|token|context|cache|workflow|moat/i,
+  );
+  assert.ok(JSON.parse(radar).translations.en.signals[0].title);
+  assert.ok(
+    JSON.parse(radar).signals.filter((signal) => signal.sourceCount >= 2)
+      .length >= 4,
+  );
+  assert.ok(
+    JSON.parse(radar).signals.every(
+      (signal) =>
+        signal.shiftFrom &&
+        signal.shiftTo &&
+        signal.crossValidation &&
+        signal.evidence.length,
+    ),
+  );
+  assert.equal(JSON.parse(radar).companySignals.length, 3);
+  assert.ok(
+    JSON.parse(radar).companySignals.every(
+      (signal) =>
+        signal.sourceCount >= 2 &&
+        signal.investmentRead &&
+        signal.catalyst &&
+        signal.risk &&
+        signal.watchNext &&
+        signal.evidence.length >= 2,
+    ),
+  );
+  assert.equal(JSON.parse(radar).exploreSignals.length, 8);
+  assert.ok(
+    new Set(
+      JSON.parse(radar).exploreSignals.map((signal) => signal.category),
+    ).size >= 6,
+  );
+  assert.ok(
+    JSON.parse(radar).exploreSignals.filter(
+      (signal) => signal.label === "高风险高潜",
+    ).length >= 2,
+  );
+  assert.ok(
+    JSON.parse(radar).exploreSignals.filter(
+      (signal) => signal.sourceCount >= 2,
+    ).length >= 5,
+  );
+  assert.match(page, /explore-grid/);
+  assert.match(page, /signal-radar-locale/);
+  assert.match(page, /SourceLibrary locale=\{locale\}/);
+  assert.match(page, /最强 counterpoint/);
   assert.doesNotMatch(page, /SkeletonPreview|codex-preview/);
   assert.doesNotMatch(layout, /Starter Project|codex-preview/);
   assert.doesNotMatch(packageJson, /react-loading-skeleton/);
