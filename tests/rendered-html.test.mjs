@@ -116,6 +116,10 @@ test("removes all disposable starter preview code", async () => {
   assert.match(sourceCatalog, /UC9cn0TuPq4dnbTY-CBsm8XA/);
   assert.match(
     sourceCatalog,
+    /SAIR Foundation[\s\S]*UC7Ali6YE6lik1w8MS7Hr55Q/,
+  );
+  assert.match(
+    sourceCatalog,
     /a16z Newsletter[\s\S]*feedUrl: "https:\/\/www\.a16z\.news\/feed"/,
   );
   assert.match(sourceCatalog, /host === "www\.a16z\.news"/);

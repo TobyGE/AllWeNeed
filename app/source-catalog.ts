@@ -183,4 +183,5 @@ export const sourceCatalog: SourceItem[] = [
   { id: 158, name: "Hacker News", description: "Hacker News 每日高质量 Best stories。", url: "https://news.ycombinator.com/best" },
   { id: 159, name: "Product Hunt", description: "Product Hunt 每日 Top 新产品。", url: "https://www.producthunt.com/" },
   { id: 160, name: "a16z Newsletter", description: "a16z 的公开 Newsletter，涵盖 AI、科技、创业、投资与客座专家观点。", url: "https://www.a16z.news", feedUrl: "https://www.a16z.news/feed" },
+  { id: 161, name: "SAIR Foundation", description: "Science & AI Research Foundation 官方频道，发布 On The SAIR、AI for Science、数学与科学研究访谈。", url: "https://www.youtube.com/channel/UC7Ali6YE6lik1w8MS7Hr55Q" },
 ];
