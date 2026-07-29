@@ -228,6 +228,7 @@ test("includes a single-source feed story without changing an old article", () =
   const raw = {
     feedStories: [
       {
+        bucket: "dynamic",
         priority: 95,
         signal: {
           category: "宏观",
@@ -275,6 +276,7 @@ test("includes a single-source feed story without changing an old article", () =
     generatedAt: "2026-07-29T19:00:00.000Z",
   });
   assert.equal(hydratedStories.length, 1);
+  assert.equal(hydratedStories[0].signal.editorialBucket, "dynamic");
   assert.equal(hydratedStories[0].signal.validationType, "单一来源");
   assert.equal(
     hydratedStories[0].signal.publishedAt,

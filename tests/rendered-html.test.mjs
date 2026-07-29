@@ -52,7 +52,13 @@ test("server-renders the Signal Radar product shell", async () => {
   assert.match(html, /信源库/);
   assert.ok(html.includes(snapshot.items.length.toLocaleString()));
   assert.ok(html.includes(String(snapshot.successfulSources)));
-  assert.ok(html.includes(radar.translations.zh.signals[0].title));
+  const firstDynamicIndex = radar.signals.findIndex(
+    (signal) => signal.editorialBucket === "dynamic",
+  );
+  assert.ok(firstDynamicIndex >= 0);
+  assert.ok(html.includes(radar.translations.zh.signals[firstDynamicIndex].title));
+  assert.match(html, /11(?:<!-- -->)? 条动态/);
+  assert.doesNotMatch(html, /30 个信号|30 signals|30 条动态|30 updates/);
   assert.match(html, /href="\?article=1"/);
   assert.match(html, /跨平台验证/);
   assert.ok(!html.includes(radar.translations.zh.signals[0].shiftTo));
@@ -178,6 +184,31 @@ test("removes all disposable starter preview code", async () => {
       ),
   );
   assert.ok(JSON.parse(radar).signals.length >= 6);
+  const editorialCounts = JSON.parse(radar).signals.reduce(
+    (counts, signal) => {
+      counts[signal.editorialBucket] =
+        (counts[signal.editorialBucket] ?? 0) + 1;
+      return counts;
+    },
+    {},
+  );
+  assert.deepEqual(editorialCounts, {
+    archive: 12,
+    dynamic: 11,
+    explore: 7,
+  });
+  assert.ok(
+    JSON.parse(radar).signals.every((signal) =>
+      ["dynamic", "explore", "archive"].includes(signal.editorialBucket),
+    ),
+  );
+  assert.deepEqual(
+    JSON.parse(radar).signals
+      .filter((signal) => signal.permanent)
+      .map((signal) => signal.id)
+      .sort((left, right) => left - right),
+    [1, 2, 3, 4, 5, 6, 7, 8],
+  );
   assert.ok(JSON.parse(radar).analyzedItemCount > 100);
   assert.ok(
     ["gpt-5.6-sol", "gpt-5.5"].includes(JSON.parse(radar).model),

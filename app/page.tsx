@@ -29,6 +29,8 @@ type SignalUpdate = {
 
 type Signal = {
   id: number;
+  editorialBucket: "dynamic" | "explore" | "archive";
+  permanent?: boolean;
   publishedAt?: string | null;
   updatedAt?: string | null;
   category: string;
@@ -88,12 +90,12 @@ type ExploreSignal = {
 };
 
 const signals = dailyRadar.signals as Signal[];
-const exploreSignals = dailyRadar.exploreSignals as ExploreSignal[];
+const dynamicSignals = signals.filter(
+  (signal) => signal.editorialBucket === "dynamic",
+);
+const curatedExploreSignals = dailyRadar.exploreSignals as ExploreSignal[];
 const coveredKinds = [
-  ...new Set(signals.flatMap((signal) => signal.sources)),
-];
-const exploreKinds = [
-  ...new Set(exploreSignals.flatMap((signal) => signal.sourceKinds)),
+  ...new Set(dynamicSignals.flatMap((signal) => signal.sources)),
 ];
 const configuredKindCounts = sourceCatalog.reduce<Record<string, number>>(
   (counts, source) => {
@@ -213,9 +215,17 @@ export default function Home() {
     [languageCopy],
   );
 
-  const localizedExploreSignals = useMemo(
+  const localizedDynamicSignals = useMemo(
     () =>
-      exploreSignals.map((signal, index) => {
+      localizedSignals.filter(
+        (signal) => signal.editorialBucket === "dynamic",
+      ),
+    [localizedSignals],
+  );
+
+  const localizedCuratedExploreSignals = useMemo(
+    () =>
+      curatedExploreSignals.map((signal, index) => {
         const translated = languageCopy.exploreSignals[index];
         return {
           ...signal,
@@ -239,6 +249,79 @@ export default function Home() {
         };
       }),
     [languageCopy],
+  );
+
+  const localizedExploreSignals = useMemo(() => {
+    const tones: ExploreSignal["tone"][] = [
+      "violet",
+      "cyan",
+      "amber",
+      "coral",
+    ];
+    const storySignals = localizedSignals
+      .filter((signal) => signal.editorialBucket === "explore")
+      .map((signal, index) => ({
+        id: String(signal.id),
+        category: signal.category,
+        categoryKey: signal.categoryKey,
+        label: signal.permanent
+          ? locale === "zh"
+            ? "永久"
+            : "Permanent"
+          : signal.eyebrow,
+        title: signal.title,
+        thesis: signal.summary,
+        whyNow: signal.why,
+        counterpoint: signal.impact,
+        horizon: signal.permanent
+          ? locale === "zh"
+            ? "长期保留"
+            : "Long term"
+          : locale === "zh"
+            ? "持续追踪"
+            : "Ongoing",
+        confidence:
+          signal.score >= 90
+            ? locale === "zh"
+              ? "高"
+              : "High"
+            : signal.score >= 80
+              ? locale === "zh"
+                ? "中高"
+                : "Medium-high"
+              : locale === "zh"
+                ? "中"
+                : "Medium",
+        validationType: signal.validationType,
+        sourceNames: signal.sourceNames,
+        sourceKinds: signal.sources,
+        sourceCount: signal.sourceCount,
+        tone: tones[index % tones.length],
+        crossValidation: signal.crossValidation,
+        article: signal.article,
+        evidence: signal.evidence,
+      }));
+    const storyEvidenceUrls = new Set(
+      storySignals.flatMap((signal) =>
+        signal.evidence.map((evidence) => evidence.url),
+      ),
+    );
+    const deduplicatedCurated = localizedCuratedExploreSignals.filter(
+      (signal) =>
+        !signal.evidence.some((evidence) =>
+          storyEvidenceUrls.has(evidence.url),
+        ),
+    );
+    return [...storySignals, ...deduplicatedCurated];
+  }, [locale, localizedCuratedExploreSignals, localizedSignals]);
+
+  const exploreKinds = useMemo(
+    () => [
+      ...new Set(
+        localizedExploreSignals.flatMap((signal) => signal.sourceKinds),
+      ),
+    ],
+    [localizedExploreSignals],
   );
 
   const localizedTrends = dailyRadar.trends.map((trend, index) => ({
@@ -273,7 +356,7 @@ export default function Home() {
 
   const visibleSignals = useMemo(() => {
     const normalized = query.trim().toLowerCase();
-    return localizedSignals.filter((signal) => {
+    return localizedDynamicSignals.filter((signal) => {
       const matchesCategory =
         activeCategory === "全部" || signal.categoryKey === activeCategory;
       const matchesQuery =
@@ -283,7 +366,7 @@ export default function Home() {
           .includes(normalized);
       return matchesCategory && matchesQuery;
     });
-  }, [activeCategory, localizedSignals, query]);
+  }, [activeCategory, localizedDynamicSignals, query]);
 
   const visibleExploreSignals = useMemo(() => {
     const normalized = query.trim().toLowerCase();
@@ -300,18 +383,19 @@ export default function Home() {
   }, [activeCategory, localizedExploreSignals, query]);
 
   const activeCategories = useMemo(() => {
-    const baseItems = view === "explore" ? exploreSignals : signals;
     const displayItems =
-      view === "explore" ? localizedExploreSignals : localizedSignals;
+      view === "explore"
+        ? localizedExploreSignals
+        : localizedDynamicSignals;
     const labels = new Map<string, string>();
-    baseItems.forEach((item, index) => {
-      labels.set(item.category, displayItems[index].category);
+    displayItems.forEach((item) => {
+      labels.set(item.categoryKey, item.category);
     });
     return [
       { value: "全部", label: t("全部", "All") },
       ...[...labels].map(([value, label]) => ({ value, label })),
     ];
-  }, [locale, localizedExploreSignals, localizedSignals, view]);
+  }, [locale, localizedDynamicSignals, localizedExploreSignals, view]);
 
   function toggleExpanded(id: number) {
     setExpanded((items) =>
@@ -367,23 +451,9 @@ export default function Home() {
     window.scrollTo({ top: 0, behavior: "instant" });
   }
 
-  const activeArticle = localizedSignals.find(
-    (signal) => String(signal.id) === articleId,
-  );
   const activeExploreArticle = localizedExploreSignals.find(
     (signal) => signal.id === articleId,
   );
-  if (activeArticle) {
-    return (
-      <ArticleView
-        signal={activeArticle}
-        locale={locale}
-        generatedAt={dailyRadar.generatedAt}
-        onLocaleChange={setLocale}
-        onBack={closeArticle}
-      />
-    );
-  }
   if (activeExploreArticle) {
     return (
       <ArticleView
@@ -415,6 +485,20 @@ export default function Home() {
       />
     );
   }
+  const activeArticle = localizedSignals.find(
+    (signal) => String(signal.id) === articleId,
+  );
+  if (activeArticle) {
+    return (
+      <ArticleView
+        signal={activeArticle}
+        locale={locale}
+        generatedAt={dailyRadar.generatedAt}
+        onLocaleChange={setLocale}
+        onBack={closeArticle}
+      />
+    );
+  }
 
   return (
     <main className="app-shell">
@@ -438,7 +522,7 @@ export default function Home() {
           >
             <span aria-hidden="true">⌁</span>
             {t("最新动态", "Latest Updates")}
-            <span className="nav-count">{signals.length}</span>
+            <span className="nav-count">{dynamicSignals.length}</span>
           </button>
           <button
             className={`nav-item ${section === "radar" && view === "explore" ? "active" : ""}`}
@@ -451,6 +535,7 @@ export default function Home() {
           >
             <span aria-hidden="true">◎</span>
             {t("探索", "Explore")}
+            <span className="nav-count">{localizedExploreSignals.length}</span>
           </button>
           <button
             className={`nav-item ${section === "sources" ? "active" : ""}`}
@@ -663,11 +748,12 @@ export default function Home() {
                     <br />
                     {locale === "zh" ? (
                       <>
-                        已形成 <span>{signals.length} 个信号</span>
+                        已形成 <span>{dynamicSignals.length} 条动态</span>
                       </>
                     ) : (
                       <>
-                        worth watching: <span>{signals.length} signals</span>
+                        worth watching:{" "}
+                        <span>{dynamicSignals.length} updates</span>
                       </>
                     )}
                   </>
@@ -677,11 +763,12 @@ export default function Home() {
                     <br />
                     {locale === "zh" ? (
                       <>
-                        发现 <span>{exploreSignals.length} 种可能</span>
+                        发现 <span>{localizedExploreSignals.length} 种可能</span>
                       </>
                     ) : (
                       <>
-                        Explore <span>{exploreSignals.length} possibilities</span>
+                        Explore{" "}
+                        <span>{localizedExploreSignals.length} possibilities</span>
                       </>
                     )}
                   </>
@@ -709,7 +796,11 @@ export default function Home() {
                 <span className="score-ring">
                   {view === "brief"
                     ? dailyRadar.signalQuality
-                    : new Set(exploreSignals.map((signal) => signal.category)).size}
+                    : new Set(
+                        localizedExploreSignals.map(
+                          (signal) => signal.categoryKey,
+                        ),
+                      ).size}
                 </span>
                 <span>
                   {view === "brief"
@@ -726,8 +817,8 @@ export default function Home() {
                           } baseline`,
                         )
                       : t(
-                          `${exploreSignals.filter((signal) => signal.label === "高风险高潜").length} 条高风险高潜`,
-                          `${exploreSignals.filter((signal) => signal.label === "高风险高潜").length} high-risk / high-upside`,
+                          `${localizedExploreSignals.length} 个持续追踪方向`,
+                          `${localizedExploreSignals.length} ongoing directions`,
                         )}
                   </small>
                 </span>
@@ -834,6 +925,11 @@ export default function Home() {
                       <div className="signal-content">
                         <div className="signal-meta">
                           <span className="eyebrow">{signal.eyebrow}</span>
+                          {signal.permanent && (
+                            <span className="permanent-badge">
+                              {t("永久", "Permanent")}
+                            </span>
+                          )}
                           <span>{signal.category}</span>
                           <span>·</span>
                           <span>

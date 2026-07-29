@@ -151,6 +151,61 @@ function parseFeed(xml, source, feedUrl) {
   });
 }
 
+export function extractFedReleaseSummary(html) {
+  const contentBlocks = [
+    ...html.matchAll(
+      /<div class=["']col-xs-12 col-sm-8 col-md-8["']>([\s\S]*?)<\/div>/gi,
+    ),
+  ]
+    .map((match) =>
+      [...match[1].matchAll(/<p(?:\s[^>]*)?>([\s\S]*?)<\/p>/gi)]
+        .map((paragraph) => cleanText(paragraph[1]))
+        .filter(
+          (paragraph) =>
+            paragraph &&
+            !paragraph.startsWith("For media inquiries") &&
+            !paragraph.startsWith("Implementation Note"),
+        )
+        .join(" "),
+    )
+    .filter(Boolean);
+  return contentBlocks.sort((left, right) => right.length - left.length)[0] ?? "";
+}
+
+async function enrichOfficialFeedItems(items, kind) {
+  if (kind !== "Fed") return items;
+
+  let hydratedCount = 0;
+  const hydrated = [];
+  for (const item of items) {
+    const shouldHydrate =
+      hydratedCount < 3 &&
+      /FOMC statement/i.test(item.title) &&
+      item.summary.length <= item.title.length + 24;
+    if (!shouldHydrate) {
+      hydrated.push(item);
+      continue;
+    }
+
+    try {
+      const page = await fetchText(item.url, 12_000);
+      const summary = extractFedReleaseSummary(page.text);
+      hydrated.push(
+        summary
+          ? {
+              ...item,
+              summary: summary.slice(0, 1_600),
+            }
+          : item,
+      );
+      hydratedCount += 1;
+    } catch {
+      hydrated.push(item);
+    }
+  }
+  return hydrated;
+}
+
 function parseYouTubeRelativeDate(value) {
   if (!value) return null;
   const match = value.match(
@@ -508,6 +563,52 @@ function secFilingUrl(cik, accessionNumber, primaryDocument) {
   return `https://www.sec.gov/Archives/edgar/data/${cikWithoutLeadingZeros}/${accessionPath}/${primaryDocument}`;
 }
 
+function secFilingIndexUrl(cik, accessionNumber) {
+  const cikWithoutLeadingZeros = String(Number(cik));
+  const accessionPath = accessionNumber.replaceAll("-", "");
+  return `https://www.sec.gov/Archives/edgar/data/${cikWithoutLeadingZeros}/${accessionPath}/${accessionNumber}-index.htm`;
+}
+
+export function extractSecExhibitLink(indexHtml, indexUrl) {
+  const rows = [
+    ...indexHtml.matchAll(/<tr(?:\s[^>]*)?>([\s\S]*?)<\/tr>/gi),
+  ];
+  for (const row of rows) {
+    if (!/\bEX-99\.1\b/i.test(cleanText(row[1]))) continue;
+    const href = row[1].match(/href=["']([^"']+)["']/i)?.[1];
+    if (href) return absoluteUrl(href, indexUrl);
+  }
+  return null;
+}
+
+export function extractEarningsReleaseSummary(html) {
+  const text = cleanText(html);
+  if (!text) return "";
+  const highlightIndex = text.search(/Financial Highlights/i);
+  const resultIndex = text.search(/reported financial results/i);
+  const start =
+    highlightIndex >= 0
+      ? Math.max(0, highlightIndex - 240)
+      : resultIndex >= 0
+        ? Math.max(0, resultIndex - 160)
+        : 0;
+  const financialExcerpt = text.slice(start, start + 1_350);
+  const outlookIndex = text.search(/CFO Outlook Commentary|Business Outlook/i);
+  const outlookExcerpt =
+    outlookIndex >= 0 ? text.slice(outlookIndex, outlookIndex + 850) : "";
+  return cleanText(`${financialExcerpt} ${outlookExcerpt}`).slice(0, 2_200);
+}
+
+async function fetchSecEarningsExhibit(source, accessionNumber) {
+  const indexUrl = secFilingIndexUrl(source.secCik, accessionNumber);
+  const indexResponse = await fetchSecText(indexUrl, 25_000);
+  const exhibitUrl = extractSecExhibitLink(indexResponse.text, indexUrl);
+  if (!exhibitUrl) return null;
+  const exhibitResponse = await fetchSecText(exhibitUrl, 25_000);
+  const summary = extractEarningsReleaseSummary(exhibitResponse.text);
+  return summary ? { summary, url: exhibitUrl } : null;
+}
+
 function secDuration(entry) {
   if (!entry.start || !entry.end) return null;
   const duration = Date.parse(entry.end) - Date.parse(entry.start);
@@ -645,6 +746,7 @@ async function fetchSecSource(source) {
     }
 
     const items = [];
+    let earningsExhibitFetched = false;
     for (
       let index = 0;
       index < recent.form.length && items.length < itemsPerSource;
@@ -663,9 +765,31 @@ async function fetchSecSource(source) {
       const metrics = companyFacts
         ? extractSecMetrics(companyFacts, accessionNumber, form)
         : [];
+      let earningsExhibit = null;
+      if (
+        !earningsExhibitFetched &&
+        form.replace(/\/A$/, "") === "8-K" &&
+        filingItems
+          .split(",")
+          .map((item) => item.trim())
+          .includes("2.02")
+      ) {
+        earningsExhibitFetched = true;
+        try {
+          earningsExhibit = await fetchSecEarningsExhibit(
+            source,
+            accessionNumber,
+          );
+        } catch {
+          // XBRL and filing metadata remain usable when an exhibit is blocked.
+        }
+      }
       const itemDetails = filingItems ? ` SEC items ${filingItems}.` : "";
       const metricDetails = metrics.length
         ? ` Reported XBRL facts: ${metrics.join("; ")}.`
+        : "";
+      const exhibitDetails = earningsExhibit?.summary
+        ? ` Earnings release: ${earningsExhibit.summary}`
         : "";
       const tickerLabel = source.ticker ? `${source.ticker} ` : "";
 
@@ -685,8 +809,11 @@ async function fetchSecSource(source) {
           normalizeDate(recent.acceptanceDateTime?.[index]) ??
           normalizeDate(filingDate),
         summary: cleanText(
-          `${payload.name} filed ${form} with the SEC for the period ended ${reportDate}.${itemDetails}${metricDetails}`,
-        ).slice(0, 420),
+          `${payload.name} filed ${form} with the SEC for the period ended ${reportDate}.${itemDetails}${metricDetails}${exhibitDetails}`,
+        ).slice(0, 2_400),
+        ...(earningsExhibit?.url
+          ? { attachmentUrl: earningsExhibit.url }
+          : {}),
         fetchedAt: checkedAt,
       });
     }
@@ -795,7 +922,10 @@ async function fetchFeedSource(source) {
               ),
             };
           }
-          const items = parseFeed(result.text, source, result.finalUrl);
+          const items = await enrichOfficialFeedItems(
+            parseFeed(result.text, source, result.finalUrl),
+            kind,
+          );
           if (looksLikeFeed(result.text, result.contentType)) {
             return {
               items,
@@ -885,7 +1015,10 @@ async function fetchFeedSource(source) {
     }
 
     if (looksLikeFeed(homepage.text, homepage.contentType)) {
-      const items = parseFeed(homepage.text, source, homepage.finalUrl);
+      const items = await enrichOfficialFeedItems(
+        parseFeed(homepage.text, source, homepage.finalUrl),
+        kind,
+      );
       return {
         items,
         status: successStatus(source, homepage.finalUrl, items.length, {
@@ -906,7 +1039,10 @@ async function fetchFeedSource(source) {
       try {
         const result = await fetchText(candidate, 8_000);
         if (!looksLikeFeed(result.text, result.contentType)) continue;
-        const items = parseFeed(result.text, source, result.finalUrl);
+        const items = await enrichOfficialFeedItems(
+          parseFeed(result.text, source, result.finalUrl),
+          kind,
+        );
         return {
           items,
           status: successStatus(source, result.finalUrl, items.length, {

@@ -171,14 +171,17 @@ function buildPrompt({ candidates, radar, scannedSnapshot }) {
 
   return `你是 Signal Radar 持续信息流的增量编辑。这里没有“日报”或日期版次；你只能处理本次新增条目，不得重写旧稿。
 
-任务：把每一条有效新增内容收录进 Radar Feed。先把讲同一件事的新增条目聚成一个事件，再为每个事件写一篇完整站内稿件。重要性只决定 priority 和展示顺序，绝不能成为拒绝收录的理由。
+任务：逐条处理本次新增内容，先聚合同一事件，再按照编辑价值决定进入“动态”、进入“探索”，或归档不展示。处理过但未入选的条目不会在以后重新候选，因此每个 ref 都必须有明确去向。
 
 收录规则：
-- 每个有效 ref 必须且只能出现在一个 feedStory 的 evidence 中。
+- 每个 ref 必须且只能出现在一个 feedStory、existingUpdate 或 ignored 中。
+- bucket=dynamic 只用于已经发生的明确状态变化：发布、财报、监管、融资、产品上线、政策决定或有实质新证据的事件。必须有足够正文和可核验事实；官方一手来源可以单独成立。
+- bucket=explore 用于有清晰 thesis、二阶影响、跨界连接或值得持续验证的非共识判断。不能只是把单篇内容换句话复述。
+- 内容单薄、题目党、未经验证的规模数字、过窄教程、个人随感、与 Radar 重点弱相关的条目放进 ignored，并在 reason 前加“归档：”。“已处理”不等于“必须发布”。
 - 单一 Blog、YouTube、Newsletter、Fed 或 SEC 来源都允许收录，并标为“单一来源”；出现更多独立来源时再做 cross-validation。
 - 多条新增内容讲同一事件时合并成一篇稿件，逐项列出不同来源提供的事实或观点。
 - 若新增内容只是在佐证现有事件，或为现有事件补充了后续进展，放进 existingUpdates，追加“最新进展”和新 evidence；不得重写旧稿正文。只有出现可独立理解的新事件时才新建 feedStory。
-- 只有完全重复、无有效正文、广告垃圾或明显偏离 AI/科技/投资主题的条目才可放进 ignored，并必须写明原因。不得因为“不够重大”而忽略。
+- Fed statement 若没有利率决定、投票和关键措辞，SEC 业绩文件若只有 filing metadata 而没有财务数字或附件正文，不得生成稿件；放进 ignored 并注明“等待官方正文 enrichment”，留给后续新证据更新。
 - SEC 财报不得在没有一致预期数据时声称 beat/miss。
 - 所有事实和数字必须来自 evidence；编辑判断必须使用审慎语气。
 - 每条都要提供完整中文稿和英文稿，专有名词保持原文。
@@ -191,6 +194,7 @@ ${existingTitles}
 {
   "feedStories": [
     {
+      "bucket": "dynamic|explore",
       "priority": 0,
       "signal": {
         "category": "AI & 模型|Agents|算力|投资|科技|宏观",
@@ -262,7 +266,7 @@ ${existingTitles}
     }
   ],
   "ignored": [
-    {"ref": "N1", "reason": "只允许：完全重复、无有效正文、广告垃圾或主题无关"}
+    {"ref": "N1", "reason": "归档：具体编辑判断，或完全重复/无正文/垃圾内容"}
   ]
 }
 
@@ -296,7 +300,7 @@ async function callSubscriptionModel({ model, prompt, accessToken, accountId }) 
     body: JSON.stringify({
       model,
       instructions:
-        "Include every valid new source item in the continuous feed. Priority affects ordering, never admission. Return only valid JSON.",
+        "Classify every new source item exactly once. Publish only qualified dynamic events or substantive explore theses; archive weak items. Return only valid JSON.",
       input: [
         {
           role: "user",
@@ -475,6 +479,11 @@ export function hydrateFeedStories({
   const hydrated = [];
 
   for (const event of events) {
+    if (!["dynamic", "explore"].includes(event?.bucket)) {
+      throw new Error(
+        `feedStory ${event?.signal?.title ?? "untitled"} has invalid editorial bucket`,
+      );
+    }
     const titleKey = normalizeTitle(event.signal?.title);
     if (!titleKey || existingTitles.has(titleKey)) continue;
 
@@ -504,6 +513,7 @@ export function hydrateFeedStories({
     const id = nextId + hydrated.length + 1;
     const signal = {
       id,
+      editorialBucket: event.bucket,
       category: cleanText(event.signal.category),
       eyebrow: cleanText(event.signal.eyebrow),
       title: cleanText(event.signal.title).slice(0, 100),
