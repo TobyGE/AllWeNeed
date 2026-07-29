@@ -103,7 +103,7 @@ test("removes all disposable starter preview code", async () => {
   assert.match(sourceLibrary, /刚刚抓取/);
   assert.match(sourceLibrary, /官方 API 凭证/);
   const snapshotData = JSON.parse(snapshot);
-  assert.equal(snapshotData.totalSources, 159);
+  assert.equal(snapshotData.totalSources, snapshotData.statuses.length);
   assert.ok(snapshotData.successfulSources >= 120);
   assert.ok(snapshotData.items.length > 1000);
   assert.equal(
@@ -114,6 +114,13 @@ test("removes all disposable starter preview code", async () => {
   );
   assert.match(sourceCatalog, /UCXl4i9dYBrFOabk0xGmbkRA/);
   assert.match(sourceCatalog, /UC9cn0TuPq4dnbTY-CBsm8XA/);
+  assert.match(
+    sourceCatalog,
+    /a16z Newsletter[\s\S]*feedUrl: "https:\/\/www\.a16z\.news\/feed"/,
+  );
+  assert.match(sourceCatalog, /host === "www\.a16z\.news"/);
+  assert.doesNotMatch(page, /nav-count">159/);
+  assert.doesNotMatch(sourceLibrary, /All 159 Sources|全部 159 个信源/);
   assert.match(
     sourceCatalog,
     /Chris Siebenmann[\s\S]*feedUrl: "https:\/\/utcc\.utoronto\.ca\/~cks\/space\/blog\/\?atom"/,

@@ -408,7 +408,6 @@ export default function Home() {
           >
             <span aria-hidden="true">◇</span>
             {t("信源库", "Sources")}
-            <span className="nav-count">159</span>
           </button>
           <button
             className="nav-item"

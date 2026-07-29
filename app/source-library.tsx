@@ -219,7 +219,7 @@ export function SourceLibrary({
         <div className="section-heading catalog-heading">
           <div>
             <span className="section-kicker">{t("全部信源", "ALL SOURCES")}</span>
-            <h2>{t("全部 159 个信源", "All 159 Sources")}</h2>
+            <h2>{t("完整信源目录", "Complete Source Catalog")}</h2>
           </div>
           <label className="catalog-search">
             <span>⌕</span>

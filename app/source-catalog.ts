@@ -12,7 +12,13 @@ export function getSourceKind(url: string): SourceKind {
   const host = new URL(url).hostname;
   if (host.includes("youtube.com")) return "YouTube";
   if (host === "x.com") return "X";
-  if (host.includes("substack.com")) return "Newsletter";
+  if (
+    host.includes("substack.com") ||
+    host === "a16z.news" ||
+    host === "www.a16z.news"
+  ) {
+    return "Newsletter";
+  }
   return "Blog";
 }
 
@@ -176,4 +182,5 @@ export const sourceCatalog: SourceItem[] = [
   { id: 157, name: "Zvi Mowshowitz", description: "全面的每周 AI 新闻分析，结合理性主义评论和政策视角。", url: "https://thezvi.substack.com" },
   { id: 158, name: "Hacker News", description: "Hacker News 每日高质量 Best stories。", url: "https://news.ycombinator.com/best" },
   { id: 159, name: "Product Hunt", description: "Product Hunt 每日 Top 新产品。", url: "https://www.producthunt.com/" },
+  { id: 160, name: "a16z Newsletter", description: "a16z 的公开 Newsletter，涵盖 AI、科技、创业、投资与客座专家观点。", url: "https://www.a16z.news", feedUrl: "https://www.a16z.news/feed" },
 ];
