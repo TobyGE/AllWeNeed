@@ -53,7 +53,8 @@ test("server-renders the Signal Radar product shell", async () => {
   assert.ok(html.includes(radar.translations.zh.signals[0].title));
   assert.match(html, /href="\?article=1"/);
   assert.match(html, /跨平台验证/);
-  assert.ok(html.includes(radar.translations.zh.signals[0].shiftTo));
+  assert.ok(!html.includes(radar.translations.zh.signals[0].shiftTo));
+  assert.match(html, />预览</);
   assert.ok(html.includes(radar.translations.zh.companySignals[0].headline));
   assert.match(html, /投资解读/);
   assert.match(html, /潜在催化因素/);
@@ -256,6 +257,19 @@ test("removes all disposable starter preview code", async () => {
   assert.match(page, /kind="explore"/);
   assert.match(page, /function StoryLinkIcon/);
   assert.equal(page.match(/<StoryLinkIcon \/>/g)?.length, 2);
+  assert.match(
+    page,
+    /const \[expanded, setExpanded\] = useState<number\[]>\(\[\]\)/,
+  );
+  assert.match(
+    page,
+    /const \[expandedExplore, setExpandedExplore\] = useState<string\[]>\(\[\]\)/,
+  );
+  assert.match(page, /function toggleExpandedExplore/);
+  assert.match(page, /id=\{`explore-preview-\$\{signal\.id\}`\}/);
+  assert.equal(page.match(/t\("预览", "Preview"\)/g)?.length, 2);
+  assert.match(styles, /\.explore-card\.explore-featured\.explore-expanded/);
+  assert.match(styles, /\.explore-card-actions \.analysis-toggle/);
   assert.match(articleView, /这篇稿子基于什么/);
   assert.match(articleView, /evidence\.url/);
   assert.match(articleView, /返回探索/);

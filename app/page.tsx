@@ -104,7 +104,8 @@ export default function Home() {
   const [locale, setLocale] = useState<"zh" | "en">("zh");
   const [activeCategory, setActiveCategory] = useState("全部");
   const [query, setQuery] = useState("");
-  const [expanded, setExpanded] = useState<number[]>([1]);
+  const [expanded, setExpanded] = useState<number[]>([]);
+  const [expandedExplore, setExpandedExplore] = useState<string[]>([]);
   const [saved, setSaved] = useState<number[]>([]);
   const [following, setFollowing] = useState<string[]>([]);
   const [view, setView] = useState<"brief" | "explore">("brief");
@@ -281,6 +282,18 @@ export default function Home() {
     );
   }
 
+  function toggleExpandedExplore(id: string) {
+    setExpandedExplore((items) =>
+      items.includes(id) ? items.filter((item) => item !== id) : [...items, id],
+    );
+  }
+
+  function switchView(nextView: "brief" | "explore") {
+    setView(nextView);
+    setExpanded([]);
+    setExpandedExplore([]);
+  }
+
   function toggleSaved(id: number) {
     setSaved((items) =>
       items.includes(id) ? items.filter((item) => item !== id) : [...items, id],
@@ -358,7 +371,7 @@ export default function Home() {
         kind="explore"
         onLocaleChange={setLocale}
         onBack={() => {
-          setView("explore");
+          switchView("explore");
           closeArticle();
         }}
       />
@@ -381,7 +394,7 @@ export default function Home() {
             type="button"
             onClick={() => {
               setSection("radar");
-              setView("brief");
+              switchView("brief");
               setActiveCategory("全部");
             }}
           >
@@ -394,7 +407,7 @@ export default function Home() {
             type="button"
             onClick={() => {
               setSection("radar");
-              setView("explore");
+              switchView("explore");
               setActiveCategory("全部");
             }}
           >
@@ -691,7 +704,7 @@ export default function Home() {
                 type="button"
                 className={view === "brief" ? "selected" : ""}
                 onClick={() => {
-                  setView("brief");
+                  switchView("brief");
                   setActiveCategory("全部");
                 }}
               >
@@ -701,7 +714,7 @@ export default function Home() {
                 type="button"
                 className={view === "explore" ? "selected" : ""}
                 onClick={() => {
-                  setView("explore");
+                  switchView("explore");
                   setActiveCategory("全部");
                 }}
               >
@@ -799,7 +812,10 @@ export default function Home() {
                         <p className="signal-summary">{signal.summary}</p>
 
                         {isExpanded && (
-                          <div className="signal-analysis">
+                          <div
+                            className="signal-analysis"
+                            id={`brief-preview-${signal.id}`}
+                          >
                             <div className="signal-shift">
                               <div>
                                 <span>{t("此前", "BEFORE")}</span>
@@ -908,10 +924,11 @@ export default function Home() {
                               className="analysis-toggle"
                               onClick={() => toggleExpanded(signal.id)}
                               aria-expanded={isExpanded}
+                              aria-controls={`brief-preview-${signal.id}`}
                             >
                               {isExpanded
-                                ? t("收起", "Close")
-                                : t("速览", "Quick view")}
+                                ? t("收起", "Collapse")
+                                : t("预览", "Preview")}
                             </button>
                             <span className="signal-score">
                               <i style={{ width: `${signal.score}%` }} />
@@ -962,98 +979,127 @@ export default function Home() {
               </div>
               ) : (
                 <div className="explore-grid">
-                  {visibleExploreSignals.map((signal, index) => (
-                    <article
-                      className={`explore-card explore-tone-${signal.tone} ${
-                        index === 0 ? "explore-featured" : ""
-                      }`}
-                      key={signal.id}
-                    >
-                      <div className="explore-card-top">
-                        <span className="explore-number">0{index + 1}</span>
-                        <span className="explore-category">{signal.category}</span>
-                        <span className="explore-label">{signal.label}</span>
-                      </div>
-
-                      <h3>
-                        <a
-                          href={`?article=${signal.id}`}
-                          onClick={(event) => {
-                            event.preventDefault();
-                            openArticle(signal.id);
-                          }}
-                        >
-                          <span>{signal.title}</span>
-                          <StoryLinkIcon />
-                        </a>
-                      </h3>
-                      <p className="explore-thesis">{signal.thesis}</p>
-
-                      <div className="explore-reasoning">
-                        <div>
-                          <span>{t("为什么是现在", "WHY NOW")}</span>
-                          <p>{signal.whyNow}</p>
+                  {visibleExploreSignals.map((signal, index) => {
+                    const isExpanded = expandedExplore.includes(signal.id);
+                    return (
+                      <article
+                        className={`explore-card explore-tone-${signal.tone} ${
+                          index === 0 ? "explore-featured" : ""
+                        } ${isExpanded ? "explore-expanded" : ""}`}
+                        key={signal.id}
+                      >
+                        <div className="explore-card-top">
+                          <span className="explore-number">0{index + 1}</span>
+                          <span className="explore-category">{signal.category}</span>
+                          <span className="explore-label">{signal.label}</span>
                         </div>
-                        <div className="explore-counterpoint">
-                          <span>
-                            {t("最强反方观点", "STRONGEST COUNTERPOINT")}
-                          </span>
-                          <p>{signal.counterpoint}</p>
-                        </div>
-                      </div>
 
-                      <div className="explore-metrics">
-                        <span>
-                          <small>{t("时间跨度", "HORIZON")}</small>
-                          <strong>{signal.horizon}</strong>
-                        </span>
-                        <span>
-                          <small>{t("置信度", "CONFIDENCE")}</small>
-                          <strong>{signal.confidence}</strong>
-                        </span>
-                        <span>
-                          <small>{t("验证状态", "VALIDATION")}</small>
-                          <strong>
-                            {t(
-                              signal.validationType,
-                              signal.validationType === "跨平台验证"
-                                ? "Cross-platform"
-                                : signal.validationType === "多账号验证"
-                                  ? "Multi-source"
-                                  : "Single source",
-                            )}
-                          </strong>
-                        </span>
-                      </div>
-
-                      <div className="explore-evidence">
-                        <div>
-                          <span>{t("证据路径", "EVIDENCE TRAIL")}</span>
-                          <small>
-                            {t(
-                              `${signal.sourceCount} 个独立账号`,
-                              `${signal.sourceCount} independent sources`,
-                            )}
-                          </small>
-                        </div>
-                        {signal.evidence.map((evidence) => (
+                        <h3>
                           <a
-                            href={evidence.url}
-                            target="_blank"
-                            rel="noreferrer"
-                            key={evidence.url}
+                            href={`?article=${signal.id}`}
+                            onClick={(event) => {
+                              event.preventDefault();
+                              openArticle(signal.id);
+                            }}
                           >
-                            <span>{shortKind(evidence.sourceKind, locale)}</span>
-                            <div>
-                              <strong>{evidence.sourceName}</strong>
-                              <p>{evidence.takeaway}</p>
-                            </div>
-                            <i>↗</i>
+                            <span>{signal.title}</span>
+                            <StoryLinkIcon />
                           </a>
-                        ))}
-                      </div>
-                    </article>
-                  ))}
+                        </h3>
+                        <p className="explore-thesis">{signal.thesis}</p>
+
+                        {isExpanded && (
+                          <div
+                            className="explore-preview"
+                            id={`explore-preview-${signal.id}`}
+                          >
+                            <div className="explore-reasoning">
+                              <div>
+                                <span>{t("为什么是现在", "WHY NOW")}</span>
+                                <p>{signal.whyNow}</p>
+                              </div>
+                              <div className="explore-counterpoint">
+                                <span>
+                                  {t(
+                                    "最强反方观点",
+                                    "STRONGEST COUNTERPOINT",
+                                  )}
+                                </span>
+                                <p>{signal.counterpoint}</p>
+                              </div>
+                            </div>
+
+                            <div className="explore-metrics">
+                              <span>
+                                <small>{t("时间跨度", "HORIZON")}</small>
+                                <strong>{signal.horizon}</strong>
+                              </span>
+                              <span>
+                                <small>{t("置信度", "CONFIDENCE")}</small>
+                                <strong>{signal.confidence}</strong>
+                              </span>
+                              <span>
+                                <small>{t("验证状态", "VALIDATION")}</small>
+                                <strong>
+                                  {t(
+                                    signal.validationType,
+                                    signal.validationType === "跨平台验证"
+                                      ? "Cross-platform"
+                                      : signal.validationType === "多账号验证"
+                                        ? "Multi-source"
+                                        : "Single source",
+                                  )}
+                                </strong>
+                              </span>
+                            </div>
+
+                            <div className="explore-evidence">
+                              <div>
+                                <span>{t("证据路径", "EVIDENCE TRAIL")}</span>
+                                <small>
+                                  {t(
+                                    `${signal.sourceCount} 个独立账号`,
+                                    `${signal.sourceCount} independent sources`,
+                                  )}
+                                </small>
+                              </div>
+                              {signal.evidence.map((evidence) => (
+                                <a
+                                  href={evidence.url}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  key={evidence.url}
+                                >
+                                  <span>
+                                    {shortKind(evidence.sourceKind, locale)}
+                                  </span>
+                                  <div>
+                                    <strong>{evidence.sourceName}</strong>
+                                    <p>{evidence.takeaway}</p>
+                                  </div>
+                                  <i>↗</i>
+                                </a>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
+                        <div className="explore-card-actions">
+                          <button
+                            type="button"
+                            className="analysis-toggle"
+                            onClick={() => toggleExpandedExplore(signal.id)}
+                            aria-expanded={isExpanded}
+                            aria-controls={`explore-preview-${signal.id}`}
+                          >
+                            {isExpanded
+                              ? t("收起", "Collapse")
+                              : t("预览", "Preview")}
+                          </button>
+                        </div>
+                      </article>
+                    );
+                  })}
 
                   {visibleExploreSignals.length === 0 && (
                     <div className="empty-state explore-empty">

@@ -745,12 +745,15 @@ button {
 
 .explore-card.explore-featured {
   grid-column: 1 / -1;
-  min-height: 340px;
   background:
     radial-gradient(circle at 88% 8%, rgba(125, 91, 212, 0.38), transparent 30%),
     radial-gradient(circle at 12% 100%, rgba(40, 150, 165, 0.23), transparent 30%),
     #1d1e1b;
   color: #fff;
+}
+
+.explore-card.explore-featured.explore-expanded {
+  min-height: 340px;
 }
 
 .explore-card-top {
@@ -1052,6 +1055,41 @@ button {
 
 .explore-featured .explore-evidence a p {
   color: #aeb0a8;
+}
+
+.explore-card-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: auto;
+  padding-top: 12px;
+}
+
+.explore-card-actions .analysis-toggle,
+.card-actions .analysis-toggle {
+  border: 1px solid #d8d6ce;
+  border-radius: 999px;
+  background: #fff;
+  padding: 4px 7px;
+  color: #777872;
+  font-size: 7px;
+  font-weight: 700;
+}
+
+.explore-card-actions .analysis-toggle:hover,
+.card-actions .analysis-toggle:hover {
+  border-color: var(--explore-accent, var(--accent));
+  color: var(--explore-accent, var(--accent));
+}
+
+.explore-featured .explore-card-actions .analysis-toggle {
+  border-color: #4c4e48;
+  background: rgba(255, 255, 255, 0.06);
+  color: #d7d9d2;
+}
+
+.explore-featured .explore-card-actions .analysis-toggle:hover {
+  border-color: #d8cbff;
+  color: #d8cbff;
 }
 
 .explore-empty {
@@ -1501,21 +1539,6 @@ button {
 
 .card-actions button.saved {
   color: var(--orange);
-}
-
-.card-actions .analysis-toggle {
-  border: 1px solid #d8d6ce;
-  border-radius: 999px;
-  background: #fff;
-  padding: 4px 7px;
-  color: #777872;
-  font-size: 7px;
-  font-weight: 700;
-}
-
-.card-actions .analysis-toggle:hover {
-  border-color: var(--accent);
-  color: var(--accent);
 }
 
 .empty-state {
