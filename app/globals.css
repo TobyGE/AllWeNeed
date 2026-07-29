@@ -1174,18 +1174,37 @@ button {
 }
 
 .story-link-icon {
-  display: grid;
+  position: relative;
+  display: block;
   width: 23px;
   height: 23px;
   flex: 0 0 auto;
-  place-items: center;
   border: 1px solid var(--line);
   border-radius: 50%;
   color: #8a8b85;
-  font-family: var(--font-geist-mono), monospace;
-  font-size: 12px;
-  font-style: normal;
-  line-height: 1;
+}
+
+.story-link-icon::before {
+  position: absolute;
+  top: 10px;
+  left: 6px;
+  width: 10px;
+  height: 1px;
+  background: currentColor;
+  content: "";
+  transform: rotate(-45deg);
+  transform-origin: center;
+}
+
+.story-link-icon::after {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 6px;
+  height: 6px;
+  border-top: 1px solid currentColor;
+  border-right: 1px solid currentColor;
+  content: "";
 }
 
 .explore-featured .story-link-icon {

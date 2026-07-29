@@ -96,6 +96,10 @@ function shortKind(kind: string, locale: "zh" | "en") {
   return kind;
 }
 
+function StoryLinkIcon() {
+  return <span className="story-link-icon" aria-hidden="true" />;
+}
+
 export default function Home() {
   const [locale, setLocale] = useState<"zh" | "en">("zh");
   const [activeCategory, setActiveCategory] = useState("全部");
@@ -791,9 +795,7 @@ export default function Home() {
                           }}
                         >
                           <span>{signal.title}</span>
-                          <span className="story-link-icon" aria-hidden="true">
-                            ↗
-                          </span>
+                          <StoryLinkIcon />
                         </a>
                         <p className="signal-summary">{signal.summary}</p>
 
@@ -983,9 +985,7 @@ export default function Home() {
                           }}
                         >
                           <span>{signal.title}</span>
-                          <span className="story-link-icon" aria-hidden="true">
-                            ↗
-                          </span>
+                          <StoryLinkIcon />
                         </a>
                       </h3>
                       <p className="explore-thesis">{signal.thesis}</p>
