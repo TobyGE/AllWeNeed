@@ -1,4 +1,4 @@
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
@@ -12,6 +12,25 @@ const checkedAt = new Date().toISOString();
 const xBearerToken = process.env.X_BEARER_TOKEN?.trim();
 const concurrency = 5;
 const itemsPerSource = 12;
+const crawlerUserAgent =
+  "SignalRadar/1.0 (+https://yingqiangge.github.io/intelligence/)";
+
+let previousSnapshot = { items: [], statuses: [] };
+try {
+  previousSnapshot = JSON.parse(await readFile(outputPath, "utf8"));
+} catch {
+  // The first run has no cache to reuse.
+}
+
+const previousStatuses = new Map(
+  previousSnapshot.statuses.map((status) => [status.sourceId, status]),
+);
+const previousItems = new Map();
+for (const item of previousSnapshot.items) {
+  const sourceItems = previousItems.get(item.sourceId) ?? [];
+  sourceItems.push(item);
+  previousItems.set(item.sourceId, sourceItems);
+}
 
 function decodeEntities(value = "") {
   const named = {
@@ -108,6 +127,127 @@ function parseFeed(xml, source, feedUrl) {
   });
 }
 
+function parseYouTubeRelativeDate(value) {
+  if (!value) return null;
+  const match = value.match(
+    /(\d+)\s+(minute|hour|day|week|month|year)s?\s+ago/i,
+  );
+  if (!match) return null;
+  const amount = Number(match[1]);
+  const unitMs = {
+    minute: 60_000,
+    hour: 3_600_000,
+    day: 86_400_000,
+    week: 7 * 86_400_000,
+    month: 30 * 86_400_000,
+    year: 365 * 86_400_000,
+  };
+  return new Date(
+    new Date(checkedAt).getTime() - amount * unitMs[match[2].toLowerCase()],
+  ).toISOString();
+}
+
+function youtubeText(value) {
+  if (typeof value?.simpleText === "string") return value.simpleText;
+  if (Array.isArray(value?.runs)) {
+    return value.runs.map((run) => run.text ?? "").join("");
+  }
+  return "";
+}
+
+function extractYouTubeInitialData(html) {
+  const markers = [
+    "var ytInitialData = ",
+    'window["ytInitialData"] = ',
+    "ytInitialData = ",
+  ];
+  for (const marker of markers) {
+    const start = html.indexOf(marker);
+    if (start < 0) continue;
+    const jsonStart = start + marker.length;
+    const jsonEnd = html.indexOf(";</script>", jsonStart);
+    if (jsonEnd < 0) continue;
+    try {
+      return JSON.parse(html.slice(jsonStart, jsonEnd));
+    } catch {
+      // Try the next assignment form.
+    }
+  }
+  return null;
+}
+
+function parseYouTubePage(html, source) {
+  const data = extractYouTubeInitialData(html);
+  if (!data) return [];
+
+  const items = [];
+  const seenVideoIds = new Set();
+
+  function addItem(videoId, title, publishedText = "", summary = "") {
+    if (!videoId || !title || seenVideoIds.has(videoId)) return;
+    seenVideoIds.add(videoId);
+    const url = `https://www.youtube.com/watch?v=${videoId}`;
+    items.push({
+      id: `${source.id}-${videoId}`,
+      sourceId: source.id,
+      sourceName: source.name,
+      sourceKind: "YouTube",
+      title: cleanText(title),
+      url,
+      publishedAt: parseYouTubeRelativeDate(publishedText),
+      summary: cleanText(summary || title).slice(0, 360),
+      fetchedAt: checkedAt,
+    });
+  }
+
+  const stack = [data];
+  while (stack.length && items.length < itemsPerSource) {
+    const node = stack.pop();
+    if (!node || typeof node !== "object") continue;
+
+    const lockup = node.lockupViewModel;
+    if (
+      lockup?.contentId &&
+      (!lockup.contentType || lockup.contentType.includes("VIDEO"))
+    ) {
+      const metadata = lockup.metadata?.lockupMetadataViewModel;
+      const rows =
+        metadata?.metadata?.contentMetadataViewModel?.metadataRows ?? [];
+      const publishedText = rows
+        .flatMap((row) => row.metadataParts ?? [])
+        .map((part) => part.text?.content ?? part.text?.accessibilityLabel ?? "")
+        .find((text) => /\bago\b/i.test(text));
+      addItem(
+        lockup.contentId,
+        metadata?.title?.content,
+        publishedText,
+      );
+    }
+
+    for (const renderer of [
+      node.videoRenderer,
+      node.gridVideoRenderer,
+      node.playlistVideoRenderer,
+    ]) {
+      if (!renderer) continue;
+      addItem(
+        renderer.videoId,
+        youtubeText(renderer.title),
+        youtubeText(renderer.publishedTimeText),
+        youtubeText(renderer.descriptionSnippet),
+      );
+    }
+
+    const values = Object.values(node);
+    for (let index = values.length - 1; index >= 0; index -= 1) {
+      const value = values[index];
+      if (value && typeof value === "object") stack.push(value);
+    }
+  }
+
+  return items;
+}
+
 function looksLikeFeed(text, contentType = "") {
   const start = text.slice(0, 800).toLowerCase();
   return (
@@ -152,17 +292,31 @@ function commonFeedUrls(sourceUrl) {
   ];
 }
 
-async function fetchText(url, timeoutMs = 10_000) {
+async function fetchText(url, timeoutMs = 10_000, validators = {}) {
+  const headers = {
+    accept:
+      "application/atom+xml, application/rss+xml, application/xml, text/xml, text/html;q=0.8, */*;q=0.5",
+    "user-agent": crawlerUserAgent,
+  };
+  if (validators.etag) headers["if-none-match"] = validators.etag;
+  if (validators.lastModified) {
+    headers["if-modified-since"] = validators.lastModified;
+  }
   const response = await fetch(url, {
     redirect: "follow",
     signal: AbortSignal.timeout(timeoutMs),
-    headers: {
-      accept:
-        "application/atom+xml, application/rss+xml, application/xml, text/xml, text/html;q=0.8, */*;q=0.5",
-      "user-agent":
-        "SignalRadar/0.1 (+local research feed reader; contact: local-user)",
-    },
+    headers,
   });
+  if (response.status === 304) {
+    return {
+      text: "",
+      contentType: response.headers.get("content-type") ?? "",
+      finalUrl: url,
+      notModified: true,
+      etag: validators.etag ?? null,
+      lastModified: validators.lastModified ?? null,
+    };
+  }
   if (!response.ok) {
     throw new Error(`HTTP ${response.status}`);
   }
@@ -170,18 +324,25 @@ async function fetchText(url, timeoutMs = 10_000) {
     text: await response.text(),
     contentType: response.headers.get("content-type") ?? "",
     finalUrl: response.url,
+    notModified: false,
+    etag: response.headers.get("etag"),
+    lastModified: response.headers.get("last-modified"),
   };
 }
 
-function successStatus(source, feedUrl, itemCount) {
+function successStatus(source, feedUrl, itemCount, metadata = {}) {
   return {
     sourceId: source.id,
     name: source.name,
     kind: getSourceKind(source.url),
     status: itemCount ? "ok" : "empty",
     feedUrl,
+    requestUrl: metadata.requestUrl ?? feedUrl,
+    etag: metadata.etag ?? null,
+    lastModified: metadata.lastModified ?? null,
     itemCount,
-    message: itemCount ? "抓取成功" : "Feed 暂无内容",
+    message:
+      metadata.message ?? (itemCount ? "抓取成功" : "订阅源暂无内容"),
     checkedAt,
   };
 }
@@ -256,9 +417,12 @@ async function fetchXSource(source) {
 async function fetchFeedSource(source) {
   const kind = getSourceKind(source.url);
   if (kind === "X") return fetchXSource(source);
+  const previousStatus = previousStatuses.get(source.id);
+  const cachedItems = previousItems.get(source.id) ?? [];
 
   try {
     let directCandidates = source.feedUrl ? [source.feedUrl] : [];
+    let directFailureMessage = "";
     if (kind === "YouTube") {
       const channelId = new URL(source.url).pathname.split("/").filter(Boolean).at(-1);
       directCandidates.push(
@@ -274,20 +438,52 @@ async function fetchFeedSource(source) {
     directCandidates = [...new Set(directCandidates)];
 
     for (const candidate of directCandidates) {
-      for (let attempt = 1; attempt <= 2; attempt += 1) {
+      const maxAttempts = kind === "YouTube" ? 1 : 2;
+      for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
         try {
+          const canRevalidate =
+            previousStatus?.requestUrl === candidate ||
+            previousStatus?.feedUrl === candidate;
           const result = await fetchText(
             candidate,
             source.feedUrl || kind === "YouTube" ? 25_000 : 15_000,
+            canRevalidate
+              ? {
+                  etag: previousStatus.etag,
+                  lastModified: previousStatus.lastModified,
+                }
+              : {},
           );
+          if (result.notModified) {
+            return {
+              items: cachedItems,
+              status: successStatus(
+                source,
+                previousStatus.feedUrl ?? candidate,
+                cachedItems.length,
+                {
+                  requestUrl: candidate,
+                  etag: result.etag,
+                  lastModified: result.lastModified,
+                  message: "订阅源未变化，已复用缓存",
+                },
+              ),
+            };
+          }
           const items = parseFeed(result.text, source, result.finalUrl);
           if (looksLikeFeed(result.text, result.contentType)) {
             return {
               items,
-              status: successStatus(source, result.finalUrl, items.length),
+              status: successStatus(source, result.finalUrl, items.length, {
+                requestUrl: candidate,
+                etag: result.etag,
+                lastModified: result.lastModified,
+              }),
             };
           }
-        } catch {
+        } catch (error) {
+          directFailureMessage =
+            error instanceof Error ? error.message : "订阅源抓取失败";
           if (attempt === 1) {
             await new Promise((resolveDelay) => setTimeout(resolveDelay, 500));
           }
@@ -295,12 +491,83 @@ async function fetchFeedSource(source) {
       }
     }
 
-    const homepage = await fetchText(source.url);
+    if (source.feedUrl) {
+      if (cachedItems.length) {
+        return {
+          items: cachedItems,
+          status: successStatus(
+            source,
+            previousStatus?.feedUrl ?? source.feedUrl,
+            cachedItems.length,
+            {
+              requestUrl: source.feedUrl,
+              etag: previousStatus?.etag,
+              lastModified: previousStatus?.lastModified,
+              message: `订阅源暂时不可用，已复用上次缓存：${directFailureMessage}`,
+            },
+          ),
+        };
+      }
+      return {
+        items: [],
+        status: {
+          sourceId: source.id,
+          name: source.name,
+          kind,
+          status: "error",
+          feedUrl: source.feedUrl,
+          itemCount: 0,
+          message: `已配置订阅源暂时不可用：${directFailureMessage}`,
+          checkedAt,
+        },
+      };
+    }
+
+    const homepageUrl =
+      kind === "YouTube"
+        ? `${source.url.replace(/\/$/, "")}/videos`
+        : source.url;
+    const homepage = await fetchText(
+      homepageUrl,
+      kind === "YouTube" ? 25_000 : 10_000,
+    );
+    if (kind === "YouTube") {
+      const items = parseYouTubePage(homepage.text, source);
+      if (items.length) {
+        return {
+          items,
+          status: successStatus(source, homepage.finalUrl, items.length, {
+            requestUrl: homepageUrl,
+            etag: homepage.etag,
+            lastModified: homepage.lastModified,
+            message: "YouTube 公开频道页回退抓取成功",
+          }),
+        };
+      }
+      return {
+        items: [],
+        status: {
+          sourceId: source.id,
+          name: source.name,
+          kind,
+          status: "error",
+          feedUrl: null,
+          itemCount: 0,
+          message: "YouTube Atom 与公开频道页回退均未返回内容",
+          checkedAt,
+        },
+      };
+    }
+
     if (looksLikeFeed(homepage.text, homepage.contentType)) {
       const items = parseFeed(homepage.text, source, homepage.finalUrl);
       return {
         items,
-        status: successStatus(source, homepage.finalUrl, items.length),
+        status: successStatus(source, homepage.finalUrl, items.length, {
+          requestUrl: homepageUrl,
+          etag: homepage.etag,
+          lastModified: homepage.lastModified,
+        }),
       };
     }
 
@@ -317,7 +584,11 @@ async function fetchFeedSource(source) {
         const items = parseFeed(result.text, source, result.finalUrl);
         return {
           items,
-          status: successStatus(source, result.finalUrl, items.length),
+          status: successStatus(source, result.finalUrl, items.length, {
+            requestUrl: candidate,
+            etag: result.etag,
+            lastModified: result.lastModified,
+          }),
         };
       } catch {
         // Try the next conventional feed URL.

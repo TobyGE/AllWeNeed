@@ -67,7 +67,16 @@ test("server-renders the Signal Radar product shell", async () => {
 });
 
 test("removes all disposable starter preview code", async () => {
-  const [page, layout, styles, packageJson, sourceLibrary, snapshot, radar] =
+  const [
+    page,
+    layout,
+    styles,
+    packageJson,
+    sourceLibrary,
+    snapshot,
+    radar,
+    sourceCatalog,
+  ] =
     await Promise.all([
     readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
@@ -76,6 +85,7 @@ test("removes all disposable starter preview code", async () => {
     readFile(new URL("../app/source-library.tsx", import.meta.url), "utf8"),
     readFile(new URL("../data/feed-snapshot.json", import.meta.url), "utf8"),
     readFile(new URL("../data/daily-radar.json", import.meta.url), "utf8"),
+    readFile(new URL("../app/source-catalog.ts", import.meta.url), "utf8"),
   ]);
 
   assert.match(page, /Signal Radar/);
@@ -88,6 +98,18 @@ test("removes all disposable starter preview code", async () => {
   assert.equal(snapshotData.totalSources, 159);
   assert.ok(snapshotData.successfulSources >= 120);
   assert.ok(snapshotData.items.length > 1000);
+  assert.equal(
+    snapshotData.statuses.filter(
+      (status) => status.kind === "YouTube" && status.status === "error",
+    ).length,
+    0,
+  );
+  assert.match(sourceCatalog, /UCXl4i9dYBrFOabk0xGmbkRA/);
+  assert.match(sourceCatalog, /UC9cn0TuPq4dnbTY-CBsm8XA/);
+  assert.match(
+    sourceCatalog,
+    /Chris Siebenmann[\s\S]*feedUrl: "https:\/\/utcc\.utoronto\.ca\/~cks\/space\/blog\/\?atom"/,
+  );
   const repairedBlogIds = new Set([
     57, 62, 66, 90, 91, 92, 94, 99, 117, 127, 131, 135, 142,
   ]);
