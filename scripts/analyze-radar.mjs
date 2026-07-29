@@ -140,13 +140,16 @@ function buildPrompt(snapshot, items) {
 
   return `你是一个面向 AI、科技与投资研究者的高级情报编辑。
 
-目标：把真实采集条目合并成 6 个今日事件簇，并为每个结论给出账号级、可点击、可逐项核查的证据链。
+目标：把真实采集条目合并成今日事件簇，为每个结论写一篇可独立阅读的站内新闻稿，并给出账号级、可点击、可逐项核查的证据链。
 
 成功标准：
 - 聚合同一事件或趋势，明确写出“从什么状态 → 变成什么状态”。
 - 至少 4 个事件簇由 2-4 个不同账号交叉验证；优先跨平台组合。
 - 每条 evidence 只概括它对应的那一条原始内容，不得把其他来源的信息混入。
 - crossValidation 解释多条证据如何共同支持结论，也要点明它们之间的差异。
+- article 必须像一篇完整的编辑稿，而不是把 summary、why 和 impact 原样拼接。导语交代核心变化，三段正文依次讲清发生了什么、独立来源如何互相印证、为什么重要，outlook 给出可观察的下一步。
+- article 中的事实只能来自该 signal 引用的 evidence。来源没有给出的数字、时间、因果关系或背景不得补写；编辑推断必须明确使用“可能”“意味着”“值得观察”等审慎措辞。
+- “来源如何互相印证”必须具体写出不同来源各自提供了什么，不得只写“多个来源显示”。
 - 如果只有一个账号支持，必须标为单一来源，不得写“交叉验证”，score 不得超过 74。
 - 不要为了凑多来源把不同事件硬合并。账号数不足时宁可降低结论强度。
 - 优先使用最近 72 小时的高影响信息，必要时用最近 7 天内容提供背景。
@@ -170,6 +173,24 @@ function buildPrompt(snapshot, items) {
       "shiftFrom": "过去的状态，不超过24个汉字",
       "shiftTo": "现在的新状态，不超过24个汉字",
       "crossValidation": "这些独立账号如何共同支撑结论，不超过90个汉字",
+      "article": {
+        "lead": "80-150个汉字的导语，交代核心事实、变化与读者为什么应当关注",
+        "sections": [
+          {
+            "heading": "具体、有信息量的小标题",
+            "body": "120-220个汉字，说明发生了什么，只写证据支持的事实"
+          },
+          {
+            "heading": "具体、有信息量的小标题",
+            "body": "140-240个汉字，逐个说明不同来源提供了什么，以及它们如何互相印证或存在差异"
+          },
+          {
+            "heading": "具体、有信息量的小标题",
+            "body": "120-220个汉字，解释为什么重要，并把事实与编辑推断分开"
+          }
+        ],
+        "outlook": "80-140个汉字，写接下来应观察的可验证变化与主要不确定性"
+      },
       "evidence": [
         {
           "ref": "I1",
@@ -430,6 +451,32 @@ function hydrateEvidence(evidence, itemMap) {
   return hydrated;
 }
 
+function hydrateArticle(article, signalIndex) {
+  if (
+    !article ||
+    !cleanText(article.lead) ||
+    !Array.isArray(article.sections) ||
+    article.sections.length !== 3 ||
+    !cleanText(article.outlook)
+  ) {
+    throw new Error(`signal ${signalIndex + 1} 缺少完整 article`);
+  }
+  return {
+    lead: cleanText(article.lead).slice(0, 500),
+    sections: article.sections.map((section, sectionIndex) => {
+      const heading = cleanText(section?.heading).slice(0, 80);
+      const body = cleanText(section?.body).slice(0, 900);
+      if (!heading || !body) {
+        throw new Error(
+          `signal ${signalIndex + 1} article section ${sectionIndex + 1} 不完整`,
+        );
+      }
+      return { heading, body };
+    }),
+    outlook: cleanText(article.outlook).slice(0, 500),
+  };
+}
+
 function barsFor(index, change) {
   const amount = Number.parseInt(String(change).replace(/[^\d-]/g, ""), 10) || 0;
   const base = Math.max(18, Math.min(68, 38 + amount));
@@ -481,6 +528,7 @@ function validateAndHydrate(raw, snapshot, items, model) {
       shiftFrom: signal.shiftFrom,
       shiftTo: signal.shiftTo,
       crossValidation: signal.crossValidation,
+      article: hydrateArticle(signal.article, index),
       validationType,
       sources: sourceKinds,
       sourceNames,
@@ -519,18 +567,14 @@ function validateAndHydrate(raw, snapshot, items, model) {
     const sourceNames = [...new Set(evidence.map((item) => item.sourceName))];
     const sourceKinds = [...new Set(evidence.map((item) => item.sourceKind))];
     const singleSource = sourceNames.length === 1;
-    if (
-      singleSource &&
-      !["高风险高潜", "早期拐点"].includes(signal.label)
-    ) {
-      throw new Error(
-        `exploreSignal ${index + 1} 为单一来源但未标记为高风险高潜或早期拐点`,
-      );
-    }
+    const label =
+      singleSource && !["高风险高潜", "早期拐点"].includes(signal.label)
+        ? "早期拐点"
+        : signal.label;
     return {
       id: `explore-${index + 1}`,
       category: signal.category,
-      label: signal.label,
+      label,
       title: signal.title,
       thesis: signal.thesis,
       whyNow: signal.whyNow,

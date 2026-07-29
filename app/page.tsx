@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import dailyRadar from "../data/daily-radar.json";
 import snapshot from "../data/feed-snapshot.json";
+import { ArticleView } from "./article-view";
 import { SourceLibrary } from "./source-library";
 
 type SignalReference = {
@@ -36,6 +37,14 @@ type Signal = {
   age: string;
   score: number;
   tone: "orange" | "blue" | "green";
+  article?: {
+    lead: string;
+    sections: Array<{
+      heading: string;
+      body: string;
+    }>;
+    outlook: string;
+  };
   evidence: SignalEvidence[];
   references: SignalReference[];
 };
@@ -88,6 +97,7 @@ export default function Home() {
   const [view, setView] = useState<"brief" | "explore">("brief");
   const [section, setSection] = useState<"radar" | "sources">("radar");
   const [notice, setNotice] = useState("");
+  const [articleId, setArticleId] = useState<number | null>(null);
   const languageCopy = dailyRadar.translations[locale];
   const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
 
@@ -103,6 +113,17 @@ export default function Home() {
     window.localStorage.setItem("signal-radar-locale", locale);
   }, [locale]);
 
+  useEffect(() => {
+    const readArticleId = () => {
+      const value = new URLSearchParams(window.location.search).get("article");
+      const parsed = value ? Number.parseInt(value, 10) : Number.NaN;
+      setArticleId(Number.isFinite(parsed) ? parsed : null);
+    };
+    readArticleId();
+    window.addEventListener("popstate", readArticleId);
+    return () => window.removeEventListener("popstate", readArticleId);
+  }, []);
+
   const localizedSignals = useMemo(
     () =>
       signals.map((signal, index) => {
@@ -111,6 +132,14 @@ export default function Home() {
           ...signal,
           ...translated,
           categoryKey: signal.category,
+          article: translated.article
+            ? {
+                ...signal.article,
+                ...translated.article,
+                sections:
+                  translated.article.sections ?? signal.article?.sections ?? [],
+              }
+            : signal.article,
           evidence: signal.evidence.map((evidence, evidenceIndex) => ({
             ...evidence,
             role: translated.evidence[evidenceIndex]?.role ?? evidence.role,
@@ -247,6 +276,37 @@ export default function Home() {
   function showNotice(message: string) {
     setNotice(message);
     window.setTimeout(() => setNotice(""), 2600);
+  }
+
+  function openArticle(id: number) {
+    const url = new URL(window.location.href);
+    url.searchParams.set("article", String(id));
+    window.history.pushState({}, "", url);
+    setArticleId(id);
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }
+
+  function closeArticle() {
+    const url = new URL(window.location.href);
+    url.searchParams.delete("article");
+    window.history.pushState({}, "", url);
+    setArticleId(null);
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }
+
+  const activeArticle = localizedSignals.find(
+    (signal) => signal.id === articleId,
+  );
+  if (activeArticle) {
+    return (
+      <ArticleView
+        signal={activeArticle}
+        locale={locale}
+        generatedAt={dailyRadar.generatedAt}
+        onLocaleChange={setLocale}
+        onBack={closeArticle}
+      />
+    );
   }
 
   return (
@@ -670,15 +730,17 @@ export default function Home() {
                                   .replace(" 天前", "d ago")}
                           </span>
                         </div>
-                        <button
-                          type="button"
+                        <a
+                          href={`?article=${signal.id}`}
                           className="signal-title"
-                          onClick={() => toggleExpanded(signal.id)}
-                          aria-expanded={isExpanded}
+                          onClick={(event) => {
+                            event.preventDefault();
+                            openArticle(signal.id);
+                          }}
                         >
                           <span>{signal.title}</span>
-                          <span aria-hidden="true">{isExpanded ? "−" : "＋"}</span>
-                        </button>
+                          <span aria-hidden="true">↗</span>
+                        </a>
                         <p className="signal-summary">{signal.summary}</p>
 
                         {isExpanded && (
@@ -786,6 +848,16 @@ export default function Home() {
                             </small>
                           </div>
                           <div className="card-actions">
+                            <button
+                              type="button"
+                              className="analysis-toggle"
+                              onClick={() => toggleExpanded(signal.id)}
+                              aria-expanded={isExpanded}
+                            >
+                              {isExpanded
+                                ? t("收起", "Close")
+                                : t("速览", "Quick view")}
+                            </button>
                             <span className="signal-score">
                               <i style={{ width: `${signal.score}%` }} />
                               {signal.score}

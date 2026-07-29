@@ -51,6 +51,7 @@ test("server-renders the Signal Radar product shell", async () => {
   assert.ok(html.includes(snapshot.items.length.toLocaleString()));
   assert.ok(html.includes(String(snapshot.successfulSources)));
   assert.ok(html.includes(radar.translations.zh.signals[0].title));
+  assert.match(html, /href="\?article=1"/);
   assert.match(html, /跨平台验证/);
   assert.ok(html.includes(radar.translations.zh.signals[0].shiftTo));
   assert.ok(html.includes(radar.translations.zh.companySignals[0].headline));
@@ -76,6 +77,7 @@ test("removes all disposable starter preview code", async () => {
     snapshot,
     radar,
     sourceCatalog,
+    articleView,
   ] =
     await Promise.all([
     readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
@@ -86,6 +88,7 @@ test("removes all disposable starter preview code", async () => {
     readFile(new URL("../data/feed-snapshot.json", import.meta.url), "utf8"),
     readFile(new URL("../data/daily-radar.json", import.meta.url), "utf8"),
     readFile(new URL("../app/source-catalog.ts", import.meta.url), "utf8"),
+    readFile(new URL("../app/article-view.tsx", import.meta.url), "utf8"),
   ]);
 
   assert.match(page, /Signal Radar/);
@@ -154,7 +157,29 @@ test("removes all disposable starter preview code", async () => {
         signal.shiftFrom &&
         signal.shiftTo &&
         signal.crossValidation &&
+        signal.article?.lead &&
+        signal.article?.sections?.length === 3 &&
+        signal.article?.sections.every(
+          (section) => section.heading && section.body,
+        ) &&
+        signal.article?.outlook &&
         signal.evidence.length,
+    ),
+  );
+  assert.ok(
+    JSON.parse(radar).translations.zh.signals.every(
+      (signal) =>
+        signal.article?.lead &&
+        signal.article?.sections?.length === 3 &&
+        signal.article?.outlook,
+    ),
+  );
+  assert.ok(
+    JSON.parse(radar).translations.en.signals.every(
+      (signal) =>
+        signal.article?.lead &&
+        signal.article?.sections?.length === 3 &&
+        signal.article?.outlook,
     ),
   );
   assert.equal(JSON.parse(radar).companySignals.length, 3);
@@ -187,6 +212,9 @@ test("removes all disposable starter preview code", async () => {
   );
   assert.match(page, /explore-grid/);
   assert.match(page, /signal-radar-locale/);
+  assert.match(page, /href=\{`\?article=\$\{signal\.id\}`\}/);
+  assert.match(articleView, /这篇稿子基于什么/);
+  assert.match(articleView, /evidence\.url/);
   assert.match(page, /SourceLibrary locale=\{locale\}/);
   assert.match(page, /最强反方观点/);
   assert.doesNotMatch(page, /SkeletonPreview|codex-preview/);

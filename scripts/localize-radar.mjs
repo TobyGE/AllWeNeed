@@ -26,6 +26,7 @@ function compactRadar(radar) {
       shiftFrom: signal.shiftFrom,
       shiftTo: signal.shiftTo,
       crossValidation: signal.crossValidation,
+      article: signal.article,
       evidence: signal.evidence.map((item) => ({
         ref: item.ref,
         sourceName: item.sourceName,
@@ -83,27 +84,34 @@ function compactRadar(radar) {
   };
 }
 
-function buildPrompt(radar) {
-  return `You are the bilingual copy editor for Signal Radar, an AI, technology, and investment intelligence product.
-
-Create two parallel editorial versions of the supplied analysis:
-
-1. "zh": natural Simplified Chinese with deliberate English code-switching.
-2. "en": polished, concise editorial English.
-
-Chinese style rules:
+function buildPrompt(radar, locale) {
+  const target =
+    locale === "zh"
+      ? "natural Simplified Chinese with deliberate English code-switching"
+      : "polished, concise editorial English";
+  const localeRules =
+    locale === "zh"
+      ? `Chinese style rules:
 - NEVER translate company, product, model, person, publication, platform, benchmark, protocol, or API names.
 - Keep standard industry terms in English when Chinese professionals naturally use them: AI, Agent, LLM, token, context, cache, inference, benchmark, open-source, open-weight, API, workflow, product-market fit, moat, margin, hyperscaler.
 - Prefer phrases like "AI coding 工具的 benchmark" over stiff fully translated jargon.
 - Do not sprinkle English randomly into ordinary Chinese. Code-switch only for proper nouns and established technical/business terms.
 - Treat category, eyebrow, label, signalType, stance, horizon, confidence, and evidence role as interface taxonomy. These fields must use concise Simplified Chinese, except for true proper nouns such as AI, GPT, X, YouTube, company names, product names, and model names.
 - In those interface-taxonomy fields, translate generic terms such as Agent to 智能体, Models to 模型, Compute to 算力, Risk to 风险, Watch to 观察, and Product signal to 产品信号. Use Chinese punctuation and “与”, never “&”.
-- Keep numbers and factual meaning unchanged.
-
-English style rules:
+- Keep numbers and factual meaning unchanged.`
+      : `English style rules:
 - Rewrite naturally; do not mirror Chinese word order.
 - Preserve uncertainty markers such as "may", "could", and "inference".
-- Keep titles punchy and body text compact.
+- Keep titles punchy and body text compact.`;
+
+  return `You are the copy editor for Signal Radar, an AI, technology, and investment intelligence product.
+
+Create one ${locale} editorial version of the supplied analysis in ${target}.
+
+${localeRules}
+
+- Article copy should read as cohesive editorial prose, not a literal field-by-field translation.
+- Preserve the distinction between sourced facts, cross-source consensus, and editorial inference throughout each article.
 
 Evidence rules:
 - Do not add facts, names, numbers, or conclusions.
@@ -111,52 +119,33 @@ Evidence rules:
 - Preserve array order and array lengths exactly.
 - Only rewrite human-facing text fields.
 
-Return valid JSON only with this exact top-level shape:
+Return valid JSON only with this exact top-level shape. Do not wrap it in a locale key:
 {
-  "zh": {
-    "editorNote": "...",
-    "signals": [{
-      "category": "...", "eyebrow": "...", "title": "...", "summary": "...",
-      "why": "...", "impact": "...", "shiftFrom": "...", "shiftTo": "...",
-      "crossValidation": "...",
-      "evidence": [{"ref": "I1", "role": "...", "takeaway": "..."}]
-    }],
-    "exploreSignals": [{
-      "category": "...", "label": "...", "title": "...", "thesis": "...",
-      "whyNow": "...", "counterpoint": "...", "horizon": "...", "confidence": "...",
-      "evidence": [{"ref": "I1", "takeaway": "..."}]
-    }],
-    "trends": [{"name": "..."}],
-    "discoveries": [{"name": "...", "detail": "..."}],
-    "investmentThesis": {"quote": "...", "confidence": "..."},
-    "companySignals": [{
-      "signalType": "...", "stance": "...", "headline": "...", "whatChanged": "...",
-      "investmentRead": "...", "catalyst": "...", "risk": "...", "watchNext": "...",
-      "evidence": [{"ref": "I1", "takeaway": "..."}]
-    }]
-  },
-  "en": {
-    "editorNote": "...",
-    "signals": [{
-      "category": "...", "eyebrow": "...", "title": "...", "summary": "...",
-      "why": "...", "impact": "...", "shiftFrom": "...", "shiftTo": "...",
-      "crossValidation": "...",
-      "evidence": [{"ref": "I1", "role": "...", "takeaway": "..."}]
-    }],
-    "exploreSignals": [{
-      "category": "...", "label": "...", "title": "...", "thesis": "...",
-      "whyNow": "...", "counterpoint": "...", "horizon": "...", "confidence": "...",
-      "evidence": [{"ref": "I1", "takeaway": "..."}]
-    }],
-    "trends": [{"name": "..."}],
-    "discoveries": [{"name": "...", "detail": "..."}],
-    "investmentThesis": {"quote": "...", "confidence": "..."},
-    "companySignals": [{
-      "signalType": "...", "stance": "...", "headline": "...", "whatChanged": "...",
-      "investmentRead": "...", "catalyst": "...", "risk": "...", "watchNext": "...",
-      "evidence": [{"ref": "I1", "takeaway": "..."}]
-    }]
-  }
+  "editorNote": "...",
+  "signals": [{
+    "category": "...", "eyebrow": "...", "title": "...", "summary": "...",
+    "why": "...", "impact": "...", "shiftFrom": "...", "shiftTo": "...",
+    "crossValidation": "...",
+    "article": {
+      "lead": "...",
+      "sections": [{"heading": "...", "body": "..."}],
+      "outlook": "..."
+    },
+    "evidence": [{"ref": "I1", "role": "...", "takeaway": "..."}]
+  }],
+  "exploreSignals": [{
+    "category": "...", "label": "...", "title": "...", "thesis": "...",
+    "whyNow": "...", "counterpoint": "...", "horizon": "...", "confidence": "...",
+    "evidence": [{"ref": "I1", "takeaway": "..."}]
+  }],
+  "trends": [{"name": "..."}],
+  "discoveries": [{"name": "...", "detail": "..."}],
+  "investmentThesis": {"quote": "...", "confidence": "..."},
+  "companySignals": [{
+    "signalType": "...", "stance": "...", "headline": "...", "whatChanged": "...",
+    "investmentRead": "...", "catalyst": "...", "risk": "...", "watchNext": "...",
+    "evidence": [{"ref": "I1", "takeaway": "..."}]
+  }]
 }
 
 Input:
@@ -239,62 +228,86 @@ function parseJsonOutput(text) {
   return JSON.parse(unfenced.slice(start, end + 1));
 }
 
-function assertParallel(radar, translations) {
-  for (const locale of ["zh", "en"]) {
-    const copy = translations?.[locale];
-    if (!copy) throw new Error(`Missing ${locale} translation.`);
-    for (const key of ["signals", "exploreSignals", "trends", "discoveries", "companySignals"]) {
-      if (!Array.isArray(copy[key]) || copy[key].length !== radar[key].length) {
-        throw new Error(`${locale}.${key} does not match source length.`);
-      }
+function assertParallel(radar, copy, locale) {
+  if (!copy) throw new Error(`Missing ${locale} translation.`);
+  for (const key of [
+    "signals",
+    "exploreSignals",
+    "trends",
+    "discoveries",
+    "companySignals",
+  ]) {
+    if (!Array.isArray(copy[key]) || copy[key].length !== radar[key].length) {
+      throw new Error(`${locale}.${key} does not match source length.`);
     }
-    for (const [index, signal] of radar.signals.entries()) {
-      if (copy.signals[index].evidence?.length !== signal.evidence.length) {
-        throw new Error(`${locale}.signals[${index}].evidence does not match.`);
-      }
+  }
+  for (const [index, signal] of radar.signals.entries()) {
+    if (copy.signals[index].evidence?.length !== signal.evidence.length) {
+      throw new Error(`${locale}.signals[${index}].evidence does not match.`);
     }
-    for (const [index, signal] of radar.exploreSignals.entries()) {
-      if (copy.exploreSignals[index].evidence?.length !== signal.evidence.length) {
-        throw new Error(`${locale}.exploreSignals[${index}].evidence does not match.`);
-      }
+    if (
+      !copy.signals[index].article?.lead ||
+      !copy.signals[index].article?.outlook ||
+      copy.signals[index].article?.sections?.length !==
+        signal.article.sections.length
+    ) {
+      throw new Error(`${locale}.signals[${index}].article does not match.`);
     }
-    for (const [index, signal] of radar.companySignals.entries()) {
-      if (copy.companySignals[index].evidence?.length !== signal.evidence.length) {
-        throw new Error(`${locale}.companySignals[${index}].evidence does not match.`);
-      }
+  }
+  for (const [index, signal] of radar.exploreSignals.entries()) {
+    if (copy.exploreSignals[index].evidence?.length !== signal.evidence.length) {
+      throw new Error(
+        `${locale}.exploreSignals[${index}].evidence does not match.`,
+      );
+    }
+  }
+  for (const [index, signal] of radar.companySignals.entries()) {
+    if (copy.companySignals[index].evidence?.length !== signal.evidence.length) {
+      throw new Error(
+        `${locale}.companySignals[${index}].evidence does not match.`,
+      );
     }
   }
 }
 
 const radar = JSON.parse(await readFile(radarPath, "utf8"));
-const prompt = buildPrompt(radar);
 const auth = await loadSubscriptionAuth();
-let translations;
-let usedModel;
-let lastError;
+const translations = {};
+const usedModels = {};
 
-for (const model of [...new Set(preferredModels)]) {
-  try {
-    console.log(`Localizing radar with ${model}...`);
-    translations = parseJsonOutput(
-      await callSubscriptionModel({ model, prompt, ...auth }),
-    );
-    assertParallel(radar, translations);
-    usedModel = model;
-    break;
-  } catch (error) {
-    lastError = error;
-    console.warn(
-      `${model} localization failed: ${error instanceof Error ? error.message : error}`,
-    );
+for (const locale of ["zh", "en"]) {
+  const prompt = buildPrompt(radar, locale);
+  let lastError;
+  for (const model of [...new Set(preferredModels)]) {
+    try {
+      console.log(`Localizing ${locale} radar with ${model}...`);
+      const copy = parseJsonOutput(
+        await callSubscriptionModel({ model, prompt, ...auth }),
+      );
+      assertParallel(radar, copy, locale);
+      translations[locale] = copy;
+      usedModels[locale] = model;
+      break;
+    } catch (error) {
+      lastError = error;
+      console.warn(
+        `${model} ${locale} localization failed: ${
+          error instanceof Error ? error.message : error
+        }`,
+      );
+    }
+  }
+  if (!translations[locale]) {
+    throw new Error(`All ${locale} localization model calls failed.`, {
+      cause: lastError,
+    });
   }
 }
 
-if (!translations) {
-  throw new Error("All localization model calls failed.", { cause: lastError });
-}
-
 radar.translations = translations;
-radar.localizationModel = usedModel;
+radar.localizationModel =
+  usedModels.zh === usedModels.en
+    ? usedModels.zh
+    : `zh:${usedModels.zh}; en:${usedModels.en}`;
 await writeFile(radarPath, `${JSON.stringify(radar, null, 2)}\n`, "utf8");
 console.log("Done: zh mixed-language and en editions added.");
