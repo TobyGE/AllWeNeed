@@ -83,6 +83,11 @@ test("server-renders the Signal Radar product shell", async () => {
   assert.match(html, /跨平台验证/);
   assert.ok(!html.includes(radar.translations.zh.signals[0].shiftTo));
   assert.match(html, />预览</);
+  assert.match(html, /探索更多/);
+  assert.match(html, /看完发生了什么，再去看接下来可能发生什么/);
+  assert.ok(
+    html.indexOf("GPT 分析完成") < html.indexOf("看完发生了什么，再去看接下来可能发生什么"),
+  );
   assert.ok(html.includes(radar.translations.zh.companySignals[0].headline));
   assert.match(html, /href="\?article=company-0"/);
   assert.ok(
@@ -314,7 +319,32 @@ test("removes all disposable starter preview code", async () => {
         signal.catalyst &&
         signal.risk &&
         signal.watchNext &&
+        signal.crossValidation &&
+        signal.article?.lead &&
+        signal.article?.sections?.length === 3 &&
+        signal.article?.sections.every(
+          (section) => section.heading && section.body,
+        ) &&
+        signal.article?.outlook &&
         signal.evidence.length >= 2,
+    ),
+  );
+  assert.ok(
+    JSON.parse(radar).translations.zh.companySignals.every(
+      (signal) =>
+        signal.crossValidation &&
+        signal.article?.lead &&
+        signal.article?.sections?.length === 3 &&
+        signal.article?.outlook,
+    ),
+  );
+  assert.ok(
+    JSON.parse(radar).translations.en.companySignals.every(
+      (signal) =>
+        signal.crossValidation &&
+        signal.article?.lead &&
+        signal.article?.sections?.length === 3 &&
+        signal.article?.outlook,
     ),
   );
   assert.ok(JSON.parse(radar).exploreSignals.length >= 50);

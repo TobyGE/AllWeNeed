@@ -73,6 +73,8 @@ function compactRadar(radar) {
       catalyst: signal.catalyst,
       risk: signal.risk,
       watchNext: signal.watchNext,
+      crossValidation: signal.crossValidation,
+      article: signal.article,
       evidence: signal.evidence.map((item) => ({
         ref: item.ref,
         sourceName: item.sourceName,
@@ -144,6 +146,12 @@ Return valid JSON only with this exact top-level shape. Do not wrap it in a loca
   "companySignals": [{
     "signalType": "...", "stance": "...", "headline": "...", "whatChanged": "...",
     "investmentRead": "...", "catalyst": "...", "risk": "...", "watchNext": "...",
+    "crossValidation": "...",
+    "article": {
+      "lead": "...",
+      "sections": [{"heading": "...", "body": "..."}],
+      "outlook": "..."
+    },
     "evidence": [{"ref": "I1", "takeaway": "..."}]
   }]
 }
@@ -265,6 +273,17 @@ function assertParallel(radar, copy, locale) {
     if (copy.companySignals[index].evidence?.length !== signal.evidence.length) {
       throw new Error(
         `${locale}.companySignals[${index}].evidence does not match.`,
+      );
+    }
+    if (
+      !copy.companySignals[index].crossValidation ||
+      !copy.companySignals[index].article?.lead ||
+      !copy.companySignals[index].article?.outlook ||
+      copy.companySignals[index].article?.sections?.length !==
+        signal.article.sections.length
+    ) {
+      throw new Error(
+        `${locale}.companySignals[${index}].article does not match.`,
       );
     }
   }

@@ -425,30 +425,31 @@ export default function Home() {
           translated.evidence[evidenceIndex]?.takeaway ?? evidence.takeaway,
       })),
     };
+    const fallbackArticle = {
+      lead: `${localizedItem.whatChanged} ${localizedItem.investmentRead}`,
+      sections: [
+        {
+          heading: t("变化发生在哪里", "Where the change is happening"),
+          body: localizedItem.whatChanged,
+        },
+        {
+          heading: t("如何理解这家公司", "How to read the company"),
+          body: localizedItem.investmentRead,
+        },
+        {
+          heading: t("催化因素与反证", "Catalysts and disconfirming evidence"),
+          body: t(
+            `潜在催化因素是${localizedItem.catalyst}。需要警惕的反证是${localizedItem.risk}。`,
+            `The potential catalyst is ${localizedItem.catalyst}. The key disconfirming risk is ${localizedItem.risk}.`,
+          ),
+        },
+      ],
+      outlook: localizedItem.watchNext,
+    };
     return {
       ...localizedItem,
       id: `company-${index}`,
-      article: {
-        lead: `${localizedItem.whatChanged} ${localizedItem.investmentRead}`,
-        sections: [
-          {
-            heading: t("变化发生在哪里", "Where the change is happening"),
-            body: localizedItem.whatChanged,
-          },
-          {
-            heading: t("如何理解这家公司", "How to read the company"),
-            body: localizedItem.investmentRead,
-          },
-          {
-            heading: t("催化因素与反证", "Catalysts and disconfirming evidence"),
-            body: t(
-              `潜在催化因素是${localizedItem.catalyst}。需要警惕的反证是${localizedItem.risk}。`,
-              `The potential catalyst is ${localizedItem.catalyst}. The key disconfirming risk is ${localizedItem.risk}.`,
-            ),
-          },
-        ],
-        outlook: localizedItem.watchNext,
-      },
+      article: localizedItem.article ?? fallbackArticle,
     };
   });
 
@@ -527,6 +528,13 @@ export default function Home() {
     setExpanded([]);
     setExpandedExplore([]);
     setExpandedCompany([]);
+  }
+
+  function exploreMore() {
+    switchView("explore");
+    window.requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
   }
 
   function toggleSaved(id: number) {
@@ -613,12 +621,14 @@ export default function Home() {
           summary: activeCompanyArticle.whatChanged,
           why: activeCompanyArticle.investmentRead,
           impact: activeCompanyArticle.risk,
-          crossValidation: activeCompanyArticle.evidence
-            .map(
-              (evidence) =>
-                `${evidence.sourceName}: ${evidence.takeaway}`,
-            )
-            .join(" "),
+          crossValidation:
+            activeCompanyArticle.crossValidation ??
+            activeCompanyArticle.evidence
+              .map(
+                (evidence) =>
+                  `${evidence.sourceName}: ${evidence.takeaway}`,
+              )
+              .join(" "),
           validationType: activeCompanyArticle.validationType as
             | "跨平台验证"
             | "多账号验证"
@@ -1297,6 +1307,7 @@ export default function Home() {
                     </button>
                   </div>
                 )}
+
               </div>
               ) : (
                 <div className="explore-grid">
@@ -1773,6 +1784,32 @@ export default function Home() {
               )}
             </span>
           </footer>
+
+          {view === "brief" && visibleSignals.length > 0 && (
+            <section className="explore-more-cta explore-more-page-end">
+              <div>
+                <span className="explore-more-kicker">
+                  {t("动态之外", "BEYOND THE FEED")}
+                </span>
+                <h3>
+                  {t(
+                    "看完发生了什么，再去看接下来可能发生什么",
+                    "You’ve seen what changed. Now explore what may come next.",
+                  )}
+                </h3>
+                <p>
+                  {t(
+                    "进入探索，发现非共识判断、二阶影响与仍在形成中的早期信号。",
+                    "Move into Explore for non-consensus theses, second-order effects, and early signals still taking shape.",
+                  )}
+                </p>
+              </div>
+              <button type="button" onClick={exploreMore}>
+                <span>{t("探索更多", "Explore more")}</span>
+                <i aria-hidden="true">→</i>
+              </button>
+            </section>
+          )}
             </>
           )}
         </div>

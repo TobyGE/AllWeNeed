@@ -216,6 +216,117 @@ function buildPrompt(stories) {
 ${JSON.stringify(inputs)}`;
 }
 
+function buildCompanyPrompt(radar) {
+  const inputs = radar.companySignals.map((signal, index) => ({
+    id: `company-${index}`,
+    entity: signal.entity,
+    signalType: signal.signalType,
+    stance: signal.stance,
+    headline: signal.headline,
+    whatChanged: signal.whatChanged,
+    investmentRead: signal.investmentRead,
+    catalyst: signal.catalyst,
+    risk: signal.risk,
+    watchNext: signal.watchNext,
+    evidence: signal.evidence.map((evidence, evidenceIndex) => ({
+      ref: evidence.ref,
+      sourceName: evidence.sourceName,
+      sourceKind: evidence.sourceKind,
+      title: evidence.title,
+      url: evidence.url,
+      publishedAt: evidence.publishedAt,
+      summary: cleanText(evidence.summary).slice(0, 1_200),
+      takeaway:
+        radar.translations.zh.companySignals[index]?.evidence?.[evidenceIndex]
+          ?.takeaway ?? evidence.takeaway,
+      englishTakeaway:
+        radar.translations.en.companySignals[index]?.evidence?.[evidenceIndex]
+          ?.takeaway,
+    })),
+  }));
+
+  return `使用 live web search 研究并重写以下 Signal Radar「投资与公司信号」。它们目前只是短字段拼接，不是达到编辑标准的公司稿。
+
+逐条执行：
+- 保留 entity，但重新判断最值得写的 central claim。文章必须围绕一个发生变化的业务变量：demand、pricing、margin、capital intensity、competitive position、distribution、regulatory exposure 或 management credibility。
+- 使用对应 research matrix 主动补齐 primary announcement、filing、official product or security record、reported actuals、可比基准、adoption evidence 和独立背景。
+- 现有 Blog、Newsletter、YouTube 或社区来源只是输入证据，不自动等于事实。重要外部事实要回溯到一手来源，或由两个独立可靠来源确认。
+- 如果原判断证据不足，缩小或重构判断；不得把“尚待验证”“单一来源假设”或研究过程写进正文。
+- headline 与 lead 必须表达同一个中心判断。三段正文依次建立变化与可比状态、解释业务机制、给出最强反方解释。outlook 指向下一项具体 KPI、披露或事件。
+- investmentRead 是审慎的公司价值或行业利润池含义，不得给投资建议。
+- crossValidation 必须点名每条来源分别提供什么，以及它们如何连接或冲突。
+- newSources 只返回现有 evidence 之外的 canonical 原文，优先 Official、IR、SEC、Regulator、Research、Repository；最多 5 条。搜索结果页和 snippet 不能作为来源。
+- 中文保留 company、product、model、benchmark、API、AI、Agent、LLM、inference、open-source、workflow 等清晰的专有名词。
+- 所有输入 id 必须原样返回。
+
+只返回合法 JSON：
+{
+  "stories": [
+    {
+      "id": "company-0",
+      "centralClaim": "一句话中心判断",
+      "signal": {
+        "signalType": "产品采用|竞争格局|平台扩张|资本事件|商业模式|风险",
+        "stance": "偏积极|观察|分化|风险",
+        "headline": "中文标题",
+        "whatChanged": "此前状态到当前状态的具体变化",
+        "investmentRead": "对公司价值、护城河或行业利润池的审慎含义",
+        "catalyst": "强化判断的具体催化因素",
+        "risk": "最强反方解释或反证",
+        "watchNext": "下一项可观察 KPI、披露或事件",
+        "crossValidation": "逐项说明来源贡献及其关系",
+        "article": {
+          "lead": "导语",
+          "sections": [
+            {"heading": "小标题", "body": "变化、此前状态与关键比较"},
+            {"heading": "小标题", "body": "业务机制与公司含义"},
+            {"heading": "小标题", "body": "最强反方解释及其影响"}
+          ],
+          "outlook": "下一验证点"
+        }
+      },
+      "translation": {
+        "signalType": "English taxonomy",
+        "stance": "English stance",
+        "headline": "English headline",
+        "whatChanged": "Changed state",
+        "investmentRead": "Measured company or profit-pool implication",
+        "catalyst": "Concrete catalyst",
+        "risk": "Strongest countercase",
+        "watchNext": "Next observable KPI, disclosure, or event",
+        "crossValidation": "Source-specific evidence relationship",
+        "article": {
+          "lead": "Lead",
+          "sections": [
+            {"heading": "Heading", "body": "Change, prior state, and comparison"},
+            {"heading": "Heading", "body": "Business mechanism and company implication"},
+            {"heading": "Heading", "body": "Strongest countercase and consequence"}
+          ],
+          "outlook": "Next verification point"
+        }
+      },
+      "newSources": [
+        {
+          "title": "Source title",
+          "url": "https://...",
+          "publisher": "Publisher",
+          "publishedAt": "ISO 8601 or null",
+          "sourceKind": "Official|IR|SEC|Regulator|Research|Repository|Media",
+          "summary": "该来源支持的具体事实与比较",
+          "roleZh": "主张|佐证|背景|反例",
+          "takeawayZh": "该来源具体提供的事实",
+          "roleEn": "Claim|Support|Context|Counterpoint",
+          "takeawayEn": "The specific fact supplied by this source"
+        }
+      ]
+    }
+  ]
+}
+
+输入：
+${JSON.stringify(inputs)}`;
+}
+
 async function callModel({
   model,
   prompt,
@@ -326,9 +437,15 @@ function safeSource(source, generatedAt, existingUrls) {
     sourceId: "editorial-research",
     sourceName: publisher,
     sourcePublisher: publisher,
-    sourceKind: ["Official", "IR", "SEC", "Media", "Research"].includes(
-      source?.sourceKind,
-    )
+    sourceKind: [
+      "Official",
+      "IR",
+      "SEC",
+      "Regulator",
+      "Media",
+      "Research",
+      "Repository",
+    ].includes(source?.sourceKind)
       ? source.sourceKind
       : "Media",
     title,
@@ -405,6 +522,215 @@ function validate(raw, selected) {
         : [],
     };
   });
+}
+
+function validateCompanyRewrite(raw, companySignals) {
+  if (
+    !Array.isArray(raw?.stories) ||
+    raw.stories.length !== companySignals.length
+  ) {
+    throw new Error(
+      `Expected ${companySignals.length} rewritten company signals.`,
+    );
+  }
+  const expectedIds = new Set(
+    companySignals.map((_, index) => `company-${index}`),
+  );
+  return raw.stories.map((entry) => {
+    if (!expectedIds.delete(String(entry?.id))) {
+      throw new Error(`Unexpected or duplicate company id ${entry?.id}.`);
+    }
+    for (const [label, copy] of [
+      ["zh", entry.signal],
+      ["en", entry.translation],
+    ]) {
+      for (const field of [
+        "signalType",
+        "stance",
+        "headline",
+        "whatChanged",
+        "investmentRead",
+        "catalyst",
+        "risk",
+        "watchNext",
+        "crossValidation",
+      ]) {
+        if (!cleanText(copy?.[field])) {
+          throw new Error(`${label}.${entry.id}.${field} is missing.`);
+        }
+      }
+    }
+    return {
+      id: String(entry.id),
+      signal: {
+        signalType: cleanText(entry.signal.signalType).slice(0, 80),
+        stance: cleanText(entry.signal.stance).slice(0, 80),
+        headline: cleanText(entry.signal.headline).slice(0, 180),
+        whatChanged: cleanText(entry.signal.whatChanged).slice(0, 220),
+        investmentRead: cleanText(entry.signal.investmentRead).slice(0, 260),
+        catalyst: cleanText(entry.signal.catalyst).slice(0, 180),
+        risk: cleanText(entry.signal.risk).slice(0, 220),
+        watchNext: cleanText(entry.signal.watchNext).slice(0, 180),
+        crossValidation: cleanText(entry.signal.crossValidation).slice(
+          0,
+          1_500,
+        ),
+        article: completeArticle(entry.signal.article, `zh.${entry.id}`),
+      },
+      translation: {
+        signalType: cleanText(entry.translation.signalType).slice(0, 100),
+        stance: cleanText(entry.translation.stance).slice(0, 100),
+        headline: cleanText(entry.translation.headline).slice(0, 220),
+        whatChanged: cleanText(entry.translation.whatChanged).slice(0, 420),
+        investmentRead: cleanText(entry.translation.investmentRead).slice(
+          0,
+          520,
+        ),
+        catalyst: cleanText(entry.translation.catalyst).slice(0, 320),
+        risk: cleanText(entry.translation.risk).slice(0, 420),
+        watchNext: cleanText(entry.translation.watchNext).slice(0, 320),
+        crossValidation: cleanText(entry.translation.crossValidation).slice(
+          0,
+          1_800,
+        ),
+        article: completeArticle(
+          entry.translation.article,
+          `en.${entry.id}`,
+        ),
+      },
+      newSources: Array.isArray(entry.newSources)
+        ? entry.newSources.slice(0, 5)
+        : [],
+    };
+  });
+}
+
+async function rewriteCompanySignals() {
+  const radar = JSON.parse(await readFile(radarPath, "utf8"));
+  if (!Array.isArray(radar.companySignals) || !radar.companySignals.length) {
+    console.log("No company signals require editorial rewrite.");
+    return;
+  }
+  const [auth, instructions] = await Promise.all([
+    loadSubscriptionAuth(),
+    loadEditorialSkill(),
+  ]);
+  const prompt = buildCompanyPrompt(radar);
+  let result;
+  let usedModel;
+  let lastError;
+  for (const model of preferredModels) {
+    try {
+      console.log(
+        `Researching and rewriting ${radar.companySignals.length} company signals with ${model}...`,
+      );
+      result = validateCompanyRewrite(
+        parseJsonOutput(
+          await callModel({ model, prompt, instructions, ...auth }),
+        ),
+        radar.companySignals,
+      );
+      usedModel = model;
+      break;
+    } catch (error) {
+      lastError = error;
+      console.warn(
+        `${model} company rewrite failed: ${
+          error instanceof Error ? error.message : error
+        }`,
+      );
+    }
+  }
+  if (!result) {
+    throw new Error("All company rewrite calls failed.", {
+      cause: lastError,
+    });
+  }
+
+  const generatedAt = new Date().toISOString();
+  for (const rewrite of result) {
+    const index = Number(rewrite.id.replace("company-", ""));
+    const signal = radar.companySignals[index];
+    if (!signal) {
+      throw new Error(`Company signal ${rewrite.id} is unavailable.`);
+    }
+    const existingUrls = new Set(signal.evidence.map((item) => item.url));
+    const newEvidence = rewrite.newSources
+      .map((source) => safeSource(source, generatedAt, existingUrls))
+      .filter(Boolean)
+      .map((source, sourceIndex) => ({
+        ...source,
+        ref: `CR${index + 1}-${sourceIndex + 1}`,
+      }));
+    const mergedEvidence = [
+      ...signal.evidence,
+      ...newEvidence.map(
+        ({ roleEn: _roleEn, takeawayEn: _takeawayEn, ...item }) => item,
+      ),
+    ];
+    const sourceNames = [
+      ...new Set(
+        mergedEvidence.map(
+          (item) => item.sourcePublisher ?? item.sourceName,
+        ),
+      ),
+    ];
+    const sourceKinds = [
+      ...new Set(mergedEvidence.map((item) => item.sourceKind)),
+    ];
+    Object.assign(signal, rewrite.signal, {
+      evidence: mergedEvidence,
+      references: mergedEvidence.map(
+        ({ role: _role, takeaway: _takeaway, ...item }) => item,
+      ),
+      sourceNames,
+      sourceKinds,
+      sourceCount: sourceNames.length,
+      validationType:
+        sourceKinds.length > 1 ? "跨平台验证" : "多账号验证",
+      editorialRewrittenAt: generatedAt,
+    });
+
+    Object.assign(radar.translations.zh.companySignals[index], rewrite.signal, {
+      evidence: [
+        ...radar.translations.zh.companySignals[index].evidence,
+        ...newEvidence.map((source) => ({
+          ref: source.ref,
+          sourceName: source.sourceName,
+          sourceKind: source.sourceKind,
+          originalTitle: source.title,
+          takeaway: source.takeaway,
+        })),
+      ],
+    });
+    Object.assign(
+      radar.translations.en.companySignals[index],
+      rewrite.translation,
+      {
+        evidence: [
+          ...radar.translations.en.companySignals[index].evidence,
+          ...newEvidence.map((source) => ({
+            ref: source.ref,
+            sourceName: source.sourceName,
+            sourceKind: source.sourceKind,
+            originalTitle: source.title,
+            takeaway: source.takeawayEn,
+          })),
+        ],
+      },
+    );
+  }
+
+  radar.generatedAt = generatedAt;
+  radar.editorialCompanyRewrite = {
+    generatedAt,
+    model: usedModel,
+    signalIds: result.map((item) => item.id),
+  };
+  await writeFile(radarPath, `${JSON.stringify(radar, null, 2)}\n`, "utf8");
+  console.log(
+    `Done: rewrote ${result.length} company signals with ${usedModel}.`,
+  );
 }
 
 async function main() {
@@ -551,5 +877,9 @@ async function main() {
 
 const invokedPath = process.argv[1] ? resolve(process.argv[1]) : "";
 if (invokedPath === fileURLToPath(import.meta.url)) {
-  await main();
+  if (process.argv.includes("--company")) {
+    await rewriteCompanySignals();
+  } else {
+    await main();
+  }
 }

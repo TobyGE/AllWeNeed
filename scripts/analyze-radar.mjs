@@ -272,6 +272,25 @@ function buildPrompt(snapshot, items) {
       "catalyst": "未来可能强化该判断的催化剂，不超过45个汉字",
       "risk": "最可能推翻该判断的风险，不超过45个汉字",
       "watchNext": "下一步最值得追踪的可观察指标，不超过45个汉字",
+      "crossValidation": "逐项说明不同来源各自提供了什么，以及它们如何共同支持公司级判断",
+      "article": {
+        "lead": "80-150个汉字，明确事件、发生变化的业务变量和关键比较",
+        "sections": [
+          {
+            "heading": "具体、有信息量的小标题",
+            "body": "120-220个汉字，写清实际变化、此前状态与可比数据"
+          },
+          {
+            "heading": "具体、有信息量的小标题",
+            "body": "140-240个汉字，解释变化如何影响需求、定价、margin、资本强度、竞争位置、分发、监管暴露或管理层可信度"
+          },
+          {
+            "heading": "具体、有信息量的小标题",
+            "body": "120-220个汉字，给出最强反方解释及其会如何改变投资判断"
+          }
+        ],
+        "outlook": "80-140个汉字，指出下一项可验证的 KPI、披露或事件"
+      },
       "evidence": [
         {
           "ref": "I1",
@@ -307,6 +326,10 @@ companySignals 质量门槛：
 - 不要把单个静态比例写成“增长率”或“变化百分比”。
 - whatChanged 必须描述真正的状态变化；investmentRead 必须是审慎推断，不得写成投资建议。
 - catalyst、risk、watchNext 必须具体且可以在未来观察验证。
+- article 必须是一篇有单一中心判断的完整公司稿，不得把 whatChanged、investmentRead、catalyst 和 risk 机械拼接。
+- 文章必须围绕一个发生变化的业务变量：需求、定价、margin、资本强度、竞争位置、分发、监管暴露或管理层可信度。
+- crossValidation 必须逐项说明每个来源的贡献；正文不得出现“尚待验证”“单一来源假设”或研究过程说明。
+- 如果证据无法支持公司价值或行业利润池层面的变化，应缩小判断或改选另一家公司，不得靠宽泛推断凑成投资信号。
 快照生成时间：${snapshot.generatedAt}
 输入条目数：${items.length}
 
@@ -470,7 +493,7 @@ function hydrateEvidence(evidence, itemMap) {
   return hydrated;
 }
 
-function hydrateArticle(article, signalIndex) {
+function hydrateArticle(article, label) {
   if (
     !article ||
     !cleanText(article.lead) ||
@@ -478,22 +501,30 @@ function hydrateArticle(article, signalIndex) {
     article.sections.length !== 3 ||
     !cleanText(article.outlook)
   ) {
-    throw new Error(`signal ${signalIndex + 1} 缺少完整 article`);
+    throw new Error(`${label} 缺少完整 article`);
   }
-  return {
+  const hydrated = {
     lead: cleanText(article.lead).slice(0, 500),
     sections: article.sections.map((section, sectionIndex) => {
       const heading = cleanText(section?.heading).slice(0, 80);
       const body = cleanText(section?.body).slice(0, 900);
       if (!heading || !body) {
         throw new Error(
-          `signal ${signalIndex + 1} article section ${sectionIndex + 1} 不完整`,
+          `${label} article section ${sectionIndex + 1} 不完整`,
         );
       }
       return { heading, body };
     }),
     outlook: cleanText(article.outlook).slice(0, 500),
   };
+  if (
+    /单一来源假设|尚待.{0,30}(?:验证|确认)|由于.{0,45}(?:没有|未).{0,45}(?:不作|无法|不能).{0,24}(?:判断|结论|beat|miss)|single-source hypothesis/iu.test(
+      JSON.stringify(hydrated),
+    )
+  ) {
+    throw new Error(`${label} article 包含研究过程说明`);
+  }
+  return hydrated;
 }
 
 function barsFor(index, change) {
@@ -551,7 +582,7 @@ function validateAndHydrate(raw, snapshot, items, model) {
       shiftFrom: signal.shiftFrom,
       shiftTo: signal.shiftTo,
       crossValidation: signal.crossValidation,
-      article: hydrateArticle(signal.article, index),
+      article: hydrateArticle(signal.article, `signal ${index + 1}`),
       validationType,
       sources: sourceKinds,
       sourceNames,
@@ -677,7 +708,7 @@ function validateAndHydrate(raw, snapshot, items, model) {
     raw.investmentThesis?.refs,
     itemMap,
   );
-  const companySignals = raw.companySignals.map((item) => {
+  const companySignals = raw.companySignals.map((item, index) => {
     const evidence = hydrateEvidence(item.evidence, itemMap);
     const sourceNames = [
       ...new Set(
@@ -690,6 +721,12 @@ function validateAndHydrate(raw, snapshot, items, model) {
         `companySignal ${item.entity ?? "unknown"} 只有 ${sourceNames.length} 个独立账号`,
       );
     }
+    const crossValidation = cleanText(item.crossValidation).slice(0, 900);
+    if (!crossValidation) {
+      throw new Error(
+        `companySignal ${item.entity ?? index + 1} 缺少 crossValidation`,
+      );
+    }
     return {
       entity: item.entity,
       signalType: item.signalType,
@@ -700,6 +737,11 @@ function validateAndHydrate(raw, snapshot, items, model) {
       catalyst: item.catalyst,
       risk: item.risk,
       watchNext: item.watchNext,
+      crossValidation,
+      article: hydrateArticle(
+        item.article,
+        `companySignal ${item.entity ?? index + 1}`,
+      ),
       score: Math.max(60, Math.min(99, Number(item.score) || 75)),
       validationType:
         sourceKinds.length > 1 ? "跨平台验证" : "多账号验证",
