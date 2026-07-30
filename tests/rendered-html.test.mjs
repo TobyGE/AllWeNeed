@@ -68,20 +68,36 @@ test("server-renders the Signal Radar product shell", async () => {
     /将分散的信息噪声压缩为少数值得判断的变化，让事实、共识与转折在同一条脉络中显现/,
   );
   assert.doesNotMatch(html, /新批次置顶，批内按价值排序/);
-  const translatedTitle = (id) => {
-    const index = radar.signals.findIndex((signal) => signal.id === id);
-    return radar.translations.zh.signals[index].title;
-  };
-  const fomcIndex = html.indexOf(translatedTitle(10));
-  const metaIndex = html.indexOf(translatedTitle(11));
-  const wordIndex = html.indexOf(translatedTitle(16));
-  const cloudflareIndex = html.indexOf(translatedTitle(30));
-  const morningPermanentIndex = html.indexOf(translatedTitle(1));
-  assert.ok(fomcIndex >= 0);
-  assert.ok(fomcIndex < metaIndex);
-  assert.ok(metaIndex < wordIndex);
-  assert.ok(wordIndex < cloudflareIndex);
-  assert.ok(cloudflareIndex < morningPermanentIndex);
+  const expectedDynamicOrder = radar.signals
+    .map((signal, index) => ({
+      ...signal,
+      translatedTitle: radar.translations.zh.signals[index].title,
+    }))
+    .filter((signal) => signal.editorialBucket === "dynamic")
+    .sort((left, right) => {
+      const batchDifference =
+        Date.parse(right.feedBatchAt ?? "") -
+        Date.parse(left.feedBatchAt ?? "");
+      if (Number.isFinite(batchDifference) && batchDifference !== 0) {
+        return batchDifference;
+      }
+      const valueDifference = right.score - left.score;
+      if (valueDifference !== 0) return valueDifference;
+      return (
+        Date.parse(right.updatedAt ?? right.publishedAt ?? "") -
+        Date.parse(left.updatedAt ?? left.publishedAt ?? "")
+      );
+    });
+  const renderedDynamicIndices = expectedDynamicOrder.map((signal) =>
+    html.indexOf(signal.translatedTitle),
+  );
+  assert.ok(renderedDynamicIndices.every((index) => index >= 0));
+  assert.ok(
+    renderedDynamicIndices.every(
+      (index, position) =>
+        position === 0 || renderedDynamicIndices[position - 1] < index,
+    ),
+  );
   assert.match(html, /href="\?article=1"/);
   assert.match(html, /跨平台验证/);
   assert.ok(!html.includes(radar.translations.zh.signals[0].shiftTo));
