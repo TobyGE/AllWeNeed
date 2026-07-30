@@ -6,6 +6,10 @@ import { fileURLToPath } from "node:url";
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const radarPath = resolve(projectRoot, "data/daily-radar.json");
 const authPath = resolve(homedir(), ".codex/auth.json");
+const editorialSkillDirectory = resolve(
+  homedir(),
+  ".codex/skills/radar-editorial-research",
+);
 const endpoint = "https://chatgpt.com/backend-api/codex/responses";
 const targetExploreCount = Math.max(
   50,
@@ -59,6 +63,24 @@ function clamp(value, minimum, maximum, fallback) {
   return Number.isFinite(numeric)
     ? Math.max(minimum, Math.min(maximum, Math.round(numeric)))
     : fallback;
+}
+
+async function loadEditorialWritingSkill() {
+  try {
+    const [skill, writing] = await Promise.all([
+      readFile(resolve(editorialSkillDirectory, "SKILL.md"), "utf8"),
+      readFile(
+        resolve(editorialSkillDirectory, "references/writing-standard.md"),
+        "utf8",
+      ),
+    ]);
+    return [
+      skill.replace(/^---[\s\S]*?---\s*/u, "").trim(),
+      writing.trim(),
+    ].join("\n\n");
+  } catch {
+    return "Write one centered, source-backed thesis. Use uncertainty locally once; do not turn the article into a research disclaimer. Give the strongest countercase one bounded section and devote most of the essay to the thesis and its mechanism.";
+  }
 }
 
 function compactInput(radar) {
@@ -131,7 +153,8 @@ Explore 不是重复新闻，而是从已知事实中提出可继续验证的非
 - 不得重复现有标题，也不得用同义标题重复同一个 thesis。
 - title 必须具体，避免“值得关注”“迎来变化”“未来可期”等空话。
 - counterpoint 必须是真正可能推翻 thesis 的反证，不是礼貌性保留。
-- 每条都要写成完整站内稿：导语 + 三段正文 + outlook。正文依次讲清可观察事实、编辑推断、最强反驳与证伪条件。
+- 每条都要写成完整站内稿：导语 + 三段正文 + outlook。文章只能有一个中心 thesis，约 70–80% 篇幅用于建立证据连接与机制，反方观点和证伪条件集中在一个有边界的段落。
+- uncertainty 只在影响结论的位置说明一次。不得反复写“单一来源假设”“尚未验证”“没有数据证明”等研究过程；如果证据不足，缩小 thesis，而不是让限制条件成为全文中心。
 - 中文中保留 company、product、model、person、publication、platform、benchmark、API、AI、Agent、LLM、token、context、inference、open-source、workflow 等专业名词，不要生硬全译。
 - 不得使用确定语气预测尚未发生的未来，不得写投资建议。
 
@@ -268,6 +291,7 @@ async function callSubscriptionModel({
   accessToken,
   accountId,
   reasoningEffort,
+  instructions,
 }) {
   const response = await fetch(endpoint, {
     method: "POST",
@@ -281,7 +305,7 @@ async function callSubscriptionModel({
     body: JSON.stringify({
       model,
       instructions:
-        "Stay strictly evidence-bound. Return only complete, valid JSON without markdown fences.",
+        `${instructions}\n\nStay strictly evidence-bound. Return only complete, valid JSON without markdown fences.`,
       input: [
         {
           role: "user",
@@ -338,7 +362,13 @@ function parseJsonOutput(text) {
   return JSON.parse(unfenced.slice(start, end + 1));
 }
 
-async function callWithFallback({ prompt, auth, reasoningEffort, validate }) {
+async function callWithFallback({
+  prompt,
+  auth,
+  reasoningEffort,
+  instructions,
+  validate,
+}) {
   let lastError;
   for (const model of preferredModels) {
     for (let attempt = 1; attempt <= 2; attempt += 1) {
@@ -350,6 +380,7 @@ async function callWithFallback({ prompt, auth, reasoningEffort, validate }) {
             prompt,
             ...auth,
             reasoningEffort,
+            instructions,
           }),
         );
         return { value: validate(raw), model };
@@ -377,7 +408,7 @@ function requireCompleteArticle(article, label) {
   ) {
     throw new Error(`${label} has an incomplete article.`);
   }
-  return {
+  const complete = {
     lead: cleanText(article.lead).slice(0, 1_200),
     sections: article.sections.map((section, sectionIndex) => {
       const heading = cleanText(section?.heading).slice(0, 140);
@@ -391,6 +422,15 @@ function requireCompleteArticle(article, label) {
     }),
     outlook: cleanText(article.outlook).slice(0, 1_000),
   };
+  const serialized = JSON.stringify(complete);
+  if (
+    /单一来源假设|尚待.{0,30}(?:验证|确认)|由于.{0,45}(?:没有|未).{0,45}(?:不作|无法|不能).{0,24}(?:判断|结论|beat|miss)|single-source hypothesis/iu.test(
+      serialized,
+    )
+  ) {
+    throw new Error(`${label} narrates a research limitation.`);
+  }
+  return complete;
 }
 
 function validateChineseItems({
@@ -605,6 +645,7 @@ if (seeds.length < 20 || evidenceEntries.length < 24) {
 }
 
 const auth = await loadSubscriptionAuth();
+const editorialInstructions = await loadEditorialWritingSkill();
 console.log(
   `Generating ${missingCount} evidence-bound Explore directions from ${seeds.length} published Radar stories...`,
 );
@@ -617,6 +658,7 @@ const chineseResult = await callWithFallback({
   }),
   auth,
   reasoningEffort: "high",
+  instructions: editorialInstructions,
   validate: (raw) =>
     validateChineseItems({
       raw,
@@ -631,6 +673,7 @@ const englishResult = await callWithFallback({
   prompt: buildEnglishPrompt(chineseResult.value),
   auth,
   reasoningEffort: "low",
+  instructions: editorialInstructions,
   validate: (raw) => validateEnglishItems(raw, chineseResult.value),
 });
 

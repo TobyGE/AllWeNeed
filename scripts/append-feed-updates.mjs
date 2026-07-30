@@ -13,6 +13,10 @@ const groundingSkillPath = resolve(
   homedir(),
   ".codex/skills/radar-grounding/SKILL.md",
 );
+const editorialSkillDirectory = resolve(
+  homedir(),
+  ".codex/skills/radar-editorial-research",
+);
 const endpoint = "https://chatgpt.com/backend-api/codex/responses";
 const preferredModels = [
   process.env.SIGNAL_RADAR_MODEL?.trim(),
@@ -33,6 +37,13 @@ const maxGroundingItemsPerRun = Math.max(
   Math.min(
     8,
     Number(process.env.SIGNAL_RADAR_GROUNDING_LIMIT ?? 6) || 6,
+  ),
+);
+const maxEditorialResearchItemsPerRun = Math.max(
+  1,
+  Math.min(
+    12,
+    Number(process.env.SIGNAL_RADAR_RESEARCH_LIMIT ?? 8) || 8,
   ),
 );
 const preferredGroundingModels = [
@@ -190,7 +201,7 @@ function buildPrompt({ candidates, radar, scannedSnapshot }) {
   const compactItems = candidates
     .map(
       (item) =>
-        `${item.ref} | ${item.publishedAt ?? "unknown"} | ${item.sourceKind} | ${item.sourceName} | publisher=${item.sourcePublisher} | discoveryOnly=${Boolean(item.discoveryOnly)} | groundedFrom=${item.groundedFrom ?? "none"}\n` +
+        `${item.ref} | ${item.publishedAt ?? "unknown"} | ${item.sourceKind} | ${item.sourceName} | publisher=${item.sourcePublisher} | discoveryOnly=${Boolean(item.discoveryOnly)} | groundedFrom=${item.groundedFrom ?? "none"} | researchedFrom=${item.researchedFrom ?? "none"}\n` +
         `标题: ${cleanText(item.title).slice(0, 240)}\n` +
         `摘要: ${cleanText(item.summary).slice(0, 500) || "无摘要"}`,
     )
@@ -210,11 +221,12 @@ function buildPrompt({ candidates, radar, scannedSnapshot }) {
 - 多条新增内容讲同一事件时合并成一篇稿件，逐项列出不同来源提供的事实或观点。
 - 若新增内容只是在佐证现有事件，或为现有事件补充了后续进展，放进 existingUpdates，追加“最新进展”和新 evidence；不得重写旧稿正文。只有出现可独立理解的新事件时才新建 feedStory。
 - Fed statement 若没有利率决定、投票和关键措辞，SEC 业绩文件若只有 filing metadata 而没有财务数字或附件正文，不得生成稿件；放进 ignored 并注明“等待官方正文 enrichment”，留给后续新证据更新。
-- SEC 财报不得在没有一致预期数据时声称 beat/miss。
+- SEC 财报优先使用 R ref 补齐 actuals、同比、关键 KPI、guidance 和具名 analyst consensus。不得在没有可比一致预期时声称 beat/miss；若搜索后仍没有可靠 consensus，应把文章中心放到增长、margin、cash flow、guidance 或经营指标，不得在正文解释“为什么不作 beat/miss 判断”。
 - discoveryOnly=true 的条目只是匿名内部发现线索，不是证据。它必须进入 ignored，理由写“归档：匿名发现线索已消费”；不得在标题、正文、evidence、来源名或链接中暴露或复述该线索。
 - groundedFrom 不为 none 的条目是外部 grounding 找到的可公开证据，可以正常进入 evidence。由匿名线索触发的动态，至少需要一条公司/监管/交易所等一手来源，或两条彼此独立的可靠来源；否则不得发布动态。
 - Grounding 来源若在数字、日期、单位或事件状态上冲突，只能进入探索并明确写出冲突，或归档等待确认。
 - 所有事实和数字必须来自 evidence；编辑判断必须使用审慎语气。
+- article 必须围绕一个 central claim。研究限制只能在确实影响某个具体事实时出现一次，不能把“未验证”“单一来源”或“缺少数据”写成文章主线。Explore 正文约 70–80% 用于建立 thesis 与机制，反证和证伪条件集中在一个段落。
 - 每条都要提供完整中文稿和英文稿，专有名词保持原文。
 - 本批最多 ${maxFeedStoriesPerRun} 篇；如果多个条目属于同一事件，应优先聚类而不是截断。
 
@@ -321,6 +333,43 @@ async function loadGroundingSkill() {
     return skill.replace(/^---[\s\S]*?---\s*/u, "").trim();
   } catch {
     return fallbackGroundingInstructions;
+  }
+}
+
+const fallbackEditorialInstructions = `
+Research missing material facts before writing. Separate reported actuals,
+company guidance, third-party consensus, observed reaction, and editorial
+inference. A consensus comparison must name a provider, period, metric, and
+accounting basis. If no defensible consensus is public, center the story on
+growth, guidance, margins, cash flow, or operating KPIs and omit beat/miss
+language without narrating the research gap. Write one centered argument.
+Uncertainty and the strongest countercase should appear once, not dominate the
+article.
+`.trim();
+
+async function loadEditorialSkill() {
+  try {
+    const [skill, matrices, writing] = await Promise.all([
+      readFile(resolve(editorialSkillDirectory, "SKILL.md"), "utf8"),
+      readFile(
+        resolve(
+          editorialSkillDirectory,
+          "references/research-matrices.md",
+        ),
+        "utf8",
+      ),
+      readFile(
+        resolve(editorialSkillDirectory, "references/writing-standard.md"),
+        "utf8",
+      ),
+    ]);
+    return [
+      skill.replace(/^---[\s\S]*?---\s*/u, "").trim(),
+      matrices.trim(),
+      writing.trim(),
+    ].join("\n\n");
+  } catch {
+    return fallbackEditorialInstructions;
   }
 }
 
@@ -448,6 +497,170 @@ export function hydrateGroundingCandidates({
   return candidates.map((item, index) => ({
     ...item,
     ref: `G${index + 1}`,
+  }));
+}
+
+export function selectEditorialResearchItems(candidates) {
+  const materialTerms = [
+    "earnings",
+    "results",
+    "revenue",
+    "net income",
+    "eps",
+    "guidance",
+    "10-q",
+    "10-k",
+    "8-k",
+    "20-f",
+    "6-k",
+    "fomc",
+    "federal reserve",
+    "interest rate",
+    "inflation",
+    "funding",
+    "acquisition",
+    "merger",
+    "launch",
+    "release",
+    "benchmark",
+    "security",
+    "breach",
+    "vulnerability",
+    "cve-",
+  ];
+  const materialKinds = new Set([
+    "Fed",
+    "SEC",
+    "IR",
+    "Official",
+    "Regulator",
+    "Research",
+  ]);
+  return candidates
+    .filter((item) => {
+      if (item.discoveryOnly) return false;
+      const text = `${item.title ?? ""} ${item.summary ?? ""}`.toLowerCase();
+      return (
+        materialKinds.has(item.sourceKind) ||
+        materialTerms.some((term) => text.includes(term))
+      );
+    })
+    .sort(
+      (left, right) =>
+        incrementalRelevance(right, Date.now()) -
+        incrementalRelevance(left, Date.now()),
+    )
+    .slice(0, maxEditorialResearchItemsPerRun);
+}
+
+function buildEditorialResearchPrompt(researchItems) {
+  const items = researchItems
+    .map(
+      (item) =>
+        `${item.ref} | ${item.publishedAt ?? "unknown"} | ${item.sourceKind} | ${item.sourceName}\n` +
+        `标题: ${cleanText(item.title).slice(0, 260)}\n` +
+        `现有摘要: ${cleanText(item.summary).slice(0, 900) || "无摘要"}\n` +
+        `现有来源: ${item.url}`,
+    )
+    .join("\n\n");
+
+  return `你是 Signal Radar 的研究编辑。使用 live web search 为以下候选补齐写出完整稿件所需的关键事实和比较基准。
+
+逐条执行：
+- 根据事件类型使用 research matrix，识别现有摘要缺少的 material facts。
+- 财报主动搜索 reported actuals、同比变化、关键 KPI、current/prior guidance，以及可公开核验、明确注明 provider 的 analyst consensus。
+- Fed、监管、产品、security、M&A 和 research 事件主动补齐对应的一手文件、此前状态和必要的独立验证。
+- 优先返回 company IR、filing、regulator、official release、paper、repository；独立媒体只用于 consensus、市场反应或一手文件没有覆盖的背景。
+- 搜索结果 snippet 不能直接作为 source。URL 必须是 canonical 原文。
+- 不要重复输入中已经提供的 URL。
+- 找不到可靠补充来源时返回 no_additional_sources，不得编造。
+- 每个 ref 必须且只能返回一次，最多返回 4 个新增来源。
+
+只返回合法 JSON：
+{
+  "results": [
+    {
+      "ref": "N1",
+      "status": "researched|no_additional_sources|conflicted",
+      "centralClaim": "证据支持的核心变化",
+      "comparisons": "actual、prior、guidance、consensus 或 benchmark 的可比关系",
+      "unresolved": "仍未解决但会影响判断的问题；无则空字符串",
+      "sources": [
+        {
+          "title": "原文标题",
+          "url": "https://...",
+          "publisher": "发布机构",
+          "publishedAt": "ISO 8601 或 null",
+          "sourceKind": "Official|IR|Regulator|SEC|Research|Repository|Media",
+          "role": "Primary|Consensus|Comparison|Context|Counterevidence",
+          "summary": "这条来源补齐了哪个具体事实、数字或比较"
+        }
+      ]
+    }
+  ]
+}
+
+候选：
+${items}`;
+}
+
+export function hydrateEditorialResearchCandidates({
+  raw,
+  researchItems,
+  generatedAt,
+}) {
+  const itemMap = new Map(researchItems.map((item) => [item.ref, item]));
+  const allowedKinds = new Set([
+    "Official",
+    "IR",
+    "Regulator",
+    "SEC",
+    "Research",
+    "Repository",
+    "Media",
+  ]);
+  const seenUrls = new Set(researchItems.map((item) => item.url));
+  const candidates = [];
+
+  for (const result of raw?.results ?? []) {
+    const parent = itemMap.get(result?.ref);
+    if (!parent || result?.status === "no_additional_sources") continue;
+    for (const source of (result.sources ?? []).slice(0, 4)) {
+      const url = safeGroundingUrl(source?.url);
+      const title = cleanText(source?.title).slice(0, 260);
+      const publisher = cleanText(source?.publisher).slice(0, 120);
+      const summary = cleanText(source?.summary).slice(0, 1_200);
+      if (!url || !title || !publisher || !summary || seenUrls.has(url)) {
+        continue;
+      }
+      seenUrls.add(url);
+      candidates.push({
+        id: `research-${parent.id ?? parent.ref}-${candidates.length + 1}-${url}`,
+        sourceId: parent.sourceId,
+        sourceName: publisher,
+        sourcePublisher: publisher,
+        sourceKind: allowedKinds.has(source?.sourceKind)
+          ? source.sourceKind
+          : "Media",
+        title,
+        url,
+        publishedAt: normalizeGroundingDate(
+          source.publishedAt,
+          parent.publishedAt ?? generatedAt,
+        ),
+        summary,
+        fetchedAt: generatedAt,
+        researchedFrom: parent.ref,
+        researchRole: cleanText(source.role).slice(0, 80),
+        researchClaim: cleanText(result.centralClaim).slice(0, 700),
+        researchComparisons: cleanText(result.comparisons).slice(0, 900),
+        researchUnresolved: cleanText(result.unresolved).slice(0, 700),
+      });
+    }
+  }
+  return candidates.map((item, index) => ({
+    ...item,
+    ref: `R${index + 1}`,
   }));
 }
 
@@ -599,6 +812,64 @@ async function groundDiscoveryCandidates({
   return { candidates: [], model: null, attempted: discoveryItems.length };
 }
 
+async function researchEditorialCandidates({
+  candidates,
+  auth,
+  generatedAt,
+  skillInstructions,
+}) {
+  const researchItems = selectEditorialResearchItems(candidates);
+  if (!researchItems.length) {
+    return { candidates: [], model: null, attempted: 0 };
+  }
+
+  const prompt = buildEditorialResearchPrompt(researchItems);
+  let lastError;
+  for (const model of preferredGroundingModels) {
+    try {
+      const output = await callSubscriptionModel({
+        model,
+        prompt,
+        ...auth,
+        instructions:
+          `${skillInstructions}\n\nResearch every supplied ref with live web search. Return only the requested JSON.`,
+        tools: [
+          {
+            type: "web_search",
+            search_context_size: "medium",
+            external_web_access: true,
+          },
+        ],
+        toolChoice: "required",
+        reasoningEffort: "high",
+      });
+      const raw = parseJsonOutput(output);
+      return {
+        candidates: hydrateEditorialResearchCandidates({
+          raw,
+          researchItems,
+          generatedAt,
+        }),
+        model,
+        attempted: researchItems.length,
+      };
+    } catch (error) {
+      lastError = error;
+      console.warn(
+        `${model} editorial research failed: ${
+          error instanceof Error ? error.message : error
+        }`,
+      );
+    }
+  }
+  console.warn(
+    `Editorial research unavailable; classification will use fetched evidence only: ${
+      lastError instanceof Error ? lastError.message : lastError
+    }`,
+  );
+  return { candidates: [], model: null, attempted: researchItems.length };
+}
+
 export function validateFeedCoverage(raw, candidates) {
   const expected = new Set(candidates.map((item) => item.ref));
   const itemMap = new Map(candidates.map((item) => [item.ref, item]));
@@ -652,6 +923,29 @@ export function validateFeedCoverage(raw, candidates) {
   };
 }
 
+export function assertEditorialArticleQuality(article, label) {
+  const text = [
+    article?.lead,
+    ...(article?.sections ?? []).flatMap((section) => [
+      section?.heading,
+      section?.body,
+    ]),
+    article?.outlook,
+  ]
+    .map((value) => cleanText(value))
+    .join(" ");
+  const processNarrationPatterns = [
+    /由于.{0,45}(?:没有|未).{0,45}(?:不作|无法|不能).{0,24}(?:判断|结论|beat|miss)/iu,
+    /尚待.{0,30}(?:验证|确认)/u,
+    /单一来源假设/u,
+    /single-source hypothesis/iu,
+    /without.{0,40}consensus.{0,40}(?:cannot|can't|do not|won't)/iu,
+  ];
+  if (processNarrationPatterns.some((pattern) => pattern.test(text))) {
+    throw new Error(`${label} article narrates a research limitation`);
+  }
+}
+
 function hydrateArticle(article, label) {
   if (
     !article ||
@@ -662,7 +956,7 @@ function hydrateArticle(article, label) {
   ) {
     throw new Error(`${label} article is incomplete`);
   }
-  return {
+  const hydrated = {
     lead: cleanText(article.lead).slice(0, 600),
     sections: article.sections.map((section, index) => {
       const heading = cleanText(section?.heading).slice(0, 100);
@@ -674,6 +968,8 @@ function hydrateArticle(article, label) {
     }),
     outlook: cleanText(article.outlook).slice(0, 600),
   };
+  assertEditorialArticleQuality(hydrated, label);
+  return hydrated;
 }
 
 function assertNoPrivateDiscoveryLeak(value, label) {
@@ -1261,16 +1557,25 @@ async function main() {
   };
   let model = null;
   let grounding = { candidates: [], model: null, attempted: 0 };
+  let editorialResearch = { candidates: [], model: null, attempted: 0 };
   let candidates = selectedCandidates;
   let auth = null;
   if (selectedCandidates.length) {
     auth = await loadSubscriptionAuth();
+    const editorialSkillInstructions = await loadEditorialSkill();
     grounding = await groundDiscoveryCandidates({
       candidates: selectedCandidates,
       auth,
       generatedAt: scannedSnapshot.generatedAt,
     });
     candidates = [...selectedCandidates, ...grounding.candidates];
+    editorialResearch = await researchEditorialCandidates({
+      candidates,
+      auth,
+      generatedAt: scannedSnapshot.generatedAt,
+      skillInstructions: editorialSkillInstructions,
+    });
+    candidates = [...candidates, ...editorialResearch.candidates];
     const prompt = buildPrompt({ candidates, radar, scannedSnapshot });
     let lastError;
     for (const candidateModel of preferredModels) {
@@ -1279,6 +1584,9 @@ async function main() {
           model: candidateModel,
           prompt,
           ...auth,
+          instructions:
+            `${editorialSkillInstructions}\n\nClassify every new source item exactly once. Publish only qualified dynamic events or substantive Explore theses; archive weak items. Write a centered source-backed article and return only valid JSON.`,
+          reasoningEffort: "high",
         });
         const raw = parseJsonOutput(output);
         coverage = validateFeedCoverage(raw, candidates);
@@ -1337,6 +1645,9 @@ async function main() {
     groundingModel: grounding.model,
     groundingAttemptedCount: grounding.attempted,
     groundedEvidenceCount: grounding.candidates.length,
+    editorialResearchModel: editorialResearch.model,
+    editorialResearchAttemptedCount: editorialResearch.attempted,
+    editorialResearchEvidenceCount: editorialResearch.candidates.length,
     feedStoryCount: hydratedStories.length,
     updatedStoryCount: hydratedUpdates.length,
     includedItemCount: coverage.storyItemCount,

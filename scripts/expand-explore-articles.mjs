@@ -6,15 +6,44 @@ import { fileURLToPath } from "node:url";
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const radarPath = resolve(projectRoot, "data/daily-radar.json");
 const authPath = resolve(homedir(), ".codex/auth.json");
+const editorialSkillDirectory = resolve(
+  homedir(),
+  ".codex/skills/radar-editorial-research",
+);
 const endpoint = "https://chatgpt.com/backend-api/codex/responses";
 const preferredModels = [
   process.env.SIGNAL_RADAR_MODEL?.trim(),
   "gpt-5.6-sol",
   "gpt-5.5",
 ].filter(Boolean);
+const requestedChunkSize = Number(
+  process.env.SIGNAL_RADAR_EXPLORE_REWRITE_CHUNK ?? 10,
+);
+const chunkSize =
+  Number.isInteger(requestedChunkSize) && requestedChunkSize > 0
+    ? Math.min(requestedChunkSize, 12)
+    : 10;
 
 function cleanText(value = "") {
   return String(value).replace(/\s+/g, " ").trim();
+}
+
+async function loadEditorialWritingSkill() {
+  try {
+    const [skill, writing] = await Promise.all([
+      readFile(resolve(editorialSkillDirectory, "SKILL.md"), "utf8"),
+      readFile(
+        resolve(editorialSkillDirectory, "references/writing-standard.md"),
+        "utf8",
+      ),
+    ]);
+    return [
+      skill.replace(/^---[\s\S]*?---\s*/u, "").trim(),
+      writing.trim(),
+    ].join("\n\n");
+  } catch {
+    return "Write one centered, source-backed thesis. Use uncertainty locally once; do not let caveats displace the article's central argument.";
+  }
 }
 
 function compactExplore(radar, locale) {
@@ -52,8 +81,7 @@ function compactExplore(radar, locale) {
   });
 }
 
-function buildPrompt(radar, locale) {
-  const inputs = compactExplore(radar, locale);
+function buildPrompt(inputs, locale) {
   const languageRules =
     locale === "zh"
       ? `Write natural Simplified Chinese for technology and investment readers.
@@ -73,11 +101,13 @@ Editorial rules:
 - Preserve input order and id exactly. Return all ${inputs.length} items.
 - Use only the evidence attached to that Explore item. Do not add facts, names, numbers, dates, causal claims, or background from memory.
 - The article must be cohesive editorial prose, not a concatenation of thesis, whyNow, and counterpoint.
+- The article must have one central thesis. Spend roughly 70-80% of the essay establishing the evidence connection and mechanism.
 - The three sections must do distinct jobs:
-  1. identify the observable signal and what the sources actually report;
-  2. explain the non-obvious connection or second-order thesis, clearly labeling editorial inference;
-  3. present the strongest counterargument, uncertainty, and what would falsify the thesis.
+  1. establish the observable signal and the thesis it supports;
+  2. explain the non-obvious mechanism or second-order consequence;
+  3. contain the strongest counterargument and falsification conditions in one bounded section.
 - crossValidation must say what each independent source contributes and how they connect. If there is only one source, explicitly call it a single-source hypothesis rather than cross-validation.
+- Keep single-source status in crossValidation metadata only. Do not repeat “single-source hypothesis”, “not yet verified”, or missing-research narration in the lead, article sections, or outlook. Narrow the thesis when evidence is thin.
 - outlook must name observable developments that would strengthen or weaken the thesis within its stated horizon.
 - Do not write investment advice or use inevitable future tense.
 
@@ -125,7 +155,13 @@ async function loadSubscriptionAuth() {
   };
 }
 
-async function callSubscriptionModel({ model, prompt, accessToken, accountId }) {
+async function callSubscriptionModel({
+  model,
+  prompt,
+  accessToken,
+  accountId,
+  instructions,
+}) {
   const response = await fetch(endpoint, {
     method: "POST",
     headers: {
@@ -138,7 +174,7 @@ async function callSubscriptionModel({ model, prompt, accessToken, accountId }) 
     body: JSON.stringify({
       model,
       instructions:
-        "Return valid JSON only. Stay evidence-bound and preserve every Explore id and array order.",
+        `${instructions}\n\nReturn valid JSON only. Stay evidence-bound and preserve every Explore id and array order.`,
       input: [
         {
           role: "user",
@@ -195,19 +231,19 @@ function parseJsonOutput(text) {
   return JSON.parse(unfenced.slice(start, end + 1));
 }
 
-function validateOutput(radar, raw, locale) {
+function validateOutput(inputs, raw, locale) {
   const items = raw?.exploreSignals;
   if (
     !Array.isArray(items) ||
-    items.length !== radar.exploreSignals.length
+    items.length !== inputs.length
   ) {
     throw new Error(
-      `${locale}.exploreSignals must contain ${radar.exploreSignals.length} items.`,
+      `${locale}.exploreSignals must contain ${inputs.length} items.`,
     );
   }
 
   return items.map((item, index) => {
-    const expectedId = radar.exploreSignals[index].id;
+    const expectedId = inputs[index].id;
     if (item?.id !== expectedId) {
       throw new Error(
         `${locale}.exploreSignals[${index}] expected ${expectedId}.`,
@@ -235,7 +271,7 @@ function validateOutput(radar, raw, locale) {
         body: body.slice(0, 1400),
       };
     });
-    return {
+    const validated = {
       id: expectedId,
       crossValidation: cleanText(item.crossValidation).slice(0, 800),
       article: {
@@ -244,40 +280,69 @@ function validateOutput(radar, raw, locale) {
         outlook: cleanText(item.article.outlook).slice(0, 800),
       },
     };
+    if (
+      /单一来源假设|尚待.{0,30}(?:验证|确认)|由于.{0,45}(?:没有|未).{0,45}(?:不作|无法|不能).{0,24}(?:判断|结论|beat|miss)|single-source hypothesis/iu.test(
+        JSON.stringify(validated.article),
+      )
+    ) {
+      throw new Error(
+        `${locale}.${expectedId} narrates a research limitation.`,
+      );
+    }
+    return validated;
   });
 }
 
 const radar = JSON.parse(await readFile(radarPath, "utf8"));
 const auth = await loadSubscriptionAuth();
+const editorialInstructions = await loadEditorialWritingSkill();
 const editions = {};
 const usedModels = {};
 
 for (const locale of ["zh", "en"]) {
-  const prompt = buildPrompt(radar, locale);
-  let lastError;
-  for (const model of [...new Set(preferredModels)]) {
-    try {
-      console.log(`Writing ${locale} Explore articles with ${model}...`);
-      const raw = parseJsonOutput(
-        await callSubscriptionModel({ model, prompt, ...auth }),
-      );
-      editions[locale] = validateOutput(radar, raw, locale);
-      usedModels[locale] = model;
-      break;
-    } catch (error) {
-      lastError = error;
-      console.warn(
-        `${model} ${locale} Explore expansion failed: ${
-          error instanceof Error ? error.message : error
-        }`,
+  const inputs = compactExplore(radar, locale);
+  const localizedEditions = [];
+  const localizedModels = [];
+  for (let offset = 0; offset < inputs.length; offset += chunkSize) {
+    const chunk = inputs.slice(offset, offset + chunkSize);
+    const prompt = buildPrompt(chunk, locale);
+    let chunkEdition;
+    let lastError;
+    for (const model of [...new Set(preferredModels)]) {
+      try {
+        console.log(
+          `Writing ${locale} Explore articles ${offset + 1}-${offset + chunk.length}/${inputs.length} with ${model}...`,
+        );
+        const raw = parseJsonOutput(
+          await callSubscriptionModel({
+            model,
+            prompt,
+            ...auth,
+            instructions: editorialInstructions,
+          }),
+        );
+        chunkEdition = validateOutput(chunk, raw, locale);
+        localizedModels.push(model);
+        break;
+      } catch (error) {
+        lastError = error;
+        console.warn(
+          `${model} ${locale} Explore ${offset + 1}-${offset + chunk.length} failed: ${
+            error instanceof Error ? error.message : error
+          }`,
+        );
+      }
+    }
+    if (!chunkEdition) {
+      throw new Error(
+        `All ${locale} Explore expansion calls failed for ${offset + 1}-${offset + chunk.length}.`,
+        { cause: lastError },
       );
     }
+    localizedEditions.push(...chunkEdition);
   }
-  if (!editions[locale]) {
-    throw new Error(`All ${locale} Explore expansion calls failed.`, {
-      cause: lastError,
-    });
-  }
+  editions[locale] = localizedEditions;
+  usedModels[locale] = [...new Set(localizedModels)].join(", ");
 }
 
 for (const [index, signal] of radar.exploreSignals.entries()) {

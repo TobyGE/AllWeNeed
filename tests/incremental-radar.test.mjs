@@ -1,12 +1,15 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import {
+  assertEditorialArticleQuality,
   createBaselineState,
+  hydrateEditorialResearchCandidates,
   hydrateGroundingCandidates,
   hydrateExistingUpdates,
   hydrateFeedStories,
   mergeFeedStories,
   nextState,
+  selectEditorialResearchItems,
   selectIncrementalItems,
   validateFeedCoverage,
 } from "../scripts/append-feed-updates.mjs";
@@ -448,6 +451,119 @@ test("hydrates external grounding while rejecting the private wire domain", () =
   assert.equal(grounded[0].sourceName, "Samsung Electronics");
   assert.equal(grounded[0].sourceKind, "IR");
   assert.equal(grounded[0].groundedFrom, "N1");
+});
+
+test("selects material events for editorial web research", () => {
+  const selected = selectEditorialResearchItems([
+    {
+      ref: "N1",
+      sourceKind: "SEC",
+      title: "Company reports quarterly earnings",
+      summary: "Revenue and guidance were disclosed.",
+      publishedAt: "2026-07-30T00:00:00.000Z",
+    },
+    {
+      ref: "N2",
+      sourceKind: "Blog",
+      title: "A personal keyboard layout",
+      summary: "Notes from one developer.",
+      publishedAt: "2026-07-30T00:00:00.000Z",
+    },
+    {
+      ref: "N3",
+      sourceKind: "Wire",
+      title: "Private earnings lead",
+      discoveryOnly: true,
+      publishedAt: "2026-07-30T00:00:00.000Z",
+    },
+  ]);
+
+  assert.deepEqual(selected.map((item) => item.ref), ["N1"]);
+});
+
+test("hydrates citeable editorial research and deduplicates original URLs", () => {
+  const researchItems = [
+    {
+      ref: "N1",
+      id: "item-1",
+      sourceId: 170,
+      url: "https://company.example/results",
+      publishedAt: "2026-07-30T00:00:00.000Z",
+    },
+  ];
+  const researched = hydrateEditorialResearchCandidates({
+    researchItems,
+    generatedAt: "2026-07-30T00:20:00.000Z",
+    raw: {
+      results: [
+        {
+          ref: "N1",
+          status: "researched",
+          centralClaim: "Revenue grew while guidance increased.",
+          comparisons: "Consensus was supplied by a named provider.",
+          unresolved: "",
+          sources: [
+            {
+              title: "Quarterly results",
+              url: "https://company.example/results",
+              publisher: "Company",
+              sourceKind: "IR",
+              role: "Primary",
+              summary: "The release reports actual results.",
+            },
+            {
+              title: "Analyst expectations",
+              url: "https://media.example/consensus",
+              publisher: "Independent Media",
+              sourceKind: "Media",
+              role: "Consensus",
+              summary: "The report names the consensus provider and estimate.",
+            },
+          ],
+        },
+      ],
+    },
+  });
+
+  assert.equal(researched.length, 1);
+  assert.equal(researched[0].ref, "R1");
+  assert.equal(researched[0].researchedFrom, "N1");
+  assert.equal(researched[0].researchRole, "Consensus");
+});
+
+test("rejects research-process disclaimers from article copy", () => {
+  assert.throws(
+    () =>
+      assertEditorialArticleQuality(
+        {
+          lead: "Meta公布季度业绩。",
+          sections: [
+            {
+              heading: "结果",
+              body: "由于没有引入分析师一致预期，这里不作beat或miss判断。",
+            },
+          ],
+          outlook: "关注下一季指引。",
+        },
+        "test",
+      ),
+    /research limitation/,
+  );
+  assert.doesNotThrow(() =>
+    assertEditorialArticleQuality(
+      {
+        lead: "Meta营收增长，但利润率下降成为本季核心变化。",
+        sections: [
+          {
+            heading: "经营杠杆转向",
+            body: "广告量价增长与基础设施投入共同改变利润结构。",
+          },
+        ],
+        outlook: "下一季重点验证广告增长能否覆盖折旧与基础设施投入。",
+      },
+      "test",
+    ),
+  );
 });
 
 test("appends new evidence and progress to an existing story without rewriting it", () => {

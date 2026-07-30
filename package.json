@@ -17,6 +17,7 @@
     "analyze": "node scripts/analyze-radar.mjs && npm run localize && npm run ensure:explore",
     "localize": "node scripts/localize-radar.mjs && node scripts/expand-explore-articles.mjs",
     "expand:explore": "node scripts/expand-explore-articles.mjs",
+    "rewrite:editorial": "node scripts/rewrite-editorial-stories.mjs",
     "refresh:all": "npm run refresh:incremental && npm run ensure:explore",
     "ensure:explore": "node scripts/ensure-explore-depth.mjs",
     "test": "npm run build && node --test tests/*.test.mjs",
