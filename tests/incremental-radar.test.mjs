@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import {
   assertEditorialArticleQuality,
+  assertSnapshotHealth,
   createBaselineState,
   hydrateEditorialResearchCandidates,
   hydrateGroundingCandidates,
@@ -126,6 +127,23 @@ test("creates a baseline from every currently visible item and connected source"
     "https://example.com/one",
     "https://example.com/two",
   ]);
+});
+
+test("stops before advancing the cursor when source health collapses", () => {
+  assert.doesNotThrow(() =>
+    assertSnapshotHealth(
+      { successfulSources: 155, failedSources: 0 },
+      { successfulSources: 154 },
+    ),
+  );
+  assert.throws(
+    () =>
+      assertSnapshotHealth(
+        { successfulSources: 31, failedSources: 124 },
+        { successfulSources: 154 },
+      ),
+    /Source health degraded/,
+  );
 });
 
 test("keeps the cursor window open until every eligible batch participates", () => {

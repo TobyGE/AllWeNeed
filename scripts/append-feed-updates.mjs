@@ -1465,6 +1465,28 @@ export function nextState({
   };
 }
 
+export function assertSnapshotHealth(scannedSnapshot, previousSnapshot) {
+  const currentSuccessful = Number(scannedSnapshot.successfulSources ?? 0);
+  const previousSuccessful = Number(previousSnapshot.successfulSources ?? 0);
+  const currentFailed = Number(scannedSnapshot.failedSources ?? 0);
+  const expectedMinimum =
+    previousSuccessful >= 20 ? Math.floor(previousSuccessful * 0.8) : 1;
+
+  if (currentSuccessful < expectedMinimum) {
+    throw new Error(
+      `Source health degraded: ${currentSuccessful} connected; expected at least ${expectedMinimum} from previous baseline ${previousSuccessful}`,
+    );
+  }
+  if (
+    currentSuccessful + currentFailed >= 20 &&
+    currentFailed / (currentSuccessful + currentFailed) > 0.2
+  ) {
+    throw new Error(
+      `Source failure ratio too high: ${currentFailed} failed, ${currentSuccessful} connected`,
+    );
+  }
+}
+
 async function writeJson(path, value) {
   await mkdir(dirname(path), { recursive: true });
   await writeFile(path, `${JSON.stringify(value, null, 2)}\n`, "utf8");
@@ -1485,6 +1507,7 @@ async function main() {
   const scannedSnapshot = JSON.parse(scannedText);
   const previousSnapshot = JSON.parse(previousText);
   const radar = JSON.parse(radarText);
+  assertSnapshotHealth(scannedSnapshot, previousSnapshot);
   let state = null;
   try {
     state = JSON.parse(await readFile(statePath, "utf8"));
