@@ -36,6 +36,7 @@ function runCommand(command, args, { cwd, capture = false } = {}) {
   const result = spawnSync(command, args, {
     cwd,
     encoding: "utf8",
+    maxBuffer: 64 * 1024 * 1024,
     stdio: capture ? ["ignore", "pipe", "pipe"] : "inherit",
   });
   if (result.error) throw result.error;
