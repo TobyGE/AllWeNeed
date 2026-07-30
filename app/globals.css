@@ -1174,15 +1174,6 @@ button {
   font-weight: 800;
 }
 
-.permanent-badge {
-  border: 1px solid #cbc8bd;
-  border-radius: 999px;
-  padding: 2px 5px;
-  color: #686963;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-}
-
 .tone-blue .eyebrow {
   background: var(--blue-soft);
   color: var(--blue);
@@ -2020,10 +2011,30 @@ button {
   min-height: 48px;
   margin: 0;
   padding: 0 15px 12px;
-  color: #353631;
   font-family: Georgia, "Songti SC", serif;
   font-size: 15px;
   line-height: 1.55;
+}
+
+.investment-card > h4 a {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  color: #353631;
+  text-decoration: none;
+}
+
+.investment-card > h4 a > span:first-child {
+  min-width: 0;
+}
+
+.investment-card > h4 .story-link-icon {
+  margin-top: 1px;
+}
+
+.investment-card > h4 a:hover {
+  color: var(--investment-accent);
 }
 
 .investment-change {
@@ -2054,6 +2065,11 @@ button {
   border-radius: 9px;
   background: #22231f;
   padding: 11px;
+}
+
+.investment-preview {
+  display: flex;
+  flex-direction: column;
 }
 
 .investment-read span {
@@ -2219,13 +2235,32 @@ button {
 .investment-card-footer {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 8px;
   margin-top: auto;
   border-top: 1px solid #e3e0d7;
   background: #f3f1eb;
   padding: 9px 15px;
   color: #aaa9a2;
   font-size: 6px;
+}
+
+.investment-card-footer .analysis-toggle {
+  margin-left: auto;
+  border: 1px solid #d9d6cd;
+  border-radius: 999px;
+  background: #fbfaf6;
+  padding: 4px 8px;
+  color: #777872;
+  font-size: 7px;
+}
+
+.investment-card-footer .analysis-toggle:hover {
+  border-color: var(--investment-accent);
+  color: var(--investment-accent);
+}
+
+.investment-disclaimer {
+  white-space: nowrap;
 }
 
 .stance-badge {

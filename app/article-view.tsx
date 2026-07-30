@@ -95,12 +95,13 @@ export function ArticleView({
   signal: ArticleSignal;
   locale: Locale;
   generatedAt: string;
-  kind?: "brief" | "explore";
+  kind?: "brief" | "explore" | "company";
   onLocaleChange: (locale: Locale) => void;
   onBack: () => void;
 }) {
   const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
   const isExplore = kind === "explore";
+  const isCompany = kind === "company";
   const article = signal.article ?? fallbackArticle(signal, locale);
   useEffect(() => {
     const previousTitle = document.title;
@@ -170,7 +171,9 @@ export function ArticleView({
           <span className="article-edition">
             {isExplore
               ? t("EXPLORE 探索稿", "EXPLORE ESSAY")
-              : t("RADAR 编辑稿", "RADAR EDITORIAL")}
+              : isCompany
+                ? t("CAPITAL 公司稿", "CAPITAL & COMPANY")
+                : t("RADAR 编辑稿", "RADAR EDITORIAL")}
           </span>
         </div>
       </header>
@@ -186,7 +189,9 @@ export function ArticleView({
           >
             {isExplore
               ? t("探索", "Explore")
-              : t("最新动态", "Latest Updates")}
+              : isCompany
+                ? t("投资与公司信号", "Investment & Company Signals")
+                : t("最新动态", "Latest Updates")}
           </a>
           <span>/</span>
           <span>{signal.category}</span>
@@ -213,7 +218,10 @@ export function ArticleView({
                     `探索置信度 · ${signal.confidence ?? "观察中"}`,
                     `Explore confidence · ${signal.confidence ?? "Watching"}`,
                   )
-                : `${t("信号置信度", "Signal confidence")} ${signal.score}/100`}
+                : `${t(
+                    isCompany ? "公司信号分" : "信号置信度",
+                    isCompany ? "Company signal score" : "Signal confidence",
+                  )} ${signal.score}/100`}
             </span>
           </div>
         </header>
@@ -288,7 +296,9 @@ export function ArticleView({
               <span>
                 {isExplore
                   ? t("证据如何支撑判断", "HOW THE EVIDENCE CONNECTS")
-                  : t("交叉验证结论", "CROSS-VALIDATION")}
+                  : isCompany
+                    ? t("公司判断的证据链", "EVIDENCE BEHIND THE COMPANY READ")
+                    : t("交叉验证结论", "CROSS-VALIDATION")}
               </span>
               <p>{signal.crossValidation}</p>
             </div>
@@ -343,7 +353,9 @@ export function ArticleView({
             ←{" "}
             {isExplore
               ? t("返回探索", "Back to Explore")
-              : t("返回最新动态", "Back to latest updates")}
+              : isCompany
+                ? t("返回投资与公司信号", "Back to company signals")
+                : t("返回最新动态", "Back to latest updates")}
           </a>
           <span>Signal Radar · {dateLabel}</span>
         </footer>

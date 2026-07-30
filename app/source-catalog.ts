@@ -4,6 +4,7 @@ export type SourceKind =
   | "Newsletter"
   | "Fed"
   | "SEC"
+  | "Wire"
   | "Blog";
 
 export type SourceItem = {
@@ -15,6 +16,9 @@ export type SourceItem = {
   publisher?: string;
   secCik?: string;
   ticker?: string;
+  adapter?: "cls-telegraph";
+  internalOnly?: boolean;
+  discoveryOnly?: boolean;
 };
 
 export function getSourceKind(url: string): SourceKind {
@@ -27,6 +31,7 @@ export function getSourceKind(url: string): SourceKind {
   if (host === "www.sec.gov" || host === "sec.gov" || host === "data.sec.gov") {
     return "SEC";
   }
+  if (host === "m.cls.cn") return "Wire";
   if (
     host.includes("substack.com") ||
     host === "a16z.news" ||
@@ -215,4 +220,18 @@ export const sourceCatalog: SourceItem[] = [
   { id: 175, name: "Oracle SEC Filings", publisher: "Oracle", ticker: "ORCL", secCik: "0001341439", description: "Oracle 向 SEC 提交的 10-K、10-Q、earnings 8-K 等一手财务披露。", url: "https://www.sec.gov/edgar/browse/?CIK=0001341439" },
   { id: 176, name: "Palantir SEC Filings", publisher: "Palantir", ticker: "PLTR", secCik: "0001321655", description: "Palantir 向 SEC 提交的 10-K、10-Q、earnings 8-K 等一手财务披露。", url: "https://www.sec.gov/edgar/browse/?CIK=0001321655" },
   { id: 177, name: "TSMC SEC Filings", publisher: "TSMC", ticker: "TSM", secCik: "0001046179", description: "TSMC 向 SEC 提交的 20-F、6-K 等一手财务披露。", url: "https://www.sec.gov/edgar/browse/?CIK=0001046179" },
+  {
+    id: 178,
+    name: "实时财经发现源",
+    publisher: "实时财经发现源",
+    description: "内部高频事件发现源；公开稿件必须先经过外部 grounding，不直接引用或展示原始快讯。",
+    url: "https://m.cls.cn/telegraph",
+    adapter: "cls-telegraph",
+    internalOnly: true,
+    discoveryOnly: true,
+  },
 ];
+
+export const publicSourceCatalog = sourceCatalog.filter(
+  (source) => !source.internalOnly,
+);

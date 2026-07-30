@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import {
   createBaselineState,
+  hydrateGroundingCandidates,
   hydrateExistingUpdates,
   hydrateFeedStories,
   mergeFeedStories,
@@ -336,6 +337,117 @@ test("requires every newly fetched ref to be included or explicitly ignored", ()
     ),
     { storyItemCount: 1, updateItemCount: 0, ignoredItemCount: 1 },
   );
+});
+
+test("never permits an anonymous discovery ref as public evidence", () => {
+  const candidates = [
+    {
+      ref: "N1",
+      url: "https://private.example/discovery",
+      discoveryOnly: true,
+    },
+  ];
+  assert.throws(
+    () =>
+      validateFeedCoverage(
+        {
+          feedStories: [
+            { signal: { evidence: [{ ref: "N1" }] } },
+          ],
+          ignored: [],
+        },
+        candidates,
+      ),
+    /cannot be used as public evidence/,
+  );
+});
+
+test("rejects private discovery names leaked into public copy", () => {
+  const candidates = [
+    {
+      ref: "G1",
+      sourceName: "Samsung Electronics",
+      sourcePublisher: "Samsung Electronics",
+      sourceKind: "IR",
+      title: "Official results",
+      summary: "Official results",
+      url: "https://www.samsung.com/global/ir/results",
+      publishedAt: "2026-07-30T00:00:00.000Z",
+    },
+  ];
+  const radar = {
+    signals: [],
+    translations: { zh: { signals: [] }, en: { signals: [] } },
+  };
+  assert.throws(
+    () =>
+      hydrateFeedStories({
+        candidates,
+        radar,
+        generatedAt: "2026-07-30T00:20:00.000Z",
+        raw: {
+          feedStories: [
+            {
+              bucket: "dynamic",
+              valueScore: 80,
+              signal: {
+                title: "财联社称公司发布财报",
+                evidence: [{ ref: "G1" }],
+              },
+            },
+          ],
+        },
+      }),
+    /exposes a private discovery source/,
+  );
+});
+
+test("hydrates external grounding while rejecting the private wire domain", () => {
+  const discoveryItems = [
+    {
+      ref: "N1",
+      id: "178-wire-1",
+      sourceId: 178,
+      publishedAt: "2026-07-30T00:00:00.000Z",
+    },
+  ];
+  const grounded = hydrateGroundingCandidates({
+    discoveryItems,
+    generatedAt: "2026-07-30T00:20:00.000Z",
+    raw: {
+      results: [
+        {
+          ref: "N1",
+          status: "grounded",
+          claim: "Samsung reported quarterly earnings.",
+          notes: "",
+          sources: [
+            {
+              title: "2Q 2026 Earnings Release",
+              url: "https://www.samsung.com/global/ir/earnings",
+              publisher: "Samsung Electronics",
+              publishedAt: "2026-07-30T00:00:00.000Z",
+              sourceKind: "IR",
+              summary: "The official release reports the quarter's results.",
+            },
+            {
+              title: "Private wire copy",
+              url: "https://api3.cls.cn/share/article/1",
+              publisher: "Wire",
+              sourceKind: "Media",
+              summary: "A duplicate alert.",
+            },
+          ],
+        },
+      ],
+    },
+  });
+
+  assert.equal(grounded.length, 1);
+  assert.equal(grounded[0].ref, "G1");
+  assert.equal(grounded[0].sourceName, "Samsung Electronics");
+  assert.equal(grounded[0].sourceKind, "IR");
+  assert.equal(grounded[0].groundedFrom, "N1");
 });
 
 test("appends new evidence and progress to an existing story without rewriting it", () => {

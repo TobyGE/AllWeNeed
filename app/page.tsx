@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import dailyRadar from "../data/daily-radar.json";
 import snapshot from "../data/feed-snapshot.json";
 import { ArticleView } from "./article-view";
-import { getSourceKind, sourceCatalog } from "./source-catalog";
+import { getSourceKind, publicSourceCatalog } from "./source-catalog";
 import { SourceLibrary } from "./source-library";
 
 type SignalReference = {
@@ -129,7 +129,7 @@ function compareExploreOrder(
   return right.valueScore - left.valueScore;
 }
 
-const configuredKindCounts = sourceCatalog.reduce<Record<string, number>>(
+const configuredKindCounts = publicSourceCatalog.reduce<Record<string, number>>(
   (counts, source) => {
     const kind = getSourceKind(source.url);
     counts[kind] = (counts[kind] ?? 0) + 1;
@@ -137,6 +137,19 @@ const configuredKindCounts = sourceCatalog.reduce<Record<string, number>>(
   },
   {},
 );
+const publicSourceIds = new Set(publicSourceCatalog.map((source) => source.id));
+const publicSnapshotItems = snapshot.items.filter((item) =>
+  publicSourceIds.has(item.sourceId),
+);
+const publicStatuses = snapshot.statuses.filter((status) =>
+  publicSourceIds.has(status.sourceId),
+);
+const publicSuccessfulSources = publicStatuses.filter((status) =>
+  ["ok", "empty"].includes(status.status),
+).length;
+const publicNeedsAuthSources = publicStatuses.filter(
+  (status) => status.status === "needs_auth",
+).length;
 
 function shortKind(kind: string, locale: "zh" | "en") {
   if (locale === "zh") {
@@ -163,6 +176,7 @@ export default function Home() {
   const [query, setQuery] = useState("");
   const [expanded, setExpanded] = useState<number[]>([]);
   const [expandedExplore, setExpandedExplore] = useState<string[]>([]);
+  const [expandedCompany, setExpandedCompany] = useState<string[]>([]);
   const [saved, setSaved] = useState<number[]>([]);
   const [following, setFollowing] = useState<string[]>([]);
   const [view, setView] = useState<"brief" | "explore">("brief");
@@ -301,22 +315,12 @@ export default function Home() {
         id: String(signal.id),
         category: signal.category,
         categoryKey: signal.categoryKey,
-        label: signal.permanent
-          ? locale === "zh"
-            ? "永久"
-            : "Permanent"
-          : signal.eyebrow,
+        label: signal.eyebrow,
         title: signal.title,
         thesis: signal.summary,
         whyNow: signal.why,
         counterpoint: signal.impact,
-        horizon: signal.permanent
-          ? locale === "zh"
-            ? "长期保留"
-            : "Long term"
-          : locale === "zh"
-            ? "持续追踪"
-            : "Ongoing",
+        horizon: locale === "zh" ? "持续追踪" : "Ongoing",
         confidence:
           signal.score >= 90
             ? locale === "zh"
@@ -412,7 +416,7 @@ export default function Home() {
   }));
   const localizedCompanySignals = dailyRadar.companySignals.map((item, index) => {
     const translated = languageCopy.companySignals[index];
-    return {
+    const localizedItem = {
       ...item,
       ...translated,
       evidence: item.evidence.map((evidence, evidenceIndex) => ({
@@ -420,6 +424,31 @@ export default function Home() {
         takeaway:
           translated.evidence[evidenceIndex]?.takeaway ?? evidence.takeaway,
       })),
+    };
+    return {
+      ...localizedItem,
+      id: `company-${index}`,
+      article: {
+        lead: `${localizedItem.whatChanged} ${localizedItem.investmentRead}`,
+        sections: [
+          {
+            heading: t("变化发生在哪里", "Where the change is happening"),
+            body: localizedItem.whatChanged,
+          },
+          {
+            heading: t("如何理解这家公司", "How to read the company"),
+            body: localizedItem.investmentRead,
+          },
+          {
+            heading: t("催化因素与反证", "Catalysts and disconfirming evidence"),
+            body: t(
+              `潜在催化因素是${localizedItem.catalyst}。需要警惕的反证是${localizedItem.risk}。`,
+              `The potential catalyst is ${localizedItem.catalyst}. The key disconfirming risk is ${localizedItem.risk}.`,
+            ),
+          },
+        ],
+        outlook: localizedItem.watchNext,
+      },
     };
   });
 
@@ -487,10 +516,17 @@ export default function Home() {
     );
   }
 
+  function toggleExpandedCompany(id: string) {
+    setExpandedCompany((items) =>
+      items.includes(id) ? items.filter((item) => item !== id) : [...items, id],
+    );
+  }
+
   function switchView(nextView: "brief" | "explore") {
     setView(nextView);
     setExpanded([]);
     setExpandedExplore([]);
+    setExpandedCompany([]);
   }
 
   function toggleSaved(id: number) {
@@ -560,6 +596,43 @@ export default function Home() {
           switchView("explore");
           closeArticle();
         }}
+      />
+    );
+  }
+  const activeCompanyArticle = localizedCompanySignals.find(
+    (signal) => signal.id === articleId,
+  );
+  if (activeCompanyArticle) {
+    return (
+      <ArticleView
+        signal={{
+          id: activeCompanyArticle.id,
+          category: t("投资与公司信号", "Investment & Company Signals"),
+          eyebrow: activeCompanyArticle.signalType,
+          title: activeCompanyArticle.headline,
+          summary: activeCompanyArticle.whatChanged,
+          why: activeCompanyArticle.investmentRead,
+          impact: activeCompanyArticle.risk,
+          crossValidation: activeCompanyArticle.evidence
+            .map(
+              (evidence) =>
+                `${evidence.sourceName}: ${evidence.takeaway}`,
+            )
+            .join(" "),
+          validationType: activeCompanyArticle.validationType as
+            | "跨平台验证"
+            | "多账号验证"
+            | "单一来源",
+          sourceCount: activeCompanyArticle.sourceCount,
+          score: activeCompanyArticle.score,
+          article: activeCompanyArticle.article,
+          evidence: activeCompanyArticle.evidence,
+        }}
+        locale={locale}
+        generatedAt={dailyRadar.generatedAt}
+        kind="company"
+        onLocaleChange={setLocale}
+        onBack={closeArticle}
       />
     );
   }
@@ -675,7 +748,7 @@ export default function Home() {
             <span>{t("真实采集", "LIVE INGEST")}</span>
             <span className="live-dot">{t("已运行", "Running")}</span>
           </div>
-          <strong>{snapshot.items.length.toLocaleString()}</strong>
+          <strong>{publicSnapshotItems.length.toLocaleString()}</strong>
           <p>{t("条真实内容已抓取", "real items fetched")}</p>
           <div className="coverage-grid">
             <span>YouTube · {configuredKindCounts.YouTube ?? 0}</span>
@@ -687,10 +760,10 @@ export default function Home() {
             </span>
             <span>SEC · {configuredKindCounts.SEC ?? 0}</span>
             <span>
-              X · {snapshot.needsAuthSources} {t("待授权", "pending auth")}
+              X · {publicNeedsAuthSources} {t("待授权", "pending auth")}
             </span>
             <span>
-              {t("连接", "Live")} · {snapshot.successfulSources}
+              {t("连接", "Live")} · {publicSuccessfulSources}
             </span>
           </div>
         </div>
@@ -744,7 +817,7 @@ export default function Home() {
                 {t("抓取器在线", "Fetcher online")}
               </span>
               <span>
-                {snapshot.successfulSources} / {snapshot.totalSources}{" "}
+                {publicSuccessfulSources} / {publicSourceCatalog.length}{" "}
                 {t("个来源已连接", "sources connected")}
               </span>
             </div>
@@ -855,15 +928,16 @@ export default function Home() {
               <p className="intro-copy">
                 {view === "brief" ? (
                   <>
-                    {locale === "zh"
-                      ? `持续接收 ${dailyRadar.totalFetchedItemCount.toLocaleString()} 条真实内容，去重后聚类成可追踪事件；新批次置顶，批内按价值排序。`
-                      : `${dailyRadar.totalFetchedItemCount.toLocaleString()} live source entries are continuously deduplicated into trackable events. New batches lead the feed, ranked internally by editorial value.`}
+                    {t(
+                      "将分散的信息噪声压缩为少数值得判断的变化，让事实、共识与转折在同一条脉络中显现。",
+                      "Distilling a fragmented information landscape into a small set of consequential shifts—where facts, consensus, and inflection points resolve into one coherent view.",
+                    )}
                   </>
                 ) : (
                   <>
                     {t(
-                      "不追逐同一条新闻，而是寻找非共识观点、二阶影响、跨界连接和高风险高潜的早期信号。",
-                      "Not another news feed: this view hunts for contrarian ideas, second-order effects, cross-domain connections, and early high-risk signals.",
+                      "在共识尚未成形之处，辨认结构性张力、隐性因果，以及足以重估未来的微弱先兆。",
+                      "Mapping the terrain before consensus forms: structural tensions, hidden causal chains, and faint signals capable of repricing the future.",
                     )}
                   </>
                 )}
@@ -1003,11 +1077,6 @@ export default function Home() {
                       <div className="signal-content">
                         <div className="signal-meta">
                           <span className="eyebrow">{signal.eyebrow}</span>
-                          {signal.permanent && (
-                            <span className="permanent-badge">
-                              {t("永久", "Permanent")}
-                            </span>
-                          )}
                           <span>{signal.category}</span>
                           <span>·</span>
                           <span>
@@ -1544,6 +1613,7 @@ export default function Home() {
             <div className="investment-board">
               {localizedCompanySignals.map((item, index) => {
                 const baseStance = dailyRadar.companySignals[index].stance;
+                const isExpanded = expandedCompany.includes(item.id);
                 const stanceTone =
                   baseStance === "偏积极"
                     ? "positive"
@@ -1569,78 +1639,111 @@ export default function Home() {
                       </div>
                     </header>
 
-                    <h4>{item.headline}</h4>
+                    <h4>
+                      <a
+                        href={`?article=${item.id}`}
+                        onClick={(event) => {
+                          event.preventDefault();
+                          openArticle(item.id);
+                        }}
+                      >
+                        <span>{item.headline}</span>
+                        <StoryLinkIcon />
+                      </a>
+                    </h4>
 
                     <div className="investment-change">
                       <span>{t("发生了什么变化", "WHAT CHANGED")}</span>
                       <p>{item.whatChanged}</p>
                     </div>
 
-                    <div className="investment-read">
-                      <span>{t("投资解读", "INVESTMENT READ")}</span>
-                      <p>{item.investmentRead}</p>
-                    </div>
+                    {isExpanded && (
+                      <div
+                        className="investment-preview"
+                        id={`company-preview-${item.id}`}
+                      >
+                        <div className="investment-read">
+                          <span>{t("投资解读", "INVESTMENT READ")}</span>
+                          <p>{item.investmentRead}</p>
+                        </div>
 
-                    <div className="investment-checks">
-                      <div>
-                        <span className="check-icon catalyst">↗</span>
-                        <p>
-                          <strong>{t("潜在催化因素", "POTENTIAL CATALYST")}</strong>
-                          {item.catalyst}
-                        </p>
-                      </div>
-                      <div>
-                        <span className="check-icon risk">!</span>
-                        <p>
-                          <strong>{t("反证风险", "DISCONFIRMING RISK")}</strong>
-                          {item.risk}
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="investment-watch">
-                      <span>{t("下一步观察", "WATCH NEXT")}</span>
-                      <p>{item.watchNext}</p>
-                    </div>
-
-                    <div className="investment-evidence">
-                      <div className="investment-evidence-head">
-                        <span>{t("证据链", "EVIDENCE CHAIN")}</span>
-                        <small>
-                          {t(
-                            `${item.validationType} · ${item.sourceCount} 个账号`,
-                            `${
-                              item.validationType === "跨平台验证"
-                                ? "Cross-platform"
-                                : "Multi-source"
-                            } · ${item.sourceCount} sources`,
-                          )}
-                        </small>
-                      </div>
-                      {item.evidence.map((evidence) => (
-                        <a
-                          href={evidence.url}
-                          target="_blank"
-                          rel="noreferrer"
-                          key={evidence.url}
-                        >
-                          <span className="investment-source-mark">
-                            {shortKind(evidence.sourceKind, locale)}
-                          </span>
+                        <div className="investment-checks">
                           <div>
-                            <strong>{evidence.sourceName}</strong>
-                            <p>{evidence.takeaway}</p>
+                            <span className="check-icon catalyst">↗</span>
+                            <p>
+                              <strong>
+                                {t("潜在催化因素", "POTENTIAL CATALYST")}
+                              </strong>
+                              {item.catalyst}
+                            </p>
                           </div>
-                          <i>↗</i>
-                        </a>
-                      ))}
-                    </div>
+                          <div>
+                            <span className="check-icon risk">!</span>
+                            <p>
+                              <strong>
+                                {t("反证风险", "DISCONFIRMING RISK")}
+                              </strong>
+                              {item.risk}
+                            </p>
+                          </div>
+                        </div>
+
+                        <div className="investment-watch">
+                          <span>{t("下一步观察", "WATCH NEXT")}</span>
+                          <p>{item.watchNext}</p>
+                        </div>
+
+                        <div className="investment-evidence">
+                          <div className="investment-evidence-head">
+                            <span>{t("证据链", "EVIDENCE CHAIN")}</span>
+                            <small>
+                              {t(
+                                `${item.validationType} · ${item.sourceCount} 个账号`,
+                                `${
+                                  item.validationType === "跨平台验证"
+                                    ? "Cross-platform"
+                                    : "Multi-source"
+                                } · ${item.sourceCount} sources`,
+                              )}
+                            </small>
+                          </div>
+                          {item.evidence.map((evidence) => (
+                            <a
+                              href={evidence.url}
+                              target="_blank"
+                              rel="noreferrer"
+                              key={evidence.url}
+                            >
+                              <span className="investment-source-mark">
+                                {shortKind(evidence.sourceKind, locale)}
+                              </span>
+                              <div>
+                                <strong>{evidence.sourceName}</strong>
+                                <p>{evidence.takeaway}</p>
+                              </div>
+                              <i>↗</i>
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    )}
 
                     <footer className="investment-card-footer">
                       <span className={`stance-badge stance-${stanceTone}`}>
                         {item.stance}
                       </span>
-                      <span>
+                      <button
+                        type="button"
+                        className="analysis-toggle"
+                        onClick={() => toggleExpandedCompany(item.id)}
+                        aria-expanded={isExpanded}
+                        aria-controls={`company-preview-${item.id}`}
+                      >
+                        {isExpanded
+                          ? t("收起", "Collapse")
+                          : t("预览", "Preview")}
+                      </button>
+                      <span className="investment-disclaimer">
                         {t(
                           "非投资建议 · 持续验证",
                           "Not investment advice · Ongoing validation",

@@ -9,6 +9,10 @@ const radarPath = resolve(projectRoot, "data/daily-radar.json");
 const statePath = resolve(projectRoot, "data/incremental-state.json");
 const resultPath = resolve(projectRoot, "tmp/incremental-result.json");
 const authPath = resolve(homedir(), ".codex/auth.json");
+const groundingSkillPath = resolve(
+  homedir(),
+  ".codex/skills/radar-grounding/SKILL.md",
+);
 const endpoint = "https://chatgpt.com/backend-api/codex/responses";
 const preferredModels = [
   process.env.SIGNAL_RADAR_MODEL?.trim(),
@@ -24,6 +28,18 @@ const maxCandidateItems =
     ? Math.min(requestedCandidateItems, 24)
     : 24;
 const maxFeedStoriesPerRun = 24;
+const maxGroundingItemsPerRun = Math.max(
+  1,
+  Math.min(
+    8,
+    Number(process.env.SIGNAL_RADAR_GROUNDING_LIMIT ?? 6) || 6,
+  ),
+);
+const preferredGroundingModels = [
+  process.env.SIGNAL_RADAR_GROUNDING_MODEL?.trim(),
+  "gpt-5.5",
+  ...preferredModels,
+].filter((value, index, values) => value && values.indexOf(value) === index);
 
 function argumentValue(name) {
   const prefix = `--${name}=`;
@@ -93,11 +109,22 @@ function incrementalRelevance(item, snapshotTime) {
     (snapshotTime - itemTime(item, snapshotTime)) / 3_600_000,
   );
   const officialBonus = ["Fed", "SEC"].includes(item.sourceKind) ? 10 : 0;
+  const discoveryBonus =
+    item.discoveryOnly && item.discoveryLevel === "B"
+      ? 8
+      : item.discoveryOnly
+        ? 3
+        : 0;
   const termScore = terms.reduce(
     (score, term) => score + (text.includes(term) ? 2 : 0),
     0,
   );
-  return officialBonus + termScore + Math.max(0, 36 - ageHours) / 6;
+  return (
+    officialBonus +
+    discoveryBonus +
+    termScore +
+    Math.max(0, 36 - ageHours) / 6
+  );
 }
 
 export function selectIncrementalItems({
@@ -163,7 +190,7 @@ function buildPrompt({ candidates, radar, scannedSnapshot }) {
   const compactItems = candidates
     .map(
       (item) =>
-        `${item.ref} | ${item.publishedAt ?? "unknown"} | ${item.sourceKind} | ${item.sourceName} | publisher=${item.sourcePublisher}\n` +
+        `${item.ref} | ${item.publishedAt ?? "unknown"} | ${item.sourceKind} | ${item.sourceName} | publisher=${item.sourcePublisher} | discoveryOnly=${Boolean(item.discoveryOnly)} | groundedFrom=${item.groundedFrom ?? "none"}\n` +
         `标题: ${cleanText(item.title).slice(0, 240)}\n` +
         `摘要: ${cleanText(item.summary).slice(0, 500) || "无摘要"}`,
     )
@@ -184,6 +211,9 @@ function buildPrompt({ candidates, radar, scannedSnapshot }) {
 - 若新增内容只是在佐证现有事件，或为现有事件补充了后续进展，放进 existingUpdates，追加“最新进展”和新 evidence；不得重写旧稿正文。只有出现可独立理解的新事件时才新建 feedStory。
 - Fed statement 若没有利率决定、投票和关键措辞，SEC 业绩文件若只有 filing metadata 而没有财务数字或附件正文，不得生成稿件；放进 ignored 并注明“等待官方正文 enrichment”，留给后续新证据更新。
 - SEC 财报不得在没有一致预期数据时声称 beat/miss。
+- discoveryOnly=true 的条目只是匿名内部发现线索，不是证据。它必须进入 ignored，理由写“归档：匿名发现线索已消费”；不得在标题、正文、evidence、来源名或链接中暴露或复述该线索。
+- groundedFrom 不为 none 的条目是外部 grounding 找到的可公开证据，可以正常进入 evidence。由匿名线索触发的动态，至少需要一条公司/监管/交易所等一手来源，或两条彼此独立的可靠来源；否则不得发布动态。
+- Grounding 来源若在数字、日期、单位或事件状态上冲突，只能进入探索并明确写出冲突，或归档等待确认。
 - 所有事实和数字必须来自 evidence；编辑判断必须使用审慎语气。
 - 每条都要提供完整中文稿和英文稿，专有名词保持原文。
 - 本批最多 ${maxFeedStoriesPerRun} 篇；如果多个条目属于同一事件，应优先聚类而不是截断。
@@ -276,6 +306,151 @@ ${existingTitles}
 ${compactItems}`;
 }
 
+const fallbackGroundingInstructions = `
+Treat every discovery item only as a private search lead. Search current public
+sources and trace material claims to regulators, exchanges, company IR,
+official filings, original research, or independently sourced reporting.
+Separate reported actuals, guidance, and third-party consensus. Return
+unverified when the claim cannot be supported. Never return the discovery
+publisher, wording, or URL as a public source.
+`.trim();
+
+async function loadGroundingSkill() {
+  try {
+    const skill = await readFile(groundingSkillPath, "utf8");
+    return skill.replace(/^---[\s\S]*?---\s*/u, "").trim();
+  } catch {
+    return fallbackGroundingInstructions;
+  }
+}
+
+function buildGroundingPrompt(discoveryItems) {
+  const items = discoveryItems
+    .map(
+      (item) =>
+        `${item.ref} | ${item.publishedAt ?? "unknown"}\n` +
+        `事件线索: ${cleanText(item.title).slice(0, 240)}\n` +
+        `待核验主张: ${cleanText(item.summary).slice(0, 700)}`,
+    )
+    .join("\n\n");
+  return `使用 live web search 核验以下匿名事件线索。逐条提取可验证主张，并回溯到可公开展示的一手或独立来源。
+
+要求：
+- 每个 ref 必须且只能返回一次。
+- 不得把线索发布方、线索 URL 或线索原文当作 source。
+- 公司财报、产品发布、监管或政策事件优先找公司 IR、正式公告、监管披露、交易所、政府或原始文件。
+- reported actuals、company guidance 与 analyst consensus 必须分开；一致预期没有可靠来源时不要补写。
+- grounded 需要一条匹配的一手来源，或两条彼此独立的可靠来源。
+- 关键数字、日期、单位或状态不一致时标为 conflicted；找不到足够证据时标为 unverified。
+- URL 必须是 canonical http/https 原文链接，不得是搜索结果页。
+- sourceKind 只能是 Official、IR、Regulator、SEC、Research、Media 之一。
+
+只返回合法 JSON：
+{
+  "results": [
+    {
+      "ref": "N1",
+      "status": "grounded|conflicted|unverified",
+      "claim": "核验后的简洁主张",
+      "notes": "差异或限制；无则空字符串",
+      "sources": [
+        {
+          "title": "原文标题",
+          "url": "https://...",
+          "publisher": "发布机构",
+          "publishedAt": "ISO 8601 或 null",
+          "sourceKind": "Official|IR|Regulator|SEC|Research|Media",
+          "summary": "该来源具体确认了什么"
+        }
+      ]
+    }
+  ]
+}
+
+匿名事件线索：
+${items}`;
+}
+
+function safeGroundingUrl(value) {
+  try {
+    const url = new URL(cleanText(value));
+    if (!["http:", "https:"].includes(url.protocol)) return null;
+    if (
+      url.hostname === "cls.cn" ||
+      url.hostname.endsWith(".cls.cn") ||
+      url.hostname.endsWith(".cailianpress.com")
+    ) {
+      return null;
+    }
+    return url.toString();
+  } catch {
+    return null;
+  }
+}
+
+function normalizeGroundingDate(value, fallback) {
+  const parsed = Date.parse(value ?? "");
+  return Number.isFinite(parsed) ? new Date(parsed).toISOString() : fallback;
+}
+
+export function hydrateGroundingCandidates({
+  raw,
+  discoveryItems,
+  generatedAt,
+}) {
+  const itemMap = new Map(discoveryItems.map((item) => [item.ref, item]));
+  const allowedKinds = new Set([
+    "Official",
+    "IR",
+    "Regulator",
+    "SEC",
+    "Research",
+    "Media",
+  ]);
+  const candidates = [];
+  const seenUrls = new Set();
+
+  for (const result of raw?.results ?? []) {
+    const parent = itemMap.get(result?.ref);
+    if (!parent || result?.status !== "grounded") continue;
+    for (const source of (result.sources ?? []).slice(0, 3)) {
+      const url = safeGroundingUrl(source?.url);
+      const title = cleanText(source?.title).slice(0, 240);
+      const publisher = cleanText(source?.publisher).slice(0, 120);
+      const summary = cleanText(source?.summary).slice(0, 1_000);
+      if (!url || !title || !publisher || !summary || seenUrls.has(url)) {
+        continue;
+      }
+      seenUrls.add(url);
+      const sourceKind = allowedKinds.has(source?.sourceKind)
+        ? source.sourceKind
+        : "Official";
+      candidates.push({
+        id: `ground-${parent.id}-${candidates.length + 1}-${url}`,
+        sourceId: parent.sourceId,
+        sourceName: publisher,
+        sourcePublisher: publisher,
+        sourceKind,
+        title,
+        url,
+        publishedAt: normalizeGroundingDate(
+          source.publishedAt,
+          parent.publishedAt ?? generatedAt,
+        ),
+        summary,
+        fetchedAt: generatedAt,
+        groundedFrom: parent.ref,
+        groundingClaim: cleanText(result.claim).slice(0, 600),
+        groundingNotes: cleanText(result.notes).slice(0, 600),
+      });
+    }
+  }
+  return candidates.map((item, index) => ({
+    ...item,
+    ref: `G${index + 1}`,
+  }));
+}
+
 async function loadSubscriptionAuth() {
   const auth = JSON.parse(await readFile(authPath, "utf8"));
   const tokens = auth.tokens ?? {};
@@ -288,7 +463,31 @@ async function loadSubscriptionAuth() {
   };
 }
 
-async function callSubscriptionModel({ model, prompt, accessToken, accountId }) {
+async function callSubscriptionModel({
+  model,
+  prompt,
+  accessToken,
+  accountId,
+  instructions = "Classify every new source item exactly once. Publish only qualified dynamic events or substantive explore theses; archive weak items. Return only valid JSON.",
+  tools,
+  toolChoice,
+  reasoningEffort = "medium",
+}) {
+  const requestBody = {
+    model,
+    instructions,
+    input: [
+      {
+        role: "user",
+        content: [{ type: "input_text", text: prompt }],
+      },
+    ],
+    reasoning: { effort: reasoningEffort },
+    stream: true,
+    store: false,
+  };
+  if (tools?.length) requestBody.tools = tools;
+  if (toolChoice) requestBody.tool_choice = toolChoice;
   const response = await fetch(endpoint, {
     method: "POST",
     headers: {
@@ -298,20 +497,7 @@ async function callSubscriptionModel({ model, prompt, accessToken, accountId }) 
       accept: "text/event-stream",
       "openai-beta": "responses=v1",
     },
-    body: JSON.stringify({
-      model,
-      instructions:
-        "Classify every new source item exactly once. Publish only qualified dynamic events or substantive explore theses; archive weak items. Return only valid JSON.",
-      input: [
-        {
-          role: "user",
-          content: [{ type: "input_text", text: prompt }],
-        },
-      ],
-      reasoning: { effort: "medium" },
-      stream: true,
-      store: false,
-    }),
+    body: JSON.stringify(requestBody),
     signal: AbortSignal.timeout(240_000),
   });
   if (!response.ok) {
@@ -353,8 +539,69 @@ function parseJsonOutput(text) {
   return JSON.parse(unfenced.slice(start, end + 1));
 }
 
+async function groundDiscoveryCandidates({
+  candidates,
+  auth,
+  generatedAt,
+}) {
+  const discoveryItems = candidates
+    .filter((item) => item.discoveryOnly)
+    .slice(0, maxGroundingItemsPerRun);
+  if (!discoveryItems.length) {
+    return { candidates: [], model: null, attempted: 0 };
+  }
+
+  const skillInstructions = await loadGroundingSkill();
+  const prompt = buildGroundingPrompt(discoveryItems);
+  let lastError;
+  for (const model of preferredGroundingModels) {
+    try {
+      const output = await callSubscriptionModel({
+        model,
+        prompt,
+        ...auth,
+        instructions:
+          `${skillInstructions}\n\nUse live web search for every supplied ref and return only the requested JSON.`,
+        tools: [
+          {
+            type: "web_search",
+            search_context_size: "medium",
+            external_web_access: true,
+          },
+        ],
+        toolChoice: "required",
+        reasoningEffort: "medium",
+      });
+      const raw = parseJsonOutput(output);
+      return {
+        candidates: hydrateGroundingCandidates({
+          raw,
+          discoveryItems,
+          generatedAt,
+        }),
+        model,
+        attempted: discoveryItems.length,
+      };
+    } catch (error) {
+      lastError = error;
+      console.warn(
+        `${model} discovery grounding failed: ${
+          error instanceof Error ? error.message : error
+        }`,
+      );
+    }
+  }
+  console.warn(
+    `Discovery grounding unavailable; anonymous leads will be archived: ${
+      lastError instanceof Error ? lastError.message : lastError
+    }`,
+  );
+  return { candidates: [], model: null, attempted: discoveryItems.length };
+}
+
 export function validateFeedCoverage(raw, candidates) {
   const expected = new Set(candidates.map((item) => item.ref));
+  const itemMap = new Map(candidates.map((item) => [item.ref, item]));
   const covered = new Map();
   const claim = (ref, disposition) => {
     if (!expected.has(ref)) {
@@ -362,6 +609,14 @@ export function validateFeedCoverage(raw, candidates) {
     }
     if (covered.has(ref)) {
       throw new Error(`Source ref ${ref} was assigned more than once`);
+    }
+    if (
+      ["story", "update"].includes(disposition) &&
+      itemMap.get(ref)?.discoveryOnly
+    ) {
+      throw new Error(
+        `Anonymous discovery ref ${ref} cannot be used as public evidence`,
+      );
     }
     covered.set(ref, disposition);
   };
@@ -419,6 +674,17 @@ function hydrateArticle(article, label) {
     }),
     outlook: cleanText(article.outlook).slice(0, 600),
   };
+}
+
+function assertNoPrivateDiscoveryLeak(value, label) {
+  const serialized = JSON.stringify(value);
+  if (
+    /财联社|实时财经发现源|(?:api3|m)\.cls\.cn|cailianpress\.com/iu.test(
+      serialized,
+    )
+  ) {
+    throw new Error(`${label} exposes a private discovery source`);
+  }
 }
 
 function formatAge(publishedAt, generatedAt) {
@@ -490,6 +756,7 @@ export function hydrateFeedStories({
         `feedStory ${event?.signal?.title ?? "untitled"} has invalid editorial bucket`,
       );
     }
+    assertNoPrivateDiscoveryLeak(event, "feedStory");
     const titleKey = normalizeTitle(event.signal?.title);
     if (!titleKey || existingTitles.has(titleKey)) continue;
 
@@ -497,7 +764,7 @@ export function hydrateFeedStories({
     const seenUrls = new Set();
     for (const entry of event.signal?.evidence ?? []) {
       const item = itemMap.get(entry?.ref);
-      if (!item || seenUrls.has(item.url)) continue;
+      if (!item || item.discoveryOnly || seenUrls.has(item.url)) continue;
       seenUrls.add(item.url);
       evidence.push({
         ...item,
@@ -613,6 +880,7 @@ export function hydrateExistingUpdates({
   const hydrated = [];
 
   for (const entry of updates) {
+    assertNoPrivateDiscoveryLeak(entry, "existingUpdate");
     const existingSignalId = String(entry?.existingSignalId ?? "");
     if (!signalIds.has(existingSignalId)) {
       throw new Error(
@@ -624,7 +892,7 @@ export function hydrateExistingUpdates({
     const seenUrls = new Set();
     for (const evidenceEntry of entry?.update?.evidence ?? []) {
       const item = itemMap.get(evidenceEntry?.ref);
-      if (!item || seenUrls.has(item.url)) continue;
+      if (!item || item.discoveryOnly || seenUrls.has(item.url)) continue;
       seenUrls.add(item.url);
       evidence.push({
         ...item,
@@ -949,14 +1217,14 @@ async function main() {
     return;
   }
 
-  const candidates = selectIncrementalItems({
+  const selectedCandidates = selectIncrementalItems({
     scannedSnapshot,
     previousSnapshot,
     state,
   });
   const baseResult = {
     scannedAt: scannedSnapshot.generatedAt,
-    newItemCount: candidates.length,
+    newItemCount: selectedCandidates.length,
     fetchedItemCount: scannedSnapshot.items.length,
     successfulSources: scannedSnapshot.successfulSources,
     failedSources: scannedSnapshot.failedSources,
@@ -975,7 +1243,9 @@ async function main() {
       updatedTitles: [],
       publishRequired: false,
       dryRun: true,
-      candidateTitles: candidates.slice(0, 20).map((item) => item.title),
+      candidateTitles: selectedCandidates
+        .slice(0, 20)
+        .map((item) => item.title),
     };
     await writeJson(resultPath, result);
     console.log(JSON.stringify(result, null, 2));
@@ -990,8 +1260,17 @@ async function main() {
     ignoredItemCount: 0,
   };
   let model = null;
-  if (candidates.length) {
-    const auth = await loadSubscriptionAuth();
+  let grounding = { candidates: [], model: null, attempted: 0 };
+  let candidates = selectedCandidates;
+  let auth = null;
+  if (selectedCandidates.length) {
+    auth = await loadSubscriptionAuth();
+    grounding = await groundDiscoveryCandidates({
+      candidates: selectedCandidates,
+      auth,
+      generatedAt: scannedSnapshot.generatedAt,
+    });
+    candidates = [...selectedCandidates, ...grounding.candidates];
     const prompt = buildPrompt({ candidates, radar, scannedSnapshot });
     let lastError;
     for (const candidateModel of preferredModels) {
@@ -1031,7 +1310,12 @@ async function main() {
 
   await writeJson(
     statePath,
-    nextState({ state, previousSnapshot, candidates, scannedSnapshot }),
+    nextState({
+      state,
+      previousSnapshot,
+      candidates: selectedCandidates,
+      scannedSnapshot,
+    }),
   );
 
   if (hydratedStories.length || hydratedUpdates.length) {
@@ -1050,6 +1334,9 @@ async function main() {
   const result = {
     ...baseResult,
     model,
+    groundingModel: grounding.model,
+    groundingAttemptedCount: grounding.attempted,
+    groundedEvidenceCount: grounding.candidates.length,
     feedStoryCount: hydratedStories.length,
     updatedStoryCount: hydratedUpdates.length,
     includedItemCount: coverage.storyItemCount,

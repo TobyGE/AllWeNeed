@@ -14,10 +14,11 @@
     "refresh:incremental": "node scripts/fetch-sources.mjs --output=tmp/feed-snapshot.json && node scripts/append-feed-updates.mjs --snapshot=tmp/feed-snapshot.json",
     "refresh:incremental:dry": "node scripts/fetch-sources.mjs --output=tmp/feed-snapshot.json && node scripts/append-feed-updates.mjs --snapshot=tmp/feed-snapshot.json --dry-run",
     "baseline:current": "node scripts/append-feed-updates.mjs --snapshot=tmp/feed-snapshot.json --mark-baseline",
-    "analyze": "node scripts/analyze-radar.mjs && npm run localize",
+    "analyze": "node scripts/analyze-radar.mjs && npm run localize && npm run ensure:explore",
     "localize": "node scripts/localize-radar.mjs && node scripts/expand-explore-articles.mjs",
     "expand:explore": "node scripts/expand-explore-articles.mjs",
-    "refresh:all": "npm run refresh:incremental",
+    "refresh:all": "npm run refresh:incremental && npm run ensure:explore",
+    "ensure:explore": "node scripts/ensure-explore-depth.mjs",
     "test": "npm run build && node --test tests/*.test.mjs",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
     "db:generate": "drizzle-kit generate"

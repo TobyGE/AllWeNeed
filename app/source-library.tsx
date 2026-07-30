@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import snapshot from "../data/feed-snapshot.json";
 import {
   getSourceKind,
-  sourceCatalog,
+  publicSourceCatalog,
   type SourceKind,
 } from "./source-catalog";
 
@@ -75,6 +75,13 @@ export function SourceLibrary({
   };
 
   const statuses = snapshot.statuses as SourceStatus[];
+  const publicSourceIds = new Set(publicSourceCatalog.map((source) => source.id));
+  const publicStatuses = statuses.filter((status) =>
+    publicSourceIds.has(status.sourceId),
+  );
+  const publicSuccessfulSources = publicStatuses.filter((status) =>
+    ["ok", "empty"].includes(status.status),
+  ).length;
   const statusMap = useMemo(
     () => new Map(statuses.map((status) => [status.sourceId, status])),
     [statuses],
@@ -87,9 +94,10 @@ export function SourceLibrary({
       Newsletter: 0,
       Fed: 0,
       SEC: 0,
+      Wire: 0,
       Blog: 0,
     };
-    sourceCatalog.forEach((source) => {
+    publicSourceCatalog.forEach((source) => {
       result[getSourceKind(source.url)] += 1;
     });
     return result;
@@ -97,7 +105,7 @@ export function SourceLibrary({
 
   const filteredSources = useMemo(() => {
     const normalized = query.trim().toLowerCase();
-    return sourceCatalog.filter((source) => {
+    return publicSourceCatalog.filter((source) => {
       const sourceKind = getSourceKind(source.url);
       const matchesKind = kind === "全部" || sourceKind === kind;
       const matchesQuery =
@@ -109,7 +117,10 @@ export function SourceLibrary({
     });
   }, [kind, query]);
 
-  const recentItems = snapshot.items.slice(0, 8);
+  const publicItems = snapshot.items.filter((item) =>
+    publicSourceIds.has(item.sourceId),
+  );
+  const recentItems = publicItems.slice(0, 8);
 
   function toggleSource(id: number) {
     setDisabled((items) =>
@@ -157,22 +168,22 @@ export function SourceLibrary({
       <div className="source-stats">
         <article>
           <span>{t("总信源", "Total sources")}</span>
-          <strong>{sourceCatalog.length}</strong>
+          <strong>{publicSourceCatalog.length}</strong>
           <small>{t("完整进入目录", "In the full catalog")}</small>
         </article>
         <article className="stat-green">
           <span>{t("已连接", "Connected")}</span>
-          <strong>{snapshot.successfulSources}</strong>
+          <strong>{publicSuccessfulSources}</strong>
           <small>
             {Math.round(
-              (snapshot.successfulSources / sourceCatalog.length) * 100,
+              (publicSuccessfulSources / publicSourceCatalog.length) * 100,
             )}
             % {t("可自动采集", "auto-fetchable")}
           </small>
         </article>
         <article className="stat-blue">
           <span>{t("真实内容", "Live items")}</span>
-          <strong>{snapshot.items.length.toLocaleString()}</strong>
+          <strong>{publicItems.length.toLocaleString()}</strong>
           <small>{t("当前本地快照", "Current local snapshot")}</small>
         </article>
         <article className="stat-orange">
@@ -261,7 +272,7 @@ export function SourceLibrary({
                   ? t("全部", "All")
                   : sourceKindLabel(filter, locale)}
                 <span>
-                  {filter === "全部" ? sourceCatalog.length : counts[filter]}
+                  {filter === "全部" ? publicSourceCatalog.length : counts[filter]}
                 </span>
               </button>
             ))}

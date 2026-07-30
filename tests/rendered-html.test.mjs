@@ -45,6 +45,7 @@ test("server-renders the Signal Radar product shell", async () => {
   assert.match(html, /持续更新/);
   assert.doesNotMatch(html, /今日简报|Today's Brief|Daily Brief/);
   assert.match(html, /探索/);
+  assert.doesNotMatch(html, />永久</);
   assert.match(html, /投资与公司信号/);
   assert.match(html, /GPT 已分析/);
   assert.match(html, /language-switch/);
@@ -59,7 +60,11 @@ test("server-renders the Signal Radar product shell", async () => {
   assert.ok(html.includes(radar.translations.zh.signals[firstDynamicIndex].title));
   assert.match(html, /11(?:<!-- -->)? 条动态/);
   assert.doesNotMatch(html, /30 个信号|30 signals|30 条动态|30 updates/);
-  assert.match(html, /新批次置顶，批内按价值排序/);
+  assert.match(
+    html,
+    /将分散的信息噪声压缩为少数值得判断的变化，让事实、共识与转折在同一条脉络中显现/,
+  );
+  assert.doesNotMatch(html, /新批次置顶，批内按价值排序/);
   const translatedTitle = (id) => {
     const index = radar.signals.findIndex((signal) => signal.id === id);
     return radar.translations.zh.signals[index].title;
@@ -79,9 +84,12 @@ test("server-renders the Signal Radar product shell", async () => {
   assert.ok(!html.includes(radar.translations.zh.signals[0].shiftTo));
   assert.match(html, />预览</);
   assert.ok(html.includes(radar.translations.zh.companySignals[0].headline));
-  assert.match(html, /投资解读/);
-  assert.match(html, /潜在催化因素/);
-  assert.match(html, /反证风险/);
+  assert.match(html, /href="\?article=company-0"/);
+  assert.ok(
+    !html.includes(radar.translations.zh.companySignals[0].investmentRead),
+  );
+  assert.ok(!html.includes(radar.translations.zh.companySignals[0].catalyst));
+  assert.ok(!html.includes(radar.translations.zh.companySignals[0].risk));
   assert.match(html, /GPT 分析完成/);
   assert.doesNotMatch(
     html,
@@ -309,11 +317,11 @@ test("removes all disposable starter preview code", async () => {
         signal.evidence.length >= 2,
     ),
   );
-  assert.equal(JSON.parse(radar).exploreSignals.length, 8);
+  assert.ok(JSON.parse(radar).exploreSignals.length >= 50);
   assert.ok(
     JSON.parse(radar).exploreSignals.every(
       (signal) =>
-        signal.feedBatchAt === "2026-07-29T13:02:22.855Z" &&
+        Number.isFinite(Date.parse(signal.feedBatchAt)) &&
         signal.valueScore >= 0 &&
         signal.valueScore <= 99,
     ),
@@ -329,29 +337,29 @@ test("removes all disposable starter preview code", async () => {
       ["explore-7", 8],
     ],
   );
-  assert.equal(
+  assert.ok(
     JSON.parse(radar).signals.filter(
       (signal) => signal.editorialBucket === "explore",
     ).length +
       JSON.parse(radar).exploreSignals.filter(
         (signal) => !signal.relatedSignalId,
-      ).length,
-    11,
+      ).length >=
+      50,
   );
   assert.ok(
     new Set(
       JSON.parse(radar).exploreSignals.map((signal) => signal.category),
-    ).size >= 6,
+    ).size >= 10,
   );
   assert.ok(
     JSON.parse(radar).exploreSignals.filter(
       (signal) => signal.label === "高风险高潜",
-    ).length >= 2,
+    ).length >= 8,
   );
   assert.ok(
     JSON.parse(radar).exploreSignals.filter(
       (signal) => signal.sourceCount >= 2,
-    ).length >= 5,
+    ).length >= 15,
   );
   assert.ok(
     JSON.parse(radar).exploreSignals.every(
@@ -366,6 +374,10 @@ test("removes all disposable starter preview code", async () => {
     ),
   );
   for (const locale of ["zh", "en"]) {
+    assert.equal(
+      JSON.parse(radar).translations[locale].exploreSignals.length,
+      JSON.parse(radar).exploreSignals.length,
+    );
     assert.ok(
       JSON.parse(radar).translations[locale].exploreSignals.every(
         (signal) =>
@@ -381,8 +393,10 @@ test("removes all disposable starter preview code", async () => {
   assert.match(page, /href=\{`\?article=\$\{signal\.id\}`\}/);
   assert.match(page, /activeExploreArticle/);
   assert.match(page, /kind="explore"/);
+  assert.match(page, /kind="company"/);
   assert.match(page, /function StoryLinkIcon/);
-  assert.equal(page.match(/<StoryLinkIcon \/>/g)?.length, 2);
+  assert.doesNotMatch(page, /permanent-badge/);
+  assert.equal(page.match(/<StoryLinkIcon \/>/g)?.length, 3);
   assert.match(
     page,
     /const \[expanded, setExpanded\] = useState<number\[]>\(\[\]\)/,
@@ -391,9 +405,15 @@ test("removes all disposable starter preview code", async () => {
     page,
     /const \[expandedExplore, setExpandedExplore\] = useState<string\[]>\(\[\]\)/,
   );
+  assert.match(
+    page,
+    /const \[expandedCompany, setExpandedCompany\] = useState<string\[]>\(\[\]\)/,
+  );
   assert.match(page, /function toggleExpandedExplore/);
+  assert.match(page, /function toggleExpandedCompany/);
   assert.match(page, /id=\{`explore-preview-\$\{signal\.id\}`\}/);
-  assert.equal(page.match(/t\("预览", "Preview"\)/g)?.length, 2);
+  assert.match(page, /id=\{`company-preview-\$\{item\.id\}`\}/);
+  assert.equal(page.match(/t\("预览", "Preview"\)/g)?.length, 3);
   assert.match(styles, /\.explore-card\.explore-featured\.explore-expanded/);
   assert.match(styles, /\.explore-card-actions \.analysis-toggle/);
   assert.match(articleView, /这篇稿子基于什么/);
@@ -401,6 +421,7 @@ test("removes all disposable starter preview code", async () => {
   assert.match(articleView, /返回探索/);
   assert.match(exploreArticleScript, /single-source hypothesis/);
   assert.match(packageJson, /expand-explore-articles\.mjs/);
+  assert.match(packageJson, /ensure-explore-depth\.mjs/);
   assert.match(page, /SourceLibrary locale=\{locale\}/);
   assert.match(page, /最强反方观点/);
   assert.doesNotMatch(page, /SkeletonPreview|codex-preview/);
