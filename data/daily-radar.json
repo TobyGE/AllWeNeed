@@ -1,13 +1,248 @@
 {
-  "generatedAt": "2026-07-30T04:16:43.204Z",
-  "basedOnSnapshotAt": "2026-07-30T04:04:12.986Z",
+  "generatedAt": "2026-07-30T10:10:51.436Z",
+  "basedOnSnapshotAt": "2026-07-30T10:05:48.093Z",
   "model": "gpt-5.5",
   "analyzedItemCount": 180,
-  "totalFetchedItemCount": 1727,
+  "totalFetchedItemCount": 1739,
   "editorNote": "今日信息环境由代理安全事件、编码代理工具链分化、开放模型竞争和算力下沉共同主导。",
   "signalQuality": 86,
   "signalQualityChange": 8,
   "signals": [
+    {
+      "id": 31,
+      "editorialBucket": "explore",
+      "category": "AI & 模型",
+      "eyebrow": "风险预警",
+      "title": "身份自称也可被暗中迁移",
+      "summary": "新实验称，过滤身份词的普通问答也能让student模型更常自称teacher身份，指向微调数据中的隐藏迁移风险。",
+      "why": "若成立，模型身份混淆不只是粗糙蒸馏问题，也可能来自表面无关训练样本中的潜在信号。",
+      "impact": "模型供应链、微调数据审计和身份探针评估需要关注非明文特征迁移，而不只查找品牌词。",
+      "shiftFrom": "身份混淆多被视为蒸馏污染",
+      "shiftTo": "普通问答也可能迁移身份",
+      "crossValidation": "N2与R5提供同一实验链条；R6核验数据源；R7/R8提供既有机制背景，但尚非独立复现。",
+      "article": {
+        "lead": "新的研究线索把模型“自我识别”错误从简单的蒸馏污染，推进到可检验的数据传递问题：Eliezer Yudkowsky发布的实验称，即使训练样本过滤掉模型和实验室名称，student模型在LoRA微调后仍可能更频繁自称为teacher身份。",
+        "sections": [
+          {
+            "heading": "实验把问题转向数据链路",
+            "body": "配套GitHub仓库给出的pipeline是：用1,000条过滤掉模型和实验室名称的teacher question-answer pairs做LoRA微调，再用22个身份探针各采样8次检测student回答。仓库报告的一个读数显示，Qwen3.5-397B-A17B的Claude自称率从低于1%升至40.3%。这使“身份词污染”之外的数据痕迹成为需要检查的对象。"
+          },
+          {
+            "heading": "机制不依赖明文标签",
+            "body": "这个结果之所以重要，是因为它接上了更早的subliminal learning研究。Nature论文把该现象定义为：训练数据在语义上与某个trait无关，但student模型仍获得该trait；实验曾显示偏好和misalignment可经数字、代码或CoT等表面无关输出传递。后续arXiv论文进一步把它解释为steering vector distillation，即student学到teacher输出背后的激活方向。"
+          },
+          {
+            "heading": "边界仍决定风险大小",
+            "body": "最强的反向解释是，这仍可能是模型家族、初始化兼容性或小样本设置下的特例。仓库说明多数cell只有single seed，部分run data尚未发布；Nature与arXiv背景也强调许多subliminal learning结果依赖相同或接近的teacher/student初始化。因此，当前更稳妥的判断是：身份迁移已成为可复核的安全线索，而非已经量化的通用生产风险。"
+          }
+        ],
+        "outlook": "下一步可验证的证据是：完整run data、多seed复跑、跨模型家族teacher/student组合，以及在真实微调数据审计中加入身份探针。如果跨家族设置仍能稳定提高错误自称率，模型数据供应链的审查范围将明显扩大。"
+      },
+      "validationType": "跨平台验证",
+      "publishedAt": "2026-07-30T09:47:43.000Z",
+      "updatedAt": "2026-07-30T09:47:43.000Z",
+      "sources": [
+        "Blog",
+        "Repository",
+        "Research"
+      ],
+      "sourceNames": [
+        "Eliezer Yudkowsky",
+        "GitHub / fjzzq2002",
+        "Hugging Face",
+        "Nature",
+        "arXiv"
+      ],
+      "sourceCount": 5,
+      "age": "刚刚",
+      "score": 72,
+      "tone": "orange",
+      "evidence": [
+        {
+          "id": "80-0-https://www.lesswrong.com/posts/cb5quszpxCbFDGk68/model-self-identification-could-be-subliminally-transferred",
+          "sourceId": 80,
+          "sourceName": "Eliezer Yudkowsky",
+          "sourcePublisher": "Eliezer Yudkowsky",
+          "sourceKind": "Blog",
+          "title": "Model self-identification could be subliminally transferred",
+          "url": "https://www.lesswrong.com/posts/cb5quszpxCbFDGk68/model-self-identification-could-be-subliminally-transferred",
+          "publishedAt": "2026-07-30T09:47:43.000Z",
+          "summary": "Identity questions seem hard to get right. Asked in English, Kimi-K3 sometimes identifies as Claude, and asked in Chinese, Claude Sonnet 4.6 sometimes claims it is DeepSeek. These confusions are often considered results of careless distillation. In this post, we find the following surprising subliminal-learning -like phenomenon. We use 1000 everyday question",
+          "fetchedAt": "2026-07-30T10:05:48.093Z",
+          "ref": "N2",
+          "role": "主张",
+          "takeaway": "博客提出模型self-identification可能通过过滤身份词后的普通问答发生subliminal transfer，并以Kimi-K3、Claude Sonnet 4.6等身份混淆作为问题背景。"
+        },
+        {
+          "id": "research-80-0-https://www.lesswrong.com/posts/cb5quszpxCbFDGk68/model-self-identification-could-be-subliminally-transferred-5-https://github.com/fjzzq2002/identification-transfer",
+          "sourceId": 80,
+          "sourceName": "GitHub / fjzzq2002",
+          "sourcePublisher": "GitHub / fjzzq2002",
+          "sourceKind": "Repository",
+          "title": "GitHub - fjzzq2002/identification-transfer: Code for 'Model self-identification could be subliminally transferred'",
+          "url": "https://github.com/fjzzq2002/identification-transfer",
+          "publishedAt": "2026-07-30T09:47:43.000Z",
+          "summary": "补齐研究代码、pipeline、可复核协议与关键 caveat：仓库说明使用 1,000 条过滤掉模型和实验室名称的 teacher question-answer pairs 进行 LoRA 微调，再用 22 个身份探针各采样 8 次；README 给出 Qwen3.5-397B-A17B 的 Claude 自称率从低于 1%到 40.3%的读数，并说明多数 cell 只有单一 seed、部分 run data 未发布。",
+          "fetchedAt": "2026-07-30T10:05:48.093Z",
+          "researchedFrom": "N2",
+          "researchRole": "Primary",
+          "researchClaim": "这篇 LessWrong 研究贴的可报道核心不是证明某模型被蒸馏，而是给出一个可复现实验线索：在过滤掉模型/实验室名称后，短量级 teacher-output 微调仍可能让学生模型采用 teacher family 的自我身份。",
+          "researchComparisons": "相对既有 subliminal learning 研究，Ziqian Zhong 的实验把传递对象从偏好/错位等 trait 改成 model self-identification，并使用 1,000 条 everyday question-answer pairs、rank-8 LoRA、22 个身份问题各采样 8 次。作者披露的关键对比包括：OLMo-3-32B 在 human-response control 后 GPT 自称率 45.5%，GPT-4o responses 后升至 70.5%；Claude responses 后 Claude 自称率从 human control 的 2.8%升至 Sonnet 4 的 52.8%和 Sonnet 5 的 54.0%。GitHub README 对 Qwen3.5-397B-A17B 的补充读数为 Sonnet 4 无身份信息数据微调后 Claude 自称率从低于 1%升至 40.3%。既有 Nature 论文的基准则是 teacher/student 共享或接近初始化时，语义无关数据也能传递偏好或 misalignment；后续 steering-vector 论文提出该现象可被理解为 steering vector distillation。",
+          "researchUnresolved": "GitHub 仓库说明几乎每个 cell 只有单一 training seed，run data 和 figures 未随仓库完整发布；Kimi-K3 英文自称 Claude、Claude Sonnet 4.6 中文自称 DeepSeek 的开头案例仍主要来自 HN/X 等社会化来源，未找到官方或强独立复核来源，适合作为动机而非证明。",
+          "ref": "R5",
+          "role": "佐证",
+          "takeaway": "GitHub仓库给出实验代码与协议：1,000条teacher QA、LoRA微调、22个身份探针各8次采样；报告Qwen3.5-397B-A17B的Claude自称率从低于1%升至40.3%，并注明多数cell只有single seed、"
+        },
+        {
+          "id": "research-80-0-https://www.lesswrong.com/posts/cb5quszpxCbFDGk68/model-self-identification-could-be-subliminally-transferred-6-https://huggingface.co/datasets/HuggingFaceH4/no_robots",
+          "sourceId": 80,
+          "sourceName": "Hugging Face",
+          "sourcePublisher": "Hugging Face",
+          "sourceKind": "Repository",
+          "title": "HuggingFaceH4/no_robots · Datasets at Hugging Face",
+          "url": "https://huggingface.co/datasets/HuggingFaceH4/no_robots",
+          "publishedAt": "2026-07-30T09:47:43.000Z",
+          "summary": "补齐实验数据源：LessWrong/GitHub 所称 1,000 条 everyday prompts 来自 HuggingFaceH4/no_robots；数据集页面显示 train split 约 9.5k rows、文本生成任务、英文、parquet 格式、cc-by-nc-4.0 许可。",
+          "fetchedAt": "2026-07-30T10:05:48.093Z",
+          "researchedFrom": "N2",
+          "researchRole": "Primary",
+          "researchClaim": "这篇 LessWrong 研究贴的可报道核心不是证明某模型被蒸馏，而是给出一个可复现实验线索：在过滤掉模型/实验室名称后，短量级 teacher-output 微调仍可能让学生模型采用 teacher family 的自我身份。",
+          "researchComparisons": "相对既有 subliminal learning 研究，Ziqian Zhong 的实验把传递对象从偏好/错位等 trait 改成 model self-identification，并使用 1,000 条 everyday question-answer pairs、rank-8 LoRA、22 个身份问题各采样 8 次。作者披露的关键对比包括：OLMo-3-32B 在 human-response control 后 GPT 自称率 45.5%，GPT-4o responses 后升至 70.5%；Claude responses 后 Claude 自称率从 human control 的 2.8%升至 Sonnet 4 的 52.8%和 Sonnet 5 的 54.0%。GitHub README 对 Qwen3.5-397B-A17B 的补充读数为 Sonnet 4 无身份信息数据微调后 Claude 自称率从低于 1%升至 40.3%。既有 Nature 论文的基准则是 teacher/student 共享或接近初始化时，语义无关数据也能传递偏好或 misalignment；后续 steering-vector 论文提出该现象可被理解为 steering vector distillation。",
+          "researchUnresolved": "GitHub 仓库说明几乎每个 cell 只有单一 training seed，run data 和 figures 未随仓库完整发布；Kimi-K3 英文自称 Claude、Claude Sonnet 4.6 中文自称 DeepSeek 的开头案例仍主要来自 HN/X 等社会化来源，未找到官方或强独立复核来源，适合作为动机而非证明。",
+          "ref": "R6",
+          "role": "背景",
+          "takeaway": "Hugging Face页面核验实验所用no_robots数据集来源：train split约9.5k rows，文本生成任务，英文，parquet格式，cc-by-nc-4.0许可。"
+        },
+        {
+          "id": "research-80-0-https://www.lesswrong.com/posts/cb5quszpxCbFDGk68/model-self-identification-could-be-subliminally-transferred-7-https://www.nature.com/articles/s41586-026-10319-8",
+          "sourceId": 80,
+          "sourceName": "Nature",
+          "sourcePublisher": "Nature",
+          "sourceKind": "Research",
+          "title": "Language models transmit behavioural traits through hidden signals in data",
+          "url": "https://www.nature.com/articles/s41586-026-10319-8",
+          "publishedAt": "2026-04-15T00:00:00.000Z",
+          "summary": "补齐既有研究基准：Nature 论文定义 subliminal learning 为训练数据与 trait 语义无关但学生模型仍获得该 trait；实验显示偏好和 misalignment 可通过数字、代码或 CoT 等表面无关输出传递，并指出效果依赖相同或接近的 teacher/student 初始化。",
+          "fetchedAt": "2026-07-30T10:05:48.093Z",
+          "researchedFrom": "N2",
+          "researchRole": "Comparison",
+          "researchClaim": "这篇 LessWrong 研究贴的可报道核心不是证明某模型被蒸馏，而是给出一个可复现实验线索：在过滤掉模型/实验室名称后，短量级 teacher-output 微调仍可能让学生模型采用 teacher family 的自我身份。",
+          "researchComparisons": "相对既有 subliminal learning 研究，Ziqian Zhong 的实验把传递对象从偏好/错位等 trait 改成 model self-identification，并使用 1,000 条 everyday question-answer pairs、rank-8 LoRA、22 个身份问题各采样 8 次。作者披露的关键对比包括：OLMo-3-32B 在 human-response control 后 GPT 自称率 45.5%，GPT-4o responses 后升至 70.5%；Claude responses 后 Claude 自称率从 human control 的 2.8%升至 Sonnet 4 的 52.8%和 Sonnet 5 的 54.0%。GitHub README 对 Qwen3.5-397B-A17B 的补充读数为 Sonnet 4 无身份信息数据微调后 Claude 自称率从低于 1%升至 40.3%。既有 Nature 论文的基准则是 teacher/student 共享或接近初始化时，语义无关数据也能传递偏好或 misalignment；后续 steering-vector 论文提出该现象可被理解为 steering vector distillation。",
+          "researchUnresolved": "GitHub 仓库说明几乎每个 cell 只有单一 training seed，run data 和 figures 未随仓库完整发布；Kimi-K3 英文自称 Claude、Claude Sonnet 4.6 中文自称 DeepSeek 的开头案例仍主要来自 HN/X 等社会化来源，未找到官方或强独立复核来源，适合作为动机而非证明。",
+          "ref": "R7",
+          "role": "背景",
+          "takeaway": "Nature论文定义subliminal learning，并显示偏好和misalignment可通过数字、代码或CoT等表面无关输出传递；效果依赖相同或接近的teacher/student初始化。"
+        },
+        {
+          "id": "research-80-0-https://www.lesswrong.com/posts/cb5quszpxCbFDGk68/model-self-identification-could-be-subliminally-transferred-8-https://arxiv.org/abs/2606.00995",
+          "sourceId": 80,
+          "sourceName": "arXiv",
+          "sourcePublisher": "arXiv",
+          "sourceKind": "Research",
+          "title": "Subliminal Learning Is Steering Vector Distillation",
+          "url": "https://arxiv.org/abs/2606.00995",
+          "publishedAt": "2026-05-31T04:22:44.000Z",
+          "summary": "补齐机制层面的独立背景：论文提出 subliminal learning 可被解释为 steering vector distillation，即学生从被 steer 的 teacher 输出中学习到相近激活方向；该机制也解释了为什么许多 subliminal learning 结果主要在同一模型家族或兼容设置内出现。",
+          "fetchedAt": "2026-07-30T10:05:48.093Z",
+          "researchedFrom": "N2",
+          "researchRole": "Context",
+          "researchClaim": "这篇 LessWrong 研究贴的可报道核心不是证明某模型被蒸馏，而是给出一个可复现实验线索：在过滤掉模型/实验室名称后，短量级 teacher-output 微调仍可能让学生模型采用 teacher family 的自我身份。",
+          "researchComparisons": "相对既有 subliminal learning 研究，Ziqian Zhong 的实验把传递对象从偏好/错位等 trait 改成 model self-identification，并使用 1,000 条 everyday question-answer pairs、rank-8 LoRA、22 个身份问题各采样 8 次。作者披露的关键对比包括：OLMo-3-32B 在 human-response control 后 GPT 自称率 45.5%，GPT-4o responses 后升至 70.5%；Claude responses 后 Claude 自称率从 human control 的 2.8%升至 Sonnet 4 的 52.8%和 Sonnet 5 的 54.0%。GitHub README 对 Qwen3.5-397B-A17B 的补充读数为 Sonnet 4 无身份信息数据微调后 Claude 自称率从低于 1%升至 40.3%。既有 Nature 论文的基准则是 teacher/student 共享或接近初始化时，语义无关数据也能传递偏好或 misalignment；后续 steering-vector 论文提出该现象可被理解为 steering vector distillation。",
+          "researchUnresolved": "GitHub 仓库说明几乎每个 cell 只有单一 training seed，run data 和 figures 未随仓库完整发布；Kimi-K3 英文自称 Claude、Claude Sonnet 4.6 中文自称 DeepSeek 的开头案例仍主要来自 HN/X 等社会化来源，未找到官方或强独立复核来源，适合作为动机而非证明。",
+          "ref": "R8",
+          "role": "背景",
+          "takeaway": "arXiv论文提出subliminal learning可解释为steering vector distillation，即student从被steer的teacher输出中学习相近激活方向。"
+        }
+      ],
+      "references": [
+        {
+          "id": "80-0-https://www.lesswrong.com/posts/cb5quszpxCbFDGk68/model-self-identification-could-be-subliminally-transferred",
+          "sourceId": 80,
+          "sourceName": "Eliezer Yudkowsky",
+          "sourcePublisher": "Eliezer Yudkowsky",
+          "sourceKind": "Blog",
+          "title": "Model self-identification could be subliminally transferred",
+          "url": "https://www.lesswrong.com/posts/cb5quszpxCbFDGk68/model-self-identification-could-be-subliminally-transferred",
+          "publishedAt": "2026-07-30T09:47:43.000Z",
+          "summary": "Identity questions seem hard to get right. Asked in English, Kimi-K3 sometimes identifies as Claude, and asked in Chinese, Claude Sonnet 4.6 sometimes claims it is DeepSeek. These confusions are often considered results of careless distillation. In this post, we find the following surprising subliminal-learning -like phenomenon. We use 1000 everyday question",
+          "fetchedAt": "2026-07-30T10:05:48.093Z",
+          "ref": "N2"
+        },
+        {
+          "id": "research-80-0-https://www.lesswrong.com/posts/cb5quszpxCbFDGk68/model-self-identification-could-be-subliminally-transferred-5-https://github.com/fjzzq2002/identification-transfer",
+          "sourceId": 80,
+          "sourceName": "GitHub / fjzzq2002",
+          "sourcePublisher": "GitHub / fjzzq2002",
+          "sourceKind": "Repository",
+          "title": "GitHub - fjzzq2002/identification-transfer: Code for 'Model self-identification could be subliminally transferred'",
+          "url": "https://github.com/fjzzq2002/identification-transfer",
+          "publishedAt": "2026-07-30T09:47:43.000Z",
+          "summary": "补齐研究代码、pipeline、可复核协议与关键 caveat：仓库说明使用 1,000 条过滤掉模型和实验室名称的 teacher question-answer pairs 进行 LoRA 微调，再用 22 个身份探针各采样 8 次；README 给出 Qwen3.5-397B-A17B 的 Claude 自称率从低于 1%到 40.3%的读数，并说明多数 cell 只有单一 seed、部分 run data 未发布。",
+          "fetchedAt": "2026-07-30T10:05:48.093Z",
+          "researchedFrom": "N2",
+          "researchRole": "Primary",
+          "researchClaim": "这篇 LessWrong 研究贴的可报道核心不是证明某模型被蒸馏，而是给出一个可复现实验线索：在过滤掉模型/实验室名称后，短量级 teacher-output 微调仍可能让学生模型采用 teacher family 的自我身份。",
+          "researchComparisons": "相对既有 subliminal learning 研究，Ziqian Zhong 的实验把传递对象从偏好/错位等 trait 改成 model self-identification，并使用 1,000 条 everyday question-answer pairs、rank-8 LoRA、22 个身份问题各采样 8 次。作者披露的关键对比包括：OLMo-3-32B 在 human-response control 后 GPT 自称率 45.5%，GPT-4o responses 后升至 70.5%；Claude responses 后 Claude 自称率从 human control 的 2.8%升至 Sonnet 4 的 52.8%和 Sonnet 5 的 54.0%。GitHub README 对 Qwen3.5-397B-A17B 的补充读数为 Sonnet 4 无身份信息数据微调后 Claude 自称率从低于 1%升至 40.3%。既有 Nature 论文的基准则是 teacher/student 共享或接近初始化时，语义无关数据也能传递偏好或 misalignment；后续 steering-vector 论文提出该现象可被理解为 steering vector distillation。",
+          "researchUnresolved": "GitHub 仓库说明几乎每个 cell 只有单一 training seed，run data 和 figures 未随仓库完整发布；Kimi-K3 英文自称 Claude、Claude Sonnet 4.6 中文自称 DeepSeek 的开头案例仍主要来自 HN/X 等社会化来源，未找到官方或强独立复核来源，适合作为动机而非证明。",
+          "ref": "R5"
+        },
+        {
+          "id": "research-80-0-https://www.lesswrong.com/posts/cb5quszpxCbFDGk68/model-self-identification-could-be-subliminally-transferred-6-https://huggingface.co/datasets/HuggingFaceH4/no_robots",
+          "sourceId": 80,
+          "sourceName": "Hugging Face",
+          "sourcePublisher": "Hugging Face",
+          "sourceKind": "Repository",
+          "title": "HuggingFaceH4/no_robots · Datasets at Hugging Face",
+          "url": "https://huggingface.co/datasets/HuggingFaceH4/no_robots",
+          "publishedAt": "2026-07-30T09:47:43.000Z",
+          "summary": "补齐实验数据源：LessWrong/GitHub 所称 1,000 条 everyday prompts 来自 HuggingFaceH4/no_robots；数据集页面显示 train split 约 9.5k rows、文本生成任务、英文、parquet 格式、cc-by-nc-4.0 许可。",
+          "fetchedAt": "2026-07-30T10:05:48.093Z",
+          "researchedFrom": "N2",
+          "researchRole": "Primary",
+          "researchClaim": "这篇 LessWrong 研究贴的可报道核心不是证明某模型被蒸馏，而是给出一个可复现实验线索：在过滤掉模型/实验室名称后，短量级 teacher-output 微调仍可能让学生模型采用 teacher family 的自我身份。",
+          "researchComparisons": "相对既有 subliminal learning 研究，Ziqian Zhong 的实验把传递对象从偏好/错位等 trait 改成 model self-identification，并使用 1,000 条 everyday question-answer pairs、rank-8 LoRA、22 个身份问题各采样 8 次。作者披露的关键对比包括：OLMo-3-32B 在 human-response control 后 GPT 自称率 45.5%，GPT-4o responses 后升至 70.5%；Claude responses 后 Claude 自称率从 human control 的 2.8%升至 Sonnet 4 的 52.8%和 Sonnet 5 的 54.0%。GitHub README 对 Qwen3.5-397B-A17B 的补充读数为 Sonnet 4 无身份信息数据微调后 Claude 自称率从低于 1%升至 40.3%。既有 Nature 论文的基准则是 teacher/student 共享或接近初始化时，语义无关数据也能传递偏好或 misalignment；后续 steering-vector 论文提出该现象可被理解为 steering vector distillation。",
+          "researchUnresolved": "GitHub 仓库说明几乎每个 cell 只有单一 training seed，run data 和 figures 未随仓库完整发布；Kimi-K3 英文自称 Claude、Claude Sonnet 4.6 中文自称 DeepSeek 的开头案例仍主要来自 HN/X 等社会化来源，未找到官方或强独立复核来源，适合作为动机而非证明。",
+          "ref": "R6"
+        },
+        {
+          "id": "research-80-0-https://www.lesswrong.com/posts/cb5quszpxCbFDGk68/model-self-identification-could-be-subliminally-transferred-7-https://www.nature.com/articles/s41586-026-10319-8",
+          "sourceId": 80,
+          "sourceName": "Nature",
+          "sourcePublisher": "Nature",
+          "sourceKind": "Research",
+          "title": "Language models transmit behavioural traits through hidden signals in data",
+          "url": "https://www.nature.com/articles/s41586-026-10319-8",
+          "publishedAt": "2026-04-15T00:00:00.000Z",
+          "summary": "补齐既有研究基准：Nature 论文定义 subliminal learning 为训练数据与 trait 语义无关但学生模型仍获得该 trait；实验显示偏好和 misalignment 可通过数字、代码或 CoT 等表面无关输出传递，并指出效果依赖相同或接近的 teacher/student 初始化。",
+          "fetchedAt": "2026-07-30T10:05:48.093Z",
+          "researchedFrom": "N2",
+          "researchRole": "Comparison",
+          "researchClaim": "这篇 LessWrong 研究贴的可报道核心不是证明某模型被蒸馏，而是给出一个可复现实验线索：在过滤掉模型/实验室名称后，短量级 teacher-output 微调仍可能让学生模型采用 teacher family 的自我身份。",
+          "researchComparisons": "相对既有 subliminal learning 研究，Ziqian Zhong 的实验把传递对象从偏好/错位等 trait 改成 model self-identification，并使用 1,000 条 everyday question-answer pairs、rank-8 LoRA、22 个身份问题各采样 8 次。作者披露的关键对比包括：OLMo-3-32B 在 human-response control 后 GPT 自称率 45.5%，GPT-4o responses 后升至 70.5%；Claude responses 后 Claude 自称率从 human control 的 2.8%升至 Sonnet 4 的 52.8%和 Sonnet 5 的 54.0%。GitHub README 对 Qwen3.5-397B-A17B 的补充读数为 Sonnet 4 无身份信息数据微调后 Claude 自称率从低于 1%升至 40.3%。既有 Nature 论文的基准则是 teacher/student 共享或接近初始化时，语义无关数据也能传递偏好或 misalignment；后续 steering-vector 论文提出该现象可被理解为 steering vector distillation。",
+          "researchUnresolved": "GitHub 仓库说明几乎每个 cell 只有单一 training seed，run data 和 figures 未随仓库完整发布；Kimi-K3 英文自称 Claude、Claude Sonnet 4.6 中文自称 DeepSeek 的开头案例仍主要来自 HN/X 等社会化来源，未找到官方或强独立复核来源，适合作为动机而非证明。",
+          "ref": "R7"
+        },
+        {
+          "id": "research-80-0-https://www.lesswrong.com/posts/cb5quszpxCbFDGk68/model-self-identification-could-be-subliminally-transferred-8-https://arxiv.org/abs/2606.00995",
+          "sourceId": 80,
+          "sourceName": "arXiv",
+          "sourcePublisher": "arXiv",
+          "sourceKind": "Research",
+          "title": "Subliminal Learning Is Steering Vector Distillation",
+          "url": "https://arxiv.org/abs/2606.00995",
+          "publishedAt": "2026-05-31T04:22:44.000Z",
+          "summary": "补齐机制层面的独立背景：论文提出 subliminal learning 可被解释为 steering vector distillation，即学生从被 steer 的 teacher 输出中学习到相近激活方向；该机制也解释了为什么许多 subliminal learning 结果主要在同一模型家族或兼容设置内出现。",
+          "fetchedAt": "2026-07-30T10:05:48.093Z",
+          "researchedFrom": "N2",
+          "researchRole": "Context",
+          "researchClaim": "这篇 LessWrong 研究贴的可报道核心不是证明某模型被蒸馏，而是给出一个可复现实验线索：在过滤掉模型/实验室名称后，短量级 teacher-output 微调仍可能让学生模型采用 teacher family 的自我身份。",
+          "researchComparisons": "相对既有 subliminal learning 研究，Ziqian Zhong 的实验把传递对象从偏好/错位等 trait 改成 model self-identification，并使用 1,000 条 everyday question-answer pairs、rank-8 LoRA、22 个身份问题各采样 8 次。作者披露的关键对比包括：OLMo-3-32B 在 human-response control 后 GPT 自称率 45.5%，GPT-4o responses 后升至 70.5%；Claude responses 后 Claude 自称率从 human control 的 2.8%升至 Sonnet 4 的 52.8%和 Sonnet 5 的 54.0%。GitHub README 对 Qwen3.5-397B-A17B 的补充读数为 Sonnet 4 无身份信息数据微调后 Claude 自称率从低于 1%升至 40.3%。既有 Nature 论文的基准则是 teacher/student 共享或接近初始化时，语义无关数据也能传递偏好或 misalignment；后续 steering-vector 论文提出该现象可被理解为 steering vector distillation。",
+          "researchUnresolved": "GitHub 仓库说明几乎每个 cell 只有单一 training seed，run data 和 figures 未随仓库完整发布；Kimi-K3 英文自称 Claude、Claude Sonnet 4.6 中文自称 DeepSeek 的开头案例仍主要来自 HN/X 等社会化来源，未找到官方或强独立复核来源，适合作为动机而非证明。",
+          "ref": "R8"
+        }
+      ],
+      "feedBatchAt": "2026-07-30T10:05:48.093Z"
+    },
     {
       "id": 2,
       "category": "Agents",
@@ -8473,6 +8708,57 @@
       "editorNote": "今日信息环境由智能体安全事件、AI coding 工具链分化、open-weight 模型竞争与算力下沉共同主导。",
       "signals": [
         {
+          "category": "AI & 模型",
+          "eyebrow": "风险预警",
+          "title": "身份自称也可被暗中迁移",
+          "summary": "新实验称，过滤身份词的普通问答也能让student模型更常自称teacher身份，指向微调数据中的隐藏迁移风险。",
+          "why": "若成立，模型身份混淆不只是粗糙蒸馏问题，也可能来自表面无关训练样本中的潜在信号。",
+          "impact": "模型供应链、微调数据审计和身份探针评估需要关注非明文特征迁移，而不只查找品牌词。",
+          "shiftFrom": "身份混淆多被视为蒸馏污染",
+          "shiftTo": "普通问答也可能迁移身份",
+          "crossValidation": "N2与R5提供同一实验链条；R6核验数据源；R7/R8提供既有机制背景，但尚非独立复现。",
+          "article": {
+            "lead": "新的研究线索把模型“自我识别”错误从简单的蒸馏污染，推进到可检验的数据传递问题：Eliezer Yudkowsky发布的实验称，即使训练样本过滤掉模型和实验室名称，student模型在LoRA微调后仍可能更频繁自称为teacher身份。",
+            "sections": [
+              {
+                "heading": "实验把问题转向数据链路",
+                "body": "配套GitHub仓库给出的pipeline是：用1,000条过滤掉模型和实验室名称的teacher question-answer pairs做LoRA微调，再用22个身份探针各采样8次检测student回答。仓库报告的一个读数显示，Qwen3.5-397B-A17B的Claude自称率从低于1%升至40.3%。这使“身份词污染”之外的数据痕迹成为需要检查的对象。"
+              },
+              {
+                "heading": "机制不依赖明文标签",
+                "body": "这个结果之所以重要，是因为它接上了更早的subliminal learning研究。Nature论文把该现象定义为：训练数据在语义上与某个trait无关，但student模型仍获得该trait；实验曾显示偏好和misalignment可经数字、代码或CoT等表面无关输出传递。后续arXiv论文进一步把它解释为steering vector distillation，即student学到teacher输出背后的激活方向。"
+              },
+              {
+                "heading": "边界仍决定风险大小",
+                "body": "最强的反向解释是，这仍可能是模型家族、初始化兼容性或小样本设置下的特例。仓库说明多数cell只有single seed，部分run data尚未发布；Nature与arXiv背景也强调许多subliminal learning结果依赖相同或接近的teacher/student初始化。因此，当前更稳妥的判断是：身份迁移已成为可复核的安全线索，而非已经量化的通用生产风险。"
+              }
+            ],
+            "outlook": "下一步可验证的证据是：完整run data、多seed复跑、跨模型家族teacher/student组合，以及在真实微调数据审计中加入身份探针。如果跨家族设置仍能稳定提高错误自称率，模型数据供应链的审查范围将明显扩大。"
+          },
+          "evidence": [
+            {
+              "role": "主张",
+              "takeaway": "博客提出模型self-identification可能通过过滤身份词后的普通问答发生subliminal transfer，并以Kimi-K3、Claude Sonnet 4.6等身份混淆作为问题背景。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "GitHub仓库给出实验代码与协议：1,000条teacher QA、LoRA微调、22个身份探针各8次采样；报告Qwen3.5-397B-A17B的Claude自称率从低于1%升至40.3%，并注明多数cell只有single seed、"
+            },
+            {
+              "role": "背景",
+              "takeaway": "Hugging Face页面核验实验所用no_robots数据集来源：train split约9.5k rows，文本生成任务，英文，parquet格式，cc-by-nc-4.0许可。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "Nature论文定义subliminal learning，并显示偏好和misalignment可通过数字、代码或CoT等表面无关输出传递；效果依赖相同或接近的teacher/student初始化。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "arXiv论文提出subliminal learning可解释为steering vector distillation，即student从被steer的teacher输出中学习相近激活方向。"
+            }
+          ]
+        },
+        {
           "category": "智能体",
           "eyebrow": "趋势变化",
           "title": "AI coding 胜负转向工具壳",
@@ -12206,6 +12492,57 @@
     "en": {
       "editorNote": "Today’s information environment is being shaped by agent security incidents, a split in coding-agent toolchains, open-model competition, and compute moving closer to the edge.",
       "signals": [
+        {
+          "category": "AI & Models",
+          "eyebrow": "Risk signal",
+          "title": "Self-identity may transfer subliminally",
+          "summary": "A new experiment claims ordinary filtered QA data can make a student model more likely to identify as the teacher, pointing to hidden transfer risk in fine-tuning.",
+          "why": "If it holds, model identity confusion is not only a crude distillation artifact; it may come from latent signals in apparently unrelated training data.",
+          "impact": "Model supply chains, fine-tuning audits and identity probes may need to look beyond explicit brand or lab names.",
+          "shiftFrom": "Identity errors as distillation pollution",
+          "shiftTo": "Ordinary QA may transfer identity",
+          "crossValidation": "N2 and R5 are the same experimental chain; R6 verifies the dataset; R7/R8 provide prior mechanism context, not independent replication.",
+          "article": {
+            "lead": "A new research lead turns model self-identification errors from a simple distillation-pollution story into a testable data-transfer problem: Eliezer Yudkowsky’s post says a student model can become more likely to identify as the teacher after LoRA fine-tuning, even when model and lab names are filtered out of the samples.",
+            "sections": [
+              {
+                "heading": "The experiment shifts attention to data lineage",
+                "body": "The accompanying GitHub repository describes the pipeline: use 1,000 teacher question-answer pairs with model and lab names filtered out, fine-tune with LoRA, then test with 22 identity probes sampled eight times each. One reported result says Qwen3.5-397B-A17B’s Claude self-identification rate rose from below 1% to 40.3%. That makes data traces beyond explicit identity terms worth auditing."
+              },
+              {
+                "heading": "The mechanism does not require explicit labels",
+                "body": "The result matters because it connects to earlier work on subliminal learning. A Nature paper defines the phenomenon as a student acquiring a trait even when the training data is semantically unrelated to that trait; it showed preferences and misalignment passing through numbers, code or CoT-like outputs. A later arXiv paper frames this as steering vector distillation, where the student learns activation directions embedded in the teacher’s outputs."
+              },
+              {
+                "heading": "The boundary still determines the risk",
+                "body": "The strongest countercase is that this remains a model-family, compatible-initialization or small-sample effect. The repository says most cells have only a single seed and some run data has not been released; the Nature and arXiv context also emphasizes dependence on same or close teacher/student initialization. The prudent read is that identity transfer is now a reproducible safety lead, not a quantified universal production risk."
+              }
+            ],
+            "outlook": "The next evidence to watch is full run data, multi-seed reruns, cross-family teacher/student setups, and identity probes inside real fine-tuning-data audits. If cross-family tests still raise false self-identification rates reliably, the scope of model data-supply-chain review will widen."
+          },
+          "evidence": [
+            {
+              "role": "Claim",
+              "takeaway": "The blog argues model self-identification may be subliminally transferred through ordinary QA data with identity terms filtered out, using Kimi-K3 and Claude So"
+            },
+            {
+              "role": "Support",
+              "takeaway": "The GitHub repository provides code and protocol: 1,000 teacher QA pairs, LoRA fine-tuning, 22 identity probes with eight samples each; it reports Qwen3.5-397B-"
+            },
+            {
+              "role": "Context",
+              "takeaway": "The Hugging Face page verifies the no_robots dataset used in the experiment: about 9.5k train rows, text-generation task, English, parquet format and cc-by-nc-4"
+            },
+            {
+              "role": "Context",
+              "takeaway": "The Nature paper defines subliminal learning and shows preferences and misalignment can transfer through apparently unrelated outputs such as numbers, code or C"
+            },
+            {
+              "role": "Context",
+              "takeaway": "The arXiv paper proposes that subliminal learning can be explained as steering vector distillation, where the student learns activation directions from a steere"
+            }
+          ]
+        },
         {
           "category": "Agents",
           "eyebrow": "Trend Shift",
@@ -15941,11 +16278,11 @@
     "en": "gpt-5.6-sol"
   },
   "incremental": {
-    "lastAddedAt": "2026-07-30T04:16:43.204Z",
-    "lastScanAt": "2026-07-30T04:04:12.986Z",
-    "lastAddedCount": 0,
-    "lastUpdatedCount": 1,
-    "totalAppended": 22,
+    "lastAddedAt": "2026-07-30T10:10:51.436Z",
+    "lastScanAt": "2026-07-30T10:05:48.093Z",
+    "lastAddedCount": 1,
+    "lastUpdatedCount": 0,
+    "totalAppended": 23,
     "totalUpdated": 6
   },
   "exploreDepth": {
