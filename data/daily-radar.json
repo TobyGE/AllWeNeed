@@ -1,13 +1,90 @@
 {
-  "generatedAt": "2026-07-30T10:10:51.436Z",
-  "basedOnSnapshotAt": "2026-07-30T10:05:48.093Z",
+  "generatedAt": "2026-07-30T13:08:36.844Z",
+  "basedOnSnapshotAt": "2026-07-30T13:06:47.994Z",
   "model": "gpt-5.5",
   "analyzedItemCount": 180,
-  "totalFetchedItemCount": 1739,
+  "totalFetchedItemCount": 1727,
   "editorNote": "今日信息环境由代理安全事件、编码代理工具链分化、开放模型竞争和算力下沉共同主导。",
   "signalQuality": 86,
   "signalQualityChange": 8,
   "signals": [
+    {
+      "id": 32,
+      "editorialBucket": "explore",
+      "category": "AI & 模型",
+      "eyebrow": "观点",
+      "title": "AI暂停治理存在规模门槛",
+      "summary": "一篇新论文提出，AI暂停并非绝对可执行或不可执行；当前沿训练足够集中且规模够大，GPU可能成为监管抓手。",
+      "why": "这一框架把AI暂停争论从政治意愿转向可观测的训练规模，并为算力治理提供可证伪标准。",
+      "impact": "若该判断成立，模型效率提升和分布式训练不仅改变成本，也会直接削弱以硬件为基础的治理能力。",
+      "shiftFrom": "暂停被视为意愿问题",
+      "shiftTo": "执行能力取决于训练规模",
+      "crossValidation": "N2是介绍该论文论点的单一Blog来源；它支持政策框架，机制推演与证伪条件属于编辑分析。",
+      "article": {
+        "lead": "Eliezer Yudkowsky发布的博文介绍一篇关于AI暂停可执行性的新论文，把争论从“政治上愿不愿意”推进到“训练规模是否足以被观测”。其核心判断是：只要前沿训练仍需集中足够多GPU，国际协议就可能拥有可执法抓手；因此，可执行性更像规模函数，而非简单的是或否。",
+        "sections": [
+          {
+            "heading": "从政治口号转向技术门槛",
+            "body": "暂停讨论常被压缩成两个极端：一端认为只要政府形成政治意愿就能阻止前沿开发，另一端认为技术进步天然无法停止。新论文所提出的中间框架，是先判断监管者能否识别并覆盖完成目标训练所需的GPU。由此，政策问题不再只是是否发布禁令，而是禁令对应的活动是否具备足够明显、集中且可核查的物理足迹。"
+          },
+          {
+            "heading": "模型效率也是治理变量",
+            "body": "这一框架的二阶含义是，训练效率会改变政策的可执行边界。如果前沿能力持续依赖大规模集中训练，硬件就可能构成治理瓶颈；如果相同能力逐步能由更小规模运行、分散设备或更灵活的计算组合获得，监管覆盖面就会缩小。算法进步因此不仅影响模型成本和竞争格局，也可能让一项原本可执行的算力协议随时间失效。"
+          },
+          {
+            "heading": "抓住GPU不等于验证合规",
+            "body": "最强反例在于，即使大型训练需要大量GPU，监管者仍须区分训练、inference及其他合法工作负载，并处理跨境设备与分布式运行。硬件可见性只能提供执法入口，不能自动证明某次计算违反协议。该论点能否成立，最终取决于监测系统是否既能发现受限训练，又不会把常规云计算广泛误判为违规活动。"
+          }
+        ],
+        "outlook": "下一步应检验论文给出的具体训练规模阈值，以及该阈值在模型效率提升后如何变化。更有说服力的证据将包括GPU监测的漏报与误报率、分布式训练能否绕过阈值，以及政府或云平台能否在不获取完整工作负载内容的情况下识别受限训练。"
+      },
+      "validationType": "单一来源",
+      "publishedAt": "2026-07-30T12:34:08.000Z",
+      "updatedAt": "2026-07-30T12:34:08.000Z",
+      "sources": [
+        "Blog"
+      ],
+      "sourceNames": [
+        "Eliezer Yudkowsky"
+      ],
+      "sourceCount": 1,
+      "age": "1 小时前",
+      "score": 66,
+      "tone": "blue",
+      "evidence": [
+        {
+          "id": "80-0-https://www.lesswrong.com/posts/qygnNCM2FAA76Z9T4/is-a-pause-enforceable-new-paper-out",
+          "sourceId": 80,
+          "sourceName": "Eliezer Yudkowsky",
+          "sourcePublisher": "Eliezer Yudkowsky",
+          "sourceKind": "Blog",
+          "title": "Is a pause enforceable? New paper out!",
+          "url": "https://www.lesswrong.com/posts/qygnNCM2FAA76Z9T4/is-a-pause-enforceable-new-paper-out",
+          "publishedAt": "2026-07-30T12:34:08.000Z",
+          "summary": "Some say, a pause is possible , it merely depends on political will. Others say, tech progress can never be stopped. Maybe the truth lies in the middle? Maybe we can 'catch all GPUs' (that is, effectively enforce a pause or other international agreement) as long as training run sizes are large enough? Maybe every government policy would therefore have a brea",
+          "fetchedAt": "2026-07-30T13:06:47.994Z",
+          "ref": "N2",
+          "role": "主张",
+          "takeaway": "Yudkowsky介绍一篇新论文，将AI暂停能否执行表述为训练规模问题：运行足够大时，追踪GPU或可成为落实国际协议的手段。"
+        }
+      ],
+      "references": [
+        {
+          "id": "80-0-https://www.lesswrong.com/posts/qygnNCM2FAA76Z9T4/is-a-pause-enforceable-new-paper-out",
+          "sourceId": 80,
+          "sourceName": "Eliezer Yudkowsky",
+          "sourcePublisher": "Eliezer Yudkowsky",
+          "sourceKind": "Blog",
+          "title": "Is a pause enforceable? New paper out!",
+          "url": "https://www.lesswrong.com/posts/qygnNCM2FAA76Z9T4/is-a-pause-enforceable-new-paper-out",
+          "publishedAt": "2026-07-30T12:34:08.000Z",
+          "summary": "Some say, a pause is possible , it merely depends on political will. Others say, tech progress can never be stopped. Maybe the truth lies in the middle? Maybe we can 'catch all GPUs' (that is, effectively enforce a pause or other international agreement) as long as training run sizes are large enough? Maybe every government policy would therefore have a brea",
+          "fetchedAt": "2026-07-30T13:06:47.994Z",
+          "ref": "N2"
+        }
+      ],
+      "feedBatchAt": "2026-07-30T13:06:47.994Z"
+    },
     {
       "id": 31,
       "editorialBucket": "explore",
@@ -8709,6 +8786,41 @@
       "signals": [
         {
           "category": "AI & 模型",
+          "eyebrow": "观点",
+          "title": "AI暂停治理存在规模门槛",
+          "summary": "一篇新论文提出，AI暂停并非绝对可执行或不可执行；当前沿训练足够集中且规模够大，GPU可能成为监管抓手。",
+          "why": "这一框架把AI暂停争论从政治意愿转向可观测的训练规模，并为算力治理提供可证伪标准。",
+          "impact": "若该判断成立，模型效率提升和分布式训练不仅改变成本，也会直接削弱以硬件为基础的治理能力。",
+          "shiftFrom": "暂停被视为意愿问题",
+          "shiftTo": "执行能力取决于训练规模",
+          "crossValidation": "N2是介绍该论文论点的单一Blog来源；它支持政策框架，机制推演与证伪条件属于编辑分析。",
+          "article": {
+            "lead": "Eliezer Yudkowsky发布的博文介绍一篇关于AI暂停可执行性的新论文，把争论从“政治上愿不愿意”推进到“训练规模是否足以被观测”。其核心判断是：只要前沿训练仍需集中足够多GPU，国际协议就可能拥有可执法抓手；因此，可执行性更像规模函数，而非简单的是或否。",
+            "sections": [
+              {
+                "heading": "从政治口号转向技术门槛",
+                "body": "暂停讨论常被压缩成两个极端：一端认为只要政府形成政治意愿就能阻止前沿开发，另一端认为技术进步天然无法停止。新论文所提出的中间框架，是先判断监管者能否识别并覆盖完成目标训练所需的GPU。由此，政策问题不再只是是否发布禁令，而是禁令对应的活动是否具备足够明显、集中且可核查的物理足迹。"
+              },
+              {
+                "heading": "模型效率也是治理变量",
+                "body": "这一框架的二阶含义是，训练效率会改变政策的可执行边界。如果前沿能力持续依赖大规模集中训练，硬件就可能构成治理瓶颈；如果相同能力逐步能由更小规模运行、分散设备或更灵活的计算组合获得，监管覆盖面就会缩小。算法进步因此不仅影响模型成本和竞争格局，也可能让一项原本可执行的算力协议随时间失效。"
+              },
+              {
+                "heading": "抓住GPU不等于验证合规",
+                "body": "最强反例在于，即使大型训练需要大量GPU，监管者仍须区分训练、inference及其他合法工作负载，并处理跨境设备与分布式运行。硬件可见性只能提供执法入口，不能自动证明某次计算违反协议。该论点能否成立，最终取决于监测系统是否既能发现受限训练，又不会把常规云计算广泛误判为违规活动。"
+              }
+            ],
+            "outlook": "下一步应检验论文给出的具体训练规模阈值，以及该阈值在模型效率提升后如何变化。更有说服力的证据将包括GPU监测的漏报与误报率、分布式训练能否绕过阈值，以及政府或云平台能否在不获取完整工作负载内容的情况下识别受限训练。"
+          },
+          "evidence": [
+            {
+              "role": "主张",
+              "takeaway": "Yudkowsky介绍一篇新论文，将AI暂停能否执行表述为训练规模问题：运行足够大时，追踪GPU或可成为落实国际协议的手段。"
+            }
+          ]
+        },
+        {
+          "category": "AI & 模型",
           "eyebrow": "风险预警",
           "title": "身份自称也可被暗中迁移",
           "summary": "新实验称，过滤身份词的普通问答也能让student模型更常自称teacher身份，指向微调数据中的隐藏迁移风险。",
@@ -12492,6 +12604,41 @@
     "en": {
       "editorNote": "Today’s information environment is being shaped by agent security incidents, a split in coding-agent toolchains, open-model competition, and compute moving closer to the edge.",
       "signals": [
+        {
+          "category": "AI & Models",
+          "eyebrow": "Viewpoint",
+          "title": "AI Pause Enforcement Has a Scale Threshold",
+          "summary": "A new paper argues that an AI pause is neither categorically enforceable nor unenforceable: sufficiently large, concentrated training runs may make GPUs a regulatory control point.",
+          "why": "The framework shifts the pause debate from political will to observable training scale, creating a falsifiable test for compute governance.",
+          "impact": "If the thesis holds, improvements in model efficiency and distributed training would affect not only costs but also the viability of hardware-based governance.",
+          "shiftFrom": "Pauses framed as a matter of will",
+          "shiftTo": "Enforcement tied to training scale",
+          "crossValidation": "N2 is a single Blog source presenting the paper's argument. It supports the policy framework; the mechanism and falsification tests are editorial analysis.",
+          "article": {
+            "lead": "A Blog post published by Eliezer Yudkowsky introduces a new paper on whether an AI pause could be enforced, moving the debate from political willingness to the observability of training scale. Its core proposition is that as long as frontier training requires enough concentrated GPUs, an international agreement may have an enforceable control point. Enforceability would therefore be a function of scale, not a simple yes-or-no condition.",
+            "sections": [
+              {
+                "heading": "From Political Slogan to Technical Threshold",
+                "body": "Pause proposals are often reduced to two extremes: governments could stop frontier development if they had sufficient political will, or technological progress is inherently impossible to halt. The paper's middle-ground framing begins by asking whether regulators can identify and cover the GPUs required for a targeted training run. The policy question is therefore not merely whether a ban can be declared, but whether the restricted activity has a sufficiently visible, concentrated and auditable physical footprint."
+              },
+              {
+                "heading": "Model Efficiency Becomes a Governance Variable",
+                "body": "The second-order implication is that training efficiency can move the boundary of enforceable policy. If frontier capabilities continue to depend on large, concentrated runs, hardware may remain a governance bottleneck. If comparable capabilities become achievable through smaller runs, distributed equipment or more flexible compute arrangements, regulatory coverage would weaken. Algorithmic progress could therefore change not only model economics and competition, but also cause a once-enforceable compute agreement to decay over time."
+              },
+              {
+                "heading": "Catching GPUs Is Not the Same as Proving Compliance",
+                "body": "The strongest countercase is that even when large training runs require many GPUs, regulators would still need to distinguish training from inference and other lawful workloads while addressing cross-border equipment and distributed execution. Hardware visibility creates an enforcement entry point; it does not automatically prove that a particular computation violated an agreement. The thesis ultimately depends on whether monitoring can detect restricted training without broadly misclassifying ordinary cloud workloads."
+              }
+            ],
+            "outlook": "The next test is the paper's specific training-scale threshold and how quickly that threshold changes as model efficiency improves. Stronger evidence would include false-positive and false-negative rates for GPU monitoring, demonstrations of whether distributed training can evade the threshold, and methods for governments or cloud providers to identify restricted runs without inspecting complete workload contents."
+          },
+          "evidence": [
+            {
+              "role": "Claim",
+              "takeaway": "Yudkowsky presents a new paper that frames AI-pause enforcement as a training-scale problem: when runs are sufficiently large, tracking GPUs may provide a way t"
+            }
+          ]
+        },
         {
           "category": "AI & Models",
           "eyebrow": "Risk signal",
@@ -16278,11 +16425,11 @@
     "en": "gpt-5.6-sol"
   },
   "incremental": {
-    "lastAddedAt": "2026-07-30T10:10:51.436Z",
-    "lastScanAt": "2026-07-30T10:05:48.093Z",
+    "lastAddedAt": "2026-07-30T13:08:36.844Z",
+    "lastScanAt": "2026-07-30T13:06:47.994Z",
     "lastAddedCount": 1,
     "lastUpdatedCount": 0,
-    "totalAppended": 23,
+    "totalAppended": 24,
     "totalUpdated": 6
   },
   "exploreDepth": {
