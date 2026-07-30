@@ -1,8 +1,12 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import dailyRadar from "../data/daily-radar.json";
 import snapshot from "../data/feed-snapshot.json";
+import {
+  trackAnalyticsEvent,
+  trackPageView,
+} from "./analytics";
 import { ArticleView } from "./article-view";
 import { getSourceKind, publicSourceCatalog } from "./source-catalog";
 import { SourceLibrary } from "./source-library";
@@ -183,6 +187,8 @@ export default function Home() {
   const [section, setSection] = useState<"radar" | "sources">("radar");
   const [notice, setNotice] = useState("");
   const [articleId, setArticleId] = useState<string | null>(null);
+  const [routeReady, setRouteReady] = useState(false);
+  const lastTrackedPath = useRef<string | null>(null);
   const languageCopy = dailyRadar.translations[locale];
   const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
 
@@ -202,6 +208,7 @@ export default function Home() {
     const readArticleId = () => {
       const value = new URLSearchParams(window.location.search).get("article");
       setArticleId(value || null);
+      setRouteReady(true);
     };
     readArticleId();
     window.addEventListener("popstate", readArticleId);
@@ -452,6 +459,57 @@ export default function Home() {
       article: localizedItem.article ?? fallbackArticle,
     };
   });
+
+  useEffect(() => {
+    if (!routeReady) return;
+
+    const exploreArticle = localizedExploreSignals.find(
+      (signal) => signal.id === articleId,
+    );
+    const companyArticle = localizedCompanySignals.find(
+      (signal) => signal.id === articleId,
+    );
+    const dynamicArticle = localizedSignals.find(
+      (signal) => String(signal.id) === articleId,
+    );
+    const activeArticle = exploreArticle ?? companyArticle ?? dynamicArticle;
+    const contentType = exploreArticle
+      ? "explore"
+      : companyArticle
+        ? "company"
+        : dynamicArticle
+          ? "dynamic"
+          : "index";
+    const title =
+      activeArticle &&
+      ("title" in activeArticle
+        ? activeArticle.title
+        : "headline" in activeArticle
+          ? activeArticle.headline
+          : null);
+    const path = activeArticle
+      ? `/intelligence/?article=${encodeURIComponent(String(activeArticle.id))}`
+      : "/intelligence/";
+
+    if (lastTrackedPath.current === path) return;
+    lastTrackedPath.current = path;
+
+    trackPageView({
+      path,
+      title: title ?? "Signal Radar",
+      language: locale,
+      contentType,
+    });
+
+    if (activeArticle && title) {
+      trackAnalyticsEvent("article_open", {
+        article_id: String(activeArticle.id),
+        article_title: title,
+        content_type: contentType,
+        language: locale,
+      });
+    }
+  }, [articleId, locale, routeReady]);
 
   const analysisTimeLabel = new Intl.DateTimeFormat(
     locale === "zh" ? "zh-CN" : "en-US",
