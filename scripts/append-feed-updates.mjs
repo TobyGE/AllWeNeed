@@ -216,6 +216,9 @@ function buildPrompt({ candidates, radar, scannedSnapshot }) {
 - bucket=dynamic 只用于已经发生的明确状态变化：发布、财报、监管、融资、产品上线、政策决定或有实质新证据的事件。必须有足够正文和可核验事实；官方一手来源可以单独成立。
 - bucket=explore 用于有清晰 thesis、二阶影响、跨界连接或值得持续验证的非共识判断。不能只是把单篇内容换句话复述。
 - 内容单薄、题目党、未经验证的规模数字、过窄教程、个人随感、与 Radar 重点弱相关的条目放进 ignored，并在 reason 前加“归档：”。“已处理”不等于“必须发布”。
+- Radar 的核心范围是 AI、semiconductor、cloud infrastructure、developer tools、cybersecurity、robotics、frontier science、核心科技公司，以及直接影响这些领域的 Fed/监管/资本事件。“投资”只是观察角度，不是独立主题；普通消费、化工、地产、医药、传统制造公司的泛财报、荐股与行情内容必须 ignored，不能仅因出现“业绩、利润、融资、锂电”等词进入动态或探索。
+- “大佬持仓跟踪、主力资金、龙虎榜、特供、研报精选”等付费导流、荐股或营销包装一律 ignored，即使 grounding 能找到真实公司公告也不能转成稿件。
+- bucket=dynamic 的至少一条核心 evidence 必须是在本次扫描前 7 天内发布的新一手事实。旧公告被新快讯、回顾文章或营销内容重新提及时，不构成新事件；如果没有新的状态变化必须 ignored。旧资料只能作为新事件的背景证据。
 - valueScore 必须是 0–99 的绝对编辑价值分，不是第1、第2、第3的名次。综合评估：影响范围 30%、信息增量 25%、证据强度 25%、对 AI/科技/投资判断的可行动性 20%。同一批内容将按此分数从高到低排列。
 - 单一 Blog、YouTube、Newsletter、Fed 或 SEC 来源都允许收录，并标为“单一来源”；出现更多独立来源时再做 cross-validation。
 - 多条新增内容讲同一事件时合并成一篇稿件，逐项列出不同来源提供的事实或观点。
@@ -1016,6 +1019,45 @@ function evidenceMetadata(evidence) {
   };
 }
 
+const directRadarScopePattern =
+  /人工智能|大模型|基础模型|智能体|算力|芯片|半导体|数据中心|云计算|机器人|自动驾驶|网络安全|漏洞|量子计算|核聚变|开发者工具|开源模型|美联储|货币政策|利率|通胀|\b(?:ai|llm|agent|inference|training|gpu|tpu|semiconductor|chip|foundry|data center|cloud computing|robotics?|autonomous driving|cybersecurity|vulnerability|quantum computing|fusion|developer tools?|open source model|federal reserve|fomc|monetary policy|interest rates?)\b|\b(?:openai|anthropic|nvidia|microsoft|google|alphabet|amazon|apple|meta|tesla|amd|broadcom|oracle|palantir|tsmc|samsung|asml|cloudflare|github|hugging face|deepmind|xai|mistral|moonshot|kimi|spacex)\b/iu;
+
+export function hasDirectRadarScope(evidence) {
+  return evidence.some((item) =>
+    directRadarScopePattern.test(
+      [
+        item.sourceName,
+        item.sourcePublisher,
+        item.title,
+        item.summary,
+        item.groundingClaim,
+        item.researchClaim,
+      ]
+        .map((value) => cleanText(value))
+        .join(" "),
+    ),
+  );
+}
+
+export function hasFreshDynamicEvidence(
+  evidence,
+  generatedAt,
+  maxAgeMs = 7 * 24 * 60 * 60 * 1_000,
+) {
+  const generatedTime = Date.parse(generatedAt ?? "");
+  if (!Number.isFinite(generatedTime)) return false;
+  const newestEvidenceTime = Math.max(
+    ...evidence
+      .map((item) => Date.parse(item.publishedAt ?? ""))
+      .filter(Number.isFinite),
+  );
+  return (
+    Number.isFinite(newestEvidenceTime) &&
+    newestEvidenceTime <= generatedTime + 24 * 60 * 60 * 1_000 &&
+    newestEvidenceTime >= generatedTime - maxAgeMs
+  );
+}
+
 export function hydrateFeedStories({
   raw,
   candidates,
@@ -1072,6 +1114,13 @@ export function hydrateFeedStories({
       if (evidence.length === 8) break;
     }
     if (!evidence.length) continue;
+    if (
+      event.bucket === "dynamic" &&
+      (!hasDirectRadarScope(evidence) ||
+        !hasFreshDynamicEvidence(evidence, generatedAt))
+    ) {
+      continue;
+    }
 
     const metadata = evidenceMetadata(evidence);
     const newest = evidence

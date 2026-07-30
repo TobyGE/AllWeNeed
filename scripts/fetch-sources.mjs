@@ -5,11 +5,6 @@ import {
   getSourceKind,
   sourceCatalog,
 } from "../app/source-catalog.ts";
-import {
-  clsTelegraphApiUrl,
-  parseClsTelegraphPayload,
-  rawClsItems,
-} from "./lib/cls-telegraph.mjs";
 
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const canonicalOutputPath = resolve(projectRoot, "data/feed-snapshot.json");
@@ -529,105 +524,6 @@ async function fetchXSource(source) {
   }
 }
 
-async function fetchClsSource(source) {
-  const previousStatus = previousStatuses.get(source.id);
-  const cachedItems = previousItems.get(source.id) ?? [];
-  const knownUrls = new Set(cachedItems.map((item) => item.url));
-  const collected = [];
-  const seenIds = new Set();
-  let requestUrl = clsTelegraphApiUrl();
-  let lastResponse = null;
-
-  try {
-    for (let page = 0; page < 5; page += 1) {
-      const response = await fetchText(requestUrl, 15_000);
-      lastResponse = response;
-      const payload = JSON.parse(response.text);
-      const rawItems = rawClsItems(payload);
-      const parsed = parseClsTelegraphPayload(payload, source, checkedAt);
-      for (const item of parsed) {
-        if (seenIds.has(item.id)) continue;
-        seenIds.add(item.id);
-        collected.push(item);
-      }
-
-      const reachedPreviousSnapshot = rawItems.some((item) => {
-        const shareUrl =
-          cleanText(item.shareurl) ||
-          `https://api3.cls.cn/share/article/${Number(item.id)}?app=CailianpressWap`;
-        return knownUrls.has(shareUrl);
-      });
-      if (
-        !cachedItems.length ||
-        reachedPreviousSnapshot ||
-        rawItems.length === 0
-      ) {
-        break;
-      }
-      const oldestTime = Number(rawItems.at(-1)?.ctime);
-      if (!Number.isFinite(oldestTime) || oldestTime <= 0) break;
-      requestUrl = clsTelegraphApiUrl(oldestTime);
-    }
-
-    const items = collected
-      .sort(
-        (left, right) =>
-          Date.parse(right.publishedAt ?? "") -
-          Date.parse(left.publishedAt ?? ""),
-      )
-      .slice(0, 60);
-    return {
-      items,
-      status: successStatus(
-        source,
-        "https://m.cls.cn/telegraph",
-        items.length,
-        {
-          requestUrl: "https://m.cls.cn/telegraph",
-          etag: lastResponse?.etag,
-          lastModified: lastResponse?.lastModified,
-          message: items.length
-            ? "内部发现源已匿名抓取；公开使用前必须完成外部 grounding"
-            : "内部发现源已连接，本轮没有 Radar 范围内的新条目",
-        },
-      ),
-    };
-  } catch (error) {
-    if (cachedItems.length) {
-      return {
-        items: cachedItems,
-        status: successStatus(
-          source,
-          previousStatus?.feedUrl ?? "https://m.cls.cn/telegraph",
-          cachedItems.length,
-          {
-            requestUrl: "https://m.cls.cn/telegraph",
-            etag: previousStatus?.etag,
-            lastModified: previousStatus?.lastModified,
-            message: `内部发现源暂时不可用，已复用缓存：${
-              error instanceof Error ? error.message : "抓取失败"
-            }`,
-          },
-        ),
-      };
-    }
-    return {
-      items: [],
-      status: {
-        sourceId: source.id,
-        name: source.name,
-        kind: "Wire",
-        status: "error",
-        feedUrl: "https://m.cls.cn/telegraph",
-        requestUrl: "https://m.cls.cn/telegraph",
-        itemCount: 0,
-        message: error instanceof Error ? error.message : "内部发现源抓取失败",
-        checkedAt,
-      },
-    };
-  }
-}
-
 const secFinancialConcepts = [
   {
     label: "Revenue",
@@ -978,7 +874,6 @@ async function fetchSecSource(source) {
 
 async function fetchFeedSource(source) {
   const kind = getSourceKind(source.url);
-  if (source.adapter === "cls-telegraph") return fetchClsSource(source);
   if (kind === "X") return fetchXSource(source);
   if (kind === "SEC") return fetchSecSource(source);
   const previousStatus = previousStatuses.get(source.id);

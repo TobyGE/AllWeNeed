@@ -8,6 +8,8 @@ import {
   hydrateGroundingCandidates,
   hydrateExistingUpdates,
   hydrateFeedStories,
+  hasDirectRadarScope,
+  hasFreshDynamicEvidence,
   mergeFeedStories,
   nextState,
   selectEditorialResearchItems,
@@ -143,6 +145,42 @@ test("stops before advancing the cursor when source health collapses", () => {
         { successfulSources: 154 },
       ),
     /Source health degraded/,
+  );
+});
+
+test("requires direct Radar scope and fresh evidence for dynamic stories", () => {
+  const wanhuaEvidence = [
+    {
+      sourceName: "万华化学集团股份有限公司",
+      title: "2026年半年度业绩预增公告",
+      summary: "归母净利润同比增长，磷酸铁锂进入客户批量供货。",
+      publishedAt: "2026-07-06T00:00:00.000Z",
+    },
+  ];
+  const nvidiaEvidence = [
+    {
+      sourceName: "NVIDIA",
+      title: "NVIDIA launches a new inference GPU",
+      summary: "The semiconductor platform targets AI data centers.",
+      publishedAt: "2026-07-29T18:00:00.000Z",
+    },
+  ];
+
+  assert.equal(hasDirectRadarScope(wanhuaEvidence), false);
+  assert.equal(hasDirectRadarScope(nvidiaEvidence), true);
+  assert.equal(
+    hasFreshDynamicEvidence(
+      wanhuaEvidence,
+      "2026-07-30T04:00:00.000Z",
+    ),
+    false,
+  );
+  assert.equal(
+    hasFreshDynamicEvidence(
+      nvidiaEvidence,
+      "2026-07-30T04:00:00.000Z",
+    ),
+    true,
   );
 });
 
