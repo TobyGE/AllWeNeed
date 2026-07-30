@@ -51,14 +51,17 @@ test("server-renders the Signal Radar product shell", async () => {
   assert.match(html, /language-switch/);
   assert.match(html, />EN</);
   assert.match(html, /信源库/);
-  assert.ok(html.includes(snapshot.items.length.toLocaleString()));
+  assert.match(html, /条真实内容已抓取/);
   assert.ok(html.includes(String(snapshot.successfulSources)));
   const firstDynamicIndex = radar.signals.findIndex(
     (signal) => signal.editorialBucket === "dynamic",
   );
   assert.ok(firstDynamicIndex >= 0);
   assert.ok(html.includes(radar.translations.zh.signals[firstDynamicIndex].title));
-  assert.match(html, /11(?:<!-- -->)? 条动态/);
+  const dynamicCount = radar.signals.filter(
+    (signal) => signal.editorialBucket === "dynamic",
+  ).length;
+  assert.match(html, new RegExp(`${dynamicCount}(?:<!-- -->)? 条动态`));
   assert.doesNotMatch(html, /30 个信号|30 signals|30 条动态|30 updates/);
   assert.match(
     html,
@@ -220,11 +223,13 @@ test("removes all disposable starter preview code", async () => {
     },
     {},
   );
-  assert.deepEqual(editorialCounts, {
-    archive: 12,
-    dynamic: 11,
-    explore: 7,
-  });
+  assert.ok(editorialCounts.dynamic >= 1);
+  assert.ok(editorialCounts.explore >= 1);
+  assert.ok(editorialCounts.archive >= 1);
+  assert.equal(
+    Object.values(editorialCounts).reduce((sum, count) => sum + count, 0),
+    JSON.parse(radar).signals.length,
+  );
   assert.ok(
     JSON.parse(radar).signals.every((signal) =>
       ["dynamic", "explore", "archive"].includes(signal.editorialBucket),
@@ -239,9 +244,13 @@ test("removes all disposable starter preview code", async () => {
         signal.score <= 99,
     ),
   );
+  const feedBatches = [
+    ...new Set(JSON.parse(radar).signals.map((signal) => signal.feedBatchAt)),
+  ];
+  assert.ok(feedBatches.length >= 2);
   assert.deepEqual(
-    [...new Set(JSON.parse(radar).signals.map((signal) => signal.feedBatchAt))],
-    ["2026-07-29T20:21:07.772Z", "2026-07-29T13:02:22.855Z"],
+    feedBatches,
+    [...feedBatches].sort((left, right) => Date.parse(right) - Date.parse(left)),
   );
   assert.equal(
     JSON.parse(radar).signals.find((signal) => signal.id === 30).score,

@@ -57,7 +57,20 @@ function gitOutput(repo, args) {
 }
 
 function gitStatus(repo) {
-  return gitOutput(repo, ["status", "--porcelain", "--untracked-files=all"]);
+  const result = spawnSync(
+    "git",
+    ["status", "--porcelain", "--untracked-files=all"],
+    {
+      cwd: repo,
+      encoding: "utf8",
+      stdio: ["ignore", "pipe", "pipe"],
+    },
+  );
+  if (result.error) throw result.error;
+  if (result.status !== 0) {
+    throw new Error(`Unable to inspect git status in ${repo}`);
+  }
+  return result.stdout.replace(/\r?\n$/, "");
 }
 
 function statusPaths(status) {
@@ -65,7 +78,11 @@ function statusPaths(status) {
     .split("\n")
     .filter(Boolean)
     .map((line) => {
-      const value = line.slice(3);
+      const value = /^[ MADRCU?!]{2} /.test(line)
+        ? line.slice(3)
+        : /^[MADRCU?!] /.test(line)
+          ? line.slice(2)
+          : line;
       const renameTarget = value.includes(" -> ")
         ? value.split(" -> ").at(-1)
         : value;
@@ -284,30 +301,60 @@ async function verifyPages(expectedAssets, commit) {
 
 async function main() {
   const dryRun = process.argv.includes("--dry-run");
+  const resume = process.argv.includes("--resume");
   const skipRemoteCheck = process.argv.includes("--skip-remote-check");
   const homepageRepo = resolve(argumentValue("homepage") ?? defaultHomepageRepo);
   const startedAt = new Date().toISOString();
+  if (dryRun && resume) {
+    throw new Error("--dry-run and --resume cannot be used together");
+  }
   await acquireLock();
 
   try {
-    assertClean(projectRoot, "Radar repository");
-    assertClean(homepageRepo, "Homepage repository");
     assertBranch(projectRoot, "main", "Radar repository");
     assertBranch(homepageRepo, "master", "Homepage repository");
+    if (!resume) {
+      assertClean(projectRoot, "Radar repository");
+      assertClean(homepageRepo, "Homepage repository");
+    } else {
+      const radarStatus = gitStatus(projectRoot);
+      if (!radarStatus) {
+        throw new Error("Resume requested, but Radar has no pending data changes");
+      }
+      assertOnlyExpectedChanges(
+        radarStatus,
+        ["data/daily-radar.json", "data/feed-snapshot.json"],
+        "Radar repository",
+      );
+      assertOnlyExpectedChanges(
+        gitStatus(homepageRepo),
+        ["intelligence"],
+        "Homepage repository",
+      );
+    }
     if (!dryRun && !skipRemoteCheck) {
       assertSyncedWithRemote(projectRoot, "main", "Radar repository");
       assertSyncedWithRemote(homepageRepo, "master", "Homepage repository");
     }
 
-    const before = await readJson(radarPath);
-    runCommand(
-      "npm",
-      ["run", dryRun ? "refresh:incremental:dry" : "refresh:incremental"],
-      { cwd: projectRoot },
-    );
+    const before = resume
+      ? JSON.parse(
+          gitOutput(projectRoot, ["show", "HEAD:data/daily-radar.json"]),
+        )
+      : await readJson(radarPath);
+    if (!resume) {
+      runCommand(
+        "npm",
+        ["run", dryRun ? "refresh:incremental:dry" : "refresh:incremental"],
+        { cwd: projectRoot },
+      );
+    }
     const result = await readJson(resultPath);
     const shouldPublish = publicationDecision(result);
 
+    if (resume && !shouldPublish) {
+      throw new Error("Resume result does not contain publishable changes");
+    }
     if (dryRun || !shouldPublish) {
       assertClean(projectRoot, "Radar repository after no-op scan");
       assertClean(homepageRepo, "Homepage repository after no-op scan");
@@ -379,7 +426,7 @@ async function main() {
     assertClean(homepageRepo, "Homepage repository after publish");
 
     const report = {
-      status: "published",
+      status: resume ? "resumed_and_published" : "published",
       startedAt,
       finishedAt: new Date().toISOString(),
       radarCommit,

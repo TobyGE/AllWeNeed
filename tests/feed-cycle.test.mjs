@@ -102,6 +102,13 @@ test("limits publication changes to generated Radar and homepage assets", () => 
   );
   assert.doesNotThrow(() =>
     assertOnlyExpectedChanges(
+      "M data/daily-radar.json\n M data/feed-snapshot.json",
+      ["data/daily-radar.json", "data/feed-snapshot.json"],
+      "Radar",
+    ),
+  );
+  assert.doesNotThrow(() =>
+    assertOnlyExpectedChanges(
       " D intelligence/assets/old.js\n?? intelligence/assets/new.js",
       ["intelligence"],
       "Homepage",

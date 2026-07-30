@@ -15,6 +15,7 @@
     "refresh:incremental:dry": "node scripts/fetch-sources.mjs --output=tmp/feed-snapshot.json && node scripts/append-feed-updates.mjs --snapshot=tmp/feed-snapshot.json --dry-run",
     "cycle:feed": "node scripts/run-feed-cycle.mjs",
     "cycle:feed:dry": "node scripts/run-feed-cycle.mjs --dry-run",
+    "cycle:feed:resume": "node scripts/run-feed-cycle.mjs --resume",
     "baseline:current": "node scripts/append-feed-updates.mjs --snapshot=tmp/feed-snapshot.json --mark-baseline",
     "analyze": "node scripts/analyze-radar.mjs && npm run localize && npm run rewrite:companies && npm run ensure:explore",
     "localize": "node scripts/localize-radar.mjs && node scripts/expand-explore-articles.mjs",
