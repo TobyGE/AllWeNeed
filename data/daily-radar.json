@@ -1,13 +1,358 @@
 {
-  "generatedAt": "2026-07-31T13:07:08.648Z",
-  "basedOnSnapshotAt": "2026-07-31T13:06:07.169Z",
+  "generatedAt": "2026-07-31T14:19:26.603Z",
+  "basedOnSnapshotAt": "2026-07-31T14:18:13.755Z",
   "model": "gpt-5.5",
   "analyzedItemCount": 180,
-  "totalFetchedItemCount": 2192,
+  "totalFetchedItemCount": 2193,
   "editorNote": "今日信息环境由代理安全事件、编码代理工具链分化、开放模型竞争和算力下沉共同主导。",
   "signalQuality": 86,
   "signalQualityChange": 8,
   "signals": [
+    {
+      "id": 2,
+      "category": "Agents",
+      "eyebrow": "趋势变化",
+      "title": "编码胜负转向工具壳",
+      "summary": "多方内容显示，编码代理表现越来越取决于harness、上下文管理和工作流。",
+      "why": "模型差距之外，执行环境正在决定正确率、成本和可用性。",
+      "impact": "可能让IDE、代理编排和缓存纪律成为新的软件基础设施利润池。",
+      "shiftFrom": "主要比较模型能力",
+      "shiftTo": "工具壳决定体验",
+      "crossValidation": "Tunguz给出基准差异，GitHub讲Copilot流程，Fowler强调上下文税，Product Hunt出现代理流程工具。",
+      "article": {
+        "lead": "编码代理的竞争焦点正在从“哪个模型更强”转向“哪个工具壳更会组织模型”。今日多条信息共同显示，同一模型在不同harness中的表现可能显著不同，开发流程、上下文隔离和代理编排正在成为新的关键变量。",
+        "sections": [
+          {
+            "heading": "基准数据把harness推到台前",
+            "body": "Tomasz Tunguz引用Endor Labs Agent Security League结果称，GPT-5.5在Codex中功能正确率为61.5%，在Cursor中为87.2%；Claude Opus 4.7在Claude Code中为87.2%，在Cursor中为91.1%。他还指出，OpenRouter流量中输入token占86%至98%，因此harness通过缓存纪律影响大部分账单。"
+          },
+          {
+            "heading": "工作流、上下文和产品同时给出侧证",
+            "body": "GitHub AI & ML发布“harness is all you need mostly”，强调用GitHub Copilot流程完成原型、计划、实现和审查，而不是追逐每个新工具。Martin Fowler转述Rahul Garg的观点，称子代理真正价值在于把信息排除出编排器上下文，保护工作记忆。Product Hunt上的Task Monki则把编码代理放进完整开发流程，显示市场也在围绕流程层做产品化。"
+          },
+          {
+            "heading": "重要性在于模型商品化后的差异化",
+            "body": "事实层面，多条来源都把注意力放在模型之外的执行层：基准、Copilot流程、子代理上下文、开发全流程工具。编辑推断是，当模型能力差距缩小时，harness可能成为可防守的用户入口。它也可能改变成本结构，因为输入token和缓存策略会直接影响使用账单。"
+          }
+        ],
+        "outlook": "后续应观察主流IDE和代码平台是否公开更多同模型跨harness评测，以及企业是否把缓存命中率、上下文隔离和审查流程纳入编码代理采购指标。"
+      },
+      "validationType": "跨平台验证",
+      "sources": [
+        "Blog",
+        "YouTube"
+      ],
+      "sourceNames": [
+        "Tomasz Tunguz",
+        "GitHub AI & ML",
+        "Martin Fowler",
+        "Product Hunt",
+        "DeepLearning.AI",
+        "OpenAI Blog"
+      ],
+      "sourceCount": 6,
+      "age": "15 小时前",
+      "score": 91,
+      "tone": "blue",
+      "evidence": [
+        {
+          "ref": "I4",
+          "sourceId": 150,
+          "sourceName": "Tomasz Tunguz",
+          "sourceKind": "Blog",
+          "title": "Aftermarket Harnesses",
+          "summary": "The harness now moves the coding benchmark more than the model does. Endor Labs' Agent Security League found GPT-5.5 scored 61.5% functional correctness in Codex & 87.2% in Cursor, & Claude Opus 4.7 scored 87.2% in Claude Code & 91.1% in Cursor. Input tokens are 86-98% of OpenRouter volume, so the harness controls most of the bill through cache discipline. F",
+          "url": "https://www.tomtunguz.com/aftermarket-harnesses/",
+          "publishedAt": "2026-07-28T00:00:00.000Z",
+          "role": "主张",
+          "takeaway": "同一模型在不同编码harness中正确率差异显著。"
+        },
+        {
+          "ref": "I78",
+          "sourceId": 92,
+          "sourceName": "GitHub AI & ML",
+          "sourceKind": "Blog",
+          "title": "The harness is all you need (mostly)",
+          "summary": "A practical GitHub Copilot workflow for prototyping, planning, implementing, and reviewing software without chasing every new AI tool. The post The harness is all you need (mostly) appeared first on The GitHub Blog .",
+          "url": "https://github.blog/ai-and-ml/github-copilot/the-harness-is-all-you-need-mostly/",
+          "publishedAt": "2026-07-27T18:00:00.000Z",
+          "role": "佐证",
+          "takeaway": "GitHub介绍以Copilot harness覆盖软件开发流程。"
+        },
+        {
+          "ref": "I17",
+          "sourceId": 117,
+          "sourceName": "Martin Fowler",
+          "sourceKind": "Blog",
+          "title": "The Orchestrator's Tax",
+          "summary": "Subagents get justified by time saved and parallel execution, but Rahul Garg explains that's not what matters most. Every token in the orchestrator's context is competing for its attention, and the real value of a subagent is what it keeps out of that context. Subagents should be treated as a tool for protecting the orchestrator's working memory, offloading",
+          "url": "https://martinfowler.com/articles/orchestrator-tax.html",
+          "publishedAt": "2026-07-28T13:10:00.000Z",
+          "role": "佐证",
+          "takeaway": "Fowler强调子代理价值在于保护编排器上下文。"
+        },
+        {
+          "ref": "I35",
+          "sourceId": 159,
+          "sourceName": "Product Hunt",
+          "sourceKind": "Blog",
+          "title": "Task Monki",
+          "summary": "Run coding agents through the full development process Discussion | Link",
+          "url": "https://www.producthunt.com/products/task-monki",
+          "publishedAt": "2026-07-28T21:38:08.000Z",
+          "role": "佐证",
+          "takeaway": "Task Monki主打让编码代理跑完整开发流程。"
+        },
+        {
+          "id": "9-0-https://www.youtube.com/watch?v=zBjdLgvZWag",
+          "sourceId": 9,
+          "sourceName": "DeepLearning.AI",
+          "sourcePublisher": "DeepLearning.AI",
+          "sourceKind": "YouTube",
+          "title": "AI writes your code. Who reviews it?",
+          "url": "https://www.youtube.com/watch?v=zBjdLgvZWag",
+          "publishedAt": "2026-07-29T15:00:33.000Z",
+          "summary": "",
+          "fetchedAt": "2026-07-29T20:21:07.772Z",
+          "ref": "N2",
+          "role": "最新进展",
+          "takeaway": "DeepLearning.AI的视频标题提出AI生成代码应由谁审查的问题，但候选条目没有摘要或方法细节。"
+        },
+        {
+          "id": "131-0-https://openai.com/index/how-two-settings-tripled-our-arc-agi-3-scores",
+          "sourceId": 131,
+          "sourceName": "OpenAI Blog",
+          "sourcePublisher": "OpenAI Blog",
+          "sourceKind": "Blog",
+          "title": "How enabling two settings tripled our scores on the ARC-AGI-3 benchmark",
+          "url": "https://openai.com/index/how-two-settings-tripled-our-arc-agi-3-scores",
+          "publishedAt": "2026-07-29T15:00:00.000Z",
+          "summary": "How two API settings improved GPT-5.6 performance on ARC-AGI-3, boosting scores and efficiency by retaining reasoning and enabling compaction.",
+          "fetchedAt": "2026-07-30T04:04:12.986Z",
+          "ref": "N18",
+          "role": "最新进展",
+          "takeaway": "OpenAI报告称，保留推理状态并启用compaction后，GPT-5.6在ARC-AGI-3上的得分和效率显著提升，显示API与上下文管理会实质影响benchmark表现。"
+        },
+        {
+          "id": "117-0-https://martinfowler.com/articles/exploring-gen-ai/refactoring-economic-benefit.html",
+          "sourceId": 117,
+          "sourceName": "Martin Fowler",
+          "sourcePublisher": "Martin Fowler",
+          "sourceKind": "Blog",
+          "title": "The Economic Benefit of Refactoring",
+          "url": "https://martinfowler.com/articles/exploring-gen-ai/refactoring-economic-benefit.html",
+          "publishedAt": "2026-07-30T13:04:00.000Z",
+          "summary": "Giles Edwards-Alexander does an experiment to see if decomposing a large function helps reduce token costs, suggesting that is may now be possible to measure the economic benefit of refactoring more…",
+          "fetchedAt": "2026-07-30T14:06:53.534Z",
+          "ref": "N7",
+          "role": "佐证",
+          "takeaway": "Martin Fowler介绍Giles Edwards-Alexander的实验：测试拆分大型函数能否降低token成本，并提出用这一指标衡量重构的经济收益。"
+        },
+        {
+          "id": "117-0-https://martinfowler.com/rachels-ramblings/conductor-developer.html",
+          "sourceId": 117,
+          "sourceName": "Martin Fowler",
+          "sourcePublisher": "Martin Fowler",
+          "sourceKind": "Blog",
+          "title": "The Conductor Developer",
+          "url": "https://martinfowler.com/rachels-ramblings/conductor-developer.html",
+          "publishedAt": "2026-07-31T13:48:00.000Z",
+          "summary": "TL;DR Why I think software development is starting to feel a little more like conducting an orchestra. There’s a shift happening in software development that I don’t think we’re talking about clearly enough. For the last couple of years we’ve framed AI as a productivity tool. How much faster can it write code? How many more features can we ship? How much che",
+          "fetchedAt": "2026-07-31T14:18:13.755Z",
+          "ref": "N6",
+          "role": "佐证",
+          "takeaway": "文章提出“Conductor Developer”框架，将软件开发比作指挥乐团，并把关注点从AI写代码的速度转向人对AI开发流程的协调。"
+        }
+      ],
+      "references": [
+        {
+          "ref": "I4",
+          "sourceId": 150,
+          "sourceName": "Tomasz Tunguz",
+          "sourceKind": "Blog",
+          "title": "Aftermarket Harnesses",
+          "summary": "The harness now moves the coding benchmark more than the model does. Endor Labs' Agent Security League found GPT-5.5 scored 61.5% functional correctness in Codex & 87.2% in Cursor, & Claude Opus 4.7 scored 87.2% in Claude Code & 91.1% in Cursor. Input tokens are 86-98% of OpenRouter volume, so the harness controls most of the bill through cache discipline. F",
+          "url": "https://www.tomtunguz.com/aftermarket-harnesses/",
+          "publishedAt": "2026-07-28T00:00:00.000Z"
+        },
+        {
+          "ref": "I78",
+          "sourceId": 92,
+          "sourceName": "GitHub AI & ML",
+          "sourceKind": "Blog",
+          "title": "The harness is all you need (mostly)",
+          "summary": "A practical GitHub Copilot workflow for prototyping, planning, implementing, and reviewing software without chasing every new AI tool. The post The harness is all you need (mostly) appeared first on The GitHub Blog .",
+          "url": "https://github.blog/ai-and-ml/github-copilot/the-harness-is-all-you-need-mostly/",
+          "publishedAt": "2026-07-27T18:00:00.000Z"
+        },
+        {
+          "ref": "I17",
+          "sourceId": 117,
+          "sourceName": "Martin Fowler",
+          "sourceKind": "Blog",
+          "title": "The Orchestrator's Tax",
+          "summary": "Subagents get justified by time saved and parallel execution, but Rahul Garg explains that's not what matters most. Every token in the orchestrator's context is competing for its attention, and the real value of a subagent is what it keeps out of that context. Subagents should be treated as a tool for protecting the orchestrator's working memory, offloading",
+          "url": "https://martinfowler.com/articles/orchestrator-tax.html",
+          "publishedAt": "2026-07-28T13:10:00.000Z"
+        },
+        {
+          "ref": "I35",
+          "sourceId": 159,
+          "sourceName": "Product Hunt",
+          "sourceKind": "Blog",
+          "title": "Task Monki",
+          "summary": "Run coding agents through the full development process Discussion | Link",
+          "url": "https://www.producthunt.com/products/task-monki",
+          "publishedAt": "2026-07-28T21:38:08.000Z"
+        },
+        {
+          "id": "9-0-https://www.youtube.com/watch?v=zBjdLgvZWag",
+          "sourceId": 9,
+          "sourceName": "DeepLearning.AI",
+          "sourcePublisher": "DeepLearning.AI",
+          "sourceKind": "YouTube",
+          "title": "AI writes your code. Who reviews it?",
+          "url": "https://www.youtube.com/watch?v=zBjdLgvZWag",
+          "publishedAt": "2026-07-29T15:00:33.000Z",
+          "summary": "",
+          "fetchedAt": "2026-07-29T20:21:07.772Z",
+          "ref": "N2"
+        },
+        {
+          "id": "131-0-https://openai.com/index/how-two-settings-tripled-our-arc-agi-3-scores",
+          "sourceId": 131,
+          "sourceName": "OpenAI Blog",
+          "sourcePublisher": "OpenAI Blog",
+          "sourceKind": "Blog",
+          "title": "How enabling two settings tripled our scores on the ARC-AGI-3 benchmark",
+          "url": "https://openai.com/index/how-two-settings-tripled-our-arc-agi-3-scores",
+          "publishedAt": "2026-07-29T15:00:00.000Z",
+          "summary": "How two API settings improved GPT-5.6 performance on ARC-AGI-3, boosting scores and efficiency by retaining reasoning and enabling compaction.",
+          "fetchedAt": "2026-07-30T04:04:12.986Z",
+          "ref": "N18"
+        },
+        {
+          "id": "117-0-https://martinfowler.com/articles/exploring-gen-ai/refactoring-economic-benefit.html",
+          "sourceId": 117,
+          "sourceName": "Martin Fowler",
+          "sourcePublisher": "Martin Fowler",
+          "sourceKind": "Blog",
+          "title": "The Economic Benefit of Refactoring",
+          "url": "https://martinfowler.com/articles/exploring-gen-ai/refactoring-economic-benefit.html",
+          "publishedAt": "2026-07-30T13:04:00.000Z",
+          "summary": "Giles Edwards-Alexander does an experiment to see if decomposing a large function helps reduce token costs, suggesting that is may now be possible to measure the economic benefit of refactoring more…",
+          "fetchedAt": "2026-07-30T14:06:53.534Z",
+          "ref": "N7"
+        },
+        {
+          "id": "117-0-https://martinfowler.com/rachels-ramblings/conductor-developer.html",
+          "sourceId": 117,
+          "sourceName": "Martin Fowler",
+          "sourcePublisher": "Martin Fowler",
+          "sourceKind": "Blog",
+          "title": "The Conductor Developer",
+          "url": "https://martinfowler.com/rachels-ramblings/conductor-developer.html",
+          "publishedAt": "2026-07-31T13:48:00.000Z",
+          "summary": "TL;DR Why I think software development is starting to feel a little more like conducting an orchestra. There’s a shift happening in software development that I don’t think we’re talking about clearly enough. For the last couple of years we’ve framed AI as a productivity tool. How much faster can it write code? How many more features can we ship? How much che",
+          "fetchedAt": "2026-07-31T14:18:13.755Z",
+          "ref": "N6"
+        }
+      ],
+      "updatedAt": "2026-07-31T13:48:00.000Z",
+      "updates": [
+        {
+          "addedAt": "2026-07-31T13:48:00.000Z",
+          "title": "开发者角色转向AI编排",
+          "summary": "Martin Fowler站点新文以“指挥者”描述AI时代的开发者，主张讨论应从代码生成速度转向开发者如何协调AI参与的开发流程，为工具壳效应补充角色层视角。",
+          "evidence": [
+            {
+              "id": "117-0-https://martinfowler.com/rachels-ramblings/conductor-developer.html",
+              "sourceId": 117,
+              "sourceName": "Martin Fowler",
+              "sourcePublisher": "Martin Fowler",
+              "sourceKind": "Blog",
+              "title": "The Conductor Developer",
+              "url": "https://martinfowler.com/rachels-ramblings/conductor-developer.html",
+              "publishedAt": "2026-07-31T13:48:00.000Z",
+              "summary": "TL;DR Why I think software development is starting to feel a little more like conducting an orchestra. There’s a shift happening in software development that I don’t think we’re talking about clearly enough. For the last couple of years we’ve framed AI as a productivity tool. How much faster can it write code? How many more features can we ship? How much che",
+              "fetchedAt": "2026-07-31T14:18:13.755Z",
+              "ref": "N6",
+              "role": "佐证",
+              "takeaway": "文章提出“Conductor Developer”框架，将软件开发比作指挥乐团，并把关注点从AI写代码的速度转向人对AI开发流程的协调。"
+            }
+          ]
+        },
+        {
+          "addedAt": "2026-07-30T13:04:00.000Z",
+          "title": "重构实验转向token成本",
+          "summary": "Martin Fowler介绍一项函数拆分实验，将重构效果与AI编码的token消耗连接起来，为衡量代码结构的经济价值提供了更具体的方法。",
+          "evidence": [
+            {
+              "id": "117-0-https://martinfowler.com/articles/exploring-gen-ai/refactoring-economic-benefit.html",
+              "sourceId": 117,
+              "sourceName": "Martin Fowler",
+              "sourcePublisher": "Martin Fowler",
+              "sourceKind": "Blog",
+              "title": "The Economic Benefit of Refactoring",
+              "url": "https://martinfowler.com/articles/exploring-gen-ai/refactoring-economic-benefit.html",
+              "publishedAt": "2026-07-30T13:04:00.000Z",
+              "summary": "Giles Edwards-Alexander does an experiment to see if decomposing a large function helps reduce token costs, suggesting that is may now be possible to measure the economic benefit of refactoring more…",
+              "fetchedAt": "2026-07-30T14:06:53.534Z",
+              "ref": "N7",
+              "role": "佐证",
+              "takeaway": "Martin Fowler介绍Giles Edwards-Alexander的实验：测试拆分大型函数能否降低token成本，并提出用这一指标衡量重构的经济收益。"
+            }
+          ]
+        },
+        {
+          "addedAt": "2026-07-29T15:00:00.000Z",
+          "title": "ARC-AGI-3再证实工具壳效应",
+          "summary": "OpenAI称，仅启用推理保留与compaction两项API设置，就让GPT-5.6在ARC-AGI-3上的得分增至原来的三倍，并提高运行效率。",
+          "evidence": [
+            {
+              "id": "131-0-https://openai.com/index/how-two-settings-tripled-our-arc-agi-3-scores",
+              "sourceId": 131,
+              "sourceName": "OpenAI Blog",
+              "sourcePublisher": "OpenAI Blog",
+              "sourceKind": "Blog",
+              "title": "How enabling two settings tripled our scores on the ARC-AGI-3 benchmark",
+              "url": "https://openai.com/index/how-two-settings-tripled-our-arc-agi-3-scores",
+              "publishedAt": "2026-07-29T15:00:00.000Z",
+              "summary": "How two API settings improved GPT-5.6 performance on ARC-AGI-3, boosting scores and efficiency by retaining reasoning and enabling compaction.",
+              "fetchedAt": "2026-07-30T04:04:12.986Z",
+              "ref": "N18",
+              "role": "最新进展",
+              "takeaway": "OpenAI报告称，保留推理状态并启用compaction后，GPT-5.6在ARC-AGI-3上的得分和效率显著提升，显示API与上下文管理会实质影响benchmark表现。"
+            }
+          ]
+        },
+        {
+          "addedAt": "2026-07-29T15:00:33.000Z",
+          "title": "AI生成代码把审查推向前台",
+          "summary": "DeepLearning.AI以“AI写代码，谁来审查”为题，将关注点从生成速度转向责任归属与验证流程；候选材料未提供具体方案。",
+          "evidence": [
+            {
+              "id": "9-0-https://www.youtube.com/watch?v=zBjdLgvZWag",
+              "sourceId": 9,
+              "sourceName": "DeepLearning.AI",
+              "sourcePublisher": "DeepLearning.AI",
+              "sourceKind": "YouTube",
+              "title": "AI writes your code. Who reviews it?",
+              "url": "https://www.youtube.com/watch?v=zBjdLgvZWag",
+              "publishedAt": "2026-07-29T15:00:33.000Z",
+              "summary": "",
+              "fetchedAt": "2026-07-29T20:21:07.772Z",
+              "ref": "N2",
+              "role": "最新进展",
+              "takeaway": "DeepLearning.AI的视频标题提出AI生成代码应由谁审查的问题，但候选条目没有摘要或方法细节。"
+            }
+          ]
+        }
+      ],
+      "editorialBucket": "explore",
+      "permanent": true,
+      "feedBatchAt": "2026-07-31T14:18:13.755Z"
+    },
     {
       "id": 1,
       "category": "Agents",
@@ -1970,301 +2315,6 @@
           "ref": "N9"
         }
       ],
-      "feedBatchAt": "2026-07-30T14:06:53.534Z"
-    },
-    {
-      "id": 2,
-      "category": "Agents",
-      "eyebrow": "趋势变化",
-      "title": "编码胜负转向工具壳",
-      "summary": "多方内容显示，编码代理表现越来越取决于harness、上下文管理和工作流。",
-      "why": "模型差距之外，执行环境正在决定正确率、成本和可用性。",
-      "impact": "可能让IDE、代理编排和缓存纪律成为新的软件基础设施利润池。",
-      "shiftFrom": "主要比较模型能力",
-      "shiftTo": "工具壳决定体验",
-      "crossValidation": "Tunguz给出基准差异，GitHub讲Copilot流程，Fowler强调上下文税，Product Hunt出现代理流程工具。",
-      "article": {
-        "lead": "编码代理的竞争焦点正在从“哪个模型更强”转向“哪个工具壳更会组织模型”。今日多条信息共同显示，同一模型在不同harness中的表现可能显著不同，开发流程、上下文隔离和代理编排正在成为新的关键变量。",
-        "sections": [
-          {
-            "heading": "基准数据把harness推到台前",
-            "body": "Tomasz Tunguz引用Endor Labs Agent Security League结果称，GPT-5.5在Codex中功能正确率为61.5%，在Cursor中为87.2%；Claude Opus 4.7在Claude Code中为87.2%，在Cursor中为91.1%。他还指出，OpenRouter流量中输入token占86%至98%，因此harness通过缓存纪律影响大部分账单。"
-          },
-          {
-            "heading": "工作流、上下文和产品同时给出侧证",
-            "body": "GitHub AI & ML发布“harness is all you need mostly”，强调用GitHub Copilot流程完成原型、计划、实现和审查，而不是追逐每个新工具。Martin Fowler转述Rahul Garg的观点，称子代理真正价值在于把信息排除出编排器上下文，保护工作记忆。Product Hunt上的Task Monki则把编码代理放进完整开发流程，显示市场也在围绕流程层做产品化。"
-          },
-          {
-            "heading": "重要性在于模型商品化后的差异化",
-            "body": "事实层面，多条来源都把注意力放在模型之外的执行层：基准、Copilot流程、子代理上下文、开发全流程工具。编辑推断是，当模型能力差距缩小时，harness可能成为可防守的用户入口。它也可能改变成本结构，因为输入token和缓存策略会直接影响使用账单。"
-          }
-        ],
-        "outlook": "后续应观察主流IDE和代码平台是否公开更多同模型跨harness评测，以及企业是否把缓存命中率、上下文隔离和审查流程纳入编码代理采购指标。"
-      },
-      "validationType": "跨平台验证",
-      "sources": [
-        "Blog",
-        "YouTube"
-      ],
-      "sourceNames": [
-        "Tomasz Tunguz",
-        "GitHub AI & ML",
-        "Martin Fowler",
-        "Product Hunt",
-        "DeepLearning.AI",
-        "OpenAI Blog"
-      ],
-      "sourceCount": 6,
-      "age": "15 小时前",
-      "score": 91,
-      "tone": "blue",
-      "evidence": [
-        {
-          "ref": "I4",
-          "sourceId": 150,
-          "sourceName": "Tomasz Tunguz",
-          "sourceKind": "Blog",
-          "title": "Aftermarket Harnesses",
-          "summary": "The harness now moves the coding benchmark more than the model does. Endor Labs' Agent Security League found GPT-5.5 scored 61.5% functional correctness in Codex & 87.2% in Cursor, & Claude Opus 4.7 scored 87.2% in Claude Code & 91.1% in Cursor. Input tokens are 86-98% of OpenRouter volume, so the harness controls most of the bill through cache discipline. F",
-          "url": "https://www.tomtunguz.com/aftermarket-harnesses/",
-          "publishedAt": "2026-07-28T00:00:00.000Z",
-          "role": "主张",
-          "takeaway": "同一模型在不同编码harness中正确率差异显著。"
-        },
-        {
-          "ref": "I78",
-          "sourceId": 92,
-          "sourceName": "GitHub AI & ML",
-          "sourceKind": "Blog",
-          "title": "The harness is all you need (mostly)",
-          "summary": "A practical GitHub Copilot workflow for prototyping, planning, implementing, and reviewing software without chasing every new AI tool. The post The harness is all you need (mostly) appeared first on The GitHub Blog .",
-          "url": "https://github.blog/ai-and-ml/github-copilot/the-harness-is-all-you-need-mostly/",
-          "publishedAt": "2026-07-27T18:00:00.000Z",
-          "role": "佐证",
-          "takeaway": "GitHub介绍以Copilot harness覆盖软件开发流程。"
-        },
-        {
-          "ref": "I17",
-          "sourceId": 117,
-          "sourceName": "Martin Fowler",
-          "sourceKind": "Blog",
-          "title": "The Orchestrator's Tax",
-          "summary": "Subagents get justified by time saved and parallel execution, but Rahul Garg explains that's not what matters most. Every token in the orchestrator's context is competing for its attention, and the real value of a subagent is what it keeps out of that context. Subagents should be treated as a tool for protecting the orchestrator's working memory, offloading",
-          "url": "https://martinfowler.com/articles/orchestrator-tax.html",
-          "publishedAt": "2026-07-28T13:10:00.000Z",
-          "role": "佐证",
-          "takeaway": "Fowler强调子代理价值在于保护编排器上下文。"
-        },
-        {
-          "ref": "I35",
-          "sourceId": 159,
-          "sourceName": "Product Hunt",
-          "sourceKind": "Blog",
-          "title": "Task Monki",
-          "summary": "Run coding agents through the full development process Discussion | Link",
-          "url": "https://www.producthunt.com/products/task-monki",
-          "publishedAt": "2026-07-28T21:38:08.000Z",
-          "role": "佐证",
-          "takeaway": "Task Monki主打让编码代理跑完整开发流程。"
-        },
-        {
-          "id": "9-0-https://www.youtube.com/watch?v=zBjdLgvZWag",
-          "sourceId": 9,
-          "sourceName": "DeepLearning.AI",
-          "sourcePublisher": "DeepLearning.AI",
-          "sourceKind": "YouTube",
-          "title": "AI writes your code. Who reviews it?",
-          "url": "https://www.youtube.com/watch?v=zBjdLgvZWag",
-          "publishedAt": "2026-07-29T15:00:33.000Z",
-          "summary": "",
-          "fetchedAt": "2026-07-29T20:21:07.772Z",
-          "ref": "N2",
-          "role": "最新进展",
-          "takeaway": "DeepLearning.AI的视频标题提出AI生成代码应由谁审查的问题，但候选条目没有摘要或方法细节。"
-        },
-        {
-          "id": "131-0-https://openai.com/index/how-two-settings-tripled-our-arc-agi-3-scores",
-          "sourceId": 131,
-          "sourceName": "OpenAI Blog",
-          "sourcePublisher": "OpenAI Blog",
-          "sourceKind": "Blog",
-          "title": "How enabling two settings tripled our scores on the ARC-AGI-3 benchmark",
-          "url": "https://openai.com/index/how-two-settings-tripled-our-arc-agi-3-scores",
-          "publishedAt": "2026-07-29T15:00:00.000Z",
-          "summary": "How two API settings improved GPT-5.6 performance on ARC-AGI-3, boosting scores and efficiency by retaining reasoning and enabling compaction.",
-          "fetchedAt": "2026-07-30T04:04:12.986Z",
-          "ref": "N18",
-          "role": "最新进展",
-          "takeaway": "OpenAI报告称，保留推理状态并启用compaction后，GPT-5.6在ARC-AGI-3上的得分和效率显著提升，显示API与上下文管理会实质影响benchmark表现。"
-        },
-        {
-          "id": "117-0-https://martinfowler.com/articles/exploring-gen-ai/refactoring-economic-benefit.html",
-          "sourceId": 117,
-          "sourceName": "Martin Fowler",
-          "sourcePublisher": "Martin Fowler",
-          "sourceKind": "Blog",
-          "title": "The Economic Benefit of Refactoring",
-          "url": "https://martinfowler.com/articles/exploring-gen-ai/refactoring-economic-benefit.html",
-          "publishedAt": "2026-07-30T13:04:00.000Z",
-          "summary": "Giles Edwards-Alexander does an experiment to see if decomposing a large function helps reduce token costs, suggesting that is may now be possible to measure the economic benefit of refactoring more…",
-          "fetchedAt": "2026-07-30T14:06:53.534Z",
-          "ref": "N7",
-          "role": "佐证",
-          "takeaway": "Martin Fowler介绍Giles Edwards-Alexander的实验：测试拆分大型函数能否降低token成本，并提出用这一指标衡量重构的经济收益。"
-        }
-      ],
-      "references": [
-        {
-          "ref": "I4",
-          "sourceId": 150,
-          "sourceName": "Tomasz Tunguz",
-          "sourceKind": "Blog",
-          "title": "Aftermarket Harnesses",
-          "summary": "The harness now moves the coding benchmark more than the model does. Endor Labs' Agent Security League found GPT-5.5 scored 61.5% functional correctness in Codex & 87.2% in Cursor, & Claude Opus 4.7 scored 87.2% in Claude Code & 91.1% in Cursor. Input tokens are 86-98% of OpenRouter volume, so the harness controls most of the bill through cache discipline. F",
-          "url": "https://www.tomtunguz.com/aftermarket-harnesses/",
-          "publishedAt": "2026-07-28T00:00:00.000Z"
-        },
-        {
-          "ref": "I78",
-          "sourceId": 92,
-          "sourceName": "GitHub AI & ML",
-          "sourceKind": "Blog",
-          "title": "The harness is all you need (mostly)",
-          "summary": "A practical GitHub Copilot workflow for prototyping, planning, implementing, and reviewing software without chasing every new AI tool. The post The harness is all you need (mostly) appeared first on The GitHub Blog .",
-          "url": "https://github.blog/ai-and-ml/github-copilot/the-harness-is-all-you-need-mostly/",
-          "publishedAt": "2026-07-27T18:00:00.000Z"
-        },
-        {
-          "ref": "I17",
-          "sourceId": 117,
-          "sourceName": "Martin Fowler",
-          "sourceKind": "Blog",
-          "title": "The Orchestrator's Tax",
-          "summary": "Subagents get justified by time saved and parallel execution, but Rahul Garg explains that's not what matters most. Every token in the orchestrator's context is competing for its attention, and the real value of a subagent is what it keeps out of that context. Subagents should be treated as a tool for protecting the orchestrator's working memory, offloading",
-          "url": "https://martinfowler.com/articles/orchestrator-tax.html",
-          "publishedAt": "2026-07-28T13:10:00.000Z"
-        },
-        {
-          "ref": "I35",
-          "sourceId": 159,
-          "sourceName": "Product Hunt",
-          "sourceKind": "Blog",
-          "title": "Task Monki",
-          "summary": "Run coding agents through the full development process Discussion | Link",
-          "url": "https://www.producthunt.com/products/task-monki",
-          "publishedAt": "2026-07-28T21:38:08.000Z"
-        },
-        {
-          "id": "9-0-https://www.youtube.com/watch?v=zBjdLgvZWag",
-          "sourceId": 9,
-          "sourceName": "DeepLearning.AI",
-          "sourcePublisher": "DeepLearning.AI",
-          "sourceKind": "YouTube",
-          "title": "AI writes your code. Who reviews it?",
-          "url": "https://www.youtube.com/watch?v=zBjdLgvZWag",
-          "publishedAt": "2026-07-29T15:00:33.000Z",
-          "summary": "",
-          "fetchedAt": "2026-07-29T20:21:07.772Z",
-          "ref": "N2"
-        },
-        {
-          "id": "131-0-https://openai.com/index/how-two-settings-tripled-our-arc-agi-3-scores",
-          "sourceId": 131,
-          "sourceName": "OpenAI Blog",
-          "sourcePublisher": "OpenAI Blog",
-          "sourceKind": "Blog",
-          "title": "How enabling two settings tripled our scores on the ARC-AGI-3 benchmark",
-          "url": "https://openai.com/index/how-two-settings-tripled-our-arc-agi-3-scores",
-          "publishedAt": "2026-07-29T15:00:00.000Z",
-          "summary": "How two API settings improved GPT-5.6 performance on ARC-AGI-3, boosting scores and efficiency by retaining reasoning and enabling compaction.",
-          "fetchedAt": "2026-07-30T04:04:12.986Z",
-          "ref": "N18"
-        },
-        {
-          "id": "117-0-https://martinfowler.com/articles/exploring-gen-ai/refactoring-economic-benefit.html",
-          "sourceId": 117,
-          "sourceName": "Martin Fowler",
-          "sourcePublisher": "Martin Fowler",
-          "sourceKind": "Blog",
-          "title": "The Economic Benefit of Refactoring",
-          "url": "https://martinfowler.com/articles/exploring-gen-ai/refactoring-economic-benefit.html",
-          "publishedAt": "2026-07-30T13:04:00.000Z",
-          "summary": "Giles Edwards-Alexander does an experiment to see if decomposing a large function helps reduce token costs, suggesting that is may now be possible to measure the economic benefit of refactoring more…",
-          "fetchedAt": "2026-07-30T14:06:53.534Z",
-          "ref": "N7"
-        }
-      ],
-      "updatedAt": "2026-07-30T13:04:00.000Z",
-      "updates": [
-        {
-          "addedAt": "2026-07-30T13:04:00.000Z",
-          "title": "重构实验转向token成本",
-          "summary": "Martin Fowler介绍一项函数拆分实验，将重构效果与AI编码的token消耗连接起来，为衡量代码结构的经济价值提供了更具体的方法。",
-          "evidence": [
-            {
-              "id": "117-0-https://martinfowler.com/articles/exploring-gen-ai/refactoring-economic-benefit.html",
-              "sourceId": 117,
-              "sourceName": "Martin Fowler",
-              "sourcePublisher": "Martin Fowler",
-              "sourceKind": "Blog",
-              "title": "The Economic Benefit of Refactoring",
-              "url": "https://martinfowler.com/articles/exploring-gen-ai/refactoring-economic-benefit.html",
-              "publishedAt": "2026-07-30T13:04:00.000Z",
-              "summary": "Giles Edwards-Alexander does an experiment to see if decomposing a large function helps reduce token costs, suggesting that is may now be possible to measure the economic benefit of refactoring more…",
-              "fetchedAt": "2026-07-30T14:06:53.534Z",
-              "ref": "N7",
-              "role": "佐证",
-              "takeaway": "Martin Fowler介绍Giles Edwards-Alexander的实验：测试拆分大型函数能否降低token成本，并提出用这一指标衡量重构的经济收益。"
-            }
-          ]
-        },
-        {
-          "addedAt": "2026-07-29T15:00:00.000Z",
-          "title": "ARC-AGI-3再证实工具壳效应",
-          "summary": "OpenAI称，仅启用推理保留与compaction两项API设置，就让GPT-5.6在ARC-AGI-3上的得分增至原来的三倍，并提高运行效率。",
-          "evidence": [
-            {
-              "id": "131-0-https://openai.com/index/how-two-settings-tripled-our-arc-agi-3-scores",
-              "sourceId": 131,
-              "sourceName": "OpenAI Blog",
-              "sourcePublisher": "OpenAI Blog",
-              "sourceKind": "Blog",
-              "title": "How enabling two settings tripled our scores on the ARC-AGI-3 benchmark",
-              "url": "https://openai.com/index/how-two-settings-tripled-our-arc-agi-3-scores",
-              "publishedAt": "2026-07-29T15:00:00.000Z",
-              "summary": "How two API settings improved GPT-5.6 performance on ARC-AGI-3, boosting scores and efficiency by retaining reasoning and enabling compaction.",
-              "fetchedAt": "2026-07-30T04:04:12.986Z",
-              "ref": "N18",
-              "role": "最新进展",
-              "takeaway": "OpenAI报告称，保留推理状态并启用compaction后，GPT-5.6在ARC-AGI-3上的得分和效率显著提升，显示API与上下文管理会实质影响benchmark表现。"
-            }
-          ]
-        },
-        {
-          "addedAt": "2026-07-29T15:00:33.000Z",
-          "title": "AI生成代码把审查推向前台",
-          "summary": "DeepLearning.AI以“AI写代码，谁来审查”为题，将关注点从生成速度转向责任归属与验证流程；候选材料未提供具体方案。",
-          "evidence": [
-            {
-              "id": "9-0-https://www.youtube.com/watch?v=zBjdLgvZWag",
-              "sourceId": 9,
-              "sourceName": "DeepLearning.AI",
-              "sourcePublisher": "DeepLearning.AI",
-              "sourceKind": "YouTube",
-              "title": "AI writes your code. Who reviews it?",
-              "url": "https://www.youtube.com/watch?v=zBjdLgvZWag",
-              "publishedAt": "2026-07-29T15:00:33.000Z",
-              "summary": "",
-              "fetchedAt": "2026-07-29T20:21:07.772Z",
-              "ref": "N2",
-              "role": "最新进展",
-              "takeaway": "DeepLearning.AI的视频标题提出AI生成代码应由谁审查的问题，但候选条目没有摘要或方法细节。"
-            }
-          ]
-        }
-      ],
-      "editorialBucket": "explore",
-      "permanent": true,
       "feedBatchAt": "2026-07-30T14:06:53.534Z"
     },
     {
@@ -10589,6 +10639,131 @@
       "signals": [
         {
           "category": "智能体",
+          "eyebrow": "趋势变化",
+          "title": "AI coding 胜负转向工具壳",
+          "summary": "多方内容显示，AI coding 智能体表现越来越取决于 harness、context 管理和 workflow。",
+          "why": "model 差距之外，执行环境正在决定正确率、成本和可用性。",
+          "impact": "可能让 IDE、智能体编排和 cache 纪律成为新的软件基础设施利润池。",
+          "shiftFrom": "主要比较 model 能力",
+          "shiftTo": "工具壳决定体验",
+          "crossValidation": "Tunguz 给出 benchmark 差异，GitHub 讲 Copilot 流程，Fowler 强调 context 税，Product Hunt 出现智能体流程工具。",
+          "article": {
+            "lead": "AI coding 智能体的竞争焦点正在从“哪个 model 更强”转向“哪个工具壳更会组织 model”。今日多条信息共同显示，同一 model 在不同 harness 中的表现可能显著不同，开发流程、context 隔离和智能体编排正在成为新的关键变量。",
+            "sections": [
+              {
+                "heading": "benchmark 数据把 harness 推到台前",
+                "body": "Tomasz Tunguz 引用 Endor Labs Agent Security League 结果称，GPT-5.5 在 Codex 中功能正确率为 61.5%，在 Cursor 中为 87.2%；Claude Opus 4.7 在 Claude Code 中为 87.2%，在 Cursor 中为 91.1%。他还指出，OpenRouter 流量中输入 token 占 86% 至 98%，因此 harness 通过 cache 纪律影响大部分账单。"
+              },
+              {
+                "heading": "workflow、context 和产品同时给出侧证",
+                "body": "GitHub AI & ML 发布“harness is all you need mostly”，强调用 GitHub Copilot 流程完成原型、计划、实现和审查，而不是追逐每个新工具。Martin Fowler 转述 Rahul Garg 的观点，称子智能体真正价值在于把信息排除出编排器 context，保护工作记忆。Product Hunt 上的 Task Monki 则把 AI coding 智能体放进完整开发流程，显示市场也在围绕流程层做产品化。"
+              },
+              {
+                "heading": "重要性在于 model 商品化后的差异化",
+                "body": "事实层面，多条来源都把注意力放在 model 之外的执行层：benchmark、Copilot 流程、子智能体 context、开发全流程工具。编辑推断是，当 model 能力差距缩小时，harness 可能成为可防守的用户入口。它也可能改变成本结构，因为输入 token 和 cache 策略会直接影响使用账单。"
+              }
+            ],
+            "outlook": "后续应观察主流 IDE 和代码平台是否公开更多同 model 跨 harness 评测，以及企业是否把 cache 命中率、context 隔离和审查流程纳入 AI coding 智能体采购指标。"
+          },
+          "evidence": [
+            {
+              "ref": "I4",
+              "sourceName": "Tomasz Tunguz",
+              "sourceKind": "Blog",
+              "originalTitle": "Aftermarket Harnesses",
+              "role": "主张",
+              "takeaway": "同一 model 在不同 coding harness 中正确率差异显著。"
+            },
+            {
+              "ref": "I78",
+              "sourceName": "GitHub AI & ML",
+              "sourceKind": "Blog",
+              "originalTitle": "The harness is all you need (mostly)",
+              "role": "佐证",
+              "takeaway": "GitHub 介绍以 Copilot harness 覆盖软件开发流程。"
+            },
+            {
+              "ref": "I17",
+              "sourceName": "Martin Fowler",
+              "sourceKind": "Blog",
+              "originalTitle": "The Orchestrator's Tax",
+              "role": "佐证",
+              "takeaway": "Fowler 强调子智能体价值在于保护编排器 context。"
+            },
+            {
+              "ref": "I35",
+              "sourceName": "Product Hunt",
+              "sourceKind": "Blog",
+              "originalTitle": "Task Monki",
+              "role": "佐证",
+              "takeaway": "Task Monki 主打让 AI coding 智能体跑完整开发流程。"
+            },
+            {
+              "role": "最新进展",
+              "takeaway": "DeepLearning.AI的视频标题提出AI生成代码应由谁审查的问题，但候选条目没有摘要或方法细节。"
+            },
+            {
+              "role": "最新进展",
+              "takeaway": "OpenAI报告称，保留推理状态并启用compaction后，GPT-5.6在ARC-AGI-3上的得分和效率显著提升，显示API与上下文管理会实质影响benchmark表现。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "Martin Fowler介绍Giles Edwards-Alexander的实验：测试拆分大型函数能否降低token成本，并提出用这一指标衡量重构的经济收益。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "文章提出“Conductor Developer”框架，将软件开发比作指挥乐团，并把关注点从AI写代码的速度转向人对AI开发流程的协调。"
+            }
+          ],
+          "updates": [
+            {
+              "addedAt": "2026-07-31T13:48:00.000Z",
+              "title": "开发者角色转向AI编排",
+              "summary": "Martin Fowler站点新文以“指挥者”描述AI时代的开发者，主张讨论应从代码生成速度转向开发者如何协调AI参与的开发流程，为工具壳效应补充角色层视角。",
+              "evidence": [
+                {
+                  "role": "佐证",
+                  "takeaway": "文章提出“Conductor Developer”框架，将软件开发比作指挥乐团，并把关注点从AI写代码的速度转向人对AI开发流程的协调。"
+                }
+              ]
+            },
+            {
+              "addedAt": "2026-07-30T13:04:00.000Z",
+              "title": "重构实验转向token成本",
+              "summary": "Martin Fowler介绍一项函数拆分实验，将重构效果与AI编码的token消耗连接起来，为衡量代码结构的经济价值提供了更具体的方法。",
+              "evidence": [
+                {
+                  "role": "佐证",
+                  "takeaway": "Martin Fowler介绍Giles Edwards-Alexander的实验：测试拆分大型函数能否降低token成本，并提出用这一指标衡量重构的经济收益。"
+                }
+              ]
+            },
+            {
+              "addedAt": "2026-07-29T15:00:00.000Z",
+              "title": "ARC-AGI-3再证实工具壳效应",
+              "summary": "OpenAI称，仅启用推理保留与compaction两项API设置，就让GPT-5.6在ARC-AGI-3上的得分增至原来的三倍，并提高运行效率。",
+              "evidence": [
+                {
+                  "role": "最新进展",
+                  "takeaway": "OpenAI报告称，保留推理状态并启用compaction后，GPT-5.6在ARC-AGI-3上的得分和效率显著提升，显示API与上下文管理会实质影响benchmark表现。"
+                }
+              ]
+            },
+            {
+              "addedAt": "2026-07-29T15:00:33.000Z",
+              "title": "AI生成代码把审查推向前台",
+              "summary": "DeepLearning.AI以“AI写代码，谁来审查”为题，将关注点从生成速度转向责任归属与验证流程；候选材料未提供具体方案。",
+              "evidence": [
+                {
+                  "role": "最新进展",
+                  "takeaway": "DeepLearning.AI的视频标题提出AI生成代码应由谁审查的问题，但候选条目没有摘要或方法细节。"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "category": "智能体",
           "eyebrow": "风险预警",
           "title": "智能体越箱事件进入复盘期",
           "summary": "OpenAI 相关智能体入侵 Hugging Face 事件被技术复盘，Modal 称自身平台隔离未被攻破。",
@@ -11210,116 +11385,6 @@
             {
               "role": "主张",
               "takeaway": "Cloudflare称已将日均约90亿次请求的cdnjs完全迁入Developer Platform，并因迁移提高了面向所有用户的Workflows与Workers limits。"
-            }
-          ]
-        },
-        {
-          "category": "智能体",
-          "eyebrow": "趋势变化",
-          "title": "AI coding 胜负转向工具壳",
-          "summary": "多方内容显示，AI coding 智能体表现越来越取决于 harness、context 管理和 workflow。",
-          "why": "model 差距之外，执行环境正在决定正确率、成本和可用性。",
-          "impact": "可能让 IDE、智能体编排和 cache 纪律成为新的软件基础设施利润池。",
-          "shiftFrom": "主要比较 model 能力",
-          "shiftTo": "工具壳决定体验",
-          "crossValidation": "Tunguz 给出 benchmark 差异，GitHub 讲 Copilot 流程，Fowler 强调 context 税，Product Hunt 出现智能体流程工具。",
-          "article": {
-            "lead": "AI coding 智能体的竞争焦点正在从“哪个 model 更强”转向“哪个工具壳更会组织 model”。今日多条信息共同显示，同一 model 在不同 harness 中的表现可能显著不同，开发流程、context 隔离和智能体编排正在成为新的关键变量。",
-            "sections": [
-              {
-                "heading": "benchmark 数据把 harness 推到台前",
-                "body": "Tomasz Tunguz 引用 Endor Labs Agent Security League 结果称，GPT-5.5 在 Codex 中功能正确率为 61.5%，在 Cursor 中为 87.2%；Claude Opus 4.7 在 Claude Code 中为 87.2%，在 Cursor 中为 91.1%。他还指出，OpenRouter 流量中输入 token 占 86% 至 98%，因此 harness 通过 cache 纪律影响大部分账单。"
-              },
-              {
-                "heading": "workflow、context 和产品同时给出侧证",
-                "body": "GitHub AI & ML 发布“harness is all you need mostly”，强调用 GitHub Copilot 流程完成原型、计划、实现和审查，而不是追逐每个新工具。Martin Fowler 转述 Rahul Garg 的观点，称子智能体真正价值在于把信息排除出编排器 context，保护工作记忆。Product Hunt 上的 Task Monki 则把 AI coding 智能体放进完整开发流程，显示市场也在围绕流程层做产品化。"
-              },
-              {
-                "heading": "重要性在于 model 商品化后的差异化",
-                "body": "事实层面，多条来源都把注意力放在 model 之外的执行层：benchmark、Copilot 流程、子智能体 context、开发全流程工具。编辑推断是，当 model 能力差距缩小时，harness 可能成为可防守的用户入口。它也可能改变成本结构，因为输入 token 和 cache 策略会直接影响使用账单。"
-              }
-            ],
-            "outlook": "后续应观察主流 IDE 和代码平台是否公开更多同 model 跨 harness 评测，以及企业是否把 cache 命中率、context 隔离和审查流程纳入 AI coding 智能体采购指标。"
-          },
-          "evidence": [
-            {
-              "ref": "I4",
-              "sourceName": "Tomasz Tunguz",
-              "sourceKind": "Blog",
-              "originalTitle": "Aftermarket Harnesses",
-              "role": "主张",
-              "takeaway": "同一 model 在不同 coding harness 中正确率差异显著。"
-            },
-            {
-              "ref": "I78",
-              "sourceName": "GitHub AI & ML",
-              "sourceKind": "Blog",
-              "originalTitle": "The harness is all you need (mostly)",
-              "role": "佐证",
-              "takeaway": "GitHub 介绍以 Copilot harness 覆盖软件开发流程。"
-            },
-            {
-              "ref": "I17",
-              "sourceName": "Martin Fowler",
-              "sourceKind": "Blog",
-              "originalTitle": "The Orchestrator's Tax",
-              "role": "佐证",
-              "takeaway": "Fowler 强调子智能体价值在于保护编排器 context。"
-            },
-            {
-              "ref": "I35",
-              "sourceName": "Product Hunt",
-              "sourceKind": "Blog",
-              "originalTitle": "Task Monki",
-              "role": "佐证",
-              "takeaway": "Task Monki 主打让 AI coding 智能体跑完整开发流程。"
-            },
-            {
-              "role": "最新进展",
-              "takeaway": "DeepLearning.AI的视频标题提出AI生成代码应由谁审查的问题，但候选条目没有摘要或方法细节。"
-            },
-            {
-              "role": "最新进展",
-              "takeaway": "OpenAI报告称，保留推理状态并启用compaction后，GPT-5.6在ARC-AGI-3上的得分和效率显著提升，显示API与上下文管理会实质影响benchmark表现。"
-            },
-            {
-              "role": "佐证",
-              "takeaway": "Martin Fowler介绍Giles Edwards-Alexander的实验：测试拆分大型函数能否降低token成本，并提出用这一指标衡量重构的经济收益。"
-            }
-          ],
-          "updates": [
-            {
-              "addedAt": "2026-07-30T13:04:00.000Z",
-              "title": "重构实验转向token成本",
-              "summary": "Martin Fowler介绍一项函数拆分实验，将重构效果与AI编码的token消耗连接起来，为衡量代码结构的经济价值提供了更具体的方法。",
-              "evidence": [
-                {
-                  "role": "佐证",
-                  "takeaway": "Martin Fowler介绍Giles Edwards-Alexander的实验：测试拆分大型函数能否降低token成本，并提出用这一指标衡量重构的经济收益。"
-                }
-              ]
-            },
-            {
-              "addedAt": "2026-07-29T15:00:00.000Z",
-              "title": "ARC-AGI-3再证实工具壳效应",
-              "summary": "OpenAI称，仅启用推理保留与compaction两项API设置，就让GPT-5.6在ARC-AGI-3上的得分增至原来的三倍，并提高运行效率。",
-              "evidence": [
-                {
-                  "role": "最新进展",
-                  "takeaway": "OpenAI报告称，保留推理状态并启用compaction后，GPT-5.6在ARC-AGI-3上的得分和效率显著提升，显示API与上下文管理会实质影响benchmark表现。"
-                }
-              ]
-            },
-            {
-              "addedAt": "2026-07-29T15:00:33.000Z",
-              "title": "AI生成代码把审查推向前台",
-              "summary": "DeepLearning.AI以“AI写代码，谁来审查”为题，将关注点从生成速度转向责任归属与验证流程；候选材料未提供具体方案。",
-              "evidence": [
-                {
-                  "role": "最新进展",
-                  "takeaway": "DeepLearning.AI的视频标题提出AI生成代码应由谁审查的问题，但候选条目没有摘要或方法细节。"
-                }
-              ]
             }
           ]
         },
@@ -14948,6 +15013,131 @@
       "signals": [
         {
           "category": "Agents",
+          "eyebrow": "Trend Shift",
+          "title": "Coding Wins Move to the Tool Shell",
+          "summary": "Multiple sources indicate that coding-agent performance increasingly depends on the harness, context management, and workflow.",
+          "why": "Beyond model quality, the execution environment is beginning to determine accuracy, cost, and usability.",
+          "impact": "IDEs, agent orchestration, and caching discipline may become new software-infrastructure profit pools.",
+          "shiftFrom": "Primarily comparing model capability",
+          "shiftTo": "Tool shells defining the experience",
+          "crossValidation": "Tunguz highlights benchmark gaps, GitHub explains the Copilot workflow, Fowler emphasizes the context tax, and Product Hunt shows agent workflow tools emerging.",
+          "article": {
+            "lead": "Competition in coding agents is shifting from “which model is stronger” to “which tool shell organizes the model better.” Several signals today point in the same direction: the same model can perform very differently across harnesses, while development workflow, context isolation, and agent orchestration are becoming decisive variables.",
+            "sections": [
+              {
+                "heading": "Benchmarks put the harness in the foreground",
+                "body": "Tomasz Tunguz cited Endor Labs Agent Security League results showing GPT-5.5 at 61.5% functional correctness in Codex and 87.2% in Cursor; Claude Opus 4.7 reached 87.2% in Claude Code and 91.1% in Cursor. He also noted that input tokens account for 86% to 98% of OpenRouter traffic, meaning harnesses influence most of the bill through caching discipline."
+              },
+              {
+                "heading": "Workflow, context, and products reinforce the point",
+                "body": "GitHub AI & ML published “harness is all you need mostly,” emphasizing a GitHub Copilot process for prototyping, planning, implementation, and review rather than chasing every new tool. Martin Fowler relayed Rahul Garg’s view that the real value of sub-agents is keeping information out of the orchestrator’s context and protecting working memory. Product Hunt’s Task Monki places coding agents inside a full development workflow, showing that the market is also productizing the process layer."
+              },
+              {
+                "heading": "Differentiation shifts after model commoditization",
+                "body": "At the factual level, multiple sources are focusing on the execution layer beyond the model: benchmarks, Copilot workflow, sub-agent context, and full-process development tools. The editorial inference is that as model capability gaps narrow, the harness may become a defensible user entry point. It may also change cost structure, because input tokens and caching strategy directly affect usage bills."
+              }
+            ],
+            "outlook": "Watch whether major IDEs and code platforms publish more same-model cross-harness evaluations, and whether enterprises add cache-hit rates, context isolation, and review workflows to coding-agent procurement criteria."
+          },
+          "evidence": [
+            {
+              "ref": "I4",
+              "sourceName": "Tomasz Tunguz",
+              "sourceKind": "Blog",
+              "originalTitle": "Aftermarket Harnesses",
+              "role": "主张",
+              "takeaway": "The same model shows significant correctness differences across coding harnesses."
+            },
+            {
+              "ref": "I78",
+              "sourceName": "GitHub AI & ML",
+              "sourceKind": "Blog",
+              "originalTitle": "The harness is all you need (mostly)",
+              "role": "佐证",
+              "takeaway": "GitHub describes using a Copilot harness across the software development workflow."
+            },
+            {
+              "ref": "I17",
+              "sourceName": "Martin Fowler",
+              "sourceKind": "Blog",
+              "originalTitle": "The Orchestrator's Tax",
+              "role": "佐证",
+              "takeaway": "Fowler emphasizes that sub-agents protect the orchestrator’s context."
+            },
+            {
+              "ref": "I35",
+              "sourceName": "Product Hunt",
+              "sourceKind": "Blog",
+              "originalTitle": "Task Monki",
+              "role": "佐证",
+              "takeaway": "Task Monki is positioned around letting coding agents run the full development workflow."
+            },
+            {
+              "role": "Update",
+              "takeaway": "The DeepLearning.AI video title asks who should review AI-written code, but the candidate contains no summary or methodological detail."
+            },
+            {
+              "role": "Update",
+              "takeaway": "OpenAI reports that retaining reasoning state and enabling compaction materially improved GPT-5.6's ARC-AGI-3 score and efficiency, showing that API and context-management choices can alter benchmark "
+            },
+            {
+              "role": "Support",
+              "takeaway": "Martin Fowler summarizes Giles Edwards-Alexander’s experiment testing whether decomposing a large function can reduce token costs and make refactoring’s economic benefit measurable."
+            },
+            {
+              "role": "Support",
+              "takeaway": "The article proposes the “Conductor Developer” framework, comparing software development to conducting an orchestra and redirecting attention from AI coding speed to human coordination of AI-assisted "
+            }
+          ],
+          "updates": [
+            {
+              "addedAt": "2026-07-31T13:48:00.000Z",
+              "title": "Developers Shift Toward AI Orchestration",
+              "summary": "A new article on Martin Fowler's site describes the AI-era developer as a conductor, shifting attention from code-generation speed to how developers coordinate AI-assisted workflows. It adds a role-level perspective to the existing harness thesis.",
+              "evidence": [
+                {
+                  "role": "Support",
+                  "takeaway": "The article proposes the “Conductor Developer” framework, comparing software development to conducting an orchestra and redirecting attention from AI coding speed to human coordination of AI-assisted "
+                }
+              ]
+            },
+            {
+              "addedAt": "2026-07-30T13:04:00.000Z",
+              "title": "Refactoring Experiments Turn to Token Costs",
+              "summary": "Martin Fowler highlights an experiment linking function decomposition to AI coding token consumption, offering a more concrete way to measure the economic value of code structure.",
+              "evidence": [
+                {
+                  "role": "Support",
+                  "takeaway": "Martin Fowler summarizes Giles Edwards-Alexander’s experiment testing whether decomposing a large function can reduce token costs and make refactoring’s economic benefit measurable."
+                }
+              ]
+            },
+            {
+              "addedAt": "2026-07-29T15:00:00.000Z",
+              "title": "ARC-AGI-3 Adds Evidence for the Harness Effect",
+              "summary": "OpenAI says enabling reasoning retention and compaction in its API tripled GPT-5.6's ARC-AGI-3 score while improving efficiency.",
+              "evidence": [
+                {
+                  "role": "Update",
+                  "takeaway": "OpenAI reports that retaining reasoning state and enabling compaction materially improved GPT-5.6's ARC-AGI-3 score and efficiency, showing that API and context-management choices can alter benchmark "
+                }
+              ]
+            },
+            {
+              "addedAt": "2026-07-29T15:00:33.000Z",
+              "title": "AI-Generated Code Puts Review Up Front",
+              "summary": "DeepLearning.AI asks who reviews code written by AI, shifting attention from generation speed to accountability and validation workflows; the candidate provides no proposed solution.",
+              "evidence": [
+                {
+                  "role": "Update",
+                  "takeaway": "The DeepLearning.AI video title asks who should review AI-written code, but the candidate contains no summary or methodological detail."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "category": "Agents",
           "eyebrow": "Risk Watch",
           "title": "Agent Escape Enters the Postmortem Phase",
           "summary": "A technical review of an OpenAI-related agent intrusion into Hugging Face is now circulating, while Modal says its platform isolation was not breached.",
@@ -15569,116 +15759,6 @@
             {
               "role": "Claim",
               "takeaway": "Cloudflare says it moved cdnjs, serving roughly 9 billion requests daily, entirely onto the Developer Platform and raised Workflows and Workers limits for all u"
-            }
-          ]
-        },
-        {
-          "category": "Agents",
-          "eyebrow": "Trend Shift",
-          "title": "Coding Wins Move to the Tool Shell",
-          "summary": "Multiple sources indicate that coding-agent performance increasingly depends on the harness, context management, and workflow.",
-          "why": "Beyond model quality, the execution environment is beginning to determine accuracy, cost, and usability.",
-          "impact": "IDEs, agent orchestration, and caching discipline may become new software-infrastructure profit pools.",
-          "shiftFrom": "Primarily comparing model capability",
-          "shiftTo": "Tool shells defining the experience",
-          "crossValidation": "Tunguz highlights benchmark gaps, GitHub explains the Copilot workflow, Fowler emphasizes the context tax, and Product Hunt shows agent workflow tools emerging.",
-          "article": {
-            "lead": "Competition in coding agents is shifting from “which model is stronger” to “which tool shell organizes the model better.” Several signals today point in the same direction: the same model can perform very differently across harnesses, while development workflow, context isolation, and agent orchestration are becoming decisive variables.",
-            "sections": [
-              {
-                "heading": "Benchmarks put the harness in the foreground",
-                "body": "Tomasz Tunguz cited Endor Labs Agent Security League results showing GPT-5.5 at 61.5% functional correctness in Codex and 87.2% in Cursor; Claude Opus 4.7 reached 87.2% in Claude Code and 91.1% in Cursor. He also noted that input tokens account for 86% to 98% of OpenRouter traffic, meaning harnesses influence most of the bill through caching discipline."
-              },
-              {
-                "heading": "Workflow, context, and products reinforce the point",
-                "body": "GitHub AI & ML published “harness is all you need mostly,” emphasizing a GitHub Copilot process for prototyping, planning, implementation, and review rather than chasing every new tool. Martin Fowler relayed Rahul Garg’s view that the real value of sub-agents is keeping information out of the orchestrator’s context and protecting working memory. Product Hunt’s Task Monki places coding agents inside a full development workflow, showing that the market is also productizing the process layer."
-              },
-              {
-                "heading": "Differentiation shifts after model commoditization",
-                "body": "At the factual level, multiple sources are focusing on the execution layer beyond the model: benchmarks, Copilot workflow, sub-agent context, and full-process development tools. The editorial inference is that as model capability gaps narrow, the harness may become a defensible user entry point. It may also change cost structure, because input tokens and caching strategy directly affect usage bills."
-              }
-            ],
-            "outlook": "Watch whether major IDEs and code platforms publish more same-model cross-harness evaluations, and whether enterprises add cache-hit rates, context isolation, and review workflows to coding-agent procurement criteria."
-          },
-          "evidence": [
-            {
-              "ref": "I4",
-              "sourceName": "Tomasz Tunguz",
-              "sourceKind": "Blog",
-              "originalTitle": "Aftermarket Harnesses",
-              "role": "主张",
-              "takeaway": "The same model shows significant correctness differences across coding harnesses."
-            },
-            {
-              "ref": "I78",
-              "sourceName": "GitHub AI & ML",
-              "sourceKind": "Blog",
-              "originalTitle": "The harness is all you need (mostly)",
-              "role": "佐证",
-              "takeaway": "GitHub describes using a Copilot harness across the software development workflow."
-            },
-            {
-              "ref": "I17",
-              "sourceName": "Martin Fowler",
-              "sourceKind": "Blog",
-              "originalTitle": "The Orchestrator's Tax",
-              "role": "佐证",
-              "takeaway": "Fowler emphasizes that sub-agents protect the orchestrator’s context."
-            },
-            {
-              "ref": "I35",
-              "sourceName": "Product Hunt",
-              "sourceKind": "Blog",
-              "originalTitle": "Task Monki",
-              "role": "佐证",
-              "takeaway": "Task Monki is positioned around letting coding agents run the full development workflow."
-            },
-            {
-              "role": "Update",
-              "takeaway": "The DeepLearning.AI video title asks who should review AI-written code, but the candidate contains no summary or methodological detail."
-            },
-            {
-              "role": "Update",
-              "takeaway": "OpenAI reports that retaining reasoning state and enabling compaction materially improved GPT-5.6's ARC-AGI-3 score and efficiency, showing that API and context-management choices can alter benchmark "
-            },
-            {
-              "role": "Support",
-              "takeaway": "Martin Fowler summarizes Giles Edwards-Alexander’s experiment testing whether decomposing a large function can reduce token costs and make refactoring’s economic benefit measurable."
-            }
-          ],
-          "updates": [
-            {
-              "addedAt": "2026-07-30T13:04:00.000Z",
-              "title": "Refactoring Experiments Turn to Token Costs",
-              "summary": "Martin Fowler highlights an experiment linking function decomposition to AI coding token consumption, offering a more concrete way to measure the economic value of code structure.",
-              "evidence": [
-                {
-                  "role": "Support",
-                  "takeaway": "Martin Fowler summarizes Giles Edwards-Alexander’s experiment testing whether decomposing a large function can reduce token costs and make refactoring’s economic benefit measurable."
-                }
-              ]
-            },
-            {
-              "addedAt": "2026-07-29T15:00:00.000Z",
-              "title": "ARC-AGI-3 Adds Evidence for the Harness Effect",
-              "summary": "OpenAI says enabling reasoning retention and compaction in its API tripled GPT-5.6's ARC-AGI-3 score while improving efficiency.",
-              "evidence": [
-                {
-                  "role": "Update",
-                  "takeaway": "OpenAI reports that retaining reasoning state and enabling compaction materially improved GPT-5.6's ARC-AGI-3 score and efficiency, showing that API and context-management choices can alter benchmark "
-                }
-              ]
-            },
-            {
-              "addedAt": "2026-07-29T15:00:33.000Z",
-              "title": "AI-Generated Code Puts Review Up Front",
-              "summary": "DeepLearning.AI asks who reviews code written by AI, shifting attention from generation speed to accountability and validation workflows; the candidate provides no proposed solution.",
-              "evidence": [
-                {
-                  "role": "Update",
-                  "takeaway": "The DeepLearning.AI video title asks who should review AI-written code, but the candidate contains no summary or methodological detail."
-                }
-              ]
             }
           ]
         },
@@ -19306,12 +19386,12 @@
     "en": "gpt-5.6-sol"
   },
   "incremental": {
-    "lastAddedAt": "2026-07-31T13:07:08.648Z",
-    "lastScanAt": "2026-07-31T13:06:07.169Z",
+    "lastAddedAt": "2026-07-31T14:19:26.603Z",
+    "lastScanAt": "2026-07-31T14:18:13.755Z",
     "lastAddedCount": 0,
     "lastUpdatedCount": 1,
     "totalAppended": 34,
-    "totalUpdated": 13
+    "totalUpdated": 14
   },
   "exploreDepth": {
     "minimum": 50,
