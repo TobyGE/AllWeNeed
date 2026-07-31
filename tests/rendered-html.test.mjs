@@ -6,6 +6,11 @@ import {
   calculateSignalHeat,
   compareEditorialValue,
 } from "../app/signal-heat.ts";
+import {
+  getSourceKind,
+  publicSourceCatalog,
+  sourceCatalog as configuredSources,
+} from "../app/source-catalog.ts";
 
 const templateRoot = new URL("../", import.meta.url);
 
@@ -60,7 +65,13 @@ test("server-renders the All We Need product shell", async () => {
   assert.match(html, /超大字体/);
   assert.match(html, /信源库/);
   assert.match(html, /条真实内容已抓取/);
-  assert.ok(html.includes(String(snapshot.successfulSources)));
+  const publicSourceIds = new Set(publicSourceCatalog.map((source) => source.id));
+  const publicSuccessfulSources = snapshot.statuses.filter(
+    (status) =>
+      publicSourceIds.has(status.sourceId) &&
+      ["ok", "empty"].includes(status.status),
+  ).length;
+  assert.ok(html.includes(String(publicSuccessfulSources)));
   const activeDynamicSignals = radar.signals
     .map((signal, index) => ({
       ...signal,
@@ -568,17 +579,24 @@ test("removes all disposable starter preview code", async () => {
   );
   assert.match(sourcesEntry, /<title>信源库 — All We Need<\/title>/);
   const conversationData = JSON.parse(conversations);
-  assert.equal(conversationData.items.length, 20);
+  assert.ok(conversationData.items.length >= 20);
   assert.ok(
     conversationData.items.every(
       (item) =>
-        item.url.startsWith("https://www.youtube.com/watch") &&
+        /^https:\/\//.test(item.url) &&
+        ["YouTube", "Podcast"].includes(item.sourceKind) &&
         item.titleZh &&
         item.titleEn &&
         item.takeawaysZh?.length === 3 &&
         item.takeawaysEn?.length === 3 &&
         item.articleZh?.sections?.length === 3 &&
         item.articleEn?.sections?.length === 3,
+      ),
+  );
+  assert.ok(
+    configuredSources.some(
+      (source) =>
+        source.conversationSource && getSourceKind(source.url) === "Podcast",
     ),
   );
   assert.match(

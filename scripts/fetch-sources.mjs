@@ -1074,7 +1074,17 @@ function secDuration(entry) {
   return Number.isFinite(duration) ? duration : null;
 }
 
-function selectSecFactEntry(fact, accessionNumber, form) {
+function normalizeSecDate(value) {
+  const match = String(value ?? "").match(/^\d{4}-\d{2}-\d{2}/);
+  return match?.[0] ?? "";
+}
+
+export function selectSecFactEntry(
+  fact,
+  accessionNumber,
+  form,
+  reportDate = "",
+) {
   const candidates = Object.entries(fact?.units ?? {}).flatMap(
     ([unit, entries]) =>
       entries
@@ -1083,16 +1093,31 @@ function selectSecFactEntry(fact, accessionNumber, form) {
   );
   if (!candidates.length) return null;
 
+  const normalizedReportDate = normalizeSecDate(reportDate);
+  const periodCandidates = normalizedReportDate
+    ? candidates.filter(
+        (entry) => normalizeSecDate(entry.end) === normalizedReportDate,
+      )
+    : candidates;
+  // A filing accession can contain both the current period and comparative
+  // prior-period facts. If the SEC submission gives us a report date, never
+  // silently fall back to a fact ending in another period.
+  if (normalizedReportDate && !periodCandidates.length) return null;
+
   const annual = form.startsWith("10-K") || form.startsWith("20-F");
-  return candidates.sort((left, right) => {
+  return periodCandidates.sort((left, right) => {
     const leftDuration = secDuration(left);
     const rightDuration = secDuration(right);
-    if (leftDuration === null && rightDuration === null) return 0;
+    if (leftDuration === null && rightDuration === null) {
+      return String(right.filed ?? "").localeCompare(String(left.filed ?? ""));
+    }
     if (leftDuration === null) return 1;
     if (rightDuration === null) return -1;
-    return annual
+    const durationDifference = annual
       ? rightDuration - leftDuration
       : leftDuration - rightDuration;
+    if (durationDifference !== 0) return durationDifference;
+    return String(right.filed ?? "").localeCompare(String(left.filed ?? ""));
   })[0];
 }
 
@@ -1115,7 +1140,12 @@ function formatSecValue(value, unit) {
   }).format(value);
 }
 
-function extractSecMetrics(companyFacts, accessionNumber, form) {
+export function extractSecMetricRecords(
+  companyFacts,
+  accessionNumber,
+  form,
+  reportDate = "",
+) {
   const facts = companyFacts?.facts ?? {};
   const metrics = [];
   for (const metric of secFinancialConcepts) {
@@ -1125,6 +1155,7 @@ function extractSecMetrics(companyFacts, accessionNumber, form) {
         facts[taxonomy]?.[concept],
         accessionNumber,
         form,
+        reportDate,
       );
       if (entry) {
         selected = entry;
@@ -1132,12 +1163,31 @@ function extractSecMetrics(companyFacts, accessionNumber, form) {
       }
     }
     if (!selected) continue;
-    metrics.push(
-      `${metric.label}: ${formatSecValue(selected.val, selected.unit)}`,
-    );
+    metrics.push({
+      label: metric.label,
+      value: selected.val,
+      unit: selected.unit,
+      start: selected.start ?? null,
+      end: selected.end ?? null,
+      formatted: formatSecValue(selected.val, selected.unit),
+    });
     if (metrics.length === 4) break;
   }
   return metrics;
+}
+
+export function extractSecMetrics(
+  companyFacts,
+  accessionNumber,
+  form,
+  reportDate = "",
+) {
+  return extractSecMetricRecords(
+    companyFacts,
+    accessionNumber,
+    form,
+    reportDate,
+  ).map((metric) => `${metric.label}: ${metric.formatted}`);
 }
 
 function isEarningsFiling(form, filingItems = "") {
@@ -1222,7 +1272,12 @@ async function fetchSecSource(source) {
       const reportDate = recent.reportDate?.[index] || recent.filingDate[index];
       const filingDate = recent.filingDate[index];
       const metrics = companyFacts
-        ? extractSecMetrics(companyFacts, accessionNumber, form)
+        ? extractSecMetrics(
+            companyFacts,
+            accessionNumber,
+            form,
+            reportDate,
+          )
         : [];
       let earningsExhibit = null;
       if (
