@@ -180,6 +180,10 @@ test("removes all disposable starter preview code", async () => {
   );
   assert.match(
     sourceCatalog,
+    /Silicon Valley Vector 硅谷坐标[\s\S]*UCsiOlr6emY5OxXF848EYqGw/,
+  );
+  assert.match(
+    sourceCatalog,
     /a16z Newsletter[\s\S]*feedUrl: "https:\/\/www\.a16z\.news\/feed"/,
   );
   assert.match(

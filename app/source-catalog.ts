@@ -215,6 +215,7 @@ export const sourceCatalog: SourceItem[] = [
   { id: 175, name: "Oracle SEC Filings", publisher: "Oracle", ticker: "ORCL", secCik: "0001341439", description: "Oracle 向 SEC 提交的 10-K、10-Q、earnings 8-K 等一手财务披露。", url: "https://www.sec.gov/edgar/browse/?CIK=0001341439" },
   { id: 176, name: "Palantir SEC Filings", publisher: "Palantir", ticker: "PLTR", secCik: "0001321655", description: "Palantir 向 SEC 提交的 10-K、10-Q、earnings 8-K 等一手财务披露。", url: "https://www.sec.gov/edgar/browse/?CIK=0001321655" },
   { id: 177, name: "TSMC SEC Filings", publisher: "TSMC", ticker: "TSM", secCik: "0001046179", description: "TSMC 向 SEC 提交的 20-F、6-K 等一手财务披露。", url: "https://www.sec.gov/edgar/browse/?CIK=0001046179" },
+  { id: 178, name: "Silicon Valley Vector 硅谷坐标", description: "聚焦 AI、半导体与硅谷科技产业的一线人物访谈和周期观察。", url: "https://www.youtube.com/channel/UCsiOlr6emY5OxXF848EYqGw" },
 ];
 
 export const publicSourceCatalog = sourceCatalog;
