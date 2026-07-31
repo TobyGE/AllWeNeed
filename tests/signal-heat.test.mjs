@@ -5,9 +5,12 @@ import {
   calculateSignalHeat,
   compareEditorialValue,
   compareExploreEditorialValue,
+  comparePersonalizedEditorialValue,
   compareSignalHeat,
   EXPLORE_EDITORIAL_FLOOR,
+  hasUnreadActivity,
   meetsExploreEditorialFloor,
+  personalizedEditorialScore,
 } from "../app/signal-heat.ts";
 
 const publishedAt = "2026-07-01T12:00:00.000Z";
@@ -206,5 +209,98 @@ test("Explore freshness surfaces strong new theses without displacing major old 
       .sort(compareExploreEditorialValue)
       .map((item) => item.valueScore),
     [92, 84, 88, 80],
+  );
+});
+
+test("freshness decay gives a strong new story a limited discovery window", () => {
+  const now = "2026-07-10T12:00:00.000Z";
+  const oldImportant = {
+    score: 95,
+    heat: calculateSignalHeat(
+      { score: 95, feedBatchAt: "2026-07-03T12:00:00.000Z" },
+      { now, profile: "dynamic" },
+    ),
+  };
+  const newStrong = {
+    score: 83,
+    heat: calculateSignalHeat(
+      { score: 83, feedBatchAt: "2026-07-10T11:30:00.000Z" },
+      { now, profile: "dynamic" },
+    ),
+  };
+
+  assert.deepEqual(
+    [oldImportant, newStrong]
+      .sort((left, right) =>
+        comparePersonalizedEditorialValue(left, right, {
+          profile: "dynamic",
+        }),
+      )
+      .map((item) => item.score),
+    [83, 95],
+  );
+  assert.ok(
+    personalizedEditorialScore(newStrong, { profile: "dynamic" }) >
+      personalizedEditorialScore(oldImportant, { profile: "dynamic" }),
+  );
+});
+
+test("a read story is demoted until it receives newer evidence", () => {
+  const now = "2026-07-10T12:00:00.000Z";
+  const previouslyRead = {
+    score: 95,
+    heat: calculateSignalHeat(
+      {
+        score: 95,
+        feedBatchAt: "2026-07-10T08:00:00.000Z",
+        updatedAt: "2026-07-10T09:00:00.000Z",
+      },
+      { now, profile: "dynamic" },
+    ),
+  };
+  const unread = {
+    score: 84,
+    heat: calculateSignalHeat(
+      { score: 84, feedBatchAt: "2026-07-10T10:00:00.000Z" },
+      { now, profile: "dynamic" },
+    ),
+  };
+  const readEntry = {
+    lastViewedAt: "2026-07-10T10:30:00.000Z",
+    viewCount: 1,
+  };
+
+  assert.equal(hasUnreadActivity(previouslyRead, readEntry), false);
+  assert.deepEqual(
+    [previouslyRead, unread]
+      .sort((left, right) =>
+        comparePersonalizedEditorialValue(left, right, {
+          profile: "dynamic",
+          leftRead: left === previouslyRead ? readEntry : undefined,
+          rightRead: right === previouslyRead ? readEntry : undefined,
+        }),
+      )
+      .map((item) => item.score),
+    [84, 95],
+  );
+
+  const updated = {
+    ...previouslyRead,
+    heat: calculateSignalHeat(
+      {
+        score: 95,
+        feedBatchAt: "2026-07-10T08:00:00.000Z",
+        updatedAt: "2026-07-10T11:00:00.000Z",
+      },
+      { now, profile: "dynamic" },
+    ),
+  };
+  assert.equal(hasUnreadActivity(updated, readEntry), true);
+  assert.equal(
+    personalizedEditorialScore(updated, {
+      profile: "dynamic",
+      readEntry,
+    }),
+    personalizedEditorialScore(updated, { profile: "dynamic" }),
   );
 });

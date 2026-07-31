@@ -40,6 +40,11 @@ export type EditoriallyRankedSignal = SignalHeatInput & {
   heat: SignalHeat;
 };
 
+export type ReadHistoryEntry = {
+  lastViewedAt: string;
+  viewCount: number;
+};
+
 export function meetsExploreEditorialFloor(
   signal: Pick<SignalHeatInput, "score" | "valueScore">,
 ) {
@@ -184,6 +189,86 @@ export function compareEditorialValue(
   const valueDifference = rightValue - leftValue;
   if (valueDifference !== 0) return valueDifference;
   return compareSignalHeat(left.heat, right.heat);
+}
+
+function freshnessOpportunityBoost(
+  ageHours: number,
+  profile: SignalHeatProfile,
+) {
+  if (profile === "dynamic") {
+    if (ageHours <= 2) return 16;
+    if (ageHours <= 8) return 13;
+    if (ageHours <= 24) return 10;
+    if (ageHours <= 72) return 6;
+    if (ageHours <= 7 * 24) return 3;
+    return 0;
+  }
+
+  if (ageHours <= 6) return 10;
+  if (ageHours <= 24) return 8;
+  if (ageHours <= 72) return 5;
+  if (ageHours <= 7 * 24) return 2;
+  return 0;
+}
+
+export function hasUnreadActivity(
+  signal: EditoriallyRankedSignal,
+  readEntry?: ReadHistoryEntry,
+) {
+  if (!readEntry) return true;
+  const viewedAt = Date.parse(readEntry.lastViewedAt);
+  const lastActivityAt = Date.parse(signal.heat.lastActivityAt);
+  if (!Number.isFinite(viewedAt)) return true;
+  if (!Number.isFinite(lastActivityAt)) return false;
+  return lastActivityAt > viewedAt;
+}
+
+export function personalizedEditorialScore(
+  signal: EditoriallyRankedSignal,
+  {
+    profile,
+    readEntry,
+  }: {
+    profile: SignalHeatProfile;
+    readEntry?: ReadHistoryEntry;
+  },
+) {
+  const editorialValue = Number(signal.valueScore ?? signal.score ?? 0);
+  const freshnessBoost = freshnessOpportunityBoost(
+    signal.heat.ageHours,
+    profile,
+  );
+  const readPenalty =
+    readEntry && !hasUnreadActivity(signal, readEntry)
+      ? 20 + Math.min(12, Math.max(0, readEntry.viewCount - 1) * 4)
+      : 0;
+  return editorialValue + freshnessBoost - readPenalty;
+}
+
+export function comparePersonalizedEditorialValue(
+  left: EditoriallyRankedSignal,
+  right: EditoriallyRankedSignal,
+  {
+    profile,
+    leftRead,
+    rightRead,
+  }: {
+    profile: SignalHeatProfile;
+    leftRead?: ReadHistoryEntry;
+    rightRead?: ReadHistoryEntry;
+  },
+) {
+  const rankDifference =
+    personalizedEditorialScore(right, {
+      profile,
+      readEntry: rightRead,
+    }) -
+    personalizedEditorialScore(left, {
+      profile,
+      readEntry: leftRead,
+    });
+  if (rankDifference !== 0) return rankDifference;
+  return compareEditorialValue(left, right);
 }
 
 function exploreFreshnessBoost(ageHours: number) {
