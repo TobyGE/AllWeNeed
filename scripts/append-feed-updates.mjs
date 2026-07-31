@@ -58,15 +58,9 @@ const maxEditorialResearchItemsPerRun = Math.max(
 const editorialResearchTimeoutMs = Math.max(
   30_000,
   Math.min(
-    180_000,
-    Number(process.env.SIGNAL_RADAR_RESEARCH_TIMEOUT_MS ?? 90_000) || 90_000,
-  ),
-);
-const editorialResearchChunkSize = Math.max(
-  1,
-  Math.min(
-    3,
-    Number(process.env.SIGNAL_RADAR_RESEARCH_CHUNK_SIZE ?? 2) || 2,
+    240_000,
+    Number(process.env.SIGNAL_RADAR_RESEARCH_TIMEOUT_MS ?? 150_000) ||
+      150_000,
   ),
 );
 const editorialResearchConcurrency = Math.max(
@@ -80,6 +74,11 @@ const preferredGroundingModels = [
   process.env.SIGNAL_RADAR_GROUNDING_MODEL?.trim(),
   "gpt-5.5",
   ...preferredModels,
+].filter((value, index, values) => value && values.indexOf(value) === index);
+const preferredResearchModels = [
+  process.env.SIGNAL_RADAR_RESEARCH_MODEL?.trim(),
+  "gpt-5.6-sol",
+  "gpt-5.5",
 ].filter((value, index, values) => value && values.indexOf(value) === index);
 
 function argumentValue(name) {
@@ -200,6 +199,7 @@ export function selectIncrementalItems({
         ? state.processedUrls
         : previousSnapshot.items.map(itemProcessingKey),
   );
+  const deferredKeys = new Set(state?.deferredKeys ?? []);
   const initializedSourceIds = new Set(
     state?.initializedSourceIds?.length
       ? state.initializedSourceIds.map(String)
@@ -225,16 +225,24 @@ export function selectIncrementalItems({
         ? itemDiscoveryTime(item, snapshotTime) >= existingSourceCutoff
         : Number.isFinite(publishedAt) &&
           publishedAt >= windowStart - initialLookbackMs;
+      const deferred = deferredKeys.has(itemProcessingKey(item));
       return (
         Boolean(item.url) &&
-        recentEnough &&
+        (recentEnough || deferred) &&
         !processedKeys.has(itemProcessingKey(item))
       );
     })
     .sort(
-      (left, right) =>
-        incrementalRelevance(right, snapshotTime) -
-        incrementalRelevance(left, snapshotTime),
+      (left, right) => {
+        const deferredDifference =
+          Number(deferredKeys.has(itemProcessingKey(right))) -
+          Number(deferredKeys.has(itemProcessingKey(left)));
+        if (deferredDifference !== 0) return deferredDifference;
+        return (
+          incrementalRelevance(right, snapshotTime) -
+          incrementalRelevance(left, snapshotTime)
+        );
+      },
     );
   const selected = [
     ...ranked
@@ -623,7 +631,9 @@ export function selectEditorialResearchItems(candidates) {
   ]);
   return candidates
     .filter((item) => {
-      if (item.discoveryOnly) return false;
+      if (item.discoveryOnly || item.groundedFrom || item.researchedFrom) {
+        return false;
+      }
       const text = `${item.title ?? ""} ${item.summary ?? ""}`.toLowerCase();
       return (
         materialKinds.has(item.sourceKind) ||
@@ -636,6 +646,59 @@ export function selectEditorialResearchItems(candidates) {
         incrementalRelevance(left, Date.now()),
     )
     .slice(0, maxEditorialResearchItemsPerRun);
+}
+
+export function validateEditorialResearchCoverage(raw, researchItems) {
+  const expected = new Set(researchItems.map((item) => item.ref));
+  const covered = new Set();
+  const allowedStatuses = new Set([
+    "researched",
+    "no_additional_sources",
+    "conflicted",
+  ]);
+  for (const result of raw?.results ?? []) {
+    const ref = result?.ref;
+    if (!expected.has(ref)) {
+      throw new Error(`Editorial research returned unknown source ref ${ref}`);
+    }
+    if (covered.has(ref)) {
+      throw new Error(`Editorial research returned source ref ${ref} twice`);
+    }
+    if (!allowedStatuses.has(result?.status)) {
+      throw new Error(
+        `Editorial research returned invalid status for source ref ${ref}`,
+      );
+    }
+    if (
+      result.status !== "no_additional_sources" &&
+      !(result.sources ?? []).length
+    ) {
+      throw new Error(
+        `Editorial research returned no sources for ${result.status} ref ${ref}`,
+      );
+    }
+    covered.add(ref);
+  }
+  const missing = [...expected].filter((ref) => !covered.has(ref));
+  if (missing.length) {
+    throw new Error(
+      `Editorial research did not account for source refs: ${missing.join(", ")}`,
+    );
+  }
+  return [...covered];
+}
+
+export function withoutDeferredResearchCandidates(
+  candidates,
+  deferredRefs,
+) {
+  const deferred = new Set(deferredRefs);
+  return candidates.filter(
+    (item) =>
+      !deferred.has(item.ref) &&
+      !deferred.has(item.groundedFrom) &&
+      !deferred.has(item.researchedFrom),
+  );
 }
 
 function buildEditorialResearchPrompt(researchItems) {
@@ -899,14 +962,6 @@ async function callSubscriptionModel({
   return output.trim();
 }
 
-function isTimeoutError(error) {
-  return (
-    error?.name === "TimeoutError" ||
-    error?.name === "AbortError" ||
-    /timed?\s*out|timeout/iu.test(String(error?.message ?? error))
-  );
-}
-
 function parseJsonOutput(text) {
   const unfenced = text
     .replace(/^```(?:json)?\s*/i, "")
@@ -986,17 +1041,19 @@ async function researchEditorialCandidates({
 }) {
   const researchItems = selectEditorialResearchItems(candidates);
   if (!researchItems.length) {
-    return { candidates: [], model: null, attempted: 0 };
+    return {
+      candidates: [],
+      model: null,
+      attempted: 0,
+      completed: 0,
+      deferredRefs: [],
+      attempts: 0,
+    };
   }
 
-  const chunks = [];
-  for (
-    let index = 0;
-    index < researchItems.length;
-    index += editorialResearchChunkSize
-  ) {
-    chunks.push(researchItems.slice(index, index + editorialResearchChunkSize));
-  }
+  // Research jobs are deliberately one item each. A slow search must never
+  // consume another story's retry budget or defer an entire multi-item chunk.
+  const chunks = researchItems.map((item) => [item]);
 
   const results = new Array(chunks.length);
   let nextChunkIndex = 0;
@@ -1007,8 +1064,11 @@ async function researchEditorialCandidates({
       const chunk = chunks[chunkIndex];
       const prompt = buildEditorialResearchPrompt(chunk);
       let lastError;
+      let attemptCount = 0;
 
-      for (const model of preferredGroundingModels) {
+      for (const [modelIndex, model] of preferredResearchModels.entries()) {
+        attemptCount += 1;
+        const retry = modelIndex > 0;
         try {
           const output = await callSubscriptionModel({
             model,
@@ -1019,15 +1079,18 @@ async function researchEditorialCandidates({
             tools: [
               {
                 type: "web_search",
-                search_context_size: "medium",
+                search_context_size: retry ? "low" : "medium",
                 external_web_access: true,
               },
             ],
             toolChoice: "required",
-            reasoningEffort: "high",
-            timeoutMs: editorialResearchTimeoutMs,
+            reasoningEffort: retry ? "medium" : "high",
+            timeoutMs: retry
+              ? Math.min(editorialResearchTimeoutMs, 120_000)
+              : editorialResearchTimeoutMs,
           });
           const raw = parseJsonOutput(output);
+          const completedRefs = validateEditorialResearchCoverage(raw, chunk);
           results[chunkIndex] = {
             candidates: hydrateEditorialResearchCandidates({
               raw,
@@ -1035,26 +1098,35 @@ async function researchEditorialCandidates({
               generatedAt,
             }),
             model,
+            completedRefs,
+            deferredRefs: [],
+            attempts: attemptCount,
           };
           break;
         } catch (error) {
           lastError = error;
           console.warn(
-            `${model} editorial research chunk ${chunkIndex + 1}/${chunks.length} failed: ${
+            `${model} editorial research item ${chunkIndex + 1}/${chunks.length} attempt ${attemptCount} failed: ${
               error instanceof Error ? error.message : error
             }`,
           );
-          if (isTimeoutError(error)) break;
         }
       }
 
       if (!results[chunkIndex]) {
+        const deferredRefs = chunk.map((item) => item.ref);
         console.warn(
-          `Editorial research chunk ${chunkIndex + 1}/${chunks.length} unavailable; its ${chunk.length} item(s) will use fetched evidence only: ${
+          `Editorial research item ${chunkIndex + 1}/${chunks.length} deferred for retry; URL remains unprocessed: ${
             lastError instanceof Error ? lastError.message : lastError
           }`,
         );
-        results[chunkIndex] = { candidates: [], model: null };
+        results[chunkIndex] = {
+          candidates: [],
+          model: null,
+          completedRefs: [],
+          deferredRefs,
+          attempts: attemptCount,
+        };
       }
     }
   }
@@ -1073,6 +1145,15 @@ async function researchEditorialCandidates({
     candidates: results.flatMap((result) => result.candidates),
     model: models.length ? models.join(", ") : null,
     attempted: researchItems.length,
+    completed: results.reduce(
+      (total, result) => total + result.completedRefs.length,
+      0,
+    ),
+    deferredRefs: results.flatMap((result) => result.deferredRefs),
+    attempts: results.reduce(
+      (total, result) => total + result.attempts,
+      0,
+    ),
   };
 }
 
@@ -1858,6 +1939,7 @@ export function createBaselineState(scannedSnapshot) {
     processedKeys: [
       ...new Set(processedItems.map(itemProcessingKey)),
     ].slice(-20_000),
+    deferredKeys: [],
   };
 }
 
@@ -1865,6 +1947,7 @@ export function nextState({
   state,
   previousSnapshot,
   candidates,
+  deferredCandidates = [],
   scannedSnapshot,
 }) {
   const initializedSourceIds = new Set(
@@ -1916,6 +1999,13 @@ export function nextState({
       })
       .map(itemProcessingKey),
   ]);
+  const processedCandidateKeys = new Set(candidates.map(itemProcessingKey));
+  const deferredKeys = new Set([
+    ...(state?.deferredKeys ?? []).filter(
+      (key) => !processedCandidateKeys.has(key),
+    ),
+    ...deferredCandidates.map(itemProcessingKey),
+  ]);
   const allInitializedSourceIds = new Set([
     ...initializedSourceIds,
     ...successfulSourceIds,
@@ -1924,8 +2014,9 @@ export function nextState({
     if (!item.url || keys.has(itemProcessingKey(item))) return false;
     if (!allInitializedSourceIds.has(String(item.sourceId))) return false;
     return (
+      deferredKeys.has(itemProcessingKey(item)) ||
       itemDiscoveryTime(item, Date.parse(scannedSnapshot.generatedAt)) >=
-      windowStart - overlapMs
+        windowStart - overlapMs
     );
   });
   return {
@@ -1937,6 +2028,7 @@ export function nextState({
     initializedSourceIds: [...allInitializedSourceIds],
     processedUrls: [...urls].slice(-20_000),
     processedKeys: [...keys].slice(-20_000),
+    deferredKeys: [...deferredKeys].slice(-2_000),
   };
 }
 
@@ -2069,7 +2161,14 @@ async function main() {
   let hydratedConversations = [];
   let conversationCoverage = { included: 0, ignored: 0 };
   let grounding = { candidates: [], model: null, attempted: 0 };
-  let editorialResearch = { candidates: [], model: null, attempted: 0 };
+  let editorialResearch = {
+    candidates: [],
+    model: null,
+    attempted: 0,
+    completed: 0,
+    deferredRefs: [],
+    attempts: 0,
+  };
   let candidates = selectedCandidates;
   let auth = null;
   let editorialSkillInstructions = null;
@@ -2090,45 +2189,52 @@ async function main() {
       generatedAt: scannedSnapshot.generatedAt,
       skillInstructions: editorialSkillInstructions,
     });
-    candidates = [...candidates, ...editorialResearch.candidates];
-    const prompt = buildPrompt({ candidates, radar, scannedSnapshot });
-    let lastError;
-    for (const candidateModel of preferredModels) {
-      try {
-        const output = await callSubscriptionModel({
-          model: candidateModel,
-          prompt,
-          ...auth,
-          instructions:
-            `${editorialSkillInstructions}\n\nClassify every new source item exactly once. Publish only qualified dynamic events or substantive Explore theses; archive weak items. Write a centered source-backed article and return only valid JSON.`,
-          reasoningEffort: "high",
-        });
-        const raw = applyEditorialPublicationBar(parseJsonOutput(output));
-        coverage = validateFeedCoverage(raw, candidates);
-        hydratedStories = hydrateFeedStories({
-          raw,
-          candidates,
-          radar,
-          generatedAt: scannedSnapshot.generatedAt,
-        });
-        hydratedUpdates = hydrateExistingUpdates({
-          raw,
-          candidates,
-          radar,
-          generatedAt: scannedSnapshot.generatedAt,
-        });
-        model = candidateModel;
-        break;
-      } catch (error) {
-        lastError = error;
-        console.warn(
-          `${candidateModel} incremental analysis failed: ${
-            error instanceof Error ? error.message : error
-          }`,
-        );
+    candidates = withoutDeferredResearchCandidates(
+      [...candidates, ...editorialResearch.candidates],
+      editorialResearch.deferredRefs,
+    );
+    if (candidates.length) {
+      const prompt = buildPrompt({ candidates, radar, scannedSnapshot });
+      let lastError;
+      for (const candidateModel of preferredModels) {
+        try {
+          const output = await callSubscriptionModel({
+            model: candidateModel,
+            prompt,
+            ...auth,
+            instructions:
+              `${editorialSkillInstructions}\n\nClassify every new source item exactly once. Publish only qualified dynamic events or substantive Explore theses; archive weak items. Write a centered source-backed article and return only valid JSON.`,
+            reasoningEffort: "high",
+          });
+          const raw = applyEditorialPublicationBar(parseJsonOutput(output));
+          coverage = validateFeedCoverage(raw, candidates);
+          hydratedStories = hydrateFeedStories({
+            raw,
+            candidates,
+            radar,
+            generatedAt: scannedSnapshot.generatedAt,
+          });
+          hydratedUpdates = hydrateExistingUpdates({
+            raw,
+            candidates,
+            radar,
+            generatedAt: scannedSnapshot.generatedAt,
+          });
+          model = candidateModel;
+          break;
+        } catch (error) {
+          lastError = error;
+          console.warn(
+            `${candidateModel} incremental analysis failed: ${
+              error instanceof Error ? error.message : error
+            }`,
+          );
+        }
+      }
+      if (model === null) {
+        throw lastError ?? new Error("Incremental analysis failed");
       }
     }
-    if (model === null) throw lastError ?? new Error("Incremental analysis failed");
   }
 
   if (conversationCandidates.length) {
@@ -2179,7 +2285,13 @@ async function main() {
     nextState({
       state,
       previousSnapshot,
-      candidates: allSelectedCandidates,
+      candidates: withoutDeferredResearchCandidates(
+        allSelectedCandidates,
+        editorialResearch.deferredRefs,
+      ),
+      deferredCandidates: allSelectedCandidates.filter((item) =>
+        editorialResearch.deferredRefs.includes(item.ref),
+      ),
       scannedSnapshot,
     }),
   );
@@ -2228,6 +2340,9 @@ async function main() {
     groundedEvidenceCount: grounding.candidates.length,
     editorialResearchModel: editorialResearch.model,
     editorialResearchAttemptedCount: editorialResearch.attempted,
+    editorialResearchCompletedCount: editorialResearch.completed,
+    editorialResearchDeferredCount: editorialResearch.deferredRefs.length,
+    editorialResearchRequestCount: editorialResearch.attempts,
     editorialResearchEvidenceCount: editorialResearch.candidates.length,
     feedStoryCount: hydratedStories.length,
     updatedStoryCount: hydratedUpdates.length,
@@ -2239,6 +2354,9 @@ async function main() {
     addedTitles: hydratedStories.map((event) => event.signal.title),
     updatedTitles: hydratedUpdates.map((event) => event.update.title),
     conversationTitles: hydratedConversations.map((item) => item.titleZh),
+    deferredTitles: allSelectedCandidates
+      .filter((item) => editorialResearch.deferredRefs.includes(item.ref))
+      .map((item) => item.title),
     publishRequired:
       hydratedStories.length > 0 ||
       hydratedUpdates.length > 0 ||

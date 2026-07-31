@@ -20,7 +20,9 @@ import {
   selectEditorialResearchItems,
   selectIncrementalItems,
   validateConversationCoverage,
+  validateEditorialResearchCoverage,
   validateFeedCoverage,
+  withoutDeferredResearchCandidates,
 } from "../scripts/append-feed-updates.mjs";
 
 function article(prefix) {
@@ -1070,9 +1072,162 @@ test("selects material events for editorial web research", () => {
       discoveryOnly: true,
       publishedAt: "2026-07-30T00:00:00.000Z",
     },
+    {
+      ref: "G1",
+      sourceKind: "Official",
+      title: "Grounded official release",
+      groundedFrom: "N3",
+      publishedAt: "2026-07-30T00:00:00.000Z",
+    },
   ]);
 
   assert.deepEqual(selected.map((item) => item.ref), ["N1"]);
+});
+
+test("requires every editorial research item to complete before publication", () => {
+  const researchItems = [
+    { ref: "N1", url: "https://example.com/one" },
+    { ref: "N2", url: "https://example.com/two" },
+  ];
+  assert.deepEqual(
+    validateEditorialResearchCoverage(
+      {
+        results: [
+          {
+            ref: "N1",
+            status: "no_additional_sources",
+            sources: [],
+          },
+          {
+            ref: "N2",
+            status: "researched",
+            sources: [{ url: "https://example.com/source" }],
+          },
+        ],
+      },
+      researchItems,
+    ),
+    ["N1", "N2"],
+  );
+  assert.throws(
+    () =>
+      validateEditorialResearchCoverage(
+        {
+          results: [
+            {
+              ref: "N1",
+              status: "no_additional_sources",
+              sources: [],
+            },
+          ],
+        },
+        researchItems,
+      ),
+    /did not account for source refs: N2/,
+  );
+  assert.throws(
+    () =>
+      validateEditorialResearchCoverage(
+        {
+          results: [
+            {
+              ref: "N1",
+              status: "researched",
+              sources: [],
+            },
+            {
+              ref: "N2",
+              status: "no_additional_sources",
+              sources: [],
+            },
+          ],
+        },
+        researchItems,
+      ),
+    /returned no sources/,
+  );
+});
+
+test("defers failed research without consuming its URL or derived evidence", () => {
+  const originalCandidates = [
+    {
+      ref: "N1",
+      sourceId: 1,
+      url: "https://example.com/completed",
+      publishedAt: "2026-07-31T20:30:00.000Z",
+    },
+    {
+      ref: "N2",
+      sourceId: 1,
+      url: "https://example.com/deferred",
+      publishedAt: "2026-07-31T20:31:00.000Z",
+    },
+  ];
+  const analysisCandidates = [
+    ...originalCandidates,
+    {
+      ref: "G1",
+      groundedFrom: "N2",
+      url: "https://official.example/deferred-evidence",
+    },
+    {
+      ref: "R1",
+      researchedFrom: "N1",
+      url: "https://official.example/completed-evidence",
+    },
+  ];
+
+  assert.deepEqual(
+    withoutDeferredResearchCandidates(analysisCandidates, ["N2"]).map(
+      (item) => item.ref,
+    ),
+    ["N1", "R1"],
+  );
+
+  const processedCandidates = withoutDeferredResearchCandidates(
+    originalCandidates,
+    ["N2"],
+  );
+  const next = nextState({
+    state: {
+      lastScanAt: "2026-07-31T20:00:00.000Z",
+      windowStartAt: "2026-07-31T20:00:00.000Z",
+      initializedSourceIds: ["1"],
+      processedUrls: [],
+      processedKeys: [],
+    },
+    previousSnapshot: {
+      generatedAt: "2026-07-31T20:00:00.000Z",
+      items: [],
+    },
+    candidates: processedCandidates,
+    deferredCandidates: originalCandidates.filter(
+      (item) => item.ref === "N2",
+    ),
+    scannedSnapshot: {
+      generatedAt: "2026-07-31T22:00:00.000Z",
+      statuses: [{ sourceId: 1, status: "ok" }],
+      items: originalCandidates,
+    },
+  });
+  assert.ok(next.processedUrls.includes("https://example.com/completed"));
+  assert.ok(!next.processedUrls.includes("https://example.com/deferred"));
+  assert.ok(next.deferredKeys.includes("https://example.com/deferred"));
+  assert.equal(next.windowStartAt, "2026-07-31T20:00:00.000Z");
+
+  const retry = selectIncrementalItems({
+    state: next,
+    previousSnapshot: {
+      generatedAt: "2026-07-31T22:00:00.000Z",
+      items: originalCandidates,
+    },
+    scannedSnapshot: {
+      generatedAt: "2026-08-10T22:00:00.000Z",
+      statuses: [{ sourceId: 1, status: "ok" }],
+      items: originalCandidates,
+    },
+  });
+  assert.equal(retry[0].url, "https://example.com/deferred");
 });
 
 test("hydrates citeable editorial research and deduplicates original URLs", () => {
