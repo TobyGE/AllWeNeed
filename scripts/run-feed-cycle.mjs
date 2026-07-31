@@ -18,7 +18,8 @@ const reportPath = resolve(projectRoot, "tmp/feed-cycle-report.json");
 const radarPath = resolve(projectRoot, "data/daily-radar.json");
 const resultPath = resolve(projectRoot, "tmp/incremental-result.json");
 const staticDistPath = resolve(projectRoot, "static-dist");
-const publishedUrl = "https://yingqiangge.github.io/intelligence/";
+const publishedUrl = "https://allweneed.info/";
+const legacyPublishedUrl = "https://yingqiangge.github.io/intelligence/";
 const staleLockMs = 3 * 60 * 60 * 1000;
 
 function argumentValue(name) {
@@ -292,12 +293,12 @@ function push(repo, branch) {
   );
 }
 
-async function verifyPages(expectedAssets, commit) {
+async function verifyPages(expectedAssets, commit, pageUrl) {
   const attempts = 12;
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     try {
       const pageResponse = await fetch(
-        `${publishedUrl}?feed-cycle=${encodeURIComponent(commit)}-${attempt}`,
+        `${pageUrl}?feed-cycle=${encodeURIComponent(commit)}-${attempt}`,
         { cache: "no-store" },
       );
       const html = await pageResponse.text();
@@ -306,11 +307,11 @@ async function verifyPages(expectedAssets, commit) {
       if (pageReady) {
         const assetResponses = await Promise.all(
           expectedAssets.map((asset) =>
-            fetch(new URL(asset, publishedUrl), { cache: "no-store" }),
+            fetch(new URL(asset, pageUrl), { cache: "no-store" }),
           ),
         );
         if (assetResponses.every((response) => response.ok)) {
-          return { attempts: attempt, assets: expectedAssets };
+          return { url: pageUrl, attempts: attempt, assets: expectedAssets };
         }
       }
     } catch {
@@ -321,7 +322,7 @@ async function verifyPages(expectedAssets, commit) {
     }
   }
   throw new Error(
-    `GitHub Pages did not expose ${expectedAssets.join(", ")} within ${
+    `GitHub Pages at ${pageUrl} did not expose ${expectedAssets.join(", ")} within ${
       attempts * 10
     } seconds`,
   );
@@ -486,7 +487,14 @@ async function main() {
     if (!expectedAssets.length) {
       throw new Error("Static build did not expose any versioned assets");
     }
-    const pages = await verifyPages(expectedAssets, homepageCommit);
+    const rootAssets = expectedAssets.map((asset) =>
+      asset.replace(/^\/intelligence/, ""),
+    );
+    const [primaryPages, legacyPages] = await Promise.all([
+      verifyPages(rootAssets, radarCommit, publishedUrl),
+      verifyPages(expectedAssets, homepageCommit, legacyPublishedUrl),
+    ]);
+    const pages = { primary: primaryPages, legacy: legacyPages };
     assertClean(projectRoot, "Radar repository after publish");
     assertClean(homepageRepo, "Homepage repository after publish");
 
