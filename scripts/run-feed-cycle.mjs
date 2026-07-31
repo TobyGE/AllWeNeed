@@ -223,6 +223,7 @@ async function writeReport(value) {
 }
 
 async function acquireLock() {
+  await mkdir(dirname(lockPath), { recursive: true });
   try {
     await mkdir(lockPath, { recursive: false });
   } catch (error) {

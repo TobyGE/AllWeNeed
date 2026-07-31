@@ -257,6 +257,13 @@ test("removes all disposable starter preview code", async () => {
   assert.match(fetchScript, /function fetchSecSource/);
   assert.match(fetchScript, /api\/xbrl\/companyfacts/);
   assert.match(fetchScript, /--source-ids/);
+  assert.match(
+    await readFile(
+      new URL("scripts/run-feed-cycle.mjs", templateRoot),
+      "utf8",
+    ),
+    /mkdir\(dirname\(lockPath\), \{ recursive: true \}\)/,
+  );
   assert.match(analyzeScript, /Federal Reserve 与 SEC 属于一手官方来源/);
   assert.match(sourceCatalog, /host === "www\.a16z\.news"/);
   assert.doesNotMatch(page, /nav-count">159/);
