@@ -199,15 +199,13 @@ function freshnessOpportunityBoost(
     if (ageHours <= 2) return 16;
     if (ageHours <= 8) return 13;
     if (ageHours <= 24) return 10;
-    if (ageHours <= 72) return 6;
-    if (ageHours <= 7 * 24) return 3;
+    if (ageHours <= 48) return 5;
     return 0;
   }
 
   if (ageHours <= 6) return 10;
   if (ageHours <= 24) return 8;
-  if (ageHours <= 72) return 5;
-  if (ageHours <= 7 * 24) return 2;
+  if (ageHours <= 48) return 4;
   return 0;
 }
 

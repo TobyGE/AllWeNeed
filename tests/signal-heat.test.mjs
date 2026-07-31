@@ -243,6 +243,19 @@ test("freshness decay gives a strong new story a limited discovery window", () =
     personalizedEditorialScore(newStrong, { profile: "dynamic" }) >
       personalizedEditorialScore(oldImportant, { profile: "dynamic" }),
   );
+
+  const outsideWindow = {
+    score: 86,
+    heat: calculateSignalHeat(
+      { score: 86, feedBatchAt: "2026-07-08T10:59:00.000Z" },
+      { now, profile: "dynamic" },
+    ),
+  };
+  assert.ok(outsideWindow.heat.ageHours > 48);
+  assert.equal(
+    personalizedEditorialScore(outsideWindow, { profile: "dynamic" }),
+    86,
+  );
 });
 
 test("a read story is demoted until it receives newer evidence", () => {
