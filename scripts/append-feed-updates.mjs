@@ -42,8 +42,15 @@ const maxGroundingItemsPerRun = Math.max(
 const maxEditorialResearchItemsPerRun = Math.max(
   1,
   Math.min(
-    12,
-    Number(process.env.SIGNAL_RADAR_RESEARCH_LIMIT ?? 8) || 8,
+    8,
+    Number(process.env.SIGNAL_RADAR_RESEARCH_LIMIT ?? 4) || 4,
+  ),
+);
+const editorialResearchTimeoutMs = Math.max(
+  30_000,
+  Math.min(
+    180_000,
+    Number(process.env.SIGNAL_RADAR_RESEARCH_TIMEOUT_MS ?? 90_000) || 90_000,
   ),
 );
 const editorialResearchChunkSize = Math.max(
@@ -702,6 +709,7 @@ async function callSubscriptionModel({
   tools,
   toolChoice,
   reasoningEffort = "medium",
+  timeoutMs = 240_000,
 }) {
   const requestBody = {
     model,
@@ -728,7 +736,7 @@ async function callSubscriptionModel({
       "openai-beta": "responses=v1",
     },
     body: JSON.stringify(requestBody),
-    signal: AbortSignal.timeout(240_000),
+    signal: AbortSignal.timeout(timeoutMs),
   });
   if (!response.ok) {
     throw new Error(
@@ -756,6 +764,14 @@ async function callSubscriptionModel({
     }
   }
   return output.trim();
+}
+
+function isTimeoutError(error) {
+  return (
+    error?.name === "TimeoutError" ||
+    error?.name === "AbortError" ||
+    /timed?\s*out|timeout/iu.test(String(error?.message ?? error))
+  );
 }
 
 function parseJsonOutput(text) {
@@ -876,6 +892,7 @@ async function researchEditorialCandidates({
             ],
             toolChoice: "required",
             reasoningEffort: "high",
+            timeoutMs: editorialResearchTimeoutMs,
           });
           const raw = parseJsonOutput(output);
           results[chunkIndex] = {
@@ -894,6 +911,7 @@ async function researchEditorialCandidates({
               error instanceof Error ? error.message : error
             }`,
           );
+          if (isTimeoutError(error)) break;
         }
       }
 
