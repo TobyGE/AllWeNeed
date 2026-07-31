@@ -8,6 +8,12 @@ import {
   trackPageView,
 } from "./analytics";
 import { ArticleView } from "./article-view";
+import {
+  calculateSignalHeat,
+  compareEditorialValue,
+  compareSignalHeat,
+  type SignalHeat,
+} from "./signal-heat";
 import { getSourceKind, publicSourceCatalog } from "./source-catalog";
 import { SourceLibrary } from "./source-library";
 
@@ -98,39 +104,30 @@ type ExploreSignal = {
 };
 
 const signals = dailyRadar.signals as Signal[];
-const dynamicSignals = signals.filter(
+const allDynamicSignals = signals.filter(
   (signal) => signal.editorialBucket === "dynamic",
 );
 const curatedExploreSignals = dailyRadar.exploreSignals as ExploreSignal[];
 const coveredKinds = [
-  ...new Set(dynamicSignals.flatMap((signal) => signal.sources)),
+  ...new Set(allDynamicSignals.flatMap((signal) => signal.sources)),
 ];
 
-function compareEditorialOrder(left: Signal, right: Signal) {
-  const batchDifference =
-    Date.parse(right.feedBatchAt ?? "") -
-    Date.parse(left.feedBatchAt ?? "");
-  if (Number.isFinite(batchDifference) && batchDifference !== 0) {
-    return batchDifference;
-  }
-  const valueDifference = right.score - left.score;
-  if (valueDifference !== 0) return valueDifference;
-  return (
-    Date.parse(right.updatedAt ?? right.publishedAt ?? "") -
-    Date.parse(left.updatedAt ?? left.publishedAt ?? "")
-  );
+function compareEditorialOrder(
+  left: Signal & { heat: SignalHeat },
+  right: Signal & { heat: SignalHeat },
+) {
+  return compareEditorialValue(left, right);
 }
 
 function compareExploreOrder(
-  left: Pick<ExploreSignal, "feedBatchAt" | "valueScore">,
-  right: Pick<ExploreSignal, "feedBatchAt" | "valueScore">,
+  left: Pick<ExploreSignal, "feedBatchAt" | "valueScore"> & {
+    heat: SignalHeat;
+  },
+  right: Pick<ExploreSignal, "feedBatchAt" | "valueScore"> & {
+    heat: SignalHeat;
+  },
 ) {
-  const batchDifference =
-    Date.parse(right.feedBatchAt) - Date.parse(left.feedBatchAt);
-  if (Number.isFinite(batchDifference) && batchDifference !== 0) {
-    return batchDifference;
-  }
-  return right.valueScore - left.valueScore;
+  return compareEditorialValue(left, right);
 }
 
 const configuredKindCounts = publicSourceCatalog.reduce<Record<string, number>>(
@@ -174,6 +171,16 @@ function StoryLinkIcon() {
   return <span className="story-link-icon" aria-hidden="true" />;
 }
 
+function heatLabel(heat: SignalHeat, locale: "zh" | "en") {
+  const labels = {
+    hot: locale === "zh" ? "高热" : "High heat",
+    warm: locale === "zh" ? "关注" : "Active",
+    cooling: locale === "zh" ? "降温" : "Cooling",
+    dormant: locale === "zh" ? "沉寂" : "Dormant",
+  };
+  return `${labels[heat.stage]} ${heat.score}`;
+}
+
 export default function Home() {
   const [locale, setLocale] = useState<"zh" | "en">("zh");
   const [activeCategory, setActiveCategory] = useState("全部");
@@ -182,27 +189,52 @@ export default function Home() {
   const [expandedExplore, setExpandedExplore] = useState<string[]>([]);
   const [expandedCompany, setExpandedCompany] = useState<string[]>([]);
   const [saved, setSaved] = useState<number[]>([]);
-  const [following, setFollowing] = useState<string[]>([]);
   const [view, setView] = useState<"brief" | "explore">("brief");
   const [section, setSection] = useState<"radar" | "sources">("radar");
   const [notice, setNotice] = useState("");
   const [articleId, setArticleId] = useState<string | null>(null);
   const [routeReady, setRouteReady] = useState(false);
+  const [heatNow, setHeatNow] = useState(dailyRadar.generatedAt);
+  const [mobileAnalysisInExplore, setMobileAnalysisInExplore] = useState(false);
   const lastTrackedPath = useRef<string | null>(null);
   const languageCopy = dailyRadar.translations[locale];
   const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
 
   useEffect(() => {
-    const storedLocale = window.localStorage.getItem("signal-radar-locale");
-    if (storedLocale === "zh" || storedLocale === "en") {
-      setLocale(storedLocale);
-    }
+    const timer = window.setTimeout(() => {
+      const storedLocale = window.localStorage.getItem("signal-radar-locale");
+      if (storedLocale === "zh" || storedLocale === "en") {
+        setLocale(storedLocale);
+      }
+    }, 0);
+    return () => window.clearTimeout(timer);
   }, []);
 
   useEffect(() => {
     document.documentElement.lang = locale === "zh" ? "zh-CN" : "en";
     window.localStorage.setItem("signal-radar-locale", locale);
   }, [locale]);
+
+  useEffect(() => {
+    const refreshHeatClock = () => setHeatNow(new Date().toISOString());
+    const initialTimer = window.setTimeout(refreshHeatClock, 0);
+    const timer = window.setInterval(refreshHeatClock, 15 * 60 * 1_000);
+    return () => {
+      window.clearTimeout(initialTimer);
+      window.clearInterval(timer);
+    };
+  }, []);
+
+  useEffect(() => {
+    const media = window.matchMedia("(max-width: 700px)");
+    const syncLayout = () => setMobileAnalysisInExplore(media.matches);
+    const initialTimer = window.setTimeout(syncLayout, 0);
+    media.addEventListener("change", syncLayout);
+    return () => {
+      window.clearTimeout(initialTimer);
+      media.removeEventListener("change", syncLayout);
+    };
+  }, []);
 
   useEffect(() => {
     const readArticleId = () => {
@@ -234,6 +266,11 @@ export default function Home() {
             ...signal,
             ...translated,
             categoryKey: signal.category,
+            heat: calculateSignalHeat(signal, {
+              now: heatNow,
+              profile:
+                signal.editorialBucket === "explore" ? "explore" : "dynamic",
+            }),
             article: translated.article
               ? {
                   ...signal.article,
@@ -270,13 +307,14 @@ export default function Home() {
           };
         })
         .sort(compareEditorialOrder),
-    [languageCopy],
+    [heatNow, languageCopy],
   );
 
   const localizedDynamicSignals = useMemo(
     () =>
       localizedSignals.filter(
-        (signal) => signal.editorialBucket === "dynamic",
+        (signal) =>
+          signal.editorialBucket === "dynamic" && signal.heat.visible,
       ),
     [localizedSignals],
   );
@@ -289,6 +327,10 @@ export default function Home() {
           ...signal,
           ...translated,
           categoryKey: signal.category,
+          heat: calculateSignalHeat(signal, {
+            now: heatNow,
+            profile: "explore",
+          }),
           crossValidation:
             translated.crossValidation ?? signal.crossValidation ?? "",
           article: translated.article
@@ -306,7 +348,7 @@ export default function Home() {
           })),
         };
       }),
-    [languageCopy],
+    [heatNow, languageCopy],
   );
 
   const localizedExploreSignals = useMemo(() => {
@@ -343,6 +385,7 @@ export default function Home() {
         validationType: signal.validationType,
         feedBatchAt: signal.feedBatchAt ?? "",
         valueScore: signal.score,
+        heat: signal.heat,
         sourceNames: signal.sourceNames,
         sourceKinds: signal.sources,
         sourceCount: signal.sourceCount,
@@ -373,6 +416,9 @@ export default function Home() {
           signal.valueScore,
           ...relatedCurated.map((curated) => curated.valueScore),
         ),
+        heat: [signal.heat, ...relatedCurated.map((curated) => curated.heat)]
+          .sort(compareSignalHeat)
+          .at(0) ?? signal.heat,
         sourceNames,
         sourceKinds: [
           ...new Set(mergedEvidence.map((evidence) => evidence.sourceKind)),
@@ -404,23 +450,20 @@ export default function Home() {
     );
   }, [locale, localizedCuratedExploreSignals, localizedSignals]);
 
-  const exploreKinds = useMemo(
-    () => [
-      ...new Set(
-        localizedExploreSignals.flatMap((signal) => signal.sourceKinds),
-      ),
-    ],
+  const activeExploreSignals = useMemo(
+    () => localizedExploreSignals.filter((signal) => signal.heat.visible),
     [localizedExploreSignals],
   );
 
-  const localizedTrends = dailyRadar.trends.map((trend, index) => ({
-    ...trend,
-    ...languageCopy.trends[index],
-  }));
-  const localizedDiscoveries = dailyRadar.discoveries.map((item, index) => ({
-    ...item,
-    ...languageCopy.discoveries[index],
-  }));
+  const exploreKinds = useMemo(
+    () => [
+      ...new Set(
+        activeExploreSignals.flatMap((signal) => signal.sourceKinds),
+      ),
+    ],
+    [activeExploreSignals],
+  );
+
   const localizedCompanySignals = dailyRadar.companySignals.map((item, index) => {
     const translated = languageCopy.companySignals[index];
     const localizedItem = {
@@ -459,6 +502,28 @@ export default function Home() {
       article: localizedItem.article ?? fallbackArticle,
     };
   });
+  const trendSignals = useMemo(
+    () =>
+      activeExploreSignals
+        .filter((signal) => signal.sourceCount >= 2)
+        .slice(0, 4),
+    [activeExploreSignals],
+  );
+  const discoverySignals = useMemo(() => {
+    const trendIds = new Set(trendSignals.map((signal) => signal.id));
+    return activeExploreSignals
+      .filter(
+        (signal) => !trendIds.has(signal.id) && signal.sourceCount >= 2,
+      )
+      .slice(0, 3);
+  }, [activeExploreSignals, trendSignals]);
+  const leadCompanySignal = useMemo(
+    () =>
+      [...localizedCompanySignals].sort(
+        (left, right) => right.score - left.score,
+      )[0],
+    [localizedCompanySignals],
+  );
 
   useEffect(() => {
     if (!routeReady) return;
@@ -536,7 +601,7 @@ export default function Home() {
 
   const visibleExploreSignals = useMemo(() => {
     const normalized = query.trim().toLowerCase();
-    return localizedExploreSignals.filter((signal) => {
+    return activeExploreSignals.filter((signal) => {
       const matchesCategory =
         activeCategory === "全部" || signal.categoryKey === activeCategory;
       const matchesQuery =
@@ -546,12 +611,12 @@ export default function Home() {
           .includes(normalized);
       return matchesCategory && matchesQuery;
     });
-  }, [activeCategory, localizedExploreSignals, query]);
+  }, [activeCategory, activeExploreSignals, query]);
 
   const activeCategories = useMemo(() => {
     const displayItems =
       view === "explore"
-        ? localizedExploreSignals
+        ? activeExploreSignals
         : localizedDynamicSignals;
     const labels = new Map<string, string>();
     displayItems.forEach((item) => {
@@ -561,7 +626,7 @@ export default function Home() {
       { value: "全部", label: t("全部", "All") },
       ...[...labels].map(([value, label]) => ({ value, label })),
     ];
-  }, [locale, localizedDynamicSignals, localizedExploreSignals, view]);
+  }, [activeExploreSignals, locale, localizedDynamicSignals, view]);
 
   function toggleExpanded(id: number) {
     setExpanded((items) =>
@@ -598,14 +663,6 @@ export default function Home() {
   function toggleSaved(id: number) {
     setSaved((items) =>
       items.includes(id) ? items.filter((item) => item !== id) : [...items, id],
-    );
-  }
-
-  function toggleFollowing(name: string) {
-    setFollowing((items) =>
-      items.includes(name)
-        ? items.filter((item) => item !== name)
-        : [...items, name],
     );
   }
 
@@ -741,7 +798,7 @@ export default function Home() {
           >
             <span aria-hidden="true">⌁</span>
             {t("最新动态", "Latest Updates")}
-            <span className="nav-count">{dynamicSignals.length}</span>
+            <span className="nav-count">{localizedDynamicSignals.length}</span>
           </button>
           <button
             className={`nav-item ${section === "radar" && view === "explore" ? "active" : ""}`}
@@ -754,7 +811,7 @@ export default function Home() {
           >
             <span aria-hidden="true">◎</span>
             {t("探索", "Explore")}
-            <span className="nav-count">{localizedExploreSignals.length}</span>
+            <span className="nav-count">{activeExploreSignals.length}</span>
           </button>
           <button
             className={`nav-item ${section === "sources" ? "active" : ""}`}
@@ -967,12 +1024,13 @@ export default function Home() {
                     <br />
                     {locale === "zh" ? (
                       <>
-                        已形成 <span>{dynamicSignals.length} 条动态</span>
+                        已形成{" "}
+                        <span>{localizedDynamicSignals.length} 条动态</span>
                       </>
                     ) : (
                       <>
                         worth watching:{" "}
-                        <span>{dynamicSignals.length} updates</span>
+                        <span>{localizedDynamicSignals.length} updates</span>
                       </>
                     )}
                   </>
@@ -982,12 +1040,12 @@ export default function Home() {
                     <br />
                     {locale === "zh" ? (
                       <>
-                        发现 <span>{localizedExploreSignals.length} 种可能</span>
+                        发现 <span>{activeExploreSignals.length} 种可能</span>
                       </>
                     ) : (
                       <>
                         Explore{" "}
-                        <span>{localizedExploreSignals.length} possibilities</span>
+                        <span>{activeExploreSignals.length} possibilities</span>
                       </>
                     )}
                   </>
@@ -1017,7 +1075,7 @@ export default function Home() {
                   {view === "brief"
                     ? dailyRadar.signalQuality
                     : new Set(
-                        localizedExploreSignals.map(
+                        activeExploreSignals.map(
                           (signal) => signal.categoryKey,
                         ),
                       ).size}
@@ -1037,8 +1095,8 @@ export default function Home() {
                           } baseline`,
                         )
                       : t(
-                          `${localizedExploreSignals.length} 个持续追踪方向`,
-                          `${localizedExploreSignals.length} ongoing directions`,
+                          `${activeExploreSignals.length} 个持续追踪方向`,
+                          `${activeExploreSignals.length} ongoing directions`,
                         )}
                   </small>
                 </span>
@@ -1155,6 +1213,12 @@ export default function Home() {
                                   .replace("时间未知", "Time unknown")
                                   .replace(" 小时前", "h ago")
                                   .replace(" 天前", "d ago")}
+                          </span>
+                          <span
+                            className="heat-status"
+                            data-stage={signal.heat.stage}
+                          >
+                            {heatLabel(signal.heat, locale)}
                           </span>
                         </div>
                         <a
@@ -1382,6 +1446,12 @@ export default function Home() {
                           <span className="explore-number">0{index + 1}</span>
                           <span className="explore-category">{signal.category}</span>
                           <span className="explore-label">{signal.label}</span>
+                          <span
+                            className="heat-status"
+                            data-stage={signal.heat.stage}
+                          >
+                            {heatLabel(signal.heat, locale)}
+                          </span>
                         </div>
 
                         <h3>
@@ -1521,53 +1591,42 @@ export default function Home() {
               )}
             </section>
 
-            {view === "brief" && (
+            {((view === "brief" && !mobileAnalysisInExplore) ||
+              (view === "explore" && mobileAnalysisInExplore)) && (
             <aside className="insight-column">
               <section className="panel trend-panel">
                 <div className="panel-heading">
                   <div>
                     <span className="section-kicker">
-                      {t("趋势动量", "MOMENTUM")}
+                      {t("趋势假设", "EMERGING SHIFTS")}
                     </span>
-                    <h2>{t("正在升温", "Heating Up")}</h2>
+                    <h2>{t("正在形成的变化", "Changes Taking Shape")}</h2>
                   </div>
-                  <button
-                    type="button"
-                    aria-label={t("查看所有趋势", "View all trends")}
-                    onClick={() =>
-                      showNotice(
-                        t(
-                          "完整趋势图将在下一阶段开放",
-                          "The full trend map will arrive in the next phase",
-                        ),
-                      )
-                    }
-                  >
-                    ↗
-                  </button>
+                  <span className="analysis-method-badge">
+                    {t("仅多源", "MULTI-SOURCE")}
+                  </span>
                 </div>
                 <div className="trend-list">
-                  {localizedTrends.map((trend) => (
-                    <div className="trend-row" key={trend.name}>
-                      <div>
-                        <strong>{trend.name}</strong>
-                        <span>{trend.change}</span>
+                  {trendSignals.map((signal) => (
+                    <article className="trend-row" key={signal.id}>
+                      <div className="trend-row-heading">
+                        <strong>{signal.title}</strong>
+                        <span>{signal.label}</span>
                       </div>
-                      <div className="mini-bars" aria-hidden="true">
-                        {trend.bars.map((height, index) => (
-                          <i
-                            key={`${trend.name}-${index}`}
-                            style={{ height: `${height}%` }}
-                          />
-                        ))}
-                      </div>
-                    </div>
+                      <p>{signal.whyNow}</p>
+                      <small>
+                        {t(
+                          `${signal.sourceCount} 个独立信源 · ${signal.horizon}`,
+                          `${signal.sourceCount} independent sources · ${signal.horizon}`,
+                        )}
+                      </small>
+                    </article>
                   ))}
                 </div>
                 <p className="panel-note">
                   {t(
-                    "基于讨论速度、跨平台扩散和信源质量综合计算",
-                    "Computed from discussion velocity, cross-platform spread, and source quality",
+                    "只收录至少两个独立信源支撑、且具备可验证后续指标的方向。",
+                    "Only directions supported by at least two independent sources and a falsifiable next check.",
                   )}
                 </p>
               </section>
@@ -1578,84 +1637,94 @@ export default function Home() {
                     <span className="section-kicker">
                       {t("为你发现", "DISCOVERED FOR YOU")}
                     </span>
-                    <h2>{t("新发现", "New Discoveries")}</h2>
+                    <h2>{t("值得展开的判断", "Ideas Worth Opening")}</h2>
                   </div>
-                  <span className="new-badge">{t("3 个新增", "3 NEW")}</span>
+                  <span className="new-badge">
+                    {t(
+                      `${discoverySignals.length} 个精选`,
+                      `${discoverySignals.length} CURATED`,
+                    )}
+                  </span>
                 </div>
                 <div className="discovery-list">
-                  {localizedDiscoveries.map((item) => {
-                    const isFollowing = following.includes(item.name);
-                    return (
-                      <article key={item.name}>
-                        <span className={`discovery-mark ${item.color}`}>
-                          {item.mark}
+                  {discoverySignals.map((signal, index) => (
+                      <article key={signal.id}>
+                        <span className={`discovery-mark tone-${signal.tone}`}>
+                          0{index + 1}
                         </span>
                         <div>
-                          <strong>{item.name}</strong>
-                          <p>{item.detail}</p>
-                          <small>{item.source}</small>
+                          <strong>
+                            <a
+                              href={`?article=${signal.id}`}
+                              onClick={(event) => {
+                                event.preventDefault();
+                                openArticle(signal.id);
+                              }}
+                            >
+                              {signal.title}
+                            </a>
+                          </strong>
+                          <p>{signal.thesis}</p>
+                          <small>
+                            {t(
+                              `${signal.category} · ${signal.sourceCount} 个信源`,
+                              `${signal.category} · ${signal.sourceCount} sources`,
+                            )}
+                          </small>
                         </div>
                         <button
                           type="button"
-                          className={isFollowing ? "following" : ""}
-                          onClick={() => toggleFollowing(item.name)}
+                          onClick={() => openArticle(signal.id)}
                         >
-                          {isFollowing
-                            ? t("已追踪", "Following")
-                            : t("＋ 追踪", "+ Follow")}
+                          {t("阅读", "Read")}
                         </button>
                       </article>
-                    );
-                  })}
+                  ))}
                 </div>
               </section>
 
-              <section className="panel thesis-panel">
+              {leadCompanySignal && (
+                <section className="panel thesis-panel">
                 <span className="section-kicker">
                   {t("投资视角", "INVESTMENT LENS")}
                 </span>
-                <h2>{t("当前投资判断", "Current Investment Thesis")}</h2>
+                <h2>{t("首要公司变量", "Primary Company Variable")}</h2>
                 <blockquote>
-                  “{languageCopy.investmentThesis.quote}”
+                  “{leadCompanySignal.headline}”
                 </blockquote>
+                <p className="thesis-summary">
+                  {leadCompanySignal.investmentRead.length > 180
+                    ? `${leadCompanySignal.investmentRead.slice(0, 180)}…`
+                    : leadCompanySignal.investmentRead}
+                </p>
                 <div className="thesis-footer">
                   <div className="confidence">
-                    <span>{t("置信度", "Confidence")}</span>
-                    <strong>{languageCopy.investmentThesis.confidence}</strong>
+                    <span>{t("公司信号分", "Company signal score")}</span>
+                    <strong>{leadCompanySignal.score}/100</strong>
                   </div>
-                  <span className="team-avatars">
-                    <i>Y</i>
-                    <i>L</i>
-                    <i>W</i>
-                  </span>
                   <span className="team-agree">
                     {t(
-                      `${dailyRadar.investmentThesis.evidenceCount} 个证据信源`,
-                      `${dailyRadar.investmentThesis.evidenceCount} evidence sources`,
+                      `${leadCompanySignal.sourceCount} 个独立信源 · ${leadCompanySignal.signalType}`,
+                      `${leadCompanySignal.sourceCount} independent sources · ${leadCompanySignal.signalType}`,
                     )}
                   </span>
                 </div>
                 <button
                   className="thesis-action"
                   type="button"
-                  onClick={() =>
-                    showNotice(
-                      t(
-                        "已加入小组研究议程",
-                        "Added to the group research agenda",
-                      ),
-                    )
-                  }
+                  onClick={() => openArticle(leadCompanySignal.id)}
                 >
-                  {t("加入研究议程", "Add to research agenda")}
+                  {t("查看完整公司判断", "Open the full company read")}
                   <span>→</span>
                 </button>
               </section>
+              )}
             </aside>
             )}
           </div>
 
-          {view === "brief" && (
+          {((view === "brief" && !mobileAnalysisInExplore) ||
+            (view === "explore" && mobileAnalysisInExplore)) && (
           <section className="signal-table-section">
             <div className="section-heading">
               <div>

@@ -2,6 +2,11 @@ import assert from "node:assert/strict";
 import { access, readFile } from "node:fs/promises";
 import test from "node:test";
 
+import {
+  calculateSignalHeat,
+  compareEditorialValue,
+} from "../app/signal-heat.ts";
+
 const templateRoot = new URL("../", import.meta.url);
 
 async function render() {
@@ -40,7 +45,7 @@ test("server-renders the Signal Radar product shell", async () => {
   assert.match(html, /<title>Signal Radar — AI 科技投资情报雷达<\/title>/i);
   assert.match(html, /值得关注的最新变化/);
   assert.match(html, /必须知道/);
-  assert.match(html, /正在升温/);
+  assert.match(html, /正在形成的变化/);
   assert.match(html, /最新动态/);
   assert.match(html, /持续更新/);
   assert.doesNotMatch(html, /今日简报|Today's Brief|Daily Brief/);
@@ -53,14 +58,26 @@ test("server-renders the Signal Radar product shell", async () => {
   assert.match(html, /信源库/);
   assert.match(html, /条真实内容已抓取/);
   assert.ok(html.includes(String(snapshot.successfulSources)));
+  const activeDynamicSignals = radar.signals
+    .map((signal, index) => ({
+      ...signal,
+      translatedTitle: radar.translations.zh.signals[index].title,
+      heat: calculateSignalHeat(signal, {
+        now: radar.generatedAt,
+        profile: "dynamic",
+      }),
+    }))
+    .filter(
+      (signal) =>
+        signal.editorialBucket === "dynamic" && signal.heat.visible,
+    )
+    .sort(compareEditorialValue);
   const firstDynamicIndex = radar.signals.findIndex(
-    (signal) => signal.editorialBucket === "dynamic",
+    (signal) => signal.id === activeDynamicSignals[0]?.id,
   );
   assert.ok(firstDynamicIndex >= 0);
   assert.ok(html.includes(radar.translations.zh.signals[firstDynamicIndex].title));
-  const dynamicCount = radar.signals.filter(
-    (signal) => signal.editorialBucket === "dynamic",
-  ).length;
+  const dynamicCount = activeDynamicSignals.length;
   assert.match(html, new RegExp(`${dynamicCount}(?:<!-- -->)? 条动态`));
   assert.doesNotMatch(html, /30 个信号|30 signals|30 条动态|30 updates/);
   assert.match(
@@ -68,26 +85,7 @@ test("server-renders the Signal Radar product shell", async () => {
     /将分散的信息噪声压缩为少数值得判断的变化，让事实、共识与转折在同一条脉络中显现/,
   );
   assert.doesNotMatch(html, /新批次置顶，批内按价值排序/);
-  const expectedDynamicOrder = radar.signals
-    .map((signal, index) => ({
-      ...signal,
-      translatedTitle: radar.translations.zh.signals[index].title,
-    }))
-    .filter((signal) => signal.editorialBucket === "dynamic")
-    .sort((left, right) => {
-      const batchDifference =
-        Date.parse(right.feedBatchAt ?? "") -
-        Date.parse(left.feedBatchAt ?? "");
-      if (Number.isFinite(batchDifference) && batchDifference !== 0) {
-        return batchDifference;
-      }
-      const valueDifference = right.score - left.score;
-      if (valueDifference !== 0) return valueDifference;
-      return (
-        Date.parse(right.updatedAt ?? right.publishedAt ?? "") -
-        Date.parse(left.updatedAt ?? left.publishedAt ?? "")
-      );
-    });
+  const expectedDynamicOrder = activeDynamicSignals;
   const renderedDynamicIndices = expectedDynamicOrder.map((signal) =>
     html.indexOf(signal.translatedTitle),
   );
@@ -99,6 +97,7 @@ test("server-renders the Signal Radar product shell", async () => {
     ),
   );
   assert.match(html, /href="\?article=1"/);
+  assert.match(html, /高热 \d+|关注 \d+|降温 \d+/);
   assert.match(html, /跨平台验证/);
   assert.ok(!html.includes(radar.translations.zh.signals[0].shiftTo));
   assert.match(html, />预览</);
@@ -521,6 +520,11 @@ test("removes all disposable starter preview code", async () => {
   );
   assert.match(page, /function toggleExpandedExplore/);
   assert.match(page, /function toggleExpandedCompany/);
+  assert.match(page, /matchMedia\("\(max-width: 700px\)"\)/);
+  assert.match(page, /view === "brief" && !mobileAnalysisInExplore/);
+  assert.match(page, /view === "explore" && mobileAnalysisInExplore/);
+  assert.match(page, /signal\.sourceCount >= 2/);
+  assert.doesNotMatch(page, /localizedDiscoveries/);
   assert.match(page, /id=\{`explore-preview-\$\{signal\.id\}`\}/);
   assert.match(page, /id=\{`company-preview-\$\{item\.id\}`\}/);
   assert.equal(page.match(/t\("预览", "Preview"\)/g)?.length, 3);

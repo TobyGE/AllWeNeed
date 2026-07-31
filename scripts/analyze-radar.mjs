@@ -244,22 +244,22 @@ function buildPrompt(snapshot, items) {
   ],
   "trends": [
     {
-      "name": "不超过10个汉字",
-      "change": "+12%或-8%",
-      "refs": ["I1", "I2"]
+      "name": "具体说明正在变化的变量，不超过16个汉字",
+      "change": "加速扩散|出现分化|早期形成|降温",
+      "refs": ["I1", "I2", "I3"]
     }
   ],
   "discoveries": [
     {
-      "name": "不超过12个汉字",
-      "detail": "不超过35个汉字",
-      "refs": ["I1"]
+      "name": "值得继续研究的产品、项目或新机制，不超过16个汉字",
+      "detail": "说明它解决什么问题，以及为什么不只是一次普通发布，不超过55个汉字",
+      "refs": ["I1", "I2"]
     }
   ],
   "investmentThesis": {
-    "quote": "不超过55个汉字，使用推断语气",
+    "quote": "围绕一个发生变化的业务变量形成中心判断，不超过55个汉字",
     "confidence": "中|中高|高",
-    "refs": ["I1", "I2"]
+    "refs": ["I1", "I2", "I3"]
   },
   "companySignals": [
     {
@@ -318,6 +318,13 @@ exploreSignals 质量门槛：
 - thesis 可以大胆，但必须与事实证据分开；counterpoint 必须真正有可能推翻该判断。
 - 不得使用“将会”“必然”等确定语气描述尚未发生的未来。
 - 每条 evidence 只概括对应原始内容，不得把编辑推断写成来源原话。
+
+trends、discoveries 与 investmentThesis 质量门槛：
+- trend 必须由至少两个独立 sourceName 支撑，描述可观察的结构变化；不得根据单条文章虚构“+41%”一类动量数字。
+- trend.change 只能使用“加速扩散、出现分化、早期形成、降温”之一；真正的数值变化放进证据和文章，不放在趋势标签里。
+- discovery 必须有原始产品、repository、paper 或官方材料，并有第二个独立来源解释采用、限制或相邻影响；Product Hunt、launch directory 或一行摘要不能单独入选。
+- investmentThesis 只能围绕需求、定价、margin、资本强度、竞争位置、分发、监管暴露或管理层可信度中的一个变量展开，不得把 harness、edge、安全等互不相干主题拼成一句。
+- investmentThesis 至少使用三个 refs、两个独立 sourceName，并明确下一项能强化或推翻判断的公司披露或 KPI。
 
 companySignals 质量门槛：
 - 只选最有投资含义的 3 个公司级信号，不要为了数量选择弱信息。
@@ -688,6 +695,28 @@ function validateAndHydrate(raw, snapshot, items, model) {
     bars: barsFor(index, trend.change),
     references: hydrateRefs(trend.refs, itemMap),
   }));
+  const allowedTrendStates = new Set([
+    "加速扩散",
+    "出现分化",
+    "早期形成",
+    "降温",
+  ]);
+  trends.forEach((trend, index) => {
+    const sourceNames = new Set(
+      trend.references.map(
+        (reference) => reference.sourcePublisher ?? reference.sourceName,
+      ),
+    );
+    if (
+      trend.references.length < 2 ||
+      sourceNames.size < 2 ||
+      !allowedTrendStates.has(trend.change)
+    ) {
+      throw new Error(
+        `trend ${index + 1} 必须由至少两个独立信源支撑，并使用定性趋势状态`,
+      );
+    }
+  });
 
   const discoveries = raw.discoveries.map((item, index) => {
     const references = hydrateRefs(item.refs, itemMap);
@@ -703,11 +732,33 @@ function validateAndHydrate(raw, snapshot, items, model) {
       references,
     };
   });
+  discoveries.forEach((discovery, index) => {
+    const sourceNames = new Set(
+      discovery.references.map(
+        (reference) => reference.sourcePublisher ?? reference.sourceName,
+      ),
+    );
+    if (discovery.references.length < 2 || sourceNames.size < 2) {
+      throw new Error(
+        `discovery ${index + 1} 必须由原始材料和至少一个独立来源共同支撑`,
+      );
+    }
+  });
 
   const investmentReferences = hydrateRefs(
     raw.investmentThesis?.refs,
     itemMap,
   );
+  const investmentSourceNames = new Set(
+    investmentReferences.map(
+      (reference) => reference.sourcePublisher ?? reference.sourceName,
+    ),
+  );
+  if (investmentReferences.length < 3 || investmentSourceNames.size < 2) {
+    throw new Error(
+      "investmentThesis 必须包含至少三个有效 refs 和两个独立信源",
+    );
+  }
   const companySignals = raw.companySignals.map((item, index) => {
     const evidence = hydrateEvidence(item.evidence, itemMap);
     const sourceNames = [

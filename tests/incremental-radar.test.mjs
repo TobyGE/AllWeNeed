@@ -12,6 +12,7 @@ import {
   hasFreshDynamicEvidence,
   mergeFeedStories,
   nextState,
+  qualifiesDynamicMateriality,
   selectEditorialResearchItems,
   selectIncrementalItems,
   validateFeedCoverage,
@@ -180,6 +181,33 @@ test("requires direct Radar scope and fresh evidence for dynamic stories", () =>
       nvidiaEvidence,
       "2026-07-30T04:00:00.000Z",
     ),
+    true,
+  );
+});
+
+test("reserves dynamic for material signals with an editorial score of 82+", () => {
+  assert.equal(
+    qualifiesDynamicMateriality({
+      bucket: "dynamic",
+      materiality: "substantive",
+      valueScore: 81,
+    }),
+    false,
+  );
+  assert.equal(
+    qualifiesDynamicMateriality({
+      bucket: "dynamic",
+      materiality: "minor",
+      valueScore: 95,
+    }),
+    false,
+  );
+  assert.equal(
+    qualifiesDynamicMateriality({
+      bucket: "dynamic",
+      materiality: "material",
+      valueScore: 92,
+    }),
     true,
   );
 });

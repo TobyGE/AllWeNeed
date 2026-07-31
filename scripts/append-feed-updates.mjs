@@ -235,12 +235,15 @@ function buildPrompt({ candidates, radar, scannedSnapshot }) {
 收录规则：
 - 每个 ref 必须且只能出现在一个 feedStory、existingUpdate 或 ignored 中。
 - bucket=dynamic 只用于已经发生的明确状态变化：发布、财报、监管、融资、产品上线、政策决定或有实质新证据的事件。必须有足够正文和可核验事实；官方一手来源可以单独成立。
+- dynamic 是稀缺的新闻席位，不是“值得知道”的同义词。只有以下变化可以进入：会改变公司经营或资本判断的财报/guidance/融资/M&A；已落地的监管或宏观决定；改变价格、可用范围、分发方式或产业采用的重大产品/模型发布；有明确影响范围的真实安全事件；或至少两条独立来源共同确认的行业状态转折。
+- 小版本、library/repository/demo、preview/alpha、单点技巧、孤立研究论文、单篇 Blog 观察、窄功能更新和一般知识，即使真实且有趣，也必须进入 explore；不得因为“刚发布”进入 dynamic。
 - bucket=explore 用于有清晰 thesis、二阶影响、跨界连接或值得持续验证的非共识判断。不能只是把单篇内容换句话复述。
 - 内容单薄、题目党、未经验证的规模数字、过窄教程、个人随感、与 Radar 重点弱相关的条目放进 ignored，并在 reason 前加“归档：”。“已处理”不等于“必须发布”。
 - Radar 的核心范围是 AI、semiconductor、cloud infrastructure、developer tools、cybersecurity、robotics、frontier science、核心科技公司，以及直接影响这些领域的 Fed/监管/资本事件。“投资”只是观察角度，不是独立主题；普通消费、化工、地产、医药、传统制造公司的泛财报、荐股与行情内容必须 ignored，不能仅因出现“业绩、利润、融资、锂电”等词进入动态或探索。
 - “大佬持仓跟踪、主力资金、龙虎榜、特供、研报精选”等付费导流、荐股或营销包装一律 ignored，即使 grounding 能找到真实公司公告也不能转成稿件。
 - bucket=dynamic 的至少一条核心 evidence 必须是在本次扫描前 7 天内发布的新一手事实。旧公告被新快讯、回顾文章或营销内容重新提及时，不构成新事件；如果没有新的状态变化必须 ignored。旧资料只能作为新事件的背景证据。
 - valueScore 必须是 0–99 的绝对编辑价值分，不是第1、第2、第3的名次。综合评估：影响范围 30%、信息增量 25%、证据强度 25%、对 AI/科技/投资判断的可行动性 20%。同一批内容将按此分数从高到低排列。
+- dynamic 的 valueScore 必须至少为 82；低于 82 的有效内容应进入 explore，而不是为了凑数进入动态。priority/valueScore 只影响排序，不是丢弃内容的理由。
 - 单一 Blog、YouTube、Newsletter、Fed 或 SEC 来源都允许收录，并标为“单一来源”；出现更多独立来源时再做 cross-validation。
 - 多条新增内容讲同一事件时合并成一篇稿件，逐项列出不同来源提供的事实或观点。
 - 若新增内容只是在佐证现有事件，或为现有事件补充了后续进展，放进 existingUpdates，追加“最新进展”和新 evidence；不得重写旧稿正文。只有出现可独立理解的新事件时才新建 feedStory。
@@ -262,6 +265,8 @@ ${existingTitles}
   "feedStories": [
     {
       "bucket": "dynamic|explore",
+      "materiality": "material|substantive|minor",
+      "changedVariable": "具体写出发生变化的价格、能力、政策、经营指标、风险状态或可用范围",
       "valueScore": 0,
       "signal": {
         "category": "AI & 模型|Agents|算力|投资|科技|宏观",
@@ -1128,6 +1133,15 @@ export function hasFreshDynamicEvidence(
   );
 }
 
+export function qualifiesDynamicMateriality(event) {
+  const valueScore =
+    Number(event?.valueScore) || Number(event?.signal?.score) || 0;
+  const materiality = cleanText(event?.materiality).toLowerCase();
+  if (valueScore < 82) return false;
+  if (materiality === "minor") return false;
+  return true;
+}
+
 export function hydrateFeedStories({
   raw,
   candidates,
@@ -1191,6 +1205,10 @@ export function hydrateFeedStories({
     ) {
       continue;
     }
+    const editorialBucket =
+      event.bucket === "dynamic" && qualifiesDynamicMateriality(event)
+        ? "dynamic"
+        : "explore";
 
     const metadata = evidenceMetadata(evidence);
     const newest = evidence
@@ -1201,7 +1219,7 @@ export function hydrateFeedStories({
     const id = nextId + hydrated.length + 1;
     const signal = {
       id,
-      editorialBucket: event.bucket,
+      editorialBucket,
       category: cleanText(event.signal.category),
       eyebrow: cleanText(event.signal.eyebrow),
       title: cleanText(event.signal.title).slice(0, 100),
