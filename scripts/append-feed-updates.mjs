@@ -25,12 +25,12 @@ const preferredModels = [
 ].filter(Boolean);
 const overlapMs = 6 * 60 * 60 * 1_000;
 const requestedCandidateItems = Number(
-  argumentValue("limit") ?? process.env.SIGNAL_RADAR_BATCH_SIZE ?? 24,
+  argumentValue("limit") ?? process.env.SIGNAL_RADAR_BATCH_SIZE ?? 8,
 );
 const maxCandidateItems =
   Number.isInteger(requestedCandidateItems) && requestedCandidateItems > 0
     ? Math.min(requestedCandidateItems, 24)
-    : 24;
+    : 8;
 const maxFeedStoriesPerRun = 24;
 const maxGroundingItemsPerRun = Math.max(
   1,
@@ -44,6 +44,20 @@ const maxEditorialResearchItemsPerRun = Math.max(
   Math.min(
     12,
     Number(process.env.SIGNAL_RADAR_RESEARCH_LIMIT ?? 8) || 8,
+  ),
+);
+const editorialResearchChunkSize = Math.max(
+  1,
+  Math.min(
+    3,
+    Number(process.env.SIGNAL_RADAR_RESEARCH_CHUNK_SIZE ?? 2) || 2,
+  ),
+);
+const editorialResearchConcurrency = Math.max(
+  1,
+  Math.min(
+    3,
+    Number(process.env.SIGNAL_RADAR_RESEARCH_CONCURRENCY ?? 2) || 2,
   ),
 );
 const preferredGroundingModels = [
@@ -826,51 +840,89 @@ async function researchEditorialCandidates({
     return { candidates: [], model: null, attempted: 0 };
   }
 
-  const prompt = buildEditorialResearchPrompt(researchItems);
-  let lastError;
-  for (const model of preferredGroundingModels) {
-    try {
-      const output = await callSubscriptionModel({
-        model,
-        prompt,
-        ...auth,
-        instructions:
-          `${skillInstructions}\n\nResearch every supplied ref with live web search. Return only the requested JSON.`,
-        tools: [
-          {
-            type: "web_search",
-            search_context_size: "medium",
-            external_web_access: true,
-          },
-        ],
-        toolChoice: "required",
-        reasoningEffort: "high",
-      });
-      const raw = parseJsonOutput(output);
-      return {
-        candidates: hydrateEditorialResearchCandidates({
-          raw,
-          researchItems,
-          generatedAt,
-        }),
-        model,
-        attempted: researchItems.length,
-      };
-    } catch (error) {
-      lastError = error;
-      console.warn(
-        `${model} editorial research failed: ${
-          error instanceof Error ? error.message : error
-        }`,
-      );
+  const chunks = [];
+  for (
+    let index = 0;
+    index < researchItems.length;
+    index += editorialResearchChunkSize
+  ) {
+    chunks.push(researchItems.slice(index, index + editorialResearchChunkSize));
+  }
+
+  const results = new Array(chunks.length);
+  let nextChunkIndex = 0;
+  async function researchNextChunk() {
+    while (nextChunkIndex < chunks.length) {
+      const chunkIndex = nextChunkIndex;
+      nextChunkIndex += 1;
+      const chunk = chunks[chunkIndex];
+      const prompt = buildEditorialResearchPrompt(chunk);
+      let lastError;
+
+      for (const model of preferredGroundingModels) {
+        try {
+          const output = await callSubscriptionModel({
+            model,
+            prompt,
+            ...auth,
+            instructions:
+              `${skillInstructions}\n\nResearch every supplied ref with live web search. Return only the requested JSON.`,
+            tools: [
+              {
+                type: "web_search",
+                search_context_size: "medium",
+                external_web_access: true,
+              },
+            ],
+            toolChoice: "required",
+            reasoningEffort: "high",
+          });
+          const raw = parseJsonOutput(output);
+          results[chunkIndex] = {
+            candidates: hydrateEditorialResearchCandidates({
+              raw,
+              researchItems: chunk,
+              generatedAt,
+            }),
+            model,
+          };
+          break;
+        } catch (error) {
+          lastError = error;
+          console.warn(
+            `${model} editorial research chunk ${chunkIndex + 1}/${chunks.length} failed: ${
+              error instanceof Error ? error.message : error
+            }`,
+          );
+        }
+      }
+
+      if (!results[chunkIndex]) {
+        console.warn(
+          `Editorial research chunk ${chunkIndex + 1}/${chunks.length} unavailable; its ${chunk.length} item(s) will use fetched evidence only: ${
+            lastError instanceof Error ? lastError.message : lastError
+          }`,
+        );
+        results[chunkIndex] = { candidates: [], model: null };
+      }
     }
   }
-  console.warn(
-    `Editorial research unavailable; classification will use fetched evidence only: ${
-      lastError instanceof Error ? lastError.message : lastError
-    }`,
+
+  await Promise.all(
+    Array.from(
+      { length: Math.min(editorialResearchConcurrency, chunks.length) },
+      () => researchNextChunk(),
+    ),
   );
-  return { candidates: [], model: null, attempted: researchItems.length };
+
+  const models = [
+    ...new Set(results.map((result) => result.model).filter(Boolean)),
+  ];
+  return {
+    candidates: results.flatMap((result) => result.candidates),
+    model: models.length ? models.join(", ") : null,
+    attempted: researchItems.length,
+  };
 }
 
 export function validateFeedCoverage(raw, candidates) {

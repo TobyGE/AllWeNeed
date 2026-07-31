@@ -213,47 +213,28 @@ test("keeps the cursor window open until every eligible batch participates", () 
     initializedSourceIds: ["1"],
     processedUrls: ["https://example.com/seen"],
   };
-  const firstBatch = selectIncrementalItems({
-    scannedSnapshot,
-    previousSnapshot,
-    state: initialState,
-  });
-  const afterFirst = nextState({
-    state: initialState,
-    previousSnapshot,
-    candidates: firstBatch,
-    scannedSnapshot,
-  });
-  const secondBatch = selectIncrementalItems({
-    scannedSnapshot,
-    previousSnapshot,
-    state: afterFirst,
-  });
+  const batchSizes = [];
+  let currentState = initialState;
+  for (let index = 0; index < 7; index += 1) {
+    const batch = selectIncrementalItems({
+      scannedSnapshot,
+      previousSnapshot,
+      state: currentState,
+    });
+    batchSizes.push(batch.length);
+    currentState = nextState({
+      state: currentState,
+      previousSnapshot,
+      candidates: batch,
+      scannedSnapshot,
+    });
+    if (index < 6) {
+      assert.equal(currentState.windowStartAt, previousSnapshot.generatedAt);
+    }
+  }
 
-  assert.equal(firstBatch.length, 24);
-  assert.equal(secondBatch.length, 24);
-  assert.equal(afterFirst.windowStartAt, previousSnapshot.generatedAt);
-
-  const afterSecond = nextState({
-    state: afterFirst,
-    previousSnapshot,
-    candidates: secondBatch,
-    scannedSnapshot,
-  });
-  const thirdBatch = selectIncrementalItems({
-    scannedSnapshot,
-    previousSnapshot,
-    state: afterSecond,
-  });
-  const afterThird = nextState({
-    state: afterSecond,
-    previousSnapshot,
-    candidates: thirdBatch,
-    scannedSnapshot,
-  });
-
-  assert.equal(thirdBatch.length, 2);
-  assert.equal(afterThird.windowStartAt, scannedSnapshot.generatedAt);
+  assert.deepEqual(batchSizes, [8, 8, 8, 8, 8, 8, 2]);
+  assert.equal(currentState.windowStartAt, scannedSnapshot.generatedAt);
 });
 
 test("includes a single-source feed story without changing an old article", () => {
