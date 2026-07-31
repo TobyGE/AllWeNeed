@@ -19,6 +19,7 @@ const radarPath = resolve(projectRoot, "data/daily-radar.json");
 const resultPath = resolve(projectRoot, "tmp/incremental-result.json");
 const staticDistPath = resolve(projectRoot, "static-dist");
 const publishedUrl = "https://allweneed.info/";
+const primaryVerificationUrl = "http://allweneed.info/";
 const legacyPublishedUrl = "https://yingqiangge.github.io/intelligence/";
 const staleLockMs = 3 * 60 * 60 * 1000;
 
@@ -491,7 +492,13 @@ async function main() {
       asset.replace(/^\/intelligence/, ""),
     );
     const [primaryPages, legacyPages] = await Promise.all([
-      verifyPages(rootAssets, radarCommit, publishedUrl),
+      verifyPages(rootAssets, radarCommit, primaryVerificationUrl).then(
+        (verification) => ({
+          ...verification,
+          url: publishedUrl,
+          verificationUrl: primaryVerificationUrl,
+        }),
+      ),
       verifyPages(expectedAssets, homepageCommit, legacyPublishedUrl),
     ]);
     const pages = { primary: primaryPages, legacy: legacyPages };
