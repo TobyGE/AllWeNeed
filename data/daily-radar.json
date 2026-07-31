@@ -1,13 +1,250 @@
 {
-  "generatedAt": "2026-07-31T08:10:50.816Z",
-  "basedOnSnapshotAt": "2026-07-31T08:06:59.865Z",
+  "generatedAt": "2026-07-31T09:02:32.362Z",
+  "basedOnSnapshotAt": "2026-07-31T08:59:35.049Z",
   "model": "gpt-5.5",
   "analyzedItemCount": 180,
-  "totalFetchedItemCount": 2193,
+  "totalFetchedItemCount": 2183,
   "editorNote": "今日信息环境由代理安全事件、编码代理工具链分化、开放模型竞争和算力下沉共同主导。",
   "signalQuality": 86,
   "signalQualityChange": 8,
   "signals": [
+    {
+      "id": 42,
+      "editorialBucket": "dynamic",
+      "category": "AI & 模型",
+      "eyebrow": "产品信号",
+      "title": "DeepSeek V4 Flash走向完整部署",
+      "summary": "DeepSeek将V4 Flash API转为public beta，发布0731版本、agent基准、Codex支持、公开价格与MIT权重。",
+      "why": "API兼容、自托管权重和高并发同时落地，使模型竞争从单项能力扩展到完整agent部署成本。",
+      "impact": "开发者可在托管API与自托管间选择，并以现有Codex工作流接入；实际优势仍取决于外部复测。",
+      "shiftFrom": "Preview API与基础兼容接口",
+      "shiftTo": "公开测试与完整部署栈",
+      "crossValidation": "更新日志确认发布与基准；API、Codex及模型文档分别补齐价格、接口和权重，但基准尚无独立复现。",
+      "article": {
+        "lead": "DeepSeek将DeepSeek-V4-Flash-0731 API推入public beta，调用仍使用deepseek-v4-flash，同时补齐公开价格、Responses API、Codex适配和更高并发。相较4月Preview，本次更新还公布更强的agent benchmark，并以MIT license提供权重，使模型可在托管API与自托管之间选择。",
+        "sections": [
+          {
+            "heading": "变化不只是一项发布标签",
+            "body": "4月Preview阶段，V4 Flash已经可以通过API调用，支持1M context、OpenAI ChatCompletions与Anthropic API。此次0731版本维持model name不变，但DeepSeek称agent能力显著增强：Terminal Bench 2.1得分82.7、Cybergym为76.7、Toolathlon verified为70.3、DeepSWE为54.4。因而真正的增量是模型能力与部署接口同步升级，而非首次开放访问。"
+          },
+          {
+            "heading": "API与自托管形成双路径",
+            "body": "当前API支持1M context、最高384K输出、JSON Output、Tool Calls、Responses API及Anthropic API。cache-miss input、output价格分别为每百万token 0.14美元和0.28美元，并发上限为2500，高于V4 Pro的500。DeepSeek还称现阶段只有V4 Flash支持Codex集成；与此同时，284B total、13B active的FP4与FP8 mixed权重已按MIT license开放下载和自托管。"
+          },
+          {
+            "heading": "竞争变量转向部署组合",
+            "body": "这组变化把V4 Flash的竞争点从单一benchmark扩展到接口兼容、并发容量、token价格和部署控制权。Codex适配可以降低既有编码代理工作流的迁移成本，开放权重则给需要本地控制的团队另一条路径。最强反例是所有成绩均来自DeepSeek自身披露，且Preview此前已经可用；在独立复测与实际采用数据出现前，发布包的完整度不能直接等同于生产优势。"
+          }
+        ],
+        "outlook": "下一步应观察三项可核验信号：独立团队能否复现Terminal Bench 2.1、Cybergym和DeepSWE成绩；V4 Pro能否按计划在8月初支持Codex；以及开发者在2500并发下测得的延迟、稳定性和单位任务成本。这些结果将决定V4 Flash是接口完整的升级，还是能真正改变agent部署选择。"
+      },
+      "validationType": "跨平台验证",
+      "publishedAt": "2026-07-31T00:00:00.000Z",
+      "updatedAt": "2026-07-31T00:00:00.000Z",
+      "sources": [
+        "Blog",
+        "Official",
+        "Repository"
+      ],
+      "sourceNames": [
+        "DeepSeek",
+        "DeepSeek API Docs",
+        "Hugging Face / DeepSeek-AI"
+      ],
+      "sourceCount": 3,
+      "age": "9 小时前",
+      "score": 90,
+      "tone": "green",
+      "evidence": [
+        {
+          "id": "205-2026-07-31-70efd009c49c7bcf",
+          "versionKey": "changelog:v2:205:2026-07-31:70efd009c49c7bcf",
+          "sourceId": 205,
+          "sourceName": "DeepSeek API Changelog",
+          "sourcePublisher": "DeepSeek",
+          "sourceKind": "Blog",
+          "title": "DeepSeek-V4-Flash Update",
+          "url": "https://api-docs.deepseek.com/updates/#date-2026-07-31",
+          "publishedAt": "2026-07-31T00:00:00.000Z",
+          "dateOnly": true,
+          "summary": "DeepSeek-V4-Flash Update The official release of the DeepSeek-V4-Flash API is now in public beta. The API calling method remains unchanged — simply set the model name to deepseek-v4-flash to use the latest version. Significantly enhanced agent capabilities, with benchmark results far exceeding V4-Pro-Preview: Terminal Bench 2.1: 82.7 NL2Repo: 54.2 Cybergym: 76.7 DeepSWE: 54.4 Toolathlon verified: 70.3 Agent Last Exam: 25.2 Automation Bench (Public): 25.1 DSBench-FullStack: 68.7 DSBench-Hard: 59.6 Note 1: For the Code Agent tasks in the public benchmark sets, the official DeepSeek-V4-Flash was tested using the DeepSeek Harness minimal mode (to be released soon) as the framework, with the max effort level, topp=0.95, and temperature=1.0 Note 2: DSBench-FullStack is an internal full-stack development test set, and DSBench-Hard is an internal Coding Agent hard-problem test set The official V4-Flash natively supports the Responses API format and is specifically adapted for Codex. For the specific configuration, please refer to the documentation . DeepSeek-V4-Flash-0731 keeps the same model architecture and size as DeepSeek-V4-Flash-Preview, and was only re-post-trained. Note: This update only upgrades the DeepSeek-V4-Flash API. The DeepSeek-V4-Pro API and the APP/WEB models are unchanged. The official release of DeepSeek-V4-Pro will follow soon.",
+          "fetchedAt": "2026-07-31T08:59:35.049Z",
+          "ref": "N1",
+          "role": "主张",
+          "takeaway": "DeepSeek更新日志宣布V4 Flash API进入public beta，并公布Terminal Bench 2.1、Cybergym、DeepSWE等agent基准成绩。"
+        },
+        {
+          "id": "research-205-2026-07-31-70efd009c49c7bcf-1-https://api-docs.deepseek.com/news/news260424/",
+          "sourceId": 205,
+          "sourceName": "DeepSeek API Docs",
+          "sourcePublisher": "DeepSeek API Docs",
+          "sourceKind": "Official",
+          "title": "DeepSeek V4 Preview Release",
+          "url": "https://api-docs.deepseek.com/news/news260424/",
+          "publishedAt": "2026-04-24T00:00:00.000Z",
+          "summary": "补齐 2026-04-24 预览版基准状态：DeepSeek-V4-Pro 为 1.6T total / 49B active，DeepSeek-V4-Flash 为 284B total / 13B active；两者当时已通过 API 可用，支持 1M context、OpenAI ChatCompletions 与 Anthropic API，只需更换 model name。",
+          "fetchedAt": "2026-07-31T08:59:35.049Z",
+          "researchedFrom": "N1",
+          "researchRole": "Comparison",
+          "researchClaim": "DeepSeek-V4-Flash 的 2026-07-31 更新是一次仅面向 API 的 0731 版后训练升级：模型名和调用入口保持 deepseek-v4-flash 不变，但当前 API 版本已标为 DeepSeek-V4-Flash-0731，并新增/强化 Responses API 与 Codex 适配，定位从预览版的低成本长上下文模型进一步转向 agentic coding 工作流。",
+          "researchComparisons": "此前 2026-04-24 的 DeepSeek V4 Preview 已提供 deepseek-v4-pro 与 deepseek-v4-flash API、1M context、OpenAI ChatCompletions 和 Anthropic API 兼容；当前 pricing 文档显示 deepseek-v4-flash 的模型版本为 DeepSeek-V4-Flash-0731，仍为 1M context、384K max output，价格为 cache hit $0.0028/1M input、cache miss $0.14/1M input、$0.28/1M output，并且 Responses API 当前只支持 deepseek-v4-flash，deepseek-v4-pro 要到 2026 年 8 月初才支持。Hugging Face 模型卡给出的基座规格仍是 284B total / 13B active、MIT license、1M context，与 0731 更新“架构和尺寸不变、仅后训练”的说法相符。",
+          "researchUnresolved": "未找到独立、可核验的 2026-07-31 DeepSeek-V4-Flash-0731 agent benchmark 复现实测；Terminal Bench 2.1、NL2Repo、Cybergym、DeepSWE、Toolathlon verified、Agent Last Exam、Automation Bench 与 DSBench 分数目前应按官方自测/自报处理，其中 DSBench-FullStack 与 DSBench-Hard 还是内部测试集。",
+          "ref": "R1",
+          "role": "背景",
+          "takeaway": "4月Preview已通过API提供V4 Flash，支持1M context、OpenAI ChatCompletions与Anthropic API，构成本次比较基线。"
+        },
+        {
+          "id": "research-205-2026-07-31-70efd009c49c7bcf-2-https://api-docs.deepseek.com/quick_start/pricing/",
+          "sourceId": 205,
+          "sourceName": "DeepSeek API Docs",
+          "sourcePublisher": "DeepSeek API Docs",
+          "sourceKind": "Official",
+          "title": "Models & Pricing",
+          "url": "https://api-docs.deepseek.com/quick_start/pricing/",
+          "publishedAt": "2026-07-31T00:00:00.000Z",
+          "summary": "补齐当前 API 规格与商业约束：deepseek-v4-flash 当前版本为 DeepSeek-V4-Flash-0731；1M context、384K max output；支持 JSON Output、Tool Calls、Responses API、Anthropic API、Chat Prefix Completion、非 thinking 模式 FIM；价格为 $0.0028/1M cache-hit input、$0.14/1M cache-miss input、$0.28/1M output；并发限制 2500，高于 Pro 的 500。",
+          "fetchedAt": "2026-07-31T08:59:35.049Z",
+          "researchedFrom": "N1",
+          "researchRole": "Primary",
+          "researchClaim": "DeepSeek-V4-Flash 的 2026-07-31 更新是一次仅面向 API 的 0731 版后训练升级：模型名和调用入口保持 deepseek-v4-flash 不变，但当前 API 版本已标为 DeepSeek-V4-Flash-0731，并新增/强化 Responses API 与 Codex 适配，定位从预览版的低成本长上下文模型进一步转向 agentic coding 工作流。",
+          "researchComparisons": "此前 2026-04-24 的 DeepSeek V4 Preview 已提供 deepseek-v4-pro 与 deepseek-v4-flash API、1M context、OpenAI ChatCompletions 和 Anthropic API 兼容；当前 pricing 文档显示 deepseek-v4-flash 的模型版本为 DeepSeek-V4-Flash-0731，仍为 1M context、384K max output，价格为 cache hit $0.0028/1M input、cache miss $0.14/1M input、$0.28/1M output，并且 Responses API 当前只支持 deepseek-v4-flash，deepseek-v4-pro 要到 2026 年 8 月初才支持。Hugging Face 模型卡给出的基座规格仍是 284B total / 13B active、MIT license、1M context，与 0731 更新“架构和尺寸不变、仅后训练”的说法相符。",
+          "researchUnresolved": "未找到独立、可核验的 2026-07-31 DeepSeek-V4-Flash-0731 agent benchmark 复现实测；Terminal Bench 2.1、NL2Repo、Cybergym、DeepSWE、Toolathlon verified、Agent Last Exam、Automation Bench 与 DSBench 分数目前应按官方自测/自报处理，其中 DSBench-FullStack 与 DSBench-Hard 还是内部测试集。",
+          "ref": "R2",
+          "role": "佐证",
+          "takeaway": "当前API文档确认0731版本、价格、384K最高输出、2500并发上限以及Responses API和Tool Calls等规格。"
+        },
+        {
+          "id": "research-205-2026-07-31-70efd009c49c7bcf-3-https://api-docs.deepseek.com/quick_start/agent_integrations/codex/",
+          "sourceId": 205,
+          "sourceName": "DeepSeek API Docs",
+          "sourcePublisher": "DeepSeek API Docs",
+          "sourceKind": "Official",
+          "title": "Integrate with Codex",
+          "url": "https://api-docs.deepseek.com/quick_start/agent_integrations/codex/",
+          "publishedAt": "2026-07-31T00:00:00.000Z",
+          "summary": "补齐 Codex 适配事实：DeepSeek 文档称目前只有 deepseek-v4-flash 支持 Codex 集成，deepseek-v4-pro 预计 2026 年 8 月初支持；Codex 通过 Responses API 调用，配置文件声明 1,048,576 token context、支持 low/high/max reasoning effort、parallel tool calls、web search tool 等 Codex 元数据。",
+          "fetchedAt": "2026-07-31T08:59:35.049Z",
+          "researchedFrom": "N1",
+          "researchRole": "Primary",
+          "researchClaim": "DeepSeek-V4-Flash 的 2026-07-31 更新是一次仅面向 API 的 0731 版后训练升级：模型名和调用入口保持 deepseek-v4-flash 不变，但当前 API 版本已标为 DeepSeek-V4-Flash-0731，并新增/强化 Responses API 与 Codex 适配，定位从预览版的低成本长上下文模型进一步转向 agentic coding 工作流。",
+          "researchComparisons": "此前 2026-04-24 的 DeepSeek V4 Preview 已提供 deepseek-v4-pro 与 deepseek-v4-flash API、1M context、OpenAI ChatCompletions 和 Anthropic API 兼容；当前 pricing 文档显示 deepseek-v4-flash 的模型版本为 DeepSeek-V4-Flash-0731，仍为 1M context、384K max output，价格为 cache hit $0.0028/1M input、cache miss $0.14/1M input、$0.28/1M output，并且 Responses API 当前只支持 deepseek-v4-flash，deepseek-v4-pro 要到 2026 年 8 月初才支持。Hugging Face 模型卡给出的基座规格仍是 284B total / 13B active、MIT license、1M context，与 0731 更新“架构和尺寸不变、仅后训练”的说法相符。",
+          "researchUnresolved": "未找到独立、可核验的 2026-07-31 DeepSeek-V4-Flash-0731 agent benchmark 复现实测；Terminal Bench 2.1、NL2Repo、Cybergym、DeepSWE、Toolathlon verified、Agent Last Exam、Automation Bench 与 DSBench 分数目前应按官方自测/自报处理，其中 DSBench-FullStack 与 DSBench-Hard 还是内部测试集。",
+          "ref": "R3",
+          "role": "佐证",
+          "takeaway": "Codex集成文档显示当前仅V4 Flash受支持，并通过Responses API提供reasoning effort、并行工具调用等配置。"
+        },
+        {
+          "id": "research-205-2026-07-31-70efd009c49c7bcf-4-https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash",
+          "sourceId": 205,
+          "sourceName": "Hugging Face / DeepSeek-AI",
+          "sourcePublisher": "Hugging Face / DeepSeek-AI",
+          "sourceKind": "Repository",
+          "title": "deepseek-ai/DeepSeek-V4-Flash",
+          "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash",
+          "publishedAt": "2026-07-31T00:00:00.000Z",
+          "summary": "补齐开源权重与部署规格：DeepSeek-V4-Flash 为 284B total / 13B active、1M context、FP4 + FP8 mixed 权重，MIT license；模型卡还说明本地部署建议 temperature=1.0、top_p=1.0，Think Max 建议至少 384K context，并显示该仓库可下载、自托管。",
+          "fetchedAt": "2026-07-31T08:59:35.049Z",
+          "researchedFrom": "N1",
+          "researchRole": "Context",
+          "researchClaim": "DeepSeek-V4-Flash 的 2026-07-31 更新是一次仅面向 API 的 0731 版后训练升级：模型名和调用入口保持 deepseek-v4-flash 不变，但当前 API 版本已标为 DeepSeek-V4-Flash-0731，并新增/强化 Responses API 与 Codex 适配，定位从预览版的低成本长上下文模型进一步转向 agentic coding 工作流。",
+          "researchComparisons": "此前 2026-04-24 的 DeepSeek V4 Preview 已提供 deepseek-v4-pro 与 deepseek-v4-flash API、1M context、OpenAI ChatCompletions 和 Anthropic API 兼容；当前 pricing 文档显示 deepseek-v4-flash 的模型版本为 DeepSeek-V4-Flash-0731，仍为 1M context、384K max output，价格为 cache hit $0.0028/1M input、cache miss $0.14/1M input、$0.28/1M output，并且 Responses API 当前只支持 deepseek-v4-flash，deepseek-v4-pro 要到 2026 年 8 月初才支持。Hugging Face 模型卡给出的基座规格仍是 284B total / 13B active、MIT license、1M context，与 0731 更新“架构和尺寸不变、仅后训练”的说法相符。",
+          "researchUnresolved": "未找到独立、可核验的 2026-07-31 DeepSeek-V4-Flash-0731 agent benchmark 复现实测；Terminal Bench 2.1、NL2Repo、Cybergym、DeepSWE、Toolathlon verified、Agent Last Exam、Automation Bench 与 DSBench 分数目前应按官方自测/自报处理，其中 DSBench-FullStack 与 DSBench-Hard 还是内部测试集。",
+          "ref": "R4",
+          "role": "佐证",
+          "takeaway": "官方Hugging Face仓库提供284B total、13B active的mixed-precision权重，采用MIT license并允许自托管。"
+        }
+      ],
+      "references": [
+        {
+          "id": "205-2026-07-31-70efd009c49c7bcf",
+          "versionKey": "changelog:v2:205:2026-07-31:70efd009c49c7bcf",
+          "sourceId": 205,
+          "sourceName": "DeepSeek API Changelog",
+          "sourcePublisher": "DeepSeek",
+          "sourceKind": "Blog",
+          "title": "DeepSeek-V4-Flash Update",
+          "url": "https://api-docs.deepseek.com/updates/#date-2026-07-31",
+          "publishedAt": "2026-07-31T00:00:00.000Z",
+          "dateOnly": true,
+          "summary": "DeepSeek-V4-Flash Update The official release of the DeepSeek-V4-Flash API is now in public beta. The API calling method remains unchanged — simply set the model name to deepseek-v4-flash to use the latest version. Significantly enhanced agent capabilities, with benchmark results far exceeding V4-Pro-Preview: Terminal Bench 2.1: 82.7 NL2Repo: 54.2 Cybergym: 76.7 DeepSWE: 54.4 Toolathlon verified: 70.3 Agent Last Exam: 25.2 Automation Bench (Public): 25.1 DSBench-FullStack: 68.7 DSBench-Hard: 59.6 Note 1: For the Code Agent tasks in the public benchmark sets, the official DeepSeek-V4-Flash was tested using the DeepSeek Harness minimal mode (to be released soon) as the framework, with the max effort level, topp=0.95, and temperature=1.0 Note 2: DSBench-FullStack is an internal full-stack development test set, and DSBench-Hard is an internal Coding Agent hard-problem test set The official V4-Flash natively supports the Responses API format and is specifically adapted for Codex. For the specific configuration, please refer to the documentation . DeepSeek-V4-Flash-0731 keeps the same model architecture and size as DeepSeek-V4-Flash-Preview, and was only re-post-trained. Note: This update only upgrades the DeepSeek-V4-Flash API. The DeepSeek-V4-Pro API and the APP/WEB models are unchanged. The official release of DeepSeek-V4-Pro will follow soon.",
+          "fetchedAt": "2026-07-31T08:59:35.049Z",
+          "ref": "N1"
+        },
+        {
+          "id": "research-205-2026-07-31-70efd009c49c7bcf-1-https://api-docs.deepseek.com/news/news260424/",
+          "sourceId": 205,
+          "sourceName": "DeepSeek API Docs",
+          "sourcePublisher": "DeepSeek API Docs",
+          "sourceKind": "Official",
+          "title": "DeepSeek V4 Preview Release",
+          "url": "https://api-docs.deepseek.com/news/news260424/",
+          "publishedAt": "2026-04-24T00:00:00.000Z",
+          "summary": "补齐 2026-04-24 预览版基准状态：DeepSeek-V4-Pro 为 1.6T total / 49B active，DeepSeek-V4-Flash 为 284B total / 13B active；两者当时已通过 API 可用，支持 1M context、OpenAI ChatCompletions 与 Anthropic API，只需更换 model name。",
+          "fetchedAt": "2026-07-31T08:59:35.049Z",
+          "researchedFrom": "N1",
+          "researchRole": "Comparison",
+          "researchClaim": "DeepSeek-V4-Flash 的 2026-07-31 更新是一次仅面向 API 的 0731 版后训练升级：模型名和调用入口保持 deepseek-v4-flash 不变，但当前 API 版本已标为 DeepSeek-V4-Flash-0731，并新增/强化 Responses API 与 Codex 适配，定位从预览版的低成本长上下文模型进一步转向 agentic coding 工作流。",
+          "researchComparisons": "此前 2026-04-24 的 DeepSeek V4 Preview 已提供 deepseek-v4-pro 与 deepseek-v4-flash API、1M context、OpenAI ChatCompletions 和 Anthropic API 兼容；当前 pricing 文档显示 deepseek-v4-flash 的模型版本为 DeepSeek-V4-Flash-0731，仍为 1M context、384K max output，价格为 cache hit $0.0028/1M input、cache miss $0.14/1M input、$0.28/1M output，并且 Responses API 当前只支持 deepseek-v4-flash，deepseek-v4-pro 要到 2026 年 8 月初才支持。Hugging Face 模型卡给出的基座规格仍是 284B total / 13B active、MIT license、1M context，与 0731 更新“架构和尺寸不变、仅后训练”的说法相符。",
+          "researchUnresolved": "未找到独立、可核验的 2026-07-31 DeepSeek-V4-Flash-0731 agent benchmark 复现实测；Terminal Bench 2.1、NL2Repo、Cybergym、DeepSWE、Toolathlon verified、Agent Last Exam、Automation Bench 与 DSBench 分数目前应按官方自测/自报处理，其中 DSBench-FullStack 与 DSBench-Hard 还是内部测试集。",
+          "ref": "R1"
+        },
+        {
+          "id": "research-205-2026-07-31-70efd009c49c7bcf-2-https://api-docs.deepseek.com/quick_start/pricing/",
+          "sourceId": 205,
+          "sourceName": "DeepSeek API Docs",
+          "sourcePublisher": "DeepSeek API Docs",
+          "sourceKind": "Official",
+          "title": "Models & Pricing",
+          "url": "https://api-docs.deepseek.com/quick_start/pricing/",
+          "publishedAt": "2026-07-31T00:00:00.000Z",
+          "summary": "补齐当前 API 规格与商业约束：deepseek-v4-flash 当前版本为 DeepSeek-V4-Flash-0731；1M context、384K max output；支持 JSON Output、Tool Calls、Responses API、Anthropic API、Chat Prefix Completion、非 thinking 模式 FIM；价格为 $0.0028/1M cache-hit input、$0.14/1M cache-miss input、$0.28/1M output；并发限制 2500，高于 Pro 的 500。",
+          "fetchedAt": "2026-07-31T08:59:35.049Z",
+          "researchedFrom": "N1",
+          "researchRole": "Primary",
+          "researchClaim": "DeepSeek-V4-Flash 的 2026-07-31 更新是一次仅面向 API 的 0731 版后训练升级：模型名和调用入口保持 deepseek-v4-flash 不变，但当前 API 版本已标为 DeepSeek-V4-Flash-0731，并新增/强化 Responses API 与 Codex 适配，定位从预览版的低成本长上下文模型进一步转向 agentic coding 工作流。",
+          "researchComparisons": "此前 2026-04-24 的 DeepSeek V4 Preview 已提供 deepseek-v4-pro 与 deepseek-v4-flash API、1M context、OpenAI ChatCompletions 和 Anthropic API 兼容；当前 pricing 文档显示 deepseek-v4-flash 的模型版本为 DeepSeek-V4-Flash-0731，仍为 1M context、384K max output，价格为 cache hit $0.0028/1M input、cache miss $0.14/1M input、$0.28/1M output，并且 Responses API 当前只支持 deepseek-v4-flash，deepseek-v4-pro 要到 2026 年 8 月初才支持。Hugging Face 模型卡给出的基座规格仍是 284B total / 13B active、MIT license、1M context，与 0731 更新“架构和尺寸不变、仅后训练”的说法相符。",
+          "researchUnresolved": "未找到独立、可核验的 2026-07-31 DeepSeek-V4-Flash-0731 agent benchmark 复现实测；Terminal Bench 2.1、NL2Repo、Cybergym、DeepSWE、Toolathlon verified、Agent Last Exam、Automation Bench 与 DSBench 分数目前应按官方自测/自报处理，其中 DSBench-FullStack 与 DSBench-Hard 还是内部测试集。",
+          "ref": "R2"
+        },
+        {
+          "id": "research-205-2026-07-31-70efd009c49c7bcf-3-https://api-docs.deepseek.com/quick_start/agent_integrations/codex/",
+          "sourceId": 205,
+          "sourceName": "DeepSeek API Docs",
+          "sourcePublisher": "DeepSeek API Docs",
+          "sourceKind": "Official",
+          "title": "Integrate with Codex",
+          "url": "https://api-docs.deepseek.com/quick_start/agent_integrations/codex/",
+          "publishedAt": "2026-07-31T00:00:00.000Z",
+          "summary": "补齐 Codex 适配事实：DeepSeek 文档称目前只有 deepseek-v4-flash 支持 Codex 集成，deepseek-v4-pro 预计 2026 年 8 月初支持；Codex 通过 Responses API 调用，配置文件声明 1,048,576 token context、支持 low/high/max reasoning effort、parallel tool calls、web search tool 等 Codex 元数据。",
+          "fetchedAt": "2026-07-31T08:59:35.049Z",
+          "researchedFrom": "N1",
+          "researchRole": "Primary",
+          "researchClaim": "DeepSeek-V4-Flash 的 2026-07-31 更新是一次仅面向 API 的 0731 版后训练升级：模型名和调用入口保持 deepseek-v4-flash 不变，但当前 API 版本已标为 DeepSeek-V4-Flash-0731，并新增/强化 Responses API 与 Codex 适配，定位从预览版的低成本长上下文模型进一步转向 agentic coding 工作流。",
+          "researchComparisons": "此前 2026-04-24 的 DeepSeek V4 Preview 已提供 deepseek-v4-pro 与 deepseek-v4-flash API、1M context、OpenAI ChatCompletions 和 Anthropic API 兼容；当前 pricing 文档显示 deepseek-v4-flash 的模型版本为 DeepSeek-V4-Flash-0731，仍为 1M context、384K max output，价格为 cache hit $0.0028/1M input、cache miss $0.14/1M input、$0.28/1M output，并且 Responses API 当前只支持 deepseek-v4-flash，deepseek-v4-pro 要到 2026 年 8 月初才支持。Hugging Face 模型卡给出的基座规格仍是 284B total / 13B active、MIT license、1M context，与 0731 更新“架构和尺寸不变、仅后训练”的说法相符。",
+          "researchUnresolved": "未找到独立、可核验的 2026-07-31 DeepSeek-V4-Flash-0731 agent benchmark 复现实测；Terminal Bench 2.1、NL2Repo、Cybergym、DeepSWE、Toolathlon verified、Agent Last Exam、Automation Bench 与 DSBench 分数目前应按官方自测/自报处理，其中 DSBench-FullStack 与 DSBench-Hard 还是内部测试集。",
+          "ref": "R3"
+        },
+        {
+          "id": "research-205-2026-07-31-70efd009c49c7bcf-4-https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash",
+          "sourceId": 205,
+          "sourceName": "Hugging Face / DeepSeek-AI",
+          "sourcePublisher": "Hugging Face / DeepSeek-AI",
+          "sourceKind": "Repository",
+          "title": "deepseek-ai/DeepSeek-V4-Flash",
+          "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash",
+          "publishedAt": "2026-07-31T00:00:00.000Z",
+          "summary": "补齐开源权重与部署规格：DeepSeek-V4-Flash 为 284B total / 13B active、1M context、FP4 + FP8 mixed 权重，MIT license；模型卡还说明本地部署建议 temperature=1.0、top_p=1.0，Think Max 建议至少 384K context，并显示该仓库可下载、自托管。",
+          "fetchedAt": "2026-07-31T08:59:35.049Z",
+          "researchedFrom": "N1",
+          "researchRole": "Context",
+          "researchClaim": "DeepSeek-V4-Flash 的 2026-07-31 更新是一次仅面向 API 的 0731 版后训练升级：模型名和调用入口保持 deepseek-v4-flash 不变，但当前 API 版本已标为 DeepSeek-V4-Flash-0731，并新增/强化 Responses API 与 Codex 适配，定位从预览版的低成本长上下文模型进一步转向 agentic coding 工作流。",
+          "researchComparisons": "此前 2026-04-24 的 DeepSeek V4 Preview 已提供 deepseek-v4-pro 与 deepseek-v4-flash API、1M context、OpenAI ChatCompletions 和 Anthropic API 兼容；当前 pricing 文档显示 deepseek-v4-flash 的模型版本为 DeepSeek-V4-Flash-0731，仍为 1M context、384K max output，价格为 cache hit $0.0028/1M input、cache miss $0.14/1M input、$0.28/1M output，并且 Responses API 当前只支持 deepseek-v4-flash，deepseek-v4-pro 要到 2026 年 8 月初才支持。Hugging Face 模型卡给出的基座规格仍是 284B total / 13B active、MIT license、1M context，与 0731 更新“架构和尺寸不变、仅后训练”的说法相符。",
+          "researchUnresolved": "未找到独立、可核验的 2026-07-31 DeepSeek-V4-Flash-0731 agent benchmark 复现实测；Terminal Bench 2.1、NL2Repo、Cybergym、DeepSWE、Toolathlon verified、Agent Last Exam、Automation Bench 与 DSBench 分数目前应按官方自测/自报处理，其中 DSBench-FullStack 与 DSBench-Hard 还是内部测试集。",
+          "ref": "R4"
+        }
+      ],
+      "feedBatchAt": "2026-07-31T08:59:35.049Z"
+    },
     {
       "id": 41,
       "editorialBucket": "explore",
@@ -10302,6 +10539,57 @@
       "signals": [
         {
           "category": "AI & 模型",
+          "eyebrow": "产品信号",
+          "title": "DeepSeek V4 Flash走向完整部署",
+          "summary": "DeepSeek将V4 Flash API转为public beta，发布0731版本、agent基准、Codex支持、公开价格与MIT权重。",
+          "why": "API兼容、自托管权重和高并发同时落地，使模型竞争从单项能力扩展到完整agent部署成本。",
+          "impact": "开发者可在托管API与自托管间选择，并以现有Codex工作流接入；实际优势仍取决于外部复测。",
+          "shiftFrom": "Preview API与基础兼容接口",
+          "shiftTo": "公开测试与完整部署栈",
+          "crossValidation": "更新日志确认发布与基准；API、Codex及模型文档分别补齐价格、接口和权重，但基准尚无独立复现。",
+          "article": {
+            "lead": "DeepSeek将DeepSeek-V4-Flash-0731 API推入public beta，调用仍使用deepseek-v4-flash，同时补齐公开价格、Responses API、Codex适配和更高并发。相较4月Preview，本次更新还公布更强的agent benchmark，并以MIT license提供权重，使模型可在托管API与自托管之间选择。",
+            "sections": [
+              {
+                "heading": "变化不只是一项发布标签",
+                "body": "4月Preview阶段，V4 Flash已经可以通过API调用，支持1M context、OpenAI ChatCompletions与Anthropic API。此次0731版本维持model name不变，但DeepSeek称agent能力显著增强：Terminal Bench 2.1得分82.7、Cybergym为76.7、Toolathlon verified为70.3、DeepSWE为54.4。因而真正的增量是模型能力与部署接口同步升级，而非首次开放访问。"
+              },
+              {
+                "heading": "API与自托管形成双路径",
+                "body": "当前API支持1M context、最高384K输出、JSON Output、Tool Calls、Responses API及Anthropic API。cache-miss input、output价格分别为每百万token 0.14美元和0.28美元，并发上限为2500，高于V4 Pro的500。DeepSeek还称现阶段只有V4 Flash支持Codex集成；与此同时，284B total、13B active的FP4与FP8 mixed权重已按MIT license开放下载和自托管。"
+              },
+              {
+                "heading": "竞争变量转向部署组合",
+                "body": "这组变化把V4 Flash的竞争点从单一benchmark扩展到接口兼容、并发容量、token价格和部署控制权。Codex适配可以降低既有编码代理工作流的迁移成本，开放权重则给需要本地控制的团队另一条路径。最强反例是所有成绩均来自DeepSeek自身披露，且Preview此前已经可用；在独立复测与实际采用数据出现前，发布包的完整度不能直接等同于生产优势。"
+              }
+            ],
+            "outlook": "下一步应观察三项可核验信号：独立团队能否复现Terminal Bench 2.1、Cybergym和DeepSWE成绩；V4 Pro能否按计划在8月初支持Codex；以及开发者在2500并发下测得的延迟、稳定性和单位任务成本。这些结果将决定V4 Flash是接口完整的升级，还是能真正改变agent部署选择。"
+          },
+          "evidence": [
+            {
+              "role": "主张",
+              "takeaway": "DeepSeek更新日志宣布V4 Flash API进入public beta，并公布Terminal Bench 2.1、Cybergym、DeepSWE等agent基准成绩。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "4月Preview已通过API提供V4 Flash，支持1M context、OpenAI ChatCompletions与Anthropic API，构成本次比较基线。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "当前API文档确认0731版本、价格、384K最高输出、2500并发上限以及Responses API和Tool Calls等规格。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "Codex集成文档显示当前仅V4 Flash受支持，并通过Responses API提供reasoning effort、并行工具调用等配置。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "官方Hugging Face仓库提供284B total、13B active的mixed-precision权重，采用MIT license并允许自托管。"
+            }
+          ]
+        },
+        {
+          "category": "AI & 模型",
           "eyebrow": "趋势变化",
           "title": "Gemini把机器人竞争推向编排层",
           "summary": "Gemini Robotics ER 2把视频理解、任务编排和多机器人协作合并，机器人平台竞争可能由单机能力转向跨设备控制层。",
@@ -14593,6 +14881,57 @@
     "en": {
       "editorNote": "Today’s information environment is being shaped by agent security incidents, a split in coding-agent toolchains, open-model competition, and compute moving closer to the edge.",
       "signals": [
+        {
+          "category": "AI & Models",
+          "eyebrow": "Product Signal",
+          "title": "DeepSeek V4 Flash Becomes a Full Deployment Package",
+          "summary": "DeepSeek moved V4 Flash into API public beta with the 0731 model, new agent benchmarks, Codex support, published pricing, and MIT-licensed weights.",
+          "why": "API compatibility, self-hostable weights, and higher concurrency shift the contest from raw capability toward the full economics of agent deployment.",
+          "impact": "Developers can choose between a hosted API and self-hosting while integrating with existing Codex workflows; the practical advantage still requires external testing.",
+          "shiftFrom": "Preview API with core interfaces",
+          "shiftTo": "Public beta with a full deployment stack",
+          "crossValidation": "The changelog establishes the release and benchmarks, while API, Codex, and model documentation supply pricing, interface, and weight details. The benchmarks lack independent replication.",
+          "article": {
+            "lead": "DeepSeek has moved the DeepSeek-V4-Flash-0731 API into public beta while retaining the deepseek-v4-flash model name. The release adds published pricing, Responses API support, Codex integration, and higher concurrency. Compared with the April Preview, it also brings stronger vendor-reported agent benchmarks and MIT-licensed weights, giving users a choice between the hosted API and self-hosting.",
+            "sections": [
+              {
+                "heading": "More Than a Release-Stage Label",
+                "body": "V4 Flash was already available through the API during the April Preview, with a 1M-token context window and support for OpenAI ChatCompletions and the Anthropic API. The 0731 version keeps the same model name, but DeepSeek reports materially stronger agent performance: 82.7 on Terminal Bench 2.1, 76.7 on Cybergym, 70.3 on Toolathlon verified, and 54.4 on DeepSWE. The substantive change is therefore the combination of a model update and a broader deployment surface, not first-time access."
+              },
+              {
+                "heading": "Hosted and Self-Hosted Paths",
+                "body": "The current API supports a 1M-token context window, up to 384K output tokens, JSON Output, Tool Calls, the Responses API, and the Anthropic API. Cache-miss input and output are priced at $0.14 and $0.28 per million tokens, respectively, while the concurrency limit is 2,500 versus 500 for V4 Pro. DeepSeek also says V4 Flash is currently the only V4 model integrated with Codex. In parallel, its 284B-total, 13B-active FP4 and FP8 mixed-precision weights are downloadable under the MIT license."
+              },
+              {
+                "heading": "Deployment Becomes the Competitive Variable",
+                "body": "The package expands V4 Flash's competitive surface from benchmark scores to interface compatibility, concurrency, token pricing, and deployment control. Codex support can reduce migration work for existing coding-agent workflows, while open weights provide an alternative for teams that need local control. The strongest countercase is that every performance result is vendor-reported and the Preview was already usable. Until independent replications and adoption data emerge, a more complete release package should not be treated as proof of superior production performance."
+              }
+            ],
+            "outlook": "Three observable tests come next: whether independent teams can reproduce the Terminal Bench 2.1, Cybergym, and DeepSWE results; whether V4 Pro receives Codex support as planned in early August; and what developers measure for latency, reliability, and cost per completed task at the 2,500-concurrency limit. Those results will show whether V4 Flash merely has a more complete interface or materially changes agent deployment choices."
+          },
+          "evidence": [
+            {
+              "role": "Claim",
+              "takeaway": "DeepSeek's changelog announces the V4 Flash API public beta and reports results across Terminal Bench 2.1, Cybergym, DeepSWE, and other agent benchmarks."
+            },
+            {
+              "role": "Context",
+              "takeaway": "The April Preview already offered V4 Flash through the API with a 1M-token context window, OpenAI ChatCompletions, and Anthropic API compatibility."
+            },
+            {
+              "role": "Support",
+              "takeaway": "The current API documentation confirms the 0731 model, pricing, 384K maximum output, 2,500 concurrency limit, Responses API, and Tool Calls."
+            },
+            {
+              "role": "Support",
+              "takeaway": "The Codex integration documentation says only V4 Flash is currently supported and exposes reasoning-effort and parallel-tool metadata through the Responses API."
+            },
+            {
+              "role": "Support",
+              "takeaway": "The official Hugging Face repository provides the 284B-total, 13B-active mixed-precision weights under the MIT license for self-hosting."
+            }
+          ]
+        },
         {
           "category": "AI & Models",
           "eyebrow": "Trend Shift",
@@ -18887,11 +19226,11 @@
     "en": "gpt-5.6-sol"
   },
   "incremental": {
-    "lastAddedAt": "2026-07-31T08:10:50.816Z",
-    "lastScanAt": "2026-07-31T08:06:59.865Z",
+    "lastAddedAt": "2026-07-31T09:02:32.362Z",
+    "lastScanAt": "2026-07-31T08:59:35.049Z",
     "lastAddedCount": 1,
     "lastUpdatedCount": 0,
-    "totalAppended": 33,
+    "totalAppended": 34,
     "totalUpdated": 12
   },
   "exploreDepth": {
