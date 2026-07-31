@@ -91,6 +91,14 @@ function statusPaths(status) {
     });
 }
 
+function onlyExpectedChanges(status, allowedPrefixes) {
+  return statusPaths(status).every((path) =>
+    allowedPrefixes.some(
+      (prefix) => path === prefix || path.startsWith(`${prefix}/`),
+    ),
+  );
+}
+
 export function assertOnlyExpectedChanges(status, allowedPrefixes, label) {
   const unexpected = statusPaths(status).filter(
     (path) =>
@@ -103,6 +111,24 @@ export function assertOnlyExpectedChanges(status, allowedPrefixes, label) {
       `${label} contains unexpected changes: ${unexpected.join(", ")}`,
     );
   }
+}
+
+export function shouldAutoResume({
+  radarStatus,
+  homepageStatus,
+  result,
+}) {
+  if (!radarStatus || !result) return false;
+  if (
+    !onlyExpectedChanges(radarStatus, [
+      "data/daily-radar.json",
+      "data/feed-snapshot.json",
+    ])
+  ) {
+    return false;
+  }
+  if (!onlyExpectedChanges(homepageStatus, ["intelligence"])) return false;
+  return publicationDecision(result);
 }
 
 function assertClean(repo, label) {
@@ -306,9 +332,45 @@ async function main() {
   const skipRemoteCheck = process.argv.includes("--skip-remote-check");
   const homepageRepo = resolve(argumentValue("homepage") ?? defaultHomepageRepo);
   const startedAt = new Date().toISOString();
+  let recoveredBatch = null;
   if (dryRun && resume) {
     throw new Error("--dry-run and --resume cannot be used together");
   }
+
+  if (!dryRun && !resume) {
+    let pendingResult = null;
+    try {
+      pendingResult = await readJson(resultPath);
+    } catch {
+      // A missing result means there is no analyzed batch to recover.
+    }
+    if (
+      shouldAutoResume({
+        radarStatus: gitStatus(projectRoot),
+        homepageStatus: gitStatus(homepageRepo),
+        result: pendingResult,
+      })
+    ) {
+      console.log(
+        "Recovering the previously analyzed batch before scanning for newer URLs...",
+      );
+      const resumeArgs = [
+        invokedPath,
+        "--resume",
+        `--homepage=${homepageRepo}`,
+      ];
+      if (skipRemoteCheck) resumeArgs.push("--skip-remote-check");
+      runCommand(process.execPath, resumeArgs, { cwd: projectRoot });
+      const recoveryReport = await readJson(reportPath);
+      recoveredBatch = {
+        status: recoveryReport.status,
+        scannedAt: recoveryReport.scannedAt,
+        radarCommit: recoveryReport.radarCommit,
+        homepageCommit: recoveryReport.homepageCommit,
+      };
+    }
+  }
+
   await acquireLock();
 
   try {
@@ -363,6 +425,7 @@ async function main() {
         status: dryRun ? "dry_run" : "no_changes",
         startedAt,
         finishedAt: new Date().toISOString(),
+        ...(recoveredBatch ? { recoveredBatch } : {}),
         ...result,
       };
       await writeReport(report);
@@ -434,6 +497,7 @@ async function main() {
       homepageCommit,
       publishedUrl,
       pages,
+      ...(recoveredBatch ? { recoveredBatch } : {}),
       ...result,
     };
     await writeReport(report);

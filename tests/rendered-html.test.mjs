@@ -207,9 +207,53 @@ test("removes all disposable starter preview code", async () => {
     "ORCL",
     "PLTR",
     "TSM",
+    "GFS",
+    "LRCX",
+    "AMAT",
+    "KLAC",
+    "ASML",
+    "SNPS",
+    "CDNS",
+    "MU",
+    "MRVL",
   ]) {
     assert.match(sourceCatalog, new RegExp(`ticker: "${ticker}"`));
   }
+  assert.match(
+    sourceCatalog,
+    /GlobalFoundries Newsroom[\s\S]*wp-json\/wp\/v2\/press-release[\s\S]*feedFormat: "wordpress-json"/,
+  );
+  assert.match(
+    sourceCatalog,
+    /NIST News[\s\S]*nist\.gov\/news-events\/news\/rss\.xml/,
+  );
+  assert.match(
+    sourceCatalog,
+    /Lam Research Newsroom[\s\S]*press-releases\?pagetemplate=rss/,
+  );
+  assert.match(
+    sourceCatalog,
+    /Applied Materials News Releases[\s\S]*rss\/news-releases\.xml/,
+  );
+  assert.match(
+    sourceCatalog,
+    /KLA Press Releases[\s\S]*press-releases\/rss/,
+  );
+  assert.match(
+    sourceCatalog,
+    /Synopsys News Releases[\s\S]*home\?pagetemplate=rss/,
+  );
+  assert.match(
+    sourceCatalog,
+    /Micron News Releases[\s\S]*rss\/news-releases\.xml[\s\S]*feedLanguage: "en"/,
+  );
+  assert.match(fetchScript, /function parseWordPressJson/);
+  assert.match(fetchScript, /function parseAmazonPressHtml/);
+  assert.match(fetchScript, /function matchesConfiguredLanguage/);
+  assert.match(
+    sourceCatalog,
+    /Amazon Press Center[\s\S]*press-release-archive\?q=&f0=en-US[\s\S]*feedFormat: "amazon-press-html"/,
+  );
   assert.match(fetchScript, /function fetchSecSource/);
   assert.match(fetchScript, /api\/xbrl\/companyfacts/);
   assert.match(fetchScript, /--source-ids/);

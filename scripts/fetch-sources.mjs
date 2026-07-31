@@ -110,6 +110,14 @@ function absoluteUrl(value, baseUrl) {
   }
 }
 
+function matchesConfiguredLanguage(title, source) {
+  if (source.feedLanguage !== "en") return true;
+  const letters = title.match(/\p{L}/gu) ?? [];
+  if (!letters.length) return false;
+  const latinLetters = title.match(/\p{Script=Latin}/gu) ?? [];
+  return latinLetters.length / letters.length >= 0.7;
+}
+
 function parseFeed(xml, source, feedUrl) {
   const itemBlocks = [
     ...xml.matchAll(/<item(?:\s[^>]*)?>([\s\S]*?)<\/item>/gi),
@@ -126,7 +134,7 @@ function parseFeed(xml, source, feedUrl) {
     const atomLink =
       block.match(/<link[^>]+href=["']([^"']+)["'][^>]*>/i)?.[1] ?? "";
     const url = absoluteUrl(atomLink || rssLink, feedUrl);
-    if (!title || !url) return [];
+    if (!title || !url || !matchesConfiguredLanguage(title, source)) return [];
 
     const publishedAt = normalizeDate(
       tagValue(block, ["pubDate", "published", "updated", "dc:date"]),
@@ -150,6 +158,109 @@ function parseFeed(xml, source, feedUrl) {
       },
     ];
   });
+}
+
+export function parseWordPressJson(text, source, feedUrl) {
+  const payload = JSON.parse(text);
+  if (!Array.isArray(payload)) {
+    throw new Error("WordPress feed did not return an array");
+  }
+
+  return payload.slice(0, itemsPerSource).flatMap((post, index) => {
+    const title = cleanText(post?.title?.rendered ?? post?.title ?? "");
+    const url = absoluteUrl(post?.link, feedUrl);
+    if (!title || !url) return [];
+
+    const publishedAt = normalizeDate(
+      post?.date_gmt
+        ? `${String(post.date_gmt).replace(/Z$/, "")}Z`
+        : post?.date,
+    );
+    const summary = cleanText(
+      post?.excerpt?.rendered ??
+        post?.excerpt ??
+        post?.content?.rendered ??
+        post?.content ??
+        title,
+    ).slice(0, 800);
+
+    return [
+      {
+        id: `${source.id}-${post?.id ?? index}-${url}`,
+        sourceId: source.id,
+        sourceName: source.name,
+        sourcePublisher: source.publisher ?? source.name,
+        sourceKind: getSourceKind(source.url),
+        title,
+        url,
+        publishedAt,
+        summary,
+        fetchedAt: checkedAt,
+      },
+    ];
+  });
+}
+
+function normalizeAmazonPressUrl(value, feedUrl) {
+  const cleaned = decodeEntities(value).trim();
+  const embedded = cleaned.match(
+    /^https?:\/\/press\.aboutamazon\.com\/(https?):\/([^/].+)$/i,
+  );
+  if (embedded) {
+    return `${embedded[1]}://${embedded[2]}`;
+  }
+  return absoluteUrl(cleaned, feedUrl);
+}
+
+export function parseAmazonPressHtml(html, source, feedUrl) {
+  const cards = [
+    ...html.matchAll(
+      /<li class=["']SearchResultsModuleResults-items-item["']>([\s\S]*?)<\/li>/gi,
+    ),
+  ].map((match) => match[1]);
+
+  return cards.slice(0, itemsPerSource).flatMap((card, index) => {
+    const titleBlock =
+      card.match(
+        /<div class=["']PromoCardSearchResults-title["']>([\s\S]*?)<\/div>/i,
+      )?.[1] ?? "";
+    const title = cleanText(tagValue(titleBlock, ["h2"]));
+    const rawUrl =
+      titleBlock.match(/<a\b[^>]*\bhref=["']([^"']+)["'][^>]*>/i)?.[1] ?? "";
+    const url = normalizeAmazonPressUrl(rawUrl, feedUrl);
+    if (!title || !url || !matchesConfiguredLanguage(title, source)) return [];
+
+    const publishedAt = normalizeDate(
+      card.match(
+        /<div class=["']PromoCardSearchResults-date["'][^>]*>([\s\S]*?)<\/div>/i,
+      )?.[1],
+    );
+
+    return [
+      {
+        id: `${source.id}-${index}-${url}`,
+        sourceId: source.id,
+        sourceName: source.name,
+        sourcePublisher: source.publisher ?? source.name,
+        sourceKind: getSourceKind(source.url),
+        title,
+        url,
+        publishedAt,
+        summary: title,
+        fetchedAt: checkedAt,
+      },
+    ];
+  });
+}
+
+function parseConfiguredFeed(text, source, feedUrl) {
+  if (source.feedFormat === "wordpress-json") {
+    return parseWordPressJson(text, source, feedUrl);
+  }
+  if (source.feedFormat === "amazon-press-html") {
+    return parseAmazonPressHtml(text, source, feedUrl);
+  }
+  return parseFeed(text, source, feedUrl);
 }
 
 export function extractFedReleaseSummary(html) {
@@ -929,11 +1040,19 @@ async function fetchFeedSource(source) {
               ),
             };
           }
+          const configuredFormat = Boolean(source.feedFormat);
           const items = await enrichOfficialFeedItems(
-            parseFeed(result.text, source, result.finalUrl),
+            parseConfiguredFeed(
+              result.text,
+              source,
+              result.finalUrl,
+            ),
             kind,
           );
-          if (looksLikeFeed(result.text, result.contentType)) {
+          if (
+            configuredFormat ||
+            looksLikeFeed(result.text, result.contentType)
+          ) {
             return {
               items,
               status: successStatus(source, result.finalUrl, items.length, {
