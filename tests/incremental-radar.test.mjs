@@ -15,6 +15,7 @@ import {
   mergeFeedStories,
   mergeConversationItems,
   nextState,
+  normalizeFeedCoverageRefs,
   qualifiesDynamicMateriality,
   qualifiesExploreMateriality,
   selectEditorialResearchItems,
@@ -940,6 +941,61 @@ test("requires every newly fetched ref to be included or explicitly ignored", ()
       candidates,
     ),
     { storyItemCount: 1, updateItemCount: 0, ignoredItemCount: 1 },
+  );
+});
+
+test("normalizes combined model refs without weakening strict coverage", () => {
+  const candidates = [
+    { ref: "N5", url: "https://example.com/source" },
+    { ref: "R1", url: "https://example.com/research" },
+  ];
+  const normalized = normalizeFeedCoverageRefs(
+    {
+      feedStories: [
+        {
+          signal: {
+            evidence: [
+              {
+                ref: "N5/R1",
+                role: "主张",
+                takeaway: "原始来源与补充 research 支持同一判断。",
+              },
+            ],
+          },
+        },
+      ],
+      existingUpdates: [],
+      ignored: [],
+    },
+    candidates,
+  );
+
+  assert.deepEqual(
+    normalized.feedStories[0].signal.evidence.map((item) => item.ref),
+    ["N5", "R1"],
+  );
+  assert.deepEqual(validateFeedCoverage(normalized, candidates), {
+    storyItemCount: 2,
+    updateItemCount: 0,
+    ignoredItemCount: 0,
+  });
+});
+
+test("does not guess unknown or malformed model refs", () => {
+  const candidates = [{ ref: "N1", url: "https://example.com/one" }];
+  const normalized = normalizeFeedCoverageRefs(
+    {
+      feedStories: [],
+      existingUpdates: [],
+      ignored: [{ ref: "N1/R9", reason: "归档：不相关" }],
+    },
+    candidates,
+  );
+
+  assert.equal(normalized.ignored[0].ref, "N1/R9");
+  assert.throws(
+    () => validateFeedCoverage(normalized, candidates),
+    /unknown source ref N1\/R9/,
   );
 });
 

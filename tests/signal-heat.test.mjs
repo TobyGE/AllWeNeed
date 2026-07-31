@@ -8,6 +8,7 @@ import {
   compareExploreEditorialValue,
   compareSignalHeat,
   EXPLORE_EDITORIAL_FLOOR,
+  exposureDecayPenalty,
   exposureEditorialScore,
   meetsExploreEditorialFloor,
 } from "../app/signal-heat.ts";
@@ -229,17 +230,13 @@ test("system exposure freshness gives a story a 48-hour discovery window", () =>
   };
   assert.deepEqual(
     [oldImportant, newStrong]
-      .sort((left, right) =>
-        compareExposureEditorialValue(left, right, {
-          profile: "dynamic",
-        }),
-      )
+      .sort(compareExposureEditorialValue)
       .map((item) => item.score),
     [83, 95],
   );
   assert.ok(
-    exposureEditorialScore(newStrong, { profile: "dynamic" }) >
-      exposureEditorialScore(oldImportant, { profile: "dynamic" }),
+    exposureEditorialScore(newStrong) >
+      exposureEditorialScore(oldImportant),
   );
 
   const outsideWindow = {
@@ -250,9 +247,10 @@ test("system exposure freshness gives a story a 48-hour discovery window", () =>
     ),
   };
   assert.ok(outsideWindow.heat.ageHours > 48);
+  assert.equal(exposureDecayPenalty(outsideWindow.heat.ageHours), 16);
   assert.equal(
-    exposureEditorialScore(outsideWindow, { profile: "dynamic" }),
-    86,
+    exposureEditorialScore(outsideWindow),
+    70,
   );
 });
 
@@ -280,11 +278,7 @@ test("a system-published update restarts the 48-hour exposure window", () => {
   assert.ok(updated.heat.ageHours <= 1);
   assert.deepEqual(
     [stale, updated]
-      .sort((left, right) =>
-        compareExposureEditorialValue(left, right, {
-          profile: "dynamic",
-        }),
-      )
+      .sort(compareExposureEditorialValue)
       .map((item) => item.score),
     [84, 90],
   );

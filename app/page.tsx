@@ -426,13 +426,7 @@ export default function Home() {
           };
         })
         .sort((left, right) =>
-          compareExposureEditorialValue(left, right, {
-            profile:
-              left.editorialBucket === "explore" &&
-              right.editorialBucket === "explore"
-                ? "explore"
-                : "dynamic",
-          }),
+          compareExposureEditorialValue(left, right),
         ),
     [heatNow, languageCopy],
   );
@@ -572,10 +566,8 @@ export default function Home() {
           storyEvidenceUrls.has(evidence.url),
         ),
     );
-    return [...mergedStorySignals, ...deduplicatedCurated].sort((left, right) =>
-      compareExposureEditorialValue(left, right, {
-        profile: "explore",
-      }),
+    return [...mergedStorySignals, ...deduplicatedCurated].sort(
+      compareExposureEditorialValue,
     );
   }, [locale, localizedCuratedExploreSignals, localizedSignals]);
 
@@ -665,11 +657,7 @@ export default function Home() {
         };
       },
     );
-    return localized.sort((left, right) =>
-      compareExposureEditorialValue(left, right, {
-        profile: "explore",
-      }),
-    );
+    return localized.sort(compareExposureEditorialValue);
   }, [heatNow, locale]);
   const trendSignals = useMemo(
     () =>

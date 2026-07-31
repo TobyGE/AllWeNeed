@@ -85,11 +85,7 @@ test("server-renders the All We Need product shell", async () => {
       (signal) =>
         signal.editorialBucket === "dynamic" && signal.heat.visible,
     )
-    .sort((left, right) =>
-      compareExposureEditorialValue(left, right, {
-        profile: "dynamic",
-      }),
-    );
+    .sort(compareExposureEditorialValue);
   const firstDynamicIndex = radar.signals.findIndex(
     (signal) => signal.id === activeDynamicSignals[0]?.id,
   );

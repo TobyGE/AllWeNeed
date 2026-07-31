@@ -186,56 +186,25 @@ export function compareEditorialValue(
   return compareSignalHeat(left.heat, right.heat);
 }
 
-function freshnessOpportunityBoost(
-  exposureAgeHours: number,
-  profile: SignalHeatProfile,
-) {
-  if (profile === "dynamic") {
-    if (exposureAgeHours <= 2) return 16;
-    if (exposureAgeHours <= 8) return 13;
-    if (exposureAgeHours <= 24) return 10;
-    if (exposureAgeHours <= 48) return 5;
-    return 0;
-  }
-
-  if (exposureAgeHours <= 6) return 10;
-  if (exposureAgeHours <= 24) return 8;
-  if (exposureAgeHours <= 48) return 4;
-  return 0;
+export function exposureDecayPenalty(exposureAgeHours: number) {
+  if (exposureAgeHours <= 2) return 0;
+  if (exposureAgeHours <= 8) return 3;
+  if (exposureAgeHours <= 24) return 6;
+  if (exposureAgeHours <= 48) return 11;
+  return 16;
 }
 
-export function exposureEditorialScore(
-  signal: EditoriallyRankedSignal,
-  {
-    profile,
-  }: {
-    profile: SignalHeatProfile;
-  },
-) {
+export function exposureEditorialScore(signal: EditoriallyRankedSignal) {
   const editorialValue = Number(signal.valueScore ?? signal.score ?? 0);
-  const freshnessBoost = freshnessOpportunityBoost(
-    signal.heat.ageHours,
-    profile,
-  );
-  return editorialValue + freshnessBoost;
+  return editorialValue - exposureDecayPenalty(signal.heat.ageHours);
 }
 
 export function compareExposureEditorialValue(
   left: EditoriallyRankedSignal,
   right: EditoriallyRankedSignal,
-  {
-    profile,
-  }: {
-    profile: SignalHeatProfile;
-  },
 ) {
   const rankDifference =
-    exposureEditorialScore(right, {
-      profile,
-    }) -
-    exposureEditorialScore(left, {
-      profile,
-    });
+    exposureEditorialScore(right) - exposureEditorialScore(left);
   if (rankDifference !== 0) return rankDifference;
   return compareEditorialValue(left, right);
 }

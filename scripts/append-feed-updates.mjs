@@ -1210,6 +1210,63 @@ export function validateFeedCoverage(raw, candidates) {
   };
 }
 
+function splitKnownFeedRefs(value, allowedRefs) {
+  const normalized = cleanText(value);
+  if (!normalized || allowedRefs.has(normalized)) {
+    return normalized ? [normalized] : [];
+  }
+  const matches = normalized.match(/\b(?:N|G|R)\d+\b/gu) ?? [];
+  if (
+    matches.length < 2 ||
+    matches.some((ref) => !allowedRefs.has(ref)) ||
+    normalized
+      .replace(/\b(?:N|G|R)\d+\b/gu, "")
+      .replace(/[\/,，、+&\s]+/gu, "")
+  ) {
+    return [normalized];
+  }
+  return [...new Set(matches)];
+}
+
+export function normalizeFeedCoverageRefs(raw, candidates) {
+  const allowedRefs = new Set(candidates.map((item) => item.ref));
+  const expandEvidence = (evidence = []) =>
+    evidence.flatMap((entry) => {
+      const refs = splitKnownFeedRefs(entry?.ref, allowedRefs);
+      if (refs.length <= 1) {
+        return [{ ...entry, ref: refs[0] ?? entry?.ref }];
+      }
+      return refs.map((ref) => ({ ...entry, ref }));
+    });
+  const expandIgnored = (ignored = []) =>
+    ignored.flatMap((entry) => {
+      const refs = splitKnownFeedRefs(entry?.ref, allowedRefs);
+      if (refs.length <= 1) {
+        return [{ ...entry, ref: refs[0] ?? entry?.ref }];
+      }
+      return refs.map((ref) => ({ ...entry, ref }));
+    });
+
+  return {
+    ...raw,
+    feedStories: (raw?.feedStories ?? []).map((story) => ({
+      ...story,
+      signal: {
+        ...story?.signal,
+        evidence: expandEvidence(story?.signal?.evidence),
+      },
+    })),
+    existingUpdates: (raw?.existingUpdates ?? []).map((update) => ({
+      ...update,
+      update: {
+        ...update?.update,
+        evidence: expandEvidence(update?.update?.evidence),
+      },
+    })),
+    ignored: expandIgnored(raw?.ignored),
+  };
+}
+
 export function assertEditorialArticleQuality(article, label) {
   const text = [
     article?.lead,
@@ -2212,7 +2269,9 @@ async function main() {
               `${editorialSkillInstructions}\n\nClassify every new source item exactly once. Publish only qualified dynamic events or substantive Explore theses; archive weak items. Write a centered source-backed article and return only valid JSON.`,
             reasoningEffort: "high",
           });
-          const raw = applyEditorialPublicationBar(parseJsonOutput(output));
+          const raw = applyEditorialPublicationBar(
+            normalizeFeedCoverageRefs(parseJsonOutput(output), candidates),
+          );
           coverage = validateFeedCoverage(raw, candidates);
           hydratedStories = hydrateFeedStories({
             raw,
