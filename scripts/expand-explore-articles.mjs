@@ -91,7 +91,7 @@ function buildPrompt(inputs, locale) {
 - Use direct prose and short paragraphs.
 - Preserve uncertainty with words such as may, could, suggests, and inference.`;
 
-  return `You are the Explore editor for Signal Radar.
+  return `You are the Explore editor for All We Need.
 
 Turn each supplied Explore thesis into a source-backed exploratory essay. Explore is intentionally bold, contrarian, and diverse, but it must never turn an inference into a reported fact.
 

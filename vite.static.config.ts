@@ -3,10 +3,11 @@ import { fileURLToPath, URL } from "node:url";
 import { defineConfig } from "vite";
 
 const staticRoot = fileURLToPath(new URL("./static", import.meta.url));
+const staticBase = process.env.ALL_WE_NEED_STATIC_BASE ?? "/";
 
 export default defineConfig({
   root: staticRoot,
-  base: "/intelligence/",
+  base: staticBase,
   publicDir: fileURLToPath(new URL("./public", import.meta.url)),
   plugins: [react()],
   build: {

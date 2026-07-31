@@ -4,6 +4,12 @@ import { useEffect } from "react";
 
 type Locale = "zh" | "en";
 
+function basePathFromPathname(pathname: string) {
+  return pathname === "/intelligence" || pathname.startsWith("/intelligence/")
+    ? "/intelligence"
+    : "";
+}
+
 type ArticleSection = {
   heading: string;
   body: string;
@@ -106,15 +112,19 @@ export function ArticleView({
   const isExplore = kind === "explore";
   const isCompany = kind === "company";
   const isConversation = kind === "conversation";
+  const basePath =
+    typeof window === "undefined"
+      ? ""
+      : basePathFromPathname(window.location.pathname);
   const returnHref = isExplore
-    ? "/intelligence/explore/"
+    ? `${basePath}/explore/`
     : isConversation
-      ? "/intelligence/conversations/"
-      : "/intelligence/";
+      ? `${basePath}/conversations/`
+      : `${basePath}/`;
   const article = signal.article ?? fallbackArticle(signal, locale);
   useEffect(() => {
     const previousTitle = document.title;
-    document.title = `${signal.title} — Signal Radar`;
+    document.title = `${signal.title} — All We Need`;
     return () => {
       document.title = previousTitle;
     };
@@ -150,9 +160,9 @@ export function ArticleView({
           }}
         >
           <span className="brand-mark" aria-hidden="true">
-            S
+            A
           </span>
-          <span>Signal Radar</span>
+          <span>All We Need</span>
         </a>
         <div className="article-top-actions">
           <div
@@ -312,15 +322,15 @@ export function ArticleView({
               <p>
                 {t(
                   isExplore
-                    ? "本文是 Signal Radar 根据下列公开来源形成的探索性判断，不是已被证实的结论。事实、编辑推断与反方观点已分开；原始来源保留在文末，便于逐项核查。"
+                    ? "本文是 All We Need 根据下列公开来源形成的探索性判断，不是已被证实的结论。事实、编辑推断与反方观点已分开；原始来源保留在文末，便于逐项核查。"
                     : isConversation
-                      ? "本文由 Signal Radar 根据节目公开字幕压缩整理。它保留对谈的中心论点、关键细节与主要限制，不替代完整节目；原始视频保留在文末。"
-                    : "本文由 Signal Radar 根据下列公开来源综合撰写。事实、来源共识与编辑推断已尽量分开；原始来源保留在文末，便于逐项核查。",
+                      ? "本文由 All We Need 根据节目公开字幕压缩整理。它保留对谈的中心论点、关键细节与主要限制，不替代完整节目；原始视频保留在文末。"
+                    : "本文由 All We Need 根据下列公开来源综合撰写。事实、来源共识与编辑推断已尽量分开；原始来源保留在文末，便于逐项核查。",
                   isExplore
                     ? "This is an exploratory thesis synthesized from the public sources below, not a settled conclusion. Facts, editorial inference, and counterarguments are separated, with originals preserved for verification."
                     : isConversation
-                      ? "Signal Radar condensed this note from the program’s public transcript, preserving its central argument, key details, and principal limitation. It is a guide to—not a substitute for—the full conversation."
-                    : "Signal Radar synthesized this article from the public sources below. Facts, source consensus, and editorial inference are separated where possible, with originals preserved for verification.",
+                      ? "All We Need condensed this note from the program’s public transcript, preserving its central argument, key details, and principal limitation. It is a guide to—not a substitute for—the full conversation."
+                    : "All We Need synthesized this article from the public sources below. Facts, source consensus, and editorial inference are separated where possible, with originals preserved for verification.",
                 )}
               </p>
             </aside>
@@ -406,7 +416,7 @@ export function ArticleView({
                   ? t("返回对话", "Back to Conversations")
                   : t("返回最新动态", "Back to latest updates")}
           </a>
-          <span>Signal Radar · {dateLabel}</span>
+          <span>All We Need · {dateLabel}</span>
         </footer>
       </article>
     </main>

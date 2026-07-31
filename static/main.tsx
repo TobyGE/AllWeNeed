@@ -6,7 +6,7 @@ import "../app/globals.css";
 const root = document.getElementById("root");
 
 if (!root) {
-  throw new Error("Signal Radar root element is missing");
+  throw new Error("All We Need root element is missing");
 }
 
 createRoot(root).render(

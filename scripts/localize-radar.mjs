@@ -106,7 +106,7 @@ function buildPrompt(radar, locale) {
 - Preserve uncertainty markers such as "may", "could", and "inference".
 - Keep titles punchy and body text compact.`;
 
-  return `You are the copy editor for Signal Radar, an AI, technology, and investment intelligence product.
+  return `You are the copy editor for All We Need, an AI, technology, and investment intelligence product.
 
 Create one ${locale} editorial version of the supplied analysis in ${target}.
 

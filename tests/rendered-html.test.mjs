@@ -30,7 +30,7 @@ async function render() {
   );
 }
 
-test("server-renders the Signal Radar product shell", async () => {
+test("server-renders the All We Need product shell", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
@@ -42,7 +42,7 @@ test("server-renders the Signal Radar product shell", async () => {
   const snapshot = JSON.parse(
     await readFile(new URL("../data/feed-snapshot.json", import.meta.url), "utf8"),
   );
-  assert.match(html, /<title>Signal Radar — AI 科技投资情报雷达<\/title>/i);
+  assert.match(html, /<title>All We Need — AI 科技投资情报<\/title>/i);
   assert.match(html, /值得关注的最新变化/);
   assert.match(html, /必须知道/);
   assert.match(html, /正在形成的变化/);
@@ -168,7 +168,7 @@ test("removes all disposable starter preview code", async () => {
     readFile(new URL("../static/sources/index.html", import.meta.url), "utf8"),
   ]);
 
-  assert.match(page, /Signal Radar/);
+  assert.match(page, /All We Need/);
   assert.match(page, /t\("搜索情报", "Search intelligence"\)/);
   assert.match(styles, /prefers-reduced-motion/);
   assert.match(layout, /lang="zh-CN"/);
@@ -546,9 +546,9 @@ test("removes all disposable starter preview code", async () => {
   assert.match(page, /function conversationsMore/);
   assert.match(page, /t\("精选对谈", "Conversations"\)/);
   assert.match(page, /conversation-bridge-cta/);
-  assert.match(page, /explore: "\/intelligence\/explore\/"/);
-  assert.match(page, /conversations: "\/intelligence\/conversations\/"/);
-  assert.match(page, /sources: "\/intelligence\/sources\/"/);
+  assert.match(page, /function basePathFromPathname/);
+  assert.match(page, /function sectionPath/);
+  assert.match(page, /pathname\.startsWith\("\/intelligence\/"\)/);
   assert.match(page, /function routeFromPathname/);
   assert.match(page, /window\.history\.pushState/);
   assert.match(
@@ -558,12 +558,12 @@ test("removes all disposable starter preview code", async () => {
   assert.match(staticConfig, /static\/explore\/index\.html/);
   assert.match(staticConfig, /static\/conversations\/index\.html/);
   assert.match(staticConfig, /static\/sources\/index\.html/);
-  assert.match(exploreEntry, /<title>探索 — Signal Radar<\/title>/);
+  assert.match(exploreEntry, /<title>探索 — All We Need<\/title>/);
   assert.match(
     conversationsEntry,
-    /<title>精选对谈 — Signal Radar<\/title>/,
+    /<title>精选对谈 — All We Need<\/title>/,
   );
-  assert.match(sourcesEntry, /<title>信源库 — Signal Radar<\/title>/);
+  assert.match(sourcesEntry, /<title>信源库 — All We Need<\/title>/);
   const conversationData = JSON.parse(conversations);
   assert.equal(conversationData.items.length, 20);
   assert.ok(

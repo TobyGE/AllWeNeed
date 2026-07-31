@@ -140,7 +140,7 @@ function buildPrompt(stories) {
     })),
   }));
 
-  return `使用 live web search 研究并重写以下 Signal Radar 动态稿件。当前稿件把“没有完成研究”写进正文；你的任务是主动补齐 material facts，重新选择文章中心。
+  return `使用 live web search 研究并重写以下 All We Need 动态稿件。当前稿件把“没有完成研究”写进正文；你的任务是主动补齐 material facts，重新选择文章中心。
 
 要求：
 - 对每篇稿件使用 earnings/filing research matrix。主动搜索 company IR、SEC filing、earnings release、presentation、call transcript，以及具名 provider 的 analyst consensus。
@@ -245,7 +245,7 @@ function buildCompanyPrompt(radar) {
     })),
   }));
 
-  return `使用 live web search 研究并重写以下 Signal Radar「投资与公司信号」。它们目前只是短字段拼接，不是达到编辑标准的公司稿。
+  return `使用 live web search 研究并重写以下 All We Need「投资与公司信号」。它们目前只是短字段拼接，不是达到编辑标准的公司稿。
 
 逐条执行：
 - 保留 entity，但重新判断最值得写的 central claim。文章必须围绕一个发生变化的业务变量：demand、pricing、margin、capital intensity、competitive position、distribution、regulatory exposure 或 management credibility。

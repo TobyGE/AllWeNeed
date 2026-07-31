@@ -230,7 +230,7 @@ async function acquireLock() {
     if (error?.code !== "EEXIST") throw error;
     const lockStat = await stat(lockPath);
     if (Date.now() - lockStat.mtimeMs < staleLockMs) {
-      throw new Error("Another Signal Radar feed cycle is already running");
+      throw new Error("Another All We Need feed cycle is already running");
     }
     await rm(lockPath, { recursive: true, force: true });
     await mkdir(lockPath, { recursive: false });
@@ -443,7 +443,7 @@ async function main() {
     );
 
     runCommand("npm", ["test"], { cwd: projectRoot });
-    runCommand("npm", ["run", "build:static"], { cwd: projectRoot });
+    runCommand("npm", ["run", "build:static:legacy"], { cwd: projectRoot });
     runCommand(
       "rsync",
       [

@@ -136,7 +136,7 @@ function buildChinesePrompt({ radar, seeds, evidence, requestedCount }) {
       .map((signal) => signal.title),
   ];
 
-  return `你是 Signal Radar 的 Explore 主编。
+  return `你是 All We Need 的 Explore 主编。
 
 目标：从已经正式入选、已有完整证据链的 Radar 稿件中，提炼 ${requestedCount} 个新增 Explore 方向。不要重新使用曾经被编辑流程淘汰的原始条目；下面给你的材料全部来自已经正式收录的稿件。
 
@@ -229,7 +229,7 @@ function buildEnglishPrompt(items) {
     article: item.article,
   }));
 
-  return `You are the English editor for Signal Radar.
+  return `You are the English editor for All We Need.
 
 Translate and rewrite every supplied Explore item into polished, concise editorial English.
 

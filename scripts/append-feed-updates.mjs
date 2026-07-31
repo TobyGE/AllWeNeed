@@ -244,7 +244,7 @@ function buildPrompt({ candidates, radar, scannedSnapshot }) {
     )
     .join("\n\n");
 
-  return `你是 Signal Radar 持续信息流的增量编辑。这里没有“日报”或日期版次；你只能处理本次新增条目，不得重写旧稿。
+  return `你是 All We Need 持续信息流的增量编辑。这里没有“日报”或日期版次；你只能处理本次新增条目，不得重写旧稿。
 
 任务：逐条处理本次新增内容，先聚合同一事件，再按照编辑价值决定进入“动态”、进入“探索”，或归档不展示。处理过但未入选的条目不会在以后重新候选，因此每个 ref 都必须有明确去向。
 
@@ -611,7 +611,7 @@ function buildEditorialResearchPrompt(researchItems) {
     )
     .join("\n\n");
 
-  return `你是 Signal Radar 的研究编辑。使用 live web search 为以下候选补齐写出完整稿件所需的关键事实和比较基准。
+  return `你是 All We Need 的研究编辑。使用 live web search 为以下候选补齐写出完整稿件所需的关键事实和比较基准。
 
 逐条执行：
 - 根据事件类型使用 research matrix，识别现有摘要缺少的 material facts。

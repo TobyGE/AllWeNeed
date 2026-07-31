@@ -143,12 +143,23 @@ type Conversation = {
 type RadarView = "brief" | "explore" | "conversations";
 type AppSection = "radar" | "sources";
 
-const sectionPaths = {
-  brief: "/intelligence/",
-  explore: "/intelligence/explore/",
-  conversations: "/intelligence/conversations/",
-  sources: "/intelligence/sources/",
-} as const;
+type SiteSection = RadarView | "sources";
+
+function basePathFromPathname(pathname: string) {
+  return pathname === "/intelligence" || pathname.startsWith("/intelligence/")
+    ? "/intelligence"
+    : "";
+}
+
+function sectionPath(
+  target: SiteSection,
+  pathname =
+    typeof window === "undefined" ? "/" : window.location.pathname,
+) {
+  const base = basePathFromPathname(pathname);
+  if (target === "brief") return `${base}/`;
+  return `${base}/${target}/`;
+}
 
 function routeFromPathname(pathname: string): {
   view: RadarView;
@@ -168,7 +179,7 @@ function routeFromPathname(pathname: string): {
 }
 
 function pathForView(view: RadarView) {
-  return sectionPaths[view];
+  return sectionPath(view);
 }
 
 const signals = dailyRadar.signals as Signal[];
@@ -295,19 +306,19 @@ export default function Home() {
     document.title =
       section === "sources"
         ? locale === "zh"
-          ? "信源库 — Signal Radar"
-          : "Sources — Signal Radar"
+          ? "信源库 — All We Need"
+          : "Sources — All We Need"
         : view === "explore"
           ? locale === "zh"
-            ? "探索 — Signal Radar"
-            : "Explore — Signal Radar"
+            ? "探索 — All We Need"
+            : "Explore — All We Need"
           : view === "conversations"
             ? locale === "zh"
-              ? "精选对谈 — Signal Radar"
-              : "Conversations — Signal Radar"
+              ? "精选对谈 — All We Need"
+              : "Conversations — All We Need"
             : locale === "zh"
-              ? "Signal Radar — AI 科技投资情报雷达"
-              : "Signal Radar — AI, Tech & Investment Intelligence";
+              ? "All We Need — AI 科技投资情报"
+              : "All We Need — AI, Tech & Investment Intelligence";
   }, [articleId, locale, section, view]);
 
   useEffect(() => {
@@ -697,7 +708,7 @@ export default function Home() {
 
     trackPageView({
       path,
-      title: title ?? "Signal Radar",
+      title: title ?? "All We Need",
       language: locale,
       contentType,
     });
@@ -849,7 +860,7 @@ export default function Home() {
   function switchToSources() {
     resetExpandedContent();
     setSection("sources");
-    pushSectionPath(sectionPaths.sources);
+    pushSectionPath(sectionPath("sources"));
     window.scrollTo({ top: 0, behavior: "instant" });
   }
 
@@ -1028,15 +1039,15 @@ export default function Home() {
       <aside className="sidebar">
         <div className="brand">
           <span className="brand-mark" aria-hidden="true">
-            S
+            A
           </span>
-          <span>Signal Radar</span>
+          <span>All We Need</span>
         </div>
 
         <nav className="side-nav" aria-label={t("主要导航", "Primary navigation")}>
           <a
             className={`nav-item ${section === "radar" && view === "brief" ? "active" : ""}`}
-            href={sectionPaths.brief}
+            href={sectionPath("brief")}
             onClick={(event) => {
               event.preventDefault();
               switchView("brief");
@@ -1048,7 +1059,7 @@ export default function Home() {
           </a>
           <a
             className={`nav-item ${section === "radar" && view === "explore" ? "active" : ""}`}
-            href={sectionPaths.explore}
+            href={sectionPath("explore")}
             onClick={(event) => {
               event.preventDefault();
               switchView("explore");
@@ -1060,7 +1071,7 @@ export default function Home() {
           </a>
           <a
             className={`nav-item ${section === "radar" && view === "conversations" ? "active" : ""}`}
-            href={sectionPaths.conversations}
+            href={sectionPath("conversations")}
             onClick={(event) => {
               event.preventDefault();
               switchView("conversations");
@@ -1072,7 +1083,7 @@ export default function Home() {
           </a>
           <a
             className={`nav-item ${section === "sources" ? "active" : ""}`}
-            href={sectionPaths.sources}
+            href={sectionPath("sources")}
             onClick={(event) => {
               event.preventDefault();
               switchToSources();
@@ -1179,8 +1190,8 @@ export default function Home() {
       <section className="workspace">
         <header className="topbar">
           <div className="mobile-brand">
-            <span className="brand-mark">S</span>
-            <span>Signal Radar</span>
+            <span className="brand-mark">A</span>
+            <span>All We Need</span>
           </div>
           {section === "radar" ? (
             <label className="search">
@@ -1430,7 +1441,7 @@ export default function Home() {
             >
               <a
                 className={view === "brief" ? "selected" : ""}
-                href={sectionPaths.brief}
+                href={sectionPath("brief")}
                 onClick={(event) => {
                   event.preventDefault();
                   switchView("brief");
@@ -1440,7 +1451,7 @@ export default function Home() {
               </a>
               <a
                 className={view === "explore" ? "selected" : ""}
-                href={sectionPaths.explore}
+                href={sectionPath("explore")}
                 onClick={(event) => {
                   event.preventDefault();
                   switchView("explore");
@@ -1450,7 +1461,7 @@ export default function Home() {
               </a>
               <a
                 className={view === "conversations" ? "selected" : ""}
-                href={sectionPaths.conversations}
+                href={sectionPath("conversations")}
                 onClick={(event) => {
                   event.preventDefault();
                   switchView("conversations");
@@ -2428,7 +2439,7 @@ export default function Home() {
               </div>
               <div className="explore-more-actions">
                 <a
-                  href={sectionPaths.explore}
+                  href={sectionPath("explore")}
                   onClick={(event) => {
                     event.preventDefault();
                     exploreMore();
@@ -2439,7 +2450,7 @@ export default function Home() {
                 </a>
                 <a
                   className="conversation-more-button"
-                  href={sectionPaths.conversations}
+                  href={sectionPath("conversations")}
                   onClick={(event) => {
                     event.preventDefault();
                     conversationsMore();
@@ -2472,7 +2483,7 @@ export default function Home() {
                 </p>
               </div>
               <a
-                href={sectionPaths.conversations}
+                href={sectionPath("conversations")}
                 onClick={(event) => {
                   event.preventDefault();
                   conversationsMore();

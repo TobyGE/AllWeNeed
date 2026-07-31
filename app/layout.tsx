@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const title = "Signal Radar — AI 科技投资情报雷达";
+const title = "All We Need — AI 科技投资情报";
 const description =
   "从 X、YouTube、Reddit、Hugging Face 和博客中发现、验证并解释真正重要的 AI 与科技投资信号。";
 
@@ -39,7 +39,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: "/og.png",
           width: 1731,
           height: 908,
-          alt: "Signal Radar — AI, Tech, and Investment Intelligence",
+          alt: "All We Need — AI, Tech, and Investment Intelligence",
         },
       ],
     },

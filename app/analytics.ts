@@ -1,5 +1,9 @@
 const GA_MEASUREMENT_ID = "G-6KK2W66GZC";
-const PRODUCTION_HOST = "yingqiangge.github.io";
+const PRODUCTION_HOSTS = new Set([
+  "allweneed.info",
+  "www.allweneed.info",
+  "yingqiangge.github.io",
+]);
 
 type AnalyticsParameters = Record<
   string,
@@ -21,7 +25,7 @@ declare global {
 function analyticsAllowed() {
   return (
     typeof window !== "undefined" &&
-    window.location.hostname === PRODUCTION_HOST &&
+    PRODUCTION_HOSTS.has(window.location.hostname) &&
     !window.navigator.globalPrivacyControl
   );
 }
