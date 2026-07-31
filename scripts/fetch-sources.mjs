@@ -1,4 +1,5 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { createHash } from "node:crypto";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
@@ -79,6 +80,7 @@ function cleanText(value = "") {
     .replace(/<script[\s\S]*?<\/script>/gi, " ")
     .replace(/<style[\s\S]*?<\/style>/gi, " ")
     .replace(/<[^>]+>/g, " ")
+    .replace(/[\u200B-\u200D\uFEFF]/g, "")
     .replace(/\s+/g, " ")
     .trim();
 }
@@ -302,6 +304,64 @@ export function parseSitemapXml(xml, source, feedUrl) {
     .slice(0, itemsPerSource);
 }
 
+function contentFingerprint(value) {
+  return createHash("sha256").update(value).digest("hex").slice(0, 16);
+}
+
+export function parseDatedChangelogHtml(html, source, feedUrl) {
+  const headings = [
+    ...html.matchAll(/<h2\b([^>]*)>([\s\S]*?)<\/h2>/gi),
+  ];
+  const items = headings.flatMap((heading, index) => {
+    const date = cleanText(heading[2]).match(/\b20\d{2}-\d{2}-\d{2}\b/)?.[0];
+    if (!date) return [];
+
+    const sectionStart = (heading.index ?? 0) + heading[0].length;
+    const sectionEnd = headings[index + 1]?.index ?? html.length;
+    const section = html.slice(sectionStart, sectionEnd);
+    const sectionTitles = [
+      ...section.matchAll(/<h3\b[^>]*>([\s\S]*?)<\/h3>/gi),
+    ]
+      .map((match) => cleanText(match[1]))
+      .filter(Boolean);
+    const title =
+      sectionTitles.join(" · ") ||
+      `${source.publisher ?? source.name} API update ${date}`;
+    const summary = cleanText(section).slice(0, 1_600);
+    if (!summary || !matchesConfiguredLanguage(title, source)) return [];
+
+    const configuredAnchor =
+      heading[1].match(/\bid=["']([^"']+)["']/i)?.[1] ?? `date-${date}`;
+    const url = new URL(`#${configuredAnchor}`, feedUrl).toString();
+    const versionHash = contentFingerprint(`${date}\n${title}\n${summary}`);
+
+    return [
+      {
+        id: `${source.id}-${date}-${versionHash}`,
+        versionKey: `changelog:${source.id}:${date}:${versionHash}`,
+        sourceId: source.id,
+        sourceName: source.name,
+        sourcePublisher: source.publisher ?? source.name,
+        sourceKind: getSourceKind(source.url),
+        title,
+        url,
+        publishedAt: normalizeDate(`${date}T00:00:00Z`),
+        dateOnly: true,
+        summary,
+        fetchedAt: checkedAt,
+      },
+    ];
+  });
+
+  return items
+    .sort(
+      (left, right) =>
+        Date.parse(right.publishedAt ?? "") -
+        Date.parse(left.publishedAt ?? ""),
+    )
+    .slice(0, itemsPerSource);
+}
+
 function dateFromText(value) {
   const match = cleanText(value).match(
     /\b(?:20\d{2}-\d{2}-\d{2}|(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\s+\d{1,2},?\s+20\d{2})\b/i,
@@ -400,6 +460,9 @@ function parseConfiguredFeed(text, source, feedUrl) {
   }
   if (source.feedFormat === "news-list-html") {
     return parseNewsListHtml(text, source, feedUrl);
+  }
+  if (source.feedFormat === "dated-changelog-html") {
+    return parseDatedChangelogHtml(text, source, feedUrl);
   }
   if (source.feedFormat === "huggingface-models-json") {
     return parseHuggingFaceModelsJson(text, source);
@@ -1447,59 +1510,73 @@ async function mapWithConcurrency(items, limit, worker) {
   return results;
 }
 
-const sourcesToFetch = selectedSourceIds.size
-  ? sourceCatalog.filter((source) => selectedSourceIds.has(source.id))
-  : sourceCatalog;
-const results = await mapWithConcurrency(
-  sourcesToFetch,
-  concurrency,
-  fetchFeedSource,
-);
+export async function main() {
+  const sourcesToFetch = selectedSourceIds.size
+    ? sourceCatalog.filter((source) => selectedSourceIds.has(source.id))
+    : sourceCatalog;
+  const results = await mapWithConcurrency(
+    sourcesToFetch,
+    concurrency,
+    fetchFeedSource,
+  );
 
-const statuses = results.map((result) => result.status);
-const items = results
-  .flatMap((result) => result.items)
-  .filter(
-    (item, index, array) =>
-      array.findIndex((candidate) => candidate.url === item.url) === index,
-  )
-  .sort((a, b) => {
-    const aTime = a.publishedAt ? new Date(a.publishedAt).getTime() : 0;
-    const bTime = b.publishedAt ? new Date(b.publishedAt).getTime() : 0;
-    return bTime - aTime;
-  });
+  const statuses = results.map((result) => result.status);
+  const items = results
+    .flatMap((result) => result.items)
+    .filter(
+      (item, index, array) =>
+        array.findIndex((candidate) => candidate.url === item.url) === index,
+    )
+    .sort((a, b) => {
+      const aTime = a.publishedAt ? new Date(a.publishedAt).getTime() : 0;
+      const bTime = b.publishedAt ? new Date(b.publishedAt).getTime() : 0;
+      return bTime - aTime;
+    });
 
-const snapshot = {
-  generatedAt: checkedAt,
-  totalSources: sourcesToFetch.length,
-  successfulSources: statuses.filter((status) =>
-    ["ok", "empty"].includes(status.status),
-  ).length,
-  needsAuthSources: statuses.filter(
-    (status) => status.status === "needs_auth",
-  ).length,
-  failedSources: statuses.filter((status) => status.status === "error").length,
-  items,
-  statuses,
-};
+  const snapshot = {
+    generatedAt: checkedAt,
+    totalSources: sourcesToFetch.length,
+    successfulSources: statuses.filter((status) =>
+      ["ok", "empty"].includes(status.status),
+    ).length,
+    needsAuthSources: statuses.filter(
+      (status) => status.status === "needs_auth",
+    ).length,
+    failedSources: statuses.filter((status) => status.status === "error")
+      .length,
+    items,
+    statuses,
+  };
 
-if (!dryRun) {
-  await mkdir(dirname(outputPath), { recursive: true });
-  await writeFile(outputPath, `${JSON.stringify(snapshot, null, 2)}\n`, "utf8");
+  if (!dryRun) {
+    await mkdir(dirname(outputPath), { recursive: true });
+    await writeFile(
+      outputPath,
+      `${JSON.stringify(snapshot, null, 2)}\n`,
+      "utf8",
+    );
+  }
+
+  console.log(
+    `${dryRun ? "Dry run" : "Done"}: ${snapshot.successfulSources} sources connected, ${snapshot.items.length} items, ${snapshot.needsAuthSources} need auth, ${snapshot.failedSources} failed.`,
+  );
+  if (dryRun) {
+    console.log(
+      JSON.stringify(
+        {
+          statuses: snapshot.statuses,
+          sampleItems: snapshot.items.slice(0, 20),
+        },
+        null,
+        2,
+      ),
+    );
+  }
+
+  return snapshot;
 }
 
-console.log(
-  `${dryRun ? "Dry run" : "Done"}: ${snapshot.successfulSources} sources connected, ${snapshot.items.length} items, ${snapshot.needsAuthSources} need auth, ${snapshot.failedSources} failed.`,
-);
-if (dryRun) {
-  console.log(
-    JSON.stringify(
-      {
-        statuses: snapshot.statuses,
-        sampleItems: snapshot.items.slice(0, 20),
-      },
-      null,
-      2,
-    ),
-  );
+const invokedPath = process.argv[1] ? resolve(process.argv[1]) : "";
+if (invokedPath === fileURLToPath(import.meta.url)) {
+  await main();
 }

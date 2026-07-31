@@ -17,6 +17,7 @@ export type SourceItem = {
     | "amazon-press-html"
     | "sitemap-xml"
     | "news-list-html"
+    | "dated-changelog-html"
     | "huggingface-models-json";
   feedLanguage?: "en";
   feedPathPrefixes?: string[];
@@ -456,13 +457,12 @@ export const sourceCatalog: SourceItem[] = [
   },
   {
     id: 205,
-    name: "DeepSeek API News",
+    name: "DeepSeek API Changelog",
     publisher: "DeepSeek",
-    description: "DeepSeek 官方 API 文档公告，覆盖模型上线、API 能力、价格、服务和开发者更新。",
-    url: "https://api-docs.deepseek.com/news/",
-    feedUrl: "https://api-docs.deepseek.com/sitemap.xml",
-    feedFormat: "sitemap-xml",
-    feedPathPrefixes: ["/news/"],
+    description: "DeepSeek 官方 API changelog，按发布日期跟踪模型上线、API 能力、价格、服务和开发者更新。",
+    url: "https://api-docs.deepseek.com/updates/",
+    feedUrl: "https://api-docs.deepseek.com/updates/",
+    feedFormat: "dated-changelog-html",
   },
   {
     id: 206,

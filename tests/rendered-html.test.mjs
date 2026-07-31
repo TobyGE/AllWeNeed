@@ -278,8 +278,13 @@ test("removes all disposable starter preview code", async () => {
     sourceCatalog,
     /DeepSeek — Hugging Face Models[\s\S]*feedFormat: "huggingface-models-json"/,
   );
+  assert.match(
+    sourceCatalog,
+    /DeepSeek API Changelog[\s\S]*feedUrl: "https:\/\/api-docs\.deepseek\.com\/updates\/"[\s\S]*feedFormat: "dated-changelog-html"/,
+  );
   assert.match(fetchScript, /function parseSitemapXml/);
   assert.match(fetchScript, /function parseNewsListHtml/);
+  assert.match(fetchScript, /function parseDatedChangelogHtml/);
   assert.match(fetchScript, /function parseHuggingFaceModelsJson/);
   assert.match(fetchScript, /function fetchSecSource/);
   assert.match(fetchScript, /api\/xbrl\/companyfacts/);

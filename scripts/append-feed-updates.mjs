@@ -103,7 +103,12 @@ function normalizeTitle(value = "") {
 
 function itemTime(item, fallback) {
   const parsed = Date.parse(item.publishedAt ?? "");
-  return Number.isFinite(parsed) ? parsed : fallback;
+  if (!Number.isFinite(parsed)) return fallback;
+  return item.dateOnly ? parsed + 86_399_999 : parsed;
+}
+
+function itemProcessingKey(item) {
+  return item.versionKey ?? item.url;
 }
 
 function incrementalRelevance(item, snapshotTime) {
@@ -166,10 +171,12 @@ export function selectIncrementalItems({
   state,
 }) {
   const snapshotTime = Date.parse(scannedSnapshot.generatedAt);
-  const processedUrls = new Set(
-    state?.processedUrls?.length
-      ? state.processedUrls
-      : previousSnapshot.items.map((item) => item.url),
+  const processedKeys = new Set(
+    state?.processedKeys?.length
+      ? state.processedKeys
+      : state?.processedUrls?.length
+        ? state.processedUrls
+        : previousSnapshot.items.map(itemProcessingKey),
   );
   const initializedSourceIds = new Set(
     state?.initializedSourceIds?.length
@@ -196,7 +203,7 @@ export function selectIncrementalItems({
       return (
         Boolean(item.url) &&
         recentEnough &&
-        !processedUrls.has(item.url)
+        !processedKeys.has(itemProcessingKey(item))
       );
     })
     .sort(
@@ -1596,6 +1603,7 @@ export function mergeFeedStories({
 }
 
 export function createBaselineState(scannedSnapshot) {
+  const processedItems = scannedSnapshot.items.filter((item) => item.url);
   return {
     lastScanAt: scannedSnapshot.generatedAt,
     windowStartAt: scannedSnapshot.generatedAt,
@@ -1603,9 +1611,10 @@ export function createBaselineState(scannedSnapshot) {
       .filter((status) => status.status === "ok")
       .map((status) => String(status.sourceId)),
     processedUrls: [
-      ...new Set(
-        scannedSnapshot.items.map((item) => item.url).filter(Boolean),
-      ),
+      ...new Set(processedItems.map((item) => item.url)),
+    ].slice(-20_000),
+    processedKeys: [
+      ...new Set(processedItems.map(itemProcessingKey)),
     ].slice(-20_000),
   };
 }
@@ -1650,12 +1659,27 @@ export function nextState({
       })
       .map((item) => item.url),
   ]);
+  const keys = new Set([
+    ...(state?.processedKeys ??
+      state?.processedUrls ??
+      previousSnapshot.items.map(itemProcessingKey)),
+    ...candidates.map(itemProcessingKey),
+    ...scannedSnapshot.items
+      .filter((item) => {
+        if (!newlyInitializedSourceIds.has(String(item.sourceId))) {
+          return false;
+        }
+        const publishedAt = Date.parse(item.publishedAt ?? "");
+        return !Number.isFinite(publishedAt) || publishedAt < windowStart;
+      })
+      .map(itemProcessingKey),
+  ]);
   const allInitializedSourceIds = new Set([
     ...initializedSourceIds,
     ...successfulSourceIds,
   ]);
   const remainingEligibleItems = scannedSnapshot.items.filter((item) => {
-    if (!item.url || urls.has(item.url)) return false;
+    if (!item.url || keys.has(itemProcessingKey(item))) return false;
     if (!allInitializedSourceIds.has(String(item.sourceId))) return false;
     return itemTime(item, Date.parse(scannedSnapshot.generatedAt)) >=
       windowStart - overlapMs;
@@ -1668,6 +1692,7 @@ export function nextState({
         : scannedSnapshot.generatedAt,
     initializedSourceIds: [...allInitializedSourceIds],
     processedUrls: [...urls].slice(-20_000),
+    processedKeys: [...keys].slice(-20_000),
   };
 }
 
