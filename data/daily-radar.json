@@ -1,13 +1,167 @@
 {
-  "generatedAt": "2026-07-31T03:07:59.282Z",
-  "basedOnSnapshotAt": "2026-07-31T03:03:18.569Z",
+  "generatedAt": "2026-07-31T03:14:31.729Z",
+  "basedOnSnapshotAt": "2026-07-31T03:10:15.079Z",
   "model": "gpt-5.5",
   "analyzedItemCount": 180,
-  "totalFetchedItemCount": 1952,
+  "totalFetchedItemCount": 1942,
   "editorNote": "今日信息环境由代理安全事件、编码代理工具链分化、开放模型竞争和算力下沉共同主导。",
   "signalQuality": 86,
   "signalQualityChange": 8,
   "signals": [
+    {
+      "id": 39,
+      "editorialBucket": "dynamic",
+      "category": "Agents",
+      "eyebrow": "趋势变化",
+      "title": "EvoLib把代理经验提炼成知识",
+      "summary": "Microsoft Research公开EvoLib，尝试把LLM代理的历史经验转化为可复用、可演化并能跨任务迁移的技能与洞见。",
+      "why": "代理若能持续提炼经验，长期能力将不再只取决于模型更新、上下文长度或原始记忆检索。",
+      "impact": "这可能把代理记忆升级为部署后的学习层，但收益仍取决于迁移效果、维护成本与错误控制。",
+      "shiftFrom": "保存和检索原始经验",
+      "shiftTo": "提炼并演化可复用知识",
+      "crossValidation": "N1是Microsoft Research在扫描前一天发布的一手介绍，能确认EvoLib的目标与知识演化方向；目前属于单一来源。",
+      "article": {
+        "lead": "Microsoft Research于7月30日公开EvoLib，目标不是让LLM代理无限累积对话与任务轨迹，而是把经历提炼为可复用、可继续演化的技能和洞见。关键变化在于，部署后的学习被从“记住更多”改写为“更新知识”，让一次任务所得有机会迁移到后续不同任务。",
+        "sections": [
+          {
+            "heading": "记忆不等于学习",
+            "body": "EvoLib瞄准的是原始经验与可迁移知识之间的断层。Microsoft Research认为，单纯增加记忆不会自动使LLM变得更聪明；框架因此强调从经验中抽取能够重复利用的技能和洞见，并让这些知识随新任务继续变化。代理保存的对象由历史记录转向可操作的经验结构。"
+          },
+          {
+            "heading": "部署后多出一层能力",
+            "body": "如果这类知识能够稳定跨任务复用，代理系统便可能在不更换基础模型的情况下积累工作方法。对长期运行的coding、research或enterprise agents而言，价值不只是找回旧答案，而是减少重复探索，并把一次成功路径转化为后续workflow的起点。这是EvoLib相较普通记忆检索更重要的潜在增量。"
+          },
+          {
+            "heading": "演化也会放大错误",
+            "body": "最强的反例是，原始记忆虽然冗长，却更容易追溯；经过提炼和持续改写的知识一旦吸收错误经验，可能把局部失败传播到更多任务。因此，EvoLib能否成为可靠的学习层，不只取决于知识复用率，还取决于来源追踪、版本控制、冲突处理和回滚机制能否跟上知识演化。"
+          }
+        ],
+        "outlook": "下一步应观察EvoLib是否公开论文、代码和完整评测，并重点核对跨任务迁移成功率、相对原始记忆检索的token与延迟成本，以及知识反复更新后的错误累积率。独立复现若能在不同模型和任务上保持收益，才会支持其成为通用代理组件。"
+      },
+      "validationType": "单一来源",
+      "publishedAt": "2026-07-30T16:00:00.000Z",
+      "updatedAt": "2026-07-30T16:00:00.000Z",
+      "sources": [
+        "Blog"
+      ],
+      "sourceNames": [
+        "Microsoft Research"
+      ],
+      "sourceCount": 1,
+      "age": "11 小时前",
+      "score": 75,
+      "tone": "green",
+      "evidence": [
+        {
+          "id": "123-1-https://www.microsoft.com/en-us/research/blog/evolib-turning-experience-into-evolving-knowledge/",
+          "sourceId": 123,
+          "sourceName": "Microsoft Research",
+          "sourcePublisher": "Microsoft Research",
+          "sourceKind": "Blog",
+          "title": "EvoLib: Turning experience into evolving knowledge",
+          "url": "https://www.microsoft.com/en-us/research/blog/evolib-turning-experience-into-evolving-knowledge/",
+          "publishedAt": "2026-07-30T16:00:00.000Z",
+          "summary": "LLMs do not get smarter just by remembering more. EvoLib turns experience into evolving knowledge, taking reusable skills and insights that help models learn and adapt across tasks long after deployment. The post EvoLib: Turning experience into evolving knowledge appeared first on Microsoft Research .",
+          "fetchedAt": "2026-07-31T03:10:15.079Z",
+          "ref": "N1",
+          "role": "主张",
+          "takeaway": "Microsoft Research介绍EvoLib，称其把经验转化为可演化知识，从中形成可复用的技能与洞见，帮助模型在部署后跨任务学习和适应。"
+        }
+      ],
+      "references": [
+        {
+          "id": "123-1-https://www.microsoft.com/en-us/research/blog/evolib-turning-experience-into-evolving-knowledge/",
+          "sourceId": 123,
+          "sourceName": "Microsoft Research",
+          "sourcePublisher": "Microsoft Research",
+          "sourceKind": "Blog",
+          "title": "EvoLib: Turning experience into evolving knowledge",
+          "url": "https://www.microsoft.com/en-us/research/blog/evolib-turning-experience-into-evolving-knowledge/",
+          "publishedAt": "2026-07-30T16:00:00.000Z",
+          "summary": "LLMs do not get smarter just by remembering more. EvoLib turns experience into evolving knowledge, taking reusable skills and insights that help models learn and adapt across tasks long after deployment. The post EvoLib: Turning experience into evolving knowledge appeared first on Microsoft Research .",
+          "fetchedAt": "2026-07-31T03:10:15.079Z",
+          "ref": "N1"
+        }
+      ],
+      "feedBatchAt": "2026-07-31T03:10:15.079Z"
+    },
+    {
+      "id": 40,
+      "editorialBucket": "explore",
+      "category": "算力",
+      "eyebrow": "观点",
+      "title": "Project Silica难逃归档经济学",
+      "summary": "David Rosenthal以2021年存储介质数据审视Project Silica：玻璃的耐久性并不足以绕过磁带建立的低价门槛。",
+      "why": "云归档技术最终竞争的是完整生命周期成本；介质寿命若不能转化为迁移、设备和运维节省，优势难以兑现。",
+      "impact": "Project Silica的商业判断应从耐久性展示转向密度、写入吞吐、设备资本开支和规模化每GB成本。",
+      "shiftFrom": "以超长保存寿命定义优势",
+      "shiftTo": "以归档全周期经济性检验",
+      "crossValidation": "N2以出货量和收入数据建立介质成本比较，并据此评论Project Silica；这是专家单一来源，数据比值不等同于完整TCO。",
+      "article": {
+        "lead": "David Rosenthal对Microsoft Project Silica的审视，把问题从“玻璃能保存多久”拉回“归档每GB究竟值多少钱”。他列出的2021年介质数据表明，LTO磁带按出货量与收入计算的比值约为每GB 0.003美元。中心判断是：Silica必须击穿归档系统的经济门槛，而不只是证明玻璃耐久。",
+        "sections": [
+          {
+            "heading": "磁带设定了价格参照",
+            "body": "Rosenthal列出的2021年数据覆盖三类介质：Flash出货598 EB、收入686亿美元，对应约0.115美元/GB；硬盘为1,418 EB、280亿美元和0.020美元/GB；LTO磁带为59.2 EB、5.1亿美元和0.003美元/GB。该比值不是具体采购报价，却揭示冷数据介质面对的极低成本参照。"
+          },
+          {
+            "heading": "耐久性必须兑现为TCO",
+            "body": "Project Silica的玻璃介质即使能提供更长保存时间，也需要把这一特性转化为可量化的系统节省。真正影响云归档选择的变量包括写入设备、读取基础设施、介质密度、能耗、数据迁移周期和运维流程。若玻璃减少迁移和维护的收益不足以抵消设备与制造成本，寿命优势就难以成为商业优势。"
+          },
+          {
+            "heading": "一张表不能判定胜负",
+            "body": "最强的反证是，出货收入除以容量并非完整TCO，Flash、硬盘和LTO的市场结构与设备成本也不能直接互换。玻璃若能显著降低长期能耗、介质更换次数或多副本需求，初始每GB成本更高仍可能合理。因此，这组数据更适合作为Silica必须跨越的基准，而不是对项目可行性的终局判断。"
+          }
+        ],
+        "outlook": "能够验证这一判断的下一组数据很具体：Microsoft需要披露可用存储密度、批量写入吞吐、读取延迟、写入设备资本开支、制造良率和规模化介质成本。若这些指标连同减少迁移与能耗后的十年以上TCO接近或低于LTO，玻璃归档的经济反例才会成立。"
+      },
+      "validationType": "单一来源",
+      "publishedAt": "2026-07-30T15:00:00.000Z",
+      "updatedAt": "2026-07-30T15:00:00.000Z",
+      "sources": [
+        "Blog"
+      ],
+      "sourceNames": [
+        "David Rosenthal"
+      ],
+      "sourceCount": 1,
+      "age": "12 小时前",
+      "score": 62,
+      "tone": "orange",
+      "evidence": [
+        {
+          "id": "77-0-https://blog.dshr.org/feeds/9117303207456994361/comments/default",
+          "sourceId": 77,
+          "sourceName": "David Rosenthal",
+          "sourcePublisher": "David Rosenthal",
+          "sourceKind": "Blog",
+          "title": "Microsoft's Project Silica",
+          "url": "https://blog.dshr.org/feeds/9117303207456994361/comments/default",
+          "publishedAt": "2026-07-30T15:00:00.000Z",
+          "summary": "2021 Media Shipments Exabytes Revenue $/GB Flash 598 $68.6B $0.115 Hard Disk 1418 $28.0B $0.020 LTO Tape 59.2 $0.51B $0.003 I summed up my big picture view of archival media eight years ago in Archival Media: Not a Good Business . Whatever your choice of technology, the economics are brutal. This is a version of the table in that post, updated to 2021 and ag",
+          "fetchedAt": "2026-07-31T03:10:15.079Z",
+          "ref": "N2",
+          "role": "主张",
+          "takeaway": "David Rosenthal以2021年Flash、硬盘和LTO的出货量、收入及每GB比值讨论归档介质的严苛经济性，并据此审视Microsoft Project Silica。"
+        }
+      ],
+      "references": [
+        {
+          "id": "77-0-https://blog.dshr.org/feeds/9117303207456994361/comments/default",
+          "sourceId": 77,
+          "sourceName": "David Rosenthal",
+          "sourcePublisher": "David Rosenthal",
+          "sourceKind": "Blog",
+          "title": "Microsoft's Project Silica",
+          "url": "https://blog.dshr.org/feeds/9117303207456994361/comments/default",
+          "publishedAt": "2026-07-30T15:00:00.000Z",
+          "summary": "2021 Media Shipments Exabytes Revenue $/GB Flash 598 $68.6B $0.115 Hard Disk 1418 $28.0B $0.020 LTO Tape 59.2 $0.51B $0.003 I summed up my big picture view of archival media eight years ago in Archival Media: Not a Good Business . Whatever your choice of technology, the economics are brutal. This is a version of the table in that post, updated to 2021 and ag",
+          "fetchedAt": "2026-07-31T03:10:15.079Z",
+          "ref": "N2"
+        }
+      ],
+      "feedBatchAt": "2026-07-31T03:10:15.079Z"
+    },
     {
       "id": 37,
       "editorialBucket": "dynamic",
@@ -10019,6 +10173,76 @@
       "editorNote": "今日信息环境由智能体安全事件、AI coding 工具链分化、open-weight 模型竞争与算力下沉共同主导。",
       "signals": [
         {
+          "category": "Agents",
+          "eyebrow": "趋势变化",
+          "title": "EvoLib把代理经验提炼成知识",
+          "summary": "Microsoft Research公开EvoLib，尝试把LLM代理的历史经验转化为可复用、可演化并能跨任务迁移的技能与洞见。",
+          "why": "代理若能持续提炼经验，长期能力将不再只取决于模型更新、上下文长度或原始记忆检索。",
+          "impact": "这可能把代理记忆升级为部署后的学习层，但收益仍取决于迁移效果、维护成本与错误控制。",
+          "shiftFrom": "保存和检索原始经验",
+          "shiftTo": "提炼并演化可复用知识",
+          "crossValidation": "N1是Microsoft Research在扫描前一天发布的一手介绍，能确认EvoLib的目标与知识演化方向；目前属于单一来源。",
+          "article": {
+            "lead": "Microsoft Research于7月30日公开EvoLib，目标不是让LLM代理无限累积对话与任务轨迹，而是把经历提炼为可复用、可继续演化的技能和洞见。关键变化在于，部署后的学习被从“记住更多”改写为“更新知识”，让一次任务所得有机会迁移到后续不同任务。",
+            "sections": [
+              {
+                "heading": "记忆不等于学习",
+                "body": "EvoLib瞄准的是原始经验与可迁移知识之间的断层。Microsoft Research认为，单纯增加记忆不会自动使LLM变得更聪明；框架因此强调从经验中抽取能够重复利用的技能和洞见，并让这些知识随新任务继续变化。代理保存的对象由历史记录转向可操作的经验结构。"
+              },
+              {
+                "heading": "部署后多出一层能力",
+                "body": "如果这类知识能够稳定跨任务复用，代理系统便可能在不更换基础模型的情况下积累工作方法。对长期运行的coding、research或enterprise agents而言，价值不只是找回旧答案，而是减少重复探索，并把一次成功路径转化为后续workflow的起点。这是EvoLib相较普通记忆检索更重要的潜在增量。"
+              },
+              {
+                "heading": "演化也会放大错误",
+                "body": "最强的反例是，原始记忆虽然冗长，却更容易追溯；经过提炼和持续改写的知识一旦吸收错误经验，可能把局部失败传播到更多任务。因此，EvoLib能否成为可靠的学习层，不只取决于知识复用率，还取决于来源追踪、版本控制、冲突处理和回滚机制能否跟上知识演化。"
+              }
+            ],
+            "outlook": "下一步应观察EvoLib是否公开论文、代码和完整评测，并重点核对跨任务迁移成功率、相对原始记忆检索的token与延迟成本，以及知识反复更新后的错误累积率。独立复现若能在不同模型和任务上保持收益，才会支持其成为通用代理组件。"
+          },
+          "evidence": [
+            {
+              "role": "主张",
+              "takeaway": "Microsoft Research介绍EvoLib，称其把经验转化为可演化知识，从中形成可复用的技能与洞见，帮助模型在部署后跨任务学习和适应。"
+            }
+          ]
+        },
+        {
+          "category": "算力",
+          "eyebrow": "观点",
+          "title": "Project Silica难逃归档经济学",
+          "summary": "David Rosenthal以2021年存储介质数据审视Project Silica：玻璃的耐久性并不足以绕过磁带建立的低价门槛。",
+          "why": "云归档技术最终竞争的是完整生命周期成本；介质寿命若不能转化为迁移、设备和运维节省，优势难以兑现。",
+          "impact": "Project Silica的商业判断应从耐久性展示转向密度、写入吞吐、设备资本开支和规模化每GB成本。",
+          "shiftFrom": "以超长保存寿命定义优势",
+          "shiftTo": "以归档全周期经济性检验",
+          "crossValidation": "N2以出货量和收入数据建立介质成本比较，并据此评论Project Silica；这是专家单一来源，数据比值不等同于完整TCO。",
+          "article": {
+            "lead": "David Rosenthal对Microsoft Project Silica的审视，把问题从“玻璃能保存多久”拉回“归档每GB究竟值多少钱”。他列出的2021年介质数据表明，LTO磁带按出货量与收入计算的比值约为每GB 0.003美元。中心判断是：Silica必须击穿归档系统的经济门槛，而不只是证明玻璃耐久。",
+            "sections": [
+              {
+                "heading": "磁带设定了价格参照",
+                "body": "Rosenthal列出的2021年数据覆盖三类介质：Flash出货598 EB、收入686亿美元，对应约0.115美元/GB；硬盘为1,418 EB、280亿美元和0.020美元/GB；LTO磁带为59.2 EB、5.1亿美元和0.003美元/GB。该比值不是具体采购报价，却揭示冷数据介质面对的极低成本参照。"
+              },
+              {
+                "heading": "耐久性必须兑现为TCO",
+                "body": "Project Silica的玻璃介质即使能提供更长保存时间，也需要把这一特性转化为可量化的系统节省。真正影响云归档选择的变量包括写入设备、读取基础设施、介质密度、能耗、数据迁移周期和运维流程。若玻璃减少迁移和维护的收益不足以抵消设备与制造成本，寿命优势就难以成为商业优势。"
+              },
+              {
+                "heading": "一张表不能判定胜负",
+                "body": "最强的反证是，出货收入除以容量并非完整TCO，Flash、硬盘和LTO的市场结构与设备成本也不能直接互换。玻璃若能显著降低长期能耗、介质更换次数或多副本需求，初始每GB成本更高仍可能合理。因此，这组数据更适合作为Silica必须跨越的基准，而不是对项目可行性的终局判断。"
+              }
+            ],
+            "outlook": "能够验证这一判断的下一组数据很具体：Microsoft需要披露可用存储密度、批量写入吞吐、读取延迟、写入设备资本开支、制造良率和规模化介质成本。若这些指标连同减少迁移与能耗后的十年以上TCO接近或低于LTO，玻璃归档的经济反例才会成立。"
+          },
+          "evidence": [
+            {
+              "role": "主张",
+              "takeaway": "David Rosenthal以2021年Flash、硬盘和LTO的出货量、收入及每GB比值讨论归档介质的严苛经济性，并据此审视Microsoft Project Silica。"
+            }
+          ]
+        },
+        {
           "category": "AI & 模型",
           "eyebrow": "产品信号",
           "title": "GPT-5.6重画模型价格曲线",
@@ -14191,6 +14415,76 @@
     "en": {
       "editorNote": "Today’s information environment is being shaped by agent security incidents, a split in coding-agent toolchains, open-model competition, and compute moving closer to the edge.",
       "signals": [
+        {
+          "category": "Agents",
+          "eyebrow": "Trend shift",
+          "title": "EvoLib Turns Agent Experience Into Evolving Knowledge",
+          "summary": "Microsoft Research introduced EvoLib, an approach for converting an LLM agent's experience into reusable, evolving skills and insights that can transfer across tasks.",
+          "why": "If agents can continuously distill experience, their long-term capabilities may depend on more than model updates, context length, or raw memory retrieval.",
+          "impact": "The approach could turn agent memory into a post-deployment learning layer, provided that transfer gains outweigh maintenance costs and errors remain controllable.",
+          "shiftFrom": "Storing and retrieving raw experience",
+          "shiftTo": "Distilling and evolving reusable knowledge",
+          "crossValidation": "N1 is a first-party Microsoft Research post published one day before the scan. It establishes EvoLib's stated objective and knowledge-evolution approach; the evidence is currently single-source.",
+          "article": {
+            "lead": "Microsoft Research introduced EvoLib on July 30 as an alternative to endlessly accumulating conversations and task trajectories. The system is intended to distill experience into reusable skills and insights that can keep evolving. The important shift is from “remembering more” to “updating knowledge,” so that lessons from one task can potentially transfer to different tasks later.",
+            "sections": [
+              {
+                "heading": "Memory Is Not the Same as Learning",
+                "body": "EvoLib targets the gap between raw experience and transferable knowledge. Microsoft Research argues that adding more memories does not automatically make an LLM smarter. The framework instead emphasizes extracting reusable skills and insights from experience and allowing that knowledge to change as new tasks arrive. What the agent retains therefore moves from a historical record toward an operational structure of experience."
+              },
+              {
+                "heading": "A New Layer After Deployment",
+                "body": "If the resulting knowledge transfers reliably, an agent could accumulate working methods without replacing its underlying model. For long-running coding, research, or enterprise agents, the benefit would extend beyond retrieving an old answer: the system could avoid repeated exploration and use a previously successful path as the starting point for a new workflow. That is the more consequential potential gain over conventional memory retrieval."
+              },
+              {
+                "heading": "Evolution Can Propagate Errors",
+                "body": "The strongest countercase is that raw memories may be verbose but remain comparatively easy to audit. Once knowledge is distilled and repeatedly rewritten, a mistaken lesson could spread from one local failure into many later tasks. EvoLib's reliability will therefore depend not only on reuse rates, but also on provenance, versioning, conflict resolution, and rollback mechanisms that evolve alongside the knowledge itself."
+              }
+            ],
+            "outlook": "The next evidence should include a paper, code, and complete evaluations. Key tests are cross-task transfer rates, token and latency costs relative to raw memory retrieval, and error accumulation after repeated updates. Independent replication across models and task families would materially strengthen the case for EvoLib as a general-purpose agent component."
+          },
+          "evidence": [
+            {
+              "role": "Claim",
+              "takeaway": "Microsoft Research describes EvoLib as a way to turn experience into evolving knowledge, producing reusable skills and insights that help models learn and adapt"
+            }
+          ]
+        },
+        {
+          "category": "Cloud Infrastructure",
+          "eyebrow": "Viewpoint",
+          "title": "Project Silica Still Faces Archival Economics",
+          "summary": "David Rosenthal uses 2021 storage-media data to argue that glass durability alone does not let Project Silica escape the low-cost benchmark set by tape.",
+          "why": "Cloud archival systems ultimately compete on lifecycle cost. Longer media life matters only if it produces measurable savings in migration, equipment, and operations.",
+          "impact": "The commercial test for Project Silica should move from durability demonstrations to density, write throughput, equipment capex, and cost per gigabyte at scale.",
+          "shiftFrom": "Defining the advantage by longevity",
+          "shiftTo": "Testing full lifecycle economics",
+          "crossValidation": "N2 builds a media-cost comparison from shipment and revenue figures and applies it to Project Silica. It is a single expert source, and the ratios are not equivalent to full TCO.",
+          "article": {
+            "lead": "David Rosenthal's examination of Microsoft Project Silica moves the question from “How long can glass last?” to “What can archival storage afford to cost per gigabyte?” His 2021 media table puts LTO tape at roughly $0.003 per GB when revenue is divided by shipped capacity. The central claim is that Silica must clear the economics of archival systems, not merely demonstrate exceptional durability.",
+            "sections": [
+              {
+                "heading": "Tape Sets the Cost Reference",
+                "body": "Rosenthal lists three categories for 2021. Flash shipped 598 exabytes and generated $68.6 billion, equivalent to about $0.115 per GB. Hard drives shipped 1,418 exabytes on $28.0 billion, or $0.020 per GB. LTO tape shipped 59.2 exabytes on $510 million, or $0.003 per GB. These ratios are not procurement quotes, but they show the exceptionally low media-cost benchmark facing cold storage."
+              },
+              {
+                "heading": "Durability Must Convert Into TCO",
+                "body": "Even if Project Silica's glass media offers much longer retention, that property must produce quantifiable system savings. Relevant variables include writing equipment, reading infrastructure, media density, energy use, migration intervals, and operational processes. If lower migration and maintenance costs do not offset manufacturing and equipment expenses, superior longevity will not automatically become a commercial advantage."
+              },
+              {
+                "heading": "One Table Cannot Decide the Outcome",
+                "body": "The strongest counterargument is that revenue divided by shipped capacity is not full total cost of ownership, while flash, hard drives, and LTO have different market structures and equipment requirements. A glass system could justify a higher initial media cost if it materially reduces energy use, replacement cycles, or duplicate copies. The table is therefore best treated as the hurdle Silica must clear, not a final verdict on feasibility."
+              }
+            ],
+            "outlook": "The next decisive evidence is specific: usable storage density, bulk write throughput, read latency, writer capex, manufacturing yield, and media cost at commercial scale. If Microsoft can show that ten-year or longer TCO—including reduced migration and energy use—approaches or undercuts LTO, it would provide the strongest counterexample to the archival-economics thesis."
+          },
+          "evidence": [
+            {
+              "role": "Claim",
+              "takeaway": "David Rosenthal uses 2021 shipment, revenue, and per-gigabyte ratios for flash, hard drives, and LTO to frame the harsh economics facing archival media and Micr"
+            }
+          ]
+        },
         {
           "category": "AI & Models",
           "eyebrow": "Product Signal",
@@ -18365,11 +18659,11 @@
     "en": "gpt-5.6-sol"
   },
   "incremental": {
-    "lastAddedAt": "2026-07-31T03:07:59.282Z",
-    "lastScanAt": "2026-07-31T03:03:18.569Z",
+    "lastAddedAt": "2026-07-31T03:14:31.729Z",
+    "lastScanAt": "2026-07-31T03:10:15.079Z",
     "lastAddedCount": 2,
-    "lastUpdatedCount": 1,
-    "totalAppended": 30,
+    "lastUpdatedCount": 0,
+    "totalAppended": 32,
     "totalUpdated": 11
   },
   "exploreDepth": {
