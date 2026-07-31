@@ -114,6 +114,7 @@ button {
   color: #60625d;
   font-size: 13px;
   font-weight: 580;
+  text-decoration: none;
 }
 
 .nav-item:hover,
@@ -619,6 +620,7 @@ button {
 }
 
 .view-switch button,
+.view-switch a,
 .category-filters button {
   border: 0;
   background: transparent;
@@ -626,13 +628,16 @@ button {
   font-size: 9px;
 }
 
-.view-switch button {
+.view-switch button,
+.view-switch a {
   border-radius: 7px;
   padding: 7px 10px;
   color: #777873;
+  text-decoration: none;
 }
 
-.view-switch button.selected {
+.view-switch button.selected,
+.view-switch a.selected {
   background: var(--surface);
   box-shadow: 0 1px 4px rgba(39, 39, 35, 0.08);
   color: var(--ink);
@@ -754,7 +759,8 @@ button {
   gap: 9px;
 }
 
-.explore-more-cta button {
+.explore-more-cta button,
+.explore-more-cta a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -769,6 +775,7 @@ button {
   font-size: 12px;
   font-weight: 760;
   cursor: pointer;
+  text-decoration: none;
   transition:
     transform 160ms ease,
     background 160ms ease;
@@ -780,7 +787,8 @@ button {
   color: #f4efff;
 }
 
-.explore-more-cta button:hover {
+.explore-more-cta button:hover,
+.explore-more-cta a:hover {
   background: #fff;
   transform: translateY(-2px);
 }
@@ -790,7 +798,30 @@ button {
   color: #fff;
 }
 
-.explore-more-cta button i {
+.conversation-bridge-cta {
+  border-color: #44342e;
+  background:
+    radial-gradient(circle at 89% 4%, rgb(233 93 60 / 27%), transparent 38%),
+    radial-gradient(circle at 8% 100%, rgb(217 165 51 / 14%), transparent 34%),
+    linear-gradient(135deg, #191816 0%, #27211d 60%, #151b1a 100%);
+}
+
+.conversation-bridge-cta::before {
+  background: linear-gradient(180deg, #ff6a49, #dba83c);
+}
+
+.conversation-bridge-cta .explore-more-kicker {
+  color: #ef927a;
+}
+
+.conversation-bridge-cta button,
+.conversation-bridge-cta a {
+  background: #fff0e9;
+  color: #2b1c18;
+}
+
+.explore-more-cta button i,
+.explore-more-cta a i {
   font-size: 18px;
   font-style: normal;
   line-height: 1;
@@ -803,7 +834,8 @@ button {
     padding: 24px 22px;
   }
 
-  .explore-more-cta button {
+  .explore-more-cta button,
+  .explore-more-cta a {
     width: 100%;
   }
 

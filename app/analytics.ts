@@ -60,7 +60,14 @@ export function trackPageView({
   path: string;
   title: string;
   language: "zh" | "en";
-  contentType: "index" | "dynamic" | "explore" | "company";
+  contentType:
+    | "index"
+    | "dynamic"
+    | "explore"
+    | "company"
+    | "conversation"
+    | "conversations"
+    | "sources";
 }) {
   if (!initializeAnalytics()) {
     if (!analyticsAllowed()) return;
@@ -84,4 +91,3 @@ export function trackAnalyticsEvent(
   }
   window.gtag?.("event", eventName, parameters);
 }
-

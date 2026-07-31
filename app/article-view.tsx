@@ -106,6 +106,11 @@ export function ArticleView({
   const isExplore = kind === "explore";
   const isCompany = kind === "company";
   const isConversation = kind === "conversation";
+  const returnHref = isExplore
+    ? "/intelligence/explore/"
+    : isConversation
+      ? "/intelligence/conversations/"
+      : "/intelligence/";
   const article = signal.article ?? fallbackArticle(signal, locale);
   useEffect(() => {
     const previousTitle = document.title;
@@ -138,7 +143,7 @@ export function ArticleView({
       <header className="article-topbar">
         <a
           className="article-brand"
-          href="./"
+          href={returnHref}
           onClick={(event) => {
             event.preventDefault();
             onBack();
@@ -187,7 +192,7 @@ export function ArticleView({
       <article className="article-layout">
         <nav className="article-breadcrumb" aria-label={t("面包屑", "Breadcrumb")}>
           <a
-            href="./"
+            href={returnHref}
             onClick={(event) => {
               event.preventDefault();
               onBack();
@@ -386,7 +391,7 @@ export function ArticleView({
 
         <footer className="article-footer">
           <a
-            href="./"
+            href={returnHref}
             onClick={(event) => {
               event.preventDefault();
               onBack();

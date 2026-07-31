@@ -140,6 +140,37 @@ type Conversation = {
   };
 };
 
+type RadarView = "brief" | "explore" | "conversations";
+type AppSection = "radar" | "sources";
+
+const sectionPaths = {
+  brief: "/intelligence/",
+  explore: "/intelligence/explore/",
+  conversations: "/intelligence/conversations/",
+  sources: "/intelligence/sources/",
+} as const;
+
+function routeFromPathname(pathname: string): {
+  view: RadarView;
+  section: AppSection;
+} {
+  const normalized = pathname.replace(/\/+$/, "");
+  if (normalized.endsWith("/explore")) {
+    return { view: "explore", section: "radar" };
+  }
+  if (normalized.endsWith("/conversations")) {
+    return { view: "conversations", section: "radar" };
+  }
+  if (normalized.endsWith("/sources")) {
+    return { view: "brief", section: "sources" };
+  }
+  return { view: "brief", section: "radar" };
+}
+
+function pathForView(view: RadarView) {
+  return sectionPaths[view];
+}
+
 const signals = dailyRadar.signals as Signal[];
 const allDynamicSignals = signals.filter(
   (signal) => signal.editorialBucket === "dynamic",
@@ -219,6 +250,10 @@ function heatLabel(heat: SignalHeat, locale: "zh" | "en") {
 }
 
 export default function Home() {
+  const initialRoute =
+    typeof window === "undefined"
+      ? { view: "brief" as RadarView, section: "radar" as AppSection }
+      : routeFromPathname(window.location.pathname);
   const [locale, setLocale] = useState<"zh" | "en">("zh");
   const [activeCategory, setActiveCategory] = useState("全部");
   const [query, setQuery] = useState("");
@@ -229,10 +264,8 @@ export default function Home() {
     [],
   );
   const [saved, setSaved] = useState<number[]>([]);
-  const [view, setView] = useState<
-    "brief" | "explore" | "conversations"
-  >("brief");
-  const [section, setSection] = useState<"radar" | "sources">("radar");
+  const [view, setView] = useState<RadarView>(initialRoute.view);
+  const [section, setSection] = useState<AppSection>(initialRoute.section);
   const [notice, setNotice] = useState("");
   const [articleId, setArticleId] = useState<string | null>(null);
   const [routeReady, setRouteReady] = useState(false);
@@ -258,6 +291,26 @@ export default function Home() {
   }, [locale]);
 
   useEffect(() => {
+    if (articleId) return;
+    document.title =
+      section === "sources"
+        ? locale === "zh"
+          ? "信源库 — Signal Radar"
+          : "Sources — Signal Radar"
+        : view === "explore"
+          ? locale === "zh"
+            ? "探索 — Signal Radar"
+            : "Explore — Signal Radar"
+          : view === "conversations"
+            ? locale === "zh"
+              ? "精选对谈 — Signal Radar"
+              : "Conversations — Signal Radar"
+            : locale === "zh"
+              ? "Signal Radar — AI 科技投资情报雷达"
+              : "Signal Radar — AI, Tech & Investment Intelligence";
+  }, [articleId, locale, section, view]);
+
+  useEffect(() => {
     const refreshHeatClock = () => setHeatNow(new Date().toISOString());
     const initialTimer = window.setTimeout(refreshHeatClock, 0);
     const timer = window.setInterval(refreshHeatClock, 15 * 60 * 1_000);
@@ -279,14 +332,23 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    const readArticleId = () => {
+    const readLocation = () => {
+      const route = routeFromPathname(window.location.pathname);
       const value = new URLSearchParams(window.location.search).get("article");
+      setView(route.view);
+      setSection(route.section);
       setArticleId(value || null);
+      setActiveCategory("全部");
+      setQuery("");
+      setExpanded([]);
+      setExpandedExplore([]);
+      setExpandedCompany([]);
+      setExpandedConversation([]);
       setRouteReady(true);
     };
-    readArticleId();
-    window.addEventListener("popstate", readArticleId);
-    return () => window.removeEventListener("popstate", readArticleId);
+    readLocation();
+    window.addEventListener("popstate", readLocation);
+    return () => window.removeEventListener("popstate", readLocation);
   }, []);
 
   const localizedSignals = useMemo(
@@ -616,7 +678,11 @@ export default function Home() {
           ? "conversation"
           : dynamicArticle
             ? "dynamic"
-            : "index";
+            : section === "sources"
+              ? "sources"
+              : view === "brief"
+                ? "index"
+                : view;
     const title =
       activeArticle &&
       ("title" in activeArticle
@@ -624,9 +690,7 @@ export default function Home() {
         : "headline" in activeArticle
           ? activeArticle.headline
           : null);
-    const path = activeArticle
-      ? `/intelligence/?article=${encodeURIComponent(String(activeArticle.id))}`
-      : "/intelligence/";
+    const path = `${window.location.pathname}${window.location.search}`;
 
     if (lastTrackedPath.current === path) return;
     lastTrackedPath.current = path;
@@ -646,7 +710,14 @@ export default function Home() {
         language: locale,
       });
     }
-  }, [articleId, locale, routeReady, localizedConversations]);
+  }, [
+    articleId,
+    locale,
+    routeReady,
+    localizedConversations,
+    section,
+    view,
+  ]);
 
   const analysisTimeLabel = new Intl.DateTimeFormat(
     locale === "zh" ? "zh-CN" : "en-US",
@@ -746,12 +817,40 @@ export default function Home() {
     );
   }
 
-  function switchView(nextView: "brief" | "explore" | "conversations") {
-    setView(nextView);
+  function resetExpandedContent() {
+    setActiveCategory("全部");
+    setQuery("");
     setExpanded([]);
     setExpandedExplore([]);
     setExpandedCompany([]);
     setExpandedConversation([]);
+  }
+
+  function pushSectionPath(pathname: string) {
+    const url = new URL(window.location.href);
+    url.pathname = pathname;
+    url.search = "";
+    if (
+      window.location.pathname !== url.pathname ||
+      window.location.search !== url.search
+    ) {
+      window.history.pushState({}, "", url);
+    }
+    setArticleId(null);
+  }
+
+  function switchView(nextView: RadarView) {
+    resetExpandedContent();
+    setView(nextView);
+    setSection("radar");
+    pushSectionPath(pathForView(nextView));
+  }
+
+  function switchToSources() {
+    resetExpandedContent();
+    setSection("sources");
+    pushSectionPath(sectionPaths.sources);
+    window.scrollTo({ top: 0, behavior: "instant" });
   }
 
   function exploreMore() {
@@ -791,7 +890,7 @@ export default function Home() {
   function closeArticle() {
     const url = new URL(window.location.href);
     url.searchParams.delete("article");
-    window.history.pushState({}, "", url);
+    window.history.replaceState({}, "", url);
     setArticleId(null);
     window.scrollTo({ top: 0, behavior: "instant" });
   }
@@ -834,10 +933,7 @@ export default function Home() {
         generatedAt={conversations.generatedAt}
         kind="conversation"
         onLocaleChange={setLocale}
-        onBack={() => {
-          switchView("conversations");
-          closeArticle();
-        }}
+        onBack={closeArticle}
       />
     );
   }
@@ -869,10 +965,7 @@ export default function Home() {
         generatedAt={dailyRadar.generatedAt}
         kind="explore"
         onLocaleChange={setLocale}
-        onBack={() => {
-          switchView("explore");
-          closeArticle();
-        }}
+        onBack={closeArticle}
       />
     );
   }
@@ -941,53 +1034,53 @@ export default function Home() {
         </div>
 
         <nav className="side-nav" aria-label={t("主要导航", "Primary navigation")}>
-          <button
+          <a
             className={`nav-item ${section === "radar" && view === "brief" ? "active" : ""}`}
-            type="button"
-            onClick={() => {
-              setSection("radar");
+            href={sectionPaths.brief}
+            onClick={(event) => {
+              event.preventDefault();
               switchView("brief");
-              setActiveCategory("全部");
             }}
           >
             <span aria-hidden="true">⌁</span>
             {t("最新动态", "Latest Updates")}
             <span className="nav-count">{localizedDynamicSignals.length}</span>
-          </button>
-          <button
+          </a>
+          <a
             className={`nav-item ${section === "radar" && view === "explore" ? "active" : ""}`}
-            type="button"
-            onClick={() => {
-              setSection("radar");
+            href={sectionPaths.explore}
+            onClick={(event) => {
+              event.preventDefault();
               switchView("explore");
-              setActiveCategory("全部");
             }}
           >
             <span aria-hidden="true">◎</span>
             {t("探索", "Explore")}
             <span className="nav-count">{activeExploreSignals.length}</span>
-          </button>
-          <button
+          </a>
+          <a
             className={`nav-item ${section === "radar" && view === "conversations" ? "active" : ""}`}
-            type="button"
-            onClick={() => {
-              setSection("radar");
+            href={sectionPaths.conversations}
+            onClick={(event) => {
+              event.preventDefault();
               switchView("conversations");
-              setActiveCategory("全部");
             }}
           >
             <span aria-hidden="true">◌</span>
             {t("对话", "Conversations")}
             <span className="nav-count">{localizedConversations.length}</span>
-          </button>
-          <button
+          </a>
+          <a
             className={`nav-item ${section === "sources" ? "active" : ""}`}
-            type="button"
-            onClick={() => setSection("sources")}
+            href={sectionPaths.sources}
+            onClick={(event) => {
+              event.preventDefault();
+              switchToSources();
+            }}
           >
             <span aria-hidden="true">◇</span>
             {t("信源库", "Sources")}
-          </button>
+          </a>
           <button
             className="nav-item"
             type="button"
@@ -1335,36 +1428,36 @@ export default function Home() {
               className="view-switch"
               aria-label={t("内容视图", "Content view")}
             >
-              <button
-                type="button"
+              <a
                 className={view === "brief" ? "selected" : ""}
-                onClick={() => {
+                href={sectionPaths.brief}
+                onClick={(event) => {
+                  event.preventDefault();
                   switchView("brief");
-                  setActiveCategory("全部");
                 }}
               >
                 {t("最新动态", "Latest Updates")}
-              </button>
-              <button
-                type="button"
+              </a>
+              <a
                 className={view === "explore" ? "selected" : ""}
-                onClick={() => {
+                href={sectionPaths.explore}
+                onClick={(event) => {
+                  event.preventDefault();
                   switchView("explore");
-                  setActiveCategory("全部");
                 }}
               >
                 {t("探索", "Explore Feed")}
-              </button>
-              <button
-                type="button"
+              </a>
+              <a
                 className={view === "conversations" ? "selected" : ""}
-                onClick={() => {
+                href={sectionPaths.conversations}
+                onClick={(event) => {
+                  event.preventDefault();
                   switchView("conversations");
-                  setActiveCategory("全部");
                 }}
               >
                 {t("对话", "Conversations")}
-              </button>
+              </a>
             </div>
             <div
               className="category-filters"
@@ -2334,19 +2427,60 @@ export default function Home() {
                 </p>
               </div>
               <div className="explore-more-actions">
-                <button type="button" onClick={exploreMore}>
+                <a
+                  href={sectionPaths.explore}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    exploreMore();
+                  }}
+                >
                   <span>{t("探索更多", "Explore more")}</span>
                   <i aria-hidden="true">→</i>
-                </button>
-                <button
+                </a>
+                <a
                   className="conversation-more-button"
-                  type="button"
-                  onClick={conversationsMore}
+                  href={sectionPaths.conversations}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    conversationsMore();
+                  }}
                 >
-                  <span>{t("本周对话", "Conversations")}</span>
+                  <span>{t("精选对谈", "Conversations")}</span>
                   <i aria-hidden="true">→</i>
-                </button>
+                </a>
               </div>
+            </section>
+          )}
+
+          {view === "explore" && visibleExploreSignals.length > 0 && (
+            <section className="explore-more-cta conversation-bridge-cta explore-more-page-end">
+              <div>
+                <span className="explore-more-kicker">
+                  {t("观点之后", "BEYOND THE THESIS")}
+                </span>
+                <h3>
+                  {t(
+                    "看完我们的判断，再听一遍当事人如何思考",
+                    "You’ve read the thesis. Now hear how the people doing the work think.",
+                  )}
+                </h3>
+                <p>
+                  {t(
+                    "进入精选对谈，用几分钟读完本周高质量 interviews、podcasts 与长对话的核心论点。",
+                    "Open curated conversations and absorb the week’s best interviews, podcasts, and long-form discussions in minutes.",
+                  )}
+                </p>
+              </div>
+              <a
+                href={sectionPaths.conversations}
+                onClick={(event) => {
+                  event.preventDefault();
+                  conversationsMore();
+                }}
+              >
+                <span>{t("精选对谈", "Conversations")}</span>
+                <i aria-hidden="true">→</i>
+              </a>
             </section>
           )}
             </>
