@@ -1,4 +1,5 @@
 const HOUR_MS = 60 * 60 * 1_000;
+export const EXPLORE_EDITORIAL_FLOOR = 80;
 
 export type SignalHeatStage = "hot" | "warm" | "cooling" | "dormant";
 export type SignalHeatProfile = "dynamic" | "explore";
@@ -38,6 +39,14 @@ export type SignalHeat = {
 export type EditoriallyRankedSignal = SignalHeatInput & {
   heat: SignalHeat;
 };
+
+export function meetsExploreEditorialFloor(
+  signal: Pick<SignalHeatInput, "score" | "valueScore">,
+) {
+  const editorialScore = Number(signal.valueScore ?? signal.score ?? 0);
+  return Number.isFinite(editorialScore) &&
+    editorialScore >= EXPLORE_EDITORIAL_FLOOR;
+}
 
 function clamp(value: number, minimum: number, maximum: number) {
   return Math.max(minimum, Math.min(maximum, value));

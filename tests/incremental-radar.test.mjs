@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import {
   assertEditorialArticleQuality,
+  applyEditorialPublicationBar,
   assertSnapshotHealth,
   createBaselineState,
   hydrateEditorialResearchCandidates,
@@ -13,6 +14,7 @@ import {
   mergeFeedStories,
   nextState,
   qualifiesDynamicMateriality,
+  qualifiesExploreMateriality,
   selectEditorialResearchItems,
   selectIncrementalItems,
   validateFeedCoverage,
@@ -209,6 +211,72 @@ test("reserves dynamic for material signals with an editorial score of 82+", () 
       valueScore: 92,
     }),
     true,
+  );
+});
+
+test("keeps Explore as a scarce editorial layer with an 80-point hard floor", () => {
+  assert.equal(
+    qualifiesExploreMateriality({
+      bucket: "explore",
+      materiality: "substantive",
+      changedVariable: "代理记忆开始转化为可复用知识",
+      valueScore: 79,
+    }),
+    false,
+  );
+  assert.equal(
+    qualifiesExploreMateriality({
+      bucket: "explore",
+      materiality: "minor",
+      changedVariable: "新增一个小功能入口",
+      valueScore: 95,
+    }),
+    false,
+  );
+  assert.equal(
+    qualifiesExploreMateriality({
+      bucket: "explore",
+      materiality: "substantive",
+      changedVariable: "代理记忆开始转化为可复用知识",
+      valueScore: 84,
+    }),
+    true,
+  );
+});
+
+test("archives model-selected stories that miss both publication bars", () => {
+  const raw = applyEditorialPublicationBar({
+    feedStories: [
+      {
+        bucket: "explore",
+        materiality: "minor",
+        changedVariable: "新增普通设置项",
+        valueScore: 91,
+        signal: {
+          evidence: [{ ref: "N1" }, { ref: "N2" }],
+        },
+      },
+      {
+        bucket: "explore",
+        materiality: "substantive",
+        changedVariable: "推理成本改变模型路由选择",
+        valueScore: 86,
+        signal: {
+          evidence: [{ ref: "N3" }],
+        },
+      },
+    ],
+    ignored: [{ ref: "N4", reason: "归档：完全重复" }],
+  });
+
+  assert.equal(raw.feedStories.length, 1);
+  assert.deepEqual(
+    raw.ignored.map(({ ref, reason }) => [ref, reason]),
+    [
+      ["N4", "归档：完全重复"],
+      ["N1", "归档：未达到 Explore 编辑门槛"],
+      ["N2", "归档：未达到 Explore 编辑门槛"],
+    ],
   );
 });
 

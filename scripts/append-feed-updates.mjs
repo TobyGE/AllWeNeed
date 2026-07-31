@@ -32,6 +32,7 @@ const maxCandidateItems =
     ? Math.min(requestedCandidateItems, 24)
     : 8;
 const maxFeedStoriesPerRun = 24;
+const exploreEditorialFloor = 80;
 const maxGroundingItemsPerRun = Math.max(
   1,
   Math.min(
@@ -236,14 +237,15 @@ function buildPrompt({ candidates, radar, scannedSnapshot }) {
 - 每个 ref 必须且只能出现在一个 feedStory、existingUpdate 或 ignored 中。
 - bucket=dynamic 只用于已经发生的明确状态变化：发布、财报、监管、融资、产品上线、政策决定或有实质新证据的事件。必须有足够正文和可核验事实；官方一手来源可以单独成立。
 - dynamic 是稀缺的新闻席位，不是“值得知道”的同义词。只有以下变化可以进入：会改变公司经营或资本判断的财报/guidance/融资/M&A；已落地的监管或宏观决定；改变价格、可用范围、分发方式或产业采用的重大产品/模型发布；有明确影响范围的真实安全事件；或至少两条独立来源共同确认的行业状态转折。
-- 小版本、library/repository/demo、preview/alpha、单点技巧、孤立研究论文、单篇 Blog 观察、窄功能更新和一般知识，即使真实且有趣，也必须进入 explore；不得因为“刚发布”进入 dynamic。
-- bucket=explore 用于有清晰 thesis、二阶影响、跨界连接或值得持续验证的非共识判断。不能只是把单篇内容换句话复述。
+- 小版本、library/repository/demo、preview/alpha、单点技巧、孤立研究论文、单篇 Blog 观察、窄功能更新和一般知识不得因为“刚发布”进入 dynamic；如果也没有形成高价值 thesis，则直接 ignored，不能把 Explore 当作低质量内容的兜底区。
+- bucket=explore 是稀缺的第二编辑层，只用于有清晰 thesis、二阶影响、跨界连接或值得持续验证的非共识判断。必须写清“什么变量正在变化”、作用机制和可证伪的下一步，不能只是把单篇内容换句话复述。
+- Explore 的 valueScore 必须至少为 ${exploreEditorialFloor}，materiality 必须为 substantive 或 material，changedVariable 必须具体。低于门槛的“小知识”、普通教程、一般产品观察、营销发布、缺少机制的观点和仅靠措辞包装出的假设全部 ignored，并在 reason 前加“归档：未达到 Explore 编辑门槛”。
 - 内容单薄、题目党、未经验证的规模数字、过窄教程、个人随感、与 Radar 重点弱相关的条目放进 ignored，并在 reason 前加“归档：”。“已处理”不等于“必须发布”。
 - Radar 的核心范围是 AI、semiconductor、cloud infrastructure、developer tools、cybersecurity、robotics、frontier science、核心科技公司，以及直接影响这些领域的 Fed/监管/资本事件。“投资”只是观察角度，不是独立主题；普通消费、化工、地产、医药、传统制造公司的泛财报、荐股与行情内容必须 ignored，不能仅因出现“业绩、利润、融资、锂电”等词进入动态或探索。
 - “大佬持仓跟踪、主力资金、龙虎榜、特供、研报精选”等付费导流、荐股或营销包装一律 ignored，即使 grounding 能找到真实公司公告也不能转成稿件。
 - bucket=dynamic 的至少一条核心 evidence 必须是在本次扫描前 7 天内发布的新一手事实。旧公告被新快讯、回顾文章或营销内容重新提及时，不构成新事件；如果没有新的状态变化必须 ignored。旧资料只能作为新事件的背景证据。
 - valueScore 必须是 0–99 的绝对编辑价值分，不是第1、第2、第3的名次。综合评估：影响范围 30%、信息增量 25%、证据强度 25%、对 AI/科技/投资判断的可行动性 20%。同一批内容将按此分数从高到低排列。
-- dynamic 的 valueScore 必须至少为 82；低于 82 的有效内容应进入 explore，而不是为了凑数进入动态。priority/valueScore 只影响排序，不是丢弃内容的理由。
+- dynamic 的 valueScore 必须至少为 82；低于 82 的内容只有同时达到 Explore 的 ${exploreEditorialFloor} 分硬门槛与 thesis 标准时才能进入 explore，否则 ignored。宁缺毋滥，不为动态或 Explore 凑数。
 - 单一 Blog、YouTube、Newsletter、Fed 或 SEC 来源都允许收录，并标为“单一来源”；出现更多独立来源时再做 cross-validation。
 - 多条新增内容讲同一事件时合并成一篇稿件，逐项列出不同来源提供的事实或观点。
 - 若新增内容只是在佐证现有事件，或为现有事件补充了后续进展，放进 existingUpdates，追加“最新进展”和新 evidence；不得重写旧稿正文。只有出现可独立理解的新事件时才新建 feedStory。
@@ -1142,6 +1144,45 @@ export function qualifiesDynamicMateriality(event) {
   return true;
 }
 
+export function qualifiesExploreMateriality(event) {
+  const valueScore =
+    Number(event?.valueScore) || Number(event?.signal?.score) || 0;
+  const materiality = cleanText(event?.materiality).toLowerCase();
+  const changedVariable = cleanText(event?.changedVariable);
+  if (valueScore < exploreEditorialFloor) return false;
+  if (!["substantive", "material"].includes(materiality)) return false;
+  if (changedVariable.length < 8) return false;
+  return true;
+}
+
+export function applyEditorialPublicationBar(raw) {
+  const feedStories = [];
+  const autoIgnored = [];
+
+  for (const event of raw?.feedStories ?? []) {
+    const qualifiesAsDynamic =
+      event?.bucket === "dynamic" && qualifiesDynamicMateriality(event);
+    const qualifiesAsExplore = qualifiesExploreMateriality(event);
+    if (qualifiesAsDynamic || qualifiesAsExplore) {
+      feedStories.push(event);
+      continue;
+    }
+    for (const evidence of event?.signal?.evidence ?? []) {
+      if (!evidence?.ref) continue;
+      autoIgnored.push({
+        ref: evidence.ref,
+        reason: "归档：未达到 Explore 编辑门槛",
+      });
+    }
+  }
+
+  return {
+    ...raw,
+    feedStories,
+    ignored: [...(raw?.ignored ?? []), ...autoIgnored],
+  };
+}
+
 export function hydrateFeedStories({
   raw,
   candidates,
@@ -1179,6 +1220,11 @@ export function hydrateFeedStories({
       );
     }
     assertNoPrivateDiscoveryLeak(event, "feedStory");
+    const qualifiesAsDynamic =
+      event.bucket === "dynamic" && qualifiesDynamicMateriality(event);
+    if (!qualifiesAsDynamic && !qualifiesExploreMateriality(event)) {
+      continue;
+    }
     const titleKey = normalizeTitle(event.signal?.title);
     if (!titleKey || existingTitles.has(titleKey)) continue;
 
@@ -1205,10 +1251,7 @@ export function hydrateFeedStories({
     ) {
       continue;
     }
-    const editorialBucket =
-      event.bucket === "dynamic" && qualifiesDynamicMateriality(event)
-        ? "dynamic"
-        : "explore";
+    const editorialBucket = qualifiesAsDynamic ? "dynamic" : "explore";
 
     const metadata = evidenceMetadata(evidence);
     const newest = evidence
@@ -1748,7 +1791,7 @@ async function main() {
             `${editorialSkillInstructions}\n\nClassify every new source item exactly once. Publish only qualified dynamic events or substantive Explore theses; archive weak items. Write a centered source-backed article and return only valid JSON.`,
           reasoningEffort: "high",
         });
-        const raw = parseJsonOutput(output);
+        const raw = applyEditorialPublicationBar(parseJsonOutput(output));
         coverage = validateFeedCoverage(raw, candidates);
         hydratedStories = hydrateFeedStories({
           raw,

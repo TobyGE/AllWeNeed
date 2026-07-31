@@ -12,6 +12,7 @@ import {
   calculateSignalHeat,
   compareEditorialValue,
   compareSignalHeat,
+  meetsExploreEditorialFloor,
   type SignalHeat,
 } from "./signal-heat";
 import { getSourceKind, publicSourceCatalog } from "./source-catalog";
@@ -451,7 +452,11 @@ export default function Home() {
   }, [locale, localizedCuratedExploreSignals, localizedSignals]);
 
   const activeExploreSignals = useMemo(
-    () => localizedExploreSignals.filter((signal) => signal.heat.visible),
+    () =>
+      localizedExploreSignals.filter(
+        (signal) =>
+          meetsExploreEditorialFloor(signal) && signal.heat.visible,
+      ),
     [localizedExploreSignals],
   );
 

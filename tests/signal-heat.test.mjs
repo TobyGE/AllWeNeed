@@ -5,9 +5,18 @@ import {
   calculateSignalHeat,
   compareEditorialValue,
   compareSignalHeat,
+  EXPLORE_EDITORIAL_FLOOR,
+  meetsExploreEditorialFloor,
 } from "../app/signal-heat.ts";
 
 const publishedAt = "2026-07-01T12:00:00.000Z";
+
+test("requires an 80-point editorial score before Explore can be shown", () => {
+  assert.equal(EXPLORE_EDITORIAL_FLOOR, 80);
+  assert.equal(meetsExploreEditorialFloor({ valueScore: 79 }), false);
+  assert.equal(meetsExploreEditorialFloor({ valueScore: 80 }), true);
+  assert.equal(meetsExploreEditorialFloor({ score: 88 }), true);
+});
 
 test("retires a dynamic signal through heat decay instead of a list limit", () => {
   const signal = {

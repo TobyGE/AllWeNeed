@@ -516,6 +516,7 @@ test("removes all disposable starter preview code", async () => {
   assert.match(page, /signal-radar-locale/);
   assert.match(page, /href=\{`\?article=\$\{signal\.id\}`\}/);
   assert.match(page, /activeExploreArticle/);
+  assert.match(page, /meetsExploreEditorialFloor\(signal\)/);
   assert.match(page, /kind="explore"/);
   assert.match(page, /kind="company"/);
   assert.match(page, /function StoryLinkIcon/);
