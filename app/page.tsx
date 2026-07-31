@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import conversations from "../data/conversations.json";
 import dailyRadar from "../data/daily-radar.json";
 import snapshot from "../data/feed-snapshot.json";
 import {
@@ -105,6 +106,40 @@ type ExploreSignal = {
   evidence: SignalEvidence[];
 };
 
+type Conversation = {
+  id: string;
+  videoId: string;
+  sourceName: string;
+  sourceKind: string;
+  originalTitle: string;
+  url: string;
+  publishedAt: string;
+  durationMinutes: number;
+  guest: string;
+  categoryZh: string;
+  categoryEn: string;
+  titleZh: string;
+  titleEn: string;
+  dekZh: string;
+  dekEn: string;
+  whyListenZh: string;
+  whyListenEn: string;
+  takeawaysZh: string[];
+  takeawaysEn: string[];
+  counterpointZh: string;
+  counterpointEn: string;
+  articleZh: {
+    lead: string;
+    sections: Array<{ heading: string; body: string }>;
+    outlook: string;
+  };
+  articleEn: {
+    lead: string;
+    sections: Array<{ heading: string; body: string }>;
+    outlook: string;
+  };
+};
+
 const signals = dailyRadar.signals as Signal[];
 const allDynamicSignals = signals.filter(
   (signal) => signal.editorialBucket === "dynamic",
@@ -190,8 +225,13 @@ export default function Home() {
   const [expanded, setExpanded] = useState<number[]>([]);
   const [expandedExplore, setExpandedExplore] = useState<string[]>([]);
   const [expandedCompany, setExpandedCompany] = useState<string[]>([]);
+  const [expandedConversation, setExpandedConversation] = useState<string[]>(
+    [],
+  );
   const [saved, setSaved] = useState<number[]>([]);
-  const [view, setView] = useState<"brief" | "explore">("brief");
+  const [view, setView] = useState<
+    "brief" | "explore" | "conversations"
+  >("brief");
   const [section, setSection] = useState<"radar" | "sources">("radar");
   const [notice, setNotice] = useState("");
   const [articleId, setArticleId] = useState<string | null>(null);
@@ -508,6 +548,26 @@ export default function Home() {
       article: localizedItem.article ?? fallbackArticle,
     };
   });
+  const localizedConversations = useMemo(
+    () =>
+      (conversations.items as Conversation[]).map((item) => {
+        const isChinese = locale === "zh";
+        return {
+          ...item,
+          categoryKey: item.categoryZh,
+          category: isChinese ? item.categoryZh : item.categoryEn,
+          title: isChinese ? item.titleZh : item.titleEn,
+          dek: isChinese ? item.dekZh : item.dekEn,
+          whyListen: isChinese ? item.whyListenZh : item.whyListenEn,
+          takeaways: isChinese ? item.takeawaysZh : item.takeawaysEn,
+          counterpoint: isChinese
+            ? item.counterpointZh
+            : item.counterpointEn,
+          article: isChinese ? item.articleZh : item.articleEn,
+        };
+      }),
+    [locale],
+  );
   const trendSignals = useMemo(
     () =>
       activeExploreSignals
@@ -540,17 +600,23 @@ export default function Home() {
     const companyArticle = localizedCompanySignals.find(
       (signal) => signal.id === articleId,
     );
+    const conversationArticle = localizedConversations.find(
+      (item) => item.id === articleId,
+    );
     const dynamicArticle = localizedSignals.find(
       (signal) => String(signal.id) === articleId,
     );
-    const activeArticle = exploreArticle ?? companyArticle ?? dynamicArticle;
+    const activeArticle =
+      conversationArticle ?? exploreArticle ?? companyArticle ?? dynamicArticle;
     const contentType = exploreArticle
       ? "explore"
       : companyArticle
         ? "company"
-        : dynamicArticle
-          ? "dynamic"
-          : "index";
+        : conversationArticle
+          ? "conversation"
+          : dynamicArticle
+            ? "dynamic"
+            : "index";
     const title =
       activeArticle &&
       ("title" in activeArticle
@@ -580,7 +646,7 @@ export default function Home() {
         language: locale,
       });
     }
-  }, [articleId, locale, routeReady]);
+  }, [articleId, locale, routeReady, localizedConversations]);
 
   const analysisTimeLabel = new Intl.DateTimeFormat(
     locale === "zh" ? "zh-CN" : "en-US",
@@ -619,11 +685,27 @@ export default function Home() {
     });
   }, [activeCategory, activeExploreSignals, query]);
 
+  const visibleConversations = useMemo(() => {
+    const normalized = query.trim().toLowerCase();
+    return localizedConversations.filter((item) => {
+      const matchesCategory =
+        activeCategory === "全部" || item.categoryKey === activeCategory;
+      const matchesQuery =
+        !normalized ||
+        `${item.title} ${item.dek} ${item.guest} ${item.sourceName} ${item.originalTitle}`
+          .toLowerCase()
+          .includes(normalized);
+      return matchesCategory && matchesQuery;
+    });
+  }, [activeCategory, localizedConversations, query]);
+
   const activeCategories = useMemo(() => {
     const displayItems =
       view === "explore"
         ? activeExploreSignals
-        : localizedDynamicSignals;
+        : view === "conversations"
+          ? localizedConversations
+          : localizedDynamicSignals;
     const labels = new Map<string, string>();
     displayItems.forEach((item) => {
       labels.set(item.categoryKey, item.category);
@@ -632,7 +714,13 @@ export default function Home() {
       { value: "全部", label: t("全部", "All") },
       ...[...labels].map(([value, label]) => ({ value, label })),
     ];
-  }, [activeExploreSignals, locale, localizedDynamicSignals, view]);
+  }, [
+    activeExploreSignals,
+    locale,
+    localizedConversations,
+    localizedDynamicSignals,
+    view,
+  ]);
 
   function toggleExpanded(id: number) {
     setExpanded((items) =>
@@ -652,15 +740,29 @@ export default function Home() {
     );
   }
 
-  function switchView(nextView: "brief" | "explore") {
+  function toggleExpandedConversation(id: string) {
+    setExpandedConversation((items) =>
+      items.includes(id) ? items.filter((item) => item !== id) : [...items, id],
+    );
+  }
+
+  function switchView(nextView: "brief" | "explore" | "conversations") {
     setView(nextView);
     setExpanded([]);
     setExpandedExplore([]);
     setExpandedCompany([]);
+    setExpandedConversation([]);
   }
 
   function exploreMore() {
     switchView("explore");
+    window.requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+
+  function conversationsMore() {
+    switchView("conversations");
     window.requestAnimationFrame(() => {
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
@@ -692,6 +794,52 @@ export default function Home() {
     window.history.pushState({}, "", url);
     setArticleId(null);
     window.scrollTo({ top: 0, behavior: "instant" });
+  }
+
+  const activeConversationArticle = localizedConversations.find(
+    (item) => item.id === articleId,
+  );
+  if (activeConversationArticle) {
+    return (
+      <ArticleView
+        signal={{
+          id: activeConversationArticle.id,
+          publishedAt: activeConversationArticle.publishedAt,
+          originalTitle: activeConversationArticle.originalTitle,
+          guest: activeConversationArticle.guest,
+          durationMinutes: activeConversationArticle.durationMinutes,
+          category: activeConversationArticle.category,
+          eyebrow: t("本周精选", "WEEKLY PICK"),
+          title: activeConversationArticle.title,
+          summary: activeConversationArticle.dek,
+          why: activeConversationArticle.whyListen,
+          impact: activeConversationArticle.counterpoint,
+          crossValidation: activeConversationArticle.whyListen,
+          validationType: "单一来源",
+          sourceCount: 1,
+          article: activeConversationArticle.article,
+          evidence: [
+            {
+              sourceName: activeConversationArticle.sourceName,
+              sourceKind: activeConversationArticle.sourceKind,
+              title: activeConversationArticle.originalTitle,
+              url: activeConversationArticle.url,
+              publishedAt: activeConversationArticle.publishedAt,
+              role: t("完整节目", "Full conversation"),
+              takeaway: activeConversationArticle.whyListen,
+            },
+          ],
+        }}
+        locale={locale}
+        generatedAt={conversations.generatedAt}
+        kind="conversation"
+        onLocaleChange={setLocale}
+        onBack={() => {
+          switchView("conversations");
+          closeArticle();
+        }}
+      />
+    );
   }
 
   const activeExploreArticle = localizedExploreSignals.find(
@@ -820,6 +968,19 @@ export default function Home() {
             <span className="nav-count">{activeExploreSignals.length}</span>
           </button>
           <button
+            className={`nav-item ${section === "radar" && view === "conversations" ? "active" : ""}`}
+            type="button"
+            onClick={() => {
+              setSection("radar");
+              switchView("conversations");
+              setActiveCategory("全部");
+            }}
+          >
+            <span aria-hidden="true">◌</span>
+            {t("对话", "Conversations")}
+            <span className="nav-count">{localizedConversations.length}</span>
+          </button>
+          <button
             className={`nav-item ${section === "sources" ? "active" : ""}`}
             type="button"
             onClick={() => setSection("sources")}
@@ -934,10 +1095,17 @@ export default function Home() {
               <input
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
-                placeholder={t(
-                  "搜索事件、公司、人物或主题",
-                  "Search events, companies, people, or topics",
-                )}
+                placeholder={
+                  view === "conversations"
+                    ? t(
+                        "搜索节目、嘉宾或主题",
+                        "Search shows, guests, or topics",
+                      )
+                    : t(
+                        "搜索事件、公司、人物或主题",
+                        "Search events, companies, people, or topics",
+                      )
+                }
                 aria-label={t("搜索情报", "Search intelligence")}
               />
               <kbd>⌘ K</kbd>
@@ -1018,10 +1186,15 @@ export default function Home() {
           <section className="page-intro">
             <div>
               <p className="date-line">
-                {t(
-                  `持续更新 · 最近更新 ${analysisTimeLabel}`,
-                  `Continuous feed · Updated ${analysisTimeLabel}`,
-                )}
+                {view === "conversations"
+                  ? t(
+                      "本周精选 · 基于完整公开字幕整理",
+                      "This week’s picks · Edited from full public transcripts",
+                    )
+                  : t(
+                      `持续更新 · 最近更新 ${analysisTimeLabel}`,
+                      `Continuous feed · Updated ${analysisTimeLabel}`,
+                    )}
               </p>
               <h1>
                 {view === "brief" ? (
@@ -1040,7 +1213,7 @@ export default function Home() {
                       </>
                     )}
                   </>
-                ) : (
+                ) : view === "explore" ? (
                   <>
                     {t("去共识之外，", "Look beyond consensus.")}
                     <br />
@@ -1055,6 +1228,22 @@ export default function Home() {
                       </>
                     )}
                   </>
+                ) : (
+                  <>
+                    {t("值得听的长对话，", "The week’s best conversations,")}
+                    <br />
+                    {locale === "zh" ? (
+                      <>
+                        已压缩成{" "}
+                        <span>{localizedConversations.length} 份精读</span>
+                      </>
+                    ) : (
+                      <>
+                        distilled into{" "}
+                        <span>{localizedConversations.length} sharp notes</span>
+                      </>
+                    )}
+                  </>
                 )}
               </h1>
               <p className="intro-copy">
@@ -1065,11 +1254,18 @@ export default function Home() {
                       "Distilling a fragmented information landscape into a small set of consequential shifts—where facts, consensus, and inflection points resolve into one coherent view.",
                     )}
                   </>
-                ) : (
+                ) : view === "explore" ? (
                   <>
                     {t(
                       "在共识尚未成形之处，辨认结构性张力、隐性因果，以及足以重估未来的微弱先兆。",
                       "Mapping the terrain before consensus forms: structural tensions, hidden causal chains, and faint signals capable of repricing the future.",
+                    )}
+                  </>
+                ) : (
+                  <>
+                    {t(
+                      "跳过冗长铺垫，直接进入受访者的核心判断、论证细节与最强反方；想深入时，再回到完整节目。",
+                      "Skip the long runway and go straight to each speaker’s central claim, supporting detail, and strongest counterpoint—then return to the full program when it earns your time.",
                     )}
                   </>
                 )}
@@ -1080,16 +1276,20 @@ export default function Home() {
                 <span className="score-ring">
                   {view === "brief"
                     ? dailyRadar.signalQuality
-                    : new Set(
-                        activeExploreSignals.map(
-                          (signal) => signal.categoryKey,
-                        ),
-                      ).size}
+                    : view === "explore"
+                      ? new Set(
+                          activeExploreSignals.map(
+                            (signal) => signal.categoryKey,
+                          ),
+                        ).size
+                      : localizedConversations.length}
                 </span>
                 <span>
                   {view === "brief"
                     ? t("当前信号质量", "Current Signal Quality")
-                    : t("探索主题覆盖", "Explore Coverage")}
+                    : view === "explore"
+                      ? t("探索主题覆盖", "Explore Coverage")
+                      : t("本周对话精选", "Weekly Conversation Picks")}
                   <small>
                     {view === "brief"
                       ? t(
@@ -1100,10 +1300,15 @@ export default function Home() {
                             dailyRadar.signalQualityChange >= 0 ? "above" : "below"
                           } baseline`,
                         )
-                      : t(
-                          `${activeExploreSignals.length} 个持续追踪方向`,
-                          `${activeExploreSignals.length} ongoing directions`,
-                        )}
+                      : view === "explore"
+                        ? t(
+                            `${activeExploreSignals.length} 个持续追踪方向`,
+                            `${activeExploreSignals.length} ongoing directions`,
+                          )
+                        : t(
+                            `${localizedConversations.length} 份完整字幕精读`,
+                            `${localizedConversations.length} full-transcript reads`,
+                          )}
                   </small>
                 </span>
               </div>
@@ -1111,7 +1316,14 @@ export default function Home() {
                 className="source-stack"
                 aria-label={t("已覆盖平台", "Platforms covered")}
               >
-                {(view === "brief" ? coveredKinds : exploreKinds).map((kind) => (
+                {(view === "brief"
+                  ? coveredKinds
+                  : view === "explore"
+                    ? exploreKinds
+                    : locale === "zh"
+                      ? ["访谈", "Podcast", "长对话"]
+                      : ["Interviews", "Podcasts", "Long-form"]
+                ).map((kind) => (
                   <span key={kind}>{shortKind(kind, locale)}</span>
                 ))}
               </div>
@@ -1143,6 +1355,16 @@ export default function Home() {
               >
                 {t("探索", "Explore Feed")}
               </button>
+              <button
+                type="button"
+                className={view === "conversations" ? "selected" : ""}
+                onClick={() => {
+                  switchView("conversations");
+                  setActiveCategory("全部");
+                }}
+              >
+                {t("对话", "Conversations")}
+              </button>
             </div>
             <div
               className="category-filters"
@@ -1165,7 +1387,11 @@ export default function Home() {
 
           <div
             className={`dashboard-grid ${
-              view === "explore" ? "explore-layout" : ""
+              view === "explore"
+                ? "explore-layout"
+                : view === "conversations"
+                  ? "conversation-layout"
+                  : ""
             }`}
           >
             <section className="feed-column">
@@ -1174,12 +1400,19 @@ export default function Home() {
                   <span className="section-kicker">
                     {view === "brief"
                       ? t("持续更新", "LIVE FEED")
-                      : t("探索发现", "DISCOVERY FEED")}
+                      : view === "explore"
+                        ? t("探索发现", "DISCOVERY FEED")
+                        : t("本周精选", "THIS WEEK’S PICKS")}
                   </span>
                   <h2>
                     {view === "brief"
                       ? t("最新信号", "Latest Signals")
-                      : t("为你发现的高信号内容", "High-Signal Discoveries")}
+                      : view === "explore"
+                        ? t(
+                            "为你发现的高信号内容",
+                            "High-Signal Discoveries",
+                          )
+                        : t("本周值得听什么", "What’s worth listening to")}
                   </h2>
                 </div>
                 <span className="result-count">
@@ -1188,10 +1421,15 @@ export default function Home() {
                         `${visibleSignals.length} 个事件簇`,
                         `${visibleSignals.length} event clusters`,
                       )
-                    : t(
-                        `${visibleExploreSignals.length} 个探索方向`,
-                        `${visibleExploreSignals.length} directions`,
-                      )}
+                    : view === "explore"
+                      ? t(
+                          `${visibleExploreSignals.length} 个探索方向`,
+                          `${visibleExploreSignals.length} directions`,
+                        )
+                      : t(
+                          `${visibleConversations.length} 期精选`,
+                          `${visibleConversations.length} selected`,
+                        )}
                 </span>
               </div>
 
@@ -1437,7 +1675,7 @@ export default function Home() {
                 )}
 
               </div>
-              ) : (
+              ) : view === "explore" ? (
                 <div className="explore-grid">
                   {visibleExploreSignals.map((signal, index) => {
                     const isExpanded = expandedExplore.includes(signal.id);
@@ -1580,6 +1818,152 @@ export default function Home() {
                         {t(
                           "换一个主题或清除筛选。",
                           "Try another topic or clear the filters.",
+                        )}
+                      </p>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setQuery("");
+                          setActiveCategory("全部");
+                        }}
+                      >
+                        {t("清除筛选", "Clear filters")}
+                      </button>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <div className="conversation-grid">
+                  {visibleConversations.map((item, index) => {
+                    const isExpanded = expandedConversation.includes(item.id);
+                    const publishedLabel = new Intl.DateTimeFormat(
+                      locale === "zh" ? "zh-CN" : "en-US",
+                      {
+                        month: "short",
+                        day: "numeric",
+                        timeZone: "America/New_York",
+                      },
+                    ).format(new Date(item.publishedAt));
+                    return (
+                      <article
+                        className={`conversation-card ${
+                          index === 0 ? "conversation-featured" : ""
+                        } ${isExpanded ? "conversation-expanded" : ""}`}
+                        key={item.id}
+                      >
+                        <div className="conversation-card-head">
+                          <span className="conversation-rank">
+                            {String(index + 1).padStart(2, "0")}
+                          </span>
+                          <span className="conversation-category">
+                            {item.category}
+                          </span>
+                          <span>{item.sourceName}</span>
+                          <span>·</span>
+                          <time dateTime={item.publishedAt}>{publishedLabel}</time>
+                          <span className="conversation-duration">
+                            {item.durationMinutes} min
+                          </span>
+                        </div>
+
+                        <h3>
+                          <a
+                            href={`?article=${item.id}`}
+                            onClick={(event) => {
+                              event.preventDefault();
+                              openArticle(item.id);
+                            }}
+                          >
+                            <span>{item.title}</span>
+                            <StoryLinkIcon />
+                          </a>
+                        </h3>
+                        <p className="conversation-dek">{item.dek}</p>
+                        <div className="conversation-speaker">
+                          <span>{t("对谈人", "WITH")}</span>
+                          <strong>{item.guest}</strong>
+                        </div>
+
+                        {isExpanded && (
+                          <div
+                            className="conversation-preview"
+                            id={`conversation-preview-${item.id}`}
+                          >
+                            <div className="conversation-why">
+                              <span>{t("为什么值得听", "WHY LISTEN")}</span>
+                              <p>{item.whyListen}</p>
+                            </div>
+                            <ol className="conversation-takeaways">
+                              {item.takeaways.map((takeaway, takeawayIndex) => (
+                                <li key={`${item.id}-${takeawayIndex}`}>
+                                  <span>0{takeawayIndex + 1}</span>
+                                  <p>{takeaway}</p>
+                                </li>
+                              ))}
+                            </ol>
+                            <div className="conversation-counterpoint">
+                              <span>
+                                {t(
+                                  "最值得保留的疑问",
+                                  "THE QUESTION TO KEEP OPEN",
+                                )}
+                              </span>
+                              <p>{item.counterpoint}</p>
+                            </div>
+                            <a
+                              className="conversation-original"
+                              href={item.url}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              <span>
+                                {t("打开完整节目", "Open full conversation")}
+                              </span>
+                              <i aria-hidden="true">↗</i>
+                            </a>
+                          </div>
+                        )}
+
+                        <footer className="conversation-card-actions">
+                          <button
+                            type="button"
+                            className="analysis-toggle"
+                            onClick={() => toggleExpandedConversation(item.id)}
+                            aria-expanded={isExpanded}
+                            aria-controls={`conversation-preview-${item.id}`}
+                          >
+                            {isExpanded
+                              ? t("收起", "Collapse")
+                              : t("预览", "Preview")}
+                          </button>
+                          <a
+                            href={`?article=${item.id}`}
+                            onClick={(event) => {
+                              event.preventDefault();
+                              openArticle(item.id);
+                            }}
+                          >
+                            {t("阅读精读", "Read notes")}
+                            <span aria-hidden="true">→</span>
+                          </a>
+                        </footer>
+                      </article>
+                    );
+                  })}
+
+                  {visibleConversations.length === 0 && (
+                    <div className="empty-state conversation-empty">
+                      <span>◌</span>
+                      <strong>
+                        {t(
+                          "没有找到匹配的对话",
+                          "No matching conversations",
+                        )}
+                      </strong>
+                      <p>
+                        {t(
+                          "换一个主题、嘉宾或节目名称。",
+                          "Try another topic, guest, or show.",
                         )}
                       </p>
                       <button
@@ -1904,16 +2288,28 @@ export default function Home() {
           <footer className="footer">
             <span>
               <i className="status-dot" />{" "}
-              {t(
-                `GPT 分析完成 · 基于 ${dailyRadar.analyzedItemCount} 条高相关内容`,
-                `GPT analysis complete · ${dailyRadar.analyzedItemCount} high-relevance items`,
-              )}
+              {view === "conversations"
+                ? t(
+                    `完整字幕精读完成 · 本周精选 ${localizedConversations.length} 期`,
+                    `Full-transcript review complete · ${localizedConversations.length} weekly picks`,
+                  )
+                : t(
+                    `GPT 分析完成 · 基于 ${dailyRadar.analyzedItemCount} 条高相关内容`,
+                    `GPT analysis complete · ${dailyRadar.analyzedItemCount} high-relevance items`,
+                  )}
             </span>
             <span>
-              {dailyRadar.model} ·{" "}
+              {view === "conversations"
+                ? conversations.model
+                : dailyRadar.model}{" "}
+              ·{" "}
               {t(
-                `最近更新 ${analysisTimeLabel}`,
-                `Updated ${analysisTimeLabel}`,
+                view === "conversations"
+                  ? "本周版本"
+                  : `最近更新 ${analysisTimeLabel}`,
+                view === "conversations"
+                  ? "This week’s edition"
+                  : `Updated ${analysisTimeLabel}`,
               )}
             </span>
           </footer>
@@ -1937,10 +2333,20 @@ export default function Home() {
                   )}
                 </p>
               </div>
-              <button type="button" onClick={exploreMore}>
-                <span>{t("探索更多", "Explore more")}</span>
-                <i aria-hidden="true">→</i>
-              </button>
+              <div className="explore-more-actions">
+                <button type="button" onClick={exploreMore}>
+                  <span>{t("探索更多", "Explore more")}</span>
+                  <i aria-hidden="true">→</i>
+                </button>
+                <button
+                  className="conversation-more-button"
+                  type="button"
+                  onClick={conversationsMore}
+                >
+                  <span>{t("本周对话", "Conversations")}</span>
+                  <i aria-hidden="true">→</i>
+                </button>
+              </div>
             </section>
           )}
             </>

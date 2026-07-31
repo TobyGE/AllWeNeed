@@ -23,6 +23,9 @@ export type ArticleSignal = {
   id: number | string;
   publishedAt?: string | null;
   updatedAt?: string | null;
+  originalTitle?: string;
+  guest?: string;
+  durationMinutes?: number;
   category: string;
   eyebrow: string;
   title: string;
@@ -95,13 +98,14 @@ export function ArticleView({
   signal: ArticleSignal;
   locale: Locale;
   generatedAt: string;
-  kind?: "brief" | "explore" | "company";
+  kind?: "brief" | "explore" | "company" | "conversation";
   onLocaleChange: (locale: Locale) => void;
   onBack: () => void;
 }) {
   const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
   const isExplore = kind === "explore";
   const isCompany = kind === "company";
+  const isConversation = kind === "conversation";
   const article = signal.article ?? fallbackArticle(signal, locale);
   useEffect(() => {
     const previousTitle = document.title;
@@ -173,7 +177,9 @@ export function ArticleView({
               ? t("EXPLORE 探索稿", "EXPLORE ESSAY")
               : isCompany
                 ? t("CAPITAL 公司稿", "CAPITAL & COMPANY")
-                : t("RADAR 编辑稿", "RADAR EDITORIAL")}
+                : isConversation
+                  ? t("CONVERSATION 对话笔记", "CONVERSATION NOTES")
+                  : t("RADAR 编辑稿", "RADAR EDITORIAL")}
           </span>
         </div>
       </header>
@@ -191,7 +197,9 @@ export function ArticleView({
               ? t("探索", "Explore")
               : isCompany
                 ? t("投资与公司信号", "Investment & Company Signals")
-                : t("最新动态", "Latest Updates")}
+                : isConversation
+                  ? t("对话", "Conversations")
+                  : t("最新动态", "Latest Updates")}
           </a>
           <span>/</span>
           <span>{signal.category}</span>
@@ -206,23 +214,39 @@ export function ArticleView({
           <h1>{signal.title}</h1>
           <p className="article-lead">{article.lead}</p>
           <div className="article-meta">
-            <span>
-              {t(
-                `${signal.validationType} · ${signal.sourceCount} 个独立来源`,
-                `${signal.sourceCount} independent sources`,
-              )}
-            </span>
-            <span>
-              {isExplore
-                ? t(
-                    `探索置信度 · ${signal.confidence ?? "观察中"}`,
-                    `Explore confidence · ${signal.confidence ?? "Watching"}`,
-                  )
-                : `${t(
-                    isCompany ? "公司信号分" : "信号置信度",
-                    isCompany ? "Company signal score" : "Signal confidence",
-                  )} ${signal.score}/100`}
-            </span>
+            {isConversation ? (
+              <>
+                <span>{signal.guest}</span>
+                <span>
+                  {t(
+                    `约 ${signal.durationMinutes ?? 0} 分钟`,
+                    `About ${signal.durationMinutes ?? 0} min`,
+                  )}
+                </span>
+              </>
+            ) : (
+              <>
+                <span>
+                  {t(
+                    `${signal.validationType} · ${signal.sourceCount} 个独立来源`,
+                    `${signal.sourceCount} independent sources`,
+                  )}
+                </span>
+                <span>
+                  {isExplore
+                    ? t(
+                        `探索置信度 · ${signal.confidence ?? "观察中"}`,
+                        `Explore confidence · ${signal.confidence ?? "Watching"}`,
+                      )
+                    : `${t(
+                        isCompany ? "公司信号分" : "信号置信度",
+                        isCompany
+                          ? "Company signal score"
+                          : "Signal confidence",
+                      )} ${signal.score}/100`}
+                </span>
+              </>
+            )}
           </div>
         </header>
 
@@ -271,7 +295,9 @@ export function ArticleView({
               <h2>
                 {isExplore
                   ? t("接下来如何验证", "How to test this thesis")
-                  : t("接下来观察什么", "What to watch next")}
+                  : isConversation
+                    ? t("听完后继续看什么", "What to follow after listening")
+                    : t("接下来观察什么", "What to watch next")}
               </h2>
               <p>{article.outlook}</p>
             </section>
@@ -282,9 +308,13 @@ export function ArticleView({
                 {t(
                   isExplore
                     ? "本文是 Signal Radar 根据下列公开来源形成的探索性判断，不是已被证实的结论。事实、编辑推断与反方观点已分开；原始来源保留在文末，便于逐项核查。"
+                    : isConversation
+                      ? "本文由 Signal Radar 根据节目公开字幕压缩整理。它保留对谈的中心论点、关键细节与主要限制，不替代完整节目；原始视频保留在文末。"
                     : "本文由 Signal Radar 根据下列公开来源综合撰写。事实、来源共识与编辑推断已尽量分开；原始来源保留在文末，便于逐项核查。",
                   isExplore
                     ? "This is an exploratory thesis synthesized from the public sources below, not a settled conclusion. Facts, editorial inference, and counterarguments are separated, with originals preserved for verification."
+                    : isConversation
+                      ? "Signal Radar condensed this note from the program’s public transcript, preserving its central argument, key details, and principal limitation. It is a guide to—not a substitute for—the full conversation."
                     : "Signal Radar synthesized this article from the public sources below. Facts, source consensus, and editorial inference are separated where possible, with originals preserved for verification.",
                 )}
               </p>
@@ -298,13 +328,21 @@ export function ArticleView({
                   ? t("证据如何支撑判断", "HOW THE EVIDENCE CONNECTS")
                   : isCompany
                     ? t("公司判断的证据链", "EVIDENCE BEHIND THE COMPANY READ")
-                    : t("交叉验证结论", "CROSS-VALIDATION")}
+                    : isConversation
+                      ? t("为什么值得听", "WHY THIS IS WORTH YOUR TIME")
+                      : t("交叉验证结论", "CROSS-VALIDATION")}
               </span>
               <p>{signal.crossValidation}</p>
             </div>
             <div className="article-rail-stat">
-              <strong>{signal.sourceCount}</strong>
-              <span>{t("个独立来源支撑本文", "independent sources")}</span>
+              <strong>
+                {isConversation ? signal.durationMinutes : signal.sourceCount}
+              </strong>
+              <span>
+                {isConversation
+                  ? t("分钟完整对谈", "minutes of conversation")
+                  : t("个独立来源支撑本文", "independent sources")}
+              </span>
             </div>
           </aside>
         </div>
@@ -313,7 +351,11 @@ export function ArticleView({
           <div className="article-sources-heading">
             <div>
               <span>{t("原始材料", "SOURCE MATERIAL")}</span>
-              <h2>{t("这篇稿子基于什么", "What this article is based on")}</h2>
+              <h2>
+                {isConversation
+                  ? t("打开完整节目", "Open the full conversation")
+                  : t("这篇稿子基于什么", "What this article is based on")}
+              </h2>
             </div>
             <small>{t("点击打开原文", "Open original")}</small>
           </div>
@@ -355,7 +397,9 @@ export function ArticleView({
               ? t("返回探索", "Back to Explore")
               : isCompany
                 ? t("返回投资与公司信号", "Back to company signals")
-                : t("返回最新动态", "Back to latest updates")}
+                : isConversation
+                  ? t("返回对话", "Back to Conversations")
+                  : t("返回最新动态", "Back to latest updates")}
           </a>
           <span>Signal Radar · {dateLabel}</span>
         </footer>

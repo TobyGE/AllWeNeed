@@ -133,6 +133,7 @@ test("removes all disposable starter preview code", async () => {
     radar,
     sourceCatalog,
     articleView,
+    conversations,
     exploreArticleScript,
     fetchScript,
     analyzeScript,
@@ -147,6 +148,7 @@ test("removes all disposable starter preview code", async () => {
     readFile(new URL("../data/daily-radar.json", import.meta.url), "utf8"),
     readFile(new URL("../app/source-catalog.ts", import.meta.url), "utf8"),
     readFile(new URL("../app/article-view.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../data/conversations.json", import.meta.url), "utf8"),
     readFile(
       new URL("../scripts/expand-explore-articles.mjs", import.meta.url),
       "utf8",
@@ -519,9 +521,28 @@ test("removes all disposable starter preview code", async () => {
   assert.match(page, /meetsExploreEditorialFloor\(signal\)/);
   assert.match(page, /kind="explore"/);
   assert.match(page, /kind="company"/);
+  assert.match(page, /kind="conversation"/);
   assert.match(page, /function StoryLinkIcon/);
   assert.doesNotMatch(page, /permanent-badge/);
-  assert.equal(page.match(/<StoryLinkIcon \/>/g)?.length, 3);
+  assert.equal(page.match(/<StoryLinkIcon \/>/g)?.length, 4);
+  assert.match(page, /conversation-grid/);
+  assert.match(page, /function toggleExpandedConversation/);
+  assert.match(page, /function conversationsMore/);
+  assert.match(page, /t\("本周对话", "Conversations"\)/);
+  const conversationData = JSON.parse(conversations);
+  assert.equal(conversationData.items.length, 20);
+  assert.ok(
+    conversationData.items.every(
+      (item) =>
+        item.url.startsWith("https://www.youtube.com/watch") &&
+        item.titleZh &&
+        item.titleEn &&
+        item.takeawaysZh?.length === 3 &&
+        item.takeawaysEn?.length === 3 &&
+        item.articleZh?.sections?.length === 3 &&
+        item.articleEn?.sections?.length === 3,
+    ),
+  );
   assert.match(
     page,
     /const \[expanded, setExpanded\] = useState<number\[]>\(\[\]\)/,
@@ -534,6 +555,7 @@ test("removes all disposable starter preview code", async () => {
     page,
     /const \[expandedCompany, setExpandedCompany\] = useState<string\[]>\(\[\]\)/,
   );
+  assert.match(page, /expandedConversation/);
   assert.match(page, /function toggleExpandedExplore/);
   assert.match(page, /function toggleExpandedCompany/);
   assert.match(page, /matchMedia\("\(max-width: 700px\)"\)/);
@@ -543,7 +565,8 @@ test("removes all disposable starter preview code", async () => {
   assert.doesNotMatch(page, /localizedDiscoveries/);
   assert.match(page, /id=\{`explore-preview-\$\{signal\.id\}`\}/);
   assert.match(page, /id=\{`company-preview-\$\{item\.id\}`\}/);
-  assert.equal(page.match(/t\("预览", "Preview"\)/g)?.length, 3);
+  assert.match(page, /id=\{`conversation-preview-\$\{item\.id\}`\}/);
+  assert.equal(page.match(/t\("预览", "Preview"\)/g)?.length, 4);
   assert.match(styles, /\.explore-card\.explore-featured\.explore-expanded/);
   assert.match(styles, /\.explore-card-actions \.analysis-toggle/);
   assert.match(articleView, /这篇稿子基于什么/);
