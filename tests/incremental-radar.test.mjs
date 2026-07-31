@@ -443,6 +443,83 @@ test("includes a single-source feed story without changing an old article", () =
   assert.equal(merged.translations.en.signals[1].title, "Old story");
 });
 
+test("rejects a new story when its evidence already belongs to an existing event", () => {
+  const candidates = [
+    {
+      ref: "N1",
+      id: "official-follow-up",
+      sourceId: 197,
+      sourceName: "Official Newsroom",
+      sourcePublisher: "Official Publisher",
+      sourceKind: "Blog",
+      title: "Investigating three real-world incidents",
+      summary: "The official follow-up confirms the same three incidents.",
+      url: "https://example.com/official-follow-up",
+      publishedAt: "2026-07-30T23:00:00.000Z",
+      fetchedAt: "2026-07-31T01:00:00.000Z",
+    },
+  ];
+  const raw = {
+    feedStories: [
+      {
+        bucket: "dynamic",
+        valueScore: 91,
+        signal: {
+          category: "Agents",
+          eyebrow: "风险预警",
+          title: "官方确认三起真实系统访问",
+          summary: "官方复盘确认三起事件。",
+          why: "这是重要的一手确认。",
+          impact: "评估平台需要收紧隔离。",
+          shiftFrom: "第三方转述",
+          shiftTo: "官方确认",
+          crossValidation: "官方一手来源。",
+          article: article("中文"),
+          evidence: [{ ref: "N1", role: "主张", takeaway: "官方确认。" }],
+        },
+        translation: {
+          category: "Agents",
+          eyebrow: "Risk alert",
+          title: "Official review confirms three real-system accesses",
+          summary: "The official review confirms the three incidents.",
+          why: "It is a material primary-source confirmation.",
+          impact: "Evaluators need tighter containment.",
+          shiftFrom: "Third-party reporting",
+          shiftTo: "Official confirmation",
+          crossValidation: "Official primary source.",
+          article: article("English"),
+          evidence: [{ role: "Claim", takeaway: "Official confirmation." }],
+        },
+      },
+    ],
+  };
+  const radar = {
+    signals: [
+      {
+        id: 1,
+        title: "已有事件",
+        evidence: [
+          {
+            title: "Investigating three real-world incidents",
+            url: "https://example.com/third-party-copy",
+          },
+        ],
+      },
+    ],
+  };
+
+  assert.throws(
+    () =>
+      hydrateFeedStories({
+        raw,
+        candidates,
+        radar,
+        generatedAt: "2026-07-31T01:00:00.000Z",
+      }),
+    /return it as an existingUpdate instead/,
+  );
+});
+
 test("requires every newly fetched ref to be included or explicitly ignored", () => {
   const candidates = [
     { ref: "N1", url: "https://example.com/one" },

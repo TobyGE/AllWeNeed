@@ -217,7 +217,15 @@ function buildPrompt({ candidates, radar, scannedSnapshot }) {
     .slice(0, 80)
     .map(
       (signal) =>
-        `id=${signal.id} | ${signal.title} | ${cleanText(signal.summary).slice(0, 120)}`,
+        `id=${signal.id} | ${signal.title} | ${cleanText(signal.summary).slice(0, 120)} | ` +
+        `updates=${(signal.updates ?? [])
+          .slice(0, 3)
+          .map((update) => cleanText(update.title))
+          .join("; ") || "none"} | ` +
+        `evidence=${(signal.evidence ?? [])
+          .slice(-4)
+          .map((evidence) => cleanText(evidence.title))
+          .join("; ") || "none"}`,
     )
     .join("\n");
   const compactItems = candidates
@@ -1206,6 +1214,14 @@ export function hydrateFeedStories({
   const existingTitles = new Set(
     radar.signals.map((signal) => normalizeTitle(signal.title)),
   );
+  const existingEvidenceTitles = new Map(
+    radar.signals.flatMap((signal) =>
+      (signal.evidence ?? [])
+        .map((evidence) => normalizeTitle(evidence.title))
+        .filter(Boolean)
+        .map((title) => [title, signal.id]),
+    ),
+  );
   const nextId = Math.max(
     0,
     ...radar.signals.map((signal) => Number(signal.id) || 0),
@@ -1244,6 +1260,16 @@ export function hydrateFeedStories({
       if (evidence.length === 8) break;
     }
     if (!evidence.length) continue;
+    const duplicateEvidence = evidence.find((item) =>
+      existingEvidenceTitles.has(normalizeTitle(item.title)),
+    );
+    if (duplicateEvidence) {
+      throw new Error(
+        `feedStory ${event.signal.title} repeats evidence already attached to signal ${existingEvidenceTitles.get(
+          normalizeTitle(duplicateEvidence.title),
+        )}; return it as an existingUpdate instead`,
+      );
+    }
     if (
       event.bucket === "dynamic" &&
       (!hasDirectRadarScope(evidence) ||
