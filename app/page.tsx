@@ -15,10 +15,9 @@ import {
 } from "./font-size-control";
 import {
   calculateSignalHeat,
-  comparePersonalizedEditorialValue,
+  compareExposureEditorialValue,
   compareSignalHeat,
   meetsExploreEditorialFloor,
-  type ReadHistoryEntry,
   type SignalHeat,
 } from "./signal-heat";
 import { getSourceKind, publicSourceCatalog } from "./source-catalog";
@@ -112,6 +111,7 @@ type ExploreSignal = {
 
 type Conversation = {
   id: string;
+  feedBatchAt?: string;
   videoId: string;
   sourceName: string;
   sourceKind: string;
@@ -148,43 +148,6 @@ type RadarView = "brief" | "explore" | "conversations";
 type AppSection = "radar" | "sources";
 
 type SiteSection = RadarView | "sources";
-
-type ReadHistory = Record<string, ReadHistoryEntry>;
-
-const READ_HISTORY_STORAGE_KEY = "all-we-need-read-history-v1";
-
-function articleReadKey(kind: "dynamic" | "explore", id: number | string) {
-  return `${kind}:${id}`;
-}
-
-function parseReadHistory(value: string | null): ReadHistory {
-  if (!value) return {};
-  try {
-    const parsed = JSON.parse(value) as Record<string, Partial<ReadHistoryEntry>>;
-    return Object.fromEntries(
-      Object.entries(parsed).filter(
-        ([, entry]) =>
-          typeof entry.lastViewedAt === "string" &&
-          Number.isFinite(Date.parse(entry.lastViewedAt)) &&
-          typeof entry.viewCount === "number" &&
-          entry.viewCount > 0,
-      ),
-    ) as ReadHistory;
-  } catch {
-    return {};
-  }
-}
-
-function limitReadHistory(history: ReadHistory) {
-  return Object.fromEntries(
-    Object.entries(history)
-      .sort(
-        ([, left], [, right]) =>
-          Date.parse(right.lastViewedAt) - Date.parse(left.lastViewedAt),
-      )
-      .slice(0, 500),
-  );
-}
 
 function basePathFromPathname(pathname: string) {
   return pathname === "/intelligence" || pathname.startsWith("/intelligence/")
@@ -305,11 +268,8 @@ export default function Home() {
   const [articleId, setArticleId] = useState<string | null>(null);
   const [routeReady, setRouteReady] = useState(false);
   const [heatNow, setHeatNow] = useState(dailyRadar.generatedAt);
-  const [readHistory, setReadHistory] = useState<ReadHistory>({});
-  const [readHistoryReady, setReadHistoryReady] = useState(false);
   const [mobileAnalysisInExplore, setMobileAnalysisInExplore] = useState(false);
   const lastTrackedPath = useRef<string | null>(null);
-  const lastMarkedRead = useRef<string | null>(null);
   const languageCopy = dailyRadar.translations[locale];
   const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
 
@@ -319,18 +279,6 @@ export default function Home() {
       if (storedLocale === "zh" || storedLocale === "en") {
         setLocale(storedLocale);
       }
-    }, 0);
-    return () => window.clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
-    const timer = window.setTimeout(() => {
-      setReadHistory(
-        parseReadHistory(
-          window.localStorage.getItem(READ_HISTORY_STORAGE_KEY),
-        ),
-      );
-      setReadHistoryReady(true);
     }, 0);
     return () => window.clearTimeout(timer);
   }, []);
@@ -478,29 +426,15 @@ export default function Home() {
           };
         })
         .sort((left, right) =>
-          comparePersonalizedEditorialValue(left, right, {
+          compareExposureEditorialValue(left, right, {
             profile:
               left.editorialBucket === "explore" &&
               right.editorialBucket === "explore"
                 ? "explore"
                 : "dynamic",
-            leftRead:
-              readHistory[
-                articleReadKey(
-                  left.editorialBucket === "explore" ? "explore" : "dynamic",
-                  left.id,
-                )
-              ],
-            rightRead:
-              readHistory[
-                articleReadKey(
-                  right.editorialBucket === "explore" ? "explore" : "dynamic",
-                  right.id,
-                )
-              ],
           }),
         ),
-    [heatNow, languageCopy, readHistory],
+    [heatNow, languageCopy],
   );
 
   const localizedDynamicSignals = useMemo(
@@ -639,18 +573,11 @@ export default function Home() {
         ),
     );
     return [...mergedStorySignals, ...deduplicatedCurated].sort((left, right) =>
-      comparePersonalizedEditorialValue(left, right, {
+      compareExposureEditorialValue(left, right, {
         profile: "explore",
-        leftRead: readHistory[articleReadKey("explore", left.id)],
-        rightRead: readHistory[articleReadKey("explore", right.id)],
       }),
     );
-  }, [
-    locale,
-    localizedCuratedExploreSignals,
-    localizedSignals,
-    readHistory,
-  ]);
+  }, [locale, localizedCuratedExploreSignals, localizedSignals]);
 
   const activeExploreSignals = useMemo(
     () =>
@@ -708,12 +635,23 @@ export default function Home() {
       article: localizedItem.article ?? fallbackArticle,
     };
   });
-  const localizedConversations = useMemo(
-    () =>
-      (conversations.items as Conversation[]).map((item) => {
+  const localizedConversations = useMemo(() => {
+    const localized = (conversations.items as Conversation[]).map(
+      (item, index) => {
         const isChinese = locale === "zh";
         return {
           ...item,
+          valueScore: Math.max(80, 94 - Math.floor(index / 2)),
+          heat: calculateSignalHeat(
+            {
+              ...item,
+              feedBatchAt: item.feedBatchAt ?? conversations.generatedAt,
+            },
+            {
+              now: heatNow,
+              profile: "explore",
+            },
+          ),
           categoryKey: item.categoryZh,
           category: isChinese ? item.categoryZh : item.categoryEn,
           title: isChinese ? item.titleZh : item.titleEn,
@@ -725,9 +663,14 @@ export default function Home() {
             : item.counterpointEn,
           article: isChinese ? item.articleZh : item.articleEn,
         };
+      },
+    );
+    return localized.sort((left, right) =>
+      compareExposureEditorialValue(left, right, {
+        profile: "explore",
       }),
-    [locale],
-  );
+    );
+  }, [heatNow, locale]);
   const trendSignals = useMemo(
     () =>
       activeExploreSignals
@@ -815,50 +758,6 @@ export default function Home() {
     localizedConversations,
     section,
     view,
-  ]);
-
-  useEffect(() => {
-    if (!routeReady || !readHistoryReady || !articleId) return;
-
-    const exploreArticle = localizedExploreSignals.find(
-      (signal) => signal.id === articleId,
-    );
-    const dynamicArticle = localizedSignals.find(
-      (signal) =>
-        signal.editorialBucket === "dynamic" &&
-        String(signal.id) === articleId,
-    );
-    const kind = exploreArticle ? "explore" : dynamicArticle ? "dynamic" : null;
-    const activeArticle = exploreArticle ?? dynamicArticle;
-    if (!kind || !activeArticle) return;
-
-    const key = articleReadKey(kind, activeArticle.id);
-    const activityVersion = activeArticle.heat.lastActivityAt;
-    const marker = `${key}:${activityVersion}`;
-    if (lastMarkedRead.current === marker) return;
-    lastMarkedRead.current = marker;
-
-    setReadHistory((current) => {
-      const previous = current[key];
-      const next = limitReadHistory({
-        ...current,
-        [key]: {
-          lastViewedAt: new Date().toISOString(),
-          viewCount: (previous?.viewCount ?? 0) + 1,
-        },
-      });
-      window.localStorage.setItem(
-        READ_HISTORY_STORAGE_KEY,
-        JSON.stringify(next),
-      );
-      return next;
-    });
-  }, [
-    articleId,
-    localizedExploreSignals,
-    localizedSignals,
-    readHistoryReady,
-    routeReady,
   ]);
 
   const analysisTimeLabel = new Intl.DateTimeFormat(

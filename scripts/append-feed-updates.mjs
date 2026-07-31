@@ -1349,6 +1349,7 @@ export function hydrateConversationItems({
         sourceKind: source.sourceKind,
         originalTitle: cleanText(source.title).slice(0, 500),
         url: source.url,
+        feedBatchAt: generatedAt,
         publishedAt: source.publishedAt ?? generatedAt,
         durationMinutes: Number(source.durationMinutes) || 0,
         ...text,
@@ -1374,7 +1375,12 @@ export function mergeConversationItems({
   model,
 }) {
   const seen = new Set();
-  const items = [...newItems, ...(conversations.items ?? [])].filter((item) => {
+  const existingItems = (conversations.items ?? []).map((item) => ({
+    ...item,
+    feedBatchAt:
+      item.feedBatchAt ?? conversations.generatedAt ?? generatedAt,
+  }));
+  const items = [...newItems, ...existingItems].filter((item) => {
     if (!item.url || seen.has(item.url)) return false;
     seen.add(item.url);
     return true;

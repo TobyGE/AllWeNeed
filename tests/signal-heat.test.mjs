@@ -4,13 +4,12 @@ import test from "node:test";
 import {
   calculateSignalHeat,
   compareEditorialValue,
+  compareExposureEditorialValue,
   compareExploreEditorialValue,
-  comparePersonalizedEditorialValue,
   compareSignalHeat,
   EXPLORE_EDITORIAL_FLOOR,
-  hasUnreadActivity,
+  exposureEditorialScore,
   meetsExploreEditorialFloor,
-  personalizedEditorialScore,
 } from "../app/signal-heat.ts";
 
 const publishedAt = "2026-07-01T12:00:00.000Z";
@@ -212,7 +211,7 @@ test("Explore freshness surfaces strong new theses without displacing major old 
   );
 });
 
-test("freshness decay gives a strong new story a limited discovery window", () => {
+test("system exposure freshness gives a story a 48-hour discovery window", () => {
   const now = "2026-07-10T12:00:00.000Z";
   const oldImportant = {
     score: 95,
@@ -228,11 +227,10 @@ test("freshness decay gives a strong new story a limited discovery window", () =
       { now, profile: "dynamic" },
     ),
   };
-
   assert.deepEqual(
     [oldImportant, newStrong]
       .sort((left, right) =>
-        comparePersonalizedEditorialValue(left, right, {
+        compareExposureEditorialValue(left, right, {
           profile: "dynamic",
         }),
       )
@@ -240,8 +238,8 @@ test("freshness decay gives a strong new story a limited discovery window", () =
     [83, 95],
   );
   assert.ok(
-    personalizedEditorialScore(newStrong, { profile: "dynamic" }) >
-      personalizedEditorialScore(oldImportant, { profile: "dynamic" }),
+    exposureEditorialScore(newStrong, { profile: "dynamic" }) >
+      exposureEditorialScore(oldImportant, { profile: "dynamic" }),
   );
 
   const outsideWindow = {
@@ -253,67 +251,41 @@ test("freshness decay gives a strong new story a limited discovery window", () =
   };
   assert.ok(outsideWindow.heat.ageHours > 48);
   assert.equal(
-    personalizedEditorialScore(outsideWindow, { profile: "dynamic" }),
+    exposureEditorialScore(outsideWindow, { profile: "dynamic" }),
     86,
   );
 });
 
-test("a read story is demoted until it receives newer evidence", () => {
+test("a system-published update restarts the 48-hour exposure window", () => {
   const now = "2026-07-10T12:00:00.000Z";
-  const previouslyRead = {
-    score: 95,
-    heat: calculateSignalHeat(
-      {
-        score: 95,
-        feedBatchAt: "2026-07-10T08:00:00.000Z",
-        updatedAt: "2026-07-10T09:00:00.000Z",
-      },
-      { now, profile: "dynamic" },
-    ),
-  };
-  const unread = {
+  const updated = {
     score: 84,
     heat: calculateSignalHeat(
-      { score: 84, feedBatchAt: "2026-07-10T10:00:00.000Z" },
-      { now, profile: "dynamic" },
-    ),
-  };
-  const readEntry = {
-    lastViewedAt: "2026-07-10T10:30:00.000Z",
-    viewCount: 1,
-  };
-
-  assert.equal(hasUnreadActivity(previouslyRead, readEntry), false);
-  assert.deepEqual(
-    [previouslyRead, unread]
-      .sort((left, right) =>
-        comparePersonalizedEditorialValue(left, right, {
-          profile: "dynamic",
-          leftRead: left === previouslyRead ? readEntry : undefined,
-          rightRead: right === previouslyRead ? readEntry : undefined,
-        }),
-      )
-      .map((item) => item.score),
-    [84, 95],
-  );
-
-  const updated = {
-    ...previouslyRead,
-    heat: calculateSignalHeat(
       {
-        score: 95,
-        feedBatchAt: "2026-07-10T08:00:00.000Z",
+        score: 84,
+        feedBatchAt: "2026-07-01T08:00:00.000Z",
         updatedAt: "2026-07-10T11:00:00.000Z",
       },
       { now, profile: "dynamic" },
     ),
   };
-  assert.equal(hasUnreadActivity(updated, readEntry), true);
-  assert.equal(
-    personalizedEditorialScore(updated, {
-      profile: "dynamic",
-      readEntry,
-    }),
-    personalizedEditorialScore(updated, { profile: "dynamic" }),
+  const stale = {
+    score: 90,
+    heat: calculateSignalHeat(
+      { score: 90, feedBatchAt: "2026-07-01T10:00:00.000Z" },
+      { now, profile: "dynamic" },
+    ),
+  };
+
+  assert.ok(updated.heat.ageHours <= 1);
+  assert.deepEqual(
+    [stale, updated]
+      .sort((left, right) =>
+        compareExposureEditorialValue(left, right, {
+          profile: "dynamic",
+        }),
+      )
+      .map((item) => item.score),
+    [84, 90],
   );
 });

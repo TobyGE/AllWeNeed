@@ -40,11 +40,6 @@ export type EditoriallyRankedSignal = SignalHeatInput & {
   heat: SignalHeat;
 };
 
-export type ReadHistoryEntry = {
-  lastViewedAt: string;
-  viewCount: number;
-};
-
 export function meetsExploreEditorialFloor(
   signal: Pick<SignalHeatInput, "score" | "valueScore">,
 ) {
@@ -192,43 +187,29 @@ export function compareEditorialValue(
 }
 
 function freshnessOpportunityBoost(
-  ageHours: number,
+  exposureAgeHours: number,
   profile: SignalHeatProfile,
 ) {
   if (profile === "dynamic") {
-    if (ageHours <= 2) return 16;
-    if (ageHours <= 8) return 13;
-    if (ageHours <= 24) return 10;
-    if (ageHours <= 48) return 5;
+    if (exposureAgeHours <= 2) return 16;
+    if (exposureAgeHours <= 8) return 13;
+    if (exposureAgeHours <= 24) return 10;
+    if (exposureAgeHours <= 48) return 5;
     return 0;
   }
 
-  if (ageHours <= 6) return 10;
-  if (ageHours <= 24) return 8;
-  if (ageHours <= 48) return 4;
+  if (exposureAgeHours <= 6) return 10;
+  if (exposureAgeHours <= 24) return 8;
+  if (exposureAgeHours <= 48) return 4;
   return 0;
 }
 
-export function hasUnreadActivity(
-  signal: EditoriallyRankedSignal,
-  readEntry?: ReadHistoryEntry,
-) {
-  if (!readEntry) return true;
-  const viewedAt = Date.parse(readEntry.lastViewedAt);
-  const lastActivityAt = Date.parse(signal.heat.lastActivityAt);
-  if (!Number.isFinite(viewedAt)) return true;
-  if (!Number.isFinite(lastActivityAt)) return false;
-  return lastActivityAt > viewedAt;
-}
-
-export function personalizedEditorialScore(
+export function exposureEditorialScore(
   signal: EditoriallyRankedSignal,
   {
     profile,
-    readEntry,
   }: {
     profile: SignalHeatProfile;
-    readEntry?: ReadHistoryEntry;
   },
 ) {
   const editorialValue = Number(signal.valueScore ?? signal.score ?? 0);
@@ -236,34 +217,24 @@ export function personalizedEditorialScore(
     signal.heat.ageHours,
     profile,
   );
-  const readPenalty =
-    readEntry && !hasUnreadActivity(signal, readEntry)
-      ? 20 + Math.min(12, Math.max(0, readEntry.viewCount - 1) * 4)
-      : 0;
-  return editorialValue + freshnessBoost - readPenalty;
+  return editorialValue + freshnessBoost;
 }
 
-export function comparePersonalizedEditorialValue(
+export function compareExposureEditorialValue(
   left: EditoriallyRankedSignal,
   right: EditoriallyRankedSignal,
   {
     profile,
-    leftRead,
-    rightRead,
   }: {
     profile: SignalHeatProfile;
-    leftRead?: ReadHistoryEntry;
-    rightRead?: ReadHistoryEntry;
   },
 ) {
   const rankDifference =
-    personalizedEditorialScore(right, {
+    exposureEditorialScore(right, {
       profile,
-      readEntry: rightRead,
     }) -
-    personalizedEditorialScore(left, {
+    exposureEditorialScore(left, {
       profile,
-      readEntry: leftRead,
     });
   if (rankDifference !== 0) return rankDifference;
   return compareEditorialValue(left, right);

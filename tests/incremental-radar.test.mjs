@@ -304,6 +304,7 @@ test("accounts for every new conversation and hydrates a bilingual briefing", ()
   assert.equal(hydrated.length, 1);
   assert.equal(hydrated[0].durationMinutes, 101);
   assert.equal(hydrated[0].sourceKind, "Podcast");
+  assert.equal(hydrated[0].feedBatchAt, "2026-07-31T14:00:00.000Z");
   assert.equal(hydrated[0].takeawaysZh.length, 3);
 
   const merged = mergeConversationItems({
@@ -327,6 +328,10 @@ test("accounts for every new conversation and hydrates a bilingual briefing", ()
       "https://example.com/podcast/149",
       "https://example.com/podcast/old",
     ],
+  );
+  assert.equal(
+    merged.items[1].feedBatchAt,
+    "2026-07-24T00:00:00.000Z",
   );
   assert.equal(merged.model, "gpt-test");
 });

@@ -4,7 +4,7 @@ import test from "node:test";
 
 import {
   calculateSignalHeat,
-  comparePersonalizedEditorialValue,
+  compareExposureEditorialValue,
 } from "../app/signal-heat.ts";
 import {
   getSourceKind,
@@ -86,7 +86,7 @@ test("server-renders the All We Need product shell", async () => {
         signal.editorialBucket === "dynamic" && signal.heat.visible,
     )
     .sort((left, right) =>
-      comparePersonalizedEditorialValue(left, right, {
+      compareExposureEditorialValue(left, right, {
         profile: "dynamic",
       }),
     );
@@ -550,8 +550,8 @@ test("removes all disposable starter preview code", async () => {
   }
   assert.match(page, /explore-grid/);
   assert.match(page, /signal-radar-locale/);
-  assert.match(page, /all-we-need-read-history-v1/);
-  assert.match(page, /comparePersonalizedEditorialValue/);
+  assert.match(page, /compareExposureEditorialValue/);
+  assert.doesNotMatch(page, /all-we-need-read-history-v1/);
   assert.match(page, /href=\{`\?article=\$\{signal\.id\}`\}/);
   assert.match(page, /activeExploreArticle/);
   assert.match(page, /meetsExploreEditorialFloor\(signal\)/);
