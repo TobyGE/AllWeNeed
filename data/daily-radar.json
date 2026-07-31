@@ -1,13 +1,251 @@
 {
-  "generatedAt": "2026-07-31T20:14:11.311Z",
-  "basedOnSnapshotAt": "2026-07-31T20:06:38.941Z",
+  "generatedAt": "2026-07-31T23:36:54.489Z",
+  "basedOnSnapshotAt": "2026-07-31T23:27:17.279Z",
   "model": "gpt-5.5",
   "analyzedItemCount": 180,
-  "totalFetchedItemCount": 2222,
+  "totalFetchedItemCount": 2220,
   "editorNote": "今日信息环境由代理安全事件、编码代理工具链分化、开放模型竞争和算力下沉共同主导。",
   "signalQuality": 86,
   "signalQualityChange": 8,
   "signals": [
+    {
+      "id": 44,
+      "editorialBucket": "dynamic",
+      "category": "Agents",
+      "eyebrow": "产品信号",
+      "title": "MCP稳定版转向无状态架构",
+      "summary": "MCP 2026-07-28成为stable release，移除会话ID与初始化握手，新增发现和订阅机制；首批工具已按无状态模式上线。",
+      "why": "它改变Agent工具服务器的部署与扩展方式，也迫使客户端重新处理兼容、恢复和任务扩展。",
+      "impact": "若主流SDK跟进，MCP服务可更贴近无状态HTTP基础设施；双栈迁移则可能拖慢采用。",
+      "shiftFrom": "依赖会话ID与初始化握手",
+      "shiftTo": "无状态发现与订阅接口",
+      "crossValidation": "官方release与changelog确认稳定状态及协议差异；PyPI两项实现显示迁移已可运行，Simon Willison提供开发者视角，但不代表广泛采用。",
+      "article": {
+        "lead": "Model Context Protocol于7月28日把2026-07-28 revision转为stable release。新规范移除protocol-level sessions、Mcp-Session-Id和initialize handshake，新增发现与订阅接口。MCP由会话绑定转向更无状态的Agent集成层，部署方式与兼容边界因此改变。",
+        "sections": [
+          {
+            "heading": "协议中心被重写",
+            "body": "相较2025-11-25版，新规范用server/discover公开服务器能力，以subscriptions/listen承接更新，并引入MRTR；SSE resumability被移除，Tasks则退出核心规范、改为extension。设计中心由先建立并维护会话，转为先发现能力、再按请求交互。服务端有望减少会话状态协调，但客户端不能再假定旧握手和恢复语义继续存在。"
+          },
+          {
+            "heading": "首批工具验证迁移路径",
+            "body": "规范发布后，Simon Willison上线mcp-explorer 0.3，默认使用新stateless protocol，也保留--legacy检查旧initialize handshake。datasette-mcp 0.1a0则为任意Datasette instance增加/-/mcp端点，提供数据库列表、schema与只读SQL工具，并沿用原有可见性和execute-sql权限。两项实现证明迁移路径已经可运行，但仍只代表早期开发者采用。"
+          },
+          {
+            "heading": "扩展收益伴随兼容成本",
+            "body": "这次重构让MCP更贴近普通HTTP服务和横向扩展环境：服务器不再维护protocol-level session后，Agent工具有望更容易部署在短生命周期或多副本基础设施上。反面是迁移成本立即出现：依赖initialize、session ID或SSE恢复的旧客户端需要兼容层或双栈；Tasks降为extension也可能造成实现分化。现有证据尚不能证明主流客户端已经完成切换。"
+          }
+        ],
+        "outlook": "下一步应看主流MCP SDK、IDE和Agent平台何时把2026-07-28设为默认版本，并原生支持server/discover与subscriptions/listen。若legacy模式使用快速下降、跨实现互操作测试通过，无状态化将成为新基线；若客户端长期维持双栈，迁移收益会被兼容成本削弱。"
+      },
+      "validationType": "跨平台验证",
+      "publishedAt": "2026-07-31T23:13:22.000Z",
+      "updatedAt": "2026-07-31T23:13:22.000Z",
+      "sources": [
+        "Official",
+        "Regulator",
+        "Media",
+        "Blog"
+      ],
+      "sourceNames": [
+        "OpenSSL Library",
+        "National Vulnerability Database",
+        "BoringSSL",
+        "SecurityWeek",
+        "Simon Willison"
+      ],
+      "sourceCount": 5,
+      "age": "刚刚",
+      "score": 84,
+      "tone": "blue",
+      "evidence": [
+        {
+          "id": "research-154-9-https://xeiaso.net/shitposts/no-way-to-prevent-this/memory-safety/CVE-2026-45447/-1-https://openssl-library.org/news/secadv/20260609.txt",
+          "sourceId": 154,
+          "sourceName": "OpenSSL Library",
+          "sourcePublisher": "OpenSSL Library",
+          "sourceKind": "Official",
+          "title": "OpenSSL Security Advisory [9th June 2026]",
+          "url": "https://openssl-library.org/news/secadv/20260609.txt",
+          "publishedAt": "2026-06-09T00:00:00.000Z",
+          "summary": "官方安全公告确认 CVE-2026-45447 为 High severity，说明触发条件是特制 PKCS#7 或 S/MIME signed message 在 PKCS7_verify() 中导致 use-after-free；列出潜在影响为 crash、heap corruption 或部分上下文下远程代码执行，并给出受影响版本与升级目标版本。",
+          "fetchedAt": "2026-07-31T23:27:17.279Z",
+          "researchedFrom": "N8",
+          "researchRole": "Primary",
+          "researchClaim": "Xe Iaso 的文章是围绕 OpenSSL CVE-2026-45447 的讽刺性评论；可核验的核心事件是 OpenSSL 在 2026-06-09 发布安全公告，修复一个 High severity 的 PKCS7_verify() heap use-after-free，影响使用 OpenSSL PKCS#7 API 处理 PKCS#7 或 S/MIME 签名消息的应用，而不是所有安装了 OpenSSL 的系统。",
+          "researchComparisons": "OpenSSL 官方列出的受影响范围为 4.0.0<4.0.1、3.6.0<3.6.3、3.5.0<3.5.7、3.4.0<3.4.6、3.0.0<3.0.21、1.1.1<1.1.1zh、1.0.2<1.0.2zq；FIPS modules in 4.0/3.6/3.5/3.4/3.0 不受影响；CMS APIs 不受影响。NVD 页面显示 NVD 尚未给出自己的 CVSS，CISA-ADP 给出 CVSS 3.1 8.8 HIGH，Red Hat-SADP 给出 8.1 HIGH，反映评分口径存在差异。BoringSSL 明确称不受影响，因为相关代码在最初 fork 时已移除。SecurityWeek 报道称这次 OpenSSL 发布修复 18 个漏洞，CVE-2026-45447 是其中最严重的 High severity 漏洞。",
+          "researchUnresolved": "未找到 OpenSSL、NVD、CISA KEV 或主要厂商公告中对 CVE-2026-45447 已被在野利用的确认；是否存在公开可靠 PoC 或真实利用案例仍需单独跟踪。",
+          "ref": "R1",
+          "role": "主张",
+          "takeaway": "MCP官方确认2026-07-28 revision已从release candidate转为stable release，并发布正式规范与changelog。"
+        },
+        {
+          "id": "research-154-9-https://xeiaso.net/shitposts/no-way-to-prevent-this/memory-safety/CVE-2026-45447/-2-https://nvd.nist.gov/vuln/detail/CVE-2026-45447",
+          "sourceId": 154,
+          "sourceName": "National Vulnerability Database",
+          "sourcePublisher": "National Vulnerability Database",
+          "sourceKind": "Regulator",
+          "title": "NVD - CVE-2026-45447",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45447",
+          "publishedAt": "2026-06-09T00:00:00.000Z",
+          "summary": "补充可核验评分和枚举信息：NVD 尚未提供自身 CVSS，CISA-ADP 标为 CVSS 3.1 8.8 HIGH，Red Hat-SADP 标为 8.1 HIGH；弱点包含 CWE-416 Use After Free，并列出 OpenSSL 官方公告、补丁提交和 Red Hat references。",
+          "fetchedAt": "2026-07-31T23:27:17.279Z",
+          "researchedFrom": "N8",
+          "researchRole": "Comparison",
+          "researchClaim": "Xe Iaso 的文章是围绕 OpenSSL CVE-2026-45447 的讽刺性评论；可核验的核心事件是 OpenSSL 在 2026-06-09 发布安全公告，修复一个 High severity 的 PKCS7_verify() heap use-after-free，影响使用 OpenSSL PKCS#7 API 处理 PKCS#7 或 S/MIME 签名消息的应用，而不是所有安装了 OpenSSL 的系统。",
+          "researchComparisons": "OpenSSL 官方列出的受影响范围为 4.0.0<4.0.1、3.6.0<3.6.3、3.5.0<3.5.7、3.4.0<3.4.6、3.0.0<3.0.21、1.1.1<1.1.1zh、1.0.2<1.0.2zq；FIPS modules in 4.0/3.6/3.5/3.4/3.0 不受影响；CMS APIs 不受影响。NVD 页面显示 NVD 尚未给出自己的 CVSS，CISA-ADP 给出 CVSS 3.1 8.8 HIGH，Red Hat-SADP 给出 8.1 HIGH，反映评分口径存在差异。BoringSSL 明确称不受影响，因为相关代码在最初 fork 时已移除。SecurityWeek 报道称这次 OpenSSL 发布修复 18 个漏洞，CVE-2026-45447 是其中最严重的 High severity 漏洞。",
+          "researchUnresolved": "未找到 OpenSSL、NVD、CISA KEV 或主要厂商公告中对 CVE-2026-45447 已被在野利用的确认；是否存在公开可靠 PoC 或真实利用案例仍需单独跟踪。",
+          "ref": "R2",
+          "role": "主张",
+          "takeaway": "官方变更清单确认会话、初始化握手和SSE恢复语义被移除，同时新增发现、订阅与MRTR机制。"
+        },
+        {
+          "id": "research-154-9-https://xeiaso.net/shitposts/no-way-to-prevent-this/memory-safety/CVE-2026-45447/-3-https://boringssl.googlesource.com/boringssl.git/+/HEAD/docs/advisories/2026-06-09.md",
+          "sourceId": 154,
+          "sourceName": "BoringSSL",
+          "sourcePublisher": "BoringSSL",
+          "sourceKind": "Official",
+          "title": "OpenSSL Advisory: June 9th, 2026 (BoringSSL Not Affected)",
+          "url": "https://boringssl.googlesource.com/boringssl.git/+/HEAD/docs/advisories/2026-06-09.md",
+          "publishedAt": "2026-06-09T00:00:00.000Z",
+          "summary": "提供范围边界：BoringSSL 对 CVE-2026-45447 标注为 Not affected，原因是受影响代码在 BoringSSL 最初 fork 时已被移除；这支持文章避免把风险泛化为所有 OpenSSL 派生或 TLS 库。",
+          "fetchedAt": "2026-07-31T23:27:17.279Z",
+          "researchedFrom": "N8",
+          "researchRole": "Counterevidence",
+          "researchClaim": "Xe Iaso 的文章是围绕 OpenSSL CVE-2026-45447 的讽刺性评论；可核验的核心事件是 OpenSSL 在 2026-06-09 发布安全公告，修复一个 High severity 的 PKCS7_verify() heap use-after-free，影响使用 OpenSSL PKCS#7 API 处理 PKCS#7 或 S/MIME 签名消息的应用，而不是所有安装了 OpenSSL 的系统。",
+          "researchComparisons": "OpenSSL 官方列出的受影响范围为 4.0.0<4.0.1、3.6.0<3.6.3、3.5.0<3.5.7、3.4.0<3.4.6、3.0.0<3.0.21、1.1.1<1.1.1zh、1.0.2<1.0.2zq；FIPS modules in 4.0/3.6/3.5/3.4/3.0 不受影响；CMS APIs 不受影响。NVD 页面显示 NVD 尚未给出自己的 CVSS，CISA-ADP 给出 CVSS 3.1 8.8 HIGH，Red Hat-SADP 给出 8.1 HIGH，反映评分口径存在差异。BoringSSL 明确称不受影响，因为相关代码在最初 fork 时已移除。SecurityWeek 报道称这次 OpenSSL 发布修复 18 个漏洞，CVE-2026-45447 是其中最严重的 High severity 漏洞。",
+          "researchUnresolved": "未找到 OpenSSL、NVD、CISA KEV 或主要厂商公告中对 CVE-2026-45447 已被在野利用的确认；是否存在公开可靠 PoC 或真实利用案例仍需单独跟踪。",
+          "ref": "R3",
+          "role": "佐证",
+          "takeaway": "mcp-explorer 0.3默认采用新无状态协议，并以--legacy保留对旧initialize handshake的检查能力。"
+        },
+        {
+          "id": "research-154-9-https://xeiaso.net/shitposts/no-way-to-prevent-this/memory-safety/CVE-2026-45447/-4-https://www.securityweek.com/openssl-patches-high-severity-vulnerability-found-with-ai/",
+          "sourceId": 154,
+          "sourceName": "SecurityWeek",
+          "sourcePublisher": "SecurityWeek",
+          "sourceKind": "Media",
+          "title": "OpenSSL Patches High-Severity Vulnerability Found With AI",
+          "url": "https://www.securityweek.com/openssl-patches-high-severity-vulnerability-found-with-ai/",
+          "publishedAt": "2026-06-09T16:47:00.000Z",
+          "summary": "独立报道补充背景：本次 OpenSSL release 修复 18 个漏洞，CVE-2026-45447 是高危项；漏洞由 Thai Duong 与 Claude AI、Anthropic Research 协作发现；报道称 OpenSSL high-severity 漏洞近年相对少见。",
+          "fetchedAt": "2026-07-31T23:27:17.279Z",
+          "researchedFrom": "N8",
+          "researchRole": "Context",
+          "researchClaim": "Xe Iaso 的文章是围绕 OpenSSL CVE-2026-45447 的讽刺性评论；可核验的核心事件是 OpenSSL 在 2026-06-09 发布安全公告，修复一个 High severity 的 PKCS7_verify() heap use-after-free，影响使用 OpenSSL PKCS#7 API 处理 PKCS#7 或 S/MIME 签名消息的应用，而不是所有安装了 OpenSSL 的系统。",
+          "researchComparisons": "OpenSSL 官方列出的受影响范围为 4.0.0<4.0.1、3.6.0<3.6.3、3.5.0<3.5.7、3.4.0<3.4.6、3.0.0<3.0.21、1.1.1<1.1.1zh、1.0.2<1.0.2zq；FIPS modules in 4.0/3.6/3.5/3.4/3.0 不受影响；CMS APIs 不受影响。NVD 页面显示 NVD 尚未给出自己的 CVSS，CISA-ADP 给出 CVSS 3.1 8.8 HIGH，Red Hat-SADP 给出 8.1 HIGH，反映评分口径存在差异。BoringSSL 明确称不受影响，因为相关代码在最初 fork 时已移除。SecurityWeek 报道称这次 OpenSSL 发布修复 18 个漏洞，CVE-2026-45447 是其中最严重的 High severity 漏洞。",
+          "researchUnresolved": "未找到 OpenSSL、NVD、CISA KEV 或主要厂商公告中对 CVE-2026-45447 已被在野利用的确认；是否存在公开可靠 PoC 或真实利用案例仍需单独跟踪。",
+          "ref": "R4",
+          "role": "佐证",
+          "takeaway": "datasette-mcp 0.1a0已把新Streamable HTTP端点接入Datasette，并复用其数据库权限控制。"
+        },
+        {
+          "id": "140-0-https://simonwillison.net/2026/Jul/31/stateless-mcp/#atom-everything",
+          "sourceId": 140,
+          "sourceName": "Simon Willison",
+          "sourcePublisher": "Simon Willison",
+          "sourceKind": "Blog",
+          "title": "Stateless MCP has recaptured my interest (and inspired mcp-explorer and datasette-mcp)",
+          "url": "https://simonwillison.net/2026/Jul/31/stateless-mcp/#atom-everything",
+          "publishedAt": "2026-07-31T23:13:22.000Z",
+          "summary": "Tuesday was Stateless MCP day - the rollout of MCP 2.0, or the 2026-07-28 Model Context Protocol specification to use the more formal but less memorable name. This is the most significant change to the MCP spec since it first launched, and has also served to reignite my personal interest in the protocol. For background: MCP is the Model Context Protocol, whi",
+          "fetchedAt": "2026-07-31T23:27:17.279Z",
+          "firstSeenAt": "2026-07-31T23:27:17.279Z",
+          "ref": "N1",
+          "role": "背景",
+          "takeaway": "Simon Willison将此次修订视为MCP发布以来最重要的规范变化，并记录其推动两项工具实现的过程。"
+        }
+      ],
+      "references": [
+        {
+          "id": "research-154-9-https://xeiaso.net/shitposts/no-way-to-prevent-this/memory-safety/CVE-2026-45447/-1-https://openssl-library.org/news/secadv/20260609.txt",
+          "sourceId": 154,
+          "sourceName": "OpenSSL Library",
+          "sourcePublisher": "OpenSSL Library",
+          "sourceKind": "Official",
+          "title": "OpenSSL Security Advisory [9th June 2026]",
+          "url": "https://openssl-library.org/news/secadv/20260609.txt",
+          "publishedAt": "2026-06-09T00:00:00.000Z",
+          "summary": "官方安全公告确认 CVE-2026-45447 为 High severity，说明触发条件是特制 PKCS#7 或 S/MIME signed message 在 PKCS7_verify() 中导致 use-after-free；列出潜在影响为 crash、heap corruption 或部分上下文下远程代码执行，并给出受影响版本与升级目标版本。",
+          "fetchedAt": "2026-07-31T23:27:17.279Z",
+          "researchedFrom": "N8",
+          "researchRole": "Primary",
+          "researchClaim": "Xe Iaso 的文章是围绕 OpenSSL CVE-2026-45447 的讽刺性评论；可核验的核心事件是 OpenSSL 在 2026-06-09 发布安全公告，修复一个 High severity 的 PKCS7_verify() heap use-after-free，影响使用 OpenSSL PKCS#7 API 处理 PKCS#7 或 S/MIME 签名消息的应用，而不是所有安装了 OpenSSL 的系统。",
+          "researchComparisons": "OpenSSL 官方列出的受影响范围为 4.0.0<4.0.1、3.6.0<3.6.3、3.5.0<3.5.7、3.4.0<3.4.6、3.0.0<3.0.21、1.1.1<1.1.1zh、1.0.2<1.0.2zq；FIPS modules in 4.0/3.6/3.5/3.4/3.0 不受影响；CMS APIs 不受影响。NVD 页面显示 NVD 尚未给出自己的 CVSS，CISA-ADP 给出 CVSS 3.1 8.8 HIGH，Red Hat-SADP 给出 8.1 HIGH，反映评分口径存在差异。BoringSSL 明确称不受影响，因为相关代码在最初 fork 时已移除。SecurityWeek 报道称这次 OpenSSL 发布修复 18 个漏洞，CVE-2026-45447 是其中最严重的 High severity 漏洞。",
+          "researchUnresolved": "未找到 OpenSSL、NVD、CISA KEV 或主要厂商公告中对 CVE-2026-45447 已被在野利用的确认；是否存在公开可靠 PoC 或真实利用案例仍需单独跟踪。",
+          "ref": "R1"
+        },
+        {
+          "id": "research-154-9-https://xeiaso.net/shitposts/no-way-to-prevent-this/memory-safety/CVE-2026-45447/-2-https://nvd.nist.gov/vuln/detail/CVE-2026-45447",
+          "sourceId": 154,
+          "sourceName": "National Vulnerability Database",
+          "sourcePublisher": "National Vulnerability Database",
+          "sourceKind": "Regulator",
+          "title": "NVD - CVE-2026-45447",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45447",
+          "publishedAt": "2026-06-09T00:00:00.000Z",
+          "summary": "补充可核验评分和枚举信息：NVD 尚未提供自身 CVSS，CISA-ADP 标为 CVSS 3.1 8.8 HIGH，Red Hat-SADP 标为 8.1 HIGH；弱点包含 CWE-416 Use After Free，并列出 OpenSSL 官方公告、补丁提交和 Red Hat references。",
+          "fetchedAt": "2026-07-31T23:27:17.279Z",
+          "researchedFrom": "N8",
+          "researchRole": "Comparison",
+          "researchClaim": "Xe Iaso 的文章是围绕 OpenSSL CVE-2026-45447 的讽刺性评论；可核验的核心事件是 OpenSSL 在 2026-06-09 发布安全公告，修复一个 High severity 的 PKCS7_verify() heap use-after-free，影响使用 OpenSSL PKCS#7 API 处理 PKCS#7 或 S/MIME 签名消息的应用，而不是所有安装了 OpenSSL 的系统。",
+          "researchComparisons": "OpenSSL 官方列出的受影响范围为 4.0.0<4.0.1、3.6.0<3.6.3、3.5.0<3.5.7、3.4.0<3.4.6、3.0.0<3.0.21、1.1.1<1.1.1zh、1.0.2<1.0.2zq；FIPS modules in 4.0/3.6/3.5/3.4/3.0 不受影响；CMS APIs 不受影响。NVD 页面显示 NVD 尚未给出自己的 CVSS，CISA-ADP 给出 CVSS 3.1 8.8 HIGH，Red Hat-SADP 给出 8.1 HIGH，反映评分口径存在差异。BoringSSL 明确称不受影响，因为相关代码在最初 fork 时已移除。SecurityWeek 报道称这次 OpenSSL 发布修复 18 个漏洞，CVE-2026-45447 是其中最严重的 High severity 漏洞。",
+          "researchUnresolved": "未找到 OpenSSL、NVD、CISA KEV 或主要厂商公告中对 CVE-2026-45447 已被在野利用的确认；是否存在公开可靠 PoC 或真实利用案例仍需单独跟踪。",
+          "ref": "R2"
+        },
+        {
+          "id": "research-154-9-https://xeiaso.net/shitposts/no-way-to-prevent-this/memory-safety/CVE-2026-45447/-3-https://boringssl.googlesource.com/boringssl.git/+/HEAD/docs/advisories/2026-06-09.md",
+          "sourceId": 154,
+          "sourceName": "BoringSSL",
+          "sourcePublisher": "BoringSSL",
+          "sourceKind": "Official",
+          "title": "OpenSSL Advisory: June 9th, 2026 (BoringSSL Not Affected)",
+          "url": "https://boringssl.googlesource.com/boringssl.git/+/HEAD/docs/advisories/2026-06-09.md",
+          "publishedAt": "2026-06-09T00:00:00.000Z",
+          "summary": "提供范围边界：BoringSSL 对 CVE-2026-45447 标注为 Not affected，原因是受影响代码在 BoringSSL 最初 fork 时已被移除；这支持文章避免把风险泛化为所有 OpenSSL 派生或 TLS 库。",
+          "fetchedAt": "2026-07-31T23:27:17.279Z",
+          "researchedFrom": "N8",
+          "researchRole": "Counterevidence",
+          "researchClaim": "Xe Iaso 的文章是围绕 OpenSSL CVE-2026-45447 的讽刺性评论；可核验的核心事件是 OpenSSL 在 2026-06-09 发布安全公告，修复一个 High severity 的 PKCS7_verify() heap use-after-free，影响使用 OpenSSL PKCS#7 API 处理 PKCS#7 或 S/MIME 签名消息的应用，而不是所有安装了 OpenSSL 的系统。",
+          "researchComparisons": "OpenSSL 官方列出的受影响范围为 4.0.0<4.0.1、3.6.0<3.6.3、3.5.0<3.5.7、3.4.0<3.4.6、3.0.0<3.0.21、1.1.1<1.1.1zh、1.0.2<1.0.2zq；FIPS modules in 4.0/3.6/3.5/3.4/3.0 不受影响；CMS APIs 不受影响。NVD 页面显示 NVD 尚未给出自己的 CVSS，CISA-ADP 给出 CVSS 3.1 8.8 HIGH，Red Hat-SADP 给出 8.1 HIGH，反映评分口径存在差异。BoringSSL 明确称不受影响，因为相关代码在最初 fork 时已移除。SecurityWeek 报道称这次 OpenSSL 发布修复 18 个漏洞，CVE-2026-45447 是其中最严重的 High severity 漏洞。",
+          "researchUnresolved": "未找到 OpenSSL、NVD、CISA KEV 或主要厂商公告中对 CVE-2026-45447 已被在野利用的确认；是否存在公开可靠 PoC 或真实利用案例仍需单独跟踪。",
+          "ref": "R3"
+        },
+        {
+          "id": "research-154-9-https://xeiaso.net/shitposts/no-way-to-prevent-this/memory-safety/CVE-2026-45447/-4-https://www.securityweek.com/openssl-patches-high-severity-vulnerability-found-with-ai/",
+          "sourceId": 154,
+          "sourceName": "SecurityWeek",
+          "sourcePublisher": "SecurityWeek",
+          "sourceKind": "Media",
+          "title": "OpenSSL Patches High-Severity Vulnerability Found With AI",
+          "url": "https://www.securityweek.com/openssl-patches-high-severity-vulnerability-found-with-ai/",
+          "publishedAt": "2026-06-09T16:47:00.000Z",
+          "summary": "独立报道补充背景：本次 OpenSSL release 修复 18 个漏洞，CVE-2026-45447 是高危项；漏洞由 Thai Duong 与 Claude AI、Anthropic Research 协作发现；报道称 OpenSSL high-severity 漏洞近年相对少见。",
+          "fetchedAt": "2026-07-31T23:27:17.279Z",
+          "researchedFrom": "N8",
+          "researchRole": "Context",
+          "researchClaim": "Xe Iaso 的文章是围绕 OpenSSL CVE-2026-45447 的讽刺性评论；可核验的核心事件是 OpenSSL 在 2026-06-09 发布安全公告，修复一个 High severity 的 PKCS7_verify() heap use-after-free，影响使用 OpenSSL PKCS#7 API 处理 PKCS#7 或 S/MIME 签名消息的应用，而不是所有安装了 OpenSSL 的系统。",
+          "researchComparisons": "OpenSSL 官方列出的受影响范围为 4.0.0<4.0.1、3.6.0<3.6.3、3.5.0<3.5.7、3.4.0<3.4.6、3.0.0<3.0.21、1.1.1<1.1.1zh、1.0.2<1.0.2zq；FIPS modules in 4.0/3.6/3.5/3.4/3.0 不受影响；CMS APIs 不受影响。NVD 页面显示 NVD 尚未给出自己的 CVSS，CISA-ADP 给出 CVSS 3.1 8.8 HIGH，Red Hat-SADP 给出 8.1 HIGH，反映评分口径存在差异。BoringSSL 明确称不受影响，因为相关代码在最初 fork 时已移除。SecurityWeek 报道称这次 OpenSSL 发布修复 18 个漏洞，CVE-2026-45447 是其中最严重的 High severity 漏洞。",
+          "researchUnresolved": "未找到 OpenSSL、NVD、CISA KEV 或主要厂商公告中对 CVE-2026-45447 已被在野利用的确认；是否存在公开可靠 PoC 或真实利用案例仍需单独跟踪。",
+          "ref": "R4"
+        },
+        {
+          "id": "140-0-https://simonwillison.net/2026/Jul/31/stateless-mcp/#atom-everything",
+          "sourceId": 140,
+          "sourceName": "Simon Willison",
+          "sourcePublisher": "Simon Willison",
+          "sourceKind": "Blog",
+          "title": "Stateless MCP has recaptured my interest (and inspired mcp-explorer and datasette-mcp)",
+          "url": "https://simonwillison.net/2026/Jul/31/stateless-mcp/#atom-everything",
+          "publishedAt": "2026-07-31T23:13:22.000Z",
+          "summary": "Tuesday was Stateless MCP day - the rollout of MCP 2.0, or the 2026-07-28 Model Context Protocol specification to use the more formal but less memorable name. This is the most significant change to the MCP spec since it first launched, and has also served to reignite my personal interest in the protocol. For background: MCP is the Model Context Protocol, whi",
+          "fetchedAt": "2026-07-31T23:27:17.279Z",
+          "firstSeenAt": "2026-07-31T23:27:17.279Z",
+          "ref": "N1"
+        }
+      ],
+      "feedBatchAt": "2026-07-31T23:27:17.279Z"
+    },
     {
       "id": 43,
       "editorialBucket": "explore",
@@ -11008,6 +11246,57 @@
       "editorNote": "今日信息环境由智能体安全事件、AI coding 工具链分化、open-weight 模型竞争与算力下沉共同主导。",
       "signals": [
         {
+          "category": "Agents",
+          "eyebrow": "产品信号",
+          "title": "MCP稳定版转向无状态架构",
+          "summary": "MCP 2026-07-28成为stable release，移除会话ID与初始化握手，新增发现和订阅机制；首批工具已按无状态模式上线。",
+          "why": "它改变Agent工具服务器的部署与扩展方式，也迫使客户端重新处理兼容、恢复和任务扩展。",
+          "impact": "若主流SDK跟进，MCP服务可更贴近无状态HTTP基础设施；双栈迁移则可能拖慢采用。",
+          "shiftFrom": "依赖会话ID与初始化握手",
+          "shiftTo": "无状态发现与订阅接口",
+          "crossValidation": "官方release与changelog确认稳定状态及协议差异；PyPI两项实现显示迁移已可运行，Simon Willison提供开发者视角，但不代表广泛采用。",
+          "article": {
+            "lead": "Model Context Protocol于7月28日把2026-07-28 revision转为stable release。新规范移除protocol-level sessions、Mcp-Session-Id和initialize handshake，新增发现与订阅接口。MCP由会话绑定转向更无状态的Agent集成层，部署方式与兼容边界因此改变。",
+            "sections": [
+              {
+                "heading": "协议中心被重写",
+                "body": "相较2025-11-25版，新规范用server/discover公开服务器能力，以subscriptions/listen承接更新，并引入MRTR；SSE resumability被移除，Tasks则退出核心规范、改为extension。设计中心由先建立并维护会话，转为先发现能力、再按请求交互。服务端有望减少会话状态协调，但客户端不能再假定旧握手和恢复语义继续存在。"
+              },
+              {
+                "heading": "首批工具验证迁移路径",
+                "body": "规范发布后，Simon Willison上线mcp-explorer 0.3，默认使用新stateless protocol，也保留--legacy检查旧initialize handshake。datasette-mcp 0.1a0则为任意Datasette instance增加/-/mcp端点，提供数据库列表、schema与只读SQL工具，并沿用原有可见性和execute-sql权限。两项实现证明迁移路径已经可运行，但仍只代表早期开发者采用。"
+              },
+              {
+                "heading": "扩展收益伴随兼容成本",
+                "body": "这次重构让MCP更贴近普通HTTP服务和横向扩展环境：服务器不再维护protocol-level session后，Agent工具有望更容易部署在短生命周期或多副本基础设施上。反面是迁移成本立即出现：依赖initialize、session ID或SSE恢复的旧客户端需要兼容层或双栈；Tasks降为extension也可能造成实现分化。现有证据尚不能证明主流客户端已经完成切换。"
+              }
+            ],
+            "outlook": "下一步应看主流MCP SDK、IDE和Agent平台何时把2026-07-28设为默认版本，并原生支持server/discover与subscriptions/listen。若legacy模式使用快速下降、跨实现互操作测试通过，无状态化将成为新基线；若客户端长期维持双栈，迁移收益会被兼容成本削弱。"
+          },
+          "evidence": [
+            {
+              "role": "主张",
+              "takeaway": "MCP官方确认2026-07-28 revision已从release candidate转为stable release，并发布正式规范与changelog。"
+            },
+            {
+              "role": "主张",
+              "takeaway": "官方变更清单确认会话、初始化握手和SSE恢复语义被移除，同时新增发现、订阅与MRTR机制。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "mcp-explorer 0.3默认采用新无状态协议，并以--legacy保留对旧initialize handshake的检查能力。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "datasette-mcp 0.1a0已把新Streamable HTTP端点接入Datasette，并复用其数据库权限控制。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "Simon Willison将此次修订视为MCP发布以来最重要的规范变化，并记录其推动两项工具实现的过程。"
+            }
+          ]
+        },
+        {
           "category": "科技",
           "eyebrow": "趋势变化",
           "title": "日本把科技安全嵌入情报中枢",
@@ -15488,6 +15777,57 @@
     "en": {
       "editorNote": "Today’s information environment is being shaped by agent security incidents, a split in coding-agent toolchains, open-model competition, and compute moving closer to the edge.",
       "signals": [
+        {
+          "category": "Agents",
+          "eyebrow": "Product Signal",
+          "title": "Stable MCP Shifts to a Stateless Architecture",
+          "summary": "MCP 2026-07-28 is now stable, removing session IDs and the initialization handshake while adding discovery and subscription mechanisms. Initial tools already implement the stateless design.",
+          "why": "The revision changes how Agent tool servers are deployed and scaled, while forcing clients to revisit compatibility, recovery and task semantics.",
+          "impact": "If major SDKs adopt it, MCP services could fit stateless HTTP infrastructure more naturally. A prolonged dual-stack migration could slow adoption.",
+          "shiftFrom": "Session IDs and initialization handshakes",
+          "shiftTo": "Stateless discovery and subscriptions",
+          "crossValidation": "The official release and changelog establish the specification change. Two PyPI implementations demonstrate a working migration path, while Willison supplies a developer perspective rather than broad adoption evidence.",
+          "article": {
+            "lead": "The Model Context Protocol promoted its 2026-07-28 revision to a stable release on July 28. The specification removes protocol-level sessions, Mcp-Session-Id and the initialize handshake while adding discovery and subscription interfaces. MCP is moving from session-bound connections toward a more stateless Agent integration layer, changing both deployment assumptions and compatibility boundaries.",
+            "sections": [
+              {
+                "heading": "The Protocol Has a New Center of Gravity",
+                "body": "Compared with the 2025-11-25 revision, the new specification uses server/discover to expose server capabilities and subscriptions/listen to deliver updates, while adding MRTR. SSE resumability has been removed, and Tasks has moved out of the core specification into an extension. The design now emphasizes discovering capabilities and making requests rather than first establishing and maintaining a protocol session. That can reduce server-side state coordination, but clients can no longer assume the old handshake and recovery semantics remain available."
+              },
+              {
+                "heading": "Early Tools Show a Working Migration Path",
+                "body": "After the specification release, Simon Willison published mcp-explorer 0.3. It uses the new stateless protocol by default while retaining a --legacy option for inspecting the old initialize handshake. The datasette-mcp 0.1a0 package adds a /-/mcp endpoint to any Datasette instance, exposing database listings, schemas and read-only SQL while preserving Datasette visibility and execute-sql permissions. These implementations show that the migration path works, although they represent early developer adoption rather than ecosystem-wide uptake."
+              },
+              {
+                "heading": "Scaling Benefits Come With Compatibility Costs",
+                "body": "The redesign brings MCP closer to conventional HTTP services and horizontally scaled infrastructure. Without protocol-level sessions, Agent tools may be easier to deploy across short-lived or replicated server instances. The countercase is immediate migration cost: older clients that depend on initialize, session IDs or SSE recovery will need compatibility layers or dual-stack support. Moving Tasks into an extension may also produce divergent implementations. The available evidence does not yet show that mainstream clients have completed the transition."
+              }
+            ],
+            "outlook": "The next test is when major MCP SDKs, IDEs and Agent platforms make the 2026-07-28 revision their default and implement server/discover and subscriptions/listen natively. Rapidly declining use of legacy mode and successful cross-implementation tests would establish stateless MCP as the new baseline. Persistent dual-stack support would indicate that compatibility costs are offsetting the deployment benefits."
+          },
+          "evidence": [
+            {
+              "role": "Claim",
+              "takeaway": "The official MCP release confirms that the 2026-07-28 revision is stable and links the formal specification and changelog."
+            },
+            {
+              "role": "Claim",
+              "takeaway": "The official change list documents the removal of sessions, initialization and SSE resumability, alongside new discovery, subscription and MRTR mechanisms."
+            },
+            {
+              "role": "Support",
+              "takeaway": "mcp-explorer 0.3 defaults to the stateless protocol while retaining a legacy mode for the previous initialization handshake."
+            },
+            {
+              "role": "Support",
+              "takeaway": "datasette-mcp 0.1a0 implements the new Streamable HTTP endpoint while preserving Datasette database permissions."
+            },
+            {
+              "role": "Context",
+              "takeaway": "Simon Willison characterizes the revision as MCP's most significant change since launch and describes how it prompted two tool implementations."
+            }
+          ]
+        },
         {
           "category": "Technology",
           "eyebrow": "Trend Shift",
@@ -19970,11 +20310,11 @@
     "en": "gpt-5.6-sol"
   },
   "incremental": {
-    "lastAddedAt": "2026-07-31T20:14:11.311Z",
-    "lastScanAt": "2026-07-31T20:06:38.941Z",
+    "lastAddedAt": "2026-07-31T23:36:54.489Z",
+    "lastScanAt": "2026-07-31T23:27:17.279Z",
     "lastAddedCount": 1,
-    "lastUpdatedCount": 1,
-    "totalAppended": 35,
+    "lastUpdatedCount": 0,
+    "totalAppended": 36,
     "totalUpdated": 18
   },
   "exploreDepth": {
