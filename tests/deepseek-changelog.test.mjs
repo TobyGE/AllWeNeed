@@ -42,7 +42,10 @@ test("turns each dated changelog section into a versioned source item", () => {
   assert.equal(items[0].publishedAt, "2026-07-31T00:00:00.000Z");
   assert.equal(items[0].dateOnly, true);
   assert.match(items[0].summary, /Responses API/);
-  assert.match(items[0].versionKey, /^changelog:205:2026-07-31:[a-f0-9]{16}$/);
+  assert.match(
+    items[0].versionKey,
+    /^changelog:v2:205:2026-07-31:[a-f0-9]{16}$/,
+  );
 });
 
 test("selects a changed version once without changing its public URL", () => {

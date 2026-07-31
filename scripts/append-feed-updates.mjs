@@ -252,7 +252,8 @@ function buildPrompt({ candidates, radar, scannedSnapshot }) {
 - 每个 ref 必须且只能出现在一个 feedStory、existingUpdate 或 ignored 中。
 - bucket=dynamic 只用于已经发生的明确状态变化：发布、财报、监管、融资、产品上线、政策决定或有实质新证据的事件。必须有足够正文和可核验事实；官方一手来源可以单独成立。
 - dynamic 是稀缺的新闻席位，不是“值得知道”的同义词。只有以下变化可以进入：会改变公司经营或资本判断的财报/guidance/融资/M&A；已落地的监管或宏观决定；改变价格、可用范围、分发方式或产业采用的重大产品/模型发布；有明确影响范围的真实安全事件；或至少两条独立来源共同确认的行业状态转折。
-- 小版本、library/repository/demo、preview/alpha、单点技巧、孤立研究论文、单篇 Blog 观察、窄功能更新和一般知识不得因为“刚发布”进入 dynamic；如果也没有形成高价值 thesis，则直接 ignored，不能把 Explore 当作低质量内容的兜底区。
+- 小版本、library/repository/demo、单点技巧、孤立研究论文、单篇 Blog 观察、窄功能更新和一般知识不得因为“刚发布”进入 dynamic；如果也没有形成高价值 thesis，则直接 ignored，不能把 Explore 当作低质量内容的兜底区。
+- preview、alpha、beta 或 public beta 只是发布阶段标签，不能单独作为归档理由。若官方更新实质改变了 frontier model 的能力、benchmark、API 可用性、兼容接口、价格、context、分发范围或默认 model identity，应按重大模型/API 发布评估；从 Preview 转为官方 API public beta，并同时带来显著能力跃升或新增主流接口，属于可进入 dynamic 的明确状态变化。
 - bucket=explore 是稀缺的第二编辑层，只用于有清晰 thesis、二阶影响、跨界连接或值得持续验证的非共识判断。必须写清“什么变量正在变化”、作用机制和可证伪的下一步，不能只是把单篇内容换句话复述。
 - Explore 的 valueScore 必须至少为 ${exploreEditorialFloor}，materiality 必须为 substantive 或 material，changedVariable 必须具体。低于门槛的“小知识”、普通教程、一般产品观察、营销发布、缺少机制的观点和仅靠措辞包装出的假设全部 ignored，并在 reason 前加“归档：未达到 Explore 编辑门槛”。
 - 内容单薄、题目党、未经验证的规模数字、过窄教程、个人随感、与 Radar 重点弱相关的条目放进 ignored，并在 reason 前加“归档：”。“已处理”不等于“必须发布”。

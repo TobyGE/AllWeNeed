@@ -338,7 +338,7 @@ export function parseDatedChangelogHtml(html, source, feedUrl) {
     return [
       {
         id: `${source.id}-${date}-${versionHash}`,
-        versionKey: `changelog:${source.id}:${date}:${versionHash}`,
+        versionKey: `changelog:v2:${source.id}:${date}:${versionHash}`,
         sourceId: source.id,
         sourceName: source.name,
         sourcePublisher: source.publisher ?? source.name,
