@@ -1160,6 +1160,29 @@ async function researchEditorialCandidates({
 export function validateFeedCoverage(raw, candidates) {
   const expected = new Set(candidates.map((item) => item.ref));
   const itemMap = new Map(candidates.map((item) => [item.ref, item]));
+  const assertResearchLineage = (evidence, label) => {
+    const refs = new Set(evidence.map((item) => item?.ref).filter(Boolean));
+    for (const ref of refs) {
+      const parentRef = itemMap.get(ref)?.researchedFrom;
+      if (parentRef && !refs.has(parentRef)) {
+        throw new Error(
+          `${label} uses research ref ${ref} without its parent ${parentRef}`,
+        );
+      }
+    }
+  };
+  for (const [index, story] of (raw?.feedStories ?? []).entries()) {
+    assertResearchLineage(
+      story?.signal?.evidence ?? [],
+      `feedStory ${index + 1}`,
+    );
+  }
+  for (const [index, update] of (raw?.existingUpdates ?? []).entries()) {
+    assertResearchLineage(
+      update?.update?.evidence ?? [],
+      `existingUpdate ${index + 1}`,
+    );
+  }
   const covered = new Map();
   const claim = (ref, disposition) => {
     if (!expected.has(ref)) {
@@ -1210,7 +1233,7 @@ export function validateFeedCoverage(raw, candidates) {
   };
 }
 
-function splitKnownFeedRefs(value, allowedRefs) {
+function splitKnownFeedRefs(value, allowedRefs, itemMap) {
   const normalized = cleanText(value);
   if (!normalized || allowedRefs.has(normalized)) {
     return normalized ? [normalized] : [];
@@ -1225,14 +1248,30 @@ function splitKnownFeedRefs(value, allowedRefs) {
   ) {
     return [normalized];
   }
+  const lineageRoot = (ref) => {
+    const seen = new Set();
+    let current = ref;
+    while (!seen.has(current)) {
+      seen.add(current);
+      const item = itemMap.get(current);
+      const parent = item?.researchedFrom ?? item?.groundedFrom;
+      if (!parent || !itemMap.has(parent)) return current;
+      current = parent;
+    }
+    return current;
+  };
+  if (new Set(matches.map(lineageRoot)).size !== 1) {
+    return [normalized];
+  }
   return [...new Set(matches)];
 }
 
 export function normalizeFeedCoverageRefs(raw, candidates) {
   const allowedRefs = new Set(candidates.map((item) => item.ref));
+  const itemMap = new Map(candidates.map((item) => [item.ref, item]));
   const expandEvidence = (evidence = []) =>
     evidence.flatMap((entry) => {
-      const refs = splitKnownFeedRefs(entry?.ref, allowedRefs);
+      const refs = splitKnownFeedRefs(entry?.ref, allowedRefs, itemMap);
       if (refs.length <= 1) {
         return [{ ...entry, ref: refs[0] ?? entry?.ref }];
       }
@@ -1240,7 +1279,7 @@ export function normalizeFeedCoverageRefs(raw, candidates) {
     });
   const expandIgnored = (ignored = []) =>
     ignored.flatMap((entry) => {
-      const refs = splitKnownFeedRefs(entry?.ref, allowedRefs);
+      const refs = splitKnownFeedRefs(entry?.ref, allowedRefs, itemMap);
       if (refs.length <= 1) {
         return [{ ...entry, ref: refs[0] ?? entry?.ref }];
       }

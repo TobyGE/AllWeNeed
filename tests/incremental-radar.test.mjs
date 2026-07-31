@@ -947,7 +947,11 @@ test("requires every newly fetched ref to be included or explicitly ignored", ()
 test("normalizes combined model refs without weakening strict coverage", () => {
   const candidates = [
     { ref: "N5", url: "https://example.com/source" },
-    { ref: "R1", url: "https://example.com/research" },
+    {
+      ref: "R1",
+      url: "https://example.com/research",
+      researchedFrom: "N5",
+    },
   ];
   const normalized = normalizeFeedCoverageRefs(
     {
@@ -979,6 +983,61 @@ test("normalizes combined model refs without weakening strict coverage", () => {
     updateItemCount: 0,
     ignoredItemCount: 0,
   });
+});
+
+test("rejects combined refs from unrelated research lineages", () => {
+  const candidates = [
+    { ref: "N5", url: "https://example.com/source" },
+    {
+      ref: "R1",
+      url: "https://example.com/research",
+      researchedFrom: "N8",
+    },
+    { ref: "N8", url: "https://example.com/other-source" },
+  ];
+  const normalized = normalizeFeedCoverageRefs(
+    {
+      feedStories: [
+        { signal: { evidence: [{ ref: "N5/R1" }] } },
+      ],
+      existingUpdates: [],
+      ignored: [{ ref: "N8", reason: "归档：旧事件" }],
+    },
+    candidates,
+  );
+
+  assert.equal(normalized.feedStories[0].signal.evidence[0].ref, "N5/R1");
+  assert.throws(
+    () => validateFeedCoverage(normalized, candidates),
+    /without its parent N8|unknown source ref N5\/R1/,
+  );
+});
+
+test("rejects published research evidence without its parent source", () => {
+  const candidates = [
+    { ref: "N1", url: "https://example.com/one" },
+    { ref: "N8", url: "https://example.com/eight" },
+    {
+      ref: "R1",
+      url: "https://example.com/research",
+      researchedFrom: "N8",
+    },
+  ];
+
+  assert.throws(
+    () =>
+      validateFeedCoverage(
+        {
+          feedStories: [
+            { signal: { evidence: [{ ref: "N1" }, { ref: "R1" }] } },
+          ],
+          existingUpdates: [],
+          ignored: [{ ref: "N8", reason: "归档：旧事件" }],
+        },
+        candidates,
+      ),
+    /research ref R1 without its parent N8/,
+  );
 });
 
 test("does not guess unknown or malformed model refs", () => {
