@@ -11,6 +11,7 @@ import { ArticleView } from "./article-view";
 import {
   calculateSignalHeat,
   compareEditorialValue,
+  compareExploreEditorialValue,
   compareSignalHeat,
   meetsExploreEditorialFloor,
   type SignalHeat,
@@ -128,7 +129,7 @@ function compareExploreOrder(
     heat: SignalHeat;
   },
 ) {
-  return compareEditorialValue(left, right);
+  return compareExploreEditorialValue(left, right);
 }
 
 const configuredKindCounts = publicSourceCatalog.reduce<Record<string, number>>(

@@ -185,3 +185,27 @@ export function compareEditorialValue(
   if (valueDifference !== 0) return valueDifference;
   return compareSignalHeat(left.heat, right.heat);
 }
+
+function exploreFreshnessBoost(ageHours: number) {
+  if (ageHours <= 6) return 8;
+  if (ageHours <= 24) return 6;
+  if (ageHours <= 72) return 3;
+  if (ageHours <= 7 * 24) return 1;
+  return 0;
+}
+
+export function compareExploreEditorialValue(
+  left: EditoriallyRankedSignal,
+  right: EditoriallyRankedSignal,
+) {
+  const leftValue = Number(left.valueScore ?? left.score ?? 0);
+  const rightValue = Number(right.valueScore ?? right.score ?? 0);
+  const leftRank = leftValue + exploreFreshnessBoost(left.heat.ageHours);
+  const rightRank = rightValue + exploreFreshnessBoost(right.heat.ageHours);
+  const rankDifference = rightRank - leftRank;
+  if (rankDifference !== 0) return rankDifference;
+
+  const valueDifference = rightValue - leftValue;
+  if (valueDifference !== 0) return valueDifference;
+  return compareSignalHeat(left.heat, right.heat);
+}

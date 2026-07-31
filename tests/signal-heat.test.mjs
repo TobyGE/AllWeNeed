@@ -4,6 +4,7 @@ import test from "node:test";
 import {
   calculateSignalHeat,
   compareEditorialValue,
+  compareExploreEditorialValue,
   compareSignalHeat,
   EXPLORE_EDITORIAL_FLOOR,
   meetsExploreEditorialFloor,
@@ -166,5 +167,44 @@ test("editorial value outranks recency heat", () => {
       .sort(compareEditorialValue)
       .map((item) => item.score),
     [95, 83],
+  );
+});
+
+test("Explore freshness surfaces strong new theses without displacing major old ones", () => {
+  const now = "2026-07-10T12:00:00.000Z";
+  const majorOld = {
+    valueScore: 92,
+    heat: calculateSignalHeat(
+      { valueScore: 92, feedBatchAt: "2026-07-01T12:00:00.000Z" },
+      { now, profile: "explore" },
+    ),
+  };
+  const strongOld = {
+    valueScore: 88,
+    heat: calculateSignalHeat(
+      { valueScore: 88, feedBatchAt: "2026-07-01T12:00:00.000Z" },
+      { now, profile: "explore" },
+    ),
+  };
+  const strongNew = {
+    valueScore: 84,
+    heat: calculateSignalHeat(
+      { valueScore: 84, feedBatchAt: "2026-07-10T10:00:00.000Z" },
+      { now, profile: "explore" },
+    ),
+  };
+  const merelyNew = {
+    valueScore: 80,
+    heat: calculateSignalHeat(
+      { valueScore: 80, feedBatchAt: "2026-07-10T10:00:00.000Z" },
+      { now, profile: "explore" },
+    ),
+  };
+
+  assert.deepEqual(
+    [merelyNew, strongOld, strongNew, majorOld]
+      .sort(compareExploreEditorialValue)
+      .map((item) => item.valueScore),
+    [92, 84, 88, 80],
   );
 });
