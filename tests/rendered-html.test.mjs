@@ -253,6 +253,21 @@ test("removes all disposable starter preview code", async () => {
     sourceCatalog,
     /Amazon Press Center[\s\S]*press-release-archive\?q=&f0=en-US[\s\S]*feedFormat: "amazon-press-html"/,
   );
+  assert.match(
+    sourceCatalog,
+    /Anthropic Newsroom[\s\S]*feedFormat: "sitemap-xml"[\s\S]*feedPathPrefixes: \["\/news\/"\]/,
+  );
+  assert.match(
+    sourceCatalog,
+    /Moonshot AI \/ Kimi Blog[\s\S]*feedFormat: "news-list-html"/,
+  );
+  assert.match(
+    sourceCatalog,
+    /DeepSeek — Hugging Face Models[\s\S]*feedFormat: "huggingface-models-json"/,
+  );
+  assert.match(fetchScript, /function parseSitemapXml/);
+  assert.match(fetchScript, /function parseNewsListHtml/);
+  assert.match(fetchScript, /function parseHuggingFaceModelsJson/);
   assert.match(fetchScript, /function fetchSecSource/);
   assert.match(fetchScript, /api\/xbrl\/companyfacts/);
   assert.match(fetchScript, /--source-ids/);

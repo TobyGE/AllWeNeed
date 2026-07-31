@@ -253,12 +253,156 @@ export function parseAmazonPressHtml(html, source, feedUrl) {
   });
 }
 
+function matchesConfiguredPath(url, source) {
+  const prefixes = source.feedPathPrefixes ?? [];
+  if (!prefixes.length) return true;
+  const pathname = new URL(url).pathname;
+  return prefixes.some((prefix) => pathname.startsWith(prefix));
+}
+
+function titleFromUrl(url) {
+  const pathname = new URL(url).pathname.replace(/\/$/, "");
+  const slug = pathname.split("/").filter(Boolean).at(-1) ?? "";
+  return cleanText(
+    decodeURIComponent(slug)
+      .replace(/\.(?:html?|md)$/i, "")
+      .replace(/[-_]+/g, " "),
+  );
+}
+
+export function parseSitemapXml(xml, source, feedUrl) {
+  const blocks = [
+    ...xml.matchAll(/<url(?:\s[^>]*)?>([\s\S]*?)<\/url>/gi),
+  ].map((match) => match[1]);
+
+  return blocks
+    .flatMap((block) => {
+      const url = absoluteUrl(tagValue(block, ["loc"]), feedUrl);
+      if (!url || !matchesConfiguredPath(url, source)) return [];
+      return [
+        {
+          id: `${source.id}-${url}`,
+          sourceId: source.id,
+          sourceName: source.name,
+          sourcePublisher: source.publisher ?? source.name,
+          sourceKind: getSourceKind(source.url),
+          title: titleFromUrl(url),
+          url,
+          publishedAt: normalizeDate(tagValue(block, ["lastmod"])),
+          summary: "",
+          fetchedAt: checkedAt,
+        },
+      ];
+    })
+    .sort(
+      (left, right) =>
+        Date.parse(right.publishedAt ?? "") -
+        Date.parse(left.publishedAt ?? ""),
+    )
+    .slice(0, itemsPerSource);
+}
+
+function dateFromText(value) {
+  const match = cleanText(value).match(
+    /\b(?:20\d{2}-\d{2}-\d{2}|(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\s+\d{1,2},?\s+20\d{2})\b/i,
+  );
+  return normalizeDate(match?.[0]);
+}
+
+export function parseNewsListHtml(html, source, feedUrl) {
+  const seenUrls = new Set();
+  const items = [];
+  for (const match of html.matchAll(
+    /<a\b[^>]*\bhref=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi,
+  )) {
+    const url = absoluteUrl(match[1], feedUrl);
+    if (
+      !url ||
+      seenUrls.has(url) ||
+      !matchesConfiguredPath(url, source) ||
+      url.replace(/\/$/, "") === source.url.replace(/\/$/, "")
+    ) {
+      continue;
+    }
+    const content = match[2];
+    const heading =
+      tagValue(content, ["h1", "h2", "h3", "h4"]) || content;
+    const title = cleanText(heading).slice(0, 180);
+    if (!title || !matchesConfiguredLanguage(title, source)) continue;
+    seenUrls.add(url);
+    items.push({
+      id: `${source.id}-${url}`,
+      sourceId: source.id,
+      sourceName: source.name,
+      sourcePublisher: source.publisher ?? source.name,
+      sourceKind: getSourceKind(source.url),
+      title,
+      url,
+      publishedAt: dateFromText(content),
+      summary: cleanText(content).slice(0, 500),
+      fetchedAt: checkedAt,
+    });
+    if (items.length === itemsPerSource) break;
+  }
+  return items;
+}
+
+export function parseHuggingFaceModelsJson(text, source) {
+  const payload = JSON.parse(text);
+  if (!Array.isArray(payload)) {
+    throw new Error("Hugging Face models feed did not return an array");
+  }
+  return payload.slice(0, itemsPerSource).flatMap((model) => {
+    const modelId = cleanText(model?.id ?? model?.modelId ?? "");
+    if (!modelId) return [];
+    const modelName = modelId.split("/").at(-1) ?? modelId;
+    const url = `https://huggingface.co/${modelId}`;
+    const tags = Array.isArray(model?.tags)
+      ? model.tags
+          .filter((tag) => typeof tag === "string")
+          .slice(0, 8)
+          .join(", ")
+      : "";
+    const metrics = [
+      model?.pipeline_tag ? `task: ${model.pipeline_tag}` : "",
+      Number.isFinite(model?.downloads)
+        ? `downloads: ${model.downloads}`
+        : "",
+      Number.isFinite(model?.likes) ? `likes: ${model.likes}` : "",
+      tags ? `tags: ${tags}` : "",
+    ].filter(Boolean);
+    return [
+      {
+        id: `${source.id}-${modelId}`,
+        sourceId: source.id,
+        sourceName: source.name,
+        sourcePublisher: source.publisher ?? source.name,
+        sourceKind: getSourceKind(source.url),
+        title: `${modelName} model update`,
+        url,
+        publishedAt: normalizeDate(model?.lastModified ?? model?.createdAt),
+        summary: metrics.join(" · ").slice(0, 800),
+        fetchedAt: checkedAt,
+      },
+    ];
+  });
+}
+
 function parseConfiguredFeed(text, source, feedUrl) {
   if (source.feedFormat === "wordpress-json") {
     return parseWordPressJson(text, source, feedUrl);
   }
   if (source.feedFormat === "amazon-press-html") {
     return parseAmazonPressHtml(text, source, feedUrl);
+  }
+  if (source.feedFormat === "sitemap-xml") {
+    return parseSitemapXml(text, source, feedUrl);
+  }
+  if (source.feedFormat === "news-list-html") {
+    return parseNewsListHtml(text, source, feedUrl);
+  }
+  if (source.feedFormat === "huggingface-models-json") {
+    return parseHuggingFaceModelsJson(text, source);
   }
   return parseFeed(text, source, feedUrl);
 }
@@ -284,7 +428,75 @@ export function extractFedReleaseSummary(html) {
   return contentBlocks.sort((left, right) => right.length - left.length)[0] ?? "";
 }
 
-async function enrichOfficialFeedItems(items, kind) {
+function extractPageMetadata(html) {
+  const metaTags = [...html.matchAll(/<meta\b[^>]*>/gi)].map(
+    (match) => match[0],
+  );
+  const meta = new Map();
+  for (const tag of metaTags) {
+    const key =
+      tag.match(/\b(?:name|property|itemprop)=["']([^"']+)["']/i)?.[1] ?? "";
+    const content =
+      tag.match(/\bcontent=["']([^"']*)["']/i)?.[1] ?? "";
+    if (key && content) meta.set(key.toLowerCase(), cleanText(content));
+  }
+  const pageTitle = cleanText(tagValue(html, ["title"]));
+  const title =
+    meta.get("og:title") ?? meta.get("twitter:title") ?? pageTitle;
+  const summary =
+    meta.get("description") ??
+    meta.get("og:description") ??
+    meta.get("twitter:description") ??
+    "";
+  const jsonDate =
+    html.match(/["']datePublished["']\s*:\s*["']([^"']+)["']/i)?.[1] ??
+    html.match(/<time\b[^>]*\bdatetime=["']([^"']+)["']/i)?.[1] ??
+    "";
+  const publishedAt = normalizeDate(
+    meta.get("article:published_time") ??
+      meta.get("date") ??
+      meta.get("datepublished") ??
+      jsonDate,
+  );
+  return { title, summary, publishedAt };
+}
+
+async function enrichHtmlListingItems(items, source) {
+  const cachedByUrl = new Map(
+    (previousItems.get(source.id) ?? []).map((item) => [item.url, item]),
+  );
+  return Promise.all(
+    items.map(async (item) => {
+      const cached = cachedByUrl.get(item.url);
+      if (cached?.title && cached?.summary) {
+        return { ...cached, fetchedAt: checkedAt };
+      }
+      try {
+        const page = await fetchText(item.url, 12_000);
+        const metadata = extractPageMetadata(page.text);
+        return {
+          ...item,
+          title: metadata.title || item.title,
+          summary: (metadata.summary || item.summary || item.title).slice(
+            0,
+            1_200,
+          ),
+          publishedAt: metadata.publishedAt ?? item.publishedAt,
+        };
+      } catch {
+        return item;
+      }
+    }),
+  );
+}
+
+async function enrichOfficialFeedItems(items, kind, source) {
+  if (
+    source.feedFormat === "sitemap-xml" ||
+    source.feedFormat === "news-list-html"
+  ) {
+    return enrichHtmlListingItems(items, source);
+  }
   if (kind !== "Fed") return items;
 
   let hydratedCount = 0;
@@ -1048,6 +1260,7 @@ async function fetchFeedSource(source) {
               result.finalUrl,
             ),
             kind,
+            source,
           );
           if (
             configuredFormat ||
@@ -1144,6 +1357,7 @@ async function fetchFeedSource(source) {
       const items = await enrichOfficialFeedItems(
         parseFeed(homepage.text, source, homepage.finalUrl),
         kind,
+        source,
       );
       return {
         items,
@@ -1168,6 +1382,7 @@ async function fetchFeedSource(source) {
         const items = await enrichOfficialFeedItems(
           parseFeed(result.text, source, result.finalUrl),
           kind,
+          source,
         );
         return {
           items,
