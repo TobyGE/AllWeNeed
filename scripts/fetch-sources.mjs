@@ -51,10 +51,12 @@ const previousStatuses = new Map(
   previousSnapshot.statuses.map((status) => [status.sourceId, status]),
 );
 const previousItems = new Map();
+const previousItemsByProcessingKey = new Map();
 for (const item of previousSnapshot.items) {
   const sourceItems = previousItems.get(item.sourceId) ?? [];
   sourceItems.push(item);
   previousItems.set(item.sourceId, sourceItems);
+  previousItemsByProcessingKey.set(item.versionKey ?? item.url, item);
 }
 
 function decodeEntities(value = "") {
@@ -120,6 +122,21 @@ function matchesConfiguredLanguage(title, source) {
   return latinLetters.length / letters.length >= 0.7;
 }
 
+function durationMinutes(value = "") {
+  const normalized = cleanText(value);
+  if (!normalized) return null;
+  const parts = normalized.split(":").map(Number);
+  if (parts.some((part) => !Number.isFinite(part))) return null;
+  if (parts.length === 3) {
+    return Math.max(1, Math.round(parts[0] * 60 + parts[1] + parts[2] / 60));
+  }
+  if (parts.length === 2) {
+    return Math.max(1, Math.round(parts[0] + parts[1] / 60));
+  }
+  const seconds = Number(normalized);
+  return Number.isFinite(seconds) ? Math.max(1, Math.round(seconds / 60)) : null;
+}
+
 function parseFeed(xml, source, feedUrl) {
   const itemBlocks = [
     ...xml.matchAll(/<item(?:\s[^>]*)?>([\s\S]*?)<\/item>/gi),
@@ -143,7 +160,10 @@ function parseFeed(xml, source, feedUrl) {
     );
     const summary = cleanText(
       tagValue(block, ["description", "summary", "content:encoded", "content"]),
-    ).slice(0, 360);
+    ).slice(0, source.feedSummaryLimit ?? 360);
+    const episodeDurationMinutes = durationMinutes(
+      tagValue(block, ["itunes:duration"]),
+    );
 
     return [
       {
@@ -156,6 +176,9 @@ function parseFeed(xml, source, feedUrl) {
         url,
         publishedAt,
         summary,
+        ...(episodeDurationMinutes
+          ? { durationMinutes: episodeDurationMinutes }
+          : {}),
         fetchedAt: checkedAt,
       },
     ];
@@ -448,6 +471,42 @@ export function parseHuggingFaceModelsJson(text, source) {
   });
 }
 
+export function parseSpaceXUpdatesJson(text, source) {
+  const payload = JSON.parse(text);
+  if (!Array.isArray(payload)) {
+    throw new Error("SpaceX updates feed did not return an array");
+  }
+
+  return payload.slice(0, itemsPerSource).flatMap((update, index) => {
+    const title = cleanText(update?.title ?? "");
+    const updateId = cleanText(update?.updateId ?? "");
+    if (!title || !updateId) return [];
+
+    const summary = (update?.contentBlocks ?? [])
+      .flatMap((block) => [block?.heading, block?.paragraph])
+      .map((value) => cleanText(value ?? ""))
+      .filter(Boolean)
+      .join(" ")
+      .slice(0, 1_200);
+    const url = `https://www.spacex.com/updates/${encodeURIComponent(updateId)}`;
+
+    return [
+      {
+        id: `${source.id}-${update?.id ?? index}-${updateId}`,
+        sourceId: source.id,
+        sourceName: source.name,
+        sourcePublisher: source.publisher ?? source.name,
+        sourceKind: getSourceKind(source.url),
+        title,
+        url,
+        publishedAt: normalizeDate(update?.date ?? update?.publishedAt),
+        summary: summary || title,
+        fetchedAt: checkedAt,
+      },
+    ];
+  });
+}
+
 function parseConfiguredFeed(text, source, feedUrl) {
   if (source.feedFormat === "wordpress-json") {
     return parseWordPressJson(text, source, feedUrl);
@@ -463,6 +522,9 @@ function parseConfiguredFeed(text, source, feedUrl) {
   }
   if (source.feedFormat === "dated-changelog-html") {
     return parseDatedChangelogHtml(text, source, feedUrl);
+  }
+  if (source.feedFormat === "spacex-updates-json") {
+    return parseSpaceXUpdatesJson(text, source);
   }
   if (source.feedFormat === "huggingface-models-json") {
     return parseHuggingFaceModelsJson(text, source);
@@ -537,9 +599,13 @@ async function enrichHtmlListingItems(items, source) {
       try {
         const page = await fetchText(item.url, 12_000);
         const metadata = extractPageMetadata(page.text);
+        const title =
+          source.feedTitleFromDescription && metadata.summary
+            ? metadata.summary
+            : metadata.title;
         return {
           ...item,
-          title: metadata.title || item.title,
+          title: title || item.title,
           summary: (metadata.summary || item.summary || item.title).slice(
             0,
             1_200,
@@ -1514,6 +1580,9 @@ export async function main() {
   const sourcesToFetch = selectedSourceIds.size
     ? sourceCatalog.filter((source) => selectedSourceIds.has(source.id))
     : sourceCatalog;
+  const sourcesById = new Map(
+    sourcesToFetch.map((source) => [source.id, source]),
+  );
   const results = await mapWithConcurrency(
     sourcesToFetch,
     concurrency,
@@ -1527,6 +1596,35 @@ export async function main() {
       (item, index, array) =>
         array.findIndex((candidate) => candidate.url === item.url) === index,
     )
+    .map((item) => {
+      const source = sourcesById.get(item.sourceId);
+      const previousItem = previousItemsByProcessingKey.get(
+        item.versionKey ?? item.url,
+      );
+      return {
+        ...item,
+        title:
+          source?.feedTitleFromDescription && item.summary
+            ? item.summary
+            : item.title,
+        ...(source?.discoveryOnly
+          ? {
+              discoveryOnly: true,
+              discoveryLevel: source.discoveryLevel ?? "A",
+            }
+          : {}),
+        ...(source?.conversationSource
+          ? {
+              conversationSource: true,
+              initialLookbackHours: source.initialLookbackHours ?? 0,
+            }
+          : {}),
+        firstSeenAt:
+          previousItem?.firstSeenAt ??
+          previousItem?.fetchedAt ??
+          checkedAt,
+      };
+    })
     .sort((a, b) => {
       const aTime = a.publishedAt ? new Date(a.publishedAt).getTime() : 0;
       const bTime = b.publishedAt ? new Date(b.publishedAt).getTime() : 0;

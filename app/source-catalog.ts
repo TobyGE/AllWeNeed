@@ -1,6 +1,7 @@
 export type SourceKind =
   | "YouTube"
   | "X"
+  | "Podcast"
   | "Newsletter"
   | "Fed"
   | "SEC"
@@ -18,9 +19,16 @@ export type SourceItem = {
     | "sitemap-xml"
     | "news-list-html"
     | "dated-changelog-html"
+    | "spacex-updates-json"
     | "huggingface-models-json";
   feedLanguage?: "en";
   feedPathPrefixes?: string[];
+  feedTitleFromDescription?: boolean;
+  feedSummaryLimit?: number;
+  conversationSource?: boolean;
+  initialLookbackHours?: number;
+  discoveryOnly?: boolean;
+  discoveryLevel?: "A" | "B";
   publisher?: string;
   secCik?: string;
   ticker?: string;
@@ -29,6 +37,13 @@ export type SourceItem = {
 export function getSourceKind(url: string): SourceKind {
   const host = new URL(url).hostname;
   if (host.includes("youtube.com")) return "YouTube";
+  if (
+    host === "podcasts.apple.com" ||
+    host === "open.spotify.com" ||
+    host === "feed.xyzfm.space"
+  ) {
+    return "Podcast";
+  }
   if (host === "x.com") return "X";
   if (host === "www.federalreserve.gov" || host === "federalreserve.gov") {
     return "Fed";
@@ -547,6 +562,7 @@ export const sourceCatalog: SourceItem[] = [
     feedUrl: "https://seed.bytedance.com/sitemap.xml",
     feedFormat: "sitemap-xml",
     feedPathPrefixes: ["/blog/"],
+    feedTitleFromDescription: true,
   },
   {
     id: 215,
@@ -593,6 +609,38 @@ export const sourceCatalog: SourceItem[] = [
     feedUrl: "https://huggingface.co/api/models?author=01-ai&sort=lastModified&direction=-1&limit=12",
     feedFormat: "huggingface-models-json",
   },
+  {
+    id: 220,
+    name: "SpaceX Updates",
+    publisher: "SpaceX",
+    description: "SpaceX 官方更新，覆盖 Starship、Starlink、Dragon、发射任务与公司级技术进展。",
+    url: "https://www.spacex.com/updates",
+    feedUrl: "https://content.spacex.com/api/spacex-website/updates",
+    feedFormat: "spacex-updates-json",
+  },
+  {
+    id: 221,
+    name: "Nikkei Asia Headlines",
+    publisher: "Nikkei Asia",
+    description: "仅供内部发现亚洲科技与供应链线索；公开稿件必须另行 grounding 到可引用证据。",
+    url: "https://asia.nikkei.com",
+    feedUrl: "https://asia.nikkei.com/rss/feed/nar",
+    discoveryOnly: true,
+    discoveryLevel: "B",
+  },
+  {
+    id: 222,
+    name: "张小珺Jùn｜商业访谈录",
+    publisher: "语言即世界",
+    description: "张小珺主持的中文科技与商业深度访谈，覆盖 AI、科技公司、风险投资与前沿研究者。",
+    url: "https://podcasts.apple.com/us/podcast/id1634356920",
+    feedUrl: "https://feed.xyzfm.space/dk4yh3pkpjp3",
+    feedSummaryLimit: 8_000,
+    conversationSource: true,
+    initialLookbackHours: 48,
+  },
 ];
 
-export const publicSourceCatalog = sourceCatalog;
+export const publicSourceCatalog = sourceCatalog.filter(
+  (source) => !source.discoveryOnly,
+);

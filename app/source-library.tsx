@@ -19,6 +19,7 @@ type SourceStatus = {
 const kindFilters: Array<"全部" | SourceKind> = [
   "全部",
   "YouTube",
+  "Podcast",
   "X",
   "Newsletter",
   "Fed",
@@ -47,6 +48,7 @@ function hostLabel(url: string) {
 function sourceKindLabel(kind: SourceKind, locale: "zh" | "en") {
   if (locale === "zh") {
     if (kind === "Newsletter") return "邮件简报";
+    if (kind === "Podcast") return "播客";
     if (kind === "Fed") return "美联储";
     if (kind === "SEC") return "SEC 财报";
     if (kind === "Blog") return "博客";
@@ -91,6 +93,7 @@ export function SourceLibrary({
     const result: Record<SourceKind, number> = {
       YouTube: 0,
       X: 0,
+      Podcast: 0,
       Newsletter: 0,
       Fed: 0,
       SEC: 0,

@@ -6,6 +6,7 @@ import { fileURLToPath } from "node:url";
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const canonicalSnapshotPath = resolve(projectRoot, "data/feed-snapshot.json");
 const radarPath = resolve(projectRoot, "data/daily-radar.json");
+const conversationsPath = resolve(projectRoot, "data/conversations.json");
 const statePath = resolve(projectRoot, "data/incremental-state.json");
 const resultPath = resolve(projectRoot, "tmp/incremental-result.json");
 const authPath = resolve(homedir(), ".codex/auth.json");
@@ -31,6 +32,13 @@ const maxCandidateItems =
   Number.isInteger(requestedCandidateItems) && requestedCandidateItems > 0
     ? Math.min(requestedCandidateItems, 24)
     : 8;
+const maxConversationItems = Math.max(
+  1,
+  Math.min(
+    6,
+    Number(process.env.SIGNAL_RADAR_CONVERSATION_BATCH_SIZE ?? 3) || 3,
+  ),
+);
 const maxFeedStoriesPerRun = 24;
 const exploreEditorialFloor = 80;
 const maxGroundingItemsPerRun = Math.max(
@@ -107,6 +115,13 @@ function itemTime(item, fallback) {
   return item.dateOnly ? parsed + 86_399_999 : parsed;
 }
 
+function itemDiscoveryTime(item, fallback) {
+  const parsed = Date.parse(
+    item.firstSeenAt ?? item.fetchedAt ?? item.publishedAt ?? "",
+  );
+  return Number.isFinite(parsed) ? parsed : fallback;
+}
+
 function itemProcessingKey(item) {
   return item.versionKey ?? item.url;
 }
@@ -157,10 +172,17 @@ function incrementalRelevance(item, snapshotTime) {
     (score, term) => score + (text.includes(term) ? 2 : 0),
     0,
   );
+  const releaseSignalBonus =
+    /\b(?:introduc(?:e|ed|ing)|launch(?:ed|ing)?|releas(?:e|ed|ing)|announc(?:e|ed|ing)|unveil(?:ed|ing)?)\b|(?:正式发布|正式上线|正式推出|发布新一代|推出新一代)/iu.test(
+      text,
+    )
+      ? 10
+      : 0;
   return (
     officialBonus +
     discoveryBonus +
     termScore +
+    releaseSignalBonus +
     Math.max(0, 36 - ageHours) / 6
   );
 }
@@ -191,15 +213,18 @@ export function selectIncrementalItems({
   );
   const existingSourceCutoff = windowStart - overlapMs;
 
-  return scannedSnapshot.items
+  const ranked = scannedSnapshot.items
     .filter((item) => {
       const sourceInitialized = initializedSourceIds.has(
         String(item.sourceId),
       );
       const publishedAt = Date.parse(item.publishedAt ?? "");
+      const initialLookbackMs =
+        Math.max(0, Number(item.initialLookbackHours ?? 0)) * 60 * 60 * 1_000;
       const recentEnough = sourceInitialized
-        ? itemTime(item, snapshotTime) >= existingSourceCutoff
-        : Number.isFinite(publishedAt) && publishedAt >= windowStart;
+        ? itemDiscoveryTime(item, snapshotTime) >= existingSourceCutoff
+        : Number.isFinite(publishedAt) &&
+          publishedAt >= windowStart - initialLookbackMs;
       return (
         Boolean(item.url) &&
         recentEnough &&
@@ -210,8 +235,21 @@ export function selectIncrementalItems({
       (left, right) =>
         incrementalRelevance(right, snapshotTime) -
         incrementalRelevance(left, snapshotTime),
-    )
-    .slice(0, maxCandidateItems)
+    );
+  const selected = [
+    ...ranked
+      .filter((item) => !item.conversationSource)
+      .slice(0, maxCandidateItems),
+    ...ranked
+      .filter((item) => item.conversationSource)
+      .slice(0, maxConversationItems),
+  ].sort(
+    (left, right) =>
+      incrementalRelevance(right, snapshotTime) -
+      incrementalRelevance(left, snapshotTime),
+  );
+
+  return selected
     .map((item, index) => ({
       ...item,
       sourcePublisher: item.sourcePublisher ?? item.sourceName,
@@ -711,6 +749,78 @@ export function hydrateEditorialResearchCandidates({
   }));
 }
 
+function buildConversationPrompt({ candidates, conversations }) {
+  const existing = (conversations.items ?? [])
+    .map((item) => `${item.originalTitle} | ${item.url}`)
+    .join("\n");
+  const items = candidates
+    .map(
+      (item) =>
+        `${item.ref} | ${item.publishedAt ?? "unknown"} | ${item.sourceName} | duration=${item.durationMinutes ?? "unknown"} minutes\n` +
+        `标题: ${cleanText(item.title).slice(0, 300)}\n` +
+        `节目公开说明与时间轴: ${cleanText(item.summary).slice(0, 7_500) || "无公开说明"}`,
+    )
+    .join("\n\n");
+
+  return `你是 All We Need 的精选对谈编辑。处理本次首次发现的 podcast、interview 或长对话；这不是新闻动态，也不是按数量凑满的列表。
+
+规则：
+- 每个 ref 必须且只能进入 conversations 或 ignored。
+- 只有 AI、semiconductor、cloud、developer tools、robotics、frontier science、核心科技公司或科技投资方法论相关，并且公开说明足以支撑一个清晰中心论点的长对话才收录。
+- 重要性、独特性与信息密度是收录标准；发布时间只负责发现，不保证展示。
+- 不得把主持人的节目介绍改写成已经证实的行业事实。嘉宾观点要明确归因；数字和公司状态若只有口述，只能写成其判断。
+- article 必须围绕一个 central claim，三段正文分别建立论点、机制/证据、限制或可证伪变量。不要反复强调“未经验证”。
+- 中英文都要自然完整，专有名词保持原文。takeaways 每种语言恰好 3 条。
+- 若公开说明太短、与产品范围无关、重复或只是短视频切片，放进 ignored。
+
+现有对谈，禁止重复：
+${existing || "none"}
+
+候选：
+${items}
+
+只返回合法 JSON：
+{
+  "conversations": [
+    {
+      "ref": "N1",
+      "guest": "嘉宾",
+      "categoryZh": "简短中文分类",
+      "categoryEn": "Short English category",
+      "titleZh": "编辑标题",
+      "titleEn": "Editorial title",
+      "dekZh": "中心论点摘要",
+      "dekEn": "Central thesis summary",
+      "whyListenZh": "为什么值得听",
+      "whyListenEn": "Why it matters",
+      "takeawaysZh": ["要点1", "要点2", "要点3"],
+      "takeawaysEn": ["Takeaway 1", "Takeaway 2", "Takeaway 3"],
+      "counterpointZh": "最重要的限制或反证",
+      "counterpointEn": "The most important limitation or counterpoint",
+      "articleZh": {
+        "lead": "导语",
+        "sections": [
+          {"heading": "小标题1", "body": "正文1"},
+          {"heading": "小标题2", "body": "正文2"},
+          {"heading": "小标题3", "body": "正文3"}
+        ],
+        "outlook": "下一步观察变量"
+      },
+      "articleEn": {
+        "lead": "Lead",
+        "sections": [
+          {"heading": "Heading 1", "body": "Body 1"},
+          {"heading": "Heading 2", "body": "Body 2"},
+          {"heading": "Heading 3", "body": "Body 3"}
+        ],
+        "outlook": "What to watch"
+      }
+    }
+  ],
+  "ignored": [{"ref": "N2", "reason": "归档：具体原因"}]
+}`;
+}
+
 async function loadSubscriptionAuth() {
   const auth = JSON.parse(await readFile(authPath, "utf8"));
   const tokens = auth.tokens ?? {};
@@ -1066,6 +1176,137 @@ function hydrateArticle(article, label) {
   };
   assertEditorialArticleQuality(hydrated, label);
   return hydrated;
+}
+
+export function validateConversationCoverage(raw, candidates) {
+  const expected = new Set(candidates.map((item) => item.ref));
+  const covered = new Set();
+  const claim = (ref) => {
+    if (!expected.has(ref)) {
+      throw new Error(`Conversation model returned unknown source ref ${ref}`);
+    }
+    if (covered.has(ref)) {
+      throw new Error(`Conversation source ref ${ref} was assigned twice`);
+    }
+    covered.add(ref);
+  };
+  for (const item of raw?.conversations ?? []) claim(item?.ref);
+  for (const item of raw?.ignored ?? []) {
+    if (!cleanText(item?.reason)) {
+      throw new Error(`Ignored conversation ref ${item?.ref} has no reason`);
+    }
+    claim(item?.ref);
+  }
+  const missing = [...expected].filter((ref) => !covered.has(ref));
+  if (missing.length) {
+    throw new Error(
+      `Conversation model did not account for source refs: ${missing.join(", ")}`,
+    );
+  }
+  return {
+    included: (raw?.conversations ?? []).length,
+    ignored: (raw?.ignored ?? []).length,
+  };
+}
+
+export function hydrateConversationItems({
+  raw,
+  candidates,
+  conversations,
+  generatedAt,
+}) {
+  const itemMap = new Map(candidates.map((item) => [item.ref, item]));
+  const existingUrls = new Set(
+    (conversations.items ?? []).map((item) => item.url),
+  );
+  return (raw?.conversations ?? []).flatMap((entry, index) => {
+    const source = itemMap.get(entry?.ref);
+    if (!source || existingUrls.has(source.url)) return [];
+    const takeawaysZh = (entry.takeawaysZh ?? [])
+      .map((value) => cleanText(value).slice(0, 500))
+      .filter(Boolean);
+    const takeawaysEn = (entry.takeawaysEn ?? [])
+      .map((value) => cleanText(value).slice(0, 500))
+      .filter(Boolean);
+    if (takeawaysZh.length !== 3 || takeawaysEn.length !== 3) {
+      throw new Error(`Conversation ${entry.ref} requires three takeaways`);
+    }
+    const requiredText = [
+      "guest",
+      "categoryZh",
+      "categoryEn",
+      "titleZh",
+      "titleEn",
+      "dekZh",
+      "dekEn",
+      "whyListenZh",
+      "whyListenEn",
+      "counterpointZh",
+      "counterpointEn",
+    ];
+    const text = Object.fromEntries(
+      requiredText.map((field) => [
+        field,
+        cleanText(entry?.[field]).slice(0, 1_000),
+      ]),
+    );
+    if (requiredText.some((field) => !text[field])) {
+      throw new Error(`Conversation ${entry.ref} is incomplete`);
+    }
+    const stamp = new Date(generatedAt)
+      .toISOString()
+      .replace(/\D/g, "")
+      .slice(0, 14);
+    return [
+      {
+        id: `conversation-${stamp}-${index + 1}`,
+        videoId:
+          source.url.match(/[?&]v=([^&]+)/)?.[1] ??
+          source.url.match(/youtu\.be\/([^?]+)/)?.[1] ??
+          "",
+        sourceName: source.sourceName,
+        sourceKind: source.sourceKind,
+        originalTitle: cleanText(source.title).slice(0, 500),
+        url: source.url,
+        publishedAt: source.publishedAt ?? generatedAt,
+        durationMinutes: Number(source.durationMinutes) || 0,
+        ...text,
+        takeawaysZh,
+        takeawaysEn,
+        articleZh: hydrateArticle(
+          entry.articleZh,
+          `conversation ${entry.ref} zh`,
+        ),
+        articleEn: hydrateArticle(
+          entry.articleEn,
+          `conversation ${entry.ref} en`,
+        ),
+      },
+    ];
+  });
+}
+
+export function mergeConversationItems({
+  conversations,
+  newItems,
+  generatedAt,
+  model,
+}) {
+  const seen = new Set();
+  const items = [...newItems, ...(conversations.items ?? [])].filter((item) => {
+    if (!item.url || seen.has(item.url)) return false;
+    seen.add(item.url);
+    return true;
+  });
+  return {
+    ...conversations,
+    generatedAt,
+    weekStart:
+      conversations.weekStart ??
+      new Date(Date.parse(generatedAt) - 7 * 86_400_000).toISOString(),
+    model: model ?? conversations.model ?? null,
+    items,
+  };
 }
 
 function assertNoPrivateDiscoveryLeak(value, label) {
@@ -1682,8 +1923,10 @@ export function nextState({
   const remainingEligibleItems = scannedSnapshot.items.filter((item) => {
     if (!item.url || keys.has(itemProcessingKey(item))) return false;
     if (!allInitializedSourceIds.has(String(item.sourceId))) return false;
-    return itemTime(item, Date.parse(scannedSnapshot.generatedAt)) >=
-      windowStart - overlapMs;
+    return (
+      itemDiscoveryTime(item, Date.parse(scannedSnapshot.generatedAt)) >=
+      windowStart - overlapMs
+    );
   });
   return {
     lastScanAt: scannedSnapshot.generatedAt,
@@ -1731,14 +1974,17 @@ async function main() {
     projectRoot,
     argumentValue("snapshot") ?? "tmp/feed-snapshot.json",
   );
-  const [scannedText, previousText, radarText] = await Promise.all([
-    readFile(scannedPath, "utf8"),
-    readFile(canonicalSnapshotPath, "utf8"),
-    readFile(radarPath, "utf8"),
-  ]);
+  const [scannedText, previousText, radarText, conversationsText] =
+    await Promise.all([
+      readFile(scannedPath, "utf8"),
+      readFile(canonicalSnapshotPath, "utf8"),
+      readFile(radarPath, "utf8"),
+      readFile(conversationsPath, "utf8"),
+    ]);
   const scannedSnapshot = JSON.parse(scannedText);
   const previousSnapshot = JSON.parse(previousText);
   const radar = JSON.parse(radarText);
+  const conversations = JSON.parse(conversationsText);
   assertSnapshotHealth(scannedSnapshot, previousSnapshot);
   let state = null;
   try {
@@ -1768,14 +2014,21 @@ async function main() {
     return;
   }
 
-  const selectedCandidates = selectIncrementalItems({
+  const allSelectedCandidates = selectIncrementalItems({
     scannedSnapshot,
     previousSnapshot,
     state,
   });
+  const conversationCandidates = allSelectedCandidates.filter(
+    (item) => item.conversationSource,
+  );
+  const selectedCandidates = allSelectedCandidates.filter(
+    (item) => !item.conversationSource,
+  );
   const baseResult = {
     scannedAt: scannedSnapshot.generatedAt,
-    newItemCount: selectedCandidates.length,
+    newItemCount: allSelectedCandidates.length,
+    conversationCandidateCount: conversationCandidates.length,
     fetchedItemCount: scannedSnapshot.items.length,
     successfulSources: scannedSnapshot.successfulSources,
     failedSources: scannedSnapshot.failedSources,
@@ -1787,6 +2040,7 @@ async function main() {
       ...baseResult,
       feedStoryCount: 0,
       updatedStoryCount: 0,
+      conversationCount: 0,
       includedItemCount: 0,
       appendedEvidenceItemCount: 0,
       ignoredItemCount: 0,
@@ -1794,7 +2048,7 @@ async function main() {
       updatedTitles: [],
       publishRequired: false,
       dryRun: true,
-      candidateTitles: selectedCandidates
+      candidateTitles: allSelectedCandidates
         .slice(0, 20)
         .map((item) => item.title),
     };
@@ -1811,13 +2065,19 @@ async function main() {
     ignoredItemCount: 0,
   };
   let model = null;
+  let conversationModel = null;
+  let hydratedConversations = [];
+  let conversationCoverage = { included: 0, ignored: 0 };
   let grounding = { candidates: [], model: null, attempted: 0 };
   let editorialResearch = { candidates: [], model: null, attempted: 0 };
   let candidates = selectedCandidates;
   let auth = null;
-  if (selectedCandidates.length) {
+  let editorialSkillInstructions = null;
+  if (allSelectedCandidates.length) {
     auth = await loadSubscriptionAuth();
-    const editorialSkillInstructions = await loadEditorialSkill();
+    editorialSkillInstructions = await loadEditorialSkill();
+  }
+  if (selectedCandidates.length) {
     grounding = await groundDiscoveryCandidates({
       candidates: selectedCandidates,
       auth,
@@ -1871,32 +2131,98 @@ async function main() {
     if (model === null) throw lastError ?? new Error("Incremental analysis failed");
   }
 
+  if (conversationCandidates.length) {
+    const prompt = buildConversationPrompt({
+      candidates: conversationCandidates,
+      conversations,
+    });
+    let lastError;
+    for (const candidateModel of preferredModels) {
+      try {
+        const output = await callSubscriptionModel({
+          model: candidateModel,
+          prompt,
+          ...auth,
+          instructions:
+            `${editorialSkillInstructions}\n\nCurate every supplied long-form conversation exactly once. Preserve attribution, write a centered bilingual briefing, and return only valid JSON.`,
+          reasoningEffort: "high",
+        });
+        const raw = parseJsonOutput(output);
+        conversationCoverage = validateConversationCoverage(
+          raw,
+          conversationCandidates,
+        );
+        hydratedConversations = hydrateConversationItems({
+          raw,
+          candidates: conversationCandidates,
+          conversations,
+          generatedAt: scannedSnapshot.generatedAt,
+        });
+        conversationModel = candidateModel;
+        break;
+      } catch (error) {
+        lastError = error;
+        console.warn(
+          `${candidateModel} conversation analysis failed: ${
+            error instanceof Error ? error.message : error
+          }`,
+        );
+      }
+    }
+    if (conversationModel === null) {
+      throw lastError ?? new Error("Conversation analysis failed");
+    }
+  }
+
   await writeJson(
     statePath,
     nextState({
       state,
       previousSnapshot,
-      candidates: selectedCandidates,
+      candidates: allSelectedCandidates,
       scannedSnapshot,
     }),
   );
 
-  if (hydratedStories.length || hydratedUpdates.length) {
-    const mergedRadar = mergeFeedStories({
-      radar,
-      hydratedStories,
-      hydratedUpdates,
-      scannedSnapshot,
-    });
-    await Promise.all([
-      writeJson(radarPath, mergedRadar),
-      writeFile(canonicalSnapshotPath, scannedText, "utf8"),
-    ]);
+  if (
+    hydratedStories.length ||
+    hydratedUpdates.length ||
+    hydratedConversations.length
+  ) {
+    const writes = [writeFile(canonicalSnapshotPath, scannedText, "utf8")];
+    if (hydratedStories.length || hydratedUpdates.length) {
+      writes.push(
+        writeJson(
+          radarPath,
+          mergeFeedStories({
+            radar,
+            hydratedStories,
+            hydratedUpdates,
+            scannedSnapshot,
+          }),
+        ),
+      );
+    }
+    if (hydratedConversations.length) {
+      writes.push(
+        writeJson(
+          conversationsPath,
+          mergeConversationItems({
+            conversations,
+            newItems: hydratedConversations,
+            generatedAt: scannedSnapshot.generatedAt,
+            model: conversationModel,
+          }),
+        ),
+      );
+    }
+    await Promise.all(writes);
   }
 
   const result = {
     ...baseResult,
     model,
+    conversationModel,
     groundingModel: grounding.model,
     groundingAttemptedCount: grounding.attempted,
     groundedEvidenceCount: grounding.candidates.length,
@@ -1905,13 +2231,18 @@ async function main() {
     editorialResearchEvidenceCount: editorialResearch.candidates.length,
     feedStoryCount: hydratedStories.length,
     updatedStoryCount: hydratedUpdates.length,
+    conversationCount: hydratedConversations.length,
     includedItemCount: coverage.storyItemCount,
     appendedEvidenceItemCount: coverage.updateItemCount,
-    ignoredItemCount: coverage.ignoredItemCount,
+    ignoredItemCount:
+      coverage.ignoredItemCount + conversationCoverage.ignored,
     addedTitles: hydratedStories.map((event) => event.signal.title),
     updatedTitles: hydratedUpdates.map((event) => event.update.title),
+    conversationTitles: hydratedConversations.map((item) => item.titleZh),
     publishRequired:
-      hydratedStories.length > 0 || hydratedUpdates.length > 0,
+      hydratedStories.length > 0 ||
+      hydratedUpdates.length > 0 ||
+      hydratedConversations.length > 0,
     dryRun: false,
   };
   await writeJson(resultPath, result);

@@ -16,6 +16,17 @@ const geistMono = Geist_Mono({
 const title = "All We Need — AI 科技投资情报";
 const description =
   "从 X、YouTube、Reddit、Hugging Face 和博客中发现、验证并解释真正重要的 AI 与科技投资信号。";
+const restoreFontSize = `
+try {
+  const storedFontSize = window.localStorage.getItem("all-we-need-font-size");
+  document.documentElement.dataset.fontSize =
+    storedFontSize === "large" || storedFontSize === "xlarge"
+      ? storedFontSize
+      : "medium";
+} catch {
+  document.documentElement.dataset.fontSize = "medium";
+}
+`;
 
 export async function generateMetadata(): Promise<Metadata> {
   const requestHeaders = await headers();
@@ -58,7 +69,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="zh-CN">
+    <html lang="zh-CN" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: restoreFontSize }} />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
       </body>

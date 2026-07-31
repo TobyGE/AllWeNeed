@@ -65,7 +65,7 @@ test("rejects a rewritten or removed old article", () => {
   );
 });
 
-test("publishes only when a new story or update exists", () => {
+test("publishes only when a new story, update, or conversation exists", () => {
   assert.equal(
     publicationDecision({
       publishRequired: false,
@@ -79,6 +79,15 @@ test("publishes only when a new story or update exists", () => {
       publishRequired: true,
       feedStoryCount: 2,
       updatedStoryCount: 1,
+    }),
+    true,
+  );
+  assert.equal(
+    publicationDecision({
+      publishRequired: true,
+      feedStoryCount: 0,
+      updatedStoryCount: 0,
+      conversationCount: 1,
     }),
     true,
   );
@@ -96,8 +105,12 @@ test("publishes only when a new story or update exists", () => {
 test("limits publication changes to generated Radar and homepage assets", () => {
   assert.doesNotThrow(() =>
     assertOnlyExpectedChanges(
-      " M data/daily-radar.json\n M data/feed-snapshot.json",
-      ["data/daily-radar.json", "data/feed-snapshot.json"],
+      " M data/daily-radar.json\n M data/feed-snapshot.json\n M data/conversations.json",
+      [
+        "data/daily-radar.json",
+        "data/feed-snapshot.json",
+        "data/conversations.json",
+      ],
       "Radar",
     ),
   );
@@ -144,10 +157,15 @@ test("auto-resumes only a fully analyzed generated batch", () => {
   assert.equal(
     shouldAutoResume({
       radarStatus:
-        " M data/daily-radar.json\n M data/feed-snapshot.json",
+        " M data/feed-snapshot.json\n M data/conversations.json",
       homepageStatus:
         " D intelligence/assets/old.js\n?? intelligence/assets/new.js",
-      result,
+      result: {
+        publishRequired: true,
+        feedStoryCount: 0,
+        updatedStoryCount: 0,
+        conversationCount: 1,
+      },
     }),
     true,
   );

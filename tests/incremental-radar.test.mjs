@@ -6,17 +6,20 @@ import {
   assertSnapshotHealth,
   createBaselineState,
   hydrateEditorialResearchCandidates,
+  hydrateConversationItems,
   hydrateGroundingCandidates,
   hydrateExistingUpdates,
   hydrateFeedStories,
   hasDirectRadarScope,
   hasFreshDynamicEvidence,
   mergeFeedStories,
+  mergeConversationItems,
   nextState,
   qualifiesDynamicMateriality,
   qualifiesExploreMateriality,
   selectEditorialResearchItems,
   selectIncrementalItems,
+  validateConversationCoverage,
   validateFeedCoverage,
 } from "../scripts/append-feed-updates.mjs";
 
@@ -111,6 +114,387 @@ test("baselines a newly connected source instead of backfilling its history", ()
 
   assert.equal(selected.length, 1);
   assert.equal(selected[0].url, "https://example.com/source-one/new");
+});
+
+test("allows a bounded first-connect lookback for a new conversation source", () => {
+  const scannedSnapshot = {
+    generatedAt: "2026-07-31T14:00:00.000Z",
+    items: [
+      {
+        sourceId: 222,
+        url: "https://example.com/podcast/149",
+        title: "Episode 149",
+        sourceName: "Technology Conversations",
+        sourceKind: "Podcast",
+        conversationSource: true,
+        initialLookbackHours: 48,
+        publishedAt: "2026-07-30T23:30:00.000Z",
+      },
+      {
+        sourceId: 222,
+        url: "https://example.com/podcast/148",
+        title: "Episode 148",
+        sourceName: "Technology Conversations",
+        sourceKind: "Podcast",
+        conversationSource: true,
+        initialLookbackHours: 48,
+        publishedAt: "2026-07-20T23:30:00.000Z",
+      },
+    ],
+  };
+  const previousSnapshot = {
+    generatedAt: "2026-07-31T13:00:00.000Z",
+    items: [],
+  };
+
+  const selected = selectIncrementalItems({
+    scannedSnapshot,
+    previousSnapshot,
+    state: {
+      lastScanAt: "2026-07-31T13:00:00.000Z",
+      windowStartAt: "2026-07-31T13:00:00.000Z",
+      initializedSourceIds: [],
+      processedKeys: [],
+    },
+  });
+
+  assert.deepEqual(selected.map((item) => item.url), [
+    "https://example.com/podcast/149",
+  ]);
+
+  const advanced = nextState({
+    state: {
+      lastScanAt: "2026-07-31T13:00:00.000Z",
+      windowStartAt: "2026-07-31T13:00:00.000Z",
+      initializedSourceIds: [],
+      processedKeys: [],
+    },
+    previousSnapshot,
+    candidates: selected,
+    scannedSnapshot: {
+      ...scannedSnapshot,
+      statuses: [{ sourceId: 222, status: "ok" }],
+    },
+  });
+  assert.equal(
+    advanced.processedKeys.includes("https://example.com/podcast/149"),
+    true,
+  );
+  assert.equal(
+    advanced.processedKeys.includes("https://example.com/podcast/148"),
+    true,
+  );
+});
+
+test("reserves a separate candidate lane for new conversations", () => {
+  const regularItems = Array.from({ length: 12 }, (_, index) => ({
+    sourceId: index + 1,
+    url: `https://example.com/news/${index}`,
+    title: `Official AI release ${index}`,
+    summary: "A material new AI product announcement",
+    sourceName: `Company ${index}`,
+    sourceKind: "Blog",
+    publishedAt: "2026-07-31T13:50:00.000Z",
+    firstSeenAt: "2026-07-31T13:55:00.000Z",
+  }));
+  const conversation = {
+    sourceId: 222,
+    url: "https://example.com/podcast/149",
+    title: "A deep conversation about AI for AI",
+    summary: "A long-form discussion with a researcher",
+    sourceName: "Technology Conversations",
+    sourceKind: "Podcast",
+    conversationSource: true,
+    publishedAt: "2026-07-31T13:40:00.000Z",
+    firstSeenAt: "2026-07-31T13:56:00.000Z",
+  };
+
+  const selected = selectIncrementalItems({
+    scannedSnapshot: {
+      generatedAt: "2026-07-31T14:00:00.000Z",
+      items: [...regularItems, conversation],
+    },
+    previousSnapshot: {
+      generatedAt: "2026-07-31T13:00:00.000Z",
+      items: [],
+    },
+    state: {
+      lastScanAt: "2026-07-31T13:00:00.000Z",
+      windowStartAt: "2026-07-31T13:00:00.000Z",
+      initializedSourceIds: [
+        ...regularItems.map((item) => String(item.sourceId)),
+        "222",
+      ],
+      processedKeys: [],
+    },
+  });
+
+  assert.equal(selected.filter((item) => !item.conversationSource).length, 8);
+  assert.equal(
+    selected.some((item) => item.url === conversation.url),
+    true,
+  );
+});
+
+test("accounts for every new conversation and hydrates a bilingual briefing", () => {
+  const candidates = [
+    {
+      ref: "N1",
+      sourceId: 222,
+      sourceName: "张小珺Jùn｜商业访谈录",
+      sourceKind: "Podcast",
+      title: "149. 和清华刘子鸣聊 AI for AI",
+      url: "https://example.com/podcast/149",
+      publishedAt: "2026-07-30T23:30:00.000Z",
+      durationMinutes: 101,
+    },
+    {
+      ref: "N2",
+      sourceId: 222,
+      sourceName: "张小珺Jùn｜商业访谈录",
+      sourceKind: "Podcast",
+      title: "A short promotional clip",
+      url: "https://example.com/podcast/clip",
+      publishedAt: "2026-07-31T00:00:00.000Z",
+    },
+  ];
+  const raw = {
+    conversations: [
+      {
+        ref: "N1",
+        guest: "刘子鸣",
+        categoryZh: "AI 研究",
+        categoryEn: "AI research",
+        titleZh: "AI 开始介入 AI 的研究过程",
+        titleEn: "AI begins to reshape AI research itself",
+        dekZh: "对谈讨论 AI for AI 如何改变研究流程与机制解释。",
+        dekEn:
+          "The conversation examines how AI for AI changes research workflows and mechanistic explanation.",
+        whyListenZh: "它把资本热潮放回研究方法变化中理解。",
+        whyListenEn:
+          "It places the capital cycle inside a deeper change in research methods.",
+        takeawaysZh: ["研究自动化", "机制解释", "资本周期"],
+        takeawaysEn: [
+          "Research automation",
+          "Mechanistic explanation",
+          "Capital cycles",
+        ],
+        counterpointZh: "节目观点仍需用后续研究产出检验。",
+        counterpointEn:
+          "The thesis still needs to be tested against future research output.",
+        articleZh: article("中文对谈"),
+        articleEn: article("English conversation"),
+      },
+    ],
+    ignored: [{ ref: "N2", reason: "归档：只是短宣传切片" }],
+  };
+
+  assert.deepEqual(validateConversationCoverage(raw, candidates), {
+    included: 1,
+    ignored: 1,
+  });
+  const hydrated = hydrateConversationItems({
+    raw,
+    candidates,
+    conversations: { items: [] },
+    generatedAt: "2026-07-31T14:00:00.000Z",
+  });
+  assert.equal(hydrated.length, 1);
+  assert.equal(hydrated[0].durationMinutes, 101);
+  assert.equal(hydrated[0].sourceKind, "Podcast");
+  assert.equal(hydrated[0].takeawaysZh.length, 3);
+
+  const merged = mergeConversationItems({
+    conversations: {
+      generatedAt: "2026-07-24T00:00:00.000Z",
+      items: [
+        {
+          id: "old",
+          titleZh: "既有对谈",
+          url: "https://example.com/podcast/old",
+        },
+      ],
+    },
+    newItems: hydrated,
+    generatedAt: "2026-07-31T14:00:00.000Z",
+    model: "gpt-test",
+  });
+  assert.deepEqual(
+    merged.items.map((item) => item.url),
+    [
+      "https://example.com/podcast/149",
+      "https://example.com/podcast/old",
+    ],
+  );
+  assert.equal(merged.model, "gpt-test");
+});
+
+test("rejects an unaccounted or multiply assigned conversation candidate", () => {
+  const candidates = [{ ref: "N1" }, { ref: "N2" }];
+  assert.throws(
+    () =>
+      validateConversationCoverage(
+        {
+          conversations: [{ ref: "N1" }],
+          ignored: [],
+        },
+        candidates,
+      ),
+    /did not account/,
+  );
+  assert.throws(
+    () =>
+      validateConversationCoverage(
+        {
+          conversations: [{ ref: "N1" }],
+          ignored: [
+            { ref: "N1", reason: "duplicate" },
+            { ref: "N2", reason: "weak" },
+          ],
+        },
+        candidates,
+      ),
+    /assigned twice/,
+  );
+});
+
+test("selects a late-arriving URL by first discovery time instead of stale publisher metadata", () => {
+  const previousSnapshot = {
+    generatedAt: "2026-07-31T13:00:00.000Z",
+    items: [
+      {
+        sourceId: 214,
+        url: "https://example.com/seed/seen",
+      },
+    ],
+  };
+  const scannedSnapshot = {
+    generatedAt: "2026-07-31T14:20:00.000Z",
+    statuses: [{ sourceId: 214, status: "ok" }],
+    items: [
+      {
+        sourceId: 214,
+        url: "https://example.com/seedance-2-5",
+        title: "Introducing Seedance 2.5",
+        summary: "A new video creation model",
+        sourceName: "ByteDance Seed Blog",
+        sourceKind: "Blog",
+        publishedAt: "2026-07-31T04:01:20.000Z",
+        firstSeenAt: "2026-07-31T14:18:13.755Z",
+      },
+    ],
+  };
+  const state = {
+    lastScanAt: "2026-07-31T13:00:00.000Z",
+    windowStartAt: "2026-07-31T13:00:00.000Z",
+    initializedSourceIds: ["214"],
+    processedKeys: ["https://example.com/seed/seen"],
+  };
+
+  const selected = selectIncrementalItems({
+    scannedSnapshot,
+    previousSnapshot,
+    state,
+  });
+
+  assert.equal(selected.length, 1);
+  assert.equal(selected[0].url, "https://example.com/seedance-2-5");
+
+  const advanced = nextState({
+    state,
+    previousSnapshot,
+    candidates: [],
+    scannedSnapshot,
+  });
+  assert.equal(advanced.windowStartAt, state.windowStartAt);
+});
+
+test("does not revive an old unseen URL when its first discovery is outside the overlap window", () => {
+  const previousSnapshot = {
+    generatedAt: "2026-07-31T13:00:00.000Z",
+    items: [{ sourceId: 214, url: "https://example.com/seed/seen" }],
+  };
+  const scannedSnapshot = {
+    generatedAt: "2026-07-31T14:20:00.000Z",
+    statuses: [{ sourceId: 214, status: "ok" }],
+    items: [
+      {
+        sourceId: 214,
+        url: "https://example.com/seedance-old",
+        title: "Old release",
+        sourceName: "ByteDance Seed Blog",
+        sourceKind: "Blog",
+        publishedAt: "2026-06-01T04:01:20.000Z",
+        firstSeenAt: "2026-07-30T06:00:00.000Z",
+      },
+    ],
+  };
+
+  const selected = selectIncrementalItems({
+    scannedSnapshot,
+    previousSnapshot,
+    state: {
+      lastScanAt: "2026-07-31T13:00:00.000Z",
+      windowStartAt: "2026-07-31T13:00:00.000Z",
+      initializedSourceIds: ["214"],
+      processedKeys: ["https://example.com/seed/seen"],
+    },
+  });
+
+  assert.equal(selected.length, 0);
+});
+
+test("prioritizes an official product release over a full batch of fresh commentary", () => {
+  const previousSnapshot = {
+    generatedAt: "2026-07-31T13:00:00.000Z",
+    items: [{ sourceId: 214, url: "https://example.com/seed/seen" }],
+  };
+  const commentary = Array.from({ length: 8 }, (_, index) => ({
+    sourceId: 50 + index,
+    url: `https://example.com/commentary-${index}`,
+    title: `A fresh opinion about software ${index}`,
+    summary: "A personal observation without a product announcement",
+    sourceName: `Commentary ${index}`,
+    sourceKind: "Blog",
+    publishedAt: "2026-07-31T14:15:00.000Z",
+    firstSeenAt: "2026-07-31T14:18:00.000Z",
+  }));
+  const scannedSnapshot = {
+    generatedAt: "2026-07-31T14:20:00.000Z",
+    items: [
+      ...commentary,
+      {
+        sourceId: 214,
+        url: "https://example.com/seedance-2-5",
+        title: "Introducing Seedance 2.5",
+        summary: "One-take creation with multimodal references",
+        sourceName: "ByteDance Seed Blog",
+        sourceKind: "Blog",
+        publishedAt: "2026-07-31T04:01:20.000Z",
+        firstSeenAt: "2026-07-31T14:18:13.755Z",
+      },
+    ],
+  };
+
+  const selected = selectIncrementalItems({
+    scannedSnapshot,
+    previousSnapshot,
+    state: {
+      lastScanAt: "2026-07-31T13:00:00.000Z",
+      windowStartAt: "2026-07-31T13:00:00.000Z",
+      initializedSourceIds: [
+        "214",
+        ...commentary.map((item) => String(item.sourceId)),
+      ],
+      processedKeys: ["https://example.com/seed/seen"],
+    },
+  });
+
+  assert.equal(selected.length, 8);
+  assert.equal(
+    selected.some((item) => item.url === "https://example.com/seedance-2-5"),
+    true,
+  );
 });
 
 test("creates a baseline from every currently visible item and connected source", () => {

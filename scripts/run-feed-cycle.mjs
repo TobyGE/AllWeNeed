@@ -125,6 +125,7 @@ export function shouldAutoResume({
     !onlyExpectedChanges(radarStatus, [
       "data/daily-radar.json",
       "data/feed-snapshot.json",
+      "data/conversations.json",
     ])
   ) {
     return false;
@@ -196,7 +197,9 @@ export function assertExistingArticlesPreserved(before, after) {
 
 export function publicationDecision(result) {
   const changedCount =
-    Number(result.feedStoryCount ?? 0) + Number(result.updatedStoryCount ?? 0);
+    Number(result.feedStoryCount ?? 0) +
+    Number(result.updatedStoryCount ?? 0) +
+    Number(result.conversationCount ?? 0);
   if (Boolean(result.publishRequired) !== (changedCount > 0)) {
     throw new Error(
       `Invalid incremental result: publishRequired=${result.publishRequired}, changedCount=${changedCount}`,
@@ -389,7 +392,11 @@ async function main() {
       }
       assertOnlyExpectedChanges(
         radarStatus,
-        ["data/daily-radar.json", "data/feed-snapshot.json"],
+        [
+          "data/daily-radar.json",
+          "data/feed-snapshot.json",
+          "data/conversations.json",
+        ],
         "Radar repository",
       );
       assertOnlyExpectedChanges(
@@ -440,7 +447,11 @@ async function main() {
     assertExistingArticlesPreserved(before, after);
     assertOnlyExpectedChanges(
       gitStatus(projectRoot),
-      ["data/daily-radar.json", "data/feed-snapshot.json"],
+      [
+        "data/daily-radar.json",
+        "data/feed-snapshot.json",
+        "data/conversations.json",
+      ],
       "Radar repository",
     );
 
@@ -468,7 +479,11 @@ async function main() {
       .slice(0, 16);
     const radarCommit = commit(
       projectRoot,
-      ["data/daily-radar.json", "data/feed-snapshot.json"],
+      [
+        "data/daily-radar.json",
+        "data/feed-snapshot.json",
+        "data/conversations.json",
+      ],
       `Update Radar feed ${stamp}`,
     );
     const homepageCommit = commit(

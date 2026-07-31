@@ -1,11 +1,18 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-import { parseDatedChangelogHtml } from "../scripts/fetch-sources.mjs";
+import {
+  parseDatedChangelogHtml,
+  parseSpaceXUpdatesJson,
+} from "../scripts/fetch-sources.mjs";
 import {
   nextState,
   selectIncrementalItems,
 } from "../scripts/append-feed-updates.mjs";
+import {
+  publicSourceCatalog,
+  sourceCatalog,
+} from "../app/source-catalog.ts";
 
 const source = {
   id: 205,
@@ -102,4 +109,44 @@ test("selects a changed version once without changing its public URL", () => {
     }).length,
     0,
   );
+});
+
+test("parses the official SpaceX updates API into citeable source items", () => {
+  const [item] = parseSpaceXUpdatesJson(
+    JSON.stringify([
+      {
+        id: 215,
+        updateId: "moon-and-beyond",
+        date: "2025-10-30",
+        title: "To the Moon and Beyond",
+        contentBlocks: [
+          {
+            heading: "Starship",
+            paragraph:
+              "Starship is designed to establish a permanent human presence beyond Earth.",
+          },
+        ],
+      },
+    ]),
+    {
+      id: 220,
+      name: "SpaceX Updates",
+      publisher: "SpaceX",
+      url: "https://www.spacex.com/updates",
+    },
+  );
+
+  assert.equal(item.title, "To the Moon and Beyond");
+  assert.equal(
+    item.url,
+    "https://www.spacex.com/updates/moon-and-beyond",
+  );
+  assert.equal(item.publishedAt, "2025-10-30T00:00:00.000Z");
+  assert.match(item.summary, /permanent human presence/);
+});
+
+test("keeps discovery-only headline feeds out of the public source directory", () => {
+  const nikkei = sourceCatalog.find((item) => item.id === 221);
+  assert.equal(nikkei?.discoveryOnly, true);
+  assert.equal(publicSourceCatalog.some((item) => item.id === 221), false);
 });

@@ -55,6 +55,9 @@ test("server-renders the All We Need product shell", async () => {
   assert.match(html, /GPT 已分析/);
   assert.match(html, /language-switch/);
   assert.match(html, />EN</);
+  assert.match(html, /font-size-control/);
+  assert.match(html, /较大字体/);
+  assert.match(html, /超大字体/);
   assert.match(html, /信源库/);
   assert.match(html, /条真实内容已抓取/);
   assert.ok(html.includes(String(snapshot.successfulSources)));

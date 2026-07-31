@@ -10,6 +10,10 @@ import {
 } from "./analytics";
 import { ArticleView } from "./article-view";
 import {
+  FontSizeControl,
+  type FontSizePreference,
+} from "./font-size-control";
+import {
   calculateSignalHeat,
   compareEditorialValue,
   compareExploreEditorialValue,
@@ -266,6 +270,7 @@ export default function Home() {
       ? { view: "brief" as RadarView, section: "radar" as AppSection }
       : routeFromPathname(window.location.pathname);
   const [locale, setLocale] = useState<"zh" | "en">("zh");
+  const [fontSize, setFontSize] = useState<FontSizePreference>("medium");
   const [activeCategory, setActiveCategory] = useState("全部");
   const [query, setQuery] = useState("");
   const [expanded, setExpanded] = useState<number[]>([]);
@@ -292,6 +297,23 @@ export default function Home() {
       if (storedLocale === "zh" || storedLocale === "en") {
         setLocale(storedLocale);
       }
+    }, 0);
+    return () => window.clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      const storedFontSize = window.localStorage.getItem(
+        "all-we-need-font-size",
+      );
+      const initialFontSize: FontSizePreference =
+        storedFontSize === "medium" ||
+        storedFontSize === "large" ||
+        storedFontSize === "xlarge"
+          ? storedFontSize
+          : "medium";
+      setFontSize(initialFontSize);
+      document.documentElement.dataset.fontSize = initialFontSize;
     }, 0);
     return () => window.clearTimeout(timer);
   }, []);
@@ -889,6 +911,16 @@ export default function Home() {
     window.setTimeout(() => setNotice(""), 2600);
   }
 
+  function changeFontSize(nextFontSize: FontSizePreference) {
+    setFontSize(nextFontSize);
+    document.documentElement.dataset.fontSize = nextFontSize;
+    window.localStorage.setItem("all-we-need-font-size", nextFontSize);
+    trackAnalyticsEvent("font_size_change", {
+      font_size: nextFontSize,
+      language: locale,
+    });
+  }
+
   function openArticle(id: number | string) {
     const normalizedId = String(id);
     const url = new URL(window.location.href);
@@ -943,7 +975,9 @@ export default function Home() {
         locale={locale}
         generatedAt={conversations.generatedAt}
         kind="conversation"
+        fontSize={fontSize}
         onLocaleChange={setLocale}
+        onFontSizeChange={changeFontSize}
         onBack={closeArticle}
       />
     );
@@ -975,7 +1009,9 @@ export default function Home() {
         locale={locale}
         generatedAt={dailyRadar.generatedAt}
         kind="explore"
+        fontSize={fontSize}
         onLocaleChange={setLocale}
+        onFontSizeChange={changeFontSize}
         onBack={closeArticle}
       />
     );
@@ -1014,7 +1050,9 @@ export default function Home() {
         locale={locale}
         generatedAt={dailyRadar.generatedAt}
         kind="company"
+        fontSize={fontSize}
         onLocaleChange={setLocale}
+        onFontSizeChange={changeFontSize}
         onBack={closeArticle}
       />
     );
@@ -1028,7 +1066,9 @@ export default function Home() {
         signal={activeArticle}
         locale={locale}
         generatedAt={dailyRadar.generatedAt}
+        fontSize={fontSize}
         onLocaleChange={setLocale}
+        onFontSizeChange={changeFontSize}
         onBack={closeArticle}
       />
     );
@@ -1248,6 +1288,11 @@ export default function Home() {
                 EN
               </button>
             </div>
+            <FontSizeControl
+              value={fontSize}
+              locale={locale}
+              onChange={changeFontSize}
+            />
             <span className="demo-label">
               {section === "sources"
                 ? t("实时快照", "LIVE SNAPSHOT")
@@ -1292,8 +1337,8 @@ export default function Home() {
               <p className="date-line">
                 {view === "conversations"
                   ? t(
-                      "本周精选 · 基于完整公开字幕整理",
-                      "This week’s picks · Edited from full public transcripts",
+                      "本周精选 · 从公开对谈中提炼值得带走的判断",
+                      "This week’s picks · The ideas worth carrying forward",
                     )
                   : t(
                       `持续更新 · 最近更新 ${analysisTimeLabel}`,

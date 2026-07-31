@@ -1,6 +1,10 @@
 "use client";
 
 import { useEffect } from "react";
+import {
+  FontSizeControl,
+  type FontSizePreference,
+} from "./font-size-control";
 
 type Locale = "zh" | "en";
 
@@ -98,14 +102,18 @@ export function ArticleView({
   locale,
   generatedAt,
   kind = "brief",
+  fontSize,
   onLocaleChange,
+  onFontSizeChange,
   onBack,
 }: {
   signal: ArticleSignal;
   locale: Locale;
   generatedAt: string;
   kind?: "brief" | "explore" | "company" | "conversation";
+  fontSize: FontSizePreference;
   onLocaleChange: (locale: Locale) => void;
+  onFontSizeChange: (fontSize: FontSizePreference) => void;
   onBack: () => void;
 }) {
   const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
@@ -187,6 +195,11 @@ export function ArticleView({
               EN
             </button>
           </div>
+          <FontSizeControl
+            value={fontSize}
+            locale={locale}
+            onChange={onFontSizeChange}
+          />
           <span className="article-edition">
             {isExplore
               ? t("EXPLORE 探索稿", "EXPLORE ESSAY")
@@ -324,12 +337,12 @@ export function ArticleView({
                   isExplore
                     ? "本文是 All We Need 根据下列公开来源形成的探索性判断，不是已被证实的结论。事实、编辑推断与反方观点已分开；原始来源保留在文末，便于逐项核查。"
                     : isConversation
-                      ? "本文由 All We Need 根据节目公开字幕压缩整理。它保留对谈的中心论点、关键细节与主要限制，不替代完整节目；原始视频保留在文末。"
+                      ? "本文由 All We Need 根据节目公开内容与时间轴压缩整理。它保留对谈的中心论点、关键细节与主要限制，不替代完整节目；原始节目链接保留在文末。"
                     : "本文由 All We Need 根据下列公开来源综合撰写。事实、来源共识与编辑推断已尽量分开；原始来源保留在文末，便于逐项核查。",
                   isExplore
                     ? "This is an exploratory thesis synthesized from the public sources below, not a settled conclusion. Facts, editorial inference, and counterarguments are separated, with originals preserved for verification."
                     : isConversation
-                      ? "All We Need condensed this note from the program’s public transcript, preserving its central argument, key details, and principal limitation. It is a guide to—not a substitute for—the full conversation."
+                      ? "All We Need condensed this note from the program’s public materials and chapter outline, preserving its central argument, key details, and principal limitation. It is a guide to—not a substitute for—the full conversation."
                     : "All We Need synthesized this article from the public sources below. Facts, source consensus, and editorial inference are separated where possible, with originals preserved for verification.",
                 )}
               </p>
