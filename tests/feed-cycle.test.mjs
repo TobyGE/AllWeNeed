@@ -4,6 +4,7 @@ import {
   articleSnapshot,
   assertExistingArticlesPreserved,
   assertOnlyExpectedChanges,
+  assertReusableSnapshot,
   parseAssetPaths,
   publicationDecision,
   shouldAutoResume,
@@ -47,6 +48,43 @@ test("preserves every old article while allowing new stories and reordering", ()
 
   assert.doesNotThrow(() => assertExistingArticlesPreserved(before, after));
   assert.deepEqual([...articleSnapshot(before).keys()], ["one", "two"]);
+});
+
+test("reuses only a fresh, complete polling snapshot", () => {
+  const now = Date.parse("2026-08-01T12:00:00.000Z");
+  assert.doesNotThrow(() =>
+    assertReusableSnapshot(
+      {
+        generatedAt: "2026-08-01T11:55:00.000Z",
+        successfulSources: 198,
+        items: [],
+      },
+      now,
+    ),
+  );
+  assert.throws(
+    () =>
+      assertReusableSnapshot(
+        {
+          generatedAt: "2026-08-01T11:30:00.000Z",
+          successfulSources: 198,
+          items: [],
+        },
+        now,
+      ),
+    /stale/,
+  );
+  assert.throws(
+    () =>
+      assertReusableSnapshot(
+        {
+          generatedAt: "2026-08-01T11:55:00.000Z",
+          items: [],
+        },
+        now,
+      ),
+    /incomplete/,
+  );
 });
 
 test("rejects a rewritten or removed old article", () => {

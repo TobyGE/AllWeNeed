@@ -1,0 +1,164 @@
+export const updateIntervalsMinutes = Object.freeze({
+  poll: 30,
+  fast: 0,
+  standard: 120,
+  explore: 360,
+  conversation: 1_440,
+});
+
+export const updateLaneNames = Object.freeze([
+  "fast",
+  "standard",
+  "explore",
+  "conversation",
+]);
+
+const authoritativePublisherPattern =
+  /\b(?:OpenAI|Anthropic|Google(?: DeepMind)?|Meta|Amazon|AWS|Microsoft|NVIDIA|AMD|Broadcom|TSMC|ASML|Lam Research|KLA|Apple|SpaceX|ByteDance Seed|DeepSeek|Hugging Face|Model Context Protocol|Federal Reserve|SEC|CISA|NIST)\b/iu;
+
+const fastMaterialPattern =
+  /\b(?:earnings|results|guidance|revenue|margin|10-q|10-k|8-k|6-k|20-f|acquisition|merger|funding|raises?|launch(?:ed|ing)?|releas(?:e|ed|ing)|introduc(?:e|ed|ing)|available now|general availability|stable release|price|pricing|api|model|gpt(?:-\d[\w.-]*)?|claude|gemini|llama|grok|kimi|deepseek|veo|sora|seedance|security advisory|breach|incident|cve-\d+|vulnerability|rate decision|interest rate|fomc statement|executive order|regulation|enforcement|ban|sanction)\b|(?:财报|业绩|指引|营收|利润率|收购|合并|融资|正式发布|正式上线|推出|开放API|价格|降价|安全公告|漏洞|攻击|事故|利率决定|监管决定|行政令|制裁)/iu;
+
+const standardEventPattern =
+  /\b(?:update|changelog|preview|beta|research|paper|benchmark|repository|open source|partnership|contract|data center|semiconductor|chip|cloud|robot|cybersecurity|monetary policy|inflation|testimony)\b|(?:更新|预览|公测|研究|论文|基准|开源|合作|合同|数据中心|半导体|芯片|云计算|机器人|网络安全|货币政策|通胀|证词)/iu;
+
+function parseTime(value) {
+  const parsed = Date.parse(value ?? "");
+  return Number.isFinite(parsed) ? parsed : null;
+}
+
+function candidateText(item) {
+  return [
+    item.sourceName,
+    item.sourcePublisher,
+    item.title,
+    item.summary,
+  ]
+    .filter(Boolean)
+    .join(" ");
+}
+
+export function isFastLaneCandidate(item) {
+  if (item?.conversationSource) return false;
+  const text = candidateText(item);
+  const material = fastMaterialPattern.test(text);
+  if (!material) return false;
+  if (["Fed", "SEC"].includes(item?.sourceKind)) return true;
+  if (item?.discoveryOnly) {
+    return item.discoveryLevel === "A";
+  }
+  return authoritativePublisherPattern.test(
+    `${item?.sourcePublisher ?? ""} ${item?.sourceName ?? ""}`,
+  );
+}
+
+export function candidateUpdateLane(item) {
+  if (item?.conversationSource) return "conversation";
+  if (isFastLaneCandidate(item)) return "fast";
+  if (
+    ["Fed", "SEC"].includes(item?.sourceKind) ||
+    standardEventPattern.test(candidateText(item))
+  ) {
+    return "standard";
+  }
+  return "explore";
+}
+
+function laneLastProcessedAt(scheduleState, lane, fallback) {
+  return (
+    parseTime(scheduleState?.laneProcessedAt?.[lane]) ??
+    parseTime(scheduleState?.lastFullCycleAt) ??
+    parseTime(fallback)
+  );
+}
+
+function oldestFirstSeenAt(items, now) {
+  return Math.min(
+    ...items.map(
+      (item) =>
+        parseTime(item.firstSeenAt ?? item.fetchedAt ?? item.publishedAt) ??
+        now,
+    ),
+  );
+}
+
+function laneDueAt({ lane, items, now, scheduleState, fallback }) {
+  if (!items.length) return null;
+  if (lane === "fast") return now;
+  const intervalMs = updateIntervalsMinutes[lane] * 60_000;
+  const lastProcessedAt =
+    laneLastProcessedAt(scheduleState, lane, fallback) ??
+    oldestFirstSeenAt(items, now);
+  const scheduledAt = lastProcessedAt + intervalMs;
+  const maximumWaitAt = oldestFirstSeenAt(items, now) + intervalMs;
+  return Math.min(scheduledAt, maximumWaitAt);
+}
+
+export function buildUpdatePlan({
+  candidates,
+  now = Date.now(),
+  scheduleState = null,
+  fallbackLastCycleAt = null,
+}) {
+  const nowTime = typeof now === "number" ? now : Date.parse(now);
+  if (!Number.isFinite(nowTime)) throw new Error("Invalid planning time");
+  const grouped = Object.fromEntries(
+    updateLaneNames.map((lane) => [lane, []]),
+  );
+  for (const candidate of candidates) {
+    grouped[candidateUpdateLane(candidate)].push(candidate);
+  }
+
+  const dueAt = Object.fromEntries(
+    updateLaneNames.map((lane) => [
+      lane,
+      laneDueAt({
+        lane,
+        items: grouped[lane],
+        now: nowTime,
+        scheduleState,
+        fallback: fallbackLastCycleAt,
+      }),
+    ]),
+  );
+  const dueLanes = updateLaneNames.filter(
+    (lane) => dueAt[lane] !== null && dueAt[lane] <= nowTime,
+  );
+  const futureDueTimes = Object.values(dueAt).filter(
+    (value) => value !== null && value > nowTime,
+  );
+  const nextDueAt = futureDueTimes.length
+    ? new Date(Math.min(...futureDueTimes)).toISOString()
+    : null;
+
+  return {
+    plannedAt: new Date(nowTime).toISOString(),
+    pollIntervalMinutes: updateIntervalsMinutes.poll,
+    candidateCount: candidates.length,
+    laneCounts: Object.fromEntries(
+      updateLaneNames.map((lane) => [lane, grouped[lane].length]),
+    ),
+    dueLanes,
+    shouldRunFullCycle: dueLanes.length > 0,
+    reason:
+      dueLanes.length > 0
+        ? `Process due lanes: ${dueLanes.join(", ")}`
+        : candidates.length
+          ? `Candidates are queued until ${nextDueAt}`
+          : "No unseen candidates",
+    nextDueAt,
+    lanes: Object.fromEntries(
+      updateLaneNames.map((lane) => [
+        lane,
+        grouped[lane].map((item) => ({
+          sourceId: item.sourceId,
+          sourceName: item.sourceName,
+          title: item.title,
+          url: item.url,
+          firstSeenAt:
+            item.firstSeenAt ?? item.fetchedAt ?? item.publishedAt ?? null,
+        })),
+      ]),
+    ),
+  };
+}

@@ -503,6 +503,24 @@ test("prioritizes an official product release over a full batch of fresh comment
     selected.some((item) => item.url === "https://example.com/seedance-2-5"),
     true,
   );
+  const fastOnly = selectIncrementalItems({
+    scannedSnapshot,
+    previousSnapshot,
+    state: {
+      lastScanAt: "2026-07-31T13:00:00.000Z",
+      windowStartAt: "2026-07-31T13:00:00.000Z",
+      initializedSourceIds: [
+        "214",
+        ...commentary.map((item) => String(item.sourceId)),
+      ],
+      processedKeys: ["https://example.com/seed/seen"],
+    },
+    lanes: ["fast"],
+  });
+  assert.deepEqual(
+    fastOnly.map((item) => item.url),
+    ["https://example.com/seedance-2-5"],
+  );
 });
 
 test("creates a baseline from every currently visible item and connected source", () => {

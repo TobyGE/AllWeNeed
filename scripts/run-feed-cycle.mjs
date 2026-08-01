@@ -218,6 +218,29 @@ export function parseAssetPaths(indexHtml) {
   ];
 }
 
+export function assertReusableSnapshot(
+  snapshot,
+  now = Date.now(),
+  maxAgeMs = 15 * 60 * 1_000,
+) {
+  const generatedAt = Date.parse(snapshot?.generatedAt ?? "");
+  if (!Number.isFinite(generatedAt)) {
+    throw new Error("Reusable snapshot has no valid generatedAt");
+  }
+  const ageMs = now - generatedAt;
+  if (ageMs < -5 * 60 * 1_000 || ageMs > maxAgeMs) {
+    throw new Error(
+      `Reusable snapshot is stale or future-dated: ${snapshot.generatedAt}`,
+    );
+  }
+  if (
+    !Number.isFinite(Number(snapshot?.successfulSources)) ||
+    !Array.isArray(snapshot?.items)
+  ) {
+    throw new Error("Reusable snapshot is incomplete");
+  }
+}
+
 async function readJson(path) {
   return JSON.parse(await readFile(path, "utf8"));
 }
@@ -336,6 +359,8 @@ async function main() {
   const dryRun = process.argv.includes("--dry-run");
   const resume = process.argv.includes("--resume");
   const skipRemoteCheck = process.argv.includes("--skip-remote-check");
+  const reuseSnapshot = process.argv.includes("--reuse-snapshot");
+  const requestedLanes = argumentValue("lanes");
   const homepageRepo = resolve(argumentValue("homepage") ?? defaultHomepageRepo);
   const startedAt = new Date().toISOString();
   let recoveredBatch = null;
@@ -416,11 +441,34 @@ async function main() {
         )
       : await readJson(radarPath);
     if (!resume) {
-      runCommand(
-        "npm",
-        ["run", dryRun ? "refresh:incremental:dry" : "refresh:incremental"],
-        { cwd: projectRoot },
-      );
+      const laneArgument = requestedLanes
+        ? [`--lanes=${requestedLanes}`]
+        : [];
+      if (reuseSnapshot) {
+        assertReusableSnapshot(
+          await readJson(resolve(projectRoot, "tmp/feed-snapshot.json")),
+        );
+        runCommand(
+          process.execPath,
+          [
+            resolve(projectRoot, "scripts/append-feed-updates.mjs"),
+            `--snapshot=${resolve(projectRoot, "tmp/feed-snapshot.json")}`,
+            ...(dryRun ? ["--dry-run"] : []),
+            ...laneArgument,
+          ],
+          { cwd: projectRoot },
+        );
+      } else {
+        runCommand(
+          "npm",
+          [
+            "run",
+            dryRun ? "refresh:incremental:dry" : "refresh:incremental",
+            ...(laneArgument.length ? ["--", ...laneArgument] : []),
+          ],
+          { cwd: projectRoot },
+        );
+      }
     }
     const result = await readJson(resultPath);
     const shouldPublish = publicationDecision(result);

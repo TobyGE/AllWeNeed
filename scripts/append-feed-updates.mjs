@@ -2,6 +2,10 @@ import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { homedir } from "node:os";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import {
+  candidateUpdateLane,
+  updateLaneNames,
+} from "./update-policy.mjs";
 
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const canonicalSnapshotPath = resolve(projectRoot, "data/feed-snapshot.json");
@@ -41,6 +45,15 @@ const maxConversationItems = Math.max(
 );
 const maxFeedStoriesPerRun = 24;
 const exploreEditorialFloor = 80;
+const requestedLanes = new Set(
+  (argumentValue("lanes") ?? updateLaneNames.join(","))
+    .split(",")
+    .map((value) => value.trim())
+    .filter((value) => updateLaneNames.includes(value)),
+);
+if (!requestedLanes.size) {
+  throw new Error("No valid update lanes requested");
+}
 const maxGroundingItemsPerRun = Math.max(
   1,
   Math.min(
@@ -186,7 +199,7 @@ function incrementalRelevance(item, snapshotTime) {
   );
 }
 
-export function selectIncrementalItems({
+export function rankIncrementalItems({
   scannedSnapshot,
   previousSnapshot,
   state,
@@ -244,6 +257,22 @@ export function selectIncrementalItems({
         );
       },
     );
+  return ranked;
+}
+
+export function selectIncrementalItems({
+  scannedSnapshot,
+  previousSnapshot,
+  state,
+  lanes = updateLaneNames,
+}) {
+  const allowedLanes = new Set(lanes);
+  const snapshotTime = Date.parse(scannedSnapshot.generatedAt);
+  const ranked = rankIncrementalItems({
+    scannedSnapshot,
+    previousSnapshot,
+    state,
+  }).filter((item) => allowedLanes.has(candidateUpdateLane(item)));
   const selected = [
     ...ranked
       .filter((item) => !item.conversationSource)
@@ -2212,6 +2241,7 @@ async function main() {
     scannedSnapshot,
     previousSnapshot,
     state,
+    lanes: [...requestedLanes],
   });
   const conversationCandidates = allSelectedCandidates.filter(
     (item) => item.conversationSource,
@@ -2227,6 +2257,7 @@ async function main() {
     successfulSources: scannedSnapshot.successfulSources,
     failedSources: scannedSnapshot.failedSources,
     needsAuthSources: scannedSnapshot.needsAuthSources,
+    requestedLanes: [...requestedLanes],
   };
 
   if (dryRun) {
