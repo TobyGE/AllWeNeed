@@ -889,6 +889,13 @@ export default function Home() {
     });
   }
 
+  function briefMore() {
+    switchView("brief");
+    window.requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+
   function conversationsMore() {
     switchView("conversations");
     window.requestAnimationFrame(() => {
@@ -2490,16 +2497,74 @@ export default function Home() {
                   )}
                 </p>
               </div>
-              <a
-                href={sectionPath("conversations")}
-                onClick={(event) => {
-                  event.preventDefault();
-                  conversationsMore();
-                }}
-              >
-                <span>{t("精选对谈", "Conversations")}</span>
-                <i aria-hidden="true">→</i>
-              </a>
+              <div className="explore-more-actions">
+                <a
+                  href={sectionPath("conversations")}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    conversationsMore();
+                  }}
+                >
+                  <span>{t("精选对谈", "Conversations")}</span>
+                  <i aria-hidden="true">→</i>
+                </a>
+                <a
+                  className="conversation-more-button"
+                  href={sectionPath("brief")}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    briefMore();
+                  }}
+                >
+                  <span>{t("最近动态", "Latest")}</span>
+                  <i aria-hidden="true">→</i>
+                </a>
+              </div>
+            </section>
+          )}
+
+          {view === "conversations" && visibleConversations.length > 0 && (
+            <section className="explore-more-cta conversation-page-bridge-cta explore-more-page-end">
+              <div>
+                <span className="explore-more-kicker">
+                  {t("对话之外", "BEYOND THE CONVERSATION")}
+                </span>
+                <h3>
+                  {t(
+                    "听完当事人的思考，再回到正在变化的事实与更大胆的判断",
+                    "After hearing how they think, return to what is changing and what may come next.",
+                  )}
+                </h3>
+                <p>
+                  {t(
+                    "最近动态追踪正在发生的事件；探索连接非共识观点、二阶影响与仍在形成中的早期信号。",
+                    "Latest tracks events in motion; Explore connects non-consensus views, second-order effects, and early signals still taking shape.",
+                  )}
+                </p>
+              </div>
+              <div className="explore-more-actions">
+                <a
+                  href={sectionPath("explore")}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    exploreMore();
+                  }}
+                >
+                  <span>{t("探索更多", "Explore more")}</span>
+                  <i aria-hidden="true">→</i>
+                </a>
+                <a
+                  className="conversation-more-button"
+                  href={sectionPath("brief")}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    briefMore();
+                  }}
+                >
+                  <span>{t("最近动态", "Latest")}</span>
+                  <i aria-hidden="true">→</i>
+                </a>
+              </div>
             </section>
           )}
             </>

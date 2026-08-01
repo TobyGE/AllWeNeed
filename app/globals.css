@@ -817,6 +817,28 @@ button {
   color: #2b1c18;
 }
 
+.conversation-bridge-cta .conversation-more-button {
+  border-color: rgb(255 255 255 / 18%);
+  background: rgb(255 255 255 / 7%);
+  color: #fff6f2;
+}
+
+.conversation-page-bridge-cta {
+  border-color: #2d4c4c;
+  background:
+    radial-gradient(circle at 91% 0%, rgb(56 187 181 / 23%), transparent 40%),
+    radial-gradient(circle at 7% 100%, rgb(134 96 211 / 17%), transparent 35%),
+    linear-gradient(135deg, #171a19 0%, #1b2929 58%, #211c2b 100%);
+}
+
+.conversation-page-bridge-cta::before {
+  background: linear-gradient(180deg, #42c8c1, #9673e2);
+}
+
+.conversation-page-bridge-cta .explore-more-kicker {
+  color: #75d8d3;
+}
+
 .explore-more-cta button i,
 .explore-more-cta a i {
   font-size: calc(18px + var(--font-adjust));

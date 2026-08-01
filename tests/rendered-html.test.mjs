@@ -200,6 +200,15 @@ test("removes all disposable starter preview code", async () => {
     styles,
     /\.app-shell\.view-explore \.conversation-bridge-cta > div/,
   );
+  assert.match(
+    page,
+    /view === "conversations" && visibleConversations\.length > 0/,
+  );
+  assert.equal(
+    (page.match(/className="explore-more-actions"/g) ?? []).length,
+    3,
+  );
+  assert.match(page, /conversation-page-bridge-cta/);
   assert.match(styles, /prefers-reduced-motion/);
   assert.match(layout, /lang="zh-CN"/);
   assert.match(layout, /favicon\.png/);
