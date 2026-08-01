@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-08-01T16:26:26.176Z",
-  "basedOnSnapshotAt": "2026-08-01T16:21:22.762Z",
+  "generatedAt": "2026-08-01T19:09:13.119Z",
+  "basedOnSnapshotAt": "2026-08-01T19:07:19.322Z",
   "model": "gpt-5.5",
   "analyzedItemCount": 180,
-  "totalFetchedItemCount": 2289,
+  "totalFetchedItemCount": 1995,
   "editorNote": "今日信息环境由代理安全事件、编码代理工具链分化、开放模型竞争和算力下沉共同主导。",
   "signalQuality": 86,
   "signalQualityChange": 8,
@@ -514,6 +514,24 @@
           "ref": "R4",
           "role": "反例",
           "takeaway": "Leiden Declaration指出自动化论证及自然语言到形式化的转换均可能失效，主张外部核查与同行评审不可替代。"
+        },
+        {
+          "id": "ground-158-3-https://openai.com/index/ten-advances-in-mathematics/-1-https://openai.com/index/ten-advances-in-mathematics/",
+          "sourceId": 158,
+          "sourceName": "OpenAI",
+          "sourcePublisher": "OpenAI",
+          "sourceKind": "Official",
+          "title": "Ten advances in mathematics and theoretical computer science",
+          "url": "https://openai.com/index/ten-advances-in-mathematics/",
+          "publishedAt": "2026-08-01T00:00:00.000Z",
+          "summary": "页面标注发布日期为 August 1, 2026，并列出十项数学和理论计算机科学问题的研究结果。",
+          "fetchedAt": "2026-08-01T19:07:19.322Z",
+          "groundedFrom": "N1",
+          "groundingClaim": "OpenAI 于 2026-08-01 发布《Ten advances in mathematics and theoretical computer science》，介绍了十项数学与理论计算机科学研究结果。",
+          "groundingNotes": "线索时间：2026-08-01T07:37:44.000Z；线索 Article URL：https://openai.com/index/ten-advances-in-mathematics/；线索 Comments URL：https://news.ycombinator.com/item?id=49132058；Points：357；Comments：238。",
+          "ref": "G1",
+          "role": "佐证",
+          "takeaway": "OpenAI官方页面标注发布日期为2026年8月1日，并列出十项数学和理论计算机科学研究结果。"
         }
       ],
       "references": [
@@ -602,9 +620,55 @@
           "researchComparisons": "当前发布的论文集列出十项结论，并给出可比较的硬指标：高维球堆积指数从1978年以来的经典 Kabatianskii–Levenshtein 指数0.59905576提高至0.6044；永久式的无除法算术电路下界为Ω(n²/log log n)、公式下界为Ω(n⁴/log n)；欧氏最近向量问题给出n^(1/400)因子近似困难性；多色三角 Ramsey 数下界为R_k(3)=k^Θ(k)。此前OpenAI在2026年5月20日公布的是对Erdős单位距离猜想的一项反例：此前最佳构造为n^(1+C/log log n)，新构造对无穷多个n达到至少n^(1+δ)，后续细化给出δ=0.014。此次十项结果据OpenAI称所需解题token按Sol API费率约为2,000美元，并由人类借助同一模型整理为手稿、再形式化为Lean证书。",
           "researchUnresolved": "十篇结果是否已经通过各自领域独立同行评审、外部专家逐项复核及复现尚未在所列材料中确认；Astra为内部版本，外部研究者能否获得模型、完整推理轨迹、训练与推理配置仍不明确。Lean仓库表明提供了可检查的独立Lean解答，但形式化陈述与自然语言论文主张之间的对应关系及依赖假设仍需领域专家审查。",
           "ref": "R4"
+        },
+        {
+          "id": "ground-158-3-https://openai.com/index/ten-advances-in-mathematics/-1-https://openai.com/index/ten-advances-in-mathematics/",
+          "sourceId": 158,
+          "sourceName": "OpenAI",
+          "sourcePublisher": "OpenAI",
+          "sourceKind": "Official",
+          "title": "Ten advances in mathematics and theoretical computer science",
+          "url": "https://openai.com/index/ten-advances-in-mathematics/",
+          "publishedAt": "2026-08-01T00:00:00.000Z",
+          "summary": "页面标注发布日期为 August 1, 2026，并列出十项数学和理论计算机科学问题的研究结果。",
+          "fetchedAt": "2026-08-01T19:07:19.322Z",
+          "groundedFrom": "N1",
+          "groundingClaim": "OpenAI 于 2026-08-01 发布《Ten advances in mathematics and theoretical computer science》，介绍了十项数学与理论计算机科学研究结果。",
+          "groundingNotes": "线索时间：2026-08-01T07:37:44.000Z；线索 Article URL：https://openai.com/index/ten-advances-in-mathematics/；线索 Comments URL：https://news.ycombinator.com/item?id=49132058；Points：357；Comments：238。",
+          "ref": "G1"
         }
       ],
-      "feedBatchAt": "2026-08-01T09:06:49.698Z"
+      "feedBatchAt": "2026-08-01T09:06:49.698Z",
+      "updates": [
+        {
+          "addedAt": "2026-08-01T00:00:00.000Z",
+          "title": "官方页面列出十项研究结果",
+          "summary": "OpenAI发布的页面标注为8月1日，并逐项列出十项数学和理论计算机科学问题的研究结果。",
+          "evidence": [
+            {
+              "id": "ground-158-3-https://openai.com/index/ten-advances-in-mathematics/-1-https://openai.com/index/ten-advances-in-mathematics/",
+              "sourceId": 158,
+              "sourceName": "OpenAI",
+              "sourcePublisher": "OpenAI",
+              "sourceKind": "Official",
+              "title": "Ten advances in mathematics and theoretical computer science",
+              "url": "https://openai.com/index/ten-advances-in-mathematics/",
+              "publishedAt": "2026-08-01T00:00:00.000Z",
+              "summary": "页面标注发布日期为 August 1, 2026，并列出十项数学和理论计算机科学问题的研究结果。",
+              "fetchedAt": "2026-08-01T19:07:19.322Z",
+              "groundedFrom": "N1",
+              "groundingClaim": "OpenAI 于 2026-08-01 发布《Ten advances in mathematics and theoretical computer science》，介绍了十项数学与理论计算机科学研究结果。",
+              "groundingNotes": "线索时间：2026-08-01T07:37:44.000Z；线索 Article URL：https://openai.com/index/ten-advances-in-mathematics/；线索 Comments URL：https://news.ycombinator.com/item?id=49132058；Points：357；Comments：238。",
+              "ref": "G1",
+              "role": "佐证",
+              "takeaway": "OpenAI官方页面标注发布日期为2026年8月1日，并列出十项数学和理论计算机科学研究结果。"
+            }
+          ],
+          "changeType": "corroboration",
+          "thesisImpact": "OpenAI于8月1日发布的官方页面逐项列出十项数学与理论计算机科学研究结果，强化了Astra已被公开命名并展示实质能力证据的判断。",
+          "revisionRequired": false
+        }
+      ]
     },
     {
       "id": 42,
@@ -13771,6 +13835,26 @@
             {
               "role": "反例",
               "takeaway": "Leiden Declaration指出自动化论证及自然语言到形式化的转换均可能失效，主张外部核查与同行评审不可替代。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "OpenAI官方页面标注发布日期为2026年8月1日，并列出十项数学和理论计算机科学研究结果。"
+            }
+          ],
+          "updates": [
+            {
+              "addedAt": "2026-08-01T00:00:00.000Z",
+              "title": "官方页面列出十项研究结果",
+              "summary": "OpenAI发布的页面标注为8月1日，并逐项列出十项数学和理论计算机科学问题的研究结果。",
+              "evidence": [
+                {
+                  "role": "佐证",
+                  "takeaway": "OpenAI官方页面标注发布日期为2026年8月1日，并列出十项数学和理论计算机科学研究结果。"
+                }
+              ],
+              "changeType": "corroboration",
+              "thesisImpact": "OpenAI于8月1日发布的官方页面逐项列出十项数学与理论计算机科学研究结果，强化了Astra已被公开命名并展示实质能力证据的判断。",
+              "revisionRequired": false
             }
           ]
         },
@@ -18806,6 +18890,26 @@
             {
               "role": "Counterpoint",
               "takeaway": "The Leiden Declaration argues that formalization and automated reasoning still require independent checking and peer review."
+            },
+            {
+              "role": "Support",
+              "takeaway": "The official OpenAI page is dated August 1, 2026 and lists ten research results in mathematics and theoretical computer science."
+            }
+          ],
+          "updates": [
+            {
+              "addedAt": "2026-08-01T00:00:00.000Z",
+              "title": "OpenAI Lists Ten Research Advances",
+              "summary": "An OpenAI page dated August 1 lists results across ten mathematics and theoretical computer science problems.",
+              "evidence": [
+                {
+                  "role": "Support",
+                  "takeaway": "The official OpenAI page is dated August 1, 2026 and lists ten research results in mathematics and theoretical computer science."
+                }
+              ],
+              "changeType": "corroboration",
+              "thesisImpact": "OpenAI于8月1日发布的官方页面逐项列出十项数学与理论计算机科学研究结果，强化了Astra已被公开命名并展示实质能力证据的判断。",
+              "revisionRequired": false
             }
           ]
         },
@@ -23704,12 +23808,12 @@
     "en": "gpt-5.6-sol"
   },
   "incremental": {
-    "lastAddedAt": "2026-08-01T16:26:26.176Z",
-    "lastScanAt": "2026-08-01T16:21:22.762Z",
-    "lastAddedCount": 1,
+    "lastAddedAt": "2026-08-01T19:09:13.119Z",
+    "lastScanAt": "2026-08-01T19:07:19.322Z",
+    "lastAddedCount": 0,
     "lastUpdatedCount": 1,
     "totalAppended": 42,
-    "totalUpdated": 24
+    "totalUpdated": 25
   },
   "exploreDepth": {
     "minimum": 50,
