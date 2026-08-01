@@ -152,6 +152,7 @@ test("removes all disposable starter preview code", async () => {
     fetchScript,
     analyzeScript,
     staticConfig,
+    homeEntry,
     exploreEntry,
     conversationsEntry,
     sourcesEntry,
@@ -174,6 +175,7 @@ test("removes all disposable starter preview code", async () => {
     readFile(new URL("../scripts/fetch-sources.mjs", import.meta.url), "utf8"),
     readFile(new URL("../scripts/analyze-radar.mjs", import.meta.url), "utf8"),
     readFile(new URL("../vite.static.config.ts", import.meta.url), "utf8"),
+    readFile(new URL("../static/index.html", import.meta.url), "utf8"),
     readFile(new URL("../static/explore/index.html", import.meta.url), "utf8"),
     readFile(
       new URL("../static/conversations/index.html", import.meta.url),
@@ -200,6 +202,22 @@ test("removes all disposable starter preview code", async () => {
   );
   assert.match(styles, /prefers-reduced-motion/);
   assert.match(layout, /lang="zh-CN"/);
+  assert.match(layout, /favicon\.png/);
+  assert.match(layout, /apple-touch-icon\.png/);
+  for (const staticEntry of [
+    homeEntry,
+    exploreEntry,
+    conversationsEntry,
+    sourcesEntry,
+  ]) {
+    assert.match(staticEntry, /rel="icon"[\s\S]*href="\/favicon\.png"/);
+    assert.match(
+      staticEntry,
+      /rel="apple-touch-icon"[\s\S]*href="\/apple-touch-icon\.png"/,
+    );
+  }
+  await access(new URL("public/favicon.png", templateRoot));
+  await access(new URL("public/apple-touch-icon.png", templateRoot));
   assert.match(sourceLibrary, /刚刚抓取/);
   assert.match(sourceLibrary, /官方 API 凭证/);
   const snapshotData = JSON.parse(snapshot);
