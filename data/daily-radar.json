@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-01T01:11:33.950Z",
-  "basedOnSnapshotAt": "2026-08-01T01:07:16.321Z",
+  "generatedAt": "2026-08-01T01:42:20.033Z",
+  "basedOnSnapshotAt": "2026-08-01T01:36:17.947Z",
   "model": "gpt-5.5",
   "analyzedItemCount": 180,
   "totalFetchedItemCount": 2232,
@@ -8,6 +8,625 @@
   "signalQuality": 86,
   "signalQualityChange": 8,
   "signals": [
+    {
+      "id": 46,
+      "editorialBucket": "explore",
+      "category": "AI & 模型",
+      "eyebrow": "观点",
+      "title": "AI评测转向对抗式出题",
+      "summary": "SepaRank让模型彼此生成并回答挑战，以one-to-many分离和校准评分替代固定题库，评测瓶颈可能转向协议设计。",
+      "why": "若模型持续逼近专家题库上限，谁能生成新的区分性挑战，将决定benchmark能否跟上能力增长。",
+      "impact": "评测资源可能转向动态对抗、承诺校准与防串谋设计，但短期不会取代HLE或Chatbot Arena。",
+      "shiftFrom": "人类固定题库与两两偏好",
+      "shiftTo": "模型生成挑战的一对多评测",
+      "crossValidation": "原论文给出SepaRank实验；MathDuels证明互相出题已有先例；Chatbot Arena与HLE提供现行参照，HLE构成主要反证。",
+      "article": {
+        "lead": "AI评测正在出现一个可检验的方向变化：当固定的人类题库越来越难持续拉开前沿模型差距，核心资产可能不再是更多静态题目，而是让模型主动设计挑战、分离对手并暴露校准缺陷的协议。SepaRank不是终局方案，却把这一变化从口号推进到了可运行实验。",
+        "sections": [
+          {
+            "heading": "题库正在变成评测约束",
+            "body": "传统benchmark主要依赖人类预先编写问题，再以准确率或偏好票排序模型。Chatbot Arena把这一框架扩展为匿名pairwise comparison，并已积累超过24万张投票；HLE则由近千名专家构建约2500道跨学科问题。两者仍有价值，但题目生产、审查与防泄漏都依赖稀缺的人类劳动，更新速度也天然落后于模型迭代。"
+          },
+          {
+            "heading": "SepaRank改变的是出题权",
+            "body": "SepaRank采用one-to-many protocol：参与模型不仅回答问题，还要生成能把目标模型与其他模型区分开的挑战，再以方差、Brier loss和adaptive weighting评价区分能力与校准表现。论文在11个模型上运行10场、每场20轮实验。机制上的关键不是让模型简单互考，而是奖励能够稳定揭示能力差异、同时诚实表达承诺和置信度的行为。"
+          },
+          {
+            "heading": "动态协议也可能被博弈",
+            "body": "这一方向尚不能证明固定题库已经失效。HLE显示前沿模型在高质量专家问题上仍有明显提升空间，多数受测模型的RMS calibration error超过70%；MathDuels也已在数学领域使用互相出题、独立verifier和Rasch模型，说明SepaRank面对的是已有研究路线而非空白市场。模型串谋、生成无效问题或利用对手特征过拟合，都可能让动态排名偏离通用能力。"
+          }
+        ],
+        "outlook": "关键验证将是独立团队能否在未参与原实验的新模型上复现排名，并检验结果与HLE、Chatbot Arena及真实任务表现的相关性。若更换参与者、提示和轮次后排名仍稳定，且无效题与错误承诺没有随能力上升而增加，对抗式评测的可信度将增强；反之，它更可能只是另一种可被策略化的游戏。"
+      },
+      "validationType": "跨平台验证",
+      "publishedAt": "2026-07-31T17:27:46.000Z",
+      "updatedAt": "2026-07-31T17:27:46.000Z",
+      "sources": [
+        "Blog",
+        "Research"
+      ],
+      "sourceNames": [
+        "Eliezer Yudkowsky",
+        "arXiv",
+        "Proceedings of Machine Learning Research",
+        "Nature"
+      ],
+      "sourceCount": 4,
+      "age": "8 小时前",
+      "score": 84,
+      "tone": "orange",
+      "evidence": [
+        {
+          "id": "80-6-https://www.lesswrong.com/posts/avtquSx2PkWsxXW6T/how-to-measure-intelligence-beyond-human-scale",
+          "sourceId": 80,
+          "sourceName": "Eliezer Yudkowsky",
+          "sourcePublisher": "Eliezer Yudkowsky",
+          "sourceKind": "Blog",
+          "title": "How to Measure Intelligence Beyond Human Scale?",
+          "url": "https://www.lesswrong.com/posts/avtquSx2PkWsxXW6T/how-to-measure-intelligence-beyond-human-scale",
+          "publishedAt": "2026-07-31T17:27:46.000Z",
+          "summary": "Based on the academic paper: Measuring Intelligence Beyond Human Scale [1] TLDR: Historically, intelligence benchmarks have been composed of human-generated questions. However, current techniques do not scale to AI, as capabilities surpass human intelligence. We propose the paradigm of adversarial psychometrics , in which participants generate questions and ",
+          "fetchedAt": "2026-08-01T01:36:17.947Z",
+          "firstSeenAt": "2026-07-31T18:07:02.850Z",
+          "ref": "N8",
+          "role": "佐证",
+          "takeaway": "Yudkowsky概述adversarial psychometrics，主张用参与者生成问题的方法评测超出人类题库覆盖范围的能力。"
+        },
+        {
+          "id": "research-80-6-https://www.lesswrong.com/posts/avtquSx2PkWsxXW6T/how-to-measure-intelligence-beyond-human-scale-1-https://arxiv.org/abs/2607.07040",
+          "sourceId": 80,
+          "sourceName": "arXiv",
+          "sourcePublisher": "arXiv",
+          "sourceKind": "Research",
+          "title": "Measuring Intelligence Beyond Human Scale",
+          "url": "https://arxiv.org/abs/2607.07040",
+          "publishedAt": "2026-07-08T06:19:10.000Z",
+          "summary": "原始论文给出 SepaRank 的 one-to-many protocol、方差与 Brier loss 评分、adaptive weighting、四种 resolution 设计及实验全文；补齐 11 模型、10 场×20 轮、PC/QC 排名显著性、跨实验相关性、校准表现、承诺诚实率和错误承诺奖励等关键数字。",
+          "fetchedAt": "2026-08-01T01:36:17.947Z",
+          "researchedFrom": "N8",
+          "researchRole": "Primary",
+          "researchClaim": "SepaRank 将模型同时置于出题者和答题者角色，以跨模型置信度方差奖励能够区分整个模型群体的挑战；初步实验表明，该方法能在可执行程序任务中显著区分部分前沿模型，但尚未证明其在超人类能力、无裁判真值对齐或跨时期稳定测量上的可扩展性。",
+          "researchComparisons": "论文在 11 个模型、5 家 provider 上运行 PC（program/committed）和 QC（question/committed）两种实验，每种包含 10 场独立游戏、每场 20 轮，每个挑战抽取 5 名 solver。PC 中 gpt-5.5 相对 gpt-5.4 的累计分数差为 3.1（p=0.008），gpt-5.4 相对第三名 qwen3.7-max 的差为 6.4（p=0.006）；QC 中前两名不可区分（p=0.76）。PC 与 QC 排名的 Spearman ρ=0.93、Pearson r=0.79。程序实验总体诚实承诺率为 87.0%，但错误承诺的平均 proposer reward 为 0.36，高于诚实承诺的 0.15，且冠军 gpt-5.5 的诚实率仅为 59.0%，说明 committed resolution 当前会奖励策略性误报。最近的 MathDuels 同样让模型兼任出题者和答题者，但限定于可验证数学题，使用独立 verifier 和 Rasch 模型，在 19 个模型、559 道有效题和 10,062 次求解结果上估计能力；SepaRank 的增量是从 pairwise duel 扩展到 one-to-many separation，并尝试覆盖不可验证领域。Chatbot Arena 则以人类众包的 pairwise preference 和超过 24 万票建立相对排名，仍依赖人类判断。另一方面，HLE 由专家构建 2,500 道可验证问题，前沿模型仍呈现低准确率和高校准误差，说明人类编写的高难度固定测试目前并未全面失去区分力。",
+          "researchUnresolved": "候选将文章作者标为 Eliezer Yudkowsky，但原页面实际署名为 Elad Hazan、Kia Ghods、Jerry Han、Andrew Tu 和 Rafael Moschopoulos。LessWrong 文章列出的 SepaRank 与现有 benchmark 相关系数及 general-intelligence 因子结果未出现在 arXiv v1，也未找到公开数据、代码或独立复现。论文定义了 PE、PC、QC、QN 四种模式，却只报告 PC 和 QC；program-executed、question-consensus、概率 coarsening、judge-sparse audit、bond 机制和 novelty penalty 均未获得实验验证。累计分数按当轮参赛群体 z-score，能否跨 roster、模型版本和时间形成稳定量尺仍未解决。",
+          "ref": "R9",
+          "role": "主张",
+          "takeaway": "SepaRank原论文给出one-to-many protocol、评分方法以及覆盖11个模型、10场每场20轮的实验结果。"
+        },
+        {
+          "id": "research-80-6-https://www.lesswrong.com/posts/avtquSx2PkWsxXW6T/how-to-measure-intelligence-beyond-human-scale-2-https://arxiv.org/abs/2604.21916",
+          "sourceId": 80,
+          "sourceName": "arXiv",
+          "sourcePublisher": "arXiv",
+          "sourceKind": "Research",
+          "title": "MathDuels: Evaluating LLMs as Problem Posers and Solvers",
+          "url": "https://arxiv.org/abs/2604.21916",
+          "publishedAt": "2026-04-23T17:57:46.000Z",
+          "summary": "提供最接近的此前工作：MathDuels 在数学领域采用模型互相出题和求解、独立 verifier 过滤无效题，并用 Rasch 模型估计 solver ability 与题目难度；实验覆盖 19 个模型、570 道生成题中的 559 道有效题和 10,062 次求解，为判断 SepaRank 从 pairwise、可验证任务扩展到群体分离和开放领域的真实增量提供基准。",
+          "fetchedAt": "2026-08-01T01:36:17.947Z",
+          "researchedFrom": "N8",
+          "researchRole": "Comparison",
+          "researchClaim": "SepaRank 将模型同时置于出题者和答题者角色，以跨模型置信度方差奖励能够区分整个模型群体的挑战；初步实验表明，该方法能在可执行程序任务中显著区分部分前沿模型，但尚未证明其在超人类能力、无裁判真值对齐或跨时期稳定测量上的可扩展性。",
+          "researchComparisons": "论文在 11 个模型、5 家 provider 上运行 PC（program/committed）和 QC（question/committed）两种实验，每种包含 10 场独立游戏、每场 20 轮，每个挑战抽取 5 名 solver。PC 中 gpt-5.5 相对 gpt-5.4 的累计分数差为 3.1（p=0.008），gpt-5.4 相对第三名 qwen3.7-max 的差为 6.4（p=0.006）；QC 中前两名不可区分（p=0.76）。PC 与 QC 排名的 Spearman ρ=0.93、Pearson r=0.79。程序实验总体诚实承诺率为 87.0%，但错误承诺的平均 proposer reward 为 0.36，高于诚实承诺的 0.15，且冠军 gpt-5.5 的诚实率仅为 59.0%，说明 committed resolution 当前会奖励策略性误报。最近的 MathDuels 同样让模型兼任出题者和答题者，但限定于可验证数学题，使用独立 verifier 和 Rasch 模型，在 19 个模型、559 道有效题和 10,062 次求解结果上估计能力；SepaRank 的增量是从 pairwise duel 扩展到 one-to-many separation，并尝试覆盖不可验证领域。Chatbot Arena 则以人类众包的 pairwise preference 和超过 24 万票建立相对排名，仍依赖人类判断。另一方面，HLE 由专家构建 2,500 道可验证问题，前沿模型仍呈现低准确率和高校准误差，说明人类编写的高难度固定测试目前并未全面失去区分力。",
+          "researchUnresolved": "候选将文章作者标为 Eliezer Yudkowsky，但原页面实际署名为 Elad Hazan、Kia Ghods、Jerry Han、Andrew Tu 和 Rafael Moschopoulos。LessWrong 文章列出的 SepaRank 与现有 benchmark 相关系数及 general-intelligence 因子结果未出现在 arXiv v1，也未找到公开数据、代码或独立复现。论文定义了 PE、PC、QC、QN 四种模式，却只报告 PC 和 QC；program-executed、question-consensus、概率 coarsening、judge-sparse audit、bond 机制和 novelty penalty 均未获得实验验证。累计分数按当轮参赛群体 z-score，能否跨 roster、模型版本和时间形成稳定量尺仍未解决。",
+          "ref": "R10",
+          "role": "背景",
+          "takeaway": "MathDuels此前已让模型互相出数学题并求解，以独立verifier和Rasch模型估计能力及题目难度。"
+        },
+        {
+          "id": "research-80-6-https://www.lesswrong.com/posts/avtquSx2PkWsxXW6T/how-to-measure-intelligence-beyond-human-scale-3-https://proceedings.mlr.press/v235/chiang24b.html",
+          "sourceId": 80,
+          "sourceName": "Proceedings of Machine Learning Research",
+          "sourcePublisher": "Proceedings of Machine Learning Research",
+          "sourceKind": "Research",
+          "title": "Chatbot Arena: An Open Platform for Evaluating LLMs by Human Preference",
+          "url": "https://proceedings.mlr.press/v235/chiang24b.html",
+          "publishedAt": "2024-07-08T00:00:00.000Z",
+          "summary": "建立现有相对评测的参照：Chatbot Arena 使用匿名 pairwise comparison、众包问题和人类偏好票进行排名，论文报告超过 24 万票且众包投票与专家判断一致；与 SepaRank 的模型生成挑战、one-to-many separation 和减少外部裁判依赖形成直接对比。",
+          "fetchedAt": "2026-08-01T01:36:17.947Z",
+          "researchedFrom": "N8",
+          "researchRole": "Comparison",
+          "researchClaim": "SepaRank 将模型同时置于出题者和答题者角色，以跨模型置信度方差奖励能够区分整个模型群体的挑战；初步实验表明，该方法能在可执行程序任务中显著区分部分前沿模型，但尚未证明其在超人类能力、无裁判真值对齐或跨时期稳定测量上的可扩展性。",
+          "researchComparisons": "论文在 11 个模型、5 家 provider 上运行 PC（program/committed）和 QC（question/committed）两种实验，每种包含 10 场独立游戏、每场 20 轮，每个挑战抽取 5 名 solver。PC 中 gpt-5.5 相对 gpt-5.4 的累计分数差为 3.1（p=0.008），gpt-5.4 相对第三名 qwen3.7-max 的差为 6.4（p=0.006）；QC 中前两名不可区分（p=0.76）。PC 与 QC 排名的 Spearman ρ=0.93、Pearson r=0.79。程序实验总体诚实承诺率为 87.0%，但错误承诺的平均 proposer reward 为 0.36，高于诚实承诺的 0.15，且冠军 gpt-5.5 的诚实率仅为 59.0%，说明 committed resolution 当前会奖励策略性误报。最近的 MathDuels 同样让模型兼任出题者和答题者，但限定于可验证数学题，使用独立 verifier 和 Rasch 模型，在 19 个模型、559 道有效题和 10,062 次求解结果上估计能力；SepaRank 的增量是从 pairwise duel 扩展到 one-to-many separation，并尝试覆盖不可验证领域。Chatbot Arena 则以人类众包的 pairwise preference 和超过 24 万票建立相对排名，仍依赖人类判断。另一方面，HLE 由专家构建 2,500 道可验证问题，前沿模型仍呈现低准确率和高校准误差，说明人类编写的高难度固定测试目前并未全面失去区分力。",
+          "researchUnresolved": "候选将文章作者标为 Eliezer Yudkowsky，但原页面实际署名为 Elad Hazan、Kia Ghods、Jerry Han、Andrew Tu 和 Rafael Moschopoulos。LessWrong 文章列出的 SepaRank 与现有 benchmark 相关系数及 general-intelligence 因子结果未出现在 arXiv v1，也未找到公开数据、代码或独立复现。论文定义了 PE、PC、QC、QN 四种模式，却只报告 PC 和 QC；program-executed、question-consensus、概率 coarsening、judge-sparse audit、bond 机制和 novelty penalty 均未获得实验验证。累计分数按当轮参赛群体 z-score，能否跨 roster、模型版本和时间形成稳定量尺仍未解决。",
+          "ref": "R11",
+          "role": "背景",
+          "takeaway": "Chatbot Arena展示了基于匿名两两比较和超过24万张人类偏好票的现行相对评测路径。"
+        },
+        {
+          "id": "research-80-6-https://www.lesswrong.com/posts/avtquSx2PkWsxXW6T/how-to-measure-intelligence-beyond-human-scale-4-https://www.nature.com/articles/s41586-025-09962-4",
+          "sourceId": 80,
+          "sourceName": "Nature",
+          "sourcePublisher": "Nature",
+          "sourceKind": "Research",
+          "title": "A benchmark of expert-level academic questions to assess AI capabilities",
+          "url": "https://www.nature.com/articles/s41586-025-09962-4",
+          "publishedAt": "2026-01-28T00:00:00.000Z",
+          "summary": "HLE 以近 1,000 名专家贡献和多轮审查构建 2,500 道、覆盖百余学科的可验证问题；论文发现前沿模型准确率仍低且多数模型 RMS calibration error 超过 70%，表明高质量人类编写 benchmark 当前仍有明显 headroom，同时为 SepaRank 关于模型过度自信的观察提供独立背景。",
+          "fetchedAt": "2026-08-01T01:36:17.947Z",
+          "researchedFrom": "N8",
+          "researchRole": "Counterevidence",
+          "researchClaim": "SepaRank 将模型同时置于出题者和答题者角色，以跨模型置信度方差奖励能够区分整个模型群体的挑战；初步实验表明，该方法能在可执行程序任务中显著区分部分前沿模型，但尚未证明其在超人类能力、无裁判真值对齐或跨时期稳定测量上的可扩展性。",
+          "researchComparisons": "论文在 11 个模型、5 家 provider 上运行 PC（program/committed）和 QC（question/committed）两种实验，每种包含 10 场独立游戏、每场 20 轮，每个挑战抽取 5 名 solver。PC 中 gpt-5.5 相对 gpt-5.4 的累计分数差为 3.1（p=0.008），gpt-5.4 相对第三名 qwen3.7-max 的差为 6.4（p=0.006）；QC 中前两名不可区分（p=0.76）。PC 与 QC 排名的 Spearman ρ=0.93、Pearson r=0.79。程序实验总体诚实承诺率为 87.0%，但错误承诺的平均 proposer reward 为 0.36，高于诚实承诺的 0.15，且冠军 gpt-5.5 的诚实率仅为 59.0%，说明 committed resolution 当前会奖励策略性误报。最近的 MathDuels 同样让模型兼任出题者和答题者，但限定于可验证数学题，使用独立 verifier 和 Rasch 模型，在 19 个模型、559 道有效题和 10,062 次求解结果上估计能力；SepaRank 的增量是从 pairwise duel 扩展到 one-to-many separation，并尝试覆盖不可验证领域。Chatbot Arena 则以人类众包的 pairwise preference 和超过 24 万票建立相对排名，仍依赖人类判断。另一方面，HLE 由专家构建 2,500 道可验证问题，前沿模型仍呈现低准确率和高校准误差，说明人类编写的高难度固定测试目前并未全面失去区分力。",
+          "researchUnresolved": "候选将文章作者标为 Eliezer Yudkowsky，但原页面实际署名为 Elad Hazan、Kia Ghods、Jerry Han、Andrew Tu 和 Rafael Moschopoulos。LessWrong 文章列出的 SepaRank 与现有 benchmark 相关系数及 general-intelligence 因子结果未出现在 arXiv v1，也未找到公开数据、代码或独立复现。论文定义了 PE、PC、QC、QN 四种模式，却只报告 PC 和 QC；program-executed、question-consensus、概率 coarsening、judge-sparse audit、bond 机制和 novelty penalty 均未获得实验验证。累计分数按当轮参赛群体 z-score，能否跨 roster、模型版本和时间形成稳定量尺仍未解决。",
+          "ref": "R12",
+          "role": "反例",
+          "takeaway": "HLE以近千名专家构建约2500道问题，前沿模型仍有明显准确率与校准空间，说明人类题库尚未耗尽。"
+        }
+      ],
+      "references": [
+        {
+          "id": "80-6-https://www.lesswrong.com/posts/avtquSx2PkWsxXW6T/how-to-measure-intelligence-beyond-human-scale",
+          "sourceId": 80,
+          "sourceName": "Eliezer Yudkowsky",
+          "sourcePublisher": "Eliezer Yudkowsky",
+          "sourceKind": "Blog",
+          "title": "How to Measure Intelligence Beyond Human Scale?",
+          "url": "https://www.lesswrong.com/posts/avtquSx2PkWsxXW6T/how-to-measure-intelligence-beyond-human-scale",
+          "publishedAt": "2026-07-31T17:27:46.000Z",
+          "summary": "Based on the academic paper: Measuring Intelligence Beyond Human Scale [1] TLDR: Historically, intelligence benchmarks have been composed of human-generated questions. However, current techniques do not scale to AI, as capabilities surpass human intelligence. We propose the paradigm of adversarial psychometrics , in which participants generate questions and ",
+          "fetchedAt": "2026-08-01T01:36:17.947Z",
+          "firstSeenAt": "2026-07-31T18:07:02.850Z",
+          "ref": "N8"
+        },
+        {
+          "id": "research-80-6-https://www.lesswrong.com/posts/avtquSx2PkWsxXW6T/how-to-measure-intelligence-beyond-human-scale-1-https://arxiv.org/abs/2607.07040",
+          "sourceId": 80,
+          "sourceName": "arXiv",
+          "sourcePublisher": "arXiv",
+          "sourceKind": "Research",
+          "title": "Measuring Intelligence Beyond Human Scale",
+          "url": "https://arxiv.org/abs/2607.07040",
+          "publishedAt": "2026-07-08T06:19:10.000Z",
+          "summary": "原始论文给出 SepaRank 的 one-to-many protocol、方差与 Brier loss 评分、adaptive weighting、四种 resolution 设计及实验全文；补齐 11 模型、10 场×20 轮、PC/QC 排名显著性、跨实验相关性、校准表现、承诺诚实率和错误承诺奖励等关键数字。",
+          "fetchedAt": "2026-08-01T01:36:17.947Z",
+          "researchedFrom": "N8",
+          "researchRole": "Primary",
+          "researchClaim": "SepaRank 将模型同时置于出题者和答题者角色，以跨模型置信度方差奖励能够区分整个模型群体的挑战；初步实验表明，该方法能在可执行程序任务中显著区分部分前沿模型，但尚未证明其在超人类能力、无裁判真值对齐或跨时期稳定测量上的可扩展性。",
+          "researchComparisons": "论文在 11 个模型、5 家 provider 上运行 PC（program/committed）和 QC（question/committed）两种实验，每种包含 10 场独立游戏、每场 20 轮，每个挑战抽取 5 名 solver。PC 中 gpt-5.5 相对 gpt-5.4 的累计分数差为 3.1（p=0.008），gpt-5.4 相对第三名 qwen3.7-max 的差为 6.4（p=0.006）；QC 中前两名不可区分（p=0.76）。PC 与 QC 排名的 Spearman ρ=0.93、Pearson r=0.79。程序实验总体诚实承诺率为 87.0%，但错误承诺的平均 proposer reward 为 0.36，高于诚实承诺的 0.15，且冠军 gpt-5.5 的诚实率仅为 59.0%，说明 committed resolution 当前会奖励策略性误报。最近的 MathDuels 同样让模型兼任出题者和答题者，但限定于可验证数学题，使用独立 verifier 和 Rasch 模型，在 19 个模型、559 道有效题和 10,062 次求解结果上估计能力；SepaRank 的增量是从 pairwise duel 扩展到 one-to-many separation，并尝试覆盖不可验证领域。Chatbot Arena 则以人类众包的 pairwise preference 和超过 24 万票建立相对排名，仍依赖人类判断。另一方面，HLE 由专家构建 2,500 道可验证问题，前沿模型仍呈现低准确率和高校准误差，说明人类编写的高难度固定测试目前并未全面失去区分力。",
+          "researchUnresolved": "候选将文章作者标为 Eliezer Yudkowsky，但原页面实际署名为 Elad Hazan、Kia Ghods、Jerry Han、Andrew Tu 和 Rafael Moschopoulos。LessWrong 文章列出的 SepaRank 与现有 benchmark 相关系数及 general-intelligence 因子结果未出现在 arXiv v1，也未找到公开数据、代码或独立复现。论文定义了 PE、PC、QC、QN 四种模式，却只报告 PC 和 QC；program-executed、question-consensus、概率 coarsening、judge-sparse audit、bond 机制和 novelty penalty 均未获得实验验证。累计分数按当轮参赛群体 z-score，能否跨 roster、模型版本和时间形成稳定量尺仍未解决。",
+          "ref": "R9"
+        },
+        {
+          "id": "research-80-6-https://www.lesswrong.com/posts/avtquSx2PkWsxXW6T/how-to-measure-intelligence-beyond-human-scale-2-https://arxiv.org/abs/2604.21916",
+          "sourceId": 80,
+          "sourceName": "arXiv",
+          "sourcePublisher": "arXiv",
+          "sourceKind": "Research",
+          "title": "MathDuels: Evaluating LLMs as Problem Posers and Solvers",
+          "url": "https://arxiv.org/abs/2604.21916",
+          "publishedAt": "2026-04-23T17:57:46.000Z",
+          "summary": "提供最接近的此前工作：MathDuels 在数学领域采用模型互相出题和求解、独立 verifier 过滤无效题，并用 Rasch 模型估计 solver ability 与题目难度；实验覆盖 19 个模型、570 道生成题中的 559 道有效题和 10,062 次求解，为判断 SepaRank 从 pairwise、可验证任务扩展到群体分离和开放领域的真实增量提供基准。",
+          "fetchedAt": "2026-08-01T01:36:17.947Z",
+          "researchedFrom": "N8",
+          "researchRole": "Comparison",
+          "researchClaim": "SepaRank 将模型同时置于出题者和答题者角色，以跨模型置信度方差奖励能够区分整个模型群体的挑战；初步实验表明，该方法能在可执行程序任务中显著区分部分前沿模型，但尚未证明其在超人类能力、无裁判真值对齐或跨时期稳定测量上的可扩展性。",
+          "researchComparisons": "论文在 11 个模型、5 家 provider 上运行 PC（program/committed）和 QC（question/committed）两种实验，每种包含 10 场独立游戏、每场 20 轮，每个挑战抽取 5 名 solver。PC 中 gpt-5.5 相对 gpt-5.4 的累计分数差为 3.1（p=0.008），gpt-5.4 相对第三名 qwen3.7-max 的差为 6.4（p=0.006）；QC 中前两名不可区分（p=0.76）。PC 与 QC 排名的 Spearman ρ=0.93、Pearson r=0.79。程序实验总体诚实承诺率为 87.0%，但错误承诺的平均 proposer reward 为 0.36，高于诚实承诺的 0.15，且冠军 gpt-5.5 的诚实率仅为 59.0%，说明 committed resolution 当前会奖励策略性误报。最近的 MathDuels 同样让模型兼任出题者和答题者，但限定于可验证数学题，使用独立 verifier 和 Rasch 模型，在 19 个模型、559 道有效题和 10,062 次求解结果上估计能力；SepaRank 的增量是从 pairwise duel 扩展到 one-to-many separation，并尝试覆盖不可验证领域。Chatbot Arena 则以人类众包的 pairwise preference 和超过 24 万票建立相对排名，仍依赖人类判断。另一方面，HLE 由专家构建 2,500 道可验证问题，前沿模型仍呈现低准确率和高校准误差，说明人类编写的高难度固定测试目前并未全面失去区分力。",
+          "researchUnresolved": "候选将文章作者标为 Eliezer Yudkowsky，但原页面实际署名为 Elad Hazan、Kia Ghods、Jerry Han、Andrew Tu 和 Rafael Moschopoulos。LessWrong 文章列出的 SepaRank 与现有 benchmark 相关系数及 general-intelligence 因子结果未出现在 arXiv v1，也未找到公开数据、代码或独立复现。论文定义了 PE、PC、QC、QN 四种模式，却只报告 PC 和 QC；program-executed、question-consensus、概率 coarsening、judge-sparse audit、bond 机制和 novelty penalty 均未获得实验验证。累计分数按当轮参赛群体 z-score，能否跨 roster、模型版本和时间形成稳定量尺仍未解决。",
+          "ref": "R10"
+        },
+        {
+          "id": "research-80-6-https://www.lesswrong.com/posts/avtquSx2PkWsxXW6T/how-to-measure-intelligence-beyond-human-scale-3-https://proceedings.mlr.press/v235/chiang24b.html",
+          "sourceId": 80,
+          "sourceName": "Proceedings of Machine Learning Research",
+          "sourcePublisher": "Proceedings of Machine Learning Research",
+          "sourceKind": "Research",
+          "title": "Chatbot Arena: An Open Platform for Evaluating LLMs by Human Preference",
+          "url": "https://proceedings.mlr.press/v235/chiang24b.html",
+          "publishedAt": "2024-07-08T00:00:00.000Z",
+          "summary": "建立现有相对评测的参照：Chatbot Arena 使用匿名 pairwise comparison、众包问题和人类偏好票进行排名，论文报告超过 24 万票且众包投票与专家判断一致；与 SepaRank 的模型生成挑战、one-to-many separation 和减少外部裁判依赖形成直接对比。",
+          "fetchedAt": "2026-08-01T01:36:17.947Z",
+          "researchedFrom": "N8",
+          "researchRole": "Comparison",
+          "researchClaim": "SepaRank 将模型同时置于出题者和答题者角色，以跨模型置信度方差奖励能够区分整个模型群体的挑战；初步实验表明，该方法能在可执行程序任务中显著区分部分前沿模型，但尚未证明其在超人类能力、无裁判真值对齐或跨时期稳定测量上的可扩展性。",
+          "researchComparisons": "论文在 11 个模型、5 家 provider 上运行 PC（program/committed）和 QC（question/committed）两种实验，每种包含 10 场独立游戏、每场 20 轮，每个挑战抽取 5 名 solver。PC 中 gpt-5.5 相对 gpt-5.4 的累计分数差为 3.1（p=0.008），gpt-5.4 相对第三名 qwen3.7-max 的差为 6.4（p=0.006）；QC 中前两名不可区分（p=0.76）。PC 与 QC 排名的 Spearman ρ=0.93、Pearson r=0.79。程序实验总体诚实承诺率为 87.0%，但错误承诺的平均 proposer reward 为 0.36，高于诚实承诺的 0.15，且冠军 gpt-5.5 的诚实率仅为 59.0%，说明 committed resolution 当前会奖励策略性误报。最近的 MathDuels 同样让模型兼任出题者和答题者，但限定于可验证数学题，使用独立 verifier 和 Rasch 模型，在 19 个模型、559 道有效题和 10,062 次求解结果上估计能力；SepaRank 的增量是从 pairwise duel 扩展到 one-to-many separation，并尝试覆盖不可验证领域。Chatbot Arena 则以人类众包的 pairwise preference 和超过 24 万票建立相对排名，仍依赖人类判断。另一方面，HLE 由专家构建 2,500 道可验证问题，前沿模型仍呈现低准确率和高校准误差，说明人类编写的高难度固定测试目前并未全面失去区分力。",
+          "researchUnresolved": "候选将文章作者标为 Eliezer Yudkowsky，但原页面实际署名为 Elad Hazan、Kia Ghods、Jerry Han、Andrew Tu 和 Rafael Moschopoulos。LessWrong 文章列出的 SepaRank 与现有 benchmark 相关系数及 general-intelligence 因子结果未出现在 arXiv v1，也未找到公开数据、代码或独立复现。论文定义了 PE、PC、QC、QN 四种模式，却只报告 PC 和 QC；program-executed、question-consensus、概率 coarsening、judge-sparse audit、bond 机制和 novelty penalty 均未获得实验验证。累计分数按当轮参赛群体 z-score，能否跨 roster、模型版本和时间形成稳定量尺仍未解决。",
+          "ref": "R11"
+        },
+        {
+          "id": "research-80-6-https://www.lesswrong.com/posts/avtquSx2PkWsxXW6T/how-to-measure-intelligence-beyond-human-scale-4-https://www.nature.com/articles/s41586-025-09962-4",
+          "sourceId": 80,
+          "sourceName": "Nature",
+          "sourcePublisher": "Nature",
+          "sourceKind": "Research",
+          "title": "A benchmark of expert-level academic questions to assess AI capabilities",
+          "url": "https://www.nature.com/articles/s41586-025-09962-4",
+          "publishedAt": "2026-01-28T00:00:00.000Z",
+          "summary": "HLE 以近 1,000 名专家贡献和多轮审查构建 2,500 道、覆盖百余学科的可验证问题；论文发现前沿模型准确率仍低且多数模型 RMS calibration error 超过 70%，表明高质量人类编写 benchmark 当前仍有明显 headroom，同时为 SepaRank 关于模型过度自信的观察提供独立背景。",
+          "fetchedAt": "2026-08-01T01:36:17.947Z",
+          "researchedFrom": "N8",
+          "researchRole": "Counterevidence",
+          "researchClaim": "SepaRank 将模型同时置于出题者和答题者角色，以跨模型置信度方差奖励能够区分整个模型群体的挑战；初步实验表明，该方法能在可执行程序任务中显著区分部分前沿模型，但尚未证明其在超人类能力、无裁判真值对齐或跨时期稳定测量上的可扩展性。",
+          "researchComparisons": "论文在 11 个模型、5 家 provider 上运行 PC（program/committed）和 QC（question/committed）两种实验，每种包含 10 场独立游戏、每场 20 轮，每个挑战抽取 5 名 solver。PC 中 gpt-5.5 相对 gpt-5.4 的累计分数差为 3.1（p=0.008），gpt-5.4 相对第三名 qwen3.7-max 的差为 6.4（p=0.006）；QC 中前两名不可区分（p=0.76）。PC 与 QC 排名的 Spearman ρ=0.93、Pearson r=0.79。程序实验总体诚实承诺率为 87.0%，但错误承诺的平均 proposer reward 为 0.36，高于诚实承诺的 0.15，且冠军 gpt-5.5 的诚实率仅为 59.0%，说明 committed resolution 当前会奖励策略性误报。最近的 MathDuels 同样让模型兼任出题者和答题者，但限定于可验证数学题，使用独立 verifier 和 Rasch 模型，在 19 个模型、559 道有效题和 10,062 次求解结果上估计能力；SepaRank 的增量是从 pairwise duel 扩展到 one-to-many separation，并尝试覆盖不可验证领域。Chatbot Arena 则以人类众包的 pairwise preference 和超过 24 万票建立相对排名，仍依赖人类判断。另一方面，HLE 由专家构建 2,500 道可验证问题，前沿模型仍呈现低准确率和高校准误差，说明人类编写的高难度固定测试目前并未全面失去区分力。",
+          "researchUnresolved": "候选将文章作者标为 Eliezer Yudkowsky，但原页面实际署名为 Elad Hazan、Kia Ghods、Jerry Han、Andrew Tu 和 Rafael Moschopoulos。LessWrong 文章列出的 SepaRank 与现有 benchmark 相关系数及 general-intelligence 因子结果未出现在 arXiv v1，也未找到公开数据、代码或独立复现。论文定义了 PE、PC、QC、QN 四种模式，却只报告 PC 和 QC；program-executed、question-consensus、概率 coarsening、judge-sparse audit、bond 机制和 novelty penalty 均未获得实验验证。累计分数按当轮参赛群体 z-score，能否跨 roster、模型版本和时间形成稳定量尺仍未解决。",
+          "ref": "R12"
+        }
+      ],
+      "feedBatchAt": "2026-08-01T01:36:17.947Z"
+    },
+    {
+      "id": 44,
+      "editorialBucket": "dynamic",
+      "category": "Agents",
+      "eyebrow": "产品信号",
+      "title": "MCP稳定版转向无状态架构",
+      "summary": "MCP 2026-07-28成为stable release，移除会话ID与初始化握手，新增发现和订阅机制；首批工具已按无状态模式上线。",
+      "why": "它改变Agent工具服务器的部署与扩展方式，也迫使客户端重新处理兼容、恢复和任务扩展。",
+      "impact": "若主流SDK跟进，MCP服务可更贴近无状态HTTP基础设施；双栈迁移则可能拖慢采用。",
+      "shiftFrom": "依赖会话ID与初始化握手",
+      "shiftTo": "无状态发现与订阅接口",
+      "crossValidation": "MCP官方stable release与changelog确认协议状态和关键差异；Simon Willison记录两项工具实现，证明迁移可运行，但不代表整体生态已完成切换。",
+      "article": {
+        "lead": "Model Context Protocol于7月28日把2026-07-28 revision转为stable release。新规范移除protocol-level sessions、Mcp-Session-Id和initialize handshake，新增发现与订阅接口。MCP由会话绑定转向更无状态的Agent集成层，部署方式与兼容边界因此改变。",
+        "sections": [
+          {
+            "heading": "协议中心被重写",
+            "body": "相较2025-11-25版，新规范用server/discover公开服务器能力，以subscriptions/listen承接更新，并引入MRTR；SSE resumability被移除，Tasks则退出核心规范、改为extension。设计中心由先建立并维护会话，转为先发现能力、再按请求交互。服务端有望减少会话状态协调，但客户端不能再假定旧握手和恢复语义继续存在。"
+          },
+          {
+            "heading": "首批工具验证迁移路径",
+            "body": "规范发布后，Simon Willison上线mcp-explorer 0.3，默认使用新stateless protocol，也保留--legacy检查旧initialize handshake。datasette-mcp 0.1a0则为任意Datasette instance增加/-/mcp端点，提供数据库列表、schema与只读SQL工具，并沿用原有可见性和execute-sql权限。两项实现证明迁移路径已经可运行，但仍只代表早期开发者采用。"
+          },
+          {
+            "heading": "扩展收益伴随兼容成本",
+            "body": "这次重构让MCP更贴近普通HTTP服务和横向扩展环境：服务器不再维护protocol-level session后，Agent工具有望更容易部署在短生命周期或多副本基础设施上。反面是迁移成本立即出现：依赖initialize、session ID或SSE恢复的旧客户端需要兼容层或双栈；Tasks降为extension也可能造成实现分化。现有证据尚不能证明主流客户端已经完成切换。"
+          }
+        ],
+        "outlook": "下一步应看主流MCP SDK、IDE和Agent平台何时把2026-07-28设为默认版本，并原生支持server/discover与subscriptions/listen。若legacy模式使用快速下降、跨实现互操作测试通过，无状态化将成为新基线；若客户端长期维持双栈，迁移收益会被兼容成本削弱。"
+      },
+      "validationType": "跨平台验证",
+      "publishedAt": "2026-07-31T23:13:22.000Z",
+      "updatedAt": "2026-07-31T23:03:47.000Z",
+      "sources": [
+        "Official",
+        "Blog",
+        "Repository",
+        "Media"
+      ],
+      "sourceNames": [
+        "Model Context Protocol",
+        "Simon Willison",
+        "Simon Willison / GitHub",
+        "Python Software Foundation"
+      ],
+      "sourceCount": 4,
+      "age": "刚刚",
+      "score": 84,
+      "tone": "blue",
+      "evidence": [
+        {
+          "id": "mcp-2026-07-28-release",
+          "sourceId": 0,
+          "sourceName": "Model Context Protocol",
+          "sourcePublisher": "Model Context Protocol",
+          "sourceKind": "Official",
+          "title": "MCP 2026-07-28",
+          "url": "https://github.com/modelcontextprotocol/modelcontextprotocol/releases/tag/2026-07-28",
+          "publishedAt": "2026-07-28T16:47:00.000Z",
+          "summary": "The official release marks the 2026-07-28 revision of the Model Context Protocol as stable.",
+          "fetchedAt": "2026-07-31T23:27:17.279Z",
+          "role": "主张",
+          "takeaway": "MCP官方release确认2026-07-28 revision已成为stable release。"
+        },
+        {
+          "id": "mcp-2026-07-28-changelog",
+          "sourceId": 0,
+          "sourceName": "Model Context Protocol",
+          "sourcePublisher": "Model Context Protocol",
+          "sourceKind": "Official",
+          "title": "Key Changes — MCP 2026-07-28",
+          "url": "https://modelcontextprotocol.io/specification/2026-07-28/changelog",
+          "publishedAt": "2026-07-28T16:47:00.000Z",
+          "summary": "The official changelog removes protocol-level sessions and the initialize handshake, adds server/discover and subscriptions/listen, and removes SSE resumability.",
+          "fetchedAt": "2026-07-31T23:27:17.279Z",
+          "role": "主张",
+          "takeaway": "官方changelog确认会话、初始化握手和SSE恢复语义被移除，并新增发现、订阅与MRTR机制。"
+        },
+        {
+          "id": "140-0-https://simonwillison.net/2026/Jul/31/stateless-mcp/#atom-everything",
+          "sourceId": 140,
+          "sourceName": "Simon Willison",
+          "sourcePublisher": "Simon Willison",
+          "sourceKind": "Blog",
+          "title": "Stateless MCP has recaptured my interest (and inspired mcp-explorer and datasette-mcp)",
+          "url": "https://simonwillison.net/2026/Jul/31/stateless-mcp/#atom-everything",
+          "publishedAt": "2026-07-31T23:13:22.000Z",
+          "summary": "Tuesday was Stateless MCP day - the rollout of MCP 2.0, or the 2026-07-28 Model Context Protocol specification to use the more formal but less memorable name. This is the most significant change to the MCP spec since it first launched, and has also served to reignite my personal interest in the protocol. For background: MCP is the Model Context Protocol, whi",
+          "fetchedAt": "2026-07-31T23:27:17.279Z",
+          "firstSeenAt": "2026-07-31T23:27:17.279Z",
+          "role": "佐证",
+          "takeaway": "Simon Willison记录mcp-explorer与datasette-mcp按新无状态协议落地，提供早期开发者采用案例。"
+        },
+        {
+          "id": "140-2-https://simonwillison.net/2026/Jul/31/llm-mcp-client/#atom-everything",
+          "sourceId": 140,
+          "sourceName": "Simon Willison",
+          "sourcePublisher": "Simon Willison",
+          "sourceKind": "Blog",
+          "title": "llm-mcp-client 0.1a0",
+          "url": "https://simonwillison.net/2026/Jul/31/llm-mcp-client/#atom-everything",
+          "publishedAt": "2026-07-31T23:03:47.000Z",
+          "summary": "Release: llm-mcp-client 0.1a0 See this blog entry . Tags: llm , model-context-protocol",
+          "fetchedAt": "2026-08-01T01:36:17.947Z",
+          "firstSeenAt": "2026-08-01T01:36:17.947Z",
+          "ref": "N1",
+          "role": "最新进展",
+          "takeaway": "Simon Willison公布llm-mcp-client 0.1a0，标志该MCP客户端插件进入公开alpha分发。"
+        },
+        {
+          "id": "research-140-2-https://simonwillison.net/2026/Jul/31/llm-mcp-client/#atom-everything-1-https://github.com/simonw/llm-mcp-client",
+          "sourceId": 140,
+          "sourceName": "Simon Willison / GitHub",
+          "sourcePublisher": "Simon Willison / GitHub",
+          "sourceKind": "Repository",
+          "title": "GitHub - simonw/llm-mcp-client: Access tools from MCP servers as LLM tools",
+          "url": "https://github.com/simonw/llm-mcp-client",
+          "publishedAt": "2026-07-31T23:03:47.000Z",
+          "summary": "补齐插件的实际工作流和边界：注册 MCP Toolbox、发现并调用 server tools、支持 auto/stateless/legacy 三种 protocol mode、多 server 工具名前缀、CLI/chat/Python API，以及 image、audio、structured content 和错误结果的处理方式。",
+          "fetchedAt": "2026-08-01T01:36:17.947Z",
+          "researchedFrom": "N1",
+          "researchRole": "Primary",
+          "researchClaim": "Simon Willison 发布的 llm-mcp-client 0.1a0 为 LLM 增加了可安装的 alpha MCP 工具桥接层：插件自动发现 MCP server 暴露的 tools 并将其注册为 LLM Toolbox 工具，同时兼容 2026-07-28 stateless MCP 和旧版 initialize handshake；它目前是外部插件，而非 LLM core 的内建功能。",
+          "researchComparisons": "Actual：0.1a0 于 2026-07-31 以 pre-release 上传至 PyPI，要求 Python 3.10 以上，采用 Apache-2.0 license，并依赖 llm 与 mcp>=2.0.0；支持 LLM CLI、llm chat 和 Python API，可为多个 MCP server 添加工具名前缀，并可把 text、structured content、image 和 audio 结果交给模型。Prior：作者称 LLM 此前一直缺少其官方 MCP integration。Protocol benchmark：相较 2025-11-25 规范需要 initialize/initialized 握手和 Mcp-Session-Id，2026-07-28 MCP 规范移除了 protocol-level session，使每个请求携带自身版本与 capability metadata；该插件默认自动协商，也允许强制 stateless 或 legacy 模式。",
+          "researchUnresolved": "尚无独立复现、用户采用量或性能基准。0.1a0 的公开文档未明确说明 OAuth/authorization、MRTR、Tasks 等新规范能力的支持范围；当前代码公开实现集中于 tools/list 与 tools/call，没有把 MCP prompts 或 resources 注册为 LLM 功能。",
+          "ref": "R1",
+          "role": "佐证",
+          "takeaway": "Repository显示插件支持多server、工具发现与调用、三种protocol mode，以及CLI、chat和Python API工作流。"
+        },
+        {
+          "id": "research-140-2-https://simonwillison.net/2026/Jul/31/llm-mcp-client/#atom-everything-2-https://pypi.org/project/llm-mcp-client/",
+          "sourceId": 140,
+          "sourceName": "Python Software Foundation",
+          "sourcePublisher": "Python Software Foundation",
+          "sourceKind": "Official",
+          "title": "llm-mcp-client · PyPI",
+          "url": "https://pypi.org/project/llm-mcp-client/",
+          "publishedAt": "2026-07-31T00:00:00.000Z",
+          "summary": "确认 0.1a0 已作为 pre-release 公开分发，列明 Python>=3.10、Apache-2.0、维护者 Simon Willison、安装命令、wheel 和 source distribution，并提供由 GitHub Actions Trusted Publishing 生成的 provenance。",
+          "fetchedAt": "2026-08-01T01:36:17.947Z",
+          "researchedFrom": "N1",
+          "researchRole": "Primary",
+          "researchClaim": "Simon Willison 发布的 llm-mcp-client 0.1a0 为 LLM 增加了可安装的 alpha MCP 工具桥接层：插件自动发现 MCP server 暴露的 tools 并将其注册为 LLM Toolbox 工具，同时兼容 2026-07-28 stateless MCP 和旧版 initialize handshake；它目前是外部插件，而非 LLM core 的内建功能。",
+          "researchComparisons": "Actual：0.1a0 于 2026-07-31 以 pre-release 上传至 PyPI，要求 Python 3.10 以上，采用 Apache-2.0 license，并依赖 llm 与 mcp>=2.0.0；支持 LLM CLI、llm chat 和 Python API，可为多个 MCP server 添加工具名前缀，并可把 text、structured content、image 和 audio 结果交给模型。Prior：作者称 LLM 此前一直缺少其官方 MCP integration。Protocol benchmark：相较 2025-11-25 规范需要 initialize/initialized 握手和 Mcp-Session-Id，2026-07-28 MCP 规范移除了 protocol-level session，使每个请求携带自身版本与 capability metadata；该插件默认自动协商，也允许强制 stateless 或 legacy 模式。",
+          "researchUnresolved": "尚无独立复现、用户采用量或性能基准。0.1a0 的公开文档未明确说明 OAuth/authorization、MRTR、Tasks 等新规范能力的支持范围；当前代码公开实现集中于 tools/list 与 tools/call，没有把 MCP prompts 或 resources 注册为 LLM 功能。",
+          "ref": "R2",
+          "role": "佐证",
+          "takeaway": "PyPI确认0.1a0已作为pre-release公开上传，并列出Python版本、license、安装包和发布provenance。"
+        },
+        {
+          "id": "research-140-2-https://simonwillison.net/2026/Jul/31/llm-mcp-client/#atom-everything-4-https://simonwillison.net/2026/Jul/31/stateless-mcp/",
+          "sourceId": 140,
+          "sourceName": "Simon Willison",
+          "sourcePublisher": "Simon Willison",
+          "sourceKind": "Media",
+          "title": "Stateless MCP has recaptured my interest (and inspired mcp-explorer and datasette-mcp)",
+          "url": "https://simonwillison.net/2026/Jul/31/stateless-mcp/",
+          "publishedAt": "2026-07-31T00:00:00.000Z",
+          "summary": "补齐作者的一手发布背景和可运行示例：他将该 alpha 描述为 LLM 长期缺少的 MCP integration，展示通过 MCP 查询 Datasette server 的命令与结果，并表示成熟后可能将能力带入 LLM core。",
+          "fetchedAt": "2026-08-01T01:36:17.947Z",
+          "researchedFrom": "N1",
+          "researchRole": "Context",
+          "researchClaim": "Simon Willison 发布的 llm-mcp-client 0.1a0 为 LLM 增加了可安装的 alpha MCP 工具桥接层：插件自动发现 MCP server 暴露的 tools 并将其注册为 LLM Toolbox 工具，同时兼容 2026-07-28 stateless MCP 和旧版 initialize handshake；它目前是外部插件，而非 LLM core 的内建功能。",
+          "researchComparisons": "Actual：0.1a0 于 2026-07-31 以 pre-release 上传至 PyPI，要求 Python 3.10 以上，采用 Apache-2.0 license，并依赖 llm 与 mcp>=2.0.0；支持 LLM CLI、llm chat 和 Python API，可为多个 MCP server 添加工具名前缀，并可把 text、structured content、image 和 audio 结果交给模型。Prior：作者称 LLM 此前一直缺少其官方 MCP integration。Protocol benchmark：相较 2025-11-25 规范需要 initialize/initialized 握手和 Mcp-Session-Id，2026-07-28 MCP 规范移除了 protocol-level session，使每个请求携带自身版本与 capability metadata；该插件默认自动协商，也允许强制 stateless 或 legacy 模式。",
+          "researchUnresolved": "尚无独立复现、用户采用量或性能基准。0.1a0 的公开文档未明确说明 OAuth/authorization、MRTR、Tasks 等新规范能力的支持范围；当前代码公开实现集中于 tools/list 与 tools/call，没有把 MCP prompts 或 resources 注册为 LLM 功能。",
+          "ref": "R4",
+          "role": "背景",
+          "takeaway": "作者展示通过MCP查询Datasette server的可运行示例，并表示成熟后可能把该集成并入LLM core。"
+        }
+      ],
+      "references": [
+        {
+          "id": "mcp-2026-07-28-release",
+          "sourceId": 0,
+          "sourceName": "Model Context Protocol",
+          "sourcePublisher": "Model Context Protocol",
+          "sourceKind": "Official",
+          "title": "MCP 2026-07-28",
+          "url": "https://github.com/modelcontextprotocol/modelcontextprotocol/releases/tag/2026-07-28",
+          "publishedAt": "2026-07-28T16:47:00.000Z",
+          "summary": "The official release marks the 2026-07-28 revision of the Model Context Protocol as stable.",
+          "fetchedAt": "2026-07-31T23:27:17.279Z"
+        },
+        {
+          "id": "mcp-2026-07-28-changelog",
+          "sourceId": 0,
+          "sourceName": "Model Context Protocol",
+          "sourcePublisher": "Model Context Protocol",
+          "sourceKind": "Official",
+          "title": "Key Changes — MCP 2026-07-28",
+          "url": "https://modelcontextprotocol.io/specification/2026-07-28/changelog",
+          "publishedAt": "2026-07-28T16:47:00.000Z",
+          "summary": "The official changelog removes protocol-level sessions and the initialize handshake, adds server/discover and subscriptions/listen, and removes SSE resumability.",
+          "fetchedAt": "2026-07-31T23:27:17.279Z"
+        },
+        {
+          "id": "140-0-https://simonwillison.net/2026/Jul/31/stateless-mcp/#atom-everything",
+          "sourceId": 140,
+          "sourceName": "Simon Willison",
+          "sourcePublisher": "Simon Willison",
+          "sourceKind": "Blog",
+          "title": "Stateless MCP has recaptured my interest (and inspired mcp-explorer and datasette-mcp)",
+          "url": "https://simonwillison.net/2026/Jul/31/stateless-mcp/#atom-everything",
+          "publishedAt": "2026-07-31T23:13:22.000Z",
+          "summary": "Tuesday was Stateless MCP day - the rollout of MCP 2.0, or the 2026-07-28 Model Context Protocol specification to use the more formal but less memorable name. This is the most significant change to the MCP spec since it first launched, and has also served to reignite my personal interest in the protocol. For background: MCP is the Model Context Protocol, whi",
+          "fetchedAt": "2026-07-31T23:27:17.279Z",
+          "firstSeenAt": "2026-07-31T23:27:17.279Z"
+        },
+        {
+          "id": "140-2-https://simonwillison.net/2026/Jul/31/llm-mcp-client/#atom-everything",
+          "sourceId": 140,
+          "sourceName": "Simon Willison",
+          "sourcePublisher": "Simon Willison",
+          "sourceKind": "Blog",
+          "title": "llm-mcp-client 0.1a0",
+          "url": "https://simonwillison.net/2026/Jul/31/llm-mcp-client/#atom-everything",
+          "publishedAt": "2026-07-31T23:03:47.000Z",
+          "summary": "Release: llm-mcp-client 0.1a0 See this blog entry . Tags: llm , model-context-protocol",
+          "fetchedAt": "2026-08-01T01:36:17.947Z",
+          "firstSeenAt": "2026-08-01T01:36:17.947Z",
+          "ref": "N1"
+        },
+        {
+          "id": "research-140-2-https://simonwillison.net/2026/Jul/31/llm-mcp-client/#atom-everything-1-https://github.com/simonw/llm-mcp-client",
+          "sourceId": 140,
+          "sourceName": "Simon Willison / GitHub",
+          "sourcePublisher": "Simon Willison / GitHub",
+          "sourceKind": "Repository",
+          "title": "GitHub - simonw/llm-mcp-client: Access tools from MCP servers as LLM tools",
+          "url": "https://github.com/simonw/llm-mcp-client",
+          "publishedAt": "2026-07-31T23:03:47.000Z",
+          "summary": "补齐插件的实际工作流和边界：注册 MCP Toolbox、发现并调用 server tools、支持 auto/stateless/legacy 三种 protocol mode、多 server 工具名前缀、CLI/chat/Python API，以及 image、audio、structured content 和错误结果的处理方式。",
+          "fetchedAt": "2026-08-01T01:36:17.947Z",
+          "researchedFrom": "N1",
+          "researchRole": "Primary",
+          "researchClaim": "Simon Willison 发布的 llm-mcp-client 0.1a0 为 LLM 增加了可安装的 alpha MCP 工具桥接层：插件自动发现 MCP server 暴露的 tools 并将其注册为 LLM Toolbox 工具，同时兼容 2026-07-28 stateless MCP 和旧版 initialize handshake；它目前是外部插件，而非 LLM core 的内建功能。",
+          "researchComparisons": "Actual：0.1a0 于 2026-07-31 以 pre-release 上传至 PyPI，要求 Python 3.10 以上，采用 Apache-2.0 license，并依赖 llm 与 mcp>=2.0.0；支持 LLM CLI、llm chat 和 Python API，可为多个 MCP server 添加工具名前缀，并可把 text、structured content、image 和 audio 结果交给模型。Prior：作者称 LLM 此前一直缺少其官方 MCP integration。Protocol benchmark：相较 2025-11-25 规范需要 initialize/initialized 握手和 Mcp-Session-Id，2026-07-28 MCP 规范移除了 protocol-level session，使每个请求携带自身版本与 capability metadata；该插件默认自动协商，也允许强制 stateless 或 legacy 模式。",
+          "researchUnresolved": "尚无独立复现、用户采用量或性能基准。0.1a0 的公开文档未明确说明 OAuth/authorization、MRTR、Tasks 等新规范能力的支持范围；当前代码公开实现集中于 tools/list 与 tools/call，没有把 MCP prompts 或 resources 注册为 LLM 功能。",
+          "ref": "R1"
+        },
+        {
+          "id": "research-140-2-https://simonwillison.net/2026/Jul/31/llm-mcp-client/#atom-everything-2-https://pypi.org/project/llm-mcp-client/",
+          "sourceId": 140,
+          "sourceName": "Python Software Foundation",
+          "sourcePublisher": "Python Software Foundation",
+          "sourceKind": "Official",
+          "title": "llm-mcp-client · PyPI",
+          "url": "https://pypi.org/project/llm-mcp-client/",
+          "publishedAt": "2026-07-31T00:00:00.000Z",
+          "summary": "确认 0.1a0 已作为 pre-release 公开分发，列明 Python>=3.10、Apache-2.0、维护者 Simon Willison、安装命令、wheel 和 source distribution，并提供由 GitHub Actions Trusted Publishing 生成的 provenance。",
+          "fetchedAt": "2026-08-01T01:36:17.947Z",
+          "researchedFrom": "N1",
+          "researchRole": "Primary",
+          "researchClaim": "Simon Willison 发布的 llm-mcp-client 0.1a0 为 LLM 增加了可安装的 alpha MCP 工具桥接层：插件自动发现 MCP server 暴露的 tools 并将其注册为 LLM Toolbox 工具，同时兼容 2026-07-28 stateless MCP 和旧版 initialize handshake；它目前是外部插件，而非 LLM core 的内建功能。",
+          "researchComparisons": "Actual：0.1a0 于 2026-07-31 以 pre-release 上传至 PyPI，要求 Python 3.10 以上，采用 Apache-2.0 license，并依赖 llm 与 mcp>=2.0.0；支持 LLM CLI、llm chat 和 Python API，可为多个 MCP server 添加工具名前缀，并可把 text、structured content、image 和 audio 结果交给模型。Prior：作者称 LLM 此前一直缺少其官方 MCP integration。Protocol benchmark：相较 2025-11-25 规范需要 initialize/initialized 握手和 Mcp-Session-Id，2026-07-28 MCP 规范移除了 protocol-level session，使每个请求携带自身版本与 capability metadata；该插件默认自动协商，也允许强制 stateless 或 legacy 模式。",
+          "researchUnresolved": "尚无独立复现、用户采用量或性能基准。0.1a0 的公开文档未明确说明 OAuth/authorization、MRTR、Tasks 等新规范能力的支持范围；当前代码公开实现集中于 tools/list 与 tools/call，没有把 MCP prompts 或 resources 注册为 LLM 功能。",
+          "ref": "R2"
+        },
+        {
+          "id": "research-140-2-https://simonwillison.net/2026/Jul/31/llm-mcp-client/#atom-everything-4-https://simonwillison.net/2026/Jul/31/stateless-mcp/",
+          "sourceId": 140,
+          "sourceName": "Simon Willison",
+          "sourcePublisher": "Simon Willison",
+          "sourceKind": "Media",
+          "title": "Stateless MCP has recaptured my interest (and inspired mcp-explorer and datasette-mcp)",
+          "url": "https://simonwillison.net/2026/Jul/31/stateless-mcp/",
+          "publishedAt": "2026-07-31T00:00:00.000Z",
+          "summary": "补齐作者的一手发布背景和可运行示例：他将该 alpha 描述为 LLM 长期缺少的 MCP integration，展示通过 MCP 查询 Datasette server 的命令与结果，并表示成熟后可能将能力带入 LLM core。",
+          "fetchedAt": "2026-08-01T01:36:17.947Z",
+          "researchedFrom": "N1",
+          "researchRole": "Context",
+          "researchClaim": "Simon Willison 发布的 llm-mcp-client 0.1a0 为 LLM 增加了可安装的 alpha MCP 工具桥接层：插件自动发现 MCP server 暴露的 tools 并将其注册为 LLM Toolbox 工具，同时兼容 2026-07-28 stateless MCP 和旧版 initialize handshake；它目前是外部插件，而非 LLM core 的内建功能。",
+          "researchComparisons": "Actual：0.1a0 于 2026-07-31 以 pre-release 上传至 PyPI，要求 Python 3.10 以上，采用 Apache-2.0 license，并依赖 llm 与 mcp>=2.0.0；支持 LLM CLI、llm chat 和 Python API，可为多个 MCP server 添加工具名前缀，并可把 text、structured content、image 和 audio 结果交给模型。Prior：作者称 LLM 此前一直缺少其官方 MCP integration。Protocol benchmark：相较 2025-11-25 规范需要 initialize/initialized 握手和 Mcp-Session-Id，2026-07-28 MCP 规范移除了 protocol-level session，使每个请求携带自身版本与 capability metadata；该插件默认自动协商，也允许强制 stateless 或 legacy 模式。",
+          "researchUnresolved": "尚无独立复现、用户采用量或性能基准。0.1a0 的公开文档未明确说明 OAuth/authorization、MRTR、Tasks 等新规范能力的支持范围；当前代码公开实现集中于 tools/list 与 tools/call，没有把 MCP prompts 或 resources 注册为 LLM 功能。",
+          "ref": "R4"
+        }
+      ],
+      "feedBatchAt": "2026-08-01T01:36:17.947Z",
+      "updates": [
+        {
+          "addedAt": "2026-07-31T23:03:47.000Z",
+          "title": "LLM插件接入无状态MCP",
+          "summary": "Simon Willison发布llm-mcp-client 0.1a0并上传PyPI，使LLM可发现和调用MCP server tools；插件同时支持stateless、legacy和自动选择模式。",
+          "evidence": [
+            {
+              "id": "140-2-https://simonwillison.net/2026/Jul/31/llm-mcp-client/#atom-everything",
+              "sourceId": 140,
+              "sourceName": "Simon Willison",
+              "sourcePublisher": "Simon Willison",
+              "sourceKind": "Blog",
+              "title": "llm-mcp-client 0.1a0",
+              "url": "https://simonwillison.net/2026/Jul/31/llm-mcp-client/#atom-everything",
+              "publishedAt": "2026-07-31T23:03:47.000Z",
+              "summary": "Release: llm-mcp-client 0.1a0 See this blog entry . Tags: llm , model-context-protocol",
+              "fetchedAt": "2026-08-01T01:36:17.947Z",
+              "firstSeenAt": "2026-08-01T01:36:17.947Z",
+              "ref": "N1",
+              "role": "最新进展",
+              "takeaway": "Simon Willison公布llm-mcp-client 0.1a0，标志该MCP客户端插件进入公开alpha分发。"
+            },
+            {
+              "id": "research-140-2-https://simonwillison.net/2026/Jul/31/llm-mcp-client/#atom-everything-1-https://github.com/simonw/llm-mcp-client",
+              "sourceId": 140,
+              "sourceName": "Simon Willison / GitHub",
+              "sourcePublisher": "Simon Willison / GitHub",
+              "sourceKind": "Repository",
+              "title": "GitHub - simonw/llm-mcp-client: Access tools from MCP servers as LLM tools",
+              "url": "https://github.com/simonw/llm-mcp-client",
+              "publishedAt": "2026-07-31T23:03:47.000Z",
+              "summary": "补齐插件的实际工作流和边界：注册 MCP Toolbox、发现并调用 server tools、支持 auto/stateless/legacy 三种 protocol mode、多 server 工具名前缀、CLI/chat/Python API，以及 image、audio、structured content 和错误结果的处理方式。",
+              "fetchedAt": "2026-08-01T01:36:17.947Z",
+              "researchedFrom": "N1",
+              "researchRole": "Primary",
+              "researchClaim": "Simon Willison 发布的 llm-mcp-client 0.1a0 为 LLM 增加了可安装的 alpha MCP 工具桥接层：插件自动发现 MCP server 暴露的 tools 并将其注册为 LLM Toolbox 工具，同时兼容 2026-07-28 stateless MCP 和旧版 initialize handshake；它目前是外部插件，而非 LLM core 的内建功能。",
+              "researchComparisons": "Actual：0.1a0 于 2026-07-31 以 pre-release 上传至 PyPI，要求 Python 3.10 以上，采用 Apache-2.0 license，并依赖 llm 与 mcp>=2.0.0；支持 LLM CLI、llm chat 和 Python API，可为多个 MCP server 添加工具名前缀，并可把 text、structured content、image 和 audio 结果交给模型。Prior：作者称 LLM 此前一直缺少其官方 MCP integration。Protocol benchmark：相较 2025-11-25 规范需要 initialize/initialized 握手和 Mcp-Session-Id，2026-07-28 MCP 规范移除了 protocol-level session，使每个请求携带自身版本与 capability metadata；该插件默认自动协商，也允许强制 stateless 或 legacy 模式。",
+              "researchUnresolved": "尚无独立复现、用户采用量或性能基准。0.1a0 的公开文档未明确说明 OAuth/authorization、MRTR、Tasks 等新规范能力的支持范围；当前代码公开实现集中于 tools/list 与 tools/call，没有把 MCP prompts 或 resources 注册为 LLM 功能。",
+              "ref": "R1",
+              "role": "佐证",
+              "takeaway": "Repository显示插件支持多server、工具发现与调用、三种protocol mode，以及CLI、chat和Python API工作流。"
+            },
+            {
+              "id": "research-140-2-https://simonwillison.net/2026/Jul/31/llm-mcp-client/#atom-everything-2-https://pypi.org/project/llm-mcp-client/",
+              "sourceId": 140,
+              "sourceName": "Python Software Foundation",
+              "sourcePublisher": "Python Software Foundation",
+              "sourceKind": "Official",
+              "title": "llm-mcp-client · PyPI",
+              "url": "https://pypi.org/project/llm-mcp-client/",
+              "publishedAt": "2026-07-31T00:00:00.000Z",
+              "summary": "确认 0.1a0 已作为 pre-release 公开分发，列明 Python>=3.10、Apache-2.0、维护者 Simon Willison、安装命令、wheel 和 source distribution，并提供由 GitHub Actions Trusted Publishing 生成的 provenance。",
+              "fetchedAt": "2026-08-01T01:36:17.947Z",
+              "researchedFrom": "N1",
+              "researchRole": "Primary",
+              "researchClaim": "Simon Willison 发布的 llm-mcp-client 0.1a0 为 LLM 增加了可安装的 alpha MCP 工具桥接层：插件自动发现 MCP server 暴露的 tools 并将其注册为 LLM Toolbox 工具，同时兼容 2026-07-28 stateless MCP 和旧版 initialize handshake；它目前是外部插件，而非 LLM core 的内建功能。",
+              "researchComparisons": "Actual：0.1a0 于 2026-07-31 以 pre-release 上传至 PyPI，要求 Python 3.10 以上，采用 Apache-2.0 license，并依赖 llm 与 mcp>=2.0.0；支持 LLM CLI、llm chat 和 Python API，可为多个 MCP server 添加工具名前缀，并可把 text、structured content、image 和 audio 结果交给模型。Prior：作者称 LLM 此前一直缺少其官方 MCP integration。Protocol benchmark：相较 2025-11-25 规范需要 initialize/initialized 握手和 Mcp-Session-Id，2026-07-28 MCP 规范移除了 protocol-level session，使每个请求携带自身版本与 capability metadata；该插件默认自动协商，也允许强制 stateless 或 legacy 模式。",
+              "researchUnresolved": "尚无独立复现、用户采用量或性能基准。0.1a0 的公开文档未明确说明 OAuth/authorization、MRTR、Tasks 等新规范能力的支持范围；当前代码公开实现集中于 tools/list 与 tools/call，没有把 MCP prompts 或 resources 注册为 LLM 功能。",
+              "ref": "R2",
+              "role": "佐证",
+              "takeaway": "PyPI确认0.1a0已作为pre-release公开上传，并列出Python版本、license、安装包和发布provenance。"
+            },
+            {
+              "id": "research-140-2-https://simonwillison.net/2026/Jul/31/llm-mcp-client/#atom-everything-3-https://modelcontextprotocol.io/specification/2026-07-28/changelog",
+              "sourceId": 140,
+              "sourceName": "Model Context Protocol",
+              "sourcePublisher": "Model Context Protocol",
+              "sourceKind": "Official",
+              "title": "Key Changes - Model Context Protocol",
+              "url": "https://modelcontextprotocol.io/specification/2026-07-28/changelog",
+              "publishedAt": "2026-07-28T00:00:00.000Z",
+              "summary": "提供与上一版 2025-11-25 规范的权威比较：新规范移除 initialize/initialized 握手和 Mcp-Session-Id，将请求改为 stateless、自包含模式，并加入 server/discover、header routing、cache hints 和 MRTR；解释插件为何同时提供 stateless 与 legacy 模式。",
+              "fetchedAt": "2026-08-01T01:36:17.947Z",
+              "researchedFrom": "N1",
+              "researchRole": "Comparison",
+              "researchClaim": "Simon Willison 发布的 llm-mcp-client 0.1a0 为 LLM 增加了可安装的 alpha MCP 工具桥接层：插件自动发现 MCP server 暴露的 tools 并将其注册为 LLM Toolbox 工具，同时兼容 2026-07-28 stateless MCP 和旧版 initialize handshake；它目前是外部插件，而非 LLM core 的内建功能。",
+              "researchComparisons": "Actual：0.1a0 于 2026-07-31 以 pre-release 上传至 PyPI，要求 Python 3.10 以上，采用 Apache-2.0 license，并依赖 llm 与 mcp>=2.0.0；支持 LLM CLI、llm chat 和 Python API，可为多个 MCP server 添加工具名前缀，并可把 text、structured content、image 和 audio 结果交给模型。Prior：作者称 LLM 此前一直缺少其官方 MCP integration。Protocol benchmark：相较 2025-11-25 规范需要 initialize/initialized 握手和 Mcp-Session-Id，2026-07-28 MCP 规范移除了 protocol-level session，使每个请求携带自身版本与 capability metadata；该插件默认自动协商，也允许强制 stateless 或 legacy 模式。",
+              "researchUnresolved": "尚无独立复现、用户采用量或性能基准。0.1a0 的公开文档未明确说明 OAuth/authorization、MRTR、Tasks 等新规范能力的支持范围；当前代码公开实现集中于 tools/list 与 tools/call，没有把 MCP prompts 或 resources 注册为 LLM 功能。",
+              "ref": "R3",
+              "role": "背景",
+              "takeaway": "MCP官方变更说明确认stable规范移除初始化握手和session ID，解释插件保留stateless与legacy模式的兼容需求。"
+            },
+            {
+              "id": "research-140-2-https://simonwillison.net/2026/Jul/31/llm-mcp-client/#atom-everything-4-https://simonwillison.net/2026/Jul/31/stateless-mcp/",
+              "sourceId": 140,
+              "sourceName": "Simon Willison",
+              "sourcePublisher": "Simon Willison",
+              "sourceKind": "Media",
+              "title": "Stateless MCP has recaptured my interest (and inspired mcp-explorer and datasette-mcp)",
+              "url": "https://simonwillison.net/2026/Jul/31/stateless-mcp/",
+              "publishedAt": "2026-07-31T00:00:00.000Z",
+              "summary": "补齐作者的一手发布背景和可运行示例：他将该 alpha 描述为 LLM 长期缺少的 MCP integration，展示通过 MCP 查询 Datasette server 的命令与结果，并表示成熟后可能将能力带入 LLM core。",
+              "fetchedAt": "2026-08-01T01:36:17.947Z",
+              "researchedFrom": "N1",
+              "researchRole": "Context",
+              "researchClaim": "Simon Willison 发布的 llm-mcp-client 0.1a0 为 LLM 增加了可安装的 alpha MCP 工具桥接层：插件自动发现 MCP server 暴露的 tools 并将其注册为 LLM Toolbox 工具，同时兼容 2026-07-28 stateless MCP 和旧版 initialize handshake；它目前是外部插件，而非 LLM core 的内建功能。",
+              "researchComparisons": "Actual：0.1a0 于 2026-07-31 以 pre-release 上传至 PyPI，要求 Python 3.10 以上，采用 Apache-2.0 license，并依赖 llm 与 mcp>=2.0.0；支持 LLM CLI、llm chat 和 Python API，可为多个 MCP server 添加工具名前缀，并可把 text、structured content、image 和 audio 结果交给模型。Prior：作者称 LLM 此前一直缺少其官方 MCP integration。Protocol benchmark：相较 2025-11-25 规范需要 initialize/initialized 握手和 Mcp-Session-Id，2026-07-28 MCP 规范移除了 protocol-level session，使每个请求携带自身版本与 capability metadata；该插件默认自动协商，也允许强制 stateless 或 legacy 模式。",
+              "researchUnresolved": "尚无独立复现、用户采用量或性能基准。0.1a0 的公开文档未明确说明 OAuth/authorization、MRTR、Tasks 等新规范能力的支持范围；当前代码公开实现集中于 tools/list 与 tools/call，没有把 MCP prompts 或 resources 注册为 LLM 功能。",
+              "ref": "R4",
+              "role": "背景",
+              "takeaway": "作者展示通过MCP查询Datasette server的可运行示例，并表示成熟后可能把该集成并入LLM core。"
+            }
+          ]
+        }
+      ]
+    },
     {
       "id": 45,
       "editorialBucket": "explore",
@@ -536,137 +1155,6 @@
           ]
         }
       ]
-    },
-    {
-      "id": 44,
-      "editorialBucket": "dynamic",
-      "category": "Agents",
-      "eyebrow": "产品信号",
-      "title": "MCP稳定版转向无状态架构",
-      "summary": "MCP 2026-07-28成为stable release，移除会话ID与初始化握手，新增发现和订阅机制；首批工具已按无状态模式上线。",
-      "why": "它改变Agent工具服务器的部署与扩展方式，也迫使客户端重新处理兼容、恢复和任务扩展。",
-      "impact": "若主流SDK跟进，MCP服务可更贴近无状态HTTP基础设施；双栈迁移则可能拖慢采用。",
-      "shiftFrom": "依赖会话ID与初始化握手",
-      "shiftTo": "无状态发现与订阅接口",
-      "crossValidation": "MCP官方stable release与changelog确认协议状态和关键差异；Simon Willison记录两项工具实现，证明迁移可运行，但不代表整体生态已完成切换。",
-      "article": {
-        "lead": "Model Context Protocol于7月28日把2026-07-28 revision转为stable release。新规范移除protocol-level sessions、Mcp-Session-Id和initialize handshake，新增发现与订阅接口。MCP由会话绑定转向更无状态的Agent集成层，部署方式与兼容边界因此改变。",
-        "sections": [
-          {
-            "heading": "协议中心被重写",
-            "body": "相较2025-11-25版，新规范用server/discover公开服务器能力，以subscriptions/listen承接更新，并引入MRTR；SSE resumability被移除，Tasks则退出核心规范、改为extension。设计中心由先建立并维护会话，转为先发现能力、再按请求交互。服务端有望减少会话状态协调，但客户端不能再假定旧握手和恢复语义继续存在。"
-          },
-          {
-            "heading": "首批工具验证迁移路径",
-            "body": "规范发布后，Simon Willison上线mcp-explorer 0.3，默认使用新stateless protocol，也保留--legacy检查旧initialize handshake。datasette-mcp 0.1a0则为任意Datasette instance增加/-/mcp端点，提供数据库列表、schema与只读SQL工具，并沿用原有可见性和execute-sql权限。两项实现证明迁移路径已经可运行，但仍只代表早期开发者采用。"
-          },
-          {
-            "heading": "扩展收益伴随兼容成本",
-            "body": "这次重构让MCP更贴近普通HTTP服务和横向扩展环境：服务器不再维护protocol-level session后，Agent工具有望更容易部署在短生命周期或多副本基础设施上。反面是迁移成本立即出现：依赖initialize、session ID或SSE恢复的旧客户端需要兼容层或双栈；Tasks降为extension也可能造成实现分化。现有证据尚不能证明主流客户端已经完成切换。"
-          }
-        ],
-        "outlook": "下一步应看主流MCP SDK、IDE和Agent平台何时把2026-07-28设为默认版本，并原生支持server/discover与subscriptions/listen。若legacy模式使用快速下降、跨实现互操作测试通过，无状态化将成为新基线；若客户端长期维持双栈，迁移收益会被兼容成本削弱。"
-      },
-      "validationType": "跨平台验证",
-      "publishedAt": "2026-07-31T23:13:22.000Z",
-      "updatedAt": "2026-07-31T23:13:22.000Z",
-      "sources": [
-        "Official",
-        "Blog"
-      ],
-      "sourceNames": [
-        "Model Context Protocol",
-        "Simon Willison"
-      ],
-      "sourceCount": 2,
-      "age": "刚刚",
-      "score": 84,
-      "tone": "blue",
-      "evidence": [
-        {
-          "id": "mcp-2026-07-28-release",
-          "sourceId": 0,
-          "sourceName": "Model Context Protocol",
-          "sourcePublisher": "Model Context Protocol",
-          "sourceKind": "Official",
-          "title": "MCP 2026-07-28",
-          "url": "https://github.com/modelcontextprotocol/modelcontextprotocol/releases/tag/2026-07-28",
-          "publishedAt": "2026-07-28T16:47:00.000Z",
-          "summary": "The official release marks the 2026-07-28 revision of the Model Context Protocol as stable.",
-          "fetchedAt": "2026-07-31T23:27:17.279Z",
-          "role": "主张",
-          "takeaway": "MCP官方release确认2026-07-28 revision已成为stable release。"
-        },
-        {
-          "id": "mcp-2026-07-28-changelog",
-          "sourceId": 0,
-          "sourceName": "Model Context Protocol",
-          "sourcePublisher": "Model Context Protocol",
-          "sourceKind": "Official",
-          "title": "Key Changes — MCP 2026-07-28",
-          "url": "https://modelcontextprotocol.io/specification/2026-07-28/changelog",
-          "publishedAt": "2026-07-28T16:47:00.000Z",
-          "summary": "The official changelog removes protocol-level sessions and the initialize handshake, adds server/discover and subscriptions/listen, and removes SSE resumability.",
-          "fetchedAt": "2026-07-31T23:27:17.279Z",
-          "role": "主张",
-          "takeaway": "官方changelog确认会话、初始化握手和SSE恢复语义被移除，并新增发现、订阅与MRTR机制。"
-        },
-        {
-          "id": "140-0-https://simonwillison.net/2026/Jul/31/stateless-mcp/#atom-everything",
-          "sourceId": 140,
-          "sourceName": "Simon Willison",
-          "sourcePublisher": "Simon Willison",
-          "sourceKind": "Blog",
-          "title": "Stateless MCP has recaptured my interest (and inspired mcp-explorer and datasette-mcp)",
-          "url": "https://simonwillison.net/2026/Jul/31/stateless-mcp/#atom-everything",
-          "publishedAt": "2026-07-31T23:13:22.000Z",
-          "summary": "Tuesday was Stateless MCP day - the rollout of MCP 2.0, or the 2026-07-28 Model Context Protocol specification to use the more formal but less memorable name. This is the most significant change to the MCP spec since it first launched, and has also served to reignite my personal interest in the protocol. For background: MCP is the Model Context Protocol, whi",
-          "fetchedAt": "2026-07-31T23:27:17.279Z",
-          "firstSeenAt": "2026-07-31T23:27:17.279Z",
-          "role": "佐证",
-          "takeaway": "Simon Willison记录mcp-explorer与datasette-mcp按新无状态协议落地，提供早期开发者采用案例。"
-        }
-      ],
-      "references": [
-        {
-          "id": "mcp-2026-07-28-release",
-          "sourceId": 0,
-          "sourceName": "Model Context Protocol",
-          "sourcePublisher": "Model Context Protocol",
-          "sourceKind": "Official",
-          "title": "MCP 2026-07-28",
-          "url": "https://github.com/modelcontextprotocol/modelcontextprotocol/releases/tag/2026-07-28",
-          "publishedAt": "2026-07-28T16:47:00.000Z",
-          "summary": "The official release marks the 2026-07-28 revision of the Model Context Protocol as stable.",
-          "fetchedAt": "2026-07-31T23:27:17.279Z"
-        },
-        {
-          "id": "mcp-2026-07-28-changelog",
-          "sourceId": 0,
-          "sourceName": "Model Context Protocol",
-          "sourcePublisher": "Model Context Protocol",
-          "sourceKind": "Official",
-          "title": "Key Changes — MCP 2026-07-28",
-          "url": "https://modelcontextprotocol.io/specification/2026-07-28/changelog",
-          "publishedAt": "2026-07-28T16:47:00.000Z",
-          "summary": "The official changelog removes protocol-level sessions and the initialize handshake, adds server/discover and subscriptions/listen, and removes SSE resumability.",
-          "fetchedAt": "2026-07-31T23:27:17.279Z"
-        },
-        {
-          "id": "140-0-https://simonwillison.net/2026/Jul/31/stateless-mcp/#atom-everything",
-          "sourceId": 140,
-          "sourceName": "Simon Willison",
-          "sourcePublisher": "Simon Willison",
-          "sourceKind": "Blog",
-          "title": "Stateless MCP has recaptured my interest (and inspired mcp-explorer and datasette-mcp)",
-          "url": "https://simonwillison.net/2026/Jul/31/stateless-mcp/#atom-everything",
-          "publishedAt": "2026-07-31T23:13:22.000Z",
-          "summary": "Tuesday was Stateless MCP day - the rollout of MCP 2.0, or the 2026-07-28 Model Context Protocol specification to use the more formal but less memorable name. This is the most significant change to the MCP spec since it first launched, and has also served to reignite my personal interest in the protocol. For background: MCP is the Model Context Protocol, whi",
-          "fetchedAt": "2026-07-31T23:27:17.279Z",
-          "firstSeenAt": "2026-07-31T23:27:17.279Z"
-        }
-      ],
-      "feedBatchAt": "2026-07-31T23:27:17.279Z"
     },
     {
       "id": 43,
@@ -11431,6 +11919,145 @@
       "editorNote": "今日信息环境由智能体安全事件、AI coding 工具链分化、open-weight 模型竞争与算力下沉共同主导。",
       "signals": [
         {
+          "category": "AI & 模型",
+          "eyebrow": "观点",
+          "title": "AI评测转向对抗式出题",
+          "summary": "SepaRank让模型彼此生成并回答挑战，以one-to-many分离和校准评分替代固定题库，评测瓶颈可能转向协议设计。",
+          "why": "若模型持续逼近专家题库上限，谁能生成新的区分性挑战，将决定benchmark能否跟上能力增长。",
+          "impact": "评测资源可能转向动态对抗、承诺校准与防串谋设计，但短期不会取代HLE或Chatbot Arena。",
+          "shiftFrom": "人类固定题库与两两偏好",
+          "shiftTo": "模型生成挑战的一对多评测",
+          "crossValidation": "原论文给出SepaRank实验；MathDuels证明互相出题已有先例；Chatbot Arena与HLE提供现行参照，HLE构成主要反证。",
+          "article": {
+            "lead": "AI评测正在出现一个可检验的方向变化：当固定的人类题库越来越难持续拉开前沿模型差距，核心资产可能不再是更多静态题目，而是让模型主动设计挑战、分离对手并暴露校准缺陷的协议。SepaRank不是终局方案，却把这一变化从口号推进到了可运行实验。",
+            "sections": [
+              {
+                "heading": "题库正在变成评测约束",
+                "body": "传统benchmark主要依赖人类预先编写问题，再以准确率或偏好票排序模型。Chatbot Arena把这一框架扩展为匿名pairwise comparison，并已积累超过24万张投票；HLE则由近千名专家构建约2500道跨学科问题。两者仍有价值，但题目生产、审查与防泄漏都依赖稀缺的人类劳动，更新速度也天然落后于模型迭代。"
+              },
+              {
+                "heading": "SepaRank改变的是出题权",
+                "body": "SepaRank采用one-to-many protocol：参与模型不仅回答问题，还要生成能把目标模型与其他模型区分开的挑战，再以方差、Brier loss和adaptive weighting评价区分能力与校准表现。论文在11个模型上运行10场、每场20轮实验。机制上的关键不是让模型简单互考，而是奖励能够稳定揭示能力差异、同时诚实表达承诺和置信度的行为。"
+              },
+              {
+                "heading": "动态协议也可能被博弈",
+                "body": "这一方向尚不能证明固定题库已经失效。HLE显示前沿模型在高质量专家问题上仍有明显提升空间，多数受测模型的RMS calibration error超过70%；MathDuels也已在数学领域使用互相出题、独立verifier和Rasch模型，说明SepaRank面对的是已有研究路线而非空白市场。模型串谋、生成无效问题或利用对手特征过拟合，都可能让动态排名偏离通用能力。"
+              }
+            ],
+            "outlook": "关键验证将是独立团队能否在未参与原实验的新模型上复现排名，并检验结果与HLE、Chatbot Arena及真实任务表现的相关性。若更换参与者、提示和轮次后排名仍稳定，且无效题与错误承诺没有随能力上升而增加，对抗式评测的可信度将增强；反之，它更可能只是另一种可被策略化的游戏。"
+          },
+          "evidence": [
+            {
+              "role": "佐证",
+              "takeaway": "Yudkowsky概述adversarial psychometrics，主张用参与者生成问题的方法评测超出人类题库覆盖范围的能力。"
+            },
+            {
+              "role": "主张",
+              "takeaway": "SepaRank原论文给出one-to-many protocol、评分方法以及覆盖11个模型、10场每场20轮的实验结果。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "MathDuels此前已让模型互相出数学题并求解，以独立verifier和Rasch模型估计能力及题目难度。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "Chatbot Arena展示了基于匿名两两比较和超过24万张人类偏好票的现行相对评测路径。"
+            },
+            {
+              "role": "反例",
+              "takeaway": "HLE以近千名专家构建约2500道问题，前沿模型仍有明显准确率与校准空间，说明人类题库尚未耗尽。"
+            }
+          ]
+        },
+        {
+          "category": "Agents",
+          "eyebrow": "产品信号",
+          "title": "MCP稳定版转向无状态架构",
+          "summary": "MCP 2026-07-28成为stable release，移除会话ID与初始化握手，新增发现和订阅机制；首批工具已按无状态模式上线。",
+          "why": "它改变Agent工具服务器的部署与扩展方式，也迫使客户端重新处理兼容、恢复和任务扩展。",
+          "impact": "若主流SDK跟进，MCP服务可更贴近无状态HTTP基础设施；双栈迁移则可能拖慢采用。",
+          "shiftFrom": "依赖会话ID与初始化握手",
+          "shiftTo": "无状态发现与订阅接口",
+          "crossValidation": "MCP官方stable release与changelog确认协议状态和关键差异；Simon Willison记录两项工具实现，证明迁移可运行，但不代表整体生态已完成切换。",
+          "article": {
+            "lead": "Model Context Protocol于7月28日把2026-07-28 revision转为stable release。新规范移除protocol-level sessions、Mcp-Session-Id和initialize handshake，新增发现与订阅接口。MCP由会话绑定转向更无状态的Agent集成层，部署方式与兼容边界因此改变。",
+            "sections": [
+              {
+                "heading": "协议中心被重写",
+                "body": "相较2025-11-25版，新规范用server/discover公开服务器能力，以subscriptions/listen承接更新，并引入MRTR；SSE resumability被移除，Tasks则退出核心规范、改为extension。设计中心由先建立并维护会话，转为先发现能力、再按请求交互。服务端有望减少会话状态协调，但客户端不能再假定旧握手和恢复语义继续存在。"
+              },
+              {
+                "heading": "首批工具验证迁移路径",
+                "body": "规范发布后，Simon Willison上线mcp-explorer 0.3，默认使用新stateless protocol，也保留--legacy检查旧initialize handshake。datasette-mcp 0.1a0则为任意Datasette instance增加/-/mcp端点，提供数据库列表、schema与只读SQL工具，并沿用原有可见性和execute-sql权限。两项实现证明迁移路径已经可运行，但仍只代表早期开发者采用。"
+              },
+              {
+                "heading": "扩展收益伴随兼容成本",
+                "body": "这次重构让MCP更贴近普通HTTP服务和横向扩展环境：服务器不再维护protocol-level session后，Agent工具有望更容易部署在短生命周期或多副本基础设施上。反面是迁移成本立即出现：依赖initialize、session ID或SSE恢复的旧客户端需要兼容层或双栈；Tasks降为extension也可能造成实现分化。现有证据尚不能证明主流客户端已经完成切换。"
+              }
+            ],
+            "outlook": "下一步应看主流MCP SDK、IDE和Agent平台何时把2026-07-28设为默认版本，并原生支持server/discover与subscriptions/listen。若legacy模式使用快速下降、跨实现互操作测试通过，无状态化将成为新基线；若客户端长期维持双栈，迁移收益会被兼容成本削弱。"
+          },
+          "evidence": [
+            {
+              "role": "主张",
+              "takeaway": "MCP官方release确认2026-07-28 revision已成为stable release。"
+            },
+            {
+              "role": "主张",
+              "takeaway": "官方changelog确认会话、初始化握手和SSE恢复语义被移除，并新增发现、订阅与MRTR机制。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "Simon Willison记录mcp-explorer与datasette-mcp按新无状态协议落地，提供早期开发者采用案例。"
+            },
+            {
+              "role": "最新进展",
+              "takeaway": "Simon Willison公布llm-mcp-client 0.1a0，标志该MCP客户端插件进入公开alpha分发。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "Repository显示插件支持多server、工具发现与调用、三种protocol mode，以及CLI、chat和Python API工作流。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "PyPI确认0.1a0已作为pre-release公开上传，并列出Python版本、license、安装包和发布provenance。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "作者展示通过MCP查询Datasette server的可运行示例，并表示成熟后可能把该集成并入LLM core。"
+            }
+          ],
+          "updates": [
+            {
+              "addedAt": "2026-07-31T23:03:47.000Z",
+              "title": "LLM插件接入无状态MCP",
+              "summary": "Simon Willison发布llm-mcp-client 0.1a0并上传PyPI，使LLM可发现和调用MCP server tools；插件同时支持stateless、legacy和自动选择模式。",
+              "evidence": [
+                {
+                  "role": "最新进展",
+                  "takeaway": "Simon Willison公布llm-mcp-client 0.1a0，标志该MCP客户端插件进入公开alpha分发。"
+                },
+                {
+                  "role": "佐证",
+                  "takeaway": "Repository显示插件支持多server、工具发现与调用、三种protocol mode，以及CLI、chat和Python API工作流。"
+                },
+                {
+                  "role": "佐证",
+                  "takeaway": "PyPI确认0.1a0已作为pre-release公开上传，并列出Python版本、license、安装包和发布provenance。"
+                },
+                {
+                  "role": "背景",
+                  "takeaway": "MCP官方变更说明确认stable规范移除初始化握手和session ID，解释插件保留stateless与legacy模式的兼容需求。"
+                },
+                {
+                  "role": "背景",
+                  "takeaway": "作者展示通过MCP查询Datasette server的可运行示例，并表示成熟后可能把该集成并入LLM core。"
+                }
+              ]
+            }
+          ]
+        },
+        {
           "category": "科技",
           "eyebrow": "趋势变化",
           "title": "Chrome安全竞争转向修复吞吐",
@@ -11546,49 +12173,6 @@
                   "takeaway": "Simon Willison注意到0731版本及其相对MiniMax-M3的独立评测表现，但所列输出价格为$0.27/百万token。"
                 }
               ]
-            }
-          ]
-        },
-        {
-          "category": "Agents",
-          "eyebrow": "产品信号",
-          "title": "MCP稳定版转向无状态架构",
-          "summary": "MCP 2026-07-28成为stable release，移除会话ID与初始化握手，新增发现和订阅机制；首批工具已按无状态模式上线。",
-          "why": "它改变Agent工具服务器的部署与扩展方式，也迫使客户端重新处理兼容、恢复和任务扩展。",
-          "impact": "若主流SDK跟进，MCP服务可更贴近无状态HTTP基础设施；双栈迁移则可能拖慢采用。",
-          "shiftFrom": "依赖会话ID与初始化握手",
-          "shiftTo": "无状态发现与订阅接口",
-          "crossValidation": "MCP官方stable release与changelog确认协议状态和关键差异；Simon Willison记录两项工具实现，证明迁移可运行，但不代表整体生态已完成切换。",
-          "article": {
-            "lead": "Model Context Protocol于7月28日把2026-07-28 revision转为stable release。新规范移除protocol-level sessions、Mcp-Session-Id和initialize handshake，新增发现与订阅接口。MCP由会话绑定转向更无状态的Agent集成层，部署方式与兼容边界因此改变。",
-            "sections": [
-              {
-                "heading": "协议中心被重写",
-                "body": "相较2025-11-25版，新规范用server/discover公开服务器能力，以subscriptions/listen承接更新，并引入MRTR；SSE resumability被移除，Tasks则退出核心规范、改为extension。设计中心由先建立并维护会话，转为先发现能力、再按请求交互。服务端有望减少会话状态协调，但客户端不能再假定旧握手和恢复语义继续存在。"
-              },
-              {
-                "heading": "首批工具验证迁移路径",
-                "body": "规范发布后，Simon Willison上线mcp-explorer 0.3，默认使用新stateless protocol，也保留--legacy检查旧initialize handshake。datasette-mcp 0.1a0则为任意Datasette instance增加/-/mcp端点，提供数据库列表、schema与只读SQL工具，并沿用原有可见性和execute-sql权限。两项实现证明迁移路径已经可运行，但仍只代表早期开发者采用。"
-              },
-              {
-                "heading": "扩展收益伴随兼容成本",
-                "body": "这次重构让MCP更贴近普通HTTP服务和横向扩展环境：服务器不再维护protocol-level session后，Agent工具有望更容易部署在短生命周期或多副本基础设施上。反面是迁移成本立即出现：依赖initialize、session ID或SSE恢复的旧客户端需要兼容层或双栈；Tasks降为extension也可能造成实现分化。现有证据尚不能证明主流客户端已经完成切换。"
-              }
-            ],
-            "outlook": "下一步应看主流MCP SDK、IDE和Agent平台何时把2026-07-28设为默认版本，并原生支持server/discover与subscriptions/listen。若legacy模式使用快速下降、跨实现互操作测试通过，无状态化将成为新基线；若客户端长期维持双栈，迁移收益会被兼容成本削弱。"
-          },
-          "evidence": [
-            {
-              "role": "主张",
-              "takeaway": "MCP官方release确认2026-07-28 revision已成为stable release。"
-            },
-            {
-              "role": "主张",
-              "takeaway": "官方changelog确认会话、初始化握手和SSE恢复语义被移除，并新增发现、订阅与MRTR机制。"
-            },
-            {
-              "role": "佐证",
-              "takeaway": "Simon Willison记录mcp-explorer与datasette-mcp按新无状态协议落地，提供早期开发者采用案例。"
             }
           ]
         },
@@ -16023,6 +16607,145 @@
       "editorNote": "Today’s information environment is being shaped by agent security incidents, a split in coding-agent toolchains, open-model competition, and compute moving closer to the edge.",
       "signals": [
         {
+          "category": "AI & Models",
+          "eyebrow": "Thesis",
+          "title": "AI Evaluation Is Moving Toward Adversarial Question Generation",
+          "summary": "SepaRank has models generate and answer challenges, replacing a fixed question bank with one-to-many separation and calibration scoring. The evaluation bottleneck may be shifting to protocol design.",
+          "why": "If models keep approaching the limits of expert-written tests, the ability to generate fresh, discriminative challenges will determine whether benchmarks can keep pace.",
+          "impact": "Evaluation resources may shift toward dynamic competition, commitment calibration, and anti-collusion design, without displacing HLE or Chatbot Arena in the near term.",
+          "shiftFrom": "Fixed human-written tests and pairwise preferences",
+          "shiftTo": "Model-generated, one-to-many evaluation",
+          "crossValidation": "The SepaRank paper supplies the experiment; MathDuels establishes prior art; Chatbot Arena and HLE provide current baselines, with HLE forming the main countercase.",
+          "article": {
+            "lead": "AI evaluation is developing a testable new direction. As fixed human-written question banks become harder to extend quickly enough to separate frontier models, the core asset may shift from additional static questions to protocols that let models design challenges, distinguish rivals, and expose calibration failures. SepaRank is not a final solution, but it turns that idea into an operational experiment.",
+            "sections": [
+              {
+                "heading": "Question Banks Are Becoming a Constraint",
+                "body": "Traditional benchmarks rely mainly on questions written in advance by people, then rank models through accuracy or preference votes. Chatbot Arena extends that model through anonymous pairwise comparisons and has collected more than 240,000 votes. HLE uses roughly 2,500 multidisciplinary questions contributed by nearly 1,000 experts. Both remain useful, but question creation, review, and contamination control depend on scarce human labor and naturally move more slowly than model development."
+              },
+              {
+                "heading": "SepaRank Changes Who Gets to Ask",
+                "body": "SepaRank uses a one-to-many protocol in which participating models answer questions and generate challenges intended to separate a target model from its peers. Variance, Brier loss, and adaptive weighting score discrimination and calibration. The paper reports experiments involving 11 models across 10 games of 20 rounds each. The mechanism is not merely mutual testing: it rewards challenges that consistently reveal capability differences while also measuring whether models state commitments and confidence honestly."
+              },
+              {
+                "heading": "Dynamic Protocols Can Also Be Gamed",
+                "body": "The evidence does not show that fixed benchmarks have become obsolete. HLE finds substantial remaining headroom on carefully reviewed expert questions, while most evaluated models recorded RMS calibration errors above 70%. MathDuels had already used model-generated mathematics problems, an independent verifier, and a Rasch model, so SepaRank extends an existing research direction rather than creating one from scratch. Collusion, invalid questions, and opponent-specific overfitting could all make a dynamic ranking diverge from general capability."
+              }
+            ],
+            "outlook": "The decisive test is whether independent teams can reproduce the ranking on models excluded from the original experiment and whether the results correlate with HLE, Chatbot Arena, and real-world task performance. Stable rankings across different participants, prompts, and round counts—without rising rates of invalid questions or dishonest commitments—would strengthen the case. Otherwise, adversarial psychometrics may prove to be another game that models learn to optimize."
+          },
+          "evidence": [
+            {
+              "role": "Support",
+              "takeaway": "Yudkowsky summarizes adversarial psychometrics as a way to evaluate capabilities beyond the practical reach of human-generated question banks."
+            },
+            {
+              "role": "Claim",
+              "takeaway": "The original SepaRank paper specifies the one-to-many protocol, scoring system, and experiments involving 11 models and repeated multi-round games."
+            },
+            {
+              "role": "Context",
+              "takeaway": "MathDuels previously had models pose and solve mathematics problems, using an independent verifier and a Rasch model to estimate ability and difficulty."
+            },
+            {
+              "role": "Context",
+              "takeaway": "Chatbot Arena supplies the established comparison based on anonymous pairwise judgments and more than 240,000 human preference votes."
+            },
+            {
+              "role": "Counterpoint",
+              "takeaway": "HLE shows that expert-written questions still leave substantial accuracy and calibration headroom for frontier models."
+            }
+          ]
+        },
+        {
+          "category": "Agents",
+          "eyebrow": "Product Signal",
+          "title": "Stable MCP Shifts to a Stateless Architecture",
+          "summary": "MCP 2026-07-28 is now stable, removing session IDs and the initialization handshake while adding discovery and subscription mechanisms. Initial tools already implement the stateless design.",
+          "why": "The revision changes how Agent tool servers are deployed and scaled, while forcing clients to revisit compatibility, recovery and task semantics.",
+          "impact": "If major SDKs adopt it, MCP services could fit stateless HTTP infrastructure more naturally. A prolonged dual-stack migration could slow adoption.",
+          "shiftFrom": "Session IDs and initialization handshakes",
+          "shiftTo": "Stateless discovery and subscriptions",
+          "crossValidation": "The official stable release and changelog establish the protocol status and major changes; Simon Willison documents two working tool implementations, showing a viable migration path rather than ecosystem-wide adoption.",
+          "article": {
+            "lead": "The Model Context Protocol promoted its 2026-07-28 revision to a stable release on July 28. The specification removes protocol-level sessions, Mcp-Session-Id and the initialize handshake while adding discovery and subscription interfaces. MCP is moving from session-bound connections toward a more stateless Agent integration layer, changing both deployment assumptions and compatibility boundaries.",
+            "sections": [
+              {
+                "heading": "The Protocol Has a New Center of Gravity",
+                "body": "Compared with the 2025-11-25 revision, the new specification uses server/discover to expose server capabilities and subscriptions/listen to deliver updates, while adding MRTR. SSE resumability has been removed, and Tasks has moved out of the core specification into an extension. The design now emphasizes discovering capabilities and making requests rather than first establishing and maintaining a protocol session. That can reduce server-side state coordination, but clients can no longer assume the old handshake and recovery semantics remain available."
+              },
+              {
+                "heading": "Early Tools Show a Working Migration Path",
+                "body": "After the specification release, Simon Willison published mcp-explorer 0.3. It uses the new stateless protocol by default while retaining a --legacy option for inspecting the old initialize handshake. The datasette-mcp 0.1a0 package adds a /-/mcp endpoint to any Datasette instance, exposing database listings, schemas and read-only SQL while preserving Datasette visibility and execute-sql permissions. These implementations show that the migration path works, although they represent early developer adoption rather than ecosystem-wide uptake."
+              },
+              {
+                "heading": "Scaling Benefits Come With Compatibility Costs",
+                "body": "The redesign brings MCP closer to conventional HTTP services and horizontally scaled infrastructure. Without protocol-level sessions, Agent tools may be easier to deploy across short-lived or replicated server instances. The countercase is immediate migration cost: older clients that depend on initialize, session IDs or SSE recovery will need compatibility layers or dual-stack support. Moving Tasks into an extension may also produce divergent implementations. The available evidence does not yet show that mainstream clients have completed the transition."
+              }
+            ],
+            "outlook": "The next test is when major MCP SDKs, IDEs and Agent platforms make the 2026-07-28 revision their default and implement server/discover and subscriptions/listen natively. Rapidly declining use of legacy mode and successful cross-implementation tests would establish stateless MCP as the new baseline. Persistent dual-stack support would indicate that compatibility costs are offsetting the deployment benefits."
+          },
+          "evidence": [
+            {
+              "role": "Claim",
+              "takeaway": "The official MCP release marks the 2026-07-28 revision as stable."
+            },
+            {
+              "role": "Claim",
+              "takeaway": "The official changelog removes sessions and initialization while adding discovery, subscriptions and MRTR."
+            },
+            {
+              "role": "Support",
+              "takeaway": "Simon Willison documents mcp-explorer and datasette-mcp using the new stateless protocol as early adoption examples."
+            },
+            {
+              "role": "Update",
+              "takeaway": "Simon Willison announced llm-mcp-client 0.1a0, placing the MCP client plugin into public alpha distribution."
+            },
+            {
+              "role": "Support",
+              "takeaway": "The repository documents multi-server support, tool discovery and invocation, three protocol modes, and CLI, chat, and Python API workflows."
+            },
+            {
+              "role": "Support",
+              "takeaway": "PyPI confirms that 0.1a0 is publicly available as a pre-release and lists its Python requirement, license, distributions, and publishing provenance."
+            },
+            {
+              "role": "Context",
+              "takeaway": "The author provides a working Datasette query example and says the integration could eventually move into LLM core."
+            }
+          ],
+          "updates": [
+            {
+              "addedAt": "2026-07-31T23:03:47.000Z",
+              "title": "LLM Plugin Adopts Stateless MCP",
+              "summary": "Simon Willison released llm-mcp-client 0.1a0 on PyPI, enabling LLM to discover and invoke MCP server tools while supporting stateless, legacy, and automatic protocol selection.",
+              "evidence": [
+                {
+                  "role": "Update",
+                  "takeaway": "Simon Willison announced llm-mcp-client 0.1a0, placing the MCP client plugin into public alpha distribution."
+                },
+                {
+                  "role": "Support",
+                  "takeaway": "The repository documents multi-server support, tool discovery and invocation, three protocol modes, and CLI, chat, and Python API workflows."
+                },
+                {
+                  "role": "Support",
+                  "takeaway": "PyPI confirms that 0.1a0 is publicly available as a pre-release and lists its Python requirement, license, distributions, and publishing provenance."
+                },
+                {
+                  "role": "Context",
+                  "takeaway": "The official MCP change log confirms that the stable specification removed initialization handshakes and session IDs, explaining the plugin's compatibility modes."
+                },
+                {
+                  "role": "Context",
+                  "takeaway": "The author provides a working Datasette query example and says the integration could eventually move into LLM core."
+                }
+              ]
+            }
+          ]
+        },
+        {
           "category": "Technology",
           "eyebrow": "Trend Shift",
           "title": "Chrome Security Shifts to Remediation Throughput",
@@ -16138,49 +16861,6 @@
                   "takeaway": "Simon Willison highlighted the 0731 release and its independent comparison with MiniMax-M3, but listed output pricing at $0.27 per million tokens."
                 }
               ]
-            }
-          ]
-        },
-        {
-          "category": "Agents",
-          "eyebrow": "Product Signal",
-          "title": "Stable MCP Shifts to a Stateless Architecture",
-          "summary": "MCP 2026-07-28 is now stable, removing session IDs and the initialization handshake while adding discovery and subscription mechanisms. Initial tools already implement the stateless design.",
-          "why": "The revision changes how Agent tool servers are deployed and scaled, while forcing clients to revisit compatibility, recovery and task semantics.",
-          "impact": "If major SDKs adopt it, MCP services could fit stateless HTTP infrastructure more naturally. A prolonged dual-stack migration could slow adoption.",
-          "shiftFrom": "Session IDs and initialization handshakes",
-          "shiftTo": "Stateless discovery and subscriptions",
-          "crossValidation": "The official stable release and changelog establish the protocol status and major changes; Simon Willison documents two working tool implementations, showing a viable migration path rather than ecosystem-wide adoption.",
-          "article": {
-            "lead": "The Model Context Protocol promoted its 2026-07-28 revision to a stable release on July 28. The specification removes protocol-level sessions, Mcp-Session-Id and the initialize handshake while adding discovery and subscription interfaces. MCP is moving from session-bound connections toward a more stateless Agent integration layer, changing both deployment assumptions and compatibility boundaries.",
-            "sections": [
-              {
-                "heading": "The Protocol Has a New Center of Gravity",
-                "body": "Compared with the 2025-11-25 revision, the new specification uses server/discover to expose server capabilities and subscriptions/listen to deliver updates, while adding MRTR. SSE resumability has been removed, and Tasks has moved out of the core specification into an extension. The design now emphasizes discovering capabilities and making requests rather than first establishing and maintaining a protocol session. That can reduce server-side state coordination, but clients can no longer assume the old handshake and recovery semantics remain available."
-              },
-              {
-                "heading": "Early Tools Show a Working Migration Path",
-                "body": "After the specification release, Simon Willison published mcp-explorer 0.3. It uses the new stateless protocol by default while retaining a --legacy option for inspecting the old initialize handshake. The datasette-mcp 0.1a0 package adds a /-/mcp endpoint to any Datasette instance, exposing database listings, schemas and read-only SQL while preserving Datasette visibility and execute-sql permissions. These implementations show that the migration path works, although they represent early developer adoption rather than ecosystem-wide uptake."
-              },
-              {
-                "heading": "Scaling Benefits Come With Compatibility Costs",
-                "body": "The redesign brings MCP closer to conventional HTTP services and horizontally scaled infrastructure. Without protocol-level sessions, Agent tools may be easier to deploy across short-lived or replicated server instances. The countercase is immediate migration cost: older clients that depend on initialize, session IDs or SSE recovery will need compatibility layers or dual-stack support. Moving Tasks into an extension may also produce divergent implementations. The available evidence does not yet show that mainstream clients have completed the transition."
-              }
-            ],
-            "outlook": "The next test is when major MCP SDKs, IDEs and Agent platforms make the 2026-07-28 revision their default and implement server/discover and subscriptions/listen natively. Rapidly declining use of legacy mode and successful cross-implementation tests would establish stateless MCP as the new baseline. Persistent dual-stack support would indicate that compatibility costs are offsetting the deployment benefits."
-          },
-          "evidence": [
-            {
-              "role": "Claim",
-              "takeaway": "The official MCP release marks the 2026-07-28 revision as stable."
-            },
-            {
-              "role": "Claim",
-              "takeaway": "The official changelog removes sessions and initialization while adding discovery, subscriptions and MRTR."
-            },
-            {
-              "role": "Support",
-              "takeaway": "Simon Willison documents mcp-explorer and datasette-mcp using the new stateless protocol as early adoption examples."
             }
           ]
         },
@@ -20615,12 +21295,12 @@
     "en": "gpt-5.6-sol"
   },
   "incremental": {
-    "lastAddedAt": "2026-08-01T01:11:33.950Z",
-    "lastScanAt": "2026-08-01T01:07:16.321Z",
+    "lastAddedAt": "2026-08-01T01:42:20.033Z",
+    "lastScanAt": "2026-08-01T01:36:17.947Z",
     "lastAddedCount": 1,
-    "lastUpdatedCount": 0,
-    "totalAppended": 37,
-    "totalUpdated": 19
+    "lastUpdatedCount": 1,
+    "totalAppended": 38,
+    "totalUpdated": 20
   },
   "exploreDepth": {
     "minimum": 50,
