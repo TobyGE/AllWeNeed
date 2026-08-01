@@ -71,8 +71,7 @@ export function trackPageView({
     | "company"
     | "conversation"
     | "conversations"
-    | "sources"
-    | "control";
+    | "sources";
 }) {
   if (!initializeAnalytics()) {
     if (!analyticsAllowed()) return;
