@@ -1382,7 +1382,7 @@ async function fetchSecSource(source) {
 async function fetchFeedSource(source) {
   const kind = getSourceKind(source.url);
   if (kind === "X") return fetchXSource(source);
-  if (kind === "SEC") return fetchSecSource(source);
+  if (kind === "SEC" && !source.feedUrl) return fetchSecSource(source);
   const previousStatus = previousStatuses.get(source.id);
   const cachedItems = previousItems.get(source.id) ?? [];
 

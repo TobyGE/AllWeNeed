@@ -4579,6 +4579,107 @@ button {
   margin: 0;
 }
 
+.scout-summary {
+  align-items: center;
+  border-bottom: 1px solid #e4e0d7;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  margin: -4px 0 20px;
+  padding-bottom: 18px;
+}
+
+.scout-summary span {
+  color: #716d65;
+  font-size: calc(11px + var(--font-adjust));
+}
+
+.scout-summary b {
+  color: var(--ink);
+  font-size: calc(16px + var(--font-adjust));
+}
+
+.scout-summary small {
+  color: #99948b;
+  margin-left: auto;
+}
+
+.scout-candidate-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.scout-candidate-grid article {
+  background: #f6f3ec;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  min-height: 180px;
+  padding: 17px;
+}
+
+.scout-candidate-grid article > div {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.scout-candidate-grid article > div > b {
+  color: #878178;
+  font-family: var(--font-geist-mono), monospace;
+}
+
+.scout-candidate-grid article > a {
+  color: var(--ink);
+  font-size: calc(16px + var(--font-adjust));
+  font-weight: 760;
+  margin-top: 15px;
+  text-decoration: none;
+}
+
+.scout-candidate-grid article > a:hover {
+  color: var(--orange);
+}
+
+.scout-candidate-grid article p {
+  color: #666159;
+  flex: 1;
+  font-size: calc(11px + var(--font-adjust));
+  line-height: 1.5;
+  margin: 7px 0 16px;
+}
+
+.scout-candidate-grid article small {
+  color: #918b81;
+}
+
+.scout-status {
+  border-radius: 999px;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: calc(8px + var(--font-adjust));
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 5px 8px;
+  text-transform: uppercase;
+}
+
+.status-ready,
+.status-promoted {
+  background: #dceee4;
+  color: #21714b;
+}
+
+.status-review {
+  background: #f4e5c7;
+  color: #8c5e0c;
+}
+
+.status-rejected {
+  background: #ece8df;
+  color: #817a70;
+}
+
 .control-revisions {
   min-height: 170px;
 }
@@ -4619,6 +4720,10 @@ button {
   .control-columns {
     grid-template-columns: 1fr;
   }
+
+  .scout-candidate-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 700px) {
@@ -4648,5 +4753,14 @@ button {
   .revision-list article {
     align-items: flex-start;
     grid-template-columns: 1fr;
+  }
+
+  .scout-candidate-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .scout-summary small {
+    flex-basis: 100%;
+    margin-left: 0;
   }
 }

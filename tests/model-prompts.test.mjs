@@ -22,6 +22,14 @@ test("gives Terra and Luna lean task-specific instructions", () => {
   assert.doesNotMatch(terra, /FULL SOL INSTRUCTIONS/);
   assert.match(luna, /lossless bilingual rewrite/);
   assert.match(luna, /array order/);
+  const scout = modelTaskInstructions({
+    model: "gpt-5.6-terra",
+    task: "sourceDiscovery",
+    fallbackInstructions: "FULL SOL INSTRUCTIONS",
+  });
+  assert.match(scout, /durable publishers/);
+  assert.match(scout, /fetchable RSS/);
+  assert.doesNotMatch(scout, /FULL SOL INSTRUCTIONS/);
 });
 
 test("preserves Sol effort while using medium-cost 5.6 tiers", () => {

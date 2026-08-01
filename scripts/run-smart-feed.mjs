@@ -19,6 +19,21 @@ function run(command, args) {
   }
 }
 
+function runOptional(command, args) {
+  const result = spawnSync(command, args, {
+    cwd: projectRoot,
+    stdio: "inherit",
+    encoding: "utf8",
+  });
+  if (result.error || result.status !== 0) {
+    console.warn(
+      `Optional upstream task failed: ${command} ${args.join(" ")}`,
+    );
+    return false;
+  }
+  return true;
+}
+
 function forwardedArguments() {
   return process.argv.slice(2).filter(
     (argument) =>
@@ -30,6 +45,7 @@ function forwardedArguments() {
 run("npm", ["run", "poll:feed"]);
 const plan = JSON.parse(await readFile(planPath, "utf8"));
 if (!plan.shouldRunFullCycle) {
+  runOptional("npm", ["run", "scout:sources:scheduled"]);
   console.log(
     JSON.stringify(
       {
@@ -71,4 +87,3 @@ await writeFile(
   `${JSON.stringify(scheduleState, null, 2)}\n`,
   "utf8",
 );
-

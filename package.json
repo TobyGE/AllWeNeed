@@ -17,6 +17,8 @@
     "poll:feed": "node scripts/fetch-sources.mjs --output=tmp/feed-snapshot.json && node scripts/plan-feed-update.mjs --snapshot=tmp/feed-snapshot.json",
     "plan:feed": "node scripts/plan-feed-update.mjs --snapshot=tmp/feed-snapshot.json",
     "cycle:smart": "node scripts/run-smart-feed.mjs",
+    "scout:sources": "node scripts/source-scout.mjs",
+    "scout:sources:scheduled": "node scripts/source-scout.mjs --scheduled --defer-merge",
     "cycle:feed": "node scripts/run-feed-cycle.mjs",
     "cycle:feed:dry": "node scripts/run-feed-cycle.mjs --dry-run",
     "cycle:feed:resume": "node scripts/run-feed-cycle.mjs --resume",

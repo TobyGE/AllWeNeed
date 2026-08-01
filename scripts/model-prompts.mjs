@@ -55,6 +55,18 @@ filings, papers, repositories, and company IR. Use independent reporting only
 for context, consensus, or reaction. Each returned source must add a specific
 fact and use its canonical URL. Keep unresolved gaps in metadata, not prose.
 `.trim(),
+  sourceDiscovery: `
+Act as All We Need's upstream Source Scout. Discover durable publishers that
+repeatedly produce original AI, core-technology, company, market, policy,
+research, security, or long-form conversation material. Search beyond familiar
+lists, but prefer canonical primary publishers. Verify identity, an openly
+fetchable RSS, Atom, JSON, or YouTube feed, and at least two recent original
+items. Reject aggregators, search/tag pages, unofficial feed mirrors, individual
+articles, dormant sources, and duplicates. A smaller verified candidate set is
+better than broad coverage. Never claim that a source is official without
+publisher-controlled evidence. Independent analysts, newsletters and podcasts
+remain non-official even when they control their own publication.
+`.trim(),
   localization: `
 Act as a bilingual copy editor. Rewrite human-facing prose naturally while
 preserving the exact factual meaning, uncertainty, names, numbers, refs, URLs,
@@ -101,6 +113,14 @@ Act as a structured research worker. Find the current fact, the prior comparable
 state, and the decisive metric needed to interpret each ref. Prefer official
 documents and canonical URLs. Return at most four non-duplicate sources, each
 with one source-specific contribution. Put unresolved gaps only in metadata.
+`.trim(),
+  sourceDiscovery: `
+Act as a structured source discovery worker. Find canonical publishers with a
+public machine-readable feed and sustained recent original output. Verify the
+homepage, feed, publisher identity, dates, and two recent item URLs. Exclude
+aggregators, mirrors, one-off articles, tag/search pages, dormant feeds, and
+anything already supplied. Independent analysts, newsletters and podcasts are
+not official sources. Return fewer candidates when verification is weak.
 `.trim(),
   localization: `
 Perform a lossless bilingual rewrite. Preserve every fact, number, proper noun,

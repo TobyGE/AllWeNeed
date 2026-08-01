@@ -1,3 +1,7 @@
+import discoveredSourceRegistry from "../data/discovered-sources.json" with {
+  type: "json",
+};
+
 export type SourceKind =
   | "YouTube"
   | "X"
@@ -61,7 +65,7 @@ export function getSourceKind(url: string): SourceKind {
   return "Blog";
 }
 
-export const sourceCatalog: SourceItem[] = [
+const curatedSourceCatalog: SourceItem[] = [
   { id: 1, name: "Lex Fridman Podcast", description: "与科学家、工程师、哲学家和世界领袖的深度长对话。", url: "https://www.youtube.com/channel/UCSHZKyawb77ixDdsGog4iWA" },
   { id: 2, name: "Decoder", description: "The Verge 旗下播客，聚焦科技领袖如何做出重大决策。", url: "https://www.youtube.com/channel/UCddiUEpeqJcYeBxX1IVBKvQ" },
   { id: 3, name: "Y Combinator", description: "全球顶级加速器（Airbnb、Stripe、Dropbox），提供免费创业课程和创始人演讲。", url: "https://www.youtube.com/channel/UCcefcZRL2oaA_uBNeo5UOWg" },
@@ -666,6 +670,28 @@ export const sourceCatalog: SourceItem[] = [
     conversationSource: true,
     initialLookbackHours: 48,
   },
+];
+
+const discoveredSourceCatalog: SourceItem[] = (
+  discoveredSourceRegistry.sources ?? []
+).map((source) => ({
+  id: source.id,
+  name: source.name,
+  publisher: source.publisher,
+  description: source.description,
+  url: source.url,
+  feedUrl: source.feedUrl,
+  ...(source.conversationSource
+    ? {
+        conversationSource: true,
+        initialLookbackHours: source.initialLookbackHours ?? 48,
+      }
+    : {}),
+}));
+
+export const sourceCatalog: SourceItem[] = [
+  ...curatedSourceCatalog,
+  ...discoveredSourceCatalog,
 ];
 
 export const publicSourceCatalog = sourceCatalog.filter(

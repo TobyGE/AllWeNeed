@@ -29,6 +29,8 @@ const generatedDataFiles = [
   "data/event-graph.json",
   "data/model-quality.json",
   "data/control-center.json",
+  "data/source-candidates.json",
+  "data/discovered-sources.json",
 ];
 
 function argumentValue(name) {

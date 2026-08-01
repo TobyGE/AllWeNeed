@@ -3,6 +3,11 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { buildEventGraph } from "./event-graph.mjs";
 import { appendQualityRecord } from "./shadow-evaluation.mjs";
+import { sourceCatalog } from "../app/source-catalog.ts";
+import {
+  mergeSourceScoutCandidates,
+  promoteReadySources,
+} from "./source-scout-store.mjs";
 
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -24,7 +29,17 @@ async function writeJson(relativePath, value) {
   );
 }
 
-const [radar, conversations, snapshot, result, plan, existingQuality] =
+const [
+  radar,
+  conversations,
+  snapshot,
+  result,
+  plan,
+  existingQuality,
+  existingSourceCandidates,
+  discoveredSources,
+  sourceScoutResult,
+] =
   await Promise.all([
     readJson("data/daily-radar.json", { signals: [] }),
     readJson("data/conversations.json", { items: [] }),
@@ -32,6 +47,17 @@ const [radar, conversations, snapshot, result, plan, existingQuality] =
     readJson("tmp/incremental-result.json", {}),
     readJson("tmp/feed-update-plan.json", {}),
     readJson("data/model-quality.json", { schemaVersion: 1, records: [] }),
+    readJson("data/source-candidates.json", {
+      schemaVersion: 1,
+      generatedAt: null,
+      candidates: [],
+    }),
+    readJson("data/discovered-sources.json", {
+      schemaVersion: 1,
+      updatedAt: null,
+      sources: [],
+    }),
+    readJson("tmp/source-scout-result.json", null),
   ]);
 
 const baselineMode = process.argv.includes("--baseline");
@@ -50,6 +76,18 @@ let quality = existingQuality;
 if (result.shadowEvaluation?.attempted) {
   quality = appendQualityRecord(existingQuality, result.shadowEvaluation);
 }
+const mergedSourceCandidates = sourceScoutResult?.candidates
+  ? mergeSourceScoutCandidates({
+      existing: existingSourceCandidates,
+      result: sourceScoutResult,
+    })
+  : existingSourceCandidates;
+const sourcePromotion = promoteReadySources({
+  candidates: mergedSourceCandidates,
+  configuredSources: sourceCatalog,
+  discovered: discoveredSources,
+  promotedAt: generatedAt,
+});
 
 const statusCounts = (snapshot.statuses ?? []).reduce(
   (counts, status) => {
@@ -91,10 +129,30 @@ const controlCenter = {
   },
   graph: eventGraph.counts,
   revisionQueue: eventGraph.revisionQueue,
+  sourceScout: {
+    generatedAt: sourcePromotion.candidates.generatedAt ?? null,
+    model: sourcePromotion.candidates.model ?? null,
+    candidateCount: sourcePromotion.candidates.candidates?.length ?? 0,
+    readyCount: sourcePromotion.candidates.candidates?.filter(
+      (candidate) => candidate.status === "ready",
+    ).length ?? 0,
+    reviewCount: sourcePromotion.candidates.candidates?.filter(
+      (candidate) => candidate.status === "review",
+    ).length ?? 0,
+    rejectedCount: sourcePromotion.candidates.candidates?.filter(
+      (candidate) => candidate.status === "rejected",
+    ).length ?? 0,
+    promotedCount: sourcePromotion.candidates.candidates?.filter(
+      (candidate) => candidate.status === "promoted",
+    ).length ?? 0,
+    candidates: sourcePromotion.candidates.candidates?.slice(0, 20) ?? [],
+  },
 };
 
 await Promise.all([
   writeJson("data/event-graph.json", eventGraph),
   writeJson("data/model-quality.json", quality),
   writeJson("data/control-center.json", controlCenter),
+  writeJson("data/source-candidates.json", sourcePromotion.candidates),
+  writeJson("data/discovered-sources.json", sourcePromotion.registry),
 ]);

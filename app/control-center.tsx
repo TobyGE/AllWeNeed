@@ -8,6 +8,33 @@ type RevisionItem = {
   thesisImpact: string;
   status: string;
 };
+type SourceScoutCandidate = {
+  id: string;
+  name: string;
+  publisher: string;
+  description: string;
+  url: string;
+  feedUrl?: string | null;
+  sourceKind: string;
+  status: "ready" | "review" | "rejected" | "promoted";
+  score: number;
+  rationale?: string;
+  reasons?: string[];
+  validation?: {
+    recentItemCount?: number;
+    newestPublishedAt?: string | null;
+  };
+};
+type SourceScoutData = {
+  generatedAt?: string | null;
+  model?: string | null;
+  candidateCount?: number;
+  readyCount?: number;
+  reviewCount?: number;
+  rejectedCount?: number;
+  promotedCount?: number;
+  candidates?: SourceScoutCandidate[];
+};
 
 function number(value: number | undefined) {
   return Number(value ?? 0).toLocaleString();
@@ -28,6 +55,7 @@ export function ControlCenter({ locale }: { locale: Locale }) {
     shadow?.comparison?.agreementRate === undefined
       ? "—"
       : `${Math.round(shadow.comparison.agreementRate * 100)}%`;
+  const scout = controlData.sourceScout as SourceScoutData;
 
   return (
     <section className="control-center">
@@ -96,6 +124,60 @@ export function ControlCenter({ locale }: { locale: Locale }) {
           </small>
         </article>
       </div>
+
+      <section className="control-panel control-source-scout">
+        <header>
+          <div>
+            <span>{t("上游信源侦察", "UPSTREAM SOURCE SCOUT")}</span>
+            <h2>{t("新信源候选", "Source expansion queue")}</h2>
+          </div>
+          <strong>
+            {number(scout.promotedCount)} {t("已接入", "connected")}
+          </strong>
+        </header>
+        <div className="scout-summary">
+          <span>
+            <b>{number(scout.readyCount)}</b> {t("可自动接入", "ready")}
+          </span>
+          <span>
+            <b>{number(scout.reviewCount)}</b> {t("等待判断", "review")}
+          </span>
+          <span>
+            <b>{number(scout.rejectedCount)}</b> {t("已拦截", "rejected")}
+          </span>
+          <small>{scout.model ?? t("尚未运行", "Not run yet")}</small>
+        </div>
+        {(scout.candidates ?? []).length ? (
+          <div className="scout-candidate-grid">
+            {(scout.candidates ?? []).slice(0, 12).map((candidate) => (
+              <article key={candidate.id}>
+                <div>
+                  <span className={`scout-status status-${candidate.status}`}>
+                    {candidate.status}
+                  </span>
+                  <b>{candidate.score}</b>
+                </div>
+                <a href={candidate.url} target="_blank" rel="noreferrer">
+                  {candidate.name}
+                </a>
+                <p>{candidate.rationale || candidate.description}</p>
+                <small>
+                  {candidate.sourceKind} ·{" "}
+                  {number(candidate.validation?.recentItemCount)}{" "}
+                  {t("条近期内容", "recent items")}
+                </small>
+              </article>
+            ))}
+          </div>
+        ) : (
+          <p className="control-empty">
+            {t(
+              "Source Scout 将在模型冷却期外搜索并验证目录之外的新入口。",
+              "Source Scout will search and validate new publishers outside the current catalog.",
+            )}
+          </p>
+        )}
+      </section>
 
       <div className="control-columns">
         <section className="control-panel">
