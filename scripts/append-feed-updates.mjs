@@ -1277,21 +1277,6 @@ function splitKnownFeedRefs(value, allowedRefs, itemMap) {
   ) {
     return [normalized];
   }
-  const lineageRoot = (ref) => {
-    const seen = new Set();
-    let current = ref;
-    while (!seen.has(current)) {
-      seen.add(current);
-      const item = itemMap.get(current);
-      const parent = item?.researchedFrom ?? item?.groundedFrom;
-      if (!parent || !itemMap.has(parent)) return current;
-      current = parent;
-    }
-    return current;
-  };
-  if (new Set(matches.map(lineageRoot)).size !== 1) {
-    return [normalized];
-  }
   return [...new Set(matches)];
 }
 
@@ -1306,20 +1291,6 @@ export function normalizeFeedCoverageRefs(raw, candidates) {
       }
       return refs.map((ref) => ({ ...entry, ref }));
     });
-  const includeResearchParents = (evidence = []) => {
-    const expanded = expandEvidence(evidence);
-    const refs = new Set(expanded.map((entry) => entry?.ref).filter(Boolean));
-    const repaired = [...expanded];
-    for (const entry of expanded) {
-      const parentRef = itemMap.get(entry?.ref)?.researchedFrom;
-      if (!parentRef || !allowedRefs.has(parentRef) || refs.has(parentRef)) {
-        continue;
-      }
-      repaired.push({ ...entry, ref: parentRef });
-      refs.add(parentRef);
-    }
-    return repaired;
-  };
   const expandIgnored = (ignored = []) =>
     ignored.flatMap((entry) => {
       const refs = splitKnownFeedRefs(entry?.ref, allowedRefs, itemMap);
@@ -1333,16 +1304,65 @@ export function normalizeFeedCoverageRefs(raw, candidates) {
     ...story,
     signal: {
       ...story?.signal,
-      evidence: includeResearchParents(story?.signal?.evidence),
+      evidence: expandEvidence(story?.signal?.evidence),
     },
   }));
   const existingUpdates = (raw?.existingUpdates ?? []).map((update) => ({
     ...update,
     update: {
       ...update?.update,
-      evidence: includeResearchParents(update?.update?.evidence),
+      evidence: expandEvidence(update?.update?.evidence),
     },
   }));
+  const evidenceGroups = [
+    ...feedStories.map((story) => story.signal.evidence),
+    ...existingUpdates.map((update) => update.update.evidence),
+  ];
+  const firstEntry = new Map();
+  const firstGroup = new Map();
+  const lineageOwner = new Map();
+  for (const [groupIndex, evidence] of evidenceGroups.entries()) {
+    for (const entry of evidence) {
+      const ref = entry?.ref;
+      if (!allowedRefs.has(ref)) continue;
+      if (!firstEntry.has(ref)) {
+        firstEntry.set(ref, entry);
+        firstGroup.set(ref, groupIndex);
+      }
+      const parentRef = itemMap.get(ref)?.researchedFrom;
+      if (parentRef && !lineageOwner.has(parentRef)) {
+        lineageOwner.set(parentRef, groupIndex);
+      }
+    }
+  }
+
+  const desiredGroup = new Map();
+  for (const [ref, entry] of firstEntry) {
+    const parentRef = itemMap.get(ref)?.researchedFrom;
+    if (!parentRef) continue;
+    const owner = lineageOwner.get(parentRef);
+    desiredGroup.set(ref, owner);
+    desiredGroup.set(parentRef, owner);
+    if (!firstEntry.has(parentRef)) {
+      firstEntry.set(parentRef, { ...entry, ref: parentRef });
+    }
+  }
+
+  const reconciledGroups = evidenceGroups.map(() => []);
+  for (const [ref, entry] of firstEntry) {
+    const groupIndex = desiredGroup.get(ref) ?? firstGroup.get(ref);
+    reconciledGroups[groupIndex].push({ ...entry, ref });
+  }
+  let groupIndex = 0;
+  for (const story of feedStories) {
+    story.signal.evidence = reconciledGroups[groupIndex];
+    groupIndex += 1;
+  }
+  for (const update of existingUpdates) {
+    update.update.evidence = reconciledGroups[groupIndex];
+    groupIndex += 1;
+  }
+
   const publishedRefs = new Set(
     [
       ...feedStories.flatMap((story) => story?.signal?.evidence ?? []),

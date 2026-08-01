@@ -1074,7 +1074,7 @@ test("repairs a research ref by carrying its parent into the same evidence set",
   });
 });
 
-test("rejects combined refs from unrelated research lineages", () => {
+test("reconciles every known ref when a model combines research lineages", () => {
   const candidates = [
     { ref: "N5", url: "https://example.com/source" },
     {
@@ -1095,11 +1095,16 @@ test("rejects combined refs from unrelated research lineages", () => {
     candidates,
   );
 
-  assert.equal(normalized.feedStories[0].signal.evidence[0].ref, "N5/R1");
-  assert.throws(
-    () => validateFeedCoverage(normalized, candidates),
-    /without its parent N8|unknown source ref N5\/R1/,
+  assert.deepEqual(
+    normalized.feedStories[0].signal.evidence.map((item) => item.ref),
+    ["N5", "R1", "N8"],
   );
+  assert.deepEqual(normalized.ignored, []);
+  assert.deepEqual(validateFeedCoverage(normalized, candidates), {
+    storyItemCount: 3,
+    updateItemCount: 0,
+    ignoredItemCount: 0,
+  });
 });
 
 test("rejects published research evidence without its parent source", () => {
