@@ -2,16 +2,17 @@ import { readFile, writeFile } from "node:fs/promises";
 import { homedir } from "node:os";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { modelRoutes } from "./model-routing.mjs";
+import {
+  modelReasoningEffort,
+  modelTaskInstructions,
+} from "./model-prompts.mjs";
 
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const radarPath = resolve(projectRoot, "data/daily-radar.json");
 const authPath = resolve(homedir(), ".codex/auth.json");
 const endpoint = "https://chatgpt.com/backend-api/codex/responses";
-const preferredModels = [
-  process.env.SIGNAL_RADAR_MODEL?.trim(),
-  "gpt-5.6-sol",
-  "gpt-5.5",
-].filter(Boolean);
+const preferredModels = modelRoutes.localization;
 
 function compactRadar(radar) {
   return {
@@ -184,15 +185,25 @@ async function callSubscriptionModel({ model, prompt, accessToken, accountId }) 
     },
     body: JSON.stringify({
       model,
-      instructions:
-        "Return only valid JSON. Preserve facts, proper nouns, array order, and evidence refs exactly.",
+      instructions: modelTaskInstructions({
+        model,
+        task: "localization",
+        fallbackInstructions:
+          "Return only valid JSON. Preserve facts, proper nouns, array order, and evidence refs exactly.",
+      }),
       input: [
         {
           role: "user",
           content: [{ type: "input_text", text: prompt }],
         },
       ],
-      reasoning: { effort: "low" },
+      reasoning: {
+        effort: modelReasoningEffort({
+          model,
+          task: "localization",
+          fallbackEffort: "low",
+        }),
+      },
       stream: true,
       store: false,
     }),

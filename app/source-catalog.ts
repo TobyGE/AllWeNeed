@@ -639,6 +639,33 @@ export const sourceCatalog: SourceItem[] = [
     conversationSource: true,
     initialLookbackHours: 48,
   },
+  {
+    id: 223,
+    name: "硅谷101播客",
+    publisher: "硅谷101",
+    description: "中文科技与商业深度播客，覆盖 AI、半导体、创业、投资和全球科技产业的一线访谈。",
+    url: "https://www.youtube.com/channel/UChnNjLyx_5rk_iDPQ2BQDQA",
+    conversationSource: true,
+    initialLookbackHours: 48,
+  },
+  {
+    id: 224,
+    name: "The Diary Of A CEO",
+    publisher: "The Diary Of A CEO",
+    description: "Steven Bartlett 主持的长篇人物访谈，聚焦创业、领导力、科技、健康与社会议题。",
+    url: "https://www.youtube.com/channel/UCGq-a57w-aPwyi3pW7XLiHw",
+    conversationSource: true,
+    initialLookbackHours: 48,
+  },
+  {
+    id: 225,
+    name: "Predictive History",
+    publisher: "Predictive History",
+    description: "以历史结构分析地缘政治、制度变迁与长期社会趋势的深度对话和专题讨论。",
+    url: "https://www.youtube.com/channel/UC11aHtNnc5bEPLI4jf6mnYg",
+    conversationSource: true,
+    initialLookbackHours: 48,
+  },
 ];
 
 export const publicSourceCatalog = sourceCatalog.filter(

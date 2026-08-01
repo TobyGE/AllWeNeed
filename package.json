@@ -28,6 +28,7 @@
     "rewrite:companies": "node scripts/rewrite-editorial-stories.mjs --company",
     "refresh:all": "npm run refresh:incremental && npm run ensure:explore",
     "ensure:explore": "node scripts/ensure-explore-depth.mjs",
+    "eval:models": "node scripts/eval-model-prompts.mjs",
     "test": "npm run build && node --test tests/*.test.mjs",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
     "db:generate": "drizzle-kit generate"

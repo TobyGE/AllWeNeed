@@ -2,6 +2,11 @@ import { readFile, writeFile } from "node:fs/promises";
 import { homedir } from "node:os";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { modelRoutes } from "./model-routing.mjs";
+import {
+  modelReasoningEffort,
+  modelTaskInstructions,
+} from "./model-prompts.mjs";
 
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const radarPath = resolve(projectRoot, "data/daily-radar.json");
@@ -16,11 +21,7 @@ const targetExploreCount = Math.max(
   Number(argumentValue("target") ?? process.env.SIGNAL_RADAR_EXPLORE_MIN ?? 50) ||
     50,
 );
-const preferredModels = [
-  process.env.SIGNAL_RADAR_MODEL?.trim(),
-  "gpt-5.6-sol",
-  "gpt-5.5",
-].filter((value, index, values) => value && values.indexOf(value) === index);
+const preferredModels = modelRoutes.standardWriting;
 const categories = [
   "AI 工程",
   "开发工具",
@@ -367,6 +368,7 @@ async function callWithFallback({
   auth,
   reasoningEffort,
   instructions,
+  task,
   validate,
 }) {
   let lastError;
@@ -379,8 +381,16 @@ async function callWithFallback({
             model,
             prompt,
             ...auth,
-            reasoningEffort,
-            instructions,
+            reasoningEffort: modelReasoningEffort({
+              model,
+              task,
+              fallbackEffort: reasoningEffort,
+            }),
+            instructions: modelTaskInstructions({
+              model,
+              task,
+              fallbackInstructions: instructions,
+            }),
           }),
         );
         return { value: validate(raw), model };
@@ -659,6 +669,7 @@ const chineseResult = await callWithFallback({
   auth,
   reasoningEffort: "high",
   instructions: editorialInstructions,
+  task: "explore",
   validate: (raw) =>
     validateChineseItems({
       raw,
@@ -674,6 +685,7 @@ const englishResult = await callWithFallback({
   auth,
   reasoningEffort: "low",
   instructions: editorialInstructions,
+  task: "localization",
   validate: (raw) => validateEnglishItems(raw, chineseResult.value),
 });
 

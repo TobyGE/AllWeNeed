@@ -2,17 +2,18 @@ import { readFile, writeFile } from "node:fs/promises";
 import { homedir } from "node:os";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { modelRoutes } from "./model-routing.mjs";
+import {
+  modelReasoningEffort,
+  modelTaskInstructions,
+} from "./model-prompts.mjs";
 
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const snapshotPath = resolve(projectRoot, "data/feed-snapshot.json");
 const outputPath = resolve(projectRoot, "data/daily-radar.json");
 const authPath = resolve(homedir(), ".codex/auth.json");
 const endpoint = "https://chatgpt.com/backend-api/codex/responses";
-const preferredModels = [
-  process.env.SIGNAL_RADAR_MODEL?.trim(),
-  "gpt-5.6-sol",
-  "gpt-5.5",
-].filter(Boolean);
+const preferredModels = modelRoutes.fullAnalysis;
 
 function cleanText(value = "") {
   return value
@@ -378,15 +379,25 @@ async function callSubscriptionModel({ model, prompt, accessToken, accountId }) 
     },
     body: JSON.stringify({
       model,
-      instructions:
-        "Follow the user's evidence rules precisely. Return only valid JSON with no markdown fences.",
+      instructions: modelTaskInstructions({
+        model,
+        task: "editorial",
+        fallbackInstructions:
+          "Follow the user's evidence rules precisely. Return only valid JSON with no markdown fences.",
+      }),
       input: [
         {
           role: "user",
           content: [{ type: "input_text", text: prompt }],
         },
       ],
-      reasoning: { effort: "medium" },
+      reasoning: {
+        effort: modelReasoningEffort({
+          model,
+          task: "editorial",
+          fallbackEffort: "medium",
+        }),
+      },
       stream: true,
       store: false,
     }),

@@ -6,6 +6,15 @@ import {
   candidateUpdateLane,
   updateLaneNames,
 } from "./update-policy.mjs";
+import {
+  modelRoutes,
+  writingModelsForItems,
+} from "./model-routing.mjs";
+import {
+  modelReasoningEffort,
+  modelSearchContextSize,
+  modelTaskInstructions,
+} from "./model-prompts.mjs";
 
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const canonicalSnapshotPath = resolve(projectRoot, "data/feed-snapshot.json");
@@ -23,11 +32,7 @@ const editorialSkillDirectory = resolve(
   ".codex/skills/radar-editorial-research",
 );
 const endpoint = "https://chatgpt.com/backend-api/codex/responses";
-const preferredModels = [
-  process.env.SIGNAL_RADAR_MODEL?.trim(),
-  "gpt-5.6-sol",
-  "gpt-5.5",
-].filter(Boolean);
+const preferredModels = modelRoutes.standardWriting;
 const overlapMs = 6 * 60 * 60 * 1_000;
 const requestedCandidateItems = Number(
   argumentValue("limit") ?? process.env.SIGNAL_RADAR_BATCH_SIZE ?? 8,
@@ -83,16 +88,8 @@ const editorialResearchConcurrency = Math.max(
     Number(process.env.SIGNAL_RADAR_RESEARCH_CONCURRENCY ?? 2) || 2,
   ),
 );
-const preferredGroundingModels = [
-  process.env.SIGNAL_RADAR_GROUNDING_MODEL?.trim(),
-  "gpt-5.5",
-  ...preferredModels,
-].filter((value, index, values) => value && values.indexOf(value) === index);
-const preferredResearchModels = [
-  process.env.SIGNAL_RADAR_RESEARCH_MODEL?.trim(),
-  "gpt-5.6-sol",
-  "gpt-5.5",
-].filter((value, index, values) => value && values.indexOf(value) === index);
+const preferredGroundingModels = modelRoutes.grounding;
+const preferredResearchModels = modelRoutes.research;
 
 function argumentValue(name) {
   const prefix = `--${name}=`;
@@ -1042,17 +1039,28 @@ async function groundDiscoveryCandidates({
         model,
         prompt,
         ...auth,
-        instructions:
-          `${skillInstructions}\n\nUse live web search for every supplied ref and return only the requested JSON.`,
+        instructions: modelTaskInstructions({
+          model,
+          task: "grounding",
+          fallbackInstructions:
+            `${skillInstructions}\n\nUse live web search for every supplied ref and return only the requested JSON.`,
+        }),
         tools: [
           {
             type: "web_search",
-            search_context_size: "medium",
+            search_context_size: modelSearchContextSize({
+              model,
+              fallbackSize: "medium",
+            }),
             external_web_access: true,
           },
         ],
         toolChoice: "required",
-        reasoningEffort: "medium",
+        reasoningEffort: modelReasoningEffort({
+          model,
+          task: "grounding",
+          fallbackEffort: "medium",
+        }),
       });
       const raw = parseJsonOutput(output);
       return {
@@ -1122,17 +1130,28 @@ async function researchEditorialCandidates({
             model,
             prompt,
             ...auth,
-            instructions:
-              `${skillInstructions}\n\nResearch every supplied ref with live web search. Return only the requested JSON.`,
+            instructions: modelTaskInstructions({
+              model,
+              task: "research",
+              fallbackInstructions:
+                `${skillInstructions}\n\nResearch every supplied ref with live web search. Return only the requested JSON.`,
+            }),
             tools: [
               {
                 type: "web_search",
-                search_context_size: retry ? "low" : "medium",
+                search_context_size: modelSearchContextSize({
+                  model,
+                  fallbackSize: retry ? "low" : "medium",
+                }),
                 external_web_access: true,
               },
             ],
             toolChoice: "required",
-            reasoningEffort: retry ? "medium" : "high",
+            reasoningEffort: modelReasoningEffort({
+              model,
+              task: "research",
+              fallbackEffort: retry ? "medium" : "high",
+            }),
             timeoutMs: retry
               ? Math.min(editorialResearchTimeoutMs, 120_000)
               : editorialResearchTimeoutMs,
@@ -2378,15 +2397,26 @@ async function main() {
     if (candidates.length) {
       const prompt = buildPrompt({ candidates, radar, scannedSnapshot });
       let lastError;
-      for (const candidateModel of preferredModels) {
+      for (const candidateModel of writingModelsForItems(
+        selectedCandidates,
+        candidateUpdateLane,
+      )) {
         try {
           const output = await callSubscriptionModel({
             model: candidateModel,
             prompt,
             ...auth,
-            instructions:
-              `${editorialSkillInstructions}\n\nClassify every new source item exactly once. Publish only qualified dynamic events or substantive Explore theses; archive weak items. Write a centered source-backed article and return only valid JSON.`,
-            reasoningEffort: "high",
+            instructions: modelTaskInstructions({
+              model: candidateModel,
+              task: "editorial",
+              fallbackInstructions:
+                `${editorialSkillInstructions}\n\nClassify every new source item exactly once. Publish only qualified dynamic events or substantive Explore theses; archive weak items. Write a centered source-backed article and return only valid JSON.`,
+            }),
+            reasoningEffort: modelReasoningEffort({
+              model: candidateModel,
+              task: "editorial",
+              fallbackEffort: "high",
+            }),
           });
           const raw = applyEditorialPublicationBar(
             normalizeFeedCoverageRefs(parseJsonOutput(output), candidates),
@@ -2433,9 +2463,17 @@ async function main() {
           model: candidateModel,
           prompt,
           ...auth,
-          instructions:
-            `${editorialSkillInstructions}\n\nCurate every supplied long-form conversation exactly once. Preserve attribution, write a centered bilingual briefing, and return only valid JSON.`,
-          reasoningEffort: "high",
+          instructions: modelTaskInstructions({
+            model: candidateModel,
+            task: "conversation",
+            fallbackInstructions:
+              `${editorialSkillInstructions}\n\nCurate every supplied long-form conversation exactly once. Preserve attribution, write a centered bilingual briefing, and return only valid JSON.`,
+          }),
+          reasoningEffort: modelReasoningEffort({
+            model: candidateModel,
+            task: "conversation",
+            fallbackEffort: "high",
+          }),
         });
         const raw = parseJsonOutput(output);
         conversationCoverage = validateConversationCoverage(

@@ -1,0 +1,59 @@
+import assert from "node:assert/strict";
+import test from "node:test";
+import {
+  modelRoutes,
+  writingModelsForItems,
+} from "../scripts/model-routing.mjs";
+
+test("routes each workload to the intended GPT-5.6 tier", () => {
+  assert.deepEqual([...modelRoutes.fullAnalysis], [
+    "gpt-5.6-terra",
+    "gpt-5.6-sol",
+    "gpt-5.5",
+  ]);
+  assert.deepEqual([...modelRoutes.standardWriting], [
+    "gpt-5.6-terra",
+    "gpt-5.6-luna",
+    "gpt-5.6-sol",
+    "gpt-5.5",
+  ]);
+  assert.deepEqual([...modelRoutes.criticalWriting], [
+    "gpt-5.6-terra",
+    "gpt-5.6-sol",
+    "gpt-5.6-luna",
+    "gpt-5.5",
+  ]);
+  assert.deepEqual([...modelRoutes.grounding], [
+    "gpt-5.6-luna",
+    "gpt-5.6-terra",
+    "gpt-5.6-sol",
+    "gpt-5.5",
+  ]);
+  assert.deepEqual([...modelRoutes.research], [
+    "gpt-5.6-terra",
+    "gpt-5.6-luna",
+    "gpt-5.6-sol",
+    "gpt-5.5",
+  ]);
+  assert.deepEqual([...modelRoutes.localization], [
+    "gpt-5.6-luna",
+    "gpt-5.6-terra",
+    "gpt-5.6-sol",
+    "gpt-5.5",
+  ]);
+});
+
+test("uses Terra for both fast-lane and ordinary writing", () => {
+  const laneForItem = (item) => item.lane;
+  assert.equal(
+    writingModelsForItems([{ lane: "fast" }], laneForItem)[0],
+    "gpt-5.6-terra",
+  );
+  assert.equal(
+    writingModelsForItems(
+      [{ lane: "standard" }, { lane: "explore" }],
+      laneForItem,
+    )[0],
+    "gpt-5.6-terra",
+  );
+});

@@ -251,6 +251,18 @@ test("removes all disposable starter preview code", async () => {
   );
   assert.match(
     sourceCatalog,
+    /硅谷101播客[\s\S]*UChnNjLyx_5rk_iDPQ2BQDQA[\s\S]*conversationSource: true/,
+  );
+  assert.match(
+    sourceCatalog,
+    /The Diary Of A CEO[\s\S]*UCGq-a57w-aPwyi3pW7XLiHw[\s\S]*conversationSource: true/,
+  );
+  assert.match(
+    sourceCatalog,
+    /Predictive History[\s\S]*UC11aHtNnc5bEPLI4jf6mnYg[\s\S]*conversationSource: true/,
+  );
+  assert.match(
+    sourceCatalog,
     /a16z Newsletter[\s\S]*feedUrl: "https:\/\/www\.a16z\.news\/feed"/,
   );
   assert.match(
@@ -423,7 +435,14 @@ test("removes all disposable starter preview code", async () => {
   );
   assert.ok(JSON.parse(radar).analyzedItemCount > 100);
   assert.ok(
-    ["gpt-5.6-sol", "gpt-5.5"].includes(JSON.parse(radar).model),
+    [
+      "gpt-5.6-sol",
+      "gpt-5.6-terra",
+      "gpt-5.6-luna",
+      "gpt-5.5",
+    ].includes(
+      JSON.parse(radar).model,
+    ),
   );
   assert.ok(JSON.parse(radar).translations?.zh);
   assert.ok(JSON.parse(radar).translations?.en);

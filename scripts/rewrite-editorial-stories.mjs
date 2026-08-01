@@ -2,6 +2,12 @@ import { readFile, writeFile } from "node:fs/promises";
 import { homedir } from "node:os";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { modelRoutes } from "./model-routing.mjs";
+import {
+  modelReasoningEffort,
+  modelSearchContextSize,
+  modelTaskInstructions,
+} from "./model-prompts.mjs";
 
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const radarPath = resolve(projectRoot, "data/daily-radar.json");
@@ -11,11 +17,7 @@ const editorialSkillDirectory = resolve(
   ".codex/skills/radar-editorial-research",
 );
 const endpoint = "https://chatgpt.com/backend-api/codex/responses";
-const preferredModels = [
-  process.env.SIGNAL_RADAR_MODEL?.trim(),
-  "gpt-5.6-sol",
-  "gpt-5.5",
-].filter((value, index, values) => value && values.indexOf(value) === index);
+const preferredModels = modelRoutes.standardWriting;
 const processNarration =
   /单一来源假设|尚待.{0,30}(?:验证|确认)|由于.{0,45}(?:没有|未).{0,45}(?:不作|无法|不能).{0,24}(?:判断|结论|beat|miss)|single-source hypothesis|without.{0,40}consensus.{0,40}(?:cannot|can't|do not|won't)/iu;
 const fallbackEditorialInstructions = `
@@ -345,8 +347,12 @@ async function callModel({
     },
     body: JSON.stringify({
       model,
-      instructions:
-        `${instructions}\n\nResearch every supplied story with live web search and return only the requested JSON.`,
+      instructions: modelTaskInstructions({
+        model,
+        task: "research",
+        fallbackInstructions:
+          `${instructions}\n\nResearch every supplied story with live web search and return only the requested JSON.`,
+      }),
       input: [
         {
           role: "user",
@@ -356,12 +362,21 @@ async function callModel({
       tools: [
         {
           type: "web_search",
-          search_context_size: "high",
+          search_context_size: modelSearchContextSize({
+            model,
+            fallbackSize: "high",
+          }),
           external_web_access: true,
         },
       ],
       tool_choice: "required",
-      reasoning: { effort: "high" },
+      reasoning: {
+        effort: modelReasoningEffort({
+          model,
+          task: "research",
+          fallbackEffort: "high",
+        }),
+      },
       stream: true,
       store: false,
     }),

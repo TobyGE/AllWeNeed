@@ -2,6 +2,11 @@ import { readFile, writeFile } from "node:fs/promises";
 import { homedir } from "node:os";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { modelRoutes } from "./model-routing.mjs";
+import {
+  modelReasoningEffort,
+  modelTaskInstructions,
+} from "./model-prompts.mjs";
 
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const radarPath = resolve(projectRoot, "data/daily-radar.json");
@@ -11,11 +16,7 @@ const editorialSkillDirectory = resolve(
   ".codex/skills/radar-editorial-research",
 );
 const endpoint = "https://chatgpt.com/backend-api/codex/responses";
-const preferredModels = [
-  process.env.SIGNAL_RADAR_MODEL?.trim(),
-  "gpt-5.6-sol",
-  "gpt-5.5",
-].filter(Boolean);
+const preferredModels = modelRoutes.standardWriting;
 const requestedChunkSize = Number(
   process.env.SIGNAL_RADAR_EXPLORE_REWRITE_CHUNK ?? 10,
 );
@@ -173,15 +174,25 @@ async function callSubscriptionModel({
     },
     body: JSON.stringify({
       model,
-      instructions:
-        `${instructions}\n\nReturn valid JSON only. Stay evidence-bound and preserve every Explore id and array order.`,
+      instructions: modelTaskInstructions({
+        model,
+        task: "explore",
+        fallbackInstructions:
+          `${instructions}\n\nReturn valid JSON only. Stay evidence-bound and preserve every Explore id and array order.`,
+      }),
       input: [
         {
           role: "user",
           content: [{ type: "input_text", text: prompt }],
         },
       ],
-      reasoning: { effort: "medium" },
+      reasoning: {
+        effort: modelReasoningEffort({
+          model,
+          task: "explore",
+          fallbackEffort: "medium",
+        }),
+      },
       stream: true,
       store: false,
     }),
