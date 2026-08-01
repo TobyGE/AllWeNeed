@@ -325,6 +325,8 @@ function buildPrompt({ candidates, radar, scannedSnapshot }) {
 
 收录规则：
 - 每个 ref 必须且只能出现在一个 feedStory、existingUpdate 或 ignored 中。
+- evidence.ref 必须逐字使用候选中提供的单个 ref；不得写成 N1/R1、N1:R1 或任何组合形式。
+- R ref 是 editorial research 补充来源。使用 R ref 时，必须把它的 researchedFrom parent ref 放进同一条 evidence 数组；不得让 parent 与 research source 分属不同稿件。
 - bucket=dynamic 只用于已经发生的明确状态变化：发布、财报、监管、融资、产品上线、政策决定或有实质新证据的事件。必须有足够正文和可核验事实；官方一手来源可以单独成立。
 - dynamic 是稀缺的新闻席位，不是“值得知道”的同义词。只有以下变化可以进入：会改变公司经营或资本判断的财报/guidance/融资/M&A；已落地的监管或宏观决定；改变价格、可用范围、分发方式或产业采用的重大产品/模型发布；有明确影响范围的真实安全事件；或至少两条独立来源共同确认的行业状态转折。
 - 小版本、library/repository/demo、单点技巧、孤立研究论文、单篇 Blog 观察、窄功能更新和一般知识不得因为“刚发布”进入 dynamic；如果也没有形成高价值 thesis，则直接 ignored，不能把 Explore 当作低质量内容的兜底区。
@@ -841,6 +843,23 @@ export function hydrateEditorialResearchCandidates({
   }));
 }
 
+export function assignUniqueResearchRefs(candidates) {
+  return candidates.map((item, index) => ({
+    ...item,
+    ref: `R${index + 1}`,
+  }));
+}
+
+export function assertUniqueCandidateRefs(candidates) {
+  const seen = new Set();
+  for (const item of candidates) {
+    if (!item?.ref || seen.has(item.ref)) {
+      throw new Error(`Candidate refs must be globally unique: ${item?.ref}`);
+    }
+    seen.add(item.ref);
+  }
+}
+
 function buildConversationPrompt({ candidates, conversations }) {
   const existing = (conversations.items ?? [])
     .map((item) => `${item.originalTitle} | ${item.url}`)
@@ -1171,7 +1190,9 @@ async function researchEditorialCandidates({
     ...new Set(results.map((result) => result.model).filter(Boolean)),
   ];
   return {
-    candidates: results.flatMap((result) => result.candidates),
+    candidates: assignUniqueResearchRefs(
+      results.flatMap((result) => result.candidates),
+    ),
     model: models.length ? models.join(", ") : null,
     attempted: researchItems.length,
     completed: results.reduce(
@@ -1277,6 +1298,21 @@ function splitKnownFeedRefs(value, allowedRefs, itemMap) {
   ) {
     return [normalized];
   }
+  const lineageRoot = (ref) => {
+    const seen = new Set();
+    let current = ref;
+    while (!seen.has(current)) {
+      seen.add(current);
+      const item = itemMap.get(current);
+      const parent = item?.researchedFrom ?? item?.groundedFrom;
+      if (!parent || !itemMap.has(parent)) return current;
+      current = parent;
+    }
+    return current;
+  };
+  if (new Set(matches.map(lineageRoot)).size !== 1) {
+    return [normalized];
+  }
   return [...new Set(matches)];
 }
 
@@ -1291,6 +1327,20 @@ export function normalizeFeedCoverageRefs(raw, candidates) {
       }
       return refs.map((ref) => ({ ...entry, ref }));
     });
+  const includeResearchParents = (evidence = []) => {
+    const expanded = expandEvidence(evidence);
+    const refs = new Set(expanded.map((entry) => entry?.ref).filter(Boolean));
+    const repaired = [...expanded];
+    for (const entry of expanded) {
+      const parentRef = itemMap.get(entry?.ref)?.researchedFrom;
+      if (!parentRef || !allowedRefs.has(parentRef) || refs.has(parentRef)) {
+        continue;
+      }
+      repaired.push({ ...entry, ref: parentRef });
+      refs.add(parentRef);
+    }
+    return repaired;
+  };
   const expandIgnored = (ignored = []) =>
     ignored.flatMap((entry) => {
       const refs = splitKnownFeedRefs(entry?.ref, allowedRefs, itemMap);
@@ -1304,65 +1354,16 @@ export function normalizeFeedCoverageRefs(raw, candidates) {
     ...story,
     signal: {
       ...story?.signal,
-      evidence: expandEvidence(story?.signal?.evidence),
+      evidence: includeResearchParents(story?.signal?.evidence),
     },
   }));
   const existingUpdates = (raw?.existingUpdates ?? []).map((update) => ({
     ...update,
     update: {
       ...update?.update,
-      evidence: expandEvidence(update?.update?.evidence),
+      evidence: includeResearchParents(update?.update?.evidence),
     },
   }));
-  const evidenceGroups = [
-    ...feedStories.map((story) => story.signal.evidence),
-    ...existingUpdates.map((update) => update.update.evidence),
-  ];
-  const firstEntry = new Map();
-  const firstGroup = new Map();
-  const lineageOwner = new Map();
-  for (const [groupIndex, evidence] of evidenceGroups.entries()) {
-    for (const entry of evidence) {
-      const ref = entry?.ref;
-      if (!allowedRefs.has(ref)) continue;
-      if (!firstEntry.has(ref)) {
-        firstEntry.set(ref, entry);
-        firstGroup.set(ref, groupIndex);
-      }
-      const parentRef = itemMap.get(ref)?.researchedFrom;
-      if (parentRef && !lineageOwner.has(parentRef)) {
-        lineageOwner.set(parentRef, groupIndex);
-      }
-    }
-  }
-
-  const desiredGroup = new Map();
-  for (const [ref, entry] of firstEntry) {
-    const parentRef = itemMap.get(ref)?.researchedFrom;
-    if (!parentRef) continue;
-    const owner = lineageOwner.get(parentRef);
-    desiredGroup.set(ref, owner);
-    desiredGroup.set(parentRef, owner);
-    if (!firstEntry.has(parentRef)) {
-      firstEntry.set(parentRef, { ...entry, ref: parentRef });
-    }
-  }
-
-  const reconciledGroups = evidenceGroups.map(() => []);
-  for (const [ref, entry] of firstEntry) {
-    const groupIndex = desiredGroup.get(ref) ?? firstGroup.get(ref);
-    reconciledGroups[groupIndex].push({ ...entry, ref });
-  }
-  let groupIndex = 0;
-  for (const story of feedStories) {
-    story.signal.evidence = reconciledGroups[groupIndex];
-    groupIndex += 1;
-  }
-  for (const update of existingUpdates) {
-    update.update.evidence = reconciledGroups[groupIndex];
-    groupIndex += 1;
-  }
-
   const publishedRefs = new Set(
     [
       ...feedStories.flatMap((story) => story?.signal?.evidence ?? []),
@@ -2373,6 +2374,7 @@ async function main() {
       [...candidates, ...editorialResearch.candidates],
       editorialResearch.deferredRefs,
     );
+    assertUniqueCandidateRefs(candidates);
     if (candidates.length) {
       const prompt = buildPrompt({ candidates, radar, scannedSnapshot });
       let lastError;

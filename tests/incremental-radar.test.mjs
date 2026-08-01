@@ -1,7 +1,9 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import {
+  assignUniqueResearchRefs,
   assertEditorialArticleQuality,
+  assertUniqueCandidateRefs,
   applyEditorialPublicationBar,
   assertSnapshotHealth,
   createBaselineState,
@@ -1074,7 +1076,7 @@ test("repairs a research ref by carrying its parent into the same evidence set",
   });
 });
 
-test("reconciles every known ref when a model combines research lineages", () => {
+test("rejects combined refs from unrelated research lineages", () => {
   const candidates = [
     { ref: "N5", url: "https://example.com/source" },
     {
@@ -1095,16 +1097,11 @@ test("reconciles every known ref when a model combines research lineages", () =>
     candidates,
   );
 
-  assert.deepEqual(
-    normalized.feedStories[0].signal.evidence.map((item) => item.ref),
-    ["N5", "R1", "N8"],
+  assert.equal(normalized.feedStories[0].signal.evidence[0].ref, "N5/R1");
+  assert.throws(
+    () => validateFeedCoverage(normalized, candidates),
+    /without its parent N8|unknown source ref N5\/R1/,
   );
-  assert.deepEqual(normalized.ignored, []);
-  assert.deepEqual(validateFeedCoverage(normalized, candidates), {
-    storyItemCount: 3,
-    updateItemCount: 0,
-    ignoredItemCount: 0,
-  });
 });
 
 test("rejects published research evidence without its parent source", () => {
@@ -1492,6 +1489,33 @@ test("hydrates citeable editorial research and deduplicates original URLs", () =
   assert.equal(researched[0].ref, "R1");
   assert.equal(researched[0].researchedFrom, "N1");
   assert.equal(researched[0].researchRole, "Consensus");
+});
+
+test("assigns globally unique refs after parallel research chunks are merged", () => {
+  const merged = assignUniqueResearchRefs([
+    { ref: "R1", url: "https://example.com/one", researchedFrom: "N1" },
+    { ref: "R1", url: "https://example.com/two", researchedFrom: "N2" },
+    { ref: "R2", url: "https://example.com/three", researchedFrom: "N2" },
+  ]);
+
+  assert.deepEqual(
+    merged.map((item) => [item.ref, item.researchedFrom]),
+    [
+      ["R1", "N1"],
+      ["R2", "N2"],
+      ["R3", "N2"],
+    ],
+  );
+  assert.doesNotThrow(() => assertUniqueCandidateRefs(merged));
+  assert.throws(
+    () =>
+      assertUniqueCandidateRefs([
+        { ref: "N1" },
+        { ref: "R1" },
+        { ref: "R1" },
+      ]),
+    /globally unique: R1/,
+  );
 });
 
 test("rejects research-process disclaimers from article copy", () => {

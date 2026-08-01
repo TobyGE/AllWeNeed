@@ -280,22 +280,15 @@
       "sources": [
         "Blog",
         "Official",
-        "Repository",
-        "Media",
-        "Research"
+        "Repository"
       ],
       "sourceNames": [
         "DeepSeek",
         "DeepSeek API Docs",
         "Hugging Face / DeepSeek-AI",
-        "Simon Willison",
-        "AGI Strategy",
-        "Center for AI Safety",
-        "Verifier Challenge",
-        "Business History Review, Cambridge University Press",
-        "Eliezer Yudkowsky"
+        "Simon Willison"
       ],
-      "sourceCount": 9,
+      "sourceCount": 4,
       "age": "9 小时前",
       "score": 90,
       "tone": "green",
@@ -412,102 +405,6 @@
           "ref": "N1",
           "role": "背景",
           "takeaway": "Simon Willison注意到0731版本及其相对MiniMax-M3的独立评测表现，但所列输出价格为$0.27/百万token。"
-        },
-        {
-          "id": "research-80-2-https://www.lesswrong.com/posts/rqf9LLgPn2xTvP7m6/ai-safety-prizes-1-https://oscardelaney.substack.com/p/ai-safety-prizes",
-          "sourceId": 80,
-          "sourceName": "AGI Strategy",
-          "sourcePublisher": "AGI Strategy",
-          "sourceKind": "Media",
-          "title": "AI safety prizes",
-          "url": "https://oscardelaney.substack.com/p/ai-safety-prizes",
-          "publishedAt": "2026-07-31T00:00:00.000Z",
-          "summary": "原始文章明确署名 Oscar Delaney，并提出仅在目标和验收标准清晰时使用 pull funding；具体候选包括 compute verification、AI control 和部分 interpretability，同时承认融资约束、协作受损及 Goodhart 风险，主张结合 push 与 pull funding。",
-          "fetchedAt": "2026-08-01T00:42:03.238Z",
-          "researchedFrom": "N8",
-          "researchRole": "Primary",
-          "researchClaim": "原文实际由 Oscar Delaney 而非 Eliezer Yudkowsky 撰写；其可辩护的核心主张是，成果容易客观验证、潜在解题者难以事前识别的 AI safety 任务适合采用 prize 等 pull funding，但应与前置资助结合，而不是取代 grants。",
-          "researchComparisons": "相较于预先支付研究成本的 push funding，prize 只在达到验收条件后付款。既有实践中，SafeBench 以 25 万美元奖金吸引近 100 份 AI safety benchmark 投稿并奖励 8 项公开成果，证明该机制能够组织参与和产出；更贴近文中 compute verification 设想的 Verifier Challenge 已于 2026 年开展原型和数据集工作，但截至原文发布时仍在筹资并计划于 10 月启动公开竞赛。历史研究则发现，非市场化奖项可能受到评委偏差、寻租、估值困难和交易成本影响，支持将 prize 限定于目标清晰、结果可测的任务并与 grants 组合使用。",
-          "researchUnresolved": "候选元数据将作者标为 Eliezer Yudkowsky，与 LessWrong linkpost及其指向的原始文章署名 Oscar Delaney 冲突。SafeBench 公布了投稿量、获奖成果和部分采用情况，但没有反事实评估，无法证明这些成果由奖金新增促成；Verifier Challenge 尚未正式启动，原型的 H100 完整评测也尚未公布。",
-          "ref": "R1",
-          "role": "最新进展",
-          "takeaway": "DeepSeek确认0731已成为deepseek-v4-flash当前public beta API版本，调用名称不变，APP、WEB与V4-Pro API未同步更新。"
-        },
-        {
-          "id": "research-80-2-https://www.lesswrong.com/posts/rqf9LLgPn2xTvP7m6/ai-safety-prizes-2-https://www.mlsafety.org/safebench/winners",
-          "sourceId": 80,
-          "sourceName": "Center for AI Safety",
-          "sourcePublisher": "Center for AI Safety",
-          "sourceKind": "Official",
-          "title": "Announcing the SafeBench Winners",
-          "url": "https://www.mlsafety.org/safebench/winners",
-          "publishedAt": "2026-07-31T20:56:22.000Z",
-          "summary": "提供可核验的 AI safety prize 先例：Schmidt Sciences 赞助 25 万美元奖金，收到近 100 份投稿，向 3 项作品各授予 5 万美元、向另外 5 项各授予 2 万美元；获奖论文、代码和数据集均公开，其中 Cybench 已用于 US AISI、UK AISI 和 Anthropic 的 frontier model evaluations。",
-          "fetchedAt": "2026-08-01T00:42:03.238Z",
-          "researchedFrom": "N8",
-          "researchRole": "Comparison",
-          "researchClaim": "原文实际由 Oscar Delaney 而非 Eliezer Yudkowsky 撰写；其可辩护的核心主张是，成果容易客观验证、潜在解题者难以事前识别的 AI safety 任务适合采用 prize 等 pull funding，但应与前置资助结合，而不是取代 grants。",
-          "researchComparisons": "相较于预先支付研究成本的 push funding，prize 只在达到验收条件后付款。既有实践中，SafeBench 以 25 万美元奖金吸引近 100 份 AI safety benchmark 投稿并奖励 8 项公开成果，证明该机制能够组织参与和产出；更贴近文中 compute verification 设想的 Verifier Challenge 已于 2026 年开展原型和数据集工作，但截至原文发布时仍在筹资并计划于 10 月启动公开竞赛。历史研究则发现，非市场化奖项可能受到评委偏差、寻租、估值困难和交易成本影响，支持将 prize 限定于目标清晰、结果可测的任务并与 grants 组合使用。",
-          "researchUnresolved": "候选元数据将作者标为 Eliezer Yudkowsky，与 LessWrong linkpost及其指向的原始文章署名 Oscar Delaney 冲突。SafeBench 公布了投稿量、获奖成果和部分采用情况，但没有反事实评估，无法证明这些成果由奖金新增促成；Verifier Challenge 尚未正式启动，原型的 H100 完整评测也尚未公布。",
-          "ref": "R2",
-          "role": "佐证",
-          "takeaway": "官方Hugging Face仓库提供MIT权重、reasoning_effort档位和本地部署方法，仓库元数据将模型标为304B参数。"
-        },
-        {
-          "id": "research-80-2-https://www.lesswrong.com/posts/rqf9LLgPn2xTvP7m6/ai-safety-prizes-3-https://verifierchallenge.org/",
-          "sourceId": 80,
-          "sourceName": "Verifier Challenge",
-          "sourcePublisher": "Verifier Challenge",
-          "sourceKind": "Official",
-          "title": "Inspector Agents",
-          "url": "https://verifierchallenge.org/",
-          "publishedAt": "2026-04-29T00:00:00.000Z",
-          "summary": "表明文中最看好的 compute verification prize 已有高度重合的在建项目：团队发布了训练与 inference 日志原型、H100 traces 和开源数据，在 7 个 laptop 测试案例上全部判断正确，但承认尚未完成 H100 端到端结果，并计划以 5万至50万美元奖金预算于 2026 年10月启动公开挑战。",
-          "fetchedAt": "2026-08-01T00:42:03.238Z",
-          "researchedFrom": "N8",
-          "researchRole": "Comparison",
-          "researchClaim": "原文实际由 Oscar Delaney 而非 Eliezer Yudkowsky 撰写；其可辩护的核心主张是，成果容易客观验证、潜在解题者难以事前识别的 AI safety 任务适合采用 prize 等 pull funding，但应与前置资助结合，而不是取代 grants。",
-          "researchComparisons": "相较于预先支付研究成本的 push funding，prize 只在达到验收条件后付款。既有实践中，SafeBench 以 25 万美元奖金吸引近 100 份 AI safety benchmark 投稿并奖励 8 项公开成果，证明该机制能够组织参与和产出；更贴近文中 compute verification 设想的 Verifier Challenge 已于 2026 年开展原型和数据集工作，但截至原文发布时仍在筹资并计划于 10 月启动公开竞赛。历史研究则发现，非市场化奖项可能受到评委偏差、寻租、估值困难和交易成本影响，支持将 prize 限定于目标清晰、结果可测的任务并与 grants 组合使用。",
-          "researchUnresolved": "候选元数据将作者标为 Eliezer Yudkowsky，与 LessWrong linkpost及其指向的原始文章署名 Oscar Delaney 冲突。SafeBench 公布了投稿量、获奖成果和部分采用情况，但没有反事实评估，无法证明这些成果由奖金新增促成；Verifier Challenge 尚未正式启动，原型的 H100 完整评测也尚未公布。",
-          "ref": "R3",
-          "role": "最新进展",
-          "takeaway": "官方定价页确认模型支持1M context、384K最大输出、Responses API与tool calls，普通输入和输出价格分别为$0.14与$0.28/百万token。"
-        },
-        {
-          "id": "research-80-2-https://www.lesswrong.com/posts/rqf9LLgPn2xTvP7m6/ai-safety-prizes-4-https://www.cambridge.org/core/journals/business-history-review/article/inventing-prizes-a-historical-perspective-on-innovation-awards-and-technology-policy/9FAAB2D234C5C9CFB72E9C0642C60772",
-          "sourceId": 80,
-          "sourceName": "Business History Review, Cambridge University Press",
-          "sourcePublisher": "Business History Review, Cambridge University Press",
-          "sourceKind": "Research",
-          "title": "Inventing Prizes: A Historical Perspective on Innovation Awards and Technology Policy",
-          "url": "https://www.cambridge.org/core/journals/business-history-review/article/inventing-prizes-a-historical-perspective-on-innovation-awards-and-technology-policy/9FAAB2D234C5C9CFB72E9C0642C60772",
-          "publishedAt": "2015-11-12T00:00:00.000Z",
-          "summary": "基于英国、法国和美国历史样本，对 prize 成功叙事提供反证：奖项管理可能受到评委标准不一致、偏见、寻租和非市场化估值影响，获奖者未必代表最重要创新；研究认为 prize 在社会回报高于私人回报等市场失灵场景仍可能有效，但必须计入治理和交易成本。",
-          "fetchedAt": "2026-08-01T00:42:03.238Z",
-          "researchedFrom": "N8",
-          "researchRole": "Counterevidence",
-          "researchClaim": "原文实际由 Oscar Delaney 而非 Eliezer Yudkowsky 撰写；其可辩护的核心主张是，成果容易客观验证、潜在解题者难以事前识别的 AI safety 任务适合采用 prize 等 pull funding，但应与前置资助结合，而不是取代 grants。",
-          "researchComparisons": "相较于预先支付研究成本的 push funding，prize 只在达到验收条件后付款。既有实践中，SafeBench 以 25 万美元奖金吸引近 100 份 AI safety benchmark 投稿并奖励 8 项公开成果，证明该机制能够组织参与和产出；更贴近文中 compute verification 设想的 Verifier Challenge 已于 2026 年开展原型和数据集工作，但截至原文发布时仍在筹资并计划于 10 月启动公开竞赛。历史研究则发现，非市场化奖项可能受到评委偏差、寻租、估值困难和交易成本影响，支持将 prize 限定于目标清晰、结果可测的任务并与 grants 组合使用。",
-          "researchUnresolved": "候选元数据将作者标为 Eliezer Yudkowsky，与 LessWrong linkpost及其指向的原始文章署名 Oscar Delaney 冲突。SafeBench 公布了投稿量、获奖成果和部分采用情况，但没有反事实评估，无法证明这些成果由奖金新增促成；Verifier Challenge 尚未正式启动，原型的 H100 完整评测也尚未公布。",
-          "ref": "R4",
-          "role": "佐证",
-          "takeaway": "Artificial Analysis在Intelligence Index v4.1中给DeepSeek V4 Flash 0731 Max评分50，高于MiniMax-M3的44，但采用284B总参数口径。"
-        },
-        {
-          "id": "80-2-https://www.lesswrong.com/posts/rqf9LLgPn2xTvP7m6/ai-safety-prizes",
-          "sourceId": 80,
-          "sourceName": "Eliezer Yudkowsky",
-          "sourcePublisher": "Eliezer Yudkowsky",
-          "sourceKind": "Blog",
-          "title": "AI safety prizes",
-          "url": "https://www.lesswrong.com/posts/rqf9LLgPn2xTvP7m6/ai-safety-prizes",
-          "publishedAt": "2026-07-31T20:56:22.000Z",
-          "summary": "Rather than paying up front for AI safety research (push funding), perhaps we should pay after the fact for the work that made the most progress (pull funding). This way, you only pay for work that was actually valuable. [1] When we know what the target is, but not how to get there or who is best placed to solve the problem, a prize is a useful incentive str",
-          "fetchedAt": "2026-08-01T00:42:03.238Z",
-          "firstSeenAt": "2026-07-31T23:27:17.279Z",
-          "ref": "N8",
-          "role": "背景",
-          "takeaway": "链接文章提出以成果兑现后的奖金补充前置资助，把pull funding用于目标明确但解决路径未知的AI safety问题。"
         }
       ],
       "references": [
@@ -611,92 +508,6 @@
           "fetchedAt": "2026-08-01T00:42:03.238Z",
           "firstSeenAt": "2026-08-01T00:42:03.238Z",
           "ref": "N1"
-        },
-        {
-          "id": "research-80-2-https://www.lesswrong.com/posts/rqf9LLgPn2xTvP7m6/ai-safety-prizes-1-https://oscardelaney.substack.com/p/ai-safety-prizes",
-          "sourceId": 80,
-          "sourceName": "AGI Strategy",
-          "sourcePublisher": "AGI Strategy",
-          "sourceKind": "Media",
-          "title": "AI safety prizes",
-          "url": "https://oscardelaney.substack.com/p/ai-safety-prizes",
-          "publishedAt": "2026-07-31T00:00:00.000Z",
-          "summary": "原始文章明确署名 Oscar Delaney，并提出仅在目标和验收标准清晰时使用 pull funding；具体候选包括 compute verification、AI control 和部分 interpretability，同时承认融资约束、协作受损及 Goodhart 风险，主张结合 push 与 pull funding。",
-          "fetchedAt": "2026-08-01T00:42:03.238Z",
-          "researchedFrom": "N8",
-          "researchRole": "Primary",
-          "researchClaim": "原文实际由 Oscar Delaney 而非 Eliezer Yudkowsky 撰写；其可辩护的核心主张是，成果容易客观验证、潜在解题者难以事前识别的 AI safety 任务适合采用 prize 等 pull funding，但应与前置资助结合，而不是取代 grants。",
-          "researchComparisons": "相较于预先支付研究成本的 push funding，prize 只在达到验收条件后付款。既有实践中，SafeBench 以 25 万美元奖金吸引近 100 份 AI safety benchmark 投稿并奖励 8 项公开成果，证明该机制能够组织参与和产出；更贴近文中 compute verification 设想的 Verifier Challenge 已于 2026 年开展原型和数据集工作，但截至原文发布时仍在筹资并计划于 10 月启动公开竞赛。历史研究则发现，非市场化奖项可能受到评委偏差、寻租、估值困难和交易成本影响，支持将 prize 限定于目标清晰、结果可测的任务并与 grants 组合使用。",
-          "researchUnresolved": "候选元数据将作者标为 Eliezer Yudkowsky，与 LessWrong linkpost及其指向的原始文章署名 Oscar Delaney 冲突。SafeBench 公布了投稿量、获奖成果和部分采用情况，但没有反事实评估，无法证明这些成果由奖金新增促成；Verifier Challenge 尚未正式启动，原型的 H100 完整评测也尚未公布。",
-          "ref": "R1"
-        },
-        {
-          "id": "research-80-2-https://www.lesswrong.com/posts/rqf9LLgPn2xTvP7m6/ai-safety-prizes-2-https://www.mlsafety.org/safebench/winners",
-          "sourceId": 80,
-          "sourceName": "Center for AI Safety",
-          "sourcePublisher": "Center for AI Safety",
-          "sourceKind": "Official",
-          "title": "Announcing the SafeBench Winners",
-          "url": "https://www.mlsafety.org/safebench/winners",
-          "publishedAt": "2026-07-31T20:56:22.000Z",
-          "summary": "提供可核验的 AI safety prize 先例：Schmidt Sciences 赞助 25 万美元奖金，收到近 100 份投稿，向 3 项作品各授予 5 万美元、向另外 5 项各授予 2 万美元；获奖论文、代码和数据集均公开，其中 Cybench 已用于 US AISI、UK AISI 和 Anthropic 的 frontier model evaluations。",
-          "fetchedAt": "2026-08-01T00:42:03.238Z",
-          "researchedFrom": "N8",
-          "researchRole": "Comparison",
-          "researchClaim": "原文实际由 Oscar Delaney 而非 Eliezer Yudkowsky 撰写；其可辩护的核心主张是，成果容易客观验证、潜在解题者难以事前识别的 AI safety 任务适合采用 prize 等 pull funding，但应与前置资助结合，而不是取代 grants。",
-          "researchComparisons": "相较于预先支付研究成本的 push funding，prize 只在达到验收条件后付款。既有实践中，SafeBench 以 25 万美元奖金吸引近 100 份 AI safety benchmark 投稿并奖励 8 项公开成果，证明该机制能够组织参与和产出；更贴近文中 compute verification 设想的 Verifier Challenge 已于 2026 年开展原型和数据集工作，但截至原文发布时仍在筹资并计划于 10 月启动公开竞赛。历史研究则发现，非市场化奖项可能受到评委偏差、寻租、估值困难和交易成本影响，支持将 prize 限定于目标清晰、结果可测的任务并与 grants 组合使用。",
-          "researchUnresolved": "候选元数据将作者标为 Eliezer Yudkowsky，与 LessWrong linkpost及其指向的原始文章署名 Oscar Delaney 冲突。SafeBench 公布了投稿量、获奖成果和部分采用情况，但没有反事实评估，无法证明这些成果由奖金新增促成；Verifier Challenge 尚未正式启动，原型的 H100 完整评测也尚未公布。",
-          "ref": "R2"
-        },
-        {
-          "id": "research-80-2-https://www.lesswrong.com/posts/rqf9LLgPn2xTvP7m6/ai-safety-prizes-3-https://verifierchallenge.org/",
-          "sourceId": 80,
-          "sourceName": "Verifier Challenge",
-          "sourcePublisher": "Verifier Challenge",
-          "sourceKind": "Official",
-          "title": "Inspector Agents",
-          "url": "https://verifierchallenge.org/",
-          "publishedAt": "2026-04-29T00:00:00.000Z",
-          "summary": "表明文中最看好的 compute verification prize 已有高度重合的在建项目：团队发布了训练与 inference 日志原型、H100 traces 和开源数据，在 7 个 laptop 测试案例上全部判断正确，但承认尚未完成 H100 端到端结果，并计划以 5万至50万美元奖金预算于 2026 年10月启动公开挑战。",
-          "fetchedAt": "2026-08-01T00:42:03.238Z",
-          "researchedFrom": "N8",
-          "researchRole": "Comparison",
-          "researchClaim": "原文实际由 Oscar Delaney 而非 Eliezer Yudkowsky 撰写；其可辩护的核心主张是，成果容易客观验证、潜在解题者难以事前识别的 AI safety 任务适合采用 prize 等 pull funding，但应与前置资助结合，而不是取代 grants。",
-          "researchComparisons": "相较于预先支付研究成本的 push funding，prize 只在达到验收条件后付款。既有实践中，SafeBench 以 25 万美元奖金吸引近 100 份 AI safety benchmark 投稿并奖励 8 项公开成果，证明该机制能够组织参与和产出；更贴近文中 compute verification 设想的 Verifier Challenge 已于 2026 年开展原型和数据集工作，但截至原文发布时仍在筹资并计划于 10 月启动公开竞赛。历史研究则发现，非市场化奖项可能受到评委偏差、寻租、估值困难和交易成本影响，支持将 prize 限定于目标清晰、结果可测的任务并与 grants 组合使用。",
-          "researchUnresolved": "候选元数据将作者标为 Eliezer Yudkowsky，与 LessWrong linkpost及其指向的原始文章署名 Oscar Delaney 冲突。SafeBench 公布了投稿量、获奖成果和部分采用情况，但没有反事实评估，无法证明这些成果由奖金新增促成；Verifier Challenge 尚未正式启动，原型的 H100 完整评测也尚未公布。",
-          "ref": "R3"
-        },
-        {
-          "id": "research-80-2-https://www.lesswrong.com/posts/rqf9LLgPn2xTvP7m6/ai-safety-prizes-4-https://www.cambridge.org/core/journals/business-history-review/article/inventing-prizes-a-historical-perspective-on-innovation-awards-and-technology-policy/9FAAB2D234C5C9CFB72E9C0642C60772",
-          "sourceId": 80,
-          "sourceName": "Business History Review, Cambridge University Press",
-          "sourcePublisher": "Business History Review, Cambridge University Press",
-          "sourceKind": "Research",
-          "title": "Inventing Prizes: A Historical Perspective on Innovation Awards and Technology Policy",
-          "url": "https://www.cambridge.org/core/journals/business-history-review/article/inventing-prizes-a-historical-perspective-on-innovation-awards-and-technology-policy/9FAAB2D234C5C9CFB72E9C0642C60772",
-          "publishedAt": "2015-11-12T00:00:00.000Z",
-          "summary": "基于英国、法国和美国历史样本，对 prize 成功叙事提供反证：奖项管理可能受到评委标准不一致、偏见、寻租和非市场化估值影响，获奖者未必代表最重要创新；研究认为 prize 在社会回报高于私人回报等市场失灵场景仍可能有效，但必须计入治理和交易成本。",
-          "fetchedAt": "2026-08-01T00:42:03.238Z",
-          "researchedFrom": "N8",
-          "researchRole": "Counterevidence",
-          "researchClaim": "原文实际由 Oscar Delaney 而非 Eliezer Yudkowsky 撰写；其可辩护的核心主张是，成果容易客观验证、潜在解题者难以事前识别的 AI safety 任务适合采用 prize 等 pull funding，但应与前置资助结合，而不是取代 grants。",
-          "researchComparisons": "相较于预先支付研究成本的 push funding，prize 只在达到验收条件后付款。既有实践中，SafeBench 以 25 万美元奖金吸引近 100 份 AI safety benchmark 投稿并奖励 8 项公开成果，证明该机制能够组织参与和产出；更贴近文中 compute verification 设想的 Verifier Challenge 已于 2026 年开展原型和数据集工作，但截至原文发布时仍在筹资并计划于 10 月启动公开竞赛。历史研究则发现，非市场化奖项可能受到评委偏差、寻租、估值困难和交易成本影响，支持将 prize 限定于目标清晰、结果可测的任务并与 grants 组合使用。",
-          "researchUnresolved": "候选元数据将作者标为 Eliezer Yudkowsky，与 LessWrong linkpost及其指向的原始文章署名 Oscar Delaney 冲突。SafeBench 公布了投稿量、获奖成果和部分采用情况，但没有反事实评估，无法证明这些成果由奖金新增促成；Verifier Challenge 尚未正式启动，原型的 H100 完整评测也尚未公布。",
-          "ref": "R4"
-        },
-        {
-          "id": "80-2-https://www.lesswrong.com/posts/rqf9LLgPn2xTvP7m6/ai-safety-prizes",
-          "sourceId": 80,
-          "sourceName": "Eliezer Yudkowsky",
-          "sourcePublisher": "Eliezer Yudkowsky",
-          "sourceKind": "Blog",
-          "title": "AI safety prizes",
-          "url": "https://www.lesswrong.com/posts/rqf9LLgPn2xTvP7m6/ai-safety-prizes",
-          "publishedAt": "2026-07-31T20:56:22.000Z",
-          "summary": "Rather than paying up front for AI safety research (push funding), perhaps we should pay after the fact for the work that made the most progress (pull funding). This way, you only pay for work that was actually valuable. [1] When we know what the target is, but not how to get there or who is best placed to solve the problem, a prize is a useful incentive str",
-          "fetchedAt": "2026-08-01T00:42:03.238Z",
-          "firstSeenAt": "2026-07-31T23:27:17.279Z",
-          "ref": "N8"
         }
       ],
       "feedBatchAt": "2026-08-01T00:42:03.238Z",
@@ -704,7 +515,7 @@
         {
           "addedAt": "2026-07-31T23:59:44.000Z",
           "title": "V4 Flash补齐独立性能对照",
-          "summary": "官方确认0731已映射到public beta API，输出价为$0.28/百万token、context为1M；Artificial Analysis指数为50，对MiniMax-M3的44。Simon所写$0.27与官方不符，参数也有304B与284B两种口径。",
+          "summary": "Simon Willison补充了V4 Flash 0731的独立观察：Artificial Analysis将其排在MiniMax-M3之前，并记录304B参数与$0.14/$0.27每百万token的API价格；参数和输出价格与官方文档口径存在差异。",
           "evidence": [
             {
               "id": "140-0-https://simonwillison.net/2026/Jul/31/deepseek-v4-flash-0731/#atom-everything",
@@ -721,102 +532,6 @@
               "ref": "N1",
               "role": "背景",
               "takeaway": "Simon Willison注意到0731版本及其相对MiniMax-M3的独立评测表现，但所列输出价格为$0.27/百万token。"
-            },
-            {
-              "id": "research-80-2-https://www.lesswrong.com/posts/rqf9LLgPn2xTvP7m6/ai-safety-prizes-1-https://oscardelaney.substack.com/p/ai-safety-prizes",
-              "sourceId": 80,
-              "sourceName": "AGI Strategy",
-              "sourcePublisher": "AGI Strategy",
-              "sourceKind": "Media",
-              "title": "AI safety prizes",
-              "url": "https://oscardelaney.substack.com/p/ai-safety-prizes",
-              "publishedAt": "2026-07-31T00:00:00.000Z",
-              "summary": "原始文章明确署名 Oscar Delaney，并提出仅在目标和验收标准清晰时使用 pull funding；具体候选包括 compute verification、AI control 和部分 interpretability，同时承认融资约束、协作受损及 Goodhart 风险，主张结合 push 与 pull funding。",
-              "fetchedAt": "2026-08-01T00:42:03.238Z",
-              "researchedFrom": "N8",
-              "researchRole": "Primary",
-              "researchClaim": "原文实际由 Oscar Delaney 而非 Eliezer Yudkowsky 撰写；其可辩护的核心主张是，成果容易客观验证、潜在解题者难以事前识别的 AI safety 任务适合采用 prize 等 pull funding，但应与前置资助结合，而不是取代 grants。",
-              "researchComparisons": "相较于预先支付研究成本的 push funding，prize 只在达到验收条件后付款。既有实践中，SafeBench 以 25 万美元奖金吸引近 100 份 AI safety benchmark 投稿并奖励 8 项公开成果，证明该机制能够组织参与和产出；更贴近文中 compute verification 设想的 Verifier Challenge 已于 2026 年开展原型和数据集工作，但截至原文发布时仍在筹资并计划于 10 月启动公开竞赛。历史研究则发现，非市场化奖项可能受到评委偏差、寻租、估值困难和交易成本影响，支持将 prize 限定于目标清晰、结果可测的任务并与 grants 组合使用。",
-              "researchUnresolved": "候选元数据将作者标为 Eliezer Yudkowsky，与 LessWrong linkpost及其指向的原始文章署名 Oscar Delaney 冲突。SafeBench 公布了投稿量、获奖成果和部分采用情况，但没有反事实评估，无法证明这些成果由奖金新增促成；Verifier Challenge 尚未正式启动，原型的 H100 完整评测也尚未公布。",
-              "ref": "R1",
-              "role": "最新进展",
-              "takeaway": "DeepSeek确认0731已成为deepseek-v4-flash当前public beta API版本，调用名称不变，APP、WEB与V4-Pro API未同步更新。"
-            },
-            {
-              "id": "research-80-2-https://www.lesswrong.com/posts/rqf9LLgPn2xTvP7m6/ai-safety-prizes-2-https://www.mlsafety.org/safebench/winners",
-              "sourceId": 80,
-              "sourceName": "Center for AI Safety",
-              "sourcePublisher": "Center for AI Safety",
-              "sourceKind": "Official",
-              "title": "Announcing the SafeBench Winners",
-              "url": "https://www.mlsafety.org/safebench/winners",
-              "publishedAt": "2026-07-31T20:56:22.000Z",
-              "summary": "提供可核验的 AI safety prize 先例：Schmidt Sciences 赞助 25 万美元奖金，收到近 100 份投稿，向 3 项作品各授予 5 万美元、向另外 5 项各授予 2 万美元；获奖论文、代码和数据集均公开，其中 Cybench 已用于 US AISI、UK AISI 和 Anthropic 的 frontier model evaluations。",
-              "fetchedAt": "2026-08-01T00:42:03.238Z",
-              "researchedFrom": "N8",
-              "researchRole": "Comparison",
-              "researchClaim": "原文实际由 Oscar Delaney 而非 Eliezer Yudkowsky 撰写；其可辩护的核心主张是，成果容易客观验证、潜在解题者难以事前识别的 AI safety 任务适合采用 prize 等 pull funding，但应与前置资助结合，而不是取代 grants。",
-              "researchComparisons": "相较于预先支付研究成本的 push funding，prize 只在达到验收条件后付款。既有实践中，SafeBench 以 25 万美元奖金吸引近 100 份 AI safety benchmark 投稿并奖励 8 项公开成果，证明该机制能够组织参与和产出；更贴近文中 compute verification 设想的 Verifier Challenge 已于 2026 年开展原型和数据集工作，但截至原文发布时仍在筹资并计划于 10 月启动公开竞赛。历史研究则发现，非市场化奖项可能受到评委偏差、寻租、估值困难和交易成本影响，支持将 prize 限定于目标清晰、结果可测的任务并与 grants 组合使用。",
-              "researchUnresolved": "候选元数据将作者标为 Eliezer Yudkowsky，与 LessWrong linkpost及其指向的原始文章署名 Oscar Delaney 冲突。SafeBench 公布了投稿量、获奖成果和部分采用情况，但没有反事实评估，无法证明这些成果由奖金新增促成；Verifier Challenge 尚未正式启动，原型的 H100 完整评测也尚未公布。",
-              "ref": "R2",
-              "role": "佐证",
-              "takeaway": "官方Hugging Face仓库提供MIT权重、reasoning_effort档位和本地部署方法，仓库元数据将模型标为304B参数。"
-            },
-            {
-              "id": "research-80-2-https://www.lesswrong.com/posts/rqf9LLgPn2xTvP7m6/ai-safety-prizes-3-https://verifierchallenge.org/",
-              "sourceId": 80,
-              "sourceName": "Verifier Challenge",
-              "sourcePublisher": "Verifier Challenge",
-              "sourceKind": "Official",
-              "title": "Inspector Agents",
-              "url": "https://verifierchallenge.org/",
-              "publishedAt": "2026-04-29T00:00:00.000Z",
-              "summary": "表明文中最看好的 compute verification prize 已有高度重合的在建项目：团队发布了训练与 inference 日志原型、H100 traces 和开源数据，在 7 个 laptop 测试案例上全部判断正确，但承认尚未完成 H100 端到端结果，并计划以 5万至50万美元奖金预算于 2026 年10月启动公开挑战。",
-              "fetchedAt": "2026-08-01T00:42:03.238Z",
-              "researchedFrom": "N8",
-              "researchRole": "Comparison",
-              "researchClaim": "原文实际由 Oscar Delaney 而非 Eliezer Yudkowsky 撰写；其可辩护的核心主张是，成果容易客观验证、潜在解题者难以事前识别的 AI safety 任务适合采用 prize 等 pull funding，但应与前置资助结合，而不是取代 grants。",
-              "researchComparisons": "相较于预先支付研究成本的 push funding，prize 只在达到验收条件后付款。既有实践中，SafeBench 以 25 万美元奖金吸引近 100 份 AI safety benchmark 投稿并奖励 8 项公开成果，证明该机制能够组织参与和产出；更贴近文中 compute verification 设想的 Verifier Challenge 已于 2026 年开展原型和数据集工作，但截至原文发布时仍在筹资并计划于 10 月启动公开竞赛。历史研究则发现，非市场化奖项可能受到评委偏差、寻租、估值困难和交易成本影响，支持将 prize 限定于目标清晰、结果可测的任务并与 grants 组合使用。",
-              "researchUnresolved": "候选元数据将作者标为 Eliezer Yudkowsky，与 LessWrong linkpost及其指向的原始文章署名 Oscar Delaney 冲突。SafeBench 公布了投稿量、获奖成果和部分采用情况，但没有反事实评估，无法证明这些成果由奖金新增促成；Verifier Challenge 尚未正式启动，原型的 H100 完整评测也尚未公布。",
-              "ref": "R3",
-              "role": "最新进展",
-              "takeaway": "官方定价页确认模型支持1M context、384K最大输出、Responses API与tool calls，普通输入和输出价格分别为$0.14与$0.28/百万token。"
-            },
-            {
-              "id": "research-80-2-https://www.lesswrong.com/posts/rqf9LLgPn2xTvP7m6/ai-safety-prizes-4-https://www.cambridge.org/core/journals/business-history-review/article/inventing-prizes-a-historical-perspective-on-innovation-awards-and-technology-policy/9FAAB2D234C5C9CFB72E9C0642C60772",
-              "sourceId": 80,
-              "sourceName": "Business History Review, Cambridge University Press",
-              "sourcePublisher": "Business History Review, Cambridge University Press",
-              "sourceKind": "Research",
-              "title": "Inventing Prizes: A Historical Perspective on Innovation Awards and Technology Policy",
-              "url": "https://www.cambridge.org/core/journals/business-history-review/article/inventing-prizes-a-historical-perspective-on-innovation-awards-and-technology-policy/9FAAB2D234C5C9CFB72E9C0642C60772",
-              "publishedAt": "2015-11-12T00:00:00.000Z",
-              "summary": "基于英国、法国和美国历史样本，对 prize 成功叙事提供反证：奖项管理可能受到评委标准不一致、偏见、寻租和非市场化估值影响，获奖者未必代表最重要创新；研究认为 prize 在社会回报高于私人回报等市场失灵场景仍可能有效，但必须计入治理和交易成本。",
-              "fetchedAt": "2026-08-01T00:42:03.238Z",
-              "researchedFrom": "N8",
-              "researchRole": "Counterevidence",
-              "researchClaim": "原文实际由 Oscar Delaney 而非 Eliezer Yudkowsky 撰写；其可辩护的核心主张是，成果容易客观验证、潜在解题者难以事前识别的 AI safety 任务适合采用 prize 等 pull funding，但应与前置资助结合，而不是取代 grants。",
-              "researchComparisons": "相较于预先支付研究成本的 push funding，prize 只在达到验收条件后付款。既有实践中，SafeBench 以 25 万美元奖金吸引近 100 份 AI safety benchmark 投稿并奖励 8 项公开成果，证明该机制能够组织参与和产出；更贴近文中 compute verification 设想的 Verifier Challenge 已于 2026 年开展原型和数据集工作，但截至原文发布时仍在筹资并计划于 10 月启动公开竞赛。历史研究则发现，非市场化奖项可能受到评委偏差、寻租、估值困难和交易成本影响，支持将 prize 限定于目标清晰、结果可测的任务并与 grants 组合使用。",
-              "researchUnresolved": "候选元数据将作者标为 Eliezer Yudkowsky，与 LessWrong linkpost及其指向的原始文章署名 Oscar Delaney 冲突。SafeBench 公布了投稿量、获奖成果和部分采用情况，但没有反事实评估，无法证明这些成果由奖金新增促成；Verifier Challenge 尚未正式启动，原型的 H100 完整评测也尚未公布。",
-              "ref": "R4",
-              "role": "佐证",
-              "takeaway": "Artificial Analysis在Intelligence Index v4.1中给DeepSeek V4 Flash 0731 Max评分50，高于MiniMax-M3的44，但采用284B总参数口径。"
-            },
-            {
-              "id": "80-2-https://www.lesswrong.com/posts/rqf9LLgPn2xTvP7m6/ai-safety-prizes",
-              "sourceId": 80,
-              "sourceName": "Eliezer Yudkowsky",
-              "sourcePublisher": "Eliezer Yudkowsky",
-              "sourceKind": "Blog",
-              "title": "AI safety prizes",
-              "url": "https://www.lesswrong.com/posts/rqf9LLgPn2xTvP7m6/ai-safety-prizes",
-              "publishedAt": "2026-07-31T20:56:22.000Z",
-              "summary": "Rather than paying up front for AI safety research (push funding), perhaps we should pay after the fact for the work that made the most progress (pull funding). This way, you only pay for work that was actually valuable. [1] When we know what the target is, but not how to get there or who is best placed to solve the problem, a prize is a useful incentive str",
-              "fetchedAt": "2026-08-01T00:42:03.238Z",
-              "firstSeenAt": "2026-07-31T23:27:17.279Z",
-              "ref": "N8",
-              "role": "背景",
-              "takeaway": "链接文章提出以成果兑现后的奖金补充前置资助，把pull funding用于目标明确但解决路径未知的AI safety问题。"
             }
           ]
         }
@@ -11818,57 +11533,17 @@
             {
               "role": "背景",
               "takeaway": "Simon Willison注意到0731版本及其相对MiniMax-M3的独立评测表现，但所列输出价格为$0.27/百万token。"
-            },
-            {
-              "role": "最新进展",
-              "takeaway": "DeepSeek确认0731已成为deepseek-v4-flash当前public beta API版本，调用名称不变，APP、WEB与V4-Pro API未同步更新。"
-            },
-            {
-              "role": "佐证",
-              "takeaway": "官方Hugging Face仓库提供MIT权重、reasoning_effort档位和本地部署方法，仓库元数据将模型标为304B参数。"
-            },
-            {
-              "role": "最新进展",
-              "takeaway": "官方定价页确认模型支持1M context、384K最大输出、Responses API与tool calls，普通输入和输出价格分别为$0.14与$0.28/百万token。"
-            },
-            {
-              "role": "佐证",
-              "takeaway": "Artificial Analysis在Intelligence Index v4.1中给DeepSeek V4 Flash 0731 Max评分50，高于MiniMax-M3的44，但采用284B总参数口径。"
-            },
-            {
-              "role": "背景",
-              "takeaway": "链接文章提出以成果兑现后的奖金补充前置资助，把pull funding用于目标明确但解决路径未知的AI safety问题。"
             }
           ],
           "updates": [
             {
               "addedAt": "2026-07-31T23:59:44.000Z",
               "title": "V4 Flash补齐独立性能对照",
-              "summary": "官方确认0731已映射到public beta API，输出价为$0.28/百万token、context为1M；Artificial Analysis指数为50，对MiniMax-M3的44。Simon所写$0.27与官方不符，参数也有304B与284B两种口径。",
+              "summary": "Simon Willison补充了V4 Flash 0731的独立观察：Artificial Analysis将其排在MiniMax-M3之前，并记录304B参数与$0.14/$0.27每百万token的API价格；参数和输出价格与官方文档口径存在差异。",
               "evidence": [
                 {
                   "role": "背景",
                   "takeaway": "Simon Willison注意到0731版本及其相对MiniMax-M3的独立评测表现，但所列输出价格为$0.27/百万token。"
-                },
-                {
-                  "role": "最新进展",
-                  "takeaway": "DeepSeek确认0731已成为deepseek-v4-flash当前public beta API版本，调用名称不变，APP、WEB与V4-Pro API未同步更新。"
-                },
-                {
-                  "role": "佐证",
-                  "takeaway": "官方Hugging Face仓库提供MIT权重、reasoning_effort档位和本地部署方法，仓库元数据将模型标为304B参数。"
-                },
-                {
-                  "role": "最新进展",
-                  "takeaway": "官方定价页确认模型支持1M context、384K最大输出、Responses API与tool calls，普通输入和输出价格分别为$0.14与$0.28/百万token。"
-                },
-                {
-                  "role": "佐证",
-                  "takeaway": "Artificial Analysis在Intelligence Index v4.1中给DeepSeek V4 Flash 0731 Max评分50，高于MiniMax-M3的44，但采用284B总参数口径。"
-                },
-                {
-                  "role": "背景",
-                  "takeaway": "链接文章提出以成果兑现后的奖金补充前置资助，把pull funding用于目标明确但解决路径未知的AI safety问题。"
                 }
               ]
             }
@@ -16450,57 +16125,17 @@
             {
               "role": "Context",
               "takeaway": "Simon Willison highlighted the 0731 release and its independent comparison with MiniMax-M3, but listed output pricing at $0.27 per million tokens."
-            },
-            {
-              "role": "Update",
-              "takeaway": "DeepSeek confirms that 0731 is the current deepseek-v4-flash public-beta API version, with the same model name; its app, web product, and V4-Pro API were not updated."
-            },
-            {
-              "role": "Support",
-              "takeaway": "The official Hugging Face repository provides MIT-licensed weights, reasoning-effort controls, and local deployment instructions, while its metadata labels the model as 304B parameters."
-            },
-            {
-              "role": "Claim",
-              "takeaway": "DeepSeek's pricing page confirms a 1M context window, up to 384K output, Responses API and tool-call support, and standard input and output prices of $0.14 and $0.28 per million tokens."
-            },
-            {
-              "role": "Support",
-              "takeaway": "Artificial Analysis scores DeepSeek V4 Flash 0731 Max at 50 on Intelligence Index v4.1, versus 44 for MiniMax-M3, while using a 284B total-parameter figure."
-            },
-            {
-              "role": "Update",
-              "takeaway": ""
             }
           ],
           "updates": [
             {
               "addedAt": "2026-07-31T23:59:44.000Z",
               "title": "V4 Flash Gains an Independent Performance Check",
-              "summary": "DeepSeek confirms that 0731 now backs the public-beta API, with a $0.28 per million output-token price and a 1M context window. Artificial Analysis scores it 50 versus MiniMax-M3 at 44. Simon Willison's $0.27 figure conflicts with official pricing, while parameter counts differ between 304B and 284B.",
+              "summary": "Simon Willison adds an independent view of V4 Flash 0731: Artificial Analysis ranks it ahead of MiniMax-M3 and lists 304B parameters with API pricing of $0.14/$0.27 per million tokens. The parameter count and output price differ from DeepSeek's official documentation.",
               "evidence": [
                 {
                   "role": "Context",
                   "takeaway": "Simon Willison highlighted the 0731 release and its independent comparison with MiniMax-M3, but listed output pricing at $0.27 per million tokens."
-                },
-                {
-                  "role": "Update",
-                  "takeaway": "DeepSeek confirms that 0731 is the current deepseek-v4-flash public-beta API version, with the same model name; its app, web product, and V4-Pro API were not updated."
-                },
-                {
-                  "role": "Support",
-                  "takeaway": "The official Hugging Face repository provides MIT-licensed weights, reasoning-effort controls, and local deployment instructions, while its metadata labels the model as 304B parameters."
-                },
-                {
-                  "role": "Claim",
-                  "takeaway": "DeepSeek's pricing page confirms a 1M context window, up to 384K output, Responses API and tool-call support, and standard input and output prices of $0.14 and $0.28 per million tokens."
-                },
-                {
-                  "role": "Support",
-                  "takeaway": "Artificial Analysis scores DeepSeek V4 Flash 0731 Max at 50 on Intelligence Index v4.1, versus 44 for MiniMax-M3, while using a 284B total-parameter figure."
-                },
-                {
-                  "role": "Update",
-                  "takeaway": ""
                 }
               ]
             }
