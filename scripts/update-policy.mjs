@@ -1,10 +1,12 @@
 export const updateIntervalsMinutes = Object.freeze({
-  poll: 30,
+  poll: 60,
   fast: 0,
-  standard: 120,
-  explore: 360,
+  standard: 240,
+  explore: 720,
   conversation: 1_440,
 });
+
+export const globalModelCooldownMinutes = 120;
 
 export const updateLaneNames = Object.freeze([
   "fast",
@@ -121,12 +123,25 @@ export function buildUpdatePlan({
       }),
     ]),
   );
-  const dueLanes = updateLaneNames.filter(
+  const lanesDueBySchedule = updateLaneNames.filter(
     (lane) => dueAt[lane] !== null && dueAt[lane] <= nowTime,
   );
+  const lastFullCycleAt =
+    parseTime(scheduleState?.lastFullCycleAt) ??
+    parseTime(fallbackLastCycleAt);
+  const nextModelEligibleAt =
+    lastFullCycleAt === null
+      ? null
+      : lastFullCycleAt + globalModelCooldownMinutes * 60_000;
+  const modelCooldownActive =
+    lanesDueBySchedule.length > 0 &&
+    nextModelEligibleAt !== null &&
+    nextModelEligibleAt > nowTime;
+  const dueLanes = modelCooldownActive ? [] : lanesDueBySchedule;
   const futureDueTimes = Object.values(dueAt).filter(
     (value) => value !== null && value > nowTime,
   );
+  if (modelCooldownActive) futureDueTimes.push(nextModelEligibleAt);
   const nextDueAt = futureDueTimes.length
     ? new Date(Math.min(...futureDueTimes)).toISOString()
     : null;
@@ -143,6 +158,8 @@ export function buildUpdatePlan({
     reason:
       dueLanes.length > 0
         ? `Process due lanes: ${dueLanes.join(", ")}`
+        : modelCooldownActive
+          ? `Candidates are queued by the global model cooldown until ${new Date(nextModelEligibleAt).toISOString()}`
         : candidates.length
           ? `Candidates are queued until ${nextDueAt}`
           : "No unseen candidates",
