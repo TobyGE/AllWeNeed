@@ -448,59 +448,6 @@ button {
   box-shadow: 0 2px 7px rgba(25, 26, 23, 0.16);
 }
 
-.demo-label {
-  border: 1px solid #d9d7cf;
-  border-radius: 20px;
-  padding: 5px 8px;
-  color: #92938e;
-  font-family: var(--font-geist-mono), monospace;
-  font-size: calc(7px + var(--font-adjust));
-  letter-spacing: 0.1em;
-}
-
-.icon-button,
-.digest-button {
-  position: relative;
-  border: 0;
-  cursor: pointer;
-}
-
-.icon-button {
-  width: 34px;
-  height: 34px;
-  border: 1px solid #d9d7cf;
-  border-radius: 9px;
-  background: rgba(255, 255, 255, 0.5);
-  color: #656660;
-}
-
-.notification-dot {
-  position: absolute;
-  top: 7px;
-  right: 7px;
-  width: 5px;
-  height: 5px;
-  border: 1px solid var(--paper);
-  border-radius: 50%;
-  background: var(--orange);
-}
-
-.digest-button {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  border-radius: 9px;
-  background: var(--ink);
-  padding: 10px 14px;
-  color: white;
-  font-size: calc(10px + var(--font-adjust));
-  font-weight: 650;
-}
-
-.digest-button span {
-  color: #ff8c70;
-}
-
 .content {
   width: min(1320px, 100%);
   margin: 0 auto;
@@ -4134,15 +4081,6 @@ button {
     width: 100%;
   }
 
-  .demo-label,
-  .icon-button {
-    display: none;
-  }
-
-  .digest-button {
-    padding: 9px 10px;
-  }
-
   .language-switch button {
     min-width: 31px;
     padding: 5px 6px;
@@ -4151,12 +4089,6 @@ button {
   .font-size-control button {
     min-width: 25px;
     padding: 5px 4px;
-  }
-
-  @media (max-width: 560px) {
-    .digest-button {
-      display: none;
-    }
   }
 
   .source-top-context {

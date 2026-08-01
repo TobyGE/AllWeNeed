@@ -1289,37 +1289,6 @@ export default function Home() {
               locale={locale}
               onChange={changeFontSize}
             />
-            <span className="demo-label">
-              {section === "sources"
-                ? t("实时快照", "LIVE SNAPSHOT")
-                : t("GPT 已分析", "GPT ANALYZED")}
-            </span>
-            <button
-              className="icon-button"
-              type="button"
-              aria-label={t("查看通知", "View notifications")}
-              onClick={() =>
-                showNotice(t("目前没有新的通知", "No new notifications"))
-              }
-            >
-              ♢
-              <span className="notification-dot" />
-            </button>
-            <button
-              className="digest-button"
-              type="button"
-              onClick={() =>
-                showNotice(
-                  t(
-                    `Radar Feed 已由 ${dailyRadar.model} 基于真实采集内容持续更新`,
-                    `The Radar Feed is continuously updated by ${dailyRadar.model} from live source data`,
-                  ),
-                )
-              }
-            >
-              <span aria-hidden="true">✦</span>
-              {t("持续更新", "Live Feed")}
-            </button>
           </div>
         </header>
 

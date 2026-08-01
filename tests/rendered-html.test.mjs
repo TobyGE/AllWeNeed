@@ -57,7 +57,7 @@ test("server-renders the All We Need product shell", async () => {
   assert.match(html, /探索/);
   assert.doesNotMatch(html, />永久</);
   assert.match(html, /投资与公司信号/);
-  assert.match(html, /GPT 已分析/);
+  assert.doesNotMatch(html, /GPT 已分析|GPT ANALYZED/);
   assert.match(html, /language-switch/);
   assert.match(html, />EN</);
   assert.match(html, /font-size-control/);
