@@ -22,6 +22,14 @@ const publishedUrl = "https://allweneed.info/";
 const primaryVerificationUrl = "http://allweneed.info/";
 const legacyPublishedUrl = "https://yingqiangge.github.io/intelligence/";
 const staleLockMs = 3 * 60 * 60 * 1000;
+const generatedDataFiles = [
+  "data/daily-radar.json",
+  "data/feed-snapshot.json",
+  "data/conversations.json",
+  "data/event-graph.json",
+  "data/model-quality.json",
+  "data/control-center.json",
+];
 
 function argumentValue(name) {
   const prefix = `--${name}=`;
@@ -122,11 +130,7 @@ export function shouldAutoResume({
 }) {
   if (!radarStatus || !result) return false;
   if (
-    !onlyExpectedChanges(radarStatus, [
-      "data/daily-radar.json",
-      "data/feed-snapshot.json",
-      "data/conversations.json",
-    ])
+    !onlyExpectedChanges(radarStatus, generatedDataFiles)
   ) {
     return false;
   }
@@ -417,11 +421,7 @@ async function main() {
       }
       assertOnlyExpectedChanges(
         radarStatus,
-        [
-          "data/daily-radar.json",
-          "data/feed-snapshot.json",
-          "data/conversations.json",
-        ],
+        generatedDataFiles,
         "Radar repository",
       );
       assertOnlyExpectedChanges(
@@ -493,13 +493,14 @@ async function main() {
 
     const after = await readJson(radarPath);
     assertExistingArticlesPreserved(before, after);
+    runCommand(
+      process.execPath,
+      [resolve(projectRoot, "scripts/build-operational-data.mjs")],
+      { cwd: projectRoot },
+    );
     assertOnlyExpectedChanges(
       gitStatus(projectRoot),
-      [
-        "data/daily-radar.json",
-        "data/feed-snapshot.json",
-        "data/conversations.json",
-      ],
+      generatedDataFiles,
       "Radar repository",
     );
 
@@ -527,11 +528,7 @@ async function main() {
       .slice(0, 16);
     const radarCommit = commit(
       projectRoot,
-      [
-        "data/daily-radar.json",
-        "data/feed-snapshot.json",
-        "data/conversations.json",
-      ],
+      generatedDataFiles,
       `Update Radar feed ${stamp}`,
     );
     const homepageCommit = commit(

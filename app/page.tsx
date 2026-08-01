@@ -9,14 +9,17 @@ import {
   trackPageView,
 } from "./analytics";
 import { ArticleView } from "./article-view";
+import { ControlCenter } from "./control-center";
 import {
   FontSizeControl,
   type FontSizePreference,
 } from "./font-size-control";
 import {
   calculateSignalHeat,
+  compareConversationEditorialValue,
   compareExposureEditorialValue,
   compareSignalHeat,
+  formatExposureAge,
   meetsExploreEditorialFloor,
   type SignalHeat,
 } from "./signal-heat";
@@ -145,9 +148,9 @@ type Conversation = {
 };
 
 type RadarView = "brief" | "explore" | "conversations";
-type AppSection = "radar" | "sources";
+type AppSection = "radar" | "sources" | "control";
 
-type SiteSection = RadarView | "sources";
+type SiteSection = RadarView | "sources" | "control";
 
 function basePathFromPathname(pathname: string) {
   return pathname === "/intelligence" || pathname.startsWith("/intelligence/")
@@ -178,6 +181,9 @@ function routeFromPathname(pathname: string): {
   }
   if (normalized.endsWith("/sources")) {
     return { view: "brief", section: "sources" };
+  }
+  if (normalized.endsWith("/control")) {
+    return { view: "brief", section: "control" };
   }
   return { view: "brief", section: "radar" };
 }
@@ -312,6 +318,10 @@ export default function Home() {
         ? locale === "zh"
           ? "信源库 — All We Need"
           : "Sources — All We Need"
+        : section === "control"
+          ? locale === "zh"
+            ? "运行控制台 — All We Need"
+            : "Operations — All We Need"
         : view === "explore"
           ? locale === "zh"
             ? "探索 — All We Need"
@@ -657,7 +667,7 @@ export default function Home() {
         };
       },
     );
-    return localized.sort(compareExposureEditorialValue);
+    return localized.sort(compareConversationEditorialValue);
   }, [heatNow, locale]);
   const trendSignals = useMemo(
     () =>
@@ -709,6 +719,8 @@ export default function Home() {
             ? "dynamic"
             : section === "sources"
               ? "sources"
+              : section === "control"
+                ? "control"
               : view === "brief"
                 ? "index"
                 : view;
@@ -879,6 +891,13 @@ export default function Home() {
     resetExpandedContent();
     setSection("sources");
     pushSectionPath(sectionPath("sources"));
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }
+
+  function switchToControl() {
+    resetExpandedContent();
+    setSection("control");
+    pushSectionPath(sectionPath("control"));
     window.scrollTo({ top: 0, behavior: "instant" });
   }
 
@@ -1135,6 +1154,17 @@ export default function Home() {
             <span aria-hidden="true">◇</span>
             {t("信源库", "Sources")}
           </a>
+          <a
+            className={`nav-item ${section === "control" ? "active" : ""}`}
+            href={sectionPath("control")}
+            onClick={(event) => {
+              event.preventDefault();
+              switchToControl();
+            }}
+          >
+            <span aria-hidden="true">▦</span>
+            {t("运行控制台", "Control Center")}
+          </a>
           <button
             className="nav-item"
             type="button"
@@ -1302,6 +1332,8 @@ export default function Home() {
         <div className="content">
           {section === "sources" ? (
             <SourceLibrary locale={locale} onNotice={showNotice} />
+          ) : section === "control" ? (
+            <ControlCenter locale={locale} />
           ) : (
             <>
           <section className="page-intro">
@@ -1571,13 +1603,7 @@ export default function Home() {
                           <span>{signal.category}</span>
                           <span>·</span>
                           <span>
-                            {locale === "zh"
-                              ? signal.age
-                              : signal.age
-                                  .replace("刚刚", "Just now")
-                                  .replace("时间未知", "Time unknown")
-                                  .replace(" 小时前", "h ago")
-                                  .replace(" 天前", "d ago")}
+                            {formatExposureAge(signal.heat.ageHours, locale)}
                           </span>
                           <span
                             className="heat-status"

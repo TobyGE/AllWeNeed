@@ -8,6 +8,13 @@ export const updateIntervalsMinutes = Object.freeze({
 
 export const globalModelCooldownMinutes = 120;
 
+export const freshnessWindowsHours = Object.freeze({
+  fast: 72,
+  standard: 168,
+  explore: 168,
+  conversation: 168,
+});
+
 export const updateLaneNames = Object.freeze([
   "fast",
   "standard",
@@ -40,8 +47,23 @@ function candidateText(item) {
     .join(" ");
 }
 
-export function isFastLaneCandidate(item) {
+function publisherTime(item) {
+  const parsed = parseTime(item?.publishedAt);
+  return parsed;
+}
+
+export function isFastLaneCandidate(item, now = Date.now()) {
   if (item?.conversationSource) return false;
+  const nowTime = typeof now === "number" ? now : Date.parse(now);
+  const publishedAt = publisherTime(item);
+  if (
+    !Number.isFinite(nowTime) ||
+    publishedAt === null ||
+    publishedAt > nowTime + 60 * 60 * 1_000 ||
+    nowTime - publishedAt > freshnessWindowsHours.fast * 60 * 60 * 1_000
+  ) {
+    return false;
+  }
   const text = candidateText(item);
   const material = fastMaterialPattern.test(text);
   if (!material) return false;
@@ -54,9 +76,9 @@ export function isFastLaneCandidate(item) {
   );
 }
 
-export function candidateUpdateLane(item) {
+export function candidateUpdateLane(item, now = Date.now()) {
   if (item?.conversationSource) return "conversation";
-  if (isFastLaneCandidate(item)) return "fast";
+  if (isFastLaneCandidate(item, now)) return "fast";
   if (
     ["Fed", "SEC"].includes(item?.sourceKind) ||
     standardEventPattern.test(candidateText(item))
@@ -64,6 +86,49 @@ export function candidateUpdateLane(item) {
     return "standard";
   }
   return "explore";
+}
+
+export function candidateFreshnessDecision(item, now = Date.now()) {
+  const nowTime = typeof now === "number" ? now : Date.parse(now);
+  if (!Number.isFinite(nowTime)) throw new Error("Invalid freshness time");
+  const lane = candidateUpdateLane(item, nowTime);
+  const publishedAt = publisherTime(item);
+  const maxAgeHours = freshnessWindowsHours[lane];
+  if (publishedAt === null) {
+    return {
+      eligible: false,
+      lane,
+      reason: "missing_publisher_timestamp",
+      ageHours: null,
+      maxAgeHours,
+    };
+  }
+  const ageHours = (nowTime - publishedAt) / 3_600_000;
+  if (ageHours < -1) {
+    return {
+      eligible: false,
+      lane,
+      reason: "publisher_timestamp_in_future",
+      ageHours,
+      maxAgeHours,
+    };
+  }
+  if (ageHours > maxAgeHours) {
+    return {
+      eligible: false,
+      lane,
+      reason: "outside_freshness_window",
+      ageHours,
+      maxAgeHours,
+    };
+  }
+  return {
+    eligible: true,
+    lane,
+    reason: "fresh",
+    ageHours: Math.max(0, ageHours),
+    maxAgeHours,
+  };
 }
 
 function laneLastProcessedAt(scheduleState, lane, fallback) {
@@ -108,7 +173,7 @@ export function buildUpdatePlan({
     updateLaneNames.map((lane) => [lane, []]),
   );
   for (const candidate of candidates) {
-    grouped[candidateUpdateLane(candidate)].push(candidate);
+    grouped[candidateUpdateLane(candidate, nowTime)].push(candidate);
   }
 
   const dueAt = Object.fromEntries(

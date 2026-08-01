@@ -3,13 +3,18 @@ import test from "node:test";
 
 import {
   calculateSignalHeat,
+  compareConversationEditorialValue,
   compareEditorialValue,
   compareExposureEditorialValue,
   compareExploreEditorialValue,
   compareSignalHeat,
+  DYNAMIC_FEED_MAX_EXPOSURE_HOURS,
   EXPLORE_EDITORIAL_FLOOR,
   exposureDecayPenalty,
   exposureEditorialScore,
+  formatExposureAge,
+  conversationExposureDecayPenalty,
+  conversationExposureEditorialScore,
   meetsExploreEditorialFloor,
 } from "../app/signal-heat.ts";
 
@@ -43,6 +48,32 @@ test("retires a dynamic signal through heat decay instead of a list limit", () =
   assert.ok(fresh.score > old.score);
   assert.equal(old.visible, false);
   assert.equal(old.stage, "dormant");
+});
+
+test("dynamic feed releases every story after 48 hours", () => {
+  const signal = {
+    score: 99,
+    feedBatchAt: "2026-07-08T12:00:00.000Z",
+    sourceCount: 6,
+    sources: ["Official", "SEC", "Media"],
+    evidence: [
+      { publishedAt: "2026-07-08T12:00:00.000Z" },
+      { publishedAt: "2026-07-08T12:00:00.000Z" },
+    ],
+  };
+  const inside = calculateSignalHeat(signal, {
+    now: "2026-07-10T12:00:00.000Z",
+    profile: "dynamic",
+  });
+  const outside = calculateSignalHeat(signal, {
+    now: "2026-07-10T12:01:00.000Z",
+    profile: "dynamic",
+  });
+
+  assert.equal(DYNAMIC_FEED_MAX_EXPOSURE_HOURS, 48);
+  assert.equal(inside.visible, true);
+  assert.equal(outside.visible, false);
+  assert.ok(outside.score >= 38);
 });
 
 test("legacy permanent metadata cannot bypass heat retirement", () => {
@@ -212,7 +243,7 @@ test("Explore freshness surfaces strong new theses without displacing major old 
   );
 });
 
-test("system exposure freshness gives a story a 48-hour discovery window", () => {
+test("system exposure freshness continuously decays after a two-hour window", () => {
   const now = "2026-07-10T12:00:00.000Z";
   const oldImportant = {
     score: 95,
@@ -247,14 +278,57 @@ test("system exposure freshness gives a story a 48-hour discovery window", () =>
     ),
   };
   assert.ok(outsideWindow.heat.ageHours > 48);
-  assert.equal(exposureDecayPenalty(outsideWindow.heat.ageHours), 16);
+  assert.equal(exposureDecayPenalty(2), 0);
+  assert.equal(exposureDecayPenalty(3), 1.5);
+  assert.equal(exposureDecayPenalty(8), 9);
+  assert.equal(exposureDecayPenalty(24), 33);
+  assert.equal(exposureDecayPenalty(outsideWindow.heat.ageHours), 40);
   assert.equal(
     exposureEditorialScore(outsideWindow),
-    70,
+    46,
   );
 });
 
-test("a system-published update restarts the 48-hour exposure window", () => {
+test("formats the live system exposure age instead of stale copy", () => {
+  assert.equal(formatExposureAge(0.1, "zh"), "刚刚");
+  assert.equal(formatExposureAge(0.5, "zh"), "30 分钟前");
+  assert.equal(formatExposureAge(22.8, "zh"), "22 小时前");
+  assert.equal(formatExposureAge(25, "zh"), "1 天前");
+  assert.equal(formatExposureAge(22.8, "en"), "22h ago");
+});
+
+test("conversations use a slower weekly exposure rhythm", () => {
+  const now = "2026-07-10T12:00:00.000Z";
+  const newConversation = {
+    valueScore: 84,
+    heat: calculateSignalHeat(
+      { valueScore: 84, feedBatchAt: "2026-07-10T11:00:00.000Z" },
+      { now, profile: "explore" },
+    ),
+  };
+  const oldConversation = {
+    valueScore: 94,
+    heat: calculateSignalHeat(
+      { valueScore: 94, feedBatchAt: "2026-07-03T12:00:00.000Z" },
+      { now, profile: "explore" },
+    ),
+  };
+
+  assert.equal(conversationExposureDecayPenalty(24), 0);
+  assert.equal(conversationExposureDecayPenalty(48), 4);
+  assert.equal(conversationExposureDecayPenalty(7 * 24), 24);
+  assert.equal(conversationExposureDecayPenalty(30 * 24), 28);
+  assert.equal(conversationExposureEditorialScore(newConversation), 84);
+  assert.equal(conversationExposureEditorialScore(oldConversation), 70);
+  assert.deepEqual(
+    [oldConversation, newConversation]
+      .sort(compareConversationEditorialValue)
+      .map((item) => item.valueScore),
+    [84, 94],
+  );
+});
+
+test("a system-published update restarts the exposure decay clock", () => {
   const now = "2026-07-10T12:00:00.000Z";
   const updated = {
     score: 84,

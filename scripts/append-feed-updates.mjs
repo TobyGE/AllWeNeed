@@ -3,6 +3,7 @@ import { homedir } from "node:os";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
+  candidateFreshnessDecision,
   candidateUpdateLane,
   updateLaneNames,
 } from "./update-policy.mjs";
@@ -15,6 +16,10 @@ import {
   modelSearchContextSize,
   modelTaskInstructions,
 } from "./model-prompts.mjs";
+import {
+  compareEditorialAssignments,
+  shouldRunShadowEvaluation,
+} from "./shadow-evaluation.mjs";
 
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const canonicalSnapshotPath = resolve(projectRoot, "data/feed-snapshot.json");
@@ -196,7 +201,7 @@ function incrementalRelevance(item, snapshotTime) {
   );
 }
 
-export function rankIncrementalItems({
+export function auditIncrementalItems({
   scannedSnapshot,
   previousSnapshot,
   state,
@@ -215,6 +220,11 @@ export function rankIncrementalItems({
       ? state.initializedSourceIds.map(String)
       : previousSnapshot.items.map((item) => String(item.sourceId)),
   );
+  const previousVersionKeysByUrl = new Map(
+    previousSnapshot.items
+      .filter((item) => item.url && item.versionKey)
+      .map((item) => [item.url, item.versionKey]),
+  );
   const windowStart = Date.parse(
     state?.windowStartAt ??
       state?.lastScanAt ??
@@ -223,26 +233,55 @@ export function rankIncrementalItems({
   );
   const existingSourceCutoff = windowStart - overlapMs;
 
-  const ranked = scannedSnapshot.items
-    .filter((item) => {
+  const eligible = [];
+  const excluded = [];
+  for (const item of scannedSnapshot.items) {
       const sourceInitialized = initializedSourceIds.has(
         String(item.sourceId),
       );
       const publishedAt = Date.parse(item.publishedAt ?? "");
       const initialLookbackMs =
-        Math.max(0, Number(item.initialLookbackHours ?? 0)) * 60 * 60 * 1_000;
+        Math.min(
+          168,
+          Math.max(0, Number(item.initialLookbackHours ?? 0)),
+        ) *
+        60 *
+        60 *
+        1_000;
       const recentEnough = sourceInitialized
         ? itemDiscoveryTime(item, snapshotTime) >= existingSourceCutoff
         : Number.isFinite(publishedAt) &&
           publishedAt >= windowStart - initialLookbackMs;
       const deferred = deferredKeys.has(itemProcessingKey(item));
-      return (
-        Boolean(item.url) &&
-        (recentEnough || deferred) &&
-        !processedKeys.has(itemProcessingKey(item))
-      );
-    })
-    .sort(
+      const changedVersion =
+        Boolean(item.versionKey) &&
+        previousVersionKeysByUrl.has(item.url) &&
+        previousVersionKeysByUrl.get(item.url) !== item.versionKey;
+      const withinCursor = recentEnough || changedVersion;
+      if (!item.url) {
+        excluded.push({ item, reason: "missing_url" });
+        continue;
+      }
+      if (processedKeys.has(itemProcessingKey(item))) {
+        excluded.push({ item, reason: "already_processed" });
+        continue;
+      }
+      if (!withinCursor && !deferred) {
+        excluded.push({ item, reason: "outside_incremental_window" });
+        continue;
+      }
+      const freshness = candidateFreshnessDecision(item, snapshotTime);
+      if (!freshness.eligible && !deferred) {
+        excluded.push({ item, reason: freshness.reason, freshness });
+        continue;
+      }
+      eligible.push({
+        ...item,
+        freshness,
+        deferredResearch: deferred,
+      });
+  }
+  eligible.sort(
       (left, right) => {
         const deferredDifference =
           Number(deferredKeys.has(itemProcessingKey(right))) -
@@ -254,7 +293,11 @@ export function rankIncrementalItems({
         );
       },
     );
-  return ranked;
+  return { eligible, excluded };
+}
+
+export function rankIncrementalItems(options) {
+  return auditIncrementalItems(options).eligible;
 }
 
 export function selectIncrementalItems({
@@ -269,7 +312,9 @@ export function selectIncrementalItems({
     scannedSnapshot,
     previousSnapshot,
     state,
-  }).filter((item) => allowedLanes.has(candidateUpdateLane(item)));
+  }).filter((item) =>
+    allowedLanes.has(candidateUpdateLane(item, snapshotTime)),
+  );
   const selected = [
     ...ranked
       .filter((item) => !item.conversationSource)
@@ -413,6 +458,8 @@ ${existingTitles}
     {
       "existingSignalId": 1,
       "valueScore": 0,
+      "changeType": "corroboration|progress|thesis_change",
+      "thesisImpact": "说明新证据是强化、推进还是改变原判断，不超过120字",
       "update": {
         "title": "中文更新标题，不超过28字",
         "summary": "只写这次新增了什么，不超过120字",
@@ -941,7 +988,7 @@ async function loadSubscriptionAuth() {
   };
 }
 
-async function callSubscriptionModel({
+export async function callSubscriptionModelDetailed({
   model,
   prompt,
   accessToken,
@@ -952,6 +999,7 @@ async function callSubscriptionModel({
   reasoningEffort = "medium",
   timeoutMs = 240_000,
 }) {
+  const startedAt = Date.now();
   const requestBody = {
     model,
     instructions,
@@ -987,6 +1035,8 @@ async function callSubscriptionModel({
 
   let buffer = "";
   let output = "";
+  let usage = null;
+  let responseId = null;
   const decoder = new TextDecoder();
   for await (const chunk of response.body) {
     buffer += decoder.decode(chunk, { stream: true });
@@ -999,12 +1049,24 @@ async function callSubscriptionModel({
       const event = JSON.parse(data);
       if (event.type === "response.output_text.delta") {
         output += event.delta ?? "";
+      } else if (event.type === "response.completed") {
+        responseId = event.response?.id ?? null;
+        usage = event.response?.usage ?? null;
       } else if (event.type === "response.failed") {
         throw new Error(`response.failed: ${JSON.stringify(event).slice(0, 800)}`);
       }
     }
   }
-  return output.trim();
+  return {
+    output: output.trim(),
+    usage,
+    responseId,
+    latencyMs: Date.now() - startedAt,
+  };
+}
+
+async function callSubscriptionModel(options) {
+  return (await callSubscriptionModelDetailed(options)).output;
 }
 
 function parseJsonOutput(text) {
@@ -1969,23 +2031,58 @@ export function hydrateExistingUpdates({
         0,
         Math.min(99, Number(entry.valueScore) || 50),
       ),
+      changeType: [
+        "corroboration",
+        "progress",
+        "thesis_change",
+      ].includes(entry.changeType)
+        ? entry.changeType
+        : "progress",
+      thesisImpact: cleanText(entry.thesisImpact).slice(0, 600),
       update: {
         addedAt: newest,
         title,
         summary,
         evidence,
+        changeType: [
+          "corroboration",
+          "progress",
+          "thesis_change",
+        ].includes(entry.changeType)
+          ? entry.changeType
+          : "progress",
+        thesisImpact: cleanText(entry.thesisImpact).slice(0, 600),
+        revisionRequired: entry.changeType === "thesis_change",
       },
       zhUpdate: {
         addedAt: newest,
         title,
         summary,
         evidence: zhEvidence,
+        changeType: [
+          "corroboration",
+          "progress",
+          "thesis_change",
+        ].includes(entry.changeType)
+          ? entry.changeType
+          : "progress",
+        thesisImpact: cleanText(entry.thesisImpact).slice(0, 600),
+        revisionRequired: entry.changeType === "thesis_change",
       },
       enUpdate: {
         addedAt: newest,
         title: englishTitle,
         summary: englishSummary,
         evidence: enEvidence,
+        changeType: [
+          "corroboration",
+          "progress",
+          "thesis_change",
+        ].includes(entry.changeType)
+          ? entry.changeType
+          : "progress",
+        thesisImpact: cleanText(entry.thesisImpact).slice(0, 600),
+        revisionRequired: entry.changeType === "thesis_change",
       },
     });
   }
@@ -2357,6 +2454,12 @@ async function main() {
     ignoredItemCount: 0,
   };
   let model = null;
+  let primaryEditorialRaw = null;
+  let primaryEditorialCall = null;
+  let shadowEvaluation = {
+    attempted: false,
+    completedAt: scannedSnapshot.generatedAt,
+  };
   let conversationModel = null;
   let hydratedConversations = [];
   let conversationCoverage = { included: 0, ignored: 0 };
@@ -2399,10 +2502,12 @@ async function main() {
       let lastError;
       for (const candidateModel of writingModelsForItems(
         selectedCandidates,
-        candidateUpdateLane,
+        (item) =>
+          item.freshness?.lane ??
+          candidateUpdateLane(item, Date.parse(scannedSnapshot.generatedAt)),
       )) {
         try {
-          const output = await callSubscriptionModel({
+          const call = await callSubscriptionModelDetailed({
             model: candidateModel,
             prompt,
             ...auth,
@@ -2419,7 +2524,10 @@ async function main() {
             }),
           });
           const raw = applyEditorialPublicationBar(
-            normalizeFeedCoverageRefs(parseJsonOutput(output), candidates),
+            normalizeFeedCoverageRefs(
+              parseJsonOutput(call.output),
+              candidates,
+            ),
           );
           coverage = validateFeedCoverage(raw, candidates);
           hydratedStories = hydrateFeedStories({
@@ -2435,6 +2543,8 @@ async function main() {
             generatedAt: scannedSnapshot.generatedAt,
           });
           model = candidateModel;
+          primaryEditorialRaw = raw;
+          primaryEditorialCall = call;
           break;
         } catch (error) {
           lastError = error;
@@ -2447,6 +2557,66 @@ async function main() {
       }
       if (model === null) {
         throw lastError ?? new Error("Incremental analysis failed");
+      }
+      const shadowSeed = [
+        scannedSnapshot.generatedAt,
+        ...candidates.map((item) => item.url),
+      ].join("|");
+      if (
+        model === "gpt-5.6-terra" &&
+        shouldRunShadowEvaluation({ seed: shadowSeed })
+      ) {
+        shadowEvaluation = {
+          attempted: true,
+          completedAt: scannedSnapshot.generatedAt,
+          primaryModel: model,
+          shadowModel: "gpt-5.6-sol",
+          primaryLatencyMs: primaryEditorialCall?.latencyMs ?? null,
+          primaryUsage: primaryEditorialCall?.usage ?? null,
+        };
+        try {
+          const shadowCall = await callSubscriptionModelDetailed({
+            model: "gpt-5.6-sol",
+            prompt,
+            ...auth,
+            instructions: modelTaskInstructions({
+              model: "gpt-5.6-sol",
+              task: "editorial",
+              fallbackInstructions:
+                `${editorialSkillInstructions}\n\nIndependently classify every source item. Do not defer to another model. Apply the publication bar strictly and return only valid JSON.`,
+            }),
+            reasoningEffort: modelReasoningEffort({
+              model: "gpt-5.6-sol",
+              task: "editorial",
+              fallbackEffort: "high",
+            }),
+          });
+          const shadowRaw = applyEditorialPublicationBar(
+            normalizeFeedCoverageRefs(
+              parseJsonOutput(shadowCall.output),
+              candidates,
+            ),
+          );
+          validateFeedCoverage(shadowRaw, candidates);
+          shadowEvaluation = {
+            ...shadowEvaluation,
+            completed: true,
+            shadowLatencyMs: shadowCall.latencyMs,
+            shadowUsage: shadowCall.usage,
+            comparison: compareEditorialAssignments(
+              primaryEditorialRaw,
+              shadowRaw,
+              candidates.map((item) => item.ref),
+            ),
+          };
+        } catch (error) {
+          shadowEvaluation = {
+            ...shadowEvaluation,
+            completed: false,
+            error: error instanceof Error ? error.message : String(error),
+          };
+          console.warn(`Editorial shadow evaluation failed: ${shadowEvaluation.error}`);
+        }
       }
     }
   }
@@ -2556,6 +2726,7 @@ async function main() {
   const result = {
     ...baseResult,
     model,
+    shadowEvaluation,
     conversationModel,
     groundingModel: grounding.model,
     groundingAttemptedCount: grounding.attempted,

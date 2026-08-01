@@ -2,7 +2,7 @@ import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
-  rankIncrementalItems,
+  auditIncrementalItems,
 } from "./append-feed-updates.mjs";
 import { buildUpdatePlan } from "./update-policy.mjs";
 
@@ -35,13 +35,13 @@ const [scannedSnapshot, previousSnapshot, state, scheduleState] =
   ]);
 if (!scannedSnapshot) throw new Error(`Missing snapshot at ${snapshotPath}`);
 
-const candidates = rankIncrementalItems({
+const audit = auditIncrementalItems({
   scannedSnapshot,
   previousSnapshot,
   state,
 });
 const plan = buildUpdatePlan({
-  candidates,
+  candidates: audit.eligible,
   now: scannedSnapshot.generatedAt,
   scheduleState,
   fallbackLastCycleAt:
@@ -53,9 +53,33 @@ const report = {
   successfulSources: scannedSnapshot.successfulSources,
   failedSources: scannedSnapshot.failedSources,
   needsAuthSources: scannedSnapshot.needsAuthSources,
+  freshnessExcludedCount: audit.excluded.filter((entry) =>
+    [
+      "missing_publisher_timestamp",
+      "publisher_timestamp_in_future",
+      "outside_freshness_window",
+    ].includes(entry.reason),
+  ).length,
+  freshnessExcluded: audit.excluded
+    .filter((entry) =>
+      [
+        "missing_publisher_timestamp",
+        "publisher_timestamp_in_future",
+        "outside_freshness_window",
+      ].includes(entry.reason),
+    )
+    .slice(0, 30)
+    .map(({ item, reason, freshness }) => ({
+      title: item.title,
+      url: item.url,
+      sourceName: item.sourceName,
+      publishedAt: item.publishedAt ?? null,
+      reason,
+      ageHours: freshness?.ageHours ?? null,
+      maxAgeHours: freshness?.maxAgeHours ?? null,
+    })),
 };
 
 await mkdir(dirname(reportPath), { recursive: true });
 await writeFile(reportPath, `${JSON.stringify(report, null, 2)}\n`, "utf8");
 console.log(JSON.stringify(report, null, 2));
-

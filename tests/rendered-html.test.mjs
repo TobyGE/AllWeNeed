@@ -49,7 +49,6 @@ test("server-renders the All We Need product shell", async () => {
   );
   assert.match(html, /<title>All We Need — AI 科技投资情报<\/title>/i);
   assert.match(html, /值得关注的最新变化/);
-  assert.match(html, /必须知道/);
   assert.match(html, /正在形成的变化/);
   assert.match(html, /最新动态/);
   assert.match(html, /持续更新/);
@@ -194,7 +193,15 @@ test("removes all disposable starter preview code", async () => {
   );
   assert.match(
     styles,
-    /\.app-shell\.view-explore \.page-intro,[\s\S]*\.app-shell\.view-explore \.footer[\s\S]*display: none/,
+    /\.app-shell\.view-explore \.footer\s*\{[\s\S]*?display: none/,
+  );
+  assert.match(
+    styles,
+    /\.app-shell\.view-explore \.page-intro\s*\{[\s\S]*?display: block/,
+  );
+  assert.match(
+    styles,
+    /\.app-shell\.view-explore \.page-intro \.intro-copy,[\s\S]*?\.app-shell\.view-explore \.page-intro \.brief-score\s*\{[\s\S]*?display: none/,
   );
   assert.doesNotMatch(
     styles,

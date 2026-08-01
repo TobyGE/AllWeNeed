@@ -25,6 +25,9 @@ export default defineConfig({
         sources: fileURLToPath(
           new URL("./static/sources/index.html", import.meta.url),
         ),
+        control: fileURLToPath(
+          new URL("./static/control/index.html", import.meta.url),
+        ),
       },
     },
   },

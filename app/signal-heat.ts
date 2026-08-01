@@ -1,5 +1,6 @@
 const HOUR_MS = 60 * 60 * 1_000;
 export const EXPLORE_EDITORIAL_FLOOR = 80;
+export const DYNAMIC_FEED_MAX_EXPOSURE_HOURS = 48;
 
 export type SignalHeatStage = "hot" | "warm" | "cooling" | "dormant";
 export type SignalHeatProfile = "dynamic" | "explore";
@@ -145,8 +146,12 @@ export function calculateSignalHeat(
   );
   const visibilityThreshold = profile === "dynamic" ? 38 : 26;
   const minimumDwellHours = profile === "dynamic" ? 36 : 5 * 24;
+  const withinMaximumExposure =
+    profile !== "dynamic" ||
+    ageHours <= DYNAMIC_FEED_MAX_EXPOSURE_HOURS;
   const visible =
-    ageHours <= minimumDwellHours || heatScore >= visibilityThreshold;
+    withinMaximumExposure &&
+    (ageHours <= minimumDwellHours || heatScore >= visibilityThreshold);
   const stage: SignalHeatStage =
     heatScore >= 70
       ? "hot"
@@ -187,16 +192,31 @@ export function compareEditorialValue(
 }
 
 export function exposureDecayPenalty(exposureAgeHours: number) {
-  if (exposureAgeHours <= 2) return 0;
-  if (exposureAgeHours <= 8) return 3;
-  if (exposureAgeHours <= 24) return 6;
-  if (exposureAgeHours <= 48) return 11;
-  return 16;
+  const billableExposureHours = Math.max(0, exposureAgeHours - 2);
+  return Math.min(40, billableExposureHours * 1.5);
 }
 
 export function exposureEditorialScore(signal: EditoriallyRankedSignal) {
   const editorialValue = Number(signal.valueScore ?? signal.score ?? 0);
   return editorialValue - exposureDecayPenalty(signal.heat.ageHours);
+}
+
+export function formatExposureAge(
+  exposureAgeHours: number,
+  locale: "zh" | "en",
+) {
+  const safeAgeHours = Math.max(0, exposureAgeHours);
+  if (safeAgeHours < 0.25) return locale === "zh" ? "刚刚" : "Just now";
+  if (safeAgeHours < 1) {
+    const minutes = Math.max(1, Math.floor(safeAgeHours * 60));
+    return locale === "zh" ? `${minutes} 分钟前` : `${minutes}m ago`;
+  }
+  if (safeAgeHours < 24) {
+    const hours = Math.max(1, Math.floor(safeAgeHours));
+    return locale === "zh" ? `${hours} 小时前` : `${hours}h ago`;
+  }
+  const days = Math.max(1, Math.floor(safeAgeHours / 24));
+  return locale === "zh" ? `${days} 天前` : `${days}d ago`;
 }
 
 export function compareExposureEditorialValue(
@@ -205,6 +225,32 @@ export function compareExposureEditorialValue(
 ) {
   const rankDifference =
     exposureEditorialScore(right) - exposureEditorialScore(left);
+  if (rankDifference !== 0) return rankDifference;
+  return compareEditorialValue(left, right);
+}
+
+export function conversationExposureDecayPenalty(exposureAgeHours: number) {
+  const billableExposureDays = Math.max(0, exposureAgeHours - 24) / 24;
+  return Math.min(28, billableExposureDays * 4);
+}
+
+export function conversationExposureEditorialScore(
+  signal: EditoriallyRankedSignal,
+) {
+  const editorialValue = Number(signal.valueScore ?? signal.score ?? 0);
+  return (
+    editorialValue -
+    conversationExposureDecayPenalty(signal.heat.ageHours)
+  );
+}
+
+export function compareConversationEditorialValue(
+  left: EditoriallyRankedSignal,
+  right: EditoriallyRankedSignal,
+) {
+  const rankDifference =
+    conversationExposureEditorialScore(right) -
+    conversationExposureEditorialScore(left);
   if (rankDifference !== 0) return rankDifference;
   return compareEditorialValue(left, right);
 }

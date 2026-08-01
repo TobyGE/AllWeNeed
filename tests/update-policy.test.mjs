@@ -3,6 +3,8 @@ import test from "node:test";
 import {
   buildUpdatePlan,
   candidateUpdateLane,
+  candidateFreshnessDecision,
+  freshnessWindowsHours,
   globalModelCooldownMinutes,
   isFastLaneCandidate,
   updateIntervalsMinutes,
@@ -20,6 +22,7 @@ function item(overrides = {}) {
     summary: "An argument about software",
     url: `https://example.com/${Math.random()}`,
     firstSeenAt: "2026-08-01T11:30:00.000Z",
+    publishedAt: "2026-08-01T11:00:00.000Z",
     ...overrides,
   };
 }
@@ -30,8 +33,8 @@ test("official material events enter the immediate fast lane", () => {
     sourcePublisher: "OpenAI",
     title: "OpenAI releases a new model API with lower pricing",
   });
-  assert.equal(isFastLaneCandidate(release), true);
-  assert.equal(candidateUpdateLane(release), "fast");
+  assert.equal(isFastLaneCandidate(release, now), true);
+  assert.equal(candidateUpdateLane(release, now), "fast");
 
   const plan = buildUpdatePlan({
     candidates: [release],
@@ -56,7 +59,7 @@ test("a named frontier model on its official publisher enters fast lane", () => 
     sourcePublisher: "OpenAI",
     title: "How GPT-5.6 fuses frontier intelligence with efficiency",
   });
-  assert.equal(candidateUpdateLane(modelRelease), "fast");
+  assert.equal(candidateUpdateLane(modelRelease, now), "fast");
 });
 
 test("standard events are batched for four hours", () => {
@@ -148,4 +151,25 @@ test("an empty poll never starts the expensive cycle", () => {
   });
   assert.equal(plan.shouldRunFullCycle, false);
   assert.equal(plan.reason, "No unseen candidates");
+});
+
+test("stale official releases are rejected before they can enter fast lane", () => {
+  const stale = item({
+    sourceName: "OpenAI Blog",
+    sourcePublisher: "OpenAI",
+    title: "OpenAI releases a model API",
+    publishedAt: "2026-07-20T11:00:00.000Z",
+  });
+  assert.equal(isFastLaneCandidate(stale, now), false);
+  const decision = candidateFreshnessDecision(stale, now);
+  assert.equal(decision.eligible, false);
+  assert.equal(decision.reason, "outside_freshness_window");
+  assert.equal(freshnessWindowsHours.standard, 168);
+});
+
+test("items without a publisher timestamp do not enter the model queue", () => {
+  const undated = item({ publishedAt: null });
+  const decision = candidateFreshnessDecision(undated, now);
+  assert.equal(decision.eligible, false);
+  assert.equal(decision.reason, "missing_publisher_timestamp");
 });

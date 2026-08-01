@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import {
+  auditIncrementalItems,
   assignUniqueResearchRefs,
   assertEditorialArticleQuality,
   assertUniqueCandidateRefs,
@@ -417,6 +418,53 @@ test("selects a late-arriving URL by first discovery time instead of stale publi
     scannedSnapshot,
   });
   assert.equal(advanced.windowStartAt, state.windowStartAt);
+});
+
+test("freshness gate excludes stale discoveries but preserves deferred research", () => {
+  const stale = {
+    sourceId: 214,
+    url: "https://example.com/stale-release",
+    title: "OpenAI releases an old API",
+    sourceName: "OpenAI Blog",
+    sourcePublisher: "OpenAI",
+    sourceKind: "Blog",
+    publishedAt: "2026-07-01T04:01:20.000Z",
+    firstSeenAt: "2026-07-31T14:18:13.755Z",
+  };
+  const options = {
+    scannedSnapshot: {
+      generatedAt: "2026-07-31T14:20:00.000Z",
+      items: [stale],
+    },
+    previousSnapshot: {
+      generatedAt: "2026-07-31T13:00:00.000Z",
+      items: [{ sourceId: 214, url: "https://example.com/seen" }],
+    },
+    state: {
+      lastScanAt: "2026-07-31T13:00:00.000Z",
+      initializedSourceIds: ["214"],
+      processedKeys: [],
+    },
+  };
+
+  const rejected = auditIncrementalItems(options);
+  assert.equal(rejected.eligible.length, 0);
+  assert.equal(
+    rejected.excluded.some(
+      (entry) => entry.reason === "outside_freshness_window",
+    ),
+    true,
+  );
+
+  const deferred = auditIncrementalItems({
+    ...options,
+    state: {
+      ...options.state,
+      deferredKeys: [stale.url],
+    },
+  });
+  assert.equal(deferred.eligible.length, 1);
+  assert.equal(deferred.eligible[0].deferredResearch, true);
 });
 
 test("does not revive an old unseen URL when its first discovery is outside the overlap window", () => {
