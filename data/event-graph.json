@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-01T19:07:19.322Z",
+  "generatedAt": "2026-08-01T21:17:22.244Z",
   "counts": {
-    "sources": 184,
-    "claims": 191,
+    "sources": 185,
+    "claims": 192,
     "events": 71,
     "articles": 71,
-    "updates": 25,
-    "edges": 519,
+    "updates": 26,
+    "edges": 523,
     "revisionsRequired": 0
   },
   "revisionQueue": [],
@@ -260,6 +260,32 @@
       "title": "OpenAI官方页面标注发布日期为2026年8月1日，并列出十项数学和理论计算机科学研究结果。",
       "role": "佐证",
       "addedAt": "2026-08-01T09:06:49.698Z"
+    },
+    {
+      "id": "source_518c46c1375437aa",
+      "type": "source",
+      "title": "Simon Willison",
+      "url": "https://simonwillison.net/2026/Aug/1/ten-advances-in-mathematics/#atom-everything",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-01T20:34:49.000Z"
+    },
+    {
+      "id": "claim_ff4aa0993c5df02b",
+      "type": "claim",
+      "title": "Simon Willison评论OpenAI公布的十项数学与理论计算机科学进展，并将其视为前沿模型科研能力展示的一部分。",
+      "role": "佐证",
+      "addedAt": "2026-08-01T09:06:49.698Z"
+    },
+    {
+      "id": "update_2545e35046a94c6f",
+      "type": "update",
+      "signalId": 48,
+      "title": "外部评论聚焦Astra科研展示",
+      "summary": "Simon Willison将OpenAI的十项数学与理论计算机科学进展，与近期Anthropic披露Claude科研能力的案例并列讨论。",
+      "addedAt": "2026-08-01T20:34:49.000Z",
+      "changeType": "corroboration",
+      "thesisImpact": "Simon Willison将OpenAI披露的十项数学与理论计算机科学结果置于近期前沿模型科研展示的语境中，强化Astra能力信号受到外部关注的判断，但未新增官方状态变化。",
+      "revisionRequired": false
     },
     {
       "id": "update_58b651d7582b258b",
@@ -4520,6 +4546,32 @@
       "to": "event_a55c7b236981d2db",
       "relation": "evidence_for",
       "updateTitle": null
+    },
+    {
+      "id": "edge_6b79b4fe30e8b208",
+      "from": "source_518c46c1375437aa",
+      "to": "claim_ff4aa0993c5df02b",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_cfdbbf22b553d4bd",
+      "from": "claim_ff4aa0993c5df02b",
+      "to": "event_a55c7b236981d2db",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_e7e2738e28034832",
+      "from": "update_2545e35046a94c6f",
+      "to": "event_a55c7b236981d2db",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_030aeaf67a92b43b",
+      "from": "claim_ff4aa0993c5df02b",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "外部评论聚焦Astra科研展示"
     },
     {
       "id": "edge_14120e52bdcbaad5",
