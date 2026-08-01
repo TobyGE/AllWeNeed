@@ -137,7 +137,7 @@ function durationMinutes(value = "") {
   return Number.isFinite(seconds) ? Math.max(1, Math.round(seconds / 60)) : null;
 }
 
-function parseFeed(xml, source, feedUrl) {
+export function parseFeed(xml, source, feedUrl) {
   const itemBlocks = [
     ...xml.matchAll(/<item(?:\s[^>]*)?>([\s\S]*?)<\/item>/gi),
   ].map((match) => match[1]);
@@ -147,13 +147,26 @@ function parseFeed(xml, source, feedUrl) {
   const blocks = itemBlocks.length ? itemBlocks : entryBlocks;
   const sourceKind = getSourceKind(source.url);
 
-  return blocks.slice(0, itemsPerSource).flatMap((block, index) => {
+  return blocks.flatMap((block, index) => {
     const title = cleanText(tagValue(block, ["title"]));
     const rssLink = tagValue(block, ["link", "guid"]);
     const atomLink =
       block.match(/<link[^>]+href=["']([^"']+)["'][^>]*>/i)?.[1] ?? "";
     const url = absoluteUrl(atomLink || rssLink, feedUrl);
-    if (!title || !url || !matchesConfiguredLanguage(title, source)) return [];
+    if (
+      !title ||
+      !url ||
+      !matchesConfiguredLanguage(title, source) ||
+      !matchesConfiguredPath(url, source)
+    ) {
+      return [];
+    }
+    if (
+      sourceKind === "YouTube" &&
+      new URL(url).pathname.startsWith("/shorts/")
+    ) {
+      return [];
+    }
 
     const publishedAt = normalizeDate(
       tagValue(block, ["pubDate", "published", "updated", "dc:date"]),
@@ -182,7 +195,7 @@ function parseFeed(xml, source, feedUrl) {
         fetchedAt: checkedAt,
       },
     ];
-  });
+  }).slice(0, itemsPerSource);
 }
 
 export function parseWordPressJson(text, source, feedUrl) {

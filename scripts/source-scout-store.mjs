@@ -175,6 +175,9 @@ export function evaluateSourceCandidate({
     reasons.push("feed_unavailable");
   }
   if (validation.recentItemCount < 2) reasons.push("insufficient_recent_activity");
+  if (!candidate.official && candidate.evidence.length < 2) {
+    reasons.push("insufficient_independent_evidence");
+  }
   if (candidate.aggregator) reasons.push("aggregator");
   if (candidate.paywallOnly) reasons.push("paywall_only");
 
@@ -183,14 +186,26 @@ export function evaluateSourceCandidate({
     !candidate.url ||
     (!validation.homepageReachable && !validation.feedReachable) ||
     candidate.aggregator;
-  const ready =
+  const healthyPublicFeed =
     !rejected &&
-    candidate.official &&
     candidate.primaryMaterial &&
+    !candidate.aggregator &&
+    !candidate.paywallOnly &&
+    validation.homepageReachable &&
     validation.feedReachable &&
     validation.feedDetected &&
-    validation.recentItemCount >= 2 &&
+    validation.itemCount >= 3 &&
+    validation.recentItemCount >= 2;
+  const officialReady =
+    healthyPublicFeed &&
+    candidate.official &&
     score >= 85;
+  const independentReady =
+    healthyPublicFeed &&
+    !candidate.official &&
+    candidate.evidence.length >= 2 &&
+    score >= 75;
+  const ready = officialReady || independentReady;
   return {
     ...candidate,
     score,

@@ -51,7 +51,7 @@ test("canonicalizes Scout URLs and removes tracking identity noise", () => {
   assert.equal(canonicalSourceUrl("http://example.org/feed"), null);
 });
 
-test("auto-ready requires an official primary source with a healthy recent feed", () => {
+test("auto-ready accepts accountable official and well-evidenced independent sources", () => {
   const evaluated = evaluateSourceCandidate({
     candidate: verifiedCandidate(),
     validation: {
@@ -70,7 +70,17 @@ test("auto-ready requires an official primary source with a healthy recent feed"
     candidate: verifiedCandidate({ official: false }),
     validation: evaluated.validation,
   });
-  assert.equal(independent.status, "review");
+  assert.equal(independent.score, 75);
+  assert.equal(independent.status, "ready");
+
+  const weakIndependent = evaluateSourceCandidate({
+    candidate: verifiedCandidate({ official: false, evidence: [] }),
+    validation: evaluated.validation,
+  });
+  assert.equal(weakIndependent.status, "review");
+  assert.ok(
+    weakIndependent.reasons.includes("insufficient_independent_evidence"),
+  );
 });
 
 test("rejects aggregators and existing catalog identities", () => {
