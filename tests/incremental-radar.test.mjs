@@ -21,6 +21,7 @@ import {
   normalizeFeedCoverageRefs,
   qualifiesDynamicMateriality,
   qualifiesExploreMateriality,
+  qualifiesOfficialFrontierLabDynamic,
   selectEditorialResearchItems,
   selectIncrementalItems,
   validateConversationCoverage,
@@ -671,6 +672,44 @@ test("reserves dynamic for material signals with an editorial score of 82+", () 
       valueScore: 92,
     }),
     true,
+  );
+});
+
+test("promotes an official next-major-model disclosure from a frontier lab", () => {
+  const event = {
+    bucket: "explore",
+    materiality: "material",
+    changedVariable: "OpenAI首次公开命名下一代模型Astra并展示能力",
+    valueScore: 83,
+    signal: {
+      title: "OpenAI把数学突破推向可复核证据",
+      summary: "十项数学结果由OpenAI内部下一代模型完成。",
+    },
+  };
+  const evidence = [
+    {
+      sourceName: "OpenAI Blog",
+      sourcePublisher: "OpenAI",
+      sourceKind: "Blog",
+      title: "Ten advances in mathematics and theoretical computer science",
+      researchClaim:
+        "OpenAI称其内部下一代模型 Astra 对十项长期开放问题给出新结果。",
+    },
+  ];
+
+  assert.equal(qualifiesOfficialFrontierLabDynamic(event, evidence), true);
+  assert.equal(
+    qualifiesOfficialFrontierLabDynamic(
+      { ...event, valueScore: 79 },
+      evidence,
+    ),
+    false,
+  );
+  assert.equal(
+    qualifiesOfficialFrontierLabDynamic(event, [
+      { ...evidence[0], sourcePublisher: "AI Rumors Weekly" },
+    ]),
+    false,
   );
 });
 

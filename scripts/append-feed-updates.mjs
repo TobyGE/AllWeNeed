@@ -371,6 +371,8 @@ function buildPrompt({ candidates, radar, scannedSnapshot }) {
 - R ref 是 editorial research 补充来源。使用 R ref 时，必须把它的 researchedFrom parent ref 放进同一条 evidence 数组；不得让 parent 与 research source 分属不同稿件。
 - bucket=dynamic 只用于已经发生的明确状态变化：发布、财报、监管、融资、产品上线、政策决定或有实质新证据的事件。必须有足够正文和可核验事实；官方一手来源可以单独成立。
 - dynamic 是稀缺的新闻席位，不是“值得知道”的同义词。只有以下变化可以进入：会改变公司经营或资本判断的财报/guidance/融资/M&A；已落地的监管或宏观决定；改变价格、可用范围、分发方式或产业采用的重大产品/模型发布；有明确影响范围的真实安全事件；或至少两条独立来源共同确认的行业状态转折。
+- 对 OpenAI、Anthropic、Google DeepMind、Meta AI、xAI、DeepSeek、Mistral、Moonshot/Kimi、ByteDance Seed 等 frontier lab，以及 Microsoft、Amazon/AWS、Apple、NVIDIA 等核心平台，官方首次公开命名 next major model、旗舰模型或下一代平台，并给出实质能力证据，本身就是状态变化。即使页面以 research result 而非 product launch 为标题、模型尚未开放 API，只要 valueScore>=82 且证据充分，通常应进入 dynamic；标题和导语必须直接写出 lab 与 model 名，不能把关键信号埋在研究细节里。
+- 同一来源同时包含多层信息时，优先提取最高阶的新状态，而不是机械复述页面标题。例如“十项数学结果由 OpenAI next major model Astra 完成”的主新闻是 Astra 首次被官方命名并展示能力，数学结果是支撑该判断的证据。不得把 Astra 推断为 GPT-6，除非官方明确这样命名。
 - 小版本、library/repository/demo、单点技巧、孤立研究论文、单篇 Blog 观察、窄功能更新和一般知识不得因为“刚发布”进入 dynamic；如果也没有形成高价值 thesis，则直接 ignored，不能把 Explore 当作低质量内容的兜底区。
 - preview、alpha、beta 或 public beta 只是发布阶段标签，不能单独作为归档理由。若官方更新实质改变了 frontier model 的能力、benchmark、API 可用性、兼容接口、价格、context、分发范围或默认 model identity，应按重大模型/API 发布评估；从 Preview 转为官方 API public beta，并同时带来显著能力跃升或新增主流接口，属于可进入 dynamic 的明确状态变化。
 - bucket=explore 是稀缺的第二编辑层，只用于有清晰 thesis、二阶影响、跨界连接或值得持续验证的非共识判断。必须写清“什么变量正在变化”、作用机制和可证伪的下一步，不能只是把单篇内容换句话复述。
@@ -1742,6 +1744,56 @@ export function qualifiesDynamicMateriality(event) {
   return true;
 }
 
+const frontierLabPublisherPattern =
+  /\b(?:OpenAI|Anthropic|Google(?: DeepMind)?|Meta AI|xAI|DeepSeek|Mistral|Moonshot|Kimi|ByteDance Seed|Microsoft|Amazon|AWS|Apple|NVIDIA)\b/iu;
+
+const majorModelSignalPattern =
+  /\b(?:next major model|next-generation model|next generation model|flagship model|frontier model|major model|Astra|GPT-\d[\w.-]*|Claude(?:\s+\w+)?|Gemini(?:\s+\w+)?|Llama(?:\s+\w+)?|Grok(?:\s+\w+)?|DeepSeek(?:-\w+)?|Kimi(?:\s+\w+)?|Seedance(?:\s+\w+)?)\b|(?:下一代模型|新一代模型|旗舰模型|前沿模型|重大模型|首次公开命名)/iu;
+
+const officialFrontierEvidenceKinds = new Set([
+  "Blog",
+  "Official",
+  "Research",
+  "Repository",
+  "Changelog",
+]);
+
+export function qualifiesOfficialFrontierLabDynamic(event, evidence = []) {
+  const valueScore =
+    Number(event?.valueScore) || Number(event?.signal?.score) || 0;
+  const materiality = cleanText(event?.materiality).toLowerCase();
+  if (valueScore < 82 || materiality === "minor") return false;
+
+  const hasOfficialFrontierEvidence = evidence.some((item) => {
+    const publisher =
+      cleanText(item?.sourcePublisher) || cleanText(item?.sourceName);
+    return (
+      frontierLabPublisherPattern.test(publisher) &&
+      officialFrontierEvidenceKinds.has(item?.sourceKind)
+    );
+  });
+  if (!hasOfficialFrontierEvidence) return false;
+
+  const text = [
+    event?.changedVariable,
+    event?.signal?.title,
+    event?.signal?.summary,
+    event?.signal?.why,
+    event?.signal?.impact,
+    ...evidence.flatMap((item) => [
+      item?.title,
+      item?.summary,
+      item?.researchClaim,
+      item?.researchComparisons,
+    ]),
+  ]
+    .map(cleanText)
+    .filter(Boolean)
+    .join(" ");
+
+  return majorModelSignalPattern.test(text);
+}
+
 export function qualifiesExploreMateriality(event) {
   const valueScore =
     Number(event?.valueScore) || Number(event?.signal?.score) || 0;
@@ -1826,11 +1878,6 @@ export function hydrateFeedStories({
       );
     }
     assertNoPrivateDiscoveryLeak(event, "feedStory");
-    const qualifiesAsDynamic =
-      event.bucket === "dynamic" && qualifiesDynamicMateriality(event);
-    if (!qualifiesAsDynamic && !qualifiesExploreMateriality(event)) {
-      continue;
-    }
     const titleKey = normalizeTitle(event.signal?.title);
     if (!titleKey || existingTitles.has(titleKey)) continue;
 
@@ -1850,6 +1897,12 @@ export function hydrateFeedStories({
       if (evidence.length === 8) break;
     }
     if (!evidence.length) continue;
+    const qualifiesAsDynamic =
+      (event.bucket === "dynamic" && qualifiesDynamicMateriality(event)) ||
+      qualifiesOfficialFrontierLabDynamic(event, evidence);
+    if (!qualifiesAsDynamic && !qualifiesExploreMateriality(event)) {
+      continue;
+    }
     const duplicateEvidence = evidence.find((item) =>
       existingEvidenceTitles.has(normalizeTitle(item.title)),
     );

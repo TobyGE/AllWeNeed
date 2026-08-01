@@ -372,33 +372,33 @@
     },
     {
       "id": 48,
-      "editorialBucket": "explore",
+      "editorialBucket": "dynamic",
       "category": "AI & 模型",
-      "eyebrow": "趋势变化",
-      "title": "OpenAI把数学突破推向可复核证据",
-      "summary": "OpenAI公布十项数学与理论计算机科学进展，并公开对应Lean文件。成果能否被外部数学共同体吸收，将决定AI数学能力是否进入更可复核的竞争阶段。",
-      "why": "公开形式化证明文件把讨论从模型自报能力部分转向可运行、可检查的证明产物。",
-      "impact": "若外部研究者持续复核和复用这些结果，前沿模型的科学价值衡量或更重视证明工作流与验证基础设施。",
-      "shiftFrom": "以单项突破和自然语言论证为主",
-      "shiftTo": "十项结果附带公开形式化验证材料",
-      "crossValidation": "十项成果及数值主张来自OpenAI论文集，公开仓库提供相应Lean文件。此前单位距离问题曾获外部数学家检查；Leiden Declaration则强调形式化与同行审查仍不可替代。",
+      "eyebrow": "产品信号",
+      "title": "OpenAI首次公开下一代模型Astra",
+      "summary": "OpenAI首次公开命名 next major model Astra，并用十项长期开放的数学与理论计算机科学结果展示其能力。Astra尚未对外部署，但已经成为明确的下一代模型信号。",
+      "why": "Astra从未具名内部模型变成由官方成果支撑的 next major model，意义高于单篇数学研究发布。",
+      "impact": "这为OpenAI下一代模型的推理、形式化验证与科研能力提供首批公开证据，但不能据此把Astra称为GPT-6。",
+      "shiftFrom": "未具名内部模型完成单项数学结果",
+      "shiftTo": "Astra被官方命名并交付十项可核验成果",
+      "crossValidation": "OpenAI官方页面明确称Astra是其next major model；249页论文集给出十项结果，GitHub仓库提供Lean文件。Leiden Declaration提醒形式化材料仍需独立审查。",
       "article": {
-        "lead": "OpenAI这次披露的变化不只在于新增十项数学与理论计算机科学结果，而在于把成果连同Lean验证文件一并公开。若这些材料能被外部研究者持续检查、复用并纳入后续研究，AI在数学中的竞争重点可能从“给出答案”进一步转向“交付可复核证明资产”。",
+        "lead": "OpenAI首次公开命名其 next major model Astra，并把十项长期开放的数学与理论计算机科学结果作为能力展示。真正的新状态不只是“AI又解了几道题”，而是OpenAI开始用可检查的论文与Lean证书，为下一代模型建立公开能力记录。Astra尚未开放，官方也没有把它称为GPT-6。",
         "sections": [
           {
-            "heading": "从单点成果变成结果组合",
-            "body": "OpenAI发布的249页论文集覆盖几何、密码学、复杂性等十个主题，并列出球堆积指数、永久式电路和公式下界、近似困难性、Ehrhart猜想界以及Ramsey数增长等具体结论。这使其公开叙事从5月围绕单位距离问题的一项成果，扩大为一组横跨数学和理论计算机科学的结果。论文集称这些成果来自内部OpenAI模型；其中部分数值改进和定理边界为后续核验提供了明确目标。"
+            "heading": "Astra从内部模型走向公开能力信号",
+            "body": "OpenAI在官方页面中直接把Astra称为“our next major model”。与5月只披露一个未具名内部模型完成单位距离问题不同，这次发布把同一个模型与十项数学及理论计算机科学成果绑定，并称按Sol API费率估算，解题token成本约为2,000美元。关键变化是一个被官方命名的下一代模型开始拥有公开、成组的能力记录，而不只是又一项孤立研究成果。"
           },
           {
-            "heading": "形式化文件改变可检查的对象",
-            "body": "OpenAI的Selected Proofs仓库为十个主题列出Lean文件和All.lean，并称每项证明都配置了Comparator挑战，用于检查完整的独立Lean解答。Lean证书并不等于数学共同体已经接受结论，但它将核验对象从模型生成的自然语言推导，部分转化为可由证明助手运行检查的形式化产物。与5月单位距离问题由外部数学家小组检查的路径相比，这套公开材料也更便于第三方分工复查。"
+            "heading": "十项结果把能力主张落到可检查对象",
+            "body": "249页论文集覆盖球堆积、编码、群论、复杂性、量子计算、格密码和极值组合等主题，并给出球堆积指数、永久式下界、近似困难性和Ramsey数等具体结果。OpenAI的Selected Proofs仓库还提供对应Lean文件、All.lean和Comparator挑战配置。它们不能替代同行评审，但比匿名benchmark更接近可由第三方逐项运行、审查和复用的能力证据。"
           },
           {
-            "heading": "科学竞争或更看重验证流水线",
-            "body": "若结果被引用、重现并用于新定理，模型实验室的差异化可能不再只是解题能力，也包括把猜想、搜索、形式化和审阅衔接起来的工作流。最强的反面观点是，Leiden Declaration指出，自动化系统可生成貌似可信却不可靠的论证，且人类表述与形式化陈述之间的转换本身可能出错；因此公开Lean文件仍需外部交叉核查、预审和同行评议。"
+            "heading": "公开命名不等于即将上线",
+            "body": "OpenAI没有公布Astra的参数、架构、API、定价或发布日期，因此不能从“next major model”直接推断它就是GPT-6，也不能判断其何时进入ChatGPT或API。Leiden Declaration同时指出，自动化论证及自然语言到形式化陈述的转换都可能出错。Astra现在最准确的定位，是一个获得官方命名并交付首批公开研究证据、但尚未进入公开部署阶段的下一代模型。"
           }
         ],
-        "outlook": "接下来可观察三类证据：外部数学家是否独立编译并审查这些Lean文件；论文集中的结论是否进入预印本、研讨会讨论或同行评审文献；其他团队是否以相同的公开形式化工作流复现或推进结果。若这些指标持续出现，这批成果作为AI数学研究基础设施的意义会增强；若缺少复用和后续引用，其影响将更接近一次集中展示。"
+        "outlook": "接下来应同时观察模型与研究两条线：OpenAI是否发布Astra的system card、API、定价或产品入口；外部数学家是否独立编译Lean文件并复核十项结果；这些成果是否进入预印本、研讨会和同行评审文献。若独立复核与公开部署同时出现，Astra将从研究预告升级为真正的下一代平台信号。"
       },
       "validationType": "跨平台验证",
       "publishedAt": "2026-08-01T00:00:00.000Z",
@@ -13725,31 +13725,31 @@
         },
         {
           "category": "AI & 模型",
-          "eyebrow": "趋势变化",
-          "title": "OpenAI把数学突破推向可复核证据",
-          "summary": "OpenAI公布十项数学与理论计算机科学进展，并公开对应Lean文件。成果能否被外部数学共同体吸收，将决定AI数学能力是否进入更可复核的竞争阶段。",
-          "why": "公开形式化证明文件把讨论从模型自报能力部分转向可运行、可检查的证明产物。",
-          "impact": "若外部研究者持续复核和复用这些结果，前沿模型的科学价值衡量或更重视证明工作流与验证基础设施。",
-          "shiftFrom": "以单项突破和自然语言论证为主",
-          "shiftTo": "十项结果附带公开形式化验证材料",
-          "crossValidation": "十项成果及数值主张来自OpenAI论文集，公开仓库提供相应Lean文件。此前单位距离问题曾获外部数学家检查；Leiden Declaration则强调形式化与同行审查仍不可替代。",
+          "eyebrow": "产品信号",
+          "title": "OpenAI首次公开下一代模型Astra",
+          "summary": "OpenAI首次公开命名 next major model Astra，并用十项长期开放的数学与理论计算机科学结果展示其能力。Astra尚未对外部署，但已经成为明确的下一代模型信号。",
+          "why": "Astra从未具名内部模型变成由官方成果支撑的 next major model，意义高于单篇数学研究发布。",
+          "impact": "这为OpenAI下一代模型的推理、形式化验证与科研能力提供首批公开证据，但不能据此把Astra称为GPT-6。",
+          "shiftFrom": "未具名内部模型完成单项数学结果",
+          "shiftTo": "Astra被官方命名并交付十项可核验成果",
+          "crossValidation": "OpenAI官方页面明确称Astra是其next major model；249页论文集给出十项结果，GitHub仓库提供Lean文件。Leiden Declaration提醒形式化材料仍需独立审查。",
           "article": {
-            "lead": "OpenAI这次披露的变化不只在于新增十项数学与理论计算机科学结果，而在于把成果连同Lean验证文件一并公开。若这些材料能被外部研究者持续检查、复用并纳入后续研究，AI在数学中的竞争重点可能从“给出答案”进一步转向“交付可复核证明资产”。",
+            "lead": "OpenAI首次公开命名其 next major model Astra，并把十项长期开放的数学与理论计算机科学结果作为能力展示。真正的新状态不只是“AI又解了几道题”，而是OpenAI开始用可检查的论文与Lean证书，为下一代模型建立公开能力记录。Astra尚未开放，官方也没有把它称为GPT-6。",
             "sections": [
               {
-                "heading": "从单点成果变成结果组合",
-                "body": "OpenAI发布的249页论文集覆盖几何、密码学、复杂性等十个主题，并列出球堆积指数、永久式电路和公式下界、近似困难性、Ehrhart猜想界以及Ramsey数增长等具体结论。这使其公开叙事从5月围绕单位距离问题的一项成果，扩大为一组横跨数学和理论计算机科学的结果。论文集称这些成果来自内部OpenAI模型；其中部分数值改进和定理边界为后续核验提供了明确目标。"
+                "heading": "Astra从内部模型走向公开能力信号",
+                "body": "OpenAI在官方页面中直接把Astra称为“our next major model”。与5月只披露一个未具名内部模型完成单位距离问题不同，这次发布把同一个模型与十项数学及理论计算机科学成果绑定，并称按Sol API费率估算，解题token成本约为2,000美元。关键变化是一个被官方命名的下一代模型开始拥有公开、成组的能力记录，而不只是又一项孤立研究成果。"
               },
               {
-                "heading": "形式化文件改变可检查的对象",
-                "body": "OpenAI的Selected Proofs仓库为十个主题列出Lean文件和All.lean，并称每项证明都配置了Comparator挑战，用于检查完整的独立Lean解答。Lean证书并不等于数学共同体已经接受结论，但它将核验对象从模型生成的自然语言推导，部分转化为可由证明助手运行检查的形式化产物。与5月单位距离问题由外部数学家小组检查的路径相比，这套公开材料也更便于第三方分工复查。"
+                "heading": "十项结果把能力主张落到可检查对象",
+                "body": "249页论文集覆盖球堆积、编码、群论、复杂性、量子计算、格密码和极值组合等主题，并给出球堆积指数、永久式下界、近似困难性和Ramsey数等具体结果。OpenAI的Selected Proofs仓库还提供对应Lean文件、All.lean和Comparator挑战配置。它们不能替代同行评审，但比匿名benchmark更接近可由第三方逐项运行、审查和复用的能力证据。"
               },
               {
-                "heading": "科学竞争或更看重验证流水线",
-                "body": "若结果被引用、重现并用于新定理，模型实验室的差异化可能不再只是解题能力，也包括把猜想、搜索、形式化和审阅衔接起来的工作流。最强的反面观点是，Leiden Declaration指出，自动化系统可生成貌似可信却不可靠的论证，且人类表述与形式化陈述之间的转换本身可能出错；因此公开Lean文件仍需外部交叉核查、预审和同行评议。"
+                "heading": "公开命名不等于即将上线",
+                "body": "OpenAI没有公布Astra的参数、架构、API、定价或发布日期，因此不能从“next major model”直接推断它就是GPT-6，也不能判断其何时进入ChatGPT或API。Leiden Declaration同时指出，自动化论证及自然语言到形式化陈述的转换都可能出错。Astra现在最准确的定位，是一个获得官方命名并交付首批公开研究证据、但尚未进入公开部署阶段的下一代模型。"
               }
             ],
-            "outlook": "接下来可观察三类证据：外部数学家是否独立编译并审查这些Lean文件；论文集中的结论是否进入预印本、研讨会讨论或同行评审文献；其他团队是否以相同的公开形式化工作流复现或推进结果。若这些指标持续出现，这批成果作为AI数学研究基础设施的意义会增强；若缺少复用和后续引用，其影响将更接近一次集中展示。"
+            "outlook": "接下来应同时观察模型与研究两条线：OpenAI是否发布Astra的system card、API、定价或产品入口；外部数学家是否独立编译Lean文件并复核十项结果；这些成果是否进入预印本、研讨会和同行评审文献。若独立复核与公开部署同时出现，Astra将从研究预告升级为真正的下一代平台信号。"
           },
           "evidence": [
             {
@@ -18760,31 +18760,31 @@
         },
         {
           "category": "AI & Models",
-          "eyebrow": "Trend shift",
-          "title": "OpenAI turns math advances into auditable proof artifacts",
-          "summary": "OpenAI has disclosed ten advances in mathematics and theoretical computer science alongside public Lean files. Whether external mathematicians validate and reuse them will determine whether AI mathematics becomes more auditable.",
-          "why": "Public formal proof files move part of the debate from self-reported model performance to runnable, inspectable proof artifacts.",
-          "impact": "If external researchers keep validating and reusing the work, frontier-model competition in science may place more weight on proof workflows and verification infrastructure.",
-          "shiftFrom": "Single breakthroughs and natural-language arguments",
-          "shiftTo": "Ten results with public formal verification materials",
-          "crossValidation": "The ten claims and numerical results come from OpenAI's collection, while its repository supplies Lean files. A prior OpenAI geometry result received external checking; the Leiden Declaration argues formal artifacts still require independent review.",
+          "eyebrow": "Product signal",
+          "title": "OpenAI publicly names next major model Astra",
+          "summary": "OpenAI has publicly named Astra as its next major model and used ten results on long-open mathematics and theoretical-computer-science problems as an initial capability record. Astra is not yet publicly deployed.",
+          "why": "Astra has moved from an unnamed internal system to an officially named next-generation model backed by public artifacts.",
+          "impact": "The release offers initial evidence of Astra's reasoning, formalization, and research capabilities, but does not justify calling it GPT-6.",
+          "shiftFrom": "An unnamed internal model behind one math result",
+          "shiftTo": "Astra named with ten auditable research results",
+          "crossValidation": "OpenAI's official page calls Astra its next major model; a 249-page collection presents ten results, and GitHub hosts the Lean files. The Leiden Declaration cautions that formal artifacts still require independent review.",
           "article": {
-            "lead": "The important change in OpenAI's latest mathematics disclosure is not only the addition of ten results in mathematics and theoretical computer science. It is the release of Lean verification files alongside them. If outside researchers repeatedly inspect, reuse, and build on these materials, AI mathematics may increasingly be judged by deliverable, auditable proof assets rather than answers alone.",
+            "lead": "OpenAI has publicly named its next major model, Astra, and used ten results on long-open mathematics and theoretical-computer-science problems as a capability demonstration. The higher-order change is not simply that an AI system solved more problems. OpenAI is beginning to build a public capability record for its next-generation model through inspectable papers and Lean certificates. Astra is not yet available, and OpenAI has not called it GPT-6.",
             "sections": [
               {
-                "heading": "From an isolated result to a portfolio",
-                "body": "OpenAI's 249-page collection spans ten topics across geometry, cryptography, and complexity theory. It specifies claims involving a sphere-packing exponent, lower bounds for permanent circuits and formulas, hardness of approximation, bounds related to the Ehrhart conjecture, and Ramsey-number growth. This expands OpenAI's public case from its May unit-distance result to a portfolio of mathematical and theoretical-computer-science claims. OpenAI attributes the results to internal models, while the stated numerical improvements and theorem boundaries provide concrete targets for later scrutiny."
+                "heading": "Astra moves from an internal model to a public capability signal",
+                "body": "OpenAI's official page directly describes Astra as “our next major model.” In May, the company disclosed a single unit-distance result from an unnamed internal system. This release ties the named model to ten mathematics and theoretical-computer-science results and estimates the problem-solving tokens at roughly $2,000 using Sol API rates. The important state change is that an officially named next-generation model now has a public portfolio of capability evidence rather than one isolated research result."
               },
               {
-                "heading": "Formal files change what can be checked",
-                "body": "OpenAI's Selected Proofs repository lists Lean files and an All.lean file for each of the ten topics. It says each proof is paired with a Comparator challenge configuration that checks a complete independent Lean solution. A Lean certificate is not the same as acceptance by the mathematical community, but it shifts part of verification from model-generated natural-language reasoning to formal artifacts that proof assistants can run and inspect. Compared with the external review of OpenAI's May geometry result, the public files should also make distributed third-party review easier."
+                "heading": "Ten results turn the claim into inspectable objects",
+                "body": "The 249-page collection covers sphere packing, coding, group theory, complexity, quantum computing, lattice cryptography, and extremal combinatorics, with concrete claims involving a sphere-packing exponent, permanent lower bounds, approximation hardness, and Ramsey-number growth. OpenAI's Selected Proofs repository also provides Lean files, an All.lean file, and Comparator challenge configurations. These artifacts do not replace peer review, but they are closer than an anonymous benchmark to evidence that third parties can run, inspect, and reuse result by result."
               },
               {
-                "heading": "Scientific competition may reward verification pipelines",
-                "body": "If the results are cited, reproduced, and used to derive further work, laboratory differentiation may depend not only on solving problems but also on connecting conjecture generation, search, formalization, and review. The strongest countercase is set out by the Leiden Declaration: automated methods can produce persuasive but unreliable arguments, and translation between human and formal statements can itself fail. Public Lean files therefore still need independent cross-checking, pre-review, and peer review."
+                "heading": "A public name is not a deployment announcement",
+                "body": "OpenAI has not disclosed Astra's parameters, architecture, API, pricing, or release date. “Next major model” therefore does not establish that Astra is GPT-6 or indicate when it might enter ChatGPT or the API. The Leiden Declaration also notes that automated arguments and translation between natural-language and formal statements can fail. The most accurate description today is an officially named next-generation model with its first public research evidence, but no public deployment."
               }
             ],
-            "outlook": "Three observable signals matter next: whether independent mathematicians compile and inspect the Lean files; whether the results appear in preprints, seminars, or peer-reviewed literature; and whether other groups reproduce or extend them using similarly public formal workflows. Continued reuse and citation would strengthen the case that these results represent emerging research infrastructure. A lack of either would make the release look more like a concentrated demonstration."
+            "outlook": "Two tracks now matter: whether OpenAI publishes an Astra system card, API, pricing, or product access; and whether independent mathematicians compile the Lean files, validate the ten results, and carry them into preprints, seminars, or peer-reviewed literature. Independent replication combined with public deployment would turn Astra from a research preview into a genuine next-generation platform signal."
           },
           "evidence": [
             {
