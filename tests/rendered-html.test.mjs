@@ -192,7 +192,15 @@ test("removes all disposable starter preview code", async () => {
   );
   assert.match(
     styles,
-    /\.app-shell\.view-explore \.page-intro,[\s\S]*\.app-shell\.view-explore \.conversation-bridge-cta[\s\S]*display: none/,
+    /\.app-shell\.view-explore \.page-intro,[\s\S]*\.app-shell\.view-explore \.footer[\s\S]*display: none/,
+  );
+  assert.match(
+    styles,
+    /\.app-shell\.view-explore \.conversation-bridge-cta > div[\s\S]*display: none/,
+  );
+  assert.match(
+    styles,
+    /\.app-shell\.view-explore \.conversation-bridge-cta > a[\s\S]*width: 100%/,
   );
   assert.match(styles, /prefers-reduced-motion/);
   assert.match(layout, /lang="zh-CN"/);
