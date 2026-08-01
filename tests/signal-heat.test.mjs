@@ -93,7 +93,7 @@ test("legacy permanent metadata cannot bypass heat retirement", () => {
   assert.equal(old.visible, false);
 });
 
-test("new evidence reheats an existing event", () => {
+test("a newly system-published material update reheats an existing event", () => {
   const stale = calculateSignalHeat(
     {
       score: 86,
@@ -110,7 +110,7 @@ test("new evidence reheats an existing event", () => {
   const updated = calculateSignalHeat(
     {
       score: 86,
-      feedBatchAt: publishedAt,
+      feedBatchAt: "2026-07-08T11:30:00.000Z",
       publishedAt,
       sourceCount: 2,
       evidence: [
@@ -335,7 +335,7 @@ test("a system-published update restarts the exposure decay clock", () => {
     heat: calculateSignalHeat(
       {
         score: 84,
-        feedBatchAt: "2026-07-01T08:00:00.000Z",
+        feedBatchAt: "2026-07-10T11:00:00.000Z",
         updatedAt: "2026-07-10T11:00:00.000Z",
       },
       { now, profile: "dynamic" },

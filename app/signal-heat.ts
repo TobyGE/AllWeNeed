@@ -59,8 +59,11 @@ function timestamp(value?: string | null) {
 }
 
 function lastActivityTime(signal: SignalHeatInput, now: number) {
+  const systemExposureAt = timestamp(signal.feedBatchAt);
+  if (systemExposureAt !== null && systemExposureAt <= now) {
+    return systemExposureAt;
+  }
   const candidates = [
-    signal.feedBatchAt,
     signal.updatedAt,
     signal.publishedAt,
     ...(signal.updates ?? []).map((update) => update.addedAt),

@@ -1696,3 +1696,88 @@ test("appends new evidence and progress to an existing story without rewriting i
   );
   assert.equal(merged.incremental.lastUpdatedCount, 1);
 });
+
+test("corroboration adds evidence without resetting exposure or editorial value", () => {
+  const oldArticle = article("original");
+  const originalExposure = "2026-07-28T12:00:00.000Z";
+  const radar = {
+    generatedAt: originalExposure,
+    signals: [
+      {
+        id: 7,
+        title: "既有事件",
+        article: oldArticle,
+        score: 84,
+        feedBatchAt: originalExposure,
+        updatedAt: "2026-07-28T10:00:00.000Z",
+        evidence: [],
+        references: [],
+        sources: [],
+        sourceNames: [],
+        sourceCount: 0,
+      },
+    ],
+    translations: {
+      zh: { signals: [{ title: "既有事件", article: oldArticle, evidence: [] }] },
+      en: {
+        signals: [
+          { title: "Existing event", article: oldArticle, evidence: [] },
+        ],
+      },
+    },
+  };
+  const evidence = {
+    ref: "N1",
+    sourceName: "Example Blog",
+    sourcePublisher: "Example Blog",
+    sourceKind: "Blog",
+    title: "A corroborating source",
+    summary: "Confirms an existing claim",
+    url: "https://example.com/corroboration",
+    publishedAt: "2026-07-29T20:00:00.000Z",
+  };
+  const hydratedUpdates = hydrateExistingUpdates({
+    raw: {
+      feedStories: [],
+      existingUpdates: [
+        {
+          existingSignalId: 7,
+          valueScore: 96,
+          changeType: "corroboration",
+          thesisImpact: "Confirms the existing thesis.",
+          update: {
+            title: "补充佐证",
+            summary: "新增来源确认原有事实。",
+            evidence: [
+              { ref: "N1", role: "佐证", takeaway: "确认原有事实。" },
+            ],
+          },
+          translation: {
+            title: "Additional corroboration",
+            summary: "A new source confirms the existing fact.",
+            evidence: [{ role: "Evidence", takeaway: "Confirms the fact." }],
+          },
+        },
+      ],
+      ignored: [],
+    },
+    candidates: [evidence],
+    radar,
+    generatedAt: "2026-07-29T21:00:00.000Z",
+  });
+  const merged = mergeFeedStories({
+    radar,
+    hydratedStories: [],
+    hydratedUpdates,
+    scannedSnapshot: {
+      generatedAt: "2026-07-29T21:00:00.000Z",
+      items: [evidence],
+    },
+  });
+
+  assert.equal(merged.signals[0].feedBatchAt, originalExposure);
+  assert.equal(merged.signals[0].updatedAt, "2026-07-28T10:00:00.000Z");
+  assert.equal(merged.signals[0].score, 84);
+  assert.equal(merged.signals[0].evidence[0].url, evidence.url);
+  assert.equal(merged.signals[0].updates[0].changeType, "corroboration");
+});

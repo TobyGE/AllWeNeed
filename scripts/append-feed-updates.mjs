@@ -2110,8 +2110,6 @@ export function mergeFeedStories({
   const existingEnSignals = radar.translations.en.signals.map((signal) => ({
     ...signal,
   }));
-  const updatedIds = new Set();
-
   for (const hydrated of hydratedUpdates) {
     const signalIndex = existingSignals.findIndex(
       (signal) => String(signal.id) === hydrated.existingSignalId,
@@ -2130,6 +2128,9 @@ export function mergeFeedStories({
     const newEvidence = newEvidenceIndexes.map(({ item }) => item);
     const mergedEvidence = [...previousEvidence, ...newEvidence];
     const metadata = evidenceMetadata(mergedEvidence);
+    const reheatsExposure = ["progress", "thesis_change"].includes(
+      hydrated.update.changeType,
+    );
     existingSignals[signalIndex] = {
       ...previous,
       ...metadata,
@@ -2137,9 +2138,15 @@ export function mergeFeedStories({
       references: mergedEvidence.map(
         ({ role: _role, takeaway: _takeaway, ...reference }) => reference,
       ),
-      updatedAt: hydrated.update.addedAt,
-      feedBatchAt: scannedSnapshot.generatedAt,
-      score: Math.max(Number(previous.score) || 0, hydrated.valueScore),
+      updatedAt: reheatsExposure
+        ? hydrated.update.addedAt
+        : previous.updatedAt,
+      feedBatchAt: reheatsExposure
+        ? scannedSnapshot.generatedAt
+        : previous.feedBatchAt,
+      score: reheatsExposure
+        ? Math.max(Number(previous.score) || 0, hydrated.valueScore)
+        : previous.score,
       updates: [hydrated.update, ...(previous.updates ?? [])],
     };
 
@@ -2165,22 +2172,17 @@ export function mergeFeedStories({
       ],
       updates: [hydrated.enUpdate, ...(previousEn.updates ?? [])],
     };
-    updatedIds.add(hydrated.existingSignalId);
   }
 
-  const updatedIndexes = existingSignals
+  const orderedIndexes = existingSignals
     .map((signal, index) => ({ signal, index }))
-    .filter(({ signal }) => updatedIds.has(String(signal.id)))
     .sort(
       (left, right) =>
-        Date.parse(right.signal.updatedAt ?? "") -
-        Date.parse(left.signal.updatedAt ?? ""),
+        Date.parse(right.signal.feedBatchAt ?? "") -
+          Date.parse(left.signal.feedBatchAt ?? "") ||
+        left.index - right.index,
     )
     .map(({ index }) => index);
-  const untouchedIndexes = existingSignals
-    .map((_, index) => index)
-    .filter((index) => !updatedIndexes.includes(index));
-  const orderedIndexes = [...updatedIndexes, ...untouchedIndexes];
   return {
     ...radar,
     generatedAt: addedAt,
