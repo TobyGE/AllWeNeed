@@ -1,13 +1,280 @@
 {
-  "generatedAt": "2026-08-01T09:09:41.911Z",
-  "basedOnSnapshotAt": "2026-08-01T09:06:49.698Z",
+  "generatedAt": "2026-08-01T14:09:40.705Z",
+  "basedOnSnapshotAt": "2026-08-01T14:06:24.550Z",
   "model": "gpt-5.5",
   "analyzedItemCount": 180,
-  "totalFetchedItemCount": 2268,
+  "totalFetchedItemCount": 2267,
   "editorNote": "今日信息环境由代理安全事件、编码代理工具链分化、开放模型竞争和算力下沉共同主导。",
   "signalQuality": 86,
   "signalQualityChange": 8,
   "signals": [
+    {
+      "id": 49,
+      "editorialBucket": "explore",
+      "category": "Agents",
+      "eyebrow": "趋势变化",
+      "title": "人类行为模拟开始押注数据闭环",
+      "summary": "Simile把经同意的真实参与者回应与生成式代理结合，用于CVS Health客户旅程等决策模拟。关键变量正从代理会不会生成对话，转向数据采集能否支撑可验证的行为预测。",
+      "why": "若模拟结果能稳定预测真实用户选择，调研、实验排序和产品测试可能从小样本访谈转向可迭代的代理实验层。",
+      "impact": "这或使高质量、可授权的行为数据成为代理公司的核心壁垒，但其价值仍取决于跨场景预测能否经真实结果验证。",
+      "shiftFrom": "小规模代理沙盒与学术验证",
+      "shiftTo": "接入商业行为数据的决策模拟",
+      "crossValidation": "Simile的官方案例给出商业部署规模与用途；两篇研究分别建立生成式代理机制和千人模拟基准；PNAS研究则构成直接反例，显示行为分布未必可被稳定复现。",
+      "article": {
+        "lead": "人类行为模拟的竞争重点，可能正从让代理“像人说话”转向持续取得可授权、可校验的真实行为数据。Simile与CVS Health的案例显示，这种方法已被用于客户旅程和后续试验排序；其商业意义不在替代所有调研，而在于能否把昂贵的探索性决策转化为更快、可反复检验的模拟。",
+        "sections": [
+          {
+            "heading": "商业场景开始承接代理模拟",
+            "body": "Simile称，其与CVS Health的代理项目覆盖超过40万名参与者、200多个行为场景及290万条经同意回应，并被用于模拟客户旅程、识别NPS驱动因素、分析依从性与竞争定位，以及排列后续试验的优先级。20VC最新节目将该公司的核心问题概括为独特的数据获取策略，另一档节目则直接以“模拟人类行为”描述其业务。变化在于，代理模拟开始被嵌入具体决策流程，而不只是展示性的数字角色实验。"
+          },
+          {
+            "heading": "机制是把访谈记忆接入可运行代理",
+            "body": "Joon Sung Park、Percy Liang和Michael S. Bernstein等人的早期研究提出，生成式代理通过记忆、反思和规划来维持行为连续性，并曾在25个代理组成的小镇沙盒中检验个体与群体互动。后续一项覆盖1,052名个体代理的研究，则以生活经历访谈构建代理，并报告其复现General Social Survey回答的准确度达到受访者两周后自我复答准确度的85%。这意味着数据采集不只是训练素材，也可能决定模拟对象是否保有足够的情境差异。"
+          },
+          {
+            "heading": "真正的后果是重排实验预算",
+            "body": "如果代理能先筛选客户旅程假设、定位高价值分群并排序线下试验，企业可能把更多预算留给最终验证，而不是在每个早期问题上重新启动调研。最强反例来自PNAS：其研究发现，多种先进LLM方法在11—20分钱请求博弈中几乎都无法复现人类行为分布，且结果会被措辞、角色设定和安全机制以不可预测的方式改变。因此，模拟更适合作为实验优先级工具，而非直接替代真实受访者。"
+          }
+        ],
+        "outlook": "下一步可观察的是，Simile或其客户是否公布预注册的盲测：先以代理预测真实客户的选择、留存或NPS变化，再披露与随后实际实验结果的偏差。若多个行业场景持续显示代理排序优于传统调研或随机筛选，这一判断将增强；若预测在新场景中无法迁移，数据闭环的商业价值将被削弱。"
+      },
+      "validationType": "跨平台验证",
+      "publishedAt": "2026-08-01T14:00:30.000Z",
+      "updatedAt": "2026-08-01T14:00:30.000Z",
+      "sources": [
+        "YouTube",
+        "Official",
+        "Research"
+      ],
+      "sourceNames": [
+        "The Twenty Minute VC (20VC)",
+        "Simile",
+        "ACM",
+        "arXiv",
+        "Proceedings of the National Academy of Sciences"
+      ],
+      "sourceCount": 5,
+      "age": "刚刚",
+      "score": 83,
+      "tone": "orange",
+      "evidence": [
+        {
+          "id": "16-1-https://www.youtube.com/watch?v=ya6D6-SizbI",
+          "sourceId": 16,
+          "sourceName": "The Twenty Minute VC (20VC)",
+          "sourcePublisher": "The Twenty Minute VC (20VC)",
+          "sourceKind": "YouTube",
+          "title": "The Best AI Companies Have Unique Data Acquisition Strategies | Simile Co-founder & CEO",
+          "url": "https://www.youtube.com/watch?v=ya6D6-SizbI",
+          "publishedAt": "2026-08-01T14:00:20.000Z",
+          "summary": "",
+          "fetchedAt": "2026-08-01T14:06:24.550Z",
+          "firstSeenAt": "2026-08-01T14:06:24.550Z",
+          "ref": "N2",
+          "role": "主张",
+          "takeaway": "20VC节目标题将Simile的竞争重点指向独特的数据获取策略。"
+        },
+        {
+          "id": "16-0-https://www.youtube.com/shorts/OB-lf0m8r0M",
+          "sourceId": 16,
+          "sourceName": "The Twenty Minute VC (20VC)",
+          "sourcePublisher": "The Twenty Minute VC (20VC)",
+          "sourceKind": "YouTube",
+          "title": "The Company Simulating Human Behaviour",
+          "url": "https://www.youtube.com/shorts/OB-lf0m8r0M",
+          "publishedAt": "2026-08-01T14:00:30.000Z",
+          "summary": "",
+          "fetchedAt": "2026-08-01T14:06:24.550Z",
+          "firstSeenAt": "2026-08-01T14:06:24.550Z",
+          "ref": "N4",
+          "role": "佐证",
+          "takeaway": "20VC另一档节目以“模拟人类行为”概括Simile的业务方向。"
+        },
+        {
+          "id": "research-16-1-https://www.youtube.com/watch?v=ya6D6-SizbI-1-https://simile.ai/blog/simile-cvs-health",
+          "sourceId": 16,
+          "sourceName": "Simile",
+          "sourcePublisher": "Simile",
+          "sourceKind": "Official",
+          "title": "CVS Health x Simile: Simulations for faster, safer decisions",
+          "url": "https://simile.ai/blog/simile-cvs-health",
+          "publishedAt": "2026-02-24T00:00:00.000Z",
+          "summary": "补齐当前商业化状态及数据规模：Simile称其与CVS Health的代理使用超过40万名参与者、200多个行为场景中的290万条经同意回应，并用于客户旅程、NPS驱动因素、依从性和竞争定位的模拟与后续试验优先级排序。",
+          "fetchedAt": "2026-08-01T14:06:24.550Z",
+          "researchedFrom": "N2",
+          "researchRole": "Primary",
+          "researchClaim": "Simile已将其“以真实人类为基础的生成式代理”从研究原型推进到企业级模拟：公司称其与CVS Health构建的代理基于逾40万名参与者在200多个行为场景中的290万条经同意回应，用于在真实试验前预筛选客户体验、依从性和竞争定位等决策。",
+          "researchComparisons": "此前，创始团队2023年的同行评审工作展示的是由25个代理组成的小镇式交互沙盒；随后针对1,052名真实受访者的研究报告称，代理在General Social Survey回答上的复现准确度达到受访者两周后自我复答准确度的85%。相较之下，CVS项目的数据规模显著扩大，但公开材料未提供该商业部署针对真实业务结果的同口径、外部验证准确率，因此不能将85%研究基准直接外推为CVS应用表现。",
+          "researchUnresolved": "播客中所称“独特数据获取策略”的具体采集流程、数据权利安排、样本代表性和商业部署的留出集/真实世界验证指标均未公开；CVS项目290万条回应与研究中1,052名受访者、85%基准并非同一评估设计。",
+          "ref": "R1",
+          "role": "主张",
+          "takeaway": "Simile称其与CVS Health的项目使用超过40万名参与者、200多个行为场景和290万条经同意回应，用于客户旅程、NPS、依从性、竞争定位和试验排序。"
+        },
+        {
+          "id": "research-16-1-https://www.youtube.com/watch?v=ya6D6-SizbI-2-https://doi.org/10.1145/3586183.3606763",
+          "sourceId": 16,
+          "sourceName": "ACM",
+          "sourcePublisher": "ACM",
+          "sourceKind": "Research",
+          "title": "Generative Agents: Interactive Simulacra of Human Behavior",
+          "url": "https://doi.org/10.1145/3586183.3606763",
+          "publishedAt": "2023-10-29T00:00:00.000Z",
+          "summary": "补齐此前技术状态：Simile创始人Joon Sung Park、Percy Liang和Michael S. Bernstein等作者的UIST 2023论文展示了带记忆、反思和规划机制的生成式代理，并在一个由25个代理构成的小镇沙盒中评估可置信的个体和群体行为。",
+          "fetchedAt": "2026-08-01T14:06:24.550Z",
+          "researchedFrom": "N2",
+          "researchRole": "Comparison",
+          "researchClaim": "Simile已将其“以真实人类为基础的生成式代理”从研究原型推进到企业级模拟：公司称其与CVS Health构建的代理基于逾40万名参与者在200多个行为场景中的290万条经同意回应，用于在真实试验前预筛选客户体验、依从性和竞争定位等决策。",
+          "researchComparisons": "此前，创始团队2023年的同行评审工作展示的是由25个代理组成的小镇式交互沙盒；随后针对1,052名真实受访者的研究报告称，代理在General Social Survey回答上的复现准确度达到受访者两周后自我复答准确度的85%。相较之下，CVS项目的数据规模显著扩大，但公开材料未提供该商业部署针对真实业务结果的同口径、外部验证准确率，因此不能将85%研究基准直接外推为CVS应用表现。",
+          "researchUnresolved": "播客中所称“独特数据获取策略”的具体采集流程、数据权利安排、样本代表性和商业部署的留出集/真实世界验证指标均未公开；CVS项目290万条回应与研究中1,052名受访者、85%基准并非同一评估设计。",
+          "ref": "R2",
+          "role": "背景",
+          "takeaway": "UIST 2023论文提出以记忆、反思和规划机制构建生成式代理，并在25个代理小镇沙盒中评估个体和群体行为。"
+        },
+        {
+          "id": "research-16-1-https://www.youtube.com/watch?v=ya6D6-SizbI-3-https://arxiv.org/abs/2411.10109",
+          "sourceId": 16,
+          "sourceName": "arXiv",
+          "sourcePublisher": "arXiv",
+          "sourceKind": "Research",
+          "title": "Generative Agent Simulations of 1,000 People",
+          "url": "https://arxiv.org/abs/2411.10109",
+          "publishedAt": "2024-11-15T00:00:00.000Z",
+          "summary": "提供可量化研究基准：论文以对生活经历的定性访谈构建1,052名个体代理；其报告代理复现General Social Survey回答的准确度为受访者两周后自我复答准确度的85%，并在个性特征及实验复现结果预测上表现相当。",
+          "fetchedAt": "2026-08-01T14:06:24.550Z",
+          "researchedFrom": "N2",
+          "researchRole": "Comparison",
+          "researchClaim": "Simile已将其“以真实人类为基础的生成式代理”从研究原型推进到企业级模拟：公司称其与CVS Health构建的代理基于逾40万名参与者在200多个行为场景中的290万条经同意回应，用于在真实试验前预筛选客户体验、依从性和竞争定位等决策。",
+          "researchComparisons": "此前，创始团队2023年的同行评审工作展示的是由25个代理组成的小镇式交互沙盒；随后针对1,052名真实受访者的研究报告称，代理在General Social Survey回答上的复现准确度达到受访者两周后自我复答准确度的85%。相较之下，CVS项目的数据规模显著扩大，但公开材料未提供该商业部署针对真实业务结果的同口径、外部验证准确率，因此不能将85%研究基准直接外推为CVS应用表现。",
+          "researchUnresolved": "播客中所称“独特数据获取策略”的具体采集流程、数据权利安排、样本代表性和商业部署的留出集/真实世界验证指标均未公开；CVS项目290万条回应与研究中1,052名受访者、85%基准并非同一评估设计。",
+          "ref": "R3",
+          "role": "佐证",
+          "takeaway": "一项研究以访谈构建1,052名个体代理，并报告其复现General Social Survey回答的准确度为受访者两周后自我复答准确度的85%。"
+        },
+        {
+          "id": "research-16-1-https://www.youtube.com/watch?v=ya6D6-SizbI-4-https://www.pnas.org/doi/10.1073/pnas.2501660122",
+          "sourceId": 16,
+          "sourceName": "Proceedings of the National Academy of Sciences",
+          "sourcePublisher": "Proceedings of the National Academy of Sciences",
+          "sourceKind": "Research",
+          "title": "Take caution in using LLMs as human surrogates",
+          "url": "https://www.pnas.org/doi/10.1073/pnas.2501660122",
+          "publishedAt": "2025-06-13T00:00:00.000Z",
+          "summary": "提供最强反例：该研究发现，多种先进LLM方法在11—20分钱请求博弈中几乎都无法复现人类行为分布，且结果会受输入措辞、角色设定和安全机制等因素以不可预测方式影响，支持对将LLM直接作为人类替身的主张保持谨慎。",
+          "fetchedAt": "2026-08-01T14:06:24.550Z",
+          "researchedFrom": "N2",
+          "researchRole": "Counterevidence",
+          "researchClaim": "Simile已将其“以真实人类为基础的生成式代理”从研究原型推进到企业级模拟：公司称其与CVS Health构建的代理基于逾40万名参与者在200多个行为场景中的290万条经同意回应，用于在真实试验前预筛选客户体验、依从性和竞争定位等决策。",
+          "researchComparisons": "此前，创始团队2023年的同行评审工作展示的是由25个代理组成的小镇式交互沙盒；随后针对1,052名真实受访者的研究报告称，代理在General Social Survey回答上的复现准确度达到受访者两周后自我复答准确度的85%。相较之下，CVS项目的数据规模显著扩大，但公开材料未提供该商业部署针对真实业务结果的同口径、外部验证准确率，因此不能将85%研究基准直接外推为CVS应用表现。",
+          "researchUnresolved": "播客中所称“独特数据获取策略”的具体采集流程、数据权利安排、样本代表性和商业部署的留出集/真实世界验证指标均未公开；CVS项目290万条回应与研究中1,052名受访者、85%基准并非同一评估设计。",
+          "ref": "R4",
+          "role": "反例",
+          "takeaway": "PNAS研究发现，多种先进LLM方法在11—20分钱请求博弈中几乎无法复现人类行为分布，且对措辞、角色和安全机制敏感。"
+        }
+      ],
+      "references": [
+        {
+          "id": "16-1-https://www.youtube.com/watch?v=ya6D6-SizbI",
+          "sourceId": 16,
+          "sourceName": "The Twenty Minute VC (20VC)",
+          "sourcePublisher": "The Twenty Minute VC (20VC)",
+          "sourceKind": "YouTube",
+          "title": "The Best AI Companies Have Unique Data Acquisition Strategies | Simile Co-founder & CEO",
+          "url": "https://www.youtube.com/watch?v=ya6D6-SizbI",
+          "publishedAt": "2026-08-01T14:00:20.000Z",
+          "summary": "",
+          "fetchedAt": "2026-08-01T14:06:24.550Z",
+          "firstSeenAt": "2026-08-01T14:06:24.550Z",
+          "ref": "N2"
+        },
+        {
+          "id": "16-0-https://www.youtube.com/shorts/OB-lf0m8r0M",
+          "sourceId": 16,
+          "sourceName": "The Twenty Minute VC (20VC)",
+          "sourcePublisher": "The Twenty Minute VC (20VC)",
+          "sourceKind": "YouTube",
+          "title": "The Company Simulating Human Behaviour",
+          "url": "https://www.youtube.com/shorts/OB-lf0m8r0M",
+          "publishedAt": "2026-08-01T14:00:30.000Z",
+          "summary": "",
+          "fetchedAt": "2026-08-01T14:06:24.550Z",
+          "firstSeenAt": "2026-08-01T14:06:24.550Z",
+          "ref": "N4"
+        },
+        {
+          "id": "research-16-1-https://www.youtube.com/watch?v=ya6D6-SizbI-1-https://simile.ai/blog/simile-cvs-health",
+          "sourceId": 16,
+          "sourceName": "Simile",
+          "sourcePublisher": "Simile",
+          "sourceKind": "Official",
+          "title": "CVS Health x Simile: Simulations for faster, safer decisions",
+          "url": "https://simile.ai/blog/simile-cvs-health",
+          "publishedAt": "2026-02-24T00:00:00.000Z",
+          "summary": "补齐当前商业化状态及数据规模：Simile称其与CVS Health的代理使用超过40万名参与者、200多个行为场景中的290万条经同意回应，并用于客户旅程、NPS驱动因素、依从性和竞争定位的模拟与后续试验优先级排序。",
+          "fetchedAt": "2026-08-01T14:06:24.550Z",
+          "researchedFrom": "N2",
+          "researchRole": "Primary",
+          "researchClaim": "Simile已将其“以真实人类为基础的生成式代理”从研究原型推进到企业级模拟：公司称其与CVS Health构建的代理基于逾40万名参与者在200多个行为场景中的290万条经同意回应，用于在真实试验前预筛选客户体验、依从性和竞争定位等决策。",
+          "researchComparisons": "此前，创始团队2023年的同行评审工作展示的是由25个代理组成的小镇式交互沙盒；随后针对1,052名真实受访者的研究报告称，代理在General Social Survey回答上的复现准确度达到受访者两周后自我复答准确度的85%。相较之下，CVS项目的数据规模显著扩大，但公开材料未提供该商业部署针对真实业务结果的同口径、外部验证准确率，因此不能将85%研究基准直接外推为CVS应用表现。",
+          "researchUnresolved": "播客中所称“独特数据获取策略”的具体采集流程、数据权利安排、样本代表性和商业部署的留出集/真实世界验证指标均未公开；CVS项目290万条回应与研究中1,052名受访者、85%基准并非同一评估设计。",
+          "ref": "R1"
+        },
+        {
+          "id": "research-16-1-https://www.youtube.com/watch?v=ya6D6-SizbI-2-https://doi.org/10.1145/3586183.3606763",
+          "sourceId": 16,
+          "sourceName": "ACM",
+          "sourcePublisher": "ACM",
+          "sourceKind": "Research",
+          "title": "Generative Agents: Interactive Simulacra of Human Behavior",
+          "url": "https://doi.org/10.1145/3586183.3606763",
+          "publishedAt": "2023-10-29T00:00:00.000Z",
+          "summary": "补齐此前技术状态：Simile创始人Joon Sung Park、Percy Liang和Michael S. Bernstein等作者的UIST 2023论文展示了带记忆、反思和规划机制的生成式代理，并在一个由25个代理构成的小镇沙盒中评估可置信的个体和群体行为。",
+          "fetchedAt": "2026-08-01T14:06:24.550Z",
+          "researchedFrom": "N2",
+          "researchRole": "Comparison",
+          "researchClaim": "Simile已将其“以真实人类为基础的生成式代理”从研究原型推进到企业级模拟：公司称其与CVS Health构建的代理基于逾40万名参与者在200多个行为场景中的290万条经同意回应，用于在真实试验前预筛选客户体验、依从性和竞争定位等决策。",
+          "researchComparisons": "此前，创始团队2023年的同行评审工作展示的是由25个代理组成的小镇式交互沙盒；随后针对1,052名真实受访者的研究报告称，代理在General Social Survey回答上的复现准确度达到受访者两周后自我复答准确度的85%。相较之下，CVS项目的数据规模显著扩大，但公开材料未提供该商业部署针对真实业务结果的同口径、外部验证准确率，因此不能将85%研究基准直接外推为CVS应用表现。",
+          "researchUnresolved": "播客中所称“独特数据获取策略”的具体采集流程、数据权利安排、样本代表性和商业部署的留出集/真实世界验证指标均未公开；CVS项目290万条回应与研究中1,052名受访者、85%基准并非同一评估设计。",
+          "ref": "R2"
+        },
+        {
+          "id": "research-16-1-https://www.youtube.com/watch?v=ya6D6-SizbI-3-https://arxiv.org/abs/2411.10109",
+          "sourceId": 16,
+          "sourceName": "arXiv",
+          "sourcePublisher": "arXiv",
+          "sourceKind": "Research",
+          "title": "Generative Agent Simulations of 1,000 People",
+          "url": "https://arxiv.org/abs/2411.10109",
+          "publishedAt": "2024-11-15T00:00:00.000Z",
+          "summary": "提供可量化研究基准：论文以对生活经历的定性访谈构建1,052名个体代理；其报告代理复现General Social Survey回答的准确度为受访者两周后自我复答准确度的85%，并在个性特征及实验复现结果预测上表现相当。",
+          "fetchedAt": "2026-08-01T14:06:24.550Z",
+          "researchedFrom": "N2",
+          "researchRole": "Comparison",
+          "researchClaim": "Simile已将其“以真实人类为基础的生成式代理”从研究原型推进到企业级模拟：公司称其与CVS Health构建的代理基于逾40万名参与者在200多个行为场景中的290万条经同意回应，用于在真实试验前预筛选客户体验、依从性和竞争定位等决策。",
+          "researchComparisons": "此前，创始团队2023年的同行评审工作展示的是由25个代理组成的小镇式交互沙盒；随后针对1,052名真实受访者的研究报告称，代理在General Social Survey回答上的复现准确度达到受访者两周后自我复答准确度的85%。相较之下，CVS项目的数据规模显著扩大，但公开材料未提供该商业部署针对真实业务结果的同口径、外部验证准确率，因此不能将85%研究基准直接外推为CVS应用表现。",
+          "researchUnresolved": "播客中所称“独特数据获取策略”的具体采集流程、数据权利安排、样本代表性和商业部署的留出集/真实世界验证指标均未公开；CVS项目290万条回应与研究中1,052名受访者、85%基准并非同一评估设计。",
+          "ref": "R3"
+        },
+        {
+          "id": "research-16-1-https://www.youtube.com/watch?v=ya6D6-SizbI-4-https://www.pnas.org/doi/10.1073/pnas.2501660122",
+          "sourceId": 16,
+          "sourceName": "Proceedings of the National Academy of Sciences",
+          "sourcePublisher": "Proceedings of the National Academy of Sciences",
+          "sourceKind": "Research",
+          "title": "Take caution in using LLMs as human surrogates",
+          "url": "https://www.pnas.org/doi/10.1073/pnas.2501660122",
+          "publishedAt": "2025-06-13T00:00:00.000Z",
+          "summary": "提供最强反例：该研究发现，多种先进LLM方法在11—20分钱请求博弈中几乎都无法复现人类行为分布，且结果会受输入措辞、角色设定和安全机制等因素以不可预测方式影响，支持对将LLM直接作为人类替身的主张保持谨慎。",
+          "fetchedAt": "2026-08-01T14:06:24.550Z",
+          "researchedFrom": "N2",
+          "researchRole": "Counterevidence",
+          "researchClaim": "Simile已将其“以真实人类为基础的生成式代理”从研究原型推进到企业级模拟：公司称其与CVS Health构建的代理基于逾40万名参与者在200多个行为场景中的290万条经同意回应，用于在真实试验前预筛选客户体验、依从性和竞争定位等决策。",
+          "researchComparisons": "此前，创始团队2023年的同行评审工作展示的是由25个代理组成的小镇式交互沙盒；随后针对1,052名真实受访者的研究报告称，代理在General Social Survey回答上的复现准确度达到受访者两周后自我复答准确度的85%。相较之下，CVS项目的数据规模显著扩大，但公开材料未提供该商业部署针对真实业务结果的同口径、外部验证准确率，因此不能将85%研究基准直接外推为CVS应用表现。",
+          "researchUnresolved": "播客中所称“独特数据获取策略”的具体采集流程、数据权利安排、样本代表性和商业部署的留出集/真实世界验证指标均未公开；CVS项目290万条回应与研究中1,052名受访者、85%基准并非同一评估设计。",
+          "ref": "R4"
+        }
+      ],
+      "feedBatchAt": "2026-08-01T14:06:24.550Z"
+    },
     {
       "id": 48,
       "editorialBucket": "explore",
@@ -12953,6 +13220,61 @@
       "editorNote": "今日信息环境由智能体安全事件、AI coding 工具链分化、open-weight 模型竞争与算力下沉共同主导。",
       "signals": [
         {
+          "category": "Agents",
+          "eyebrow": "趋势变化",
+          "title": "人类行为模拟开始押注数据闭环",
+          "summary": "Simile把经同意的真实参与者回应与生成式代理结合，用于CVS Health客户旅程等决策模拟。关键变量正从代理会不会生成对话，转向数据采集能否支撑可验证的行为预测。",
+          "why": "若模拟结果能稳定预测真实用户选择，调研、实验排序和产品测试可能从小样本访谈转向可迭代的代理实验层。",
+          "impact": "这或使高质量、可授权的行为数据成为代理公司的核心壁垒，但其价值仍取决于跨场景预测能否经真实结果验证。",
+          "shiftFrom": "小规模代理沙盒与学术验证",
+          "shiftTo": "接入商业行为数据的决策模拟",
+          "crossValidation": "Simile的官方案例给出商业部署规模与用途；两篇研究分别建立生成式代理机制和千人模拟基准；PNAS研究则构成直接反例，显示行为分布未必可被稳定复现。",
+          "article": {
+            "lead": "人类行为模拟的竞争重点，可能正从让代理“像人说话”转向持续取得可授权、可校验的真实行为数据。Simile与CVS Health的案例显示，这种方法已被用于客户旅程和后续试验排序；其商业意义不在替代所有调研，而在于能否把昂贵的探索性决策转化为更快、可反复检验的模拟。",
+            "sections": [
+              {
+                "heading": "商业场景开始承接代理模拟",
+                "body": "Simile称，其与CVS Health的代理项目覆盖超过40万名参与者、200多个行为场景及290万条经同意回应，并被用于模拟客户旅程、识别NPS驱动因素、分析依从性与竞争定位，以及排列后续试验的优先级。20VC最新节目将该公司的核心问题概括为独特的数据获取策略，另一档节目则直接以“模拟人类行为”描述其业务。变化在于，代理模拟开始被嵌入具体决策流程，而不只是展示性的数字角色实验。"
+              },
+              {
+                "heading": "机制是把访谈记忆接入可运行代理",
+                "body": "Joon Sung Park、Percy Liang和Michael S. Bernstein等人的早期研究提出，生成式代理通过记忆、反思和规划来维持行为连续性，并曾在25个代理组成的小镇沙盒中检验个体与群体互动。后续一项覆盖1,052名个体代理的研究，则以生活经历访谈构建代理，并报告其复现General Social Survey回答的准确度达到受访者两周后自我复答准确度的85%。这意味着数据采集不只是训练素材，也可能决定模拟对象是否保有足够的情境差异。"
+              },
+              {
+                "heading": "真正的后果是重排实验预算",
+                "body": "如果代理能先筛选客户旅程假设、定位高价值分群并排序线下试验，企业可能把更多预算留给最终验证，而不是在每个早期问题上重新启动调研。最强反例来自PNAS：其研究发现，多种先进LLM方法在11—20分钱请求博弈中几乎都无法复现人类行为分布，且结果会被措辞、角色设定和安全机制以不可预测的方式改变。因此，模拟更适合作为实验优先级工具，而非直接替代真实受访者。"
+              }
+            ],
+            "outlook": "下一步可观察的是，Simile或其客户是否公布预注册的盲测：先以代理预测真实客户的选择、留存或NPS变化，再披露与随后实际实验结果的偏差。若多个行业场景持续显示代理排序优于传统调研或随机筛选，这一判断将增强；若预测在新场景中无法迁移，数据闭环的商业价值将被削弱。"
+          },
+          "evidence": [
+            {
+              "role": "主张",
+              "takeaway": "20VC节目标题将Simile的竞争重点指向独特的数据获取策略。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "20VC另一档节目以“模拟人类行为”概括Simile的业务方向。"
+            },
+            {
+              "role": "主张",
+              "takeaway": "Simile称其与CVS Health的项目使用超过40万名参与者、200多个行为场景和290万条经同意回应，用于客户旅程、NPS、依从性、竞争定位和试验排序。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "UIST 2023论文提出以记忆、反思和规划机制构建生成式代理，并在25个代理小镇沙盒中评估个体和群体行为。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "一项研究以访谈构建1,052名个体代理，并报告其复现General Social Survey回答的准确度为受访者两周后自我复答准确度的85%。"
+            },
+            {
+              "role": "反例",
+              "takeaway": "PNAS研究发现，多种先进LLM方法在11—20分钱请求博弈中几乎无法复现人类行为分布，且对措辞、角色和安全机制敏感。"
+            }
+          ]
+        },
+        {
           "category": "AI & 模型",
           "eyebrow": "趋势变化",
           "title": "OpenAI把数学突破推向可复核证据",
@@ -17847,6 +18169,61 @@
     "en": {
       "editorNote": "Today’s information environment is being shaped by agent security incidents, a split in coding-agent toolchains, open-model competition, and compute moving closer to the edge.",
       "signals": [
+        {
+          "category": "Agents",
+          "eyebrow": "Trend Shift",
+          "title": "Human Simulation Bets on Data Loops",
+          "summary": "Simile combines consented participant responses with generative agents for decision simulations at CVS Health. The key variable is shifting from whether agents can converse like people to whether data acquisition can support verifiable behavioral predictions.",
+          "why": "If simulations can reliably predict real choices, research, experiment prioritization, and product testing could gain an iterative agent layer.",
+          "impact": "Consented behavioral data may become a core moat for agent companies, though its value depends on validation across settings.",
+          "shiftFrom": "Small agent sandboxes and academic tests",
+          "shiftTo": "Decision simulations with commercial behavioral data",
+          "crossValidation": "Simile's official case study provides deployment scale and use cases; research establishes the agent mechanism and a 1,052-person benchmark; the PNAS study provides a direct counterexample on behavioral replication.",
+          "article": {
+            "lead": "The competition in human-behavior simulation may be moving from making agents sound human to acquiring consented, testable behavioral data continuously. Simile's CVS Health case suggests the approach is entering customer-journey and experiment-prioritization workflows. Its commercial importance lies not in replacing all research, but in whether exploratory decisions can be simulated faster and then repeatedly checked.",
+            "sections": [
+              {
+                "heading": "Commercial workflows are starting to absorb simulation",
+                "body": "Simile says its work with CVS Health covers more than 400,000 participants, more than 200 behavioral scenarios, and 2.9 million consented responses. The system is used for customer journeys, NPS drivers, adherence, competitive positioning, and prioritizing follow-up tests. A new 20VC episode frames the company's edge as a distinctive data-acquisition strategy, while another describes its mission as simulating human behavior. The relevant change is that agent simulation is being placed inside decision workflows rather than remaining a demonstration of digital personas."
+              },
+              {
+                "heading": "The mechanism connects interview memory to runnable agents",
+                "body": "Earlier work by Joon Sung Park, Percy Liang, Michael S. Bernstein, and colleagues described generative agents using memory, reflection, and planning to maintain behavioral continuity, testing them in a town sandbox of 25 agents. A later study built 1,052 individual agents from qualitative interviews and reported that their accuracy in reproducing General Social Survey answers reached 85% of respondents' own two-week retest accuracy. In this framing, data acquisition is not merely training input: it may determine whether simulations retain enough contextual variation to be useful."
+              },
+              {
+                "heading": "The consequence is a reordering of experiment budgets",
+                "body": "If agents can screen customer-journey hypotheses, identify high-value segments, and rank offline tests, companies could reserve more budget for final validation instead of restarting research for every early question. The strongest countercase comes from PNAS: advanced LLM approaches largely failed to reproduce human behavioral distributions in 11- to 20-cent request games, with results changing unpredictably with wording, roles, and safety settings. Simulation is therefore better treated as a tool for prioritizing experiments than as a replacement for real participants."
+              }
+            ],
+            "outlook": "The next observable evidence would be preregistered blind tests from Simile or its customers: agents predict real customer choices, retention, or NPS changes before subsequent experiments reveal actual outcomes. Repeated outperformance in ranking tests across industries would strengthen this claim; failure to transfer to new settings would weaken the commercial value of the data loop."
+          },
+          "evidence": [
+            {
+              "role": "Claim",
+              "takeaway": "The 20VC episode frames Simile's competitive focus as a unique data-acquisition strategy."
+            },
+            {
+              "role": "Support",
+              "takeaway": "A second 20VC episode describes Simile as a company simulating human behavior."
+            },
+            {
+              "role": "Claim",
+              "takeaway": "Simile says its CVS Health work uses more than 400,000 participants, more than 200 behavioral scenarios, and 2.9 million consented responses for decision simula"
+            },
+            {
+              "role": "Context",
+              "takeaway": "The UIST 2023 paper introduced generative agents with memory, reflection, and planning, evaluated in a 25-agent town sandbox."
+            },
+            {
+              "role": "Support",
+              "takeaway": "A study built 1,052 agents from interviews and reported 85% of respondents' two-week retest accuracy on General Social Survey answers."
+            },
+            {
+              "role": "Counterpoint",
+              "takeaway": "The PNAS study found that advanced LLM approaches largely failed to reproduce human behavioral distributions in low-stakes request games and were sensitive to p"
+            }
+          ]
+        },
         {
           "category": "AI & Models",
           "eyebrow": "Trend shift",
@@ -22743,11 +23120,11 @@
     "en": "gpt-5.6-sol"
   },
   "incremental": {
-    "lastAddedAt": "2026-08-01T09:09:41.911Z",
-    "lastScanAt": "2026-08-01T09:06:49.698Z",
+    "lastAddedAt": "2026-08-01T14:09:40.705Z",
+    "lastScanAt": "2026-08-01T14:06:24.550Z",
     "lastAddedCount": 1,
-    "lastUpdatedCount": 1,
-    "totalAppended": 40,
+    "lastUpdatedCount": 0,
+    "totalAppended": 41,
     "totalUpdated": 23
   },
   "exploreDepth": {
