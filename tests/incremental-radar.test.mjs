@@ -1003,6 +1003,77 @@ test("normalizes combined model refs without weakening strict coverage", () => {
   });
 });
 
+test("normalizes colon-separated refs from fallback models", () => {
+  const candidates = [
+    { ref: "N1", url: "https://example.com/source" },
+    {
+      ref: "R1",
+      url: "https://example.com/research",
+      researchedFrom: "N1",
+    },
+  ];
+  const normalized = normalizeFeedCoverageRefs(
+    {
+      feedStories: [],
+      existingUpdates: [
+        {
+          update: {
+            evidence: [{ ref: "N1:R1", takeaway: "同一证据链。" }],
+          },
+        },
+      ],
+      ignored: [],
+    },
+    candidates,
+  );
+
+  assert.deepEqual(
+    normalized.existingUpdates[0].update.evidence.map((item) => item.ref),
+    ["N1", "R1"],
+  );
+  assert.deepEqual(validateFeedCoverage(normalized, candidates), {
+    storyItemCount: 0,
+    updateItemCount: 2,
+    ignoredItemCount: 0,
+  });
+});
+
+test("repairs a research ref by carrying its parent into the same evidence set", () => {
+  const candidates = [
+    { ref: "N8", url: "https://example.com/source" },
+    {
+      ref: "R1",
+      url: "https://example.com/research",
+      researchedFrom: "N8",
+    },
+  ];
+  const normalized = normalizeFeedCoverageRefs(
+    {
+      feedStories: [],
+      existingUpdates: [
+        {
+          update: {
+            evidence: [{ ref: "R1", takeaway: "Grounded update." }],
+          },
+        },
+      ],
+      ignored: [{ ref: "N8", reason: "归档：模型误分配" }],
+    },
+    candidates,
+  );
+
+  assert.deepEqual(
+    normalized.existingUpdates[0].update.evidence.map((item) => item.ref),
+    ["R1", "N8"],
+  );
+  assert.deepEqual(normalized.ignored, []);
+  assert.deepEqual(validateFeedCoverage(normalized, candidates), {
+    storyItemCount: 0,
+    updateItemCount: 2,
+    ignoredItemCount: 0,
+  });
+});
+
 test("rejects combined refs from unrelated research lineages", () => {
   const candidates = [
     { ref: "N5", url: "https://example.com/source" },

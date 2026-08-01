@@ -1273,7 +1273,7 @@ function splitKnownFeedRefs(value, allowedRefs, itemMap) {
     matches.some((ref) => !allowedRefs.has(ref)) ||
     normalized
       .replace(/\b(?:N|G|R)\d+\b/gu, "")
-      .replace(/[\/,，、+&\s]+/gu, "")
+      .replace(/[:：\/,，、+&\s]+/gu, "")
   ) {
     return [normalized];
   }
@@ -1306,6 +1306,20 @@ export function normalizeFeedCoverageRefs(raw, candidates) {
       }
       return refs.map((ref) => ({ ...entry, ref }));
     });
+  const includeResearchParents = (evidence = []) => {
+    const expanded = expandEvidence(evidence);
+    const refs = new Set(expanded.map((entry) => entry?.ref).filter(Boolean));
+    const repaired = [...expanded];
+    for (const entry of expanded) {
+      const parentRef = itemMap.get(entry?.ref)?.researchedFrom;
+      if (!parentRef || !allowedRefs.has(parentRef) || refs.has(parentRef)) {
+        continue;
+      }
+      repaired.push({ ...entry, ref: parentRef });
+      refs.add(parentRef);
+    }
+    return repaired;
+  };
   const expandIgnored = (ignored = []) =>
     ignored.flatMap((entry) => {
       const refs = splitKnownFeedRefs(entry?.ref, allowedRefs, itemMap);
@@ -1315,23 +1329,36 @@ export function normalizeFeedCoverageRefs(raw, candidates) {
       return refs.map((ref) => ({ ...entry, ref }));
     });
 
+  const feedStories = (raw?.feedStories ?? []).map((story) => ({
+    ...story,
+    signal: {
+      ...story?.signal,
+      evidence: includeResearchParents(story?.signal?.evidence),
+    },
+  }));
+  const existingUpdates = (raw?.existingUpdates ?? []).map((update) => ({
+    ...update,
+    update: {
+      ...update?.update,
+      evidence: includeResearchParents(update?.update?.evidence),
+    },
+  }));
+  const publishedRefs = new Set(
+    [
+      ...feedStories.flatMap((story) => story?.signal?.evidence ?? []),
+      ...existingUpdates.flatMap((update) => update?.update?.evidence ?? []),
+    ]
+      .map((entry) => entry?.ref)
+      .filter(Boolean),
+  );
+
   return {
     ...raw,
-    feedStories: (raw?.feedStories ?? []).map((story) => ({
-      ...story,
-      signal: {
-        ...story?.signal,
-        evidence: expandEvidence(story?.signal?.evidence),
-      },
-    })),
-    existingUpdates: (raw?.existingUpdates ?? []).map((update) => ({
-      ...update,
-      update: {
-        ...update?.update,
-        evidence: expandEvidence(update?.update?.evidence),
-      },
-    })),
-    ignored: expandIgnored(raw?.ignored),
+    feedStories,
+    existingUpdates,
+    ignored: expandIgnored(raw?.ignored).filter(
+      (entry) => !publishedRefs.has(entry?.ref),
+    ),
   };
 }
 
