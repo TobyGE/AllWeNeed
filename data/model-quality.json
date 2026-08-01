@@ -1,4 +1,118 @@
 {
   "schemaVersion": 1,
-  "records": []
+  "updatedAt": "2026-08-01T16:21:22.762Z",
+  "records": [
+    {
+      "attempted": true,
+      "completedAt": "2026-08-01T16:21:22.762Z",
+      "primaryModel": "gpt-5.6-terra",
+      "shadowModel": "gpt-5.6-sol",
+      "primaryLatencyMs": 65764,
+      "primaryUsage": {
+        "input_tokens": 8789,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 3595,
+        "output_tokens_details": {
+          "reasoning_tokens": 516
+        },
+        "total_tokens": 12384
+      },
+      "completed": true,
+      "shadowLatencyMs": 151388,
+      "shadowUsage": {
+        "input_tokens": 10523,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 8347,
+        "output_tokens_details": {
+          "reasoning_tokens": 5178
+        },
+        "total_tokens": 18870
+      },
+      "comparison": {
+        "candidateCount": 12,
+        "agreedCount": 11,
+        "agreementRate": 0.9166666666666666,
+        "details": [
+          {
+            "ref": "N1",
+            "primaryDisposition": "story:dynamic",
+            "shadowDisposition": "story:dynamic",
+            "agreed": true
+          },
+          {
+            "ref": "N2",
+            "primaryDisposition": "ignored",
+            "shadowDisposition": "ignored",
+            "agreed": true
+          },
+          {
+            "ref": "N3",
+            "primaryDisposition": "ignored",
+            "shadowDisposition": "ignored",
+            "agreed": true
+          },
+          {
+            "ref": "N4",
+            "primaryDisposition": "ignored",
+            "shadowDisposition": "story:dynamic",
+            "agreed": false
+          },
+          {
+            "ref": "N5",
+            "primaryDisposition": "ignored",
+            "shadowDisposition": "ignored",
+            "agreed": true
+          },
+          {
+            "ref": "N6",
+            "primaryDisposition": "ignored",
+            "shadowDisposition": "ignored",
+            "agreed": true
+          },
+          {
+            "ref": "N7",
+            "primaryDisposition": "update:34",
+            "shadowDisposition": "update:34",
+            "agreed": true
+          },
+          {
+            "ref": "N8",
+            "primaryDisposition": "ignored",
+            "shadowDisposition": "ignored",
+            "agreed": true
+          },
+          {
+            "ref": "R1",
+            "primaryDisposition": "update:34",
+            "shadowDisposition": "update:34",
+            "agreed": true
+          },
+          {
+            "ref": "R2",
+            "primaryDisposition": "update:34",
+            "shadowDisposition": "update:34",
+            "agreed": true
+          },
+          {
+            "ref": "R3",
+            "primaryDisposition": "update:34",
+            "shadowDisposition": "update:34",
+            "agreed": true
+          },
+          {
+            "ref": "R4",
+            "primaryDisposition": "update:34",
+            "shadowDisposition": "update:34",
+            "agreed": true
+          }
+        ]
+      }
+    }
+  ]
 }

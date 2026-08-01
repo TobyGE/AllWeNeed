@@ -1,13 +1,561 @@
 {
-  "generatedAt": "2026-08-01T14:09:40.705Z",
-  "basedOnSnapshotAt": "2026-08-01T14:06:24.550Z",
+  "generatedAt": "2026-08-01T16:26:26.176Z",
+  "basedOnSnapshotAt": "2026-08-01T16:21:22.762Z",
   "model": "gpt-5.5",
   "analyzedItemCount": 180,
-  "totalFetchedItemCount": 2267,
+  "totalFetchedItemCount": 2289,
   "editorNote": "今日信息环境由代理安全事件、编码代理工具链分化、开放模型竞争和算力下沉共同主导。",
   "signalQuality": 86,
   "signalQualityChange": 8,
   "signals": [
+    {
+      "id": 50,
+      "editorialBucket": "dynamic",
+      "category": "开发者工具",
+      "eyebrow": "产品信号",
+      "title": "GitHub Copilot下线两款Gemini模型",
+      "summary": "GitHub已在所有Copilot体验中弃用Gemini 2.5 Pro和Gemini 3 Flash，聊天、代码补全、内联编辑及Agent模式的可选模型范围同步收窄。",
+      "why": "模型下线会直接改变企业与开发者在Copilot内可调用的能力组合，并将模型选择权进一步集中到平台运营方。",
+      "impact": "若替代模型的能力、成本或安全边界不同，企业既有提示词、评估和模型治理规则可能需要重新校准。",
+      "shiftFrom": "两款Gemini模型可供Copilot调用",
+      "shiftTo": "全Copilot体验停止提供两款模型",
+      "crossValidation": "单一来源：GitHub官方更新明确了生效日期、被弃用模型及受影响的Copilot功能范围；候选材料未说明替代模型或迁移安排。",
+      "article": {
+        "lead": "GitHub宣布自7月31日起，在GitHub Copilot的聊天、代码补全、内联编辑、问答和Agent模式中弃用Gemini 2.5 Pro与Gemini 3 Flash。这不是单一界面的模型调整，而是覆盖Copilot主要交互面的可用性变化：依赖这两款模型的开发者和企业团队将无法再在原有工作流中继续选择它们。",
+        "sections": [
+          {
+            "heading": "模型可用范围已同步收窄",
+            "body": "GitHub的更新将弃用范围明确覆盖所有GitHub Copilot体验，包括Copilot Chat、inline edits、ask and agent modes以及code completions。由此发生改变的不是某个测试入口，而是开发者在日常编码、问答和代理式任务中可选的模型集合。对于已把特定模型纳入团队默认配置、质量评估或内部使用规范的组织，这一变动构成了明确的平台状态变化。"
+          },
+          {
+            "heading": "平台分发决定模型的实际触达",
+            "body": "基础模型能力并不会自动转化为开发者可获得的能力；在Copilot这类集成式产品中，平台是否继续托管、路由和开放某一模型，决定了它能否进入真实工作流。此次下线说明，模型竞争不只发生在发布参数、基准或API定价上，也发生在开发工具内的分发名单上。企业管理员即使保留既有使用偏好，也需要依赖平台提供的替代选项来维持团队协作的一致性。"
+          },
+          {
+            "heading": "迁移成本取决于替代选项",
+            "body": "短期影响将取决于GitHub后续提供何种替代模型，以及这些模型在代码生成、上下文理解、速度和治理控制上是否接近原有选择。最强的反面情况是，若多数用户本就未将两款模型设为默认，且替代模型在任务质量和价格上近似，这次调整的实际摩擦可能有限。但对于刻意按模型分配任务的团队，模型下线仍可能触发提示词、评测集和权限策略的重新验证。"
+          }
+        ],
+        "outlook": "下一步应观察GitHub是否公布替代模型、迁移期限、受影响订阅层级或企业管理员的配置指引。若官方进一步披露默认路由变化，或企业版模型政策出现与此次下线联动的控制项，将强化Copilot正把模型组合管理产品化的判断；若两款模型仍能通过其他Copilot入口或兼容层使用，则会削弱其分发范围已全面收窄的结论。"
+      },
+      "validationType": "单一来源",
+      "publishedAt": "2026-07-31T20:04:01.000Z",
+      "updatedAt": "2026-07-31T20:04:01.000Z",
+      "sources": [
+        "Blog"
+      ],
+      "sourceNames": [
+        "GitHub, Inc."
+      ],
+      "sourceCount": 1,
+      "age": "20 小时前",
+      "score": 84,
+      "tone": "blue",
+      "evidence": [
+        {
+          "id": "10000-0-https://github.blog/changelog/2026-07-31-gemini-2-5-pro-and-gemini-3-flash-deprecated",
+          "sourceId": 10000,
+          "sourceName": "GitHub Changelog",
+          "sourcePublisher": "GitHub, Inc.",
+          "sourceKind": "Blog",
+          "title": "Gemini 2.5 Pro and Gemini 3 Flash deprecated",
+          "url": "https://github.blog/changelog/2026-07-31-gemini-2-5-pro-and-gemini-3-flash-deprecated",
+          "publishedAt": "2026-07-31T20:04:01.000Z",
+          "summary": "As of today, July 31, 2026, we have deprecated the following models across all GitHub Copilot experiences (including Copilot Chat, inline edits, ask and agent modes, and code completions). Model… The post Gemini 2.5 Pro and Gemini 3 Flash deprecated appeared first on The GitHub Blog .",
+          "fetchedAt": "2026-08-01T16:21:22.762Z",
+          "firstSeenAt": "2026-08-01T16:21:22.762Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "standard",
+            "reason": "fresh",
+            "ageHours": 20.28937833333333,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N1",
+          "role": "主张",
+          "takeaway": "GitHub称自2026年7月31日起，Gemini 2.5 Pro和Gemini 3 Flash已在所有GitHub Copilot体验中弃用，并列出聊天、内联编辑、问答、Agent模式和代码补全等范围。"
+        }
+      ],
+      "references": [
+        {
+          "id": "10000-0-https://github.blog/changelog/2026-07-31-gemini-2-5-pro-and-gemini-3-flash-deprecated",
+          "sourceId": 10000,
+          "sourceName": "GitHub Changelog",
+          "sourcePublisher": "GitHub, Inc.",
+          "sourceKind": "Blog",
+          "title": "Gemini 2.5 Pro and Gemini 3 Flash deprecated",
+          "url": "https://github.blog/changelog/2026-07-31-gemini-2-5-pro-and-gemini-3-flash-deprecated",
+          "publishedAt": "2026-07-31T20:04:01.000Z",
+          "summary": "As of today, July 31, 2026, we have deprecated the following models across all GitHub Copilot experiences (including Copilot Chat, inline edits, ask and agent modes, and code completions). Model… The post Gemini 2.5 Pro and Gemini 3 Flash deprecated appeared first on The GitHub Blog .",
+          "fetchedAt": "2026-08-01T16:21:22.762Z",
+          "firstSeenAt": "2026-08-01T16:21:22.762Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "standard",
+            "reason": "fresh",
+            "ageHours": 20.28937833333333,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N1"
+        }
+      ],
+      "feedBatchAt": "2026-08-01T16:21:22.762Z"
+    },
+    {
+      "id": 34,
+      "editorialBucket": "dynamic",
+      "category": "算力",
+      "eyebrow": "趋势变化",
+      "title": "AWS增速创18季新高",
+      "summary": "Amazon第二季度销售额增长20%，AWS增长37%，达到1690亿美元年化收入规模；集团营业利润增长43%。",
+      "why": "AWS在大规模基数上重新加速，同时集团利润增长快于销售额，强化了云业务需求与经营杠杆信号。",
+      "impact": "若增速能够延续，AWS的竞争位置和现金创造潜力将增强，但资本开支与分部利润仍决定增长质量。",
+      "shiftFrom": "AWS过去17季增速未达本季",
+      "shiftTo": "AWS增速升至37%",
+      "crossValidation": "Amazon提交SEC的8-K附件是单一一手来源，直接支持销售额、营业利润、AWS增速及年化规模数据。",
+      "article": {
+        "lead": "Amazon向SEC提交的第二季度业绩显示，AWS净销售额同比增长37%，为18个季度以来最快增速，并达到1690亿美元年化收入规模。同期Amazon总销售额增长20%，营业利润增至275亿美元、同比增长43%，云业务加速与集团经营杠杆同时出现。",
+        "sections": [
+          {
+            "heading": "AWS在大基数上重新加速",
+            "body": "AWS的37%增速是本次披露中最具决策价值的经营变量。按照Amazon给出的口径，该业务已达到1690亿美元年化收入规模，因此本季变化并非小规模业务带来的低基数反弹。它表明AWS在连续多个季度增速较低后重新提速，也提高了后续观察云市场竞争格局的基准。"
+          },
+          {
+            "heading": "利润增长快于销售额",
+            "body": "Amazon第二季度总销售额同比增长20%，营业利润则增长43%至275亿美元。两者之间的差距显示，集团层面的利润扩张速度明显快于收入，但现有披露摘要没有把这项改善完全归因于AWS。更审慎的解读是，云业务加速与Amazon整体成本结构改善在同一季度并存。"
+          },
+          {
+            "heading": "增长质量取决于资本强度",
+            "body": "AWS的规模和增速强化了Amazon参与AI与云基础设施扩张的能力，但收入加速本身不能回答回报率问题。数据中心、芯片和电力投入可能推高资本强度；如果新增需求需要持续以更高投资换取，营业利润增长未必会等比例转化为自由现金流。这是当前信号最重要的反向约束。"
+          }
+        ],
+        "outlook": "下一步应核对Amazon完整10-Q和业绩沟通中的AWS分部营业利润、资本开支、合同积压及第三季度指引。下一季度AWS能否继续保持接近37%的增速，以及集团营业利润和自由现金流是否同步扩张，将验证这次加速是持续变化还是单季高点。"
+      },
+      "validationType": "跨平台验证",
+      "publishedAt": "2026-07-30T16:06:23.000Z",
+      "updatedAt": "2026-07-30T00:00:00.000Z",
+      "sources": [
+        "SEC",
+        "Blog",
+        "IR",
+        "Media"
+      ],
+      "sourceNames": [
+        "Amazon",
+        "Tomasz Tunguz",
+        "Amazon.com, Inc.",
+        "S&P Global Market Intelligence",
+        "Associated Press"
+      ],
+      "sourceCount": 5,
+      "age": "11 小时前",
+      "score": 95,
+      "tone": "orange",
+      "evidence": [
+        {
+          "id": "170-0001018724-26-000024",
+          "sourceId": 170,
+          "sourceName": "Amazon SEC Filings",
+          "sourcePublisher": "Amazon",
+          "sourceKind": "SEC",
+          "title": "AMZN 8-K filing — period ended 2026-07-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000024/amzn-20260730.htm",
+          "publishedAt": "2026-07-30T16:06:23.000Z",
+          "summary": "AMAZON COM INC filed 8-K with the SEC for the period ended 2026-07-30. SEC items 2.02,9.01. Earnings release: EX-99.1 2 amzn-20260630xex991.htm EX-99.1 Document Exhibit 99.1 AMAZON.COM ANNOUNCES SECOND QUARTER RESULTS Net sales increased 20% year-over-year Operating income was $27.5 billion, up 43% year-over-year AWS net sales increased 37%—its fastest growth in 18 quarters—to a $169 billion annualized revenue run rate SEATTLE—(BUSINESS WIRE) July 30, 2026—Amazon.com, Inc. (NASDAQ: AMZN) today announced financial results for its second quarter ended June 30, 2026. • Net sales increased 20% to $200.6 billion in the second quarter, compared with $167.7 billion in second quarter 2025. Excluding the $0.1 billion favorable impact from year-over-year changes in foreign exchange rates throughout the quarter, net sales increased 20% compared with second quarter 2025. • North America segment sales increased 16% year-over-year to $116.2 billion. • International segment sales increased 15% year-over-year to $42.2 billion. • AWS segment sales increased 37% year-over-year to $42.2 billion. • Operating income increased to $27.5 billion in the second quarter, compared with $19.2 billion in second quarter 2025. • North America segment operating income was $9.1 billion, compared with $7.5 billion in second quarter 2025. • International segment operating income was $1.7 billion, compared with $1.5 billion in second quarter 2025. • AWS segment operating i",
+          "attachmentUrl": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000024/amzn-20260630xex991.htm",
+          "fetchedAt": "2026-07-31T02:43:25.203Z",
+          "ref": "N2",
+          "role": "主张",
+          "takeaway": "Amazon第二季度净销售额同比增长20%，营业利润为275亿美元、增长43%；AWS增长37%，为18个季度最快，并达到1690亿美元年化收入规模。"
+        },
+        {
+          "id": "170-0001018724-26-000026",
+          "sourceId": 170,
+          "sourceName": "Amazon SEC Filings",
+          "sourcePublisher": "Amazon",
+          "sourceKind": "SEC",
+          "title": "AMZN 10-Q filing — period ended 2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000026/amzn-20260630.htm",
+          "publishedAt": "2026-07-30T18:11:13.000Z",
+          "summary": "AMAZON COM INC filed 10-Q with the SEC for the period ended 2026-06-30. Reported XBRL facts: Revenue: $200.61B; Net income: $62.65B; Operating income: $27.46B; Diluted EPS: $5.75.",
+          "fetchedAt": "2026-07-31T16:08:03.070Z",
+          "firstSeenAt": "2026-07-31T14:18:13.755Z",
+          "ref": "N1",
+          "role": "最新进展",
+          "takeaway": "Amazon的10-Q以SEC法定申报补充并确认Q2营收、营业利润、净利润和稀释后EPS。"
+        },
+        {
+          "id": "150-0-https://www.tomtunguz.com/aws-answers-the-cloud-race/",
+          "sourceId": 150,
+          "sourceName": "Tomasz Tunguz",
+          "sourcePublisher": "Tomasz Tunguz",
+          "sourceKind": "Blog",
+          "title": "AWS's Road to a Trillion",
+          "url": "https://www.tomtunguz.com/aws-answers-the-cloud-race/",
+          "publishedAt": "2026-07-30T00:00:00.000Z",
+          "summary": "AWS grew 36.7% in Q2 2026 to $42.2b, its fastest in 18 quarters, narrowing Azure's lead from 16 points to 6. Jassy said AWS has the potential to become a $1 trillion annual revenue business, against a current $169b annualized run rate. Amazon raised 2026 capex to $220b and trailing free cash flow fell to negative $7.6b.",
+          "fetchedAt": "2026-08-01T16:21:22.762Z",
+          "firstSeenAt": "2026-07-31T14:18:13.755Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 64.35632277777778,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N7",
+          "role": "佐证",
+          "takeaway": "Tomasz Tunguz汇总称AWS第二季度增长36.7%，年化收入约1690亿美元，并指出Amazon将2026年资本开支提高至2200亿美元、过去十二个月自由现金流为负。"
+        },
+        {
+          "id": "research-150-0-https://www.tomtunguz.com/aws-answers-the-cloud-race/-1-https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Second-Quarter-Results/",
+          "sourceId": 150,
+          "sourceName": "Amazon.com, Inc.",
+          "sourcePublisher": "Amazon.com, Inc.",
+          "sourceKind": "IR",
+          "title": "Amazon.com Announces Second Quarter Results",
+          "url": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Second-Quarter-Results/",
+          "publishedAt": "2026-07-30T00:00:00.000Z",
+          "summary": "补齐第二季度实际值：AWS销售额422.32亿美元、同比增长37%、经营利润166.21亿美元；公司销售额2006亿美元、经营利润274.61亿美元；过去十二个月自由现金流为负76.04亿美元，而上年同期为正181.84亿美元；并给出第三季度销售额1970亿至2020亿美元、经营利润225亿至265亿美元的指引。",
+          "fetchedAt": "2026-08-01T16:21:22.762Z",
+          "researchedFrom": "N7",
+          "researchRole": "Primary",
+          "researchClaim": "AWS在2026年第二季度的增长从上一季度的28%加速至36.7%，季度营收为422亿美元、年化运行率约1690亿美元；同时，AWS经营利润升至166亿美元，隐含经营利润率约39.4%。这为“向万亿美元年收入规模迈进”的长期判断提供了更强的短期需求和盈利证据，但该目标尚无管理层给出的时间表或中期里程碑。",
+          "researchComparisons": "实际业绩显著强于此前基准：AWS营收422亿美元，高于Visible Alpha共识约405亿美元；按披露分部经营利润计算的约39.4%利润率，也高于共识33.8%。公司总销售额为2006亿美元，超过其在2026年4月给出的1940亿至1990亿美元指引区间，并高于FactSet口径1970.3亿美元预期。相比之下，第三季度销售指引为1970亿至2020亿美元，低于FactSet的2039亿美元预期。资本开支计划则从2月披露的约2000亿美元上调至2200亿美元；过去十二个月自由现金流由182亿美元流入转为76亿美元流出，因净物业设备购置额同比增加661亿美元。Azure及其他云服务同期增长43%，仍比AWS快约6个百分点；但微软未披露可与AWS季度营收直接一一对应的Azure收入，因此该增速差不等同于收入规模差。",
+          "researchUnresolved": "万亿美元AWS收入目标的目标年份、所需复合增速、资本回报门槛及新增产能的利用率尚未披露；AWS增长中AI、芯片与传统云工作负载的收入构成亦未量化。",
+          "ref": "R1",
+          "role": "最新进展",
+          "takeaway": "Amazon官方第二季度业绩披露AWS销售额422.32亿美元、同比增长37%、经营利润166.21亿美元；集团过去十二个月自由现金流为负76.04亿美元，并给出第三季度销售额和经营利润指引。"
+        },
+        {
+          "id": "research-150-0-https://www.tomtunguz.com/aws-answers-the-cloud-race/-2-https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-First-Quarter-Results/?linkId=934580871",
+          "sourceId": 150,
+          "sourceName": "Amazon.com, Inc.",
+          "sourcePublisher": "Amazon.com, Inc.",
+          "sourceKind": "IR",
+          "title": "Amazon.com Announces First Quarter Results",
+          "url": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-First-Quarter-Results/?linkId=934580871",
+          "publishedAt": "2026-04-29T00:00:00.000Z",
+          "summary": "补齐此前状态和原指引：第一季度AWS销售额376亿美元、同比增长28%；公司当时对第二季度给出的销售额指引为1940亿至1990亿美元、经营利润指引为200亿至240亿美元，因此第二季度实际销售和经营利润均超出区间上限。",
+          "fetchedAt": "2026-08-01T16:21:22.762Z",
+          "researchedFrom": "N7",
+          "researchRole": "Comparison",
+          "researchClaim": "AWS在2026年第二季度的增长从上一季度的28%加速至36.7%，季度营收为422亿美元、年化运行率约1690亿美元；同时，AWS经营利润升至166亿美元，隐含经营利润率约39.4%。这为“向万亿美元年收入规模迈进”的长期判断提供了更强的短期需求和盈利证据，但该目标尚无管理层给出的时间表或中期里程碑。",
+          "researchComparisons": "实际业绩显著强于此前基准：AWS营收422亿美元，高于Visible Alpha共识约405亿美元；按披露分部经营利润计算的约39.4%利润率，也高于共识33.8%。公司总销售额为2006亿美元，超过其在2026年4月给出的1940亿至1990亿美元指引区间，并高于FactSet口径1970.3亿美元预期。相比之下，第三季度销售指引为1970亿至2020亿美元，低于FactSet的2039亿美元预期。资本开支计划则从2月披露的约2000亿美元上调至2200亿美元；过去十二个月自由现金流由182亿美元流入转为76亿美元流出，因净物业设备购置额同比增加661亿美元。Azure及其他云服务同期增长43%，仍比AWS快约6个百分点；但微软未披露可与AWS季度营收直接一一对应的Azure收入，因此该增速差不等同于收入规模差。",
+          "researchUnresolved": "万亿美元AWS收入目标的目标年份、所需复合增速、资本回报门槛及新增产能的利用率尚未披露；AWS增长中AI、芯片与传统云工作负载的收入构成亦未量化。",
+          "ref": "R2",
+          "role": "背景",
+          "takeaway": "Amazon第一季度业绩显示AWS当季销售额376亿美元、同比增长28%，且公司此前对第二季度销售额和经营利润的指引区间均低于实际结果。"
+        },
+        {
+          "id": "research-150-0-https://www.tomtunguz.com/aws-answers-the-cloud-race/-3-https://www.spglobal.com/market-intelligence/en/news-insights/research/2026/07/amazon-earnings-preview-q2-2026",
+          "sourceId": 150,
+          "sourceName": "S&P Global Market Intelligence",
+          "sourcePublisher": "S&P Global Market Intelligence",
+          "sourceKind": "Media",
+          "title": "Amazon earnings preview: Q2 2026",
+          "url": "https://www.spglobal.com/market-intelligence/en/news-insights/research/2026/07/amazon-earnings-preview-q2-2026",
+          "publishedAt": "2026-07-24T00:00:00.000Z",
+          "summary": "明确注明Visible Alpha共识：第二季度AWS收入约405亿美元、AWS经营利润率33.8%，并预计2026年全年资本开支超过2000亿美元；由此可衡量AWS实际收入和隐含39.4%利润率的超预期幅度。",
+          "fetchedAt": "2026-08-01T16:21:22.762Z",
+          "researchedFrom": "N7",
+          "researchRole": "Consensus",
+          "researchClaim": "AWS在2026年第二季度的增长从上一季度的28%加速至36.7%，季度营收为422亿美元、年化运行率约1690亿美元；同时，AWS经营利润升至166亿美元，隐含经营利润率约39.4%。这为“向万亿美元年收入规模迈进”的长期判断提供了更强的短期需求和盈利证据，但该目标尚无管理层给出的时间表或中期里程碑。",
+          "researchComparisons": "实际业绩显著强于此前基准：AWS营收422亿美元，高于Visible Alpha共识约405亿美元；按披露分部经营利润计算的约39.4%利润率，也高于共识33.8%。公司总销售额为2006亿美元，超过其在2026年4月给出的1940亿至1990亿美元指引区间，并高于FactSet口径1970.3亿美元预期。相比之下，第三季度销售指引为1970亿至2020亿美元，低于FactSet的2039亿美元预期。资本开支计划则从2月披露的约2000亿美元上调至2200亿美元；过去十二个月自由现金流由182亿美元流入转为76亿美元流出，因净物业设备购置额同比增加661亿美元。Azure及其他云服务同期增长43%，仍比AWS快约6个百分点；但微软未披露可与AWS季度营收直接一一对应的Azure收入，因此该增速差不等同于收入规模差。",
+          "researchUnresolved": "万亿美元AWS收入目标的目标年份、所需复合增速、资本回报门槛及新增产能的利用率尚未披露；AWS增长中AI、芯片与传统云工作负载的收入构成亦未量化。",
+          "ref": "R3",
+          "role": "佐证",
+          "takeaway": "S&P Global Market Intelligence引述Visible Alpha预期AWS第二季度收入约405亿美元、经营利润率33.8%，可与实际收入和隐含利润率比较。"
+        },
+        {
+          "id": "research-150-0-https://www.tomtunguz.com/aws-answers-the-cloud-race/-4-https://apnews.com/article/amazon-second-quarter-earnings-cloud-b4ce02b4666a35b8975823c5c22072ee",
+          "sourceId": 150,
+          "sourceName": "Associated Press",
+          "sourcePublisher": "Associated Press",
+          "sourceKind": "Media",
+          "title": "Amazon to spend billions more on AI after posting strong Q2 results",
+          "url": "https://apnews.com/article/amazon-second-quarter-earnings-cloud-b4ce02b4666a35b8975823c5c22072ee",
+          "publishedAt": "2026-07-30T00:00:00.000Z",
+          "summary": "补齐2200亿美元资本开支计划相对2月约2000亿美元计划和2025年1280亿美元资本开支的上调幅度；同时提供反方检验点：市场担忧巨额AI投入侵蚀现金流且未必兑现预期生产率和利润，且公司第三季度销售指引低于FactSet的2039亿美元预期。",
+          "fetchedAt": "2026-08-01T16:21:22.762Z",
+          "researchedFrom": "N7",
+          "researchRole": "Counterevidence",
+          "researchClaim": "AWS在2026年第二季度的增长从上一季度的28%加速至36.7%，季度营收为422亿美元、年化运行率约1690亿美元；同时，AWS经营利润升至166亿美元，隐含经营利润率约39.4%。这为“向万亿美元年收入规模迈进”的长期判断提供了更强的短期需求和盈利证据，但该目标尚无管理层给出的时间表或中期里程碑。",
+          "researchComparisons": "实际业绩显著强于此前基准：AWS营收422亿美元，高于Visible Alpha共识约405亿美元；按披露分部经营利润计算的约39.4%利润率，也高于共识33.8%。公司总销售额为2006亿美元，超过其在2026年4月给出的1940亿至1990亿美元指引区间，并高于FactSet口径1970.3亿美元预期。相比之下，第三季度销售指引为1970亿至2020亿美元，低于FactSet的2039亿美元预期。资本开支计划则从2月披露的约2000亿美元上调至2200亿美元；过去十二个月自由现金流由182亿美元流入转为76亿美元流出，因净物业设备购置额同比增加661亿美元。Azure及其他云服务同期增长43%，仍比AWS快约6个百分点；但微软未披露可与AWS季度营收直接一一对应的Azure收入，因此该增速差不等同于收入规模差。",
+          "researchUnresolved": "万亿美元AWS收入目标的目标年份、所需复合增速、资本回报门槛及新增产能的利用率尚未披露；AWS增长中AI、芯片与传统云工作负载的收入构成亦未量化。",
+          "ref": "R4",
+          "role": "反例",
+          "takeaway": "Associated Press称Amazon把2026年资本开支计划由约2000亿美元上调至2200亿美元，并指出市场担忧高投入侵蚀现金流，且第三季度销售指引低于FactSet预期。"
+        }
+      ],
+      "references": [
+        {
+          "id": "170-0001018724-26-000024",
+          "sourceId": 170,
+          "sourceName": "Amazon SEC Filings",
+          "sourcePublisher": "Amazon",
+          "sourceKind": "SEC",
+          "title": "AMZN 8-K filing — period ended 2026-07-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000024/amzn-20260730.htm",
+          "publishedAt": "2026-07-30T16:06:23.000Z",
+          "summary": "AMAZON COM INC filed 8-K with the SEC for the period ended 2026-07-30. SEC items 2.02,9.01. Earnings release: EX-99.1 2 amzn-20260630xex991.htm EX-99.1 Document Exhibit 99.1 AMAZON.COM ANNOUNCES SECOND QUARTER RESULTS Net sales increased 20% year-over-year Operating income was $27.5 billion, up 43% year-over-year AWS net sales increased 37%—its fastest growth in 18 quarters—to a $169 billion annualized revenue run rate SEATTLE—(BUSINESS WIRE) July 30, 2026—Amazon.com, Inc. (NASDAQ: AMZN) today announced financial results for its second quarter ended June 30, 2026. • Net sales increased 20% to $200.6 billion in the second quarter, compared with $167.7 billion in second quarter 2025. Excluding the $0.1 billion favorable impact from year-over-year changes in foreign exchange rates throughout the quarter, net sales increased 20% compared with second quarter 2025. • North America segment sales increased 16% year-over-year to $116.2 billion. • International segment sales increased 15% year-over-year to $42.2 billion. • AWS segment sales increased 37% year-over-year to $42.2 billion. • Operating income increased to $27.5 billion in the second quarter, compared with $19.2 billion in second quarter 2025. • North America segment operating income was $9.1 billion, compared with $7.5 billion in second quarter 2025. • International segment operating income was $1.7 billion, compared with $1.5 billion in second quarter 2025. • AWS segment operating i",
+          "attachmentUrl": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000024/amzn-20260630xex991.htm",
+          "fetchedAt": "2026-07-31T02:43:25.203Z",
+          "ref": "N2"
+        },
+        {
+          "id": "170-0001018724-26-000026",
+          "sourceId": 170,
+          "sourceName": "Amazon SEC Filings",
+          "sourcePublisher": "Amazon",
+          "sourceKind": "SEC",
+          "title": "AMZN 10-Q filing — period ended 2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000026/amzn-20260630.htm",
+          "publishedAt": "2026-07-30T18:11:13.000Z",
+          "summary": "AMAZON COM INC filed 10-Q with the SEC for the period ended 2026-06-30. Reported XBRL facts: Revenue: $200.61B; Net income: $62.65B; Operating income: $27.46B; Diluted EPS: $5.75.",
+          "fetchedAt": "2026-07-31T16:08:03.070Z",
+          "firstSeenAt": "2026-07-31T14:18:13.755Z",
+          "ref": "N1"
+        },
+        {
+          "id": "150-0-https://www.tomtunguz.com/aws-answers-the-cloud-race/",
+          "sourceId": 150,
+          "sourceName": "Tomasz Tunguz",
+          "sourcePublisher": "Tomasz Tunguz",
+          "sourceKind": "Blog",
+          "title": "AWS's Road to a Trillion",
+          "url": "https://www.tomtunguz.com/aws-answers-the-cloud-race/",
+          "publishedAt": "2026-07-30T00:00:00.000Z",
+          "summary": "AWS grew 36.7% in Q2 2026 to $42.2b, its fastest in 18 quarters, narrowing Azure's lead from 16 points to 6. Jassy said AWS has the potential to become a $1 trillion annual revenue business, against a current $169b annualized run rate. Amazon raised 2026 capex to $220b and trailing free cash flow fell to negative $7.6b.",
+          "fetchedAt": "2026-08-01T16:21:22.762Z",
+          "firstSeenAt": "2026-07-31T14:18:13.755Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 64.35632277777778,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N7"
+        },
+        {
+          "id": "research-150-0-https://www.tomtunguz.com/aws-answers-the-cloud-race/-1-https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Second-Quarter-Results/",
+          "sourceId": 150,
+          "sourceName": "Amazon.com, Inc.",
+          "sourcePublisher": "Amazon.com, Inc.",
+          "sourceKind": "IR",
+          "title": "Amazon.com Announces Second Quarter Results",
+          "url": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Second-Quarter-Results/",
+          "publishedAt": "2026-07-30T00:00:00.000Z",
+          "summary": "补齐第二季度实际值：AWS销售额422.32亿美元、同比增长37%、经营利润166.21亿美元；公司销售额2006亿美元、经营利润274.61亿美元；过去十二个月自由现金流为负76.04亿美元，而上年同期为正181.84亿美元；并给出第三季度销售额1970亿至2020亿美元、经营利润225亿至265亿美元的指引。",
+          "fetchedAt": "2026-08-01T16:21:22.762Z",
+          "researchedFrom": "N7",
+          "researchRole": "Primary",
+          "researchClaim": "AWS在2026年第二季度的增长从上一季度的28%加速至36.7%，季度营收为422亿美元、年化运行率约1690亿美元；同时，AWS经营利润升至166亿美元，隐含经营利润率约39.4%。这为“向万亿美元年收入规模迈进”的长期判断提供了更强的短期需求和盈利证据，但该目标尚无管理层给出的时间表或中期里程碑。",
+          "researchComparisons": "实际业绩显著强于此前基准：AWS营收422亿美元，高于Visible Alpha共识约405亿美元；按披露分部经营利润计算的约39.4%利润率，也高于共识33.8%。公司总销售额为2006亿美元，超过其在2026年4月给出的1940亿至1990亿美元指引区间，并高于FactSet口径1970.3亿美元预期。相比之下，第三季度销售指引为1970亿至2020亿美元，低于FactSet的2039亿美元预期。资本开支计划则从2月披露的约2000亿美元上调至2200亿美元；过去十二个月自由现金流由182亿美元流入转为76亿美元流出，因净物业设备购置额同比增加661亿美元。Azure及其他云服务同期增长43%，仍比AWS快约6个百分点；但微软未披露可与AWS季度营收直接一一对应的Azure收入，因此该增速差不等同于收入规模差。",
+          "researchUnresolved": "万亿美元AWS收入目标的目标年份、所需复合增速、资本回报门槛及新增产能的利用率尚未披露；AWS增长中AI、芯片与传统云工作负载的收入构成亦未量化。",
+          "ref": "R1"
+        },
+        {
+          "id": "research-150-0-https://www.tomtunguz.com/aws-answers-the-cloud-race/-2-https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-First-Quarter-Results/?linkId=934580871",
+          "sourceId": 150,
+          "sourceName": "Amazon.com, Inc.",
+          "sourcePublisher": "Amazon.com, Inc.",
+          "sourceKind": "IR",
+          "title": "Amazon.com Announces First Quarter Results",
+          "url": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-First-Quarter-Results/?linkId=934580871",
+          "publishedAt": "2026-04-29T00:00:00.000Z",
+          "summary": "补齐此前状态和原指引：第一季度AWS销售额376亿美元、同比增长28%；公司当时对第二季度给出的销售额指引为1940亿至1990亿美元、经营利润指引为200亿至240亿美元，因此第二季度实际销售和经营利润均超出区间上限。",
+          "fetchedAt": "2026-08-01T16:21:22.762Z",
+          "researchedFrom": "N7",
+          "researchRole": "Comparison",
+          "researchClaim": "AWS在2026年第二季度的增长从上一季度的28%加速至36.7%，季度营收为422亿美元、年化运行率约1690亿美元；同时，AWS经营利润升至166亿美元，隐含经营利润率约39.4%。这为“向万亿美元年收入规模迈进”的长期判断提供了更强的短期需求和盈利证据，但该目标尚无管理层给出的时间表或中期里程碑。",
+          "researchComparisons": "实际业绩显著强于此前基准：AWS营收422亿美元，高于Visible Alpha共识约405亿美元；按披露分部经营利润计算的约39.4%利润率，也高于共识33.8%。公司总销售额为2006亿美元，超过其在2026年4月给出的1940亿至1990亿美元指引区间，并高于FactSet口径1970.3亿美元预期。相比之下，第三季度销售指引为1970亿至2020亿美元，低于FactSet的2039亿美元预期。资本开支计划则从2月披露的约2000亿美元上调至2200亿美元；过去十二个月自由现金流由182亿美元流入转为76亿美元流出，因净物业设备购置额同比增加661亿美元。Azure及其他云服务同期增长43%，仍比AWS快约6个百分点；但微软未披露可与AWS季度营收直接一一对应的Azure收入，因此该增速差不等同于收入规模差。",
+          "researchUnresolved": "万亿美元AWS收入目标的目标年份、所需复合增速、资本回报门槛及新增产能的利用率尚未披露；AWS增长中AI、芯片与传统云工作负载的收入构成亦未量化。",
+          "ref": "R2"
+        },
+        {
+          "id": "research-150-0-https://www.tomtunguz.com/aws-answers-the-cloud-race/-3-https://www.spglobal.com/market-intelligence/en/news-insights/research/2026/07/amazon-earnings-preview-q2-2026",
+          "sourceId": 150,
+          "sourceName": "S&P Global Market Intelligence",
+          "sourcePublisher": "S&P Global Market Intelligence",
+          "sourceKind": "Media",
+          "title": "Amazon earnings preview: Q2 2026",
+          "url": "https://www.spglobal.com/market-intelligence/en/news-insights/research/2026/07/amazon-earnings-preview-q2-2026",
+          "publishedAt": "2026-07-24T00:00:00.000Z",
+          "summary": "明确注明Visible Alpha共识：第二季度AWS收入约405亿美元、AWS经营利润率33.8%，并预计2026年全年资本开支超过2000亿美元；由此可衡量AWS实际收入和隐含39.4%利润率的超预期幅度。",
+          "fetchedAt": "2026-08-01T16:21:22.762Z",
+          "researchedFrom": "N7",
+          "researchRole": "Consensus",
+          "researchClaim": "AWS在2026年第二季度的增长从上一季度的28%加速至36.7%，季度营收为422亿美元、年化运行率约1690亿美元；同时，AWS经营利润升至166亿美元，隐含经营利润率约39.4%。这为“向万亿美元年收入规模迈进”的长期判断提供了更强的短期需求和盈利证据，但该目标尚无管理层给出的时间表或中期里程碑。",
+          "researchComparisons": "实际业绩显著强于此前基准：AWS营收422亿美元，高于Visible Alpha共识约405亿美元；按披露分部经营利润计算的约39.4%利润率，也高于共识33.8%。公司总销售额为2006亿美元，超过其在2026年4月给出的1940亿至1990亿美元指引区间，并高于FactSet口径1970.3亿美元预期。相比之下，第三季度销售指引为1970亿至2020亿美元，低于FactSet的2039亿美元预期。资本开支计划则从2月披露的约2000亿美元上调至2200亿美元；过去十二个月自由现金流由182亿美元流入转为76亿美元流出，因净物业设备购置额同比增加661亿美元。Azure及其他云服务同期增长43%，仍比AWS快约6个百分点；但微软未披露可与AWS季度营收直接一一对应的Azure收入，因此该增速差不等同于收入规模差。",
+          "researchUnresolved": "万亿美元AWS收入目标的目标年份、所需复合增速、资本回报门槛及新增产能的利用率尚未披露；AWS增长中AI、芯片与传统云工作负载的收入构成亦未量化。",
+          "ref": "R3"
+        },
+        {
+          "id": "research-150-0-https://www.tomtunguz.com/aws-answers-the-cloud-race/-4-https://apnews.com/article/amazon-second-quarter-earnings-cloud-b4ce02b4666a35b8975823c5c22072ee",
+          "sourceId": 150,
+          "sourceName": "Associated Press",
+          "sourcePublisher": "Associated Press",
+          "sourceKind": "Media",
+          "title": "Amazon to spend billions more on AI after posting strong Q2 results",
+          "url": "https://apnews.com/article/amazon-second-quarter-earnings-cloud-b4ce02b4666a35b8975823c5c22072ee",
+          "publishedAt": "2026-07-30T00:00:00.000Z",
+          "summary": "补齐2200亿美元资本开支计划相对2月约2000亿美元计划和2025年1280亿美元资本开支的上调幅度；同时提供反方检验点：市场担忧巨额AI投入侵蚀现金流且未必兑现预期生产率和利润，且公司第三季度销售指引低于FactSet的2039亿美元预期。",
+          "fetchedAt": "2026-08-01T16:21:22.762Z",
+          "researchedFrom": "N7",
+          "researchRole": "Counterevidence",
+          "researchClaim": "AWS在2026年第二季度的增长从上一季度的28%加速至36.7%，季度营收为422亿美元、年化运行率约1690亿美元；同时，AWS经营利润升至166亿美元，隐含经营利润率约39.4%。这为“向万亿美元年收入规模迈进”的长期判断提供了更强的短期需求和盈利证据，但该目标尚无管理层给出的时间表或中期里程碑。",
+          "researchComparisons": "实际业绩显著强于此前基准：AWS营收422亿美元，高于Visible Alpha共识约405亿美元；按披露分部经营利润计算的约39.4%利润率，也高于共识33.8%。公司总销售额为2006亿美元，超过其在2026年4月给出的1940亿至1990亿美元指引区间，并高于FactSet口径1970.3亿美元预期。相比之下，第三季度销售指引为1970亿至2020亿美元，低于FactSet的2039亿美元预期。资本开支计划则从2月披露的约2000亿美元上调至2200亿美元；过去十二个月自由现金流由182亿美元流入转为76亿美元流出，因净物业设备购置额同比增加661亿美元。Azure及其他云服务同期增长43%，仍比AWS快约6个百分点；但微软未披露可与AWS季度营收直接一一对应的Azure收入，因此该增速差不等同于收入规模差。",
+          "researchUnresolved": "万亿美元AWS收入目标的目标年份、所需复合增速、资本回报门槛及新增产能的利用率尚未披露；AWS增长中AI、芯片与传统云工作负载的收入构成亦未量化。",
+          "ref": "R4"
+        }
+      ],
+      "feedBatchAt": "2026-08-01T16:21:22.762Z",
+      "updates": [
+        {
+          "addedAt": "2026-07-30T00:00:00.000Z",
+          "title": "AWS增速与资本开支压力获补齐",
+          "summary": "Amazon官方披露AWS第二季度销售额422.32亿美元、同比增37%，高于Visible Alpha约405亿美元共识；公司拟将2026年资本开支提高至2200亿美元，过去十二个月自由现金流转为负76.04亿美元。",
+          "evidence": [
+            {
+              "id": "150-0-https://www.tomtunguz.com/aws-answers-the-cloud-race/",
+              "sourceId": 150,
+              "sourceName": "Tomasz Tunguz",
+              "sourcePublisher": "Tomasz Tunguz",
+              "sourceKind": "Blog",
+              "title": "AWS's Road to a Trillion",
+              "url": "https://www.tomtunguz.com/aws-answers-the-cloud-race/",
+              "publishedAt": "2026-07-30T00:00:00.000Z",
+              "summary": "AWS grew 36.7% in Q2 2026 to $42.2b, its fastest in 18 quarters, narrowing Azure's lead from 16 points to 6. Jassy said AWS has the potential to become a $1 trillion annual revenue business, against a current $169b annualized run rate. Amazon raised 2026 capex to $220b and trailing free cash flow fell to negative $7.6b.",
+              "fetchedAt": "2026-08-01T16:21:22.762Z",
+              "firstSeenAt": "2026-07-31T14:18:13.755Z",
+              "freshness": {
+                "eligible": true,
+                "lane": "explore",
+                "reason": "fresh",
+                "ageHours": 64.35632277777778,
+                "maxAgeHours": 168
+              },
+              "deferredResearch": false,
+              "ref": "N7",
+              "role": "佐证",
+              "takeaway": "Tomasz Tunguz汇总称AWS第二季度增长36.7%，年化收入约1690亿美元，并指出Amazon将2026年资本开支提高至2200亿美元、过去十二个月自由现金流为负。"
+            },
+            {
+              "id": "research-150-0-https://www.tomtunguz.com/aws-answers-the-cloud-race/-1-https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Second-Quarter-Results/",
+              "sourceId": 150,
+              "sourceName": "Amazon.com, Inc.",
+              "sourcePublisher": "Amazon.com, Inc.",
+              "sourceKind": "IR",
+              "title": "Amazon.com Announces Second Quarter Results",
+              "url": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Second-Quarter-Results/",
+              "publishedAt": "2026-07-30T00:00:00.000Z",
+              "summary": "补齐第二季度实际值：AWS销售额422.32亿美元、同比增长37%、经营利润166.21亿美元；公司销售额2006亿美元、经营利润274.61亿美元；过去十二个月自由现金流为负76.04亿美元，而上年同期为正181.84亿美元；并给出第三季度销售额1970亿至2020亿美元、经营利润225亿至265亿美元的指引。",
+              "fetchedAt": "2026-08-01T16:21:22.762Z",
+              "researchedFrom": "N7",
+              "researchRole": "Primary",
+              "researchClaim": "AWS在2026年第二季度的增长从上一季度的28%加速至36.7%，季度营收为422亿美元、年化运行率约1690亿美元；同时，AWS经营利润升至166亿美元，隐含经营利润率约39.4%。这为“向万亿美元年收入规模迈进”的长期判断提供了更强的短期需求和盈利证据，但该目标尚无管理层给出的时间表或中期里程碑。",
+              "researchComparisons": "实际业绩显著强于此前基准：AWS营收422亿美元，高于Visible Alpha共识约405亿美元；按披露分部经营利润计算的约39.4%利润率，也高于共识33.8%。公司总销售额为2006亿美元，超过其在2026年4月给出的1940亿至1990亿美元指引区间，并高于FactSet口径1970.3亿美元预期。相比之下，第三季度销售指引为1970亿至2020亿美元，低于FactSet的2039亿美元预期。资本开支计划则从2月披露的约2000亿美元上调至2200亿美元；过去十二个月自由现金流由182亿美元流入转为76亿美元流出，因净物业设备购置额同比增加661亿美元。Azure及其他云服务同期增长43%，仍比AWS快约6个百分点；但微软未披露可与AWS季度营收直接一一对应的Azure收入，因此该增速差不等同于收入规模差。",
+              "researchUnresolved": "万亿美元AWS收入目标的目标年份、所需复合增速、资本回报门槛及新增产能的利用率尚未披露；AWS增长中AI、芯片与传统云工作负载的收入构成亦未量化。",
+              "ref": "R1",
+              "role": "最新进展",
+              "takeaway": "Amazon官方第二季度业绩披露AWS销售额422.32亿美元、同比增长37%、经营利润166.21亿美元；集团过去十二个月自由现金流为负76.04亿美元，并给出第三季度销售额和经营利润指引。"
+            },
+            {
+              "id": "research-150-0-https://www.tomtunguz.com/aws-answers-the-cloud-race/-2-https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-First-Quarter-Results/?linkId=934580871",
+              "sourceId": 150,
+              "sourceName": "Amazon.com, Inc.",
+              "sourcePublisher": "Amazon.com, Inc.",
+              "sourceKind": "IR",
+              "title": "Amazon.com Announces First Quarter Results",
+              "url": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-First-Quarter-Results/?linkId=934580871",
+              "publishedAt": "2026-04-29T00:00:00.000Z",
+              "summary": "补齐此前状态和原指引：第一季度AWS销售额376亿美元、同比增长28%；公司当时对第二季度给出的销售额指引为1940亿至1990亿美元、经营利润指引为200亿至240亿美元，因此第二季度实际销售和经营利润均超出区间上限。",
+              "fetchedAt": "2026-08-01T16:21:22.762Z",
+              "researchedFrom": "N7",
+              "researchRole": "Comparison",
+              "researchClaim": "AWS在2026年第二季度的增长从上一季度的28%加速至36.7%，季度营收为422亿美元、年化运行率约1690亿美元；同时，AWS经营利润升至166亿美元，隐含经营利润率约39.4%。这为“向万亿美元年收入规模迈进”的长期判断提供了更强的短期需求和盈利证据，但该目标尚无管理层给出的时间表或中期里程碑。",
+              "researchComparisons": "实际业绩显著强于此前基准：AWS营收422亿美元，高于Visible Alpha共识约405亿美元；按披露分部经营利润计算的约39.4%利润率，也高于共识33.8%。公司总销售额为2006亿美元，超过其在2026年4月给出的1940亿至1990亿美元指引区间，并高于FactSet口径1970.3亿美元预期。相比之下，第三季度销售指引为1970亿至2020亿美元，低于FactSet的2039亿美元预期。资本开支计划则从2月披露的约2000亿美元上调至2200亿美元；过去十二个月自由现金流由182亿美元流入转为76亿美元流出，因净物业设备购置额同比增加661亿美元。Azure及其他云服务同期增长43%，仍比AWS快约6个百分点；但微软未披露可与AWS季度营收直接一一对应的Azure收入，因此该增速差不等同于收入规模差。",
+              "researchUnresolved": "万亿美元AWS收入目标的目标年份、所需复合增速、资本回报门槛及新增产能的利用率尚未披露；AWS增长中AI、芯片与传统云工作负载的收入构成亦未量化。",
+              "ref": "R2",
+              "role": "背景",
+              "takeaway": "Amazon第一季度业绩显示AWS当季销售额376亿美元、同比增长28%，且公司此前对第二季度销售额和经营利润的指引区间均低于实际结果。"
+            },
+            {
+              "id": "research-150-0-https://www.tomtunguz.com/aws-answers-the-cloud-race/-3-https://www.spglobal.com/market-intelligence/en/news-insights/research/2026/07/amazon-earnings-preview-q2-2026",
+              "sourceId": 150,
+              "sourceName": "S&P Global Market Intelligence",
+              "sourcePublisher": "S&P Global Market Intelligence",
+              "sourceKind": "Media",
+              "title": "Amazon earnings preview: Q2 2026",
+              "url": "https://www.spglobal.com/market-intelligence/en/news-insights/research/2026/07/amazon-earnings-preview-q2-2026",
+              "publishedAt": "2026-07-24T00:00:00.000Z",
+              "summary": "明确注明Visible Alpha共识：第二季度AWS收入约405亿美元、AWS经营利润率33.8%，并预计2026年全年资本开支超过2000亿美元；由此可衡量AWS实际收入和隐含39.4%利润率的超预期幅度。",
+              "fetchedAt": "2026-08-01T16:21:22.762Z",
+              "researchedFrom": "N7",
+              "researchRole": "Consensus",
+              "researchClaim": "AWS在2026年第二季度的增长从上一季度的28%加速至36.7%，季度营收为422亿美元、年化运行率约1690亿美元；同时，AWS经营利润升至166亿美元，隐含经营利润率约39.4%。这为“向万亿美元年收入规模迈进”的长期判断提供了更强的短期需求和盈利证据，但该目标尚无管理层给出的时间表或中期里程碑。",
+              "researchComparisons": "实际业绩显著强于此前基准：AWS营收422亿美元，高于Visible Alpha共识约405亿美元；按披露分部经营利润计算的约39.4%利润率，也高于共识33.8%。公司总销售额为2006亿美元，超过其在2026年4月给出的1940亿至1990亿美元指引区间，并高于FactSet口径1970.3亿美元预期。相比之下，第三季度销售指引为1970亿至2020亿美元，低于FactSet的2039亿美元预期。资本开支计划则从2月披露的约2000亿美元上调至2200亿美元；过去十二个月自由现金流由182亿美元流入转为76亿美元流出，因净物业设备购置额同比增加661亿美元。Azure及其他云服务同期增长43%，仍比AWS快约6个百分点；但微软未披露可与AWS季度营收直接一一对应的Azure收入，因此该增速差不等同于收入规模差。",
+              "researchUnresolved": "万亿美元AWS收入目标的目标年份、所需复合增速、资本回报门槛及新增产能的利用率尚未披露；AWS增长中AI、芯片与传统云工作负载的收入构成亦未量化。",
+              "ref": "R3",
+              "role": "佐证",
+              "takeaway": "S&P Global Market Intelligence引述Visible Alpha预期AWS第二季度收入约405亿美元、经营利润率33.8%，可与实际收入和隐含利润率比较。"
+            },
+            {
+              "id": "research-150-0-https://www.tomtunguz.com/aws-answers-the-cloud-race/-4-https://apnews.com/article/amazon-second-quarter-earnings-cloud-b4ce02b4666a35b8975823c5c22072ee",
+              "sourceId": 150,
+              "sourceName": "Associated Press",
+              "sourcePublisher": "Associated Press",
+              "sourceKind": "Media",
+              "title": "Amazon to spend billions more on AI after posting strong Q2 results",
+              "url": "https://apnews.com/article/amazon-second-quarter-earnings-cloud-b4ce02b4666a35b8975823c5c22072ee",
+              "publishedAt": "2026-07-30T00:00:00.000Z",
+              "summary": "补齐2200亿美元资本开支计划相对2月约2000亿美元计划和2025年1280亿美元资本开支的上调幅度；同时提供反方检验点：市场担忧巨额AI投入侵蚀现金流且未必兑现预期生产率和利润，且公司第三季度销售指引低于FactSet的2039亿美元预期。",
+              "fetchedAt": "2026-08-01T16:21:22.762Z",
+              "researchedFrom": "N7",
+              "researchRole": "Counterevidence",
+              "researchClaim": "AWS在2026年第二季度的增长从上一季度的28%加速至36.7%，季度营收为422亿美元、年化运行率约1690亿美元；同时，AWS经营利润升至166亿美元，隐含经营利润率约39.4%。这为“向万亿美元年收入规模迈进”的长期判断提供了更强的短期需求和盈利证据，但该目标尚无管理层给出的时间表或中期里程碑。",
+              "researchComparisons": "实际业绩显著强于此前基准：AWS营收422亿美元，高于Visible Alpha共识约405亿美元；按披露分部经营利润计算的约39.4%利润率，也高于共识33.8%。公司总销售额为2006亿美元，超过其在2026年4月给出的1940亿至1990亿美元指引区间，并高于FactSet口径1970.3亿美元预期。相比之下，第三季度销售指引为1970亿至2020亿美元，低于FactSet的2039亿美元预期。资本开支计划则从2月披露的约2000亿美元上调至2200亿美元；过去十二个月自由现金流由182亿美元流入转为76亿美元流出，因净物业设备购置额同比增加661亿美元。Azure及其他云服务同期增长43%，仍比AWS快约6个百分点；但微软未披露可与AWS季度营收直接一一对应的Azure收入，因此该增速差不等同于收入规模差。",
+              "researchUnresolved": "万亿美元AWS收入目标的目标年份、所需复合增速、资本回报门槛及新增产能的利用率尚未披露；AWS增长中AI、芯片与传统云工作负载的收入构成亦未量化。",
+              "ref": "R4",
+              "role": "反例",
+              "takeaway": "Associated Press称Amazon把2026年资本开支计划由约2000亿美元上调至2200亿美元，并指出市场担忧高投入侵蚀现金流，且第三季度销售指引低于FactSet预期。"
+            }
+          ],
+          "changeType": "corroboration",
+          "thesisImpact": "官方财报与预览共识共同确认AWS增长加速，并补齐其利润率、集团现金流、资本开支计划及第三季度指引，使AI基础设施投入与现金回报之间的张力更可量化。",
+          "revisionRequired": false
+        },
+        {
+          "addedAt": "2026-07-30T18:11:13.000Z",
+          "title": "Amazon 10-Q补齐法定利润指标",
+          "summary": "Amazon提交截至6月30日的10-Q，确认季度营收2006.1亿美元、营业利润274.6亿美元、净利润626.5亿美元，稀释后EPS为5.75美元。",
+          "evidence": [
+            {
+              "id": "170-0001018724-26-000026",
+              "sourceId": 170,
+              "sourceName": "Amazon SEC Filings",
+              "sourcePublisher": "Amazon",
+              "sourceKind": "SEC",
+              "title": "AMZN 10-Q filing — period ended 2026-06-30",
+              "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000026/amzn-20260630.htm",
+              "publishedAt": "2026-07-30T18:11:13.000Z",
+              "summary": "AMAZON COM INC filed 10-Q with the SEC for the period ended 2026-06-30. Reported XBRL facts: Revenue: $200.61B; Net income: $62.65B; Operating income: $27.46B; Diluted EPS: $5.75.",
+              "fetchedAt": "2026-07-31T16:08:03.070Z",
+              "firstSeenAt": "2026-07-31T14:18:13.755Z",
+              "ref": "N1",
+              "role": "最新进展",
+              "takeaway": "Amazon的10-Q以SEC法定申报补充并确认Q2营收、营业利润、净利润和稀释后EPS。"
+            }
+          ]
+        }
+      ]
+    },
     {
       "id": 49,
       "editorialBucket": "explore",
@@ -3719,140 +4267,6 @@
       ],
       "editorialBucket": "explore",
       "feedBatchAt": "2026-07-31T18:07:02.850Z"
-    },
-    {
-      "id": 34,
-      "editorialBucket": "dynamic",
-      "category": "算力",
-      "eyebrow": "趋势变化",
-      "title": "AWS增速创18季新高",
-      "summary": "Amazon第二季度销售额增长20%，AWS增长37%，达到1690亿美元年化收入规模；集团营业利润增长43%。",
-      "why": "AWS在大规模基数上重新加速，同时集团利润增长快于销售额，强化了云业务需求与经营杠杆信号。",
-      "impact": "若增速能够延续，AWS的竞争位置和现金创造潜力将增强，但资本开支与分部利润仍决定增长质量。",
-      "shiftFrom": "AWS过去17季增速未达本季",
-      "shiftTo": "AWS增速升至37%",
-      "crossValidation": "Amazon提交SEC的8-K附件是单一一手来源，直接支持销售额、营业利润、AWS增速及年化规模数据。",
-      "article": {
-        "lead": "Amazon向SEC提交的第二季度业绩显示，AWS净销售额同比增长37%，为18个季度以来最快增速，并达到1690亿美元年化收入规模。同期Amazon总销售额增长20%，营业利润增至275亿美元、同比增长43%，云业务加速与集团经营杠杆同时出现。",
-        "sections": [
-          {
-            "heading": "AWS在大基数上重新加速",
-            "body": "AWS的37%增速是本次披露中最具决策价值的经营变量。按照Amazon给出的口径，该业务已达到1690亿美元年化收入规模，因此本季变化并非小规模业务带来的低基数反弹。它表明AWS在连续多个季度增速较低后重新提速，也提高了后续观察云市场竞争格局的基准。"
-          },
-          {
-            "heading": "利润增长快于销售额",
-            "body": "Amazon第二季度总销售额同比增长20%，营业利润则增长43%至275亿美元。两者之间的差距显示，集团层面的利润扩张速度明显快于收入，但现有披露摘要没有把这项改善完全归因于AWS。更审慎的解读是，云业务加速与Amazon整体成本结构改善在同一季度并存。"
-          },
-          {
-            "heading": "增长质量取决于资本强度",
-            "body": "AWS的规模和增速强化了Amazon参与AI与云基础设施扩张的能力，但收入加速本身不能回答回报率问题。数据中心、芯片和电力投入可能推高资本强度；如果新增需求需要持续以更高投资换取，营业利润增长未必会等比例转化为自由现金流。这是当前信号最重要的反向约束。"
-          }
-        ],
-        "outlook": "下一步应核对Amazon完整10-Q和业绩沟通中的AWS分部营业利润、资本开支、合同积压及第三季度指引。下一季度AWS能否继续保持接近37%的增速，以及集团营业利润和自由现金流是否同步扩张，将验证这次加速是持续变化还是单季高点。"
-      },
-      "validationType": "单一来源",
-      "publishedAt": "2026-07-30T16:06:23.000Z",
-      "updatedAt": "2026-07-30T18:11:13.000Z",
-      "sources": [
-        "SEC"
-      ],
-      "sourceNames": [
-        "Amazon"
-      ],
-      "sourceCount": 1,
-      "age": "11 小时前",
-      "score": 95,
-      "tone": "orange",
-      "evidence": [
-        {
-          "id": "170-0001018724-26-000024",
-          "sourceId": 170,
-          "sourceName": "Amazon SEC Filings",
-          "sourcePublisher": "Amazon",
-          "sourceKind": "SEC",
-          "title": "AMZN 8-K filing — period ended 2026-07-30",
-          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000024/amzn-20260730.htm",
-          "publishedAt": "2026-07-30T16:06:23.000Z",
-          "summary": "AMAZON COM INC filed 8-K with the SEC for the period ended 2026-07-30. SEC items 2.02,9.01. Earnings release: EX-99.1 2 amzn-20260630xex991.htm EX-99.1 Document Exhibit 99.1 AMAZON.COM ANNOUNCES SECOND QUARTER RESULTS Net sales increased 20% year-over-year Operating income was $27.5 billion, up 43% year-over-year AWS net sales increased 37%—its fastest growth in 18 quarters—to a $169 billion annualized revenue run rate SEATTLE—(BUSINESS WIRE) July 30, 2026—Amazon.com, Inc. (NASDAQ: AMZN) today announced financial results for its second quarter ended June 30, 2026. • Net sales increased 20% to $200.6 billion in the second quarter, compared with $167.7 billion in second quarter 2025. Excluding the $0.1 billion favorable impact from year-over-year changes in foreign exchange rates throughout the quarter, net sales increased 20% compared with second quarter 2025. • North America segment sales increased 16% year-over-year to $116.2 billion. • International segment sales increased 15% year-over-year to $42.2 billion. • AWS segment sales increased 37% year-over-year to $42.2 billion. • Operating income increased to $27.5 billion in the second quarter, compared with $19.2 billion in second quarter 2025. • North America segment operating income was $9.1 billion, compared with $7.5 billion in second quarter 2025. • International segment operating income was $1.7 billion, compared with $1.5 billion in second quarter 2025. • AWS segment operating i",
-          "attachmentUrl": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000024/amzn-20260630xex991.htm",
-          "fetchedAt": "2026-07-31T02:43:25.203Z",
-          "ref": "N2",
-          "role": "主张",
-          "takeaway": "Amazon第二季度净销售额同比增长20%，营业利润为275亿美元、增长43%；AWS增长37%，为18个季度最快，并达到1690亿美元年化收入规模。"
-        },
-        {
-          "id": "170-0001018724-26-000026",
-          "sourceId": 170,
-          "sourceName": "Amazon SEC Filings",
-          "sourcePublisher": "Amazon",
-          "sourceKind": "SEC",
-          "title": "AMZN 10-Q filing — period ended 2026-06-30",
-          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000026/amzn-20260630.htm",
-          "publishedAt": "2026-07-30T18:11:13.000Z",
-          "summary": "AMAZON COM INC filed 10-Q with the SEC for the period ended 2026-06-30. Reported XBRL facts: Revenue: $200.61B; Net income: $62.65B; Operating income: $27.46B; Diluted EPS: $5.75.",
-          "fetchedAt": "2026-07-31T16:08:03.070Z",
-          "firstSeenAt": "2026-07-31T14:18:13.755Z",
-          "ref": "N1",
-          "role": "最新进展",
-          "takeaway": "Amazon的10-Q以SEC法定申报补充并确认Q2营收、营业利润、净利润和稀释后EPS。"
-        }
-      ],
-      "references": [
-        {
-          "id": "170-0001018724-26-000024",
-          "sourceId": 170,
-          "sourceName": "Amazon SEC Filings",
-          "sourcePublisher": "Amazon",
-          "sourceKind": "SEC",
-          "title": "AMZN 8-K filing — period ended 2026-07-30",
-          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000024/amzn-20260730.htm",
-          "publishedAt": "2026-07-30T16:06:23.000Z",
-          "summary": "AMAZON COM INC filed 8-K with the SEC for the period ended 2026-07-30. SEC items 2.02,9.01. Earnings release: EX-99.1 2 amzn-20260630xex991.htm EX-99.1 Document Exhibit 99.1 AMAZON.COM ANNOUNCES SECOND QUARTER RESULTS Net sales increased 20% year-over-year Operating income was $27.5 billion, up 43% year-over-year AWS net sales increased 37%—its fastest growth in 18 quarters—to a $169 billion annualized revenue run rate SEATTLE—(BUSINESS WIRE) July 30, 2026—Amazon.com, Inc. (NASDAQ: AMZN) today announced financial results for its second quarter ended June 30, 2026. • Net sales increased 20% to $200.6 billion in the second quarter, compared with $167.7 billion in second quarter 2025. Excluding the $0.1 billion favorable impact from year-over-year changes in foreign exchange rates throughout the quarter, net sales increased 20% compared with second quarter 2025. • North America segment sales increased 16% year-over-year to $116.2 billion. • International segment sales increased 15% year-over-year to $42.2 billion. • AWS segment sales increased 37% year-over-year to $42.2 billion. • Operating income increased to $27.5 billion in the second quarter, compared with $19.2 billion in second quarter 2025. • North America segment operating income was $9.1 billion, compared with $7.5 billion in second quarter 2025. • International segment operating income was $1.7 billion, compared with $1.5 billion in second quarter 2025. • AWS segment operating i",
-          "attachmentUrl": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000024/amzn-20260630xex991.htm",
-          "fetchedAt": "2026-07-31T02:43:25.203Z",
-          "ref": "N2"
-        },
-        {
-          "id": "170-0001018724-26-000026",
-          "sourceId": 170,
-          "sourceName": "Amazon SEC Filings",
-          "sourcePublisher": "Amazon",
-          "sourceKind": "SEC",
-          "title": "AMZN 10-Q filing — period ended 2026-06-30",
-          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000026/amzn-20260630.htm",
-          "publishedAt": "2026-07-30T18:11:13.000Z",
-          "summary": "AMAZON COM INC filed 10-Q with the SEC for the period ended 2026-06-30. Reported XBRL facts: Revenue: $200.61B; Net income: $62.65B; Operating income: $27.46B; Diluted EPS: $5.75.",
-          "fetchedAt": "2026-07-31T16:08:03.070Z",
-          "firstSeenAt": "2026-07-31T14:18:13.755Z",
-          "ref": "N1"
-        }
-      ],
-      "feedBatchAt": "2026-07-31T16:08:03.070Z",
-      "updates": [
-        {
-          "addedAt": "2026-07-30T18:11:13.000Z",
-          "title": "Amazon 10-Q补齐法定利润指标",
-          "summary": "Amazon提交截至6月30日的10-Q，确认季度营收2006.1亿美元、营业利润274.6亿美元、净利润626.5亿美元，稀释后EPS为5.75美元。",
-          "evidence": [
-            {
-              "id": "170-0001018724-26-000026",
-              "sourceId": 170,
-              "sourceName": "Amazon SEC Filings",
-              "sourcePublisher": "Amazon",
-              "sourceKind": "SEC",
-              "title": "AMZN 10-Q filing — period ended 2026-06-30",
-              "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000026/amzn-20260630.htm",
-              "publishedAt": "2026-07-30T18:11:13.000Z",
-              "summary": "AMAZON COM INC filed 10-Q with the SEC for the period ended 2026-06-30. Reported XBRL facts: Revenue: $200.61B; Net income: $62.65B; Operating income: $27.46B; Diluted EPS: $5.75.",
-              "fetchedAt": "2026-07-31T16:08:03.070Z",
-              "firstSeenAt": "2026-07-31T14:18:13.755Z",
-              "ref": "N1",
-              "role": "最新进展",
-              "takeaway": "Amazon的10-Q以SEC法定申报补充并确认Q2营收、营业利润、净利润和稀释后EPS。"
-            }
-          ]
-        }
-      ]
     },
     {
       "id": 1,
@@ -13220,6 +13634,143 @@
       "editorNote": "今日信息环境由智能体安全事件、AI coding 工具链分化、open-weight 模型竞争与算力下沉共同主导。",
       "signals": [
         {
+          "category": "开发者工具",
+          "eyebrow": "产品信号",
+          "title": "GitHub Copilot下线两款Gemini模型",
+          "summary": "GitHub已在所有Copilot体验中弃用Gemini 2.5 Pro和Gemini 3 Flash，聊天、代码补全、内联编辑及Agent模式的可选模型范围同步收窄。",
+          "why": "模型下线会直接改变企业与开发者在Copilot内可调用的能力组合，并将模型选择权进一步集中到平台运营方。",
+          "impact": "若替代模型的能力、成本或安全边界不同，企业既有提示词、评估和模型治理规则可能需要重新校准。",
+          "shiftFrom": "两款Gemini模型可供Copilot调用",
+          "shiftTo": "全Copilot体验停止提供两款模型",
+          "crossValidation": "单一来源：GitHub官方更新明确了生效日期、被弃用模型及受影响的Copilot功能范围；候选材料未说明替代模型或迁移安排。",
+          "article": {
+            "lead": "GitHub宣布自7月31日起，在GitHub Copilot的聊天、代码补全、内联编辑、问答和Agent模式中弃用Gemini 2.5 Pro与Gemini 3 Flash。这不是单一界面的模型调整，而是覆盖Copilot主要交互面的可用性变化：依赖这两款模型的开发者和企业团队将无法再在原有工作流中继续选择它们。",
+            "sections": [
+              {
+                "heading": "模型可用范围已同步收窄",
+                "body": "GitHub的更新将弃用范围明确覆盖所有GitHub Copilot体验，包括Copilot Chat、inline edits、ask and agent modes以及code completions。由此发生改变的不是某个测试入口，而是开发者在日常编码、问答和代理式任务中可选的模型集合。对于已把特定模型纳入团队默认配置、质量评估或内部使用规范的组织，这一变动构成了明确的平台状态变化。"
+              },
+              {
+                "heading": "平台分发决定模型的实际触达",
+                "body": "基础模型能力并不会自动转化为开发者可获得的能力；在Copilot这类集成式产品中，平台是否继续托管、路由和开放某一模型，决定了它能否进入真实工作流。此次下线说明，模型竞争不只发生在发布参数、基准或API定价上，也发生在开发工具内的分发名单上。企业管理员即使保留既有使用偏好，也需要依赖平台提供的替代选项来维持团队协作的一致性。"
+              },
+              {
+                "heading": "迁移成本取决于替代选项",
+                "body": "短期影响将取决于GitHub后续提供何种替代模型，以及这些模型在代码生成、上下文理解、速度和治理控制上是否接近原有选择。最强的反面情况是，若多数用户本就未将两款模型设为默认，且替代模型在任务质量和价格上近似，这次调整的实际摩擦可能有限。但对于刻意按模型分配任务的团队，模型下线仍可能触发提示词、评测集和权限策略的重新验证。"
+              }
+            ],
+            "outlook": "下一步应观察GitHub是否公布替代模型、迁移期限、受影响订阅层级或企业管理员的配置指引。若官方进一步披露默认路由变化，或企业版模型政策出现与此次下线联动的控制项，将强化Copilot正把模型组合管理产品化的判断；若两款模型仍能通过其他Copilot入口或兼容层使用，则会削弱其分发范围已全面收窄的结论。"
+          },
+          "evidence": [
+            {
+              "role": "主张",
+              "takeaway": "GitHub称自2026年7月31日起，Gemini 2.5 Pro和Gemini 3 Flash已在所有GitHub Copilot体验中弃用，并列出聊天、内联编辑、问答、Agent模式和代码补全等范围。"
+            }
+          ]
+        },
+        {
+          "category": "算力",
+          "eyebrow": "趋势变化",
+          "title": "AWS增速创18季新高",
+          "summary": "Amazon第二季度销售额增长20%，AWS增长37%，达到1690亿美元年化收入规模；集团营业利润增长43%。",
+          "why": "AWS在大规模基数上重新加速，同时集团利润增长快于销售额，强化了云业务需求与经营杠杆信号。",
+          "impact": "若增速能够延续，AWS的竞争位置和现金创造潜力将增强，但资本开支与分部利润仍决定增长质量。",
+          "shiftFrom": "AWS过去17季增速未达本季",
+          "shiftTo": "AWS增速升至37%",
+          "crossValidation": "Amazon提交SEC的8-K附件是单一一手来源，直接支持销售额、营业利润、AWS增速及年化规模数据。",
+          "article": {
+            "lead": "Amazon向SEC提交的第二季度业绩显示，AWS净销售额同比增长37%，为18个季度以来最快增速，并达到1690亿美元年化收入规模。同期Amazon总销售额增长20%，营业利润增至275亿美元、同比增长43%，云业务加速与集团经营杠杆同时出现。",
+            "sections": [
+              {
+                "heading": "AWS在大基数上重新加速",
+                "body": "AWS的37%增速是本次披露中最具决策价值的经营变量。按照Amazon给出的口径，该业务已达到1690亿美元年化收入规模，因此本季变化并非小规模业务带来的低基数反弹。它表明AWS在连续多个季度增速较低后重新提速，也提高了后续观察云市场竞争格局的基准。"
+              },
+              {
+                "heading": "利润增长快于销售额",
+                "body": "Amazon第二季度总销售额同比增长20%，营业利润则增长43%至275亿美元。两者之间的差距显示，集团层面的利润扩张速度明显快于收入，但现有披露摘要没有把这项改善完全归因于AWS。更审慎的解读是，云业务加速与Amazon整体成本结构改善在同一季度并存。"
+              },
+              {
+                "heading": "增长质量取决于资本强度",
+                "body": "AWS的规模和增速强化了Amazon参与AI与云基础设施扩张的能力，但收入加速本身不能回答回报率问题。数据中心、芯片和电力投入可能推高资本强度；如果新增需求需要持续以更高投资换取，营业利润增长未必会等比例转化为自由现金流。这是当前信号最重要的反向约束。"
+              }
+            ],
+            "outlook": "下一步应核对Amazon完整10-Q和业绩沟通中的AWS分部营业利润、资本开支、合同积压及第三季度指引。下一季度AWS能否继续保持接近37%的增速，以及集团营业利润和自由现金流是否同步扩张，将验证这次加速是持续变化还是单季高点。"
+          },
+          "evidence": [
+            {
+              "role": "主张",
+              "takeaway": "Amazon第二季度净销售额同比增长20%，营业利润为275亿美元、增长43%；AWS增长37%，为18个季度最快，并达到1690亿美元年化收入规模。"
+            },
+            {
+              "role": "最新进展",
+              "takeaway": "Amazon的10-Q以SEC法定申报补充并确认Q2营收、营业利润、净利润和稀释后EPS。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "Tomasz Tunguz汇总称AWS第二季度增长36.7%，年化收入约1690亿美元，并指出Amazon将2026年资本开支提高至2200亿美元、过去十二个月自由现金流为负。"
+            },
+            {
+              "role": "最新进展",
+              "takeaway": "Amazon官方第二季度业绩披露AWS销售额422.32亿美元、同比增长37%、经营利润166.21亿美元；集团过去十二个月自由现金流为负76.04亿美元，并给出第三季度销售额和经营利润指引。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "Amazon第一季度业绩显示AWS当季销售额376亿美元、同比增长28%，且公司此前对第二季度销售额和经营利润的指引区间均低于实际结果。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "S&P Global Market Intelligence引述Visible Alpha预期AWS第二季度收入约405亿美元、经营利润率33.8%，可与实际收入和隐含利润率比较。"
+            },
+            {
+              "role": "反例",
+              "takeaway": "Associated Press称Amazon把2026年资本开支计划由约2000亿美元上调至2200亿美元，并指出市场担忧高投入侵蚀现金流，且第三季度销售指引低于FactSet预期。"
+            }
+          ],
+          "updates": [
+            {
+              "addedAt": "2026-07-30T00:00:00.000Z",
+              "title": "AWS增速与资本开支压力获补齐",
+              "summary": "Amazon官方披露AWS第二季度销售额422.32亿美元、同比增37%，高于Visible Alpha约405亿美元共识；公司拟将2026年资本开支提高至2200亿美元，过去十二个月自由现金流转为负76.04亿美元。",
+              "evidence": [
+                {
+                  "role": "佐证",
+                  "takeaway": "Tomasz Tunguz汇总称AWS第二季度增长36.7%，年化收入约1690亿美元，并指出Amazon将2026年资本开支提高至2200亿美元、过去十二个月自由现金流为负。"
+                },
+                {
+                  "role": "最新进展",
+                  "takeaway": "Amazon官方第二季度业绩披露AWS销售额422.32亿美元、同比增长37%、经营利润166.21亿美元；集团过去十二个月自由现金流为负76.04亿美元，并给出第三季度销售额和经营利润指引。"
+                },
+                {
+                  "role": "背景",
+                  "takeaway": "Amazon第一季度业绩显示AWS当季销售额376亿美元、同比增长28%，且公司此前对第二季度销售额和经营利润的指引区间均低于实际结果。"
+                },
+                {
+                  "role": "佐证",
+                  "takeaway": "S&P Global Market Intelligence引述Visible Alpha预期AWS第二季度收入约405亿美元、经营利润率33.8%，可与实际收入和隐含利润率比较。"
+                },
+                {
+                  "role": "反例",
+                  "takeaway": "Associated Press称Amazon把2026年资本开支计划由约2000亿美元上调至2200亿美元，并指出市场担忧高投入侵蚀现金流，且第三季度销售指引低于FactSet预期。"
+                }
+              ],
+              "changeType": "corroboration",
+              "thesisImpact": "官方财报与预览共识共同确认AWS增长加速，并补齐其利润率、集团现金流、资本开支计划及第三季度指引，使AI基础设施投入与现金回报之间的张力更可量化。",
+              "revisionRequired": false
+            },
+            {
+              "addedAt": "2026-07-30T18:11:13.000Z",
+              "title": "Amazon 10-Q补齐法定利润指标",
+              "summary": "Amazon提交截至6月30日的10-Q，确认季度营收2006.1亿美元、营业利润274.6亿美元、净利润626.5亿美元，稀释后EPS为5.75美元。",
+              "evidence": [
+                {
+                  "role": "最新进展",
+                  "takeaway": "Amazon的10-Q以SEC法定申报补充并确认Q2营收、营业利润、净利润和稀释后EPS。"
+                }
+              ]
+            }
+          ]
+        },
+        {
           "category": "Agents",
           "eyebrow": "趋势变化",
           "title": "人类行为模拟开始押注数据闭环",
@@ -14174,58 +14725,6 @@
                 {
                   "role": "最新进展",
                   "takeaway": "文章提出“pre-aligned generalising AIs”愿景，试图处理做正确之事与做容易之事之间的能力—对齐冲突。"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "category": "算力",
-          "eyebrow": "趋势变化",
-          "title": "AWS增速创18季新高",
-          "summary": "Amazon第二季度销售额增长20%，AWS增长37%，达到1690亿美元年化收入规模；集团营业利润增长43%。",
-          "why": "AWS在大规模基数上重新加速，同时集团利润增长快于销售额，强化了云业务需求与经营杠杆信号。",
-          "impact": "若增速能够延续，AWS的竞争位置和现金创造潜力将增强，但资本开支与分部利润仍决定增长质量。",
-          "shiftFrom": "AWS过去17季增速未达本季",
-          "shiftTo": "AWS增速升至37%",
-          "crossValidation": "Amazon提交SEC的8-K附件是单一一手来源，直接支持销售额、营业利润、AWS增速及年化规模数据。",
-          "article": {
-            "lead": "Amazon向SEC提交的第二季度业绩显示，AWS净销售额同比增长37%，为18个季度以来最快增速，并达到1690亿美元年化收入规模。同期Amazon总销售额增长20%，营业利润增至275亿美元、同比增长43%，云业务加速与集团经营杠杆同时出现。",
-            "sections": [
-              {
-                "heading": "AWS在大基数上重新加速",
-                "body": "AWS的37%增速是本次披露中最具决策价值的经营变量。按照Amazon给出的口径，该业务已达到1690亿美元年化收入规模，因此本季变化并非小规模业务带来的低基数反弹。它表明AWS在连续多个季度增速较低后重新提速，也提高了后续观察云市场竞争格局的基准。"
-              },
-              {
-                "heading": "利润增长快于销售额",
-                "body": "Amazon第二季度总销售额同比增长20%，营业利润则增长43%至275亿美元。两者之间的差距显示，集团层面的利润扩张速度明显快于收入，但现有披露摘要没有把这项改善完全归因于AWS。更审慎的解读是，云业务加速与Amazon整体成本结构改善在同一季度并存。"
-              },
-              {
-                "heading": "增长质量取决于资本强度",
-                "body": "AWS的规模和增速强化了Amazon参与AI与云基础设施扩张的能力，但收入加速本身不能回答回报率问题。数据中心、芯片和电力投入可能推高资本强度；如果新增需求需要持续以更高投资换取，营业利润增长未必会等比例转化为自由现金流。这是当前信号最重要的反向约束。"
-              }
-            ],
-            "outlook": "下一步应核对Amazon完整10-Q和业绩沟通中的AWS分部营业利润、资本开支、合同积压及第三季度指引。下一季度AWS能否继续保持接近37%的增速，以及集团营业利润和自由现金流是否同步扩张，将验证这次加速是持续变化还是单季高点。"
-          },
-          "evidence": [
-            {
-              "role": "主张",
-              "takeaway": "Amazon第二季度净销售额同比增长20%，营业利润为275亿美元、增长43%；AWS增长37%，为18个季度最快，并达到1690亿美元年化收入规模。"
-            },
-            {
-              "role": "最新进展",
-              "takeaway": "Amazon的10-Q以SEC法定申报补充并确认Q2营收、营业利润、净利润和稀释后EPS。"
-            }
-          ],
-          "updates": [
-            {
-              "addedAt": "2026-07-30T18:11:13.000Z",
-              "title": "Amazon 10-Q补齐法定利润指标",
-              "summary": "Amazon提交截至6月30日的10-Q，确认季度营收2006.1亿美元、营业利润274.6亿美元、净利润626.5亿美元，稀释后EPS为5.75美元。",
-              "evidence": [
-                {
-                  "role": "最新进展",
-                  "takeaway": "Amazon的10-Q以SEC法定申报补充并确认Q2营收、营业利润、净利润和稀释后EPS。"
                 }
               ]
             }
@@ -18170,6 +18669,143 @@
       "editorNote": "Today’s information environment is being shaped by agent security incidents, a split in coding-agent toolchains, open-model competition, and compute moving closer to the edge.",
       "signals": [
         {
+          "category": "Developer Tools",
+          "eyebrow": "Product Signal",
+          "title": "GitHub Copilot retires two Gemini models",
+          "summary": "GitHub has deprecated Gemini 2.5 Pro and Gemini 3 Flash across Copilot experiences, narrowing model availability in chat, completions, inline edits, and agent workflows.",
+          "why": "The change directly alters the model set available to developers and enterprises inside Copilot, concentrating practical model selection with the platform operator.",
+          "impact": "If replacement models differ in capability, cost, or safety properties, enterprises may need to recalibrate prompts, evaluations, and model-governance policies.",
+          "shiftFrom": "Two Gemini models available in Copilot",
+          "shiftTo": "Both models removed across Copilot",
+          "crossValidation": "Single source: GitHub’s official changelog specifies the effective date, deprecated models, and affected Copilot surfaces, but does not identify replacements or migration terms.",
+          "article": {
+            "lead": "GitHub says Gemini 2.5 Pro and Gemini 3 Flash were deprecated across GitHub Copilot on July 31, covering chat, code completion, inline edits, ask workflows, and agent mode. This is not a change to one experimental surface: it removes two model choices from the main workflows through which developers and enterprise teams use Copilot.",
+            "sections": [
+              {
+                "heading": "Availability narrowed across core workflows",
+                "body": "GitHub’s notice explicitly covers all GitHub Copilot experiences, including Copilot Chat, inline edits, ask and agent modes, and code completions. The change therefore affects the model menu used in routine coding, question-answering, and agentic work rather than a limited feature entry point. For organizations that embedded either model in defaults, quality evaluations, or internal usage policies, the update is a concrete change in platform state."
+              },
+              {
+                "heading": "Distribution determines practical access",
+                "body": "A foundation model’s technical capability does not automatically become a capability developers can use. In an integrated product such as Copilot, continued hosting, routing, and exposure by the platform determine whether a model reaches a production workflow. The retirement shows that competition among models is not only about benchmark results, parameters, or API prices; it is also about inclusion in developer-tool distribution. Enterprise preferences still depend on the replacement choices the platform makes available."
+              },
+              {
+                "heading": "Replacement quality will set migration costs",
+                "body": "The near-term effect depends on which alternatives GitHub offers and whether they match the retired models in code quality, context handling, speed, and governance controls. The strongest countercase is that disruption may be modest if few users selected these models by default and substitutes are close on quality and price. Teams that intentionally assigned work by model, however, may still need to revalidate prompts, evaluation suites, and permission policies."
+              }
+            ],
+            "outlook": "Watch for GitHub disclosures on replacement models, migration windows, affected subscription tiers, and administrator guidance. Default-routing changes or new enterprise controls tied to the retirement would strengthen the case that Copilot is productizing management of its model portfolio. Evidence that either model remains available through another Copilot surface or compatibility layer would weaken the conclusion that distribution has broadly narrowed."
+          },
+          "evidence": [
+            {
+              "role": "Claim",
+              "takeaway": "GitHub states that Gemini 2.5 Pro and Gemini 3 Flash were deprecated across all GitHub Copilot experiences on July 31, 2026, including chat, inline edits, ask a"
+            }
+          ]
+        },
+        {
+          "category": "Compute Infrastructure",
+          "eyebrow": "Trend Shift",
+          "title": "AWS Growth Hits an 18-Quarter High",
+          "summary": "Amazon's second-quarter sales rose 20%, AWS grew 37% to a $169 billion annualized revenue run rate, and operating income increased 43%.",
+          "why": "AWS is reaccelerating from a large base while group profit grows faster than sales, strengthening the signal on cloud demand and operating leverage.",
+          "impact": "If sustained, the acceleration could strengthen AWS's competitive position and cash-generation potential, although capex and segment profit will determine growth quality.",
+          "shiftFrom": "AWS grew more slowly over the prior 17 quarters",
+          "shiftTo": "AWS growth accelerated to 37%",
+          "crossValidation": "Amazon's SEC-filed 8-K exhibit is the single primary source supporting the sales, operating-income, AWS-growth and annualized-run-rate figures.",
+          "article": {
+            "lead": "Amazon's second-quarter filing shows AWS net sales growing 37% year over year, its fastest rate in 18 quarters, and reaching a $169 billion annualized revenue run rate. Amazon's overall sales rose 20%, while operating income increased 43% to $27.5 billion, putting cloud acceleration and group-level operating leverage in the same quarter.",
+            "sections": [
+              {
+                "heading": "AWS Is Reaccelerating at Scale",
+                "body": "AWS's 37% growth is the most decision-relevant operating variable in the release. Amazon says the business has reached a $169 billion annualized revenue run rate, so this is not a low-base rebound in a small operation. The acceleration follows 17 quarters with slower growth and raises the benchmark for evaluating the competitive trajectory of the cloud market."
+              },
+              {
+                "heading": "Profit Is Growing Faster Than Sales",
+                "body": "Amazon's total second-quarter sales rose 20%, while operating income increased 43% to $27.5 billion. That gap shows group-level profit expanding materially faster than revenue, although the available disclosure does not attribute all of the improvement to AWS. The narrower conclusion is that cloud acceleration and a better overall cost structure appeared together."
+              },
+              {
+                "heading": "Capital Intensity Will Determine Quality",
+                "body": "AWS's scale and growth strengthen Amazon's capacity to participate in the expansion of AI and cloud infrastructure, but revenue acceleration alone does not establish returns on that investment. Data-center, chip and power spending can raise capital intensity. If demand requires proportionally greater investment, operating-profit growth may not translate into comparable free-cash-flow growth."
+              }
+            ],
+            "outlook": "The next checks are AWS segment operating income, capital expenditure, backlog and third-quarter guidance in Amazon's full 10-Q and earnings materials. Whether AWS remains near 37% growth next quarter—and whether operating profit and free cash flow expand with it—will distinguish a durable reacceleration from a one-quarter peak."
+          },
+          "evidence": [
+            {
+              "role": "Claim",
+              "takeaway": "Amazon reported 20% second-quarter net-sales growth, a 43% increase in operating income to $27.5 billion, and 37% AWS growth—its fastest in 18 quarters—at a $16"
+            },
+            {
+              "role": "Update",
+              "takeaway": "Amazon's SEC-filed 10-Q adds and confirms statutory Q2 revenue, operating income, net income, and diluted EPS."
+            },
+            {
+              "role": "Support",
+              "takeaway": "Tomasz Tunguz summarizes 36.7% Q2 AWS growth, an annualized run rate near $169 billion, a $220 billion 2026 capex plan, and negative trailing free cash flow."
+            },
+            {
+              "role": "Update",
+              "takeaway": "Amazon’s official Q2 release reports $42.232 billion of AWS sales, up 37%, $16.621 billion of AWS operating income, negative $7.604 billion of trailing-12-month free cash flow, and Q3 guidance."
+            },
+            {
+              "role": "Context",
+              "takeaway": "Amazon’s Q1 release reported $37.6 billion of AWS sales, up 28%, and showed that prior Q2 company sales and operating-income guidance ranges were below actual results."
+            },
+            {
+              "role": "Support",
+              "takeaway": "S&P Global Market Intelligence cites Visible Alpha consensus for roughly $40.5 billion of Q2 AWS revenue and a 33.8% AWS operating margin."
+            },
+            {
+              "role": "Counterpoint",
+              "takeaway": "Associated Press reports the increase in planned 2026 capex from roughly $200 billion to $220 billion, investor concerns over cash-flow pressure, and Q3 sales guidance below FactSet expectations."
+            }
+          ],
+          "updates": [
+            {
+              "addedAt": "2026-07-30T00:00:00.000Z",
+              "title": "AWS acceleration and capex strain clarified",
+              "summary": "Amazon reported $42.232 billion in Q2 AWS sales, up 37% and above the roughly $40.5 billion Visible Alpha consensus. It also raised planned 2026 capex to $220 billion while trailing-12-month free cash flow turned negative $7.604 billion.",
+              "evidence": [
+                {
+                  "role": "Support",
+                  "takeaway": "Tomasz Tunguz summarizes 36.7% Q2 AWS growth, an annualized run rate near $169 billion, a $220 billion 2026 capex plan, and negative trailing free cash flow."
+                },
+                {
+                  "role": "Update",
+                  "takeaway": "Amazon’s official Q2 release reports $42.232 billion of AWS sales, up 37%, $16.621 billion of AWS operating income, negative $7.604 billion of trailing-12-month free cash flow, and Q3 guidance."
+                },
+                {
+                  "role": "Context",
+                  "takeaway": "Amazon’s Q1 release reported $37.6 billion of AWS sales, up 28%, and showed that prior Q2 company sales and operating-income guidance ranges were below actual results."
+                },
+                {
+                  "role": "Support",
+                  "takeaway": "S&P Global Market Intelligence cites Visible Alpha consensus for roughly $40.5 billion of Q2 AWS revenue and a 33.8% AWS operating margin."
+                },
+                {
+                  "role": "Counterpoint",
+                  "takeaway": "Associated Press reports the increase in planned 2026 capex from roughly $200 billion to $220 billion, investor concerns over cash-flow pressure, and Q3 sales guidance below FactSet expectations."
+                }
+              ],
+              "changeType": "corroboration",
+              "thesisImpact": "官方财报与预览共识共同确认AWS增长加速，并补齐其利润率、集团现金流、资本开支计划及第三季度指引，使AI基础设施投入与现金回报之间的张力更可量化。",
+              "revisionRequired": false
+            },
+            {
+              "addedAt": "2026-07-30T18:11:13.000Z",
+              "title": "Amazon 10-Q Adds Statutory Profit Metrics",
+              "summary": "Amazon filed its 10-Q for the period ended June 30, confirming quarterly revenue of $200.61 billion, operating income of $27.46 billion, net income of $62.65 billion, and diluted EPS of $5.75.",
+              "evidence": [
+                {
+                  "role": "Update",
+                  "takeaway": "Amazon's SEC-filed 10-Q adds and confirms statutory Q2 revenue, operating income, net income, and diluted EPS."
+                }
+              ]
+            }
+          ]
+        },
+        {
           "category": "Agents",
           "eyebrow": "Trend Shift",
           "title": "Human Simulation Bets on Data Loops",
@@ -19124,58 +19760,6 @@
                 {
                   "role": "Update",
                   "takeaway": "The post proposes a vision of “pre-aligned generalising AIs” intended to address the conflict between doing the right thing and doing the easy thing."
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "category": "Compute Infrastructure",
-          "eyebrow": "Trend Shift",
-          "title": "AWS Growth Hits an 18-Quarter High",
-          "summary": "Amazon's second-quarter sales rose 20%, AWS grew 37% to a $169 billion annualized revenue run rate, and operating income increased 43%.",
-          "why": "AWS is reaccelerating from a large base while group profit grows faster than sales, strengthening the signal on cloud demand and operating leverage.",
-          "impact": "If sustained, the acceleration could strengthen AWS's competitive position and cash-generation potential, although capex and segment profit will determine growth quality.",
-          "shiftFrom": "AWS grew more slowly over the prior 17 quarters",
-          "shiftTo": "AWS growth accelerated to 37%",
-          "crossValidation": "Amazon's SEC-filed 8-K exhibit is the single primary source supporting the sales, operating-income, AWS-growth and annualized-run-rate figures.",
-          "article": {
-            "lead": "Amazon's second-quarter filing shows AWS net sales growing 37% year over year, its fastest rate in 18 quarters, and reaching a $169 billion annualized revenue run rate. Amazon's overall sales rose 20%, while operating income increased 43% to $27.5 billion, putting cloud acceleration and group-level operating leverage in the same quarter.",
-            "sections": [
-              {
-                "heading": "AWS Is Reaccelerating at Scale",
-                "body": "AWS's 37% growth is the most decision-relevant operating variable in the release. Amazon says the business has reached a $169 billion annualized revenue run rate, so this is not a low-base rebound in a small operation. The acceleration follows 17 quarters with slower growth and raises the benchmark for evaluating the competitive trajectory of the cloud market."
-              },
-              {
-                "heading": "Profit Is Growing Faster Than Sales",
-                "body": "Amazon's total second-quarter sales rose 20%, while operating income increased 43% to $27.5 billion. That gap shows group-level profit expanding materially faster than revenue, although the available disclosure does not attribute all of the improvement to AWS. The narrower conclusion is that cloud acceleration and a better overall cost structure appeared together."
-              },
-              {
-                "heading": "Capital Intensity Will Determine Quality",
-                "body": "AWS's scale and growth strengthen Amazon's capacity to participate in the expansion of AI and cloud infrastructure, but revenue acceleration alone does not establish returns on that investment. Data-center, chip and power spending can raise capital intensity. If demand requires proportionally greater investment, operating-profit growth may not translate into comparable free-cash-flow growth."
-              }
-            ],
-            "outlook": "The next checks are AWS segment operating income, capital expenditure, backlog and third-quarter guidance in Amazon's full 10-Q and earnings materials. Whether AWS remains near 37% growth next quarter—and whether operating profit and free cash flow expand with it—will distinguish a durable reacceleration from a one-quarter peak."
-          },
-          "evidence": [
-            {
-              "role": "Claim",
-              "takeaway": "Amazon reported 20% second-quarter net-sales growth, a 43% increase in operating income to $27.5 billion, and 37% AWS growth—its fastest in 18 quarters—at a $16"
-            },
-            {
-              "role": "Update",
-              "takeaway": "Amazon's SEC-filed 10-Q adds and confirms statutory Q2 revenue, operating income, net income, and diluted EPS."
-            }
-          ],
-          "updates": [
-            {
-              "addedAt": "2026-07-30T18:11:13.000Z",
-              "title": "Amazon 10-Q Adds Statutory Profit Metrics",
-              "summary": "Amazon filed its 10-Q for the period ended June 30, confirming quarterly revenue of $200.61 billion, operating income of $27.46 billion, net income of $62.65 billion, and diluted EPS of $5.75.",
-              "evidence": [
-                {
-                  "role": "Update",
-                  "takeaway": "Amazon's SEC-filed 10-Q adds and confirms statutory Q2 revenue, operating income, net income, and diluted EPS."
                 }
               ]
             }
@@ -23120,12 +23704,12 @@
     "en": "gpt-5.6-sol"
   },
   "incremental": {
-    "lastAddedAt": "2026-08-01T14:09:40.705Z",
-    "lastScanAt": "2026-08-01T14:06:24.550Z",
+    "lastAddedAt": "2026-08-01T16:26:26.176Z",
+    "lastScanAt": "2026-08-01T16:21:22.762Z",
     "lastAddedCount": 1,
-    "lastUpdatedCount": 0,
-    "totalAppended": 41,
-    "totalUpdated": 23
+    "lastUpdatedCount": 1,
+    "totalAppended": 42,
+    "totalUpdated": 24
   },
   "exploreDepth": {
     "minimum": 50,
