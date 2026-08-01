@@ -7,6 +7,7 @@ export const updateIntervalsMinutes = Object.freeze({
 });
 
 export const globalModelCooldownMinutes = 120;
+export const globalModelCooldownGraceMinutes = 5;
 
 export const freshnessWindowsHours = Object.freeze({
   fast: 72,
@@ -198,15 +199,19 @@ export function buildUpdatePlan({
     lastFullCycleAt === null
       ? null
       : lastFullCycleAt + globalModelCooldownMinutes * 60_000;
+  const cooldownReleaseAt =
+    nextModelEligibleAt === null
+      ? null
+      : nextModelEligibleAt - globalModelCooldownGraceMinutes * 60_000;
   const modelCooldownActive =
     lanesDueBySchedule.length > 0 &&
-    nextModelEligibleAt !== null &&
-    nextModelEligibleAt > nowTime;
+    cooldownReleaseAt !== null &&
+    cooldownReleaseAt > nowTime;
   const dueLanes = modelCooldownActive ? [] : lanesDueBySchedule;
   const futureDueTimes = Object.values(dueAt).filter(
     (value) => value !== null && value > nowTime,
   );
-  if (modelCooldownActive) futureDueTimes.push(nextModelEligibleAt);
+  if (modelCooldownActive) futureDueTimes.push(cooldownReleaseAt);
   const nextDueAt = futureDueTimes.length
     ? new Date(Math.min(...futureDueTimes)).toISOString()
     : null;

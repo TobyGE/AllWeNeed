@@ -5,6 +5,7 @@ import {
   candidateUpdateLane,
   candidateFreshnessDecision,
   freshnessWindowsHours,
+  globalModelCooldownGraceMinutes,
   globalModelCooldownMinutes,
   isFastLaneCandidate,
   updateIntervalsMinutes,
@@ -137,10 +138,47 @@ test("a global two-hour cooldown prevents adjacent lanes from calling the model"
     },
   });
   assert.equal(globalModelCooldownMinutes, 120);
+  assert.equal(globalModelCooldownGraceMinutes, 5);
   assert.deepEqual(plan.dueLanes, []);
   assert.equal(plan.shouldRunFullCycle, false);
-  assert.equal(plan.nextDueAt, "2026-08-01T13:00:01.000Z");
+  assert.equal(plan.nextDueAt, "2026-08-01T12:55:01.000Z");
   assert.match(plan.reason, /global model cooldown/);
+});
+
+test("scheduler grace prevents a near-boundary cooldown from missing an hourly poll", () => {
+  const release = item({
+    sourceName: "Google AI",
+    sourcePublisher: "Google",
+    title: "Google releases a new Gemini model API",
+  });
+  const plan = buildUpdatePlan({
+    candidates: [release],
+    now,
+    scheduleState: {
+      lastFullCycleAt: "2026-08-01T10:00:45.000Z",
+    },
+  });
+  assert.deepEqual(plan.dueLanes, ["fast"]);
+  assert.equal(plan.shouldRunFullCycle, true);
+  assert.match(plan.reason, /Process due lanes: fast/);
+});
+
+test("scheduler grace does not bypass cooldowns outside the boundary window", () => {
+  const release = item({
+    sourceName: "Google AI",
+    sourcePublisher: "Google",
+    title: "Google releases a new Gemini model API",
+  });
+  const plan = buildUpdatePlan({
+    candidates: [release],
+    now,
+    scheduleState: {
+      lastFullCycleAt: "2026-08-01T10:05:01.000Z",
+    },
+  });
+  assert.deepEqual(plan.dueLanes, []);
+  assert.equal(plan.shouldRunFullCycle, false);
+  assert.equal(plan.nextDueAt, "2026-08-01T12:00:01.000Z");
 });
 
 test("an empty poll never starts the expensive cycle", () => {
