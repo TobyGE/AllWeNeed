@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-01T01:42:20.033Z",
-  "basedOnSnapshotAt": "2026-08-01T01:36:17.947Z",
+  "generatedAt": "2026-08-01T04:10:05.341Z",
+  "basedOnSnapshotAt": "2026-08-01T04:05:59.398Z",
   "model": "gpt-5.5",
   "analyzedItemCount": 180,
   "totalFetchedItemCount": 2232,
@@ -8,6 +8,614 @@
   "signalQuality": 86,
   "signalQualityChange": 8,
   "signals": [
+    {
+      "id": 5,
+      "category": "AI & 模型",
+      "eyebrow": "产品信号",
+      "title": "AI使用从聊天转向代理",
+      "summary": "OpenAI研究工作任务扩展，Mollick指南被观察到从聊天模型转向代理系统。",
+      "why": "用户价值重心从回答问题转向完成跨角色、跨工具任务。",
+      "impact": "可能强化ChatGPT类产品向工作入口和一体化应用演进。",
+      "shiftFrom": "以聊天模型为中心",
+      "shiftTo": "以代理任务为中心",
+      "crossValidation": "OpenAI给出工作使用研究，Willison观察指南演化，Latent Space标题指向ChatGPT everything app。",
+      "article": {
+        "lead": "AI产品的主叙事正在从聊天框转向代理系统。OpenAI发布工作使用研究，Simon Willison观察Ethan Mollick的AI使用指南已经从模型选择转向代理系统，另有访谈标题直接指向ChatGPT成为everything app的计划。",
+        "sections": [
+          {
+            "heading": "工作场景开始被描述为任务扩展",
+            "body": "OpenAI Blog发布研究称，AI正在扩展人们在工作中做的事情，ChatGPT用户承担跨角色任务，并重塑工作边界。该表述没有只强调单一岗位自动化，而是把ChatGPT使用放在任务范围扩张和角色边界变化中。对企业研究者而言，这意味着观察对象从个体提效转向组织任务流。"
+          },
+          {
+            "heading": "独立观察显示使用指南也在改写",
+            "body": "Simon Willison评价Ethan Mollick的AI使用指南演化，称一年前仍主要围绕ChatGPT、Claude、Gemini等聊天模型，以及Deep Research等模式；今天更多围绕代理系统，即AI在其中执行任务的形态。Latent Space发布“OpenAI’s Plan to Make ChatGPT the Everything App”访谈标题，提供产品战略层面的相邻信号。三者分别来自研究、观察和访谈标题，强度不同但方向一致。"
+          },
+          {
+            "heading": "重要性在于入口和任务边界变化",
+            "body": "事实是，OpenAI把ChatGPT放进工作任务扩展框架，外部观察者也把AI使用从聊天迁移到代理系统。编辑推断是，如果用户开始把AI当作任务执行层，而非问答工具，产品入口、权限管理和数据连接的重要性都会上升。但具体采用速度仍需更多使用数据验证。"
+          }
+        ],
+        "outlook": "接下来应观察ChatGPT是否增加更多跨应用执行、企业权限和工作流功能，以及OpenAI后续研究是否披露任务类型、角色变化和留存指标。"
+      },
+      "validationType": "跨平台验证",
+      "sources": [
+        "Blog",
+        "YouTube"
+      ],
+      "sourceNames": [
+        "OpenAI Blog",
+        "Simon Willison",
+        "Latent Space"
+      ],
+      "sourceCount": 3,
+      "age": "22 小时前",
+      "score": 84,
+      "tone": "blue",
+      "evidence": [
+        {
+          "ref": "I24",
+          "sourceId": 131,
+          "sourceName": "OpenAI Blog",
+          "sourceKind": "Blog",
+          "title": "How AI is expanding what people do at work",
+          "summary": "New OpenAI research shows how AI is expanding what workers do, with ChatGPT users taking on tasks across roles and reshaping job boundaries.",
+          "url": "https://openai.com/index/how-ai-is-expanding-what-people-do-at-work",
+          "publishedAt": "2026-07-27T03:30:00.000Z",
+          "role": "主张",
+          "takeaway": "OpenAI研究称AI扩展工作任务并重塑角色边界。"
+        },
+        {
+          "ref": "I2",
+          "sourceId": 140,
+          "sourceName": "Simon Willison",
+          "sourceKind": "Blog",
+          "title": "An opinionated guide to which AI to use to do stuff",
+          "summary": "An opinionated guide to which AI to use to do stuff It's interesting watching the evolution of Ethan Mollick's guide over time. A year ago it was still all about chat - ChatGPT, Claude, Gemini - with o3, Claude 4 Opus, and Gemini 2.5 Pro as the models and Deep Research as a useful alternative mode. Today it's much more about agentic systems - \"where the AI i",
+          "url": "https://simonwillison.net/2026/Jul/27/an-opinionated-guide-to-which-ai-to-use-to-do-stuff/#atom-everything",
+          "publishedAt": "2026-07-27T21:55:53.000Z",
+          "role": "佐证",
+          "takeaway": "Willison观察AI使用指南从聊天转向代理系统。"
+        },
+        {
+          "ref": "I25",
+          "sourceId": 21,
+          "sourceName": "Latent Space",
+          "sourceKind": "YouTube",
+          "title": "OpenAI’s Plan to Make ChatGPT the Everything App — Akshay Nathan, OpenAI",
+          "summary": "",
+          "url": "https://www.youtube.com/watch?v=gKhW6vL4V9A",
+          "publishedAt": "2026-07-28T14:47:26.000Z",
+          "role": "佐证",
+          "takeaway": "Latent Space访谈题目指向ChatGPT everything app计划。"
+        },
+        {
+          "id": "131-5-https://openai.com/index/avatarin",
+          "sourceId": 131,
+          "sourceName": "OpenAI Blog",
+          "sourcePublisher": "OpenAI Blog",
+          "sourceKind": "Blog",
+          "title": "How avatarin built a 24/7 retail agent with GPT-Realtime",
+          "url": "https://openai.com/index/avatarin",
+          "publishedAt": "2026-07-30T00:00:00.000Z",
+          "summary": "avatarin uses OpenAI’s GPT-Realtime to give Yamada Denki shoppers 24/7 multilingual support. In two weeks, 30,000 people used the agent and 92% of survey responses were positive.",
+          "fetchedAt": "2026-08-01T04:05:59.398Z",
+          "firstSeenAt": "2026-07-31T14:18:13.755Z",
+          "ref": "N6",
+          "role": "最新进展",
+          "takeaway": "OpenAI披露avatarin基于GPT-Realtime为Yamada Denki部署24/7零售支持Agent，两周内3万人使用，92%调查反馈为正面。"
+        }
+      ],
+      "references": [
+        {
+          "ref": "I24",
+          "sourceId": 131,
+          "sourceName": "OpenAI Blog",
+          "sourceKind": "Blog",
+          "title": "How AI is expanding what people do at work",
+          "summary": "New OpenAI research shows how AI is expanding what workers do, with ChatGPT users taking on tasks across roles and reshaping job boundaries.",
+          "url": "https://openai.com/index/how-ai-is-expanding-what-people-do-at-work",
+          "publishedAt": "2026-07-27T03:30:00.000Z"
+        },
+        {
+          "ref": "I2",
+          "sourceId": 140,
+          "sourceName": "Simon Willison",
+          "sourceKind": "Blog",
+          "title": "An opinionated guide to which AI to use to do stuff",
+          "summary": "An opinionated guide to which AI to use to do stuff It's interesting watching the evolution of Ethan Mollick's guide over time. A year ago it was still all about chat - ChatGPT, Claude, Gemini - with o3, Claude 4 Opus, and Gemini 2.5 Pro as the models and Deep Research as a useful alternative mode. Today it's much more about agentic systems - \"where the AI i",
+          "url": "https://simonwillison.net/2026/Jul/27/an-opinionated-guide-to-which-ai-to-use-to-do-stuff/#atom-everything",
+          "publishedAt": "2026-07-27T21:55:53.000Z"
+        },
+        {
+          "ref": "I25",
+          "sourceId": 21,
+          "sourceName": "Latent Space",
+          "sourceKind": "YouTube",
+          "title": "OpenAI’s Plan to Make ChatGPT the Everything App — Akshay Nathan, OpenAI",
+          "summary": "",
+          "url": "https://www.youtube.com/watch?v=gKhW6vL4V9A",
+          "publishedAt": "2026-07-28T14:47:26.000Z"
+        },
+        {
+          "id": "131-5-https://openai.com/index/avatarin",
+          "sourceId": 131,
+          "sourceName": "OpenAI Blog",
+          "sourcePublisher": "OpenAI Blog",
+          "sourceKind": "Blog",
+          "title": "How avatarin built a 24/7 retail agent with GPT-Realtime",
+          "url": "https://openai.com/index/avatarin",
+          "publishedAt": "2026-07-30T00:00:00.000Z",
+          "summary": "avatarin uses OpenAI’s GPT-Realtime to give Yamada Denki shoppers 24/7 multilingual support. In two weeks, 30,000 people used the agent and 92% of survey responses were positive.",
+          "fetchedAt": "2026-08-01T04:05:59.398Z",
+          "firstSeenAt": "2026-07-31T14:18:13.755Z",
+          "ref": "N6"
+        }
+      ],
+      "editorialBucket": "explore",
+      "permanent": true,
+      "feedBatchAt": "2026-08-01T04:05:59.398Z",
+      "updatedAt": "2026-07-30T00:00:00.000Z",
+      "updates": [
+        {
+          "addedAt": "2026-07-30T00:00:00.000Z",
+          "title": "零售Agent进入门店场景",
+          "summary": "OpenAI案例称avatarin用GPT-Realtime为Yamada Denki提供24/7多语支持，两周3万人使用、92%问卷正面，补充AI从聊天转向现场服务代理的采用证据。",
+          "evidence": [
+            {
+              "id": "131-5-https://openai.com/index/avatarin",
+              "sourceId": 131,
+              "sourceName": "OpenAI Blog",
+              "sourcePublisher": "OpenAI Blog",
+              "sourceKind": "Blog",
+              "title": "How avatarin built a 24/7 retail agent with GPT-Realtime",
+              "url": "https://openai.com/index/avatarin",
+              "publishedAt": "2026-07-30T00:00:00.000Z",
+              "summary": "avatarin uses OpenAI’s GPT-Realtime to give Yamada Denki shoppers 24/7 multilingual support. In two weeks, 30,000 people used the agent and 92% of survey responses were positive.",
+              "fetchedAt": "2026-08-01T04:05:59.398Z",
+              "firstSeenAt": "2026-07-31T14:18:13.755Z",
+              "ref": "N6",
+              "role": "最新进展",
+              "takeaway": "OpenAI披露avatarin基于GPT-Realtime为Yamada Denki部署24/7零售支持Agent，两周内3万人使用，92%调查反馈为正面。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "category": "科技",
+      "eyebrow": "风险预警",
+      "title": "开源AI安全同盟升温",
+      "summary": "NVIDIA等推动Open Secure AI Alliance，开源AI监管与商业威胁讨论继续发酵。",
+      "why": "开放模型既被视为安全可观察基础，也被视为商业和政策风险源。",
+      "impact": "可能影响模型许可、企业采购和美国AI产业政策讨论。",
+      "shiftFrom": "开源AI多为技术路线",
+      "shiftTo": "升级为安全与政策议题",
+      "crossValidation": "NVIDIA强调开放安全联盟，Sequoia谈开放模型悖论，Gary Marcus和All-In从政策争论切入。",
+      "article": {
+        "lead": "开源AI的争论正在从“能不能替代闭源模型”扩展为安全、产业政策和资本市场议题。NVIDIA发布Open Secure AI Alliance相关内容，投资人与评论者也围绕开放模型、监管和美国竞争力持续发声。",
+        "sections": [
+          {
+            "heading": "开放安全联盟把开源纳入安全框架",
+            "body": "NVIDIA AI Blog称，开源软件是全球经济的重要支柱，支撑云计算、金融服务、制造、电信、政府和互联网服务。文章还称，网络安全是开源软件的前三大受益领域之一，并介绍Open Secure AI Alliance面向AI安全与安全保障的行业联合行动。"
+          },
+          {
+            "heading": "产业叙事出现明显分歧",
+            "body": "Sequoia发布“America’s Open-Model Paradox”，从美国开放模型处境切入。Gary Marcus发表致David Sacks公开信，标题摘要称中国正在缩小差距，但并不是因为美国AI监管太多。All-In相关节目标题讨论开源AI之争、Anthropic 15亿美元赔付，以及Chamath关于禁止开源AI可能冲击股市的观点。这些来源不完全一致：NVIDIA强调安全协作，评论者更关注政策后果。"
+          },
+          {
+            "heading": "重要性在于开放模型进入制度竞争",
+            "body": "事实层面，开放模型已同时出现在安全联盟、投资机构文章和政策评论节目中。编辑推断是，未来开放模型的竞争不只看参数、成本和性能，还会看许可证、出口政策、企业责任和安全评估。分歧本身说明这个议题尚未形成稳定共识。"
+          }
+        ],
+        "outlook": "下一步应观察Open Secure AI Alliance是否发布具体标准、成员名单和工具成果，以及美国政策讨论是否转化为对开放权重发布、模型托管和企业使用的明确规则。"
+      },
+      "validationType": "跨平台验证",
+      "sources": [
+        "Blog",
+        "Newsletter",
+        "YouTube",
+        "Official",
+        "Research"
+      ],
+      "sourceNames": [
+        "NVIDIA AI Blog",
+        "Sequoia Capital",
+        "Gary Marcus",
+        "All-In Podcast",
+        "Avery Pennarun",
+        "Web Summit Vancouver",
+        "Stanford HAI",
+        "Epoch AI"
+      ],
+      "sourceCount": 8,
+      "age": "2 天前",
+      "score": 86,
+      "tone": "orange",
+      "evidence": [
+        {
+          "ref": "I51",
+          "sourceId": 130,
+          "sourceName": "NVIDIA AI Blog",
+          "sourceKind": "Blog",
+          "title": "Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security",
+          "summary": "Open source software is a critical pillar of the global economy. It underpins cloud computing, financial services, manufacturing, telecommunications, government and internet services by making technology accessible and observable to communities of experts. Cybersecurity is among the top three beneficiaries of open source software. The Open Secure AI Alliance",
+          "url": "https://blogs.nvidia.com/blog/open-secure-ai-alliance/",
+          "publishedAt": "2026-07-27T09:00:07.000Z",
+          "role": "主张",
+          "takeaway": "NVIDIA介绍Open Secure AI Alliance，强调开源与AI安全。"
+        },
+        {
+          "ref": "I165",
+          "sourceId": 94,
+          "sourceName": "Sequoia Capital",
+          "sourceKind": "Blog",
+          "title": "America’s Open-Model Paradox",
+          "summary": "The post America’s Open-Model Paradox appeared first on Sequoia Capital .",
+          "url": "https://sequoiacap.com/article/americas-open-model-paradox/",
+          "publishedAt": "2026-07-24T23:46:04.000Z",
+          "role": "佐证",
+          "takeaway": "Sequoia发布文章讨论美国开放模型悖论。"
+        },
+        {
+          "ref": "I166",
+          "sourceId": 89,
+          "sourceName": "Gary Marcus",
+          "sourceKind": "Newsletter",
+          "title": "An open letter to David Sacks",
+          "summary": "China is closing the gap, but it’s not because we have too much regulation on AI",
+          "url": "https://garymarcus.substack.com/p/an-open-letter-to-david-sacks",
+          "publishedAt": "2026-07-24T22:31:48.000Z",
+          "role": "佐证",
+          "takeaway": "Gary Marcus称中国追赶不因美国AI监管过多。"
+        },
+        {
+          "ref": "I151",
+          "sourceId": 6,
+          "sourceName": "All-In Podcast",
+          "sourceKind": "YouTube",
+          "title": "Chamath: Banning Open Source AI Will Crash the Stock Market",
+          "summary": "",
+          "url": "https://www.youtube.com/shorts/Ka2y-0Of0Dc",
+          "publishedAt": "2026-07-25T20:30:21.000Z",
+          "role": "佐证",
+          "takeaway": "All-In片段讨论禁止开源AI可能冲击股市。"
+        },
+        {
+          "id": "56-4-https://apenwarr.ca/log/20260520/is-open-source-ai-rewriting-the-rules",
+          "sourceId": 56,
+          "sourceName": "Avery Pennarun",
+          "sourcePublisher": "Avery Pennarun",
+          "sourceKind": "Blog",
+          "title": "Web Summit Vancouver 2026: AI needs an Android-like ecosystem",
+          "url": "https://apenwarr.ca/log/20260520/is-open-source-ai-rewriting-the-rules",
+          "publishedAt": "2026-05-20T00:00:00.000Z",
+          "summary": "AI needs an open ‘Android’ to balance the vertically locked-in ‘iPhone’ of trillion-dollar AI companies. Open-source AI is closing the gap with closed systems faster than many people expected. That changes the economics, the security model, and the assumptions behind a lot of Big Tech’s AI spending. I joined a press conference at Web Summit to talk about wha",
+          "fetchedAt": "2026-08-01T04:05:59.398Z",
+          "firstSeenAt": "2026-07-31T14:18:13.755Z",
+          "ref": "N7",
+          "role": "佐证",
+          "takeaway": "Avery Pennarun在Web Summit Vancouver相关发言中提出AI需要类似Android的开放生态，以平衡大型AI公司的垂直锁定。"
+        },
+        {
+          "id": "research-56-4-https://apenwarr.ca/log/20260520/is-open-source-ai-rewriting-the-rules-1-https://vancouver.websummit.com/attendees/van26/220e4f1a-9920-456b-a335-e65bd5ec5194/avery-pennarun/",
+          "sourceId": 56,
+          "sourceName": "Web Summit Vancouver",
+          "sourcePublisher": "Web Summit Vancouver",
+          "sourceKind": "Official",
+          "title": "Avery Pennarun - Web Summit Vancouver",
+          "url": "https://vancouver.websummit.com/attendees/van26/220e4f1a-9920-456b-a335-e65bd5ec5194/avery-pennarun/",
+          "publishedAt": "2026-05-20T00:00:00.000Z",
+          "summary": "确认 Avery Pennarun 是 Web Summit Vancouver 2026 speaker，身份为 Tailscale Co-founder & CEO，类别标注为 Security；用于界定原文作者是否具备技术与安全领域直接观察视角。",
+          "fetchedAt": "2026-08-01T04:05:59.398Z",
+          "researchedFrom": "N7",
+          "researchRole": "Primary",
+          "researchClaim": "Avery Pennarun 的“AI 需要 Android 式开放生态”更适合作为 explore 选题：Web Summit Vancouver 2026 的公开议程确实把 AI 控制权之争置于 open-source 与 closed systems 的框架下，而独立基准显示开放模型已经接近但尚未稳定追平闭源前沿，这使 Big Tech 以封闭全栈换取定价权的资本开支逻辑面临更高验证压力。",
+          "researchComparisons": "Web Summit Vancouver 2026 官方称活动有 20,235 名参会者、1,197 家 startup、768 名投资者，且开幕讨论明确围绕 open vs closed AI；Stanford HAI 2026 AI Index 显示截至 2026-03，顶级闭源模型领先顶级开放模型 3.3%，高于 2024-08 的 0.5%，同时前沿模型表现正在收敛；Epoch AI 估算 Alphabet、Amazon、Meta、Microsoft、Oracle 的合计 capex 自 2023Q2 起年化增长 72%，若趋势延续 2026 年将达 7700 亿美元。",
+          "researchUnresolved": "Pennarun 在原文中的具体发言属于个人现场观察；未找到 Web Summit 官方逐字 transcript 或录像可独立核验其完整表述。",
+          "ref": "R1",
+          "role": "背景",
+          "takeaway": "Web Summit Vancouver官方页面确认Avery Pennarun为Tailscale Co-founder & CEO，议题归类于Security。"
+        },
+        {
+          "id": "research-56-4-https://apenwarr.ca/log/20260520/is-open-source-ai-rewriting-the-rules-2-https://vancouver.websummit.com/blog/news/web-summit-vancouver-welcomes-20235-attendees-with-its-largest-investor-turnout-yet/",
+          "sourceId": 56,
+          "sourceName": "Web Summit Vancouver",
+          "sourcePublisher": "Web Summit Vancouver",
+          "sourceKind": "Official",
+          "title": "Web Summit Vancouver welcomes 20,235 attendees with its largest investor turnout yet",
+          "url": "https://vancouver.websummit.com/blog/news/web-summit-vancouver-welcomes-20235-attendees-with-its-largest-investor-turnout-yet/",
+          "publishedAt": "2026-05-12T00:00:00.000Z",
+          "summary": "补齐事件背景：Web Summit Vancouver 2026 官方披露 20,235 名参会者、1,197 家 startup、768 名投资者，并称开幕夜讨论了 open-source frontier、closed systems 与 AI 控制权问题。",
+          "fetchedAt": "2026-08-01T04:05:59.398Z",
+          "researchedFrom": "N7",
+          "researchRole": "Context",
+          "researchClaim": "Avery Pennarun 的“AI 需要 Android 式开放生态”更适合作为 explore 选题：Web Summit Vancouver 2026 的公开议程确实把 AI 控制权之争置于 open-source 与 closed systems 的框架下，而独立基准显示开放模型已经接近但尚未稳定追平闭源前沿，这使 Big Tech 以封闭全栈换取定价权的资本开支逻辑面临更高验证压力。",
+          "researchComparisons": "Web Summit Vancouver 2026 官方称活动有 20,235 名参会者、1,197 家 startup、768 名投资者，且开幕讨论明确围绕 open vs closed AI；Stanford HAI 2026 AI Index 显示截至 2026-03，顶级闭源模型领先顶级开放模型 3.3%，高于 2024-08 的 0.5%，同时前沿模型表现正在收敛；Epoch AI 估算 Alphabet、Amazon、Meta、Microsoft、Oracle 的合计 capex 自 2023Q2 起年化增长 72%，若趋势延续 2026 年将达 7700 亿美元。",
+          "researchUnresolved": "Pennarun 在原文中的具体发言属于个人现场观察；未找到 Web Summit 官方逐字 transcript 或录像可独立核验其完整表述。",
+          "ref": "R2",
+          "role": "背景",
+          "takeaway": "Web Summit Vancouver官方披露本届会议有20,235名参会者、1,197家startup和768名投资者，并讨论open-source frontier、closed systems与AI控制权。"
+        },
+        {
+          "id": "research-56-4-https://apenwarr.ca/log/20260520/is-open-source-ai-rewriting-the-rules-3-https://hai.stanford.edu/ai-index/2026-ai-index-report/technical-performance",
+          "sourceId": 56,
+          "sourceName": "Stanford HAI",
+          "sourcePublisher": "Stanford HAI",
+          "sourceKind": "Research",
+          "title": "Technical Performance | The 2026 AI Index Report",
+          "url": "https://hai.stanford.edu/ai-index/2026-ai-index-report/technical-performance",
+          "publishedAt": "2026-05-20T00:00:00.000Z",
+          "summary": "提供开放模型与闭源模型的可比 benchmark：截至 2026-03，顶级闭源模型领先顶级开放模型 3.3%，高于 2024-08 的 0.5%；同时指出顶级模型表现正在收敛，多个公司在 Arena Elo 上进入同一梯队。",
+          "fetchedAt": "2026-08-01T04:05:59.398Z",
+          "researchedFrom": "N7",
+          "researchRole": "Comparison",
+          "researchClaim": "Avery Pennarun 的“AI 需要 Android 式开放生态”更适合作为 explore 选题：Web Summit Vancouver 2026 的公开议程确实把 AI 控制权之争置于 open-source 与 closed systems 的框架下，而独立基准显示开放模型已经接近但尚未稳定追平闭源前沿，这使 Big Tech 以封闭全栈换取定价权的资本开支逻辑面临更高验证压力。",
+          "researchComparisons": "Web Summit Vancouver 2026 官方称活动有 20,235 名参会者、1,197 家 startup、768 名投资者，且开幕讨论明确围绕 open vs closed AI；Stanford HAI 2026 AI Index 显示截至 2026-03，顶级闭源模型领先顶级开放模型 3.3%，高于 2024-08 的 0.5%，同时前沿模型表现正在收敛；Epoch AI 估算 Alphabet、Amazon、Meta、Microsoft、Oracle 的合计 capex 自 2023Q2 起年化增长 72%，若趋势延续 2026 年将达 7700 亿美元。",
+          "researchUnresolved": "Pennarun 在原文中的具体发言属于个人现场观察；未找到 Web Summit 官方逐字 transcript 或录像可独立核验其完整表述。",
+          "ref": "R3",
+          "role": "背景",
+          "takeaway": "Stanford HAI AI Index给出开放与闭源模型benchmark背景：截至2026年3月顶级闭源模型领先顶级开放模型3.3%，同时多个顶级模型在Arena Elo上进入同一梯队。"
+        },
+        {
+          "id": "research-56-4-https://apenwarr.ca/log/20260520/is-open-source-ai-rewriting-the-rules-4-https://epoch.ai/data-insights/hyperscaler-capex-trend",
+          "sourceId": 56,
+          "sourceName": "Epoch AI",
+          "sourcePublisher": "Epoch AI",
+          "sourceKind": "Research",
+          "title": "Hyperscaler capex has quadrupled since GPT-4's release",
+          "url": "https://epoch.ai/data-insights/hyperscaler-capex-trend",
+          "publishedAt": "2026-02-26T00:00:00.000Z",
+          "summary": "补齐 Big Tech AI spending 的量化基准：Epoch AI 基于 SEC filings 汇总 Alphabet、Amazon、Meta、Microsoft、Oracle 的 cash PP&E 与 finance lease ROU assets，估算其 capex 自 2023Q2 起年化增长 72%，若延续趋势 2026 年将达 7700 亿美元。",
+          "fetchedAt": "2026-08-01T04:05:59.398Z",
+          "researchedFrom": "N7",
+          "researchRole": "Comparison",
+          "researchClaim": "Avery Pennarun 的“AI 需要 Android 式开放生态”更适合作为 explore 选题：Web Summit Vancouver 2026 的公开议程确实把 AI 控制权之争置于 open-source 与 closed systems 的框架下，而独立基准显示开放模型已经接近但尚未稳定追平闭源前沿，这使 Big Tech 以封闭全栈换取定价权的资本开支逻辑面临更高验证压力。",
+          "researchComparisons": "Web Summit Vancouver 2026 官方称活动有 20,235 名参会者、1,197 家 startup、768 名投资者，且开幕讨论明确围绕 open vs closed AI；Stanford HAI 2026 AI Index 显示截至 2026-03，顶级闭源模型领先顶级开放模型 3.3%，高于 2024-08 的 0.5%，同时前沿模型表现正在收敛；Epoch AI 估算 Alphabet、Amazon、Meta、Microsoft、Oracle 的合计 capex 自 2023Q2 起年化增长 72%，若趋势延续 2026 年将达 7700 亿美元。",
+          "researchUnresolved": "Pennarun 在原文中的具体发言属于个人现场观察；未找到 Web Summit 官方逐字 transcript 或录像可独立核验其完整表述。",
+          "ref": "R4",
+          "role": "背景",
+          "takeaway": "Epoch AI基于SEC filings估算，主要hyperscaler的AI相关capex自GPT-4发布后显著扩张，若趋势延续2026年可达7700亿美元。"
+        }
+      ],
+      "references": [
+        {
+          "ref": "I51",
+          "sourceId": 130,
+          "sourceName": "NVIDIA AI Blog",
+          "sourceKind": "Blog",
+          "title": "Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security",
+          "summary": "Open source software is a critical pillar of the global economy. It underpins cloud computing, financial services, manufacturing, telecommunications, government and internet services by making technology accessible and observable to communities of experts. Cybersecurity is among the top three beneficiaries of open source software. The Open Secure AI Alliance",
+          "url": "https://blogs.nvidia.com/blog/open-secure-ai-alliance/",
+          "publishedAt": "2026-07-27T09:00:07.000Z"
+        },
+        {
+          "ref": "I165",
+          "sourceId": 94,
+          "sourceName": "Sequoia Capital",
+          "sourceKind": "Blog",
+          "title": "America’s Open-Model Paradox",
+          "summary": "The post America’s Open-Model Paradox appeared first on Sequoia Capital .",
+          "url": "https://sequoiacap.com/article/americas-open-model-paradox/",
+          "publishedAt": "2026-07-24T23:46:04.000Z"
+        },
+        {
+          "ref": "I166",
+          "sourceId": 89,
+          "sourceName": "Gary Marcus",
+          "sourceKind": "Newsletter",
+          "title": "An open letter to David Sacks",
+          "summary": "China is closing the gap, but it’s not because we have too much regulation on AI",
+          "url": "https://garymarcus.substack.com/p/an-open-letter-to-david-sacks",
+          "publishedAt": "2026-07-24T22:31:48.000Z"
+        },
+        {
+          "ref": "I151",
+          "sourceId": 6,
+          "sourceName": "All-In Podcast",
+          "sourceKind": "YouTube",
+          "title": "Chamath: Banning Open Source AI Will Crash the Stock Market",
+          "summary": "",
+          "url": "https://www.youtube.com/shorts/Ka2y-0Of0Dc",
+          "publishedAt": "2026-07-25T20:30:21.000Z"
+        },
+        {
+          "id": "56-4-https://apenwarr.ca/log/20260520/is-open-source-ai-rewriting-the-rules",
+          "sourceId": 56,
+          "sourceName": "Avery Pennarun",
+          "sourcePublisher": "Avery Pennarun",
+          "sourceKind": "Blog",
+          "title": "Web Summit Vancouver 2026: AI needs an Android-like ecosystem",
+          "url": "https://apenwarr.ca/log/20260520/is-open-source-ai-rewriting-the-rules",
+          "publishedAt": "2026-05-20T00:00:00.000Z",
+          "summary": "AI needs an open ‘Android’ to balance the vertically locked-in ‘iPhone’ of trillion-dollar AI companies. Open-source AI is closing the gap with closed systems faster than many people expected. That changes the economics, the security model, and the assumptions behind a lot of Big Tech’s AI spending. I joined a press conference at Web Summit to talk about wha",
+          "fetchedAt": "2026-08-01T04:05:59.398Z",
+          "firstSeenAt": "2026-07-31T14:18:13.755Z",
+          "ref": "N7"
+        },
+        {
+          "id": "research-56-4-https://apenwarr.ca/log/20260520/is-open-source-ai-rewriting-the-rules-1-https://vancouver.websummit.com/attendees/van26/220e4f1a-9920-456b-a335-e65bd5ec5194/avery-pennarun/",
+          "sourceId": 56,
+          "sourceName": "Web Summit Vancouver",
+          "sourcePublisher": "Web Summit Vancouver",
+          "sourceKind": "Official",
+          "title": "Avery Pennarun - Web Summit Vancouver",
+          "url": "https://vancouver.websummit.com/attendees/van26/220e4f1a-9920-456b-a335-e65bd5ec5194/avery-pennarun/",
+          "publishedAt": "2026-05-20T00:00:00.000Z",
+          "summary": "确认 Avery Pennarun 是 Web Summit Vancouver 2026 speaker，身份为 Tailscale Co-founder & CEO，类别标注为 Security；用于界定原文作者是否具备技术与安全领域直接观察视角。",
+          "fetchedAt": "2026-08-01T04:05:59.398Z",
+          "researchedFrom": "N7",
+          "researchRole": "Primary",
+          "researchClaim": "Avery Pennarun 的“AI 需要 Android 式开放生态”更适合作为 explore 选题：Web Summit Vancouver 2026 的公开议程确实把 AI 控制权之争置于 open-source 与 closed systems 的框架下，而独立基准显示开放模型已经接近但尚未稳定追平闭源前沿，这使 Big Tech 以封闭全栈换取定价权的资本开支逻辑面临更高验证压力。",
+          "researchComparisons": "Web Summit Vancouver 2026 官方称活动有 20,235 名参会者、1,197 家 startup、768 名投资者，且开幕讨论明确围绕 open vs closed AI；Stanford HAI 2026 AI Index 显示截至 2026-03，顶级闭源模型领先顶级开放模型 3.3%，高于 2024-08 的 0.5%，同时前沿模型表现正在收敛；Epoch AI 估算 Alphabet、Amazon、Meta、Microsoft、Oracle 的合计 capex 自 2023Q2 起年化增长 72%，若趋势延续 2026 年将达 7700 亿美元。",
+          "researchUnresolved": "Pennarun 在原文中的具体发言属于个人现场观察；未找到 Web Summit 官方逐字 transcript 或录像可独立核验其完整表述。",
+          "ref": "R1"
+        },
+        {
+          "id": "research-56-4-https://apenwarr.ca/log/20260520/is-open-source-ai-rewriting-the-rules-2-https://vancouver.websummit.com/blog/news/web-summit-vancouver-welcomes-20235-attendees-with-its-largest-investor-turnout-yet/",
+          "sourceId": 56,
+          "sourceName": "Web Summit Vancouver",
+          "sourcePublisher": "Web Summit Vancouver",
+          "sourceKind": "Official",
+          "title": "Web Summit Vancouver welcomes 20,235 attendees with its largest investor turnout yet",
+          "url": "https://vancouver.websummit.com/blog/news/web-summit-vancouver-welcomes-20235-attendees-with-its-largest-investor-turnout-yet/",
+          "publishedAt": "2026-05-12T00:00:00.000Z",
+          "summary": "补齐事件背景：Web Summit Vancouver 2026 官方披露 20,235 名参会者、1,197 家 startup、768 名投资者，并称开幕夜讨论了 open-source frontier、closed systems 与 AI 控制权问题。",
+          "fetchedAt": "2026-08-01T04:05:59.398Z",
+          "researchedFrom": "N7",
+          "researchRole": "Context",
+          "researchClaim": "Avery Pennarun 的“AI 需要 Android 式开放生态”更适合作为 explore 选题：Web Summit Vancouver 2026 的公开议程确实把 AI 控制权之争置于 open-source 与 closed systems 的框架下，而独立基准显示开放模型已经接近但尚未稳定追平闭源前沿，这使 Big Tech 以封闭全栈换取定价权的资本开支逻辑面临更高验证压力。",
+          "researchComparisons": "Web Summit Vancouver 2026 官方称活动有 20,235 名参会者、1,197 家 startup、768 名投资者，且开幕讨论明确围绕 open vs closed AI；Stanford HAI 2026 AI Index 显示截至 2026-03，顶级闭源模型领先顶级开放模型 3.3%，高于 2024-08 的 0.5%，同时前沿模型表现正在收敛；Epoch AI 估算 Alphabet、Amazon、Meta、Microsoft、Oracle 的合计 capex 自 2023Q2 起年化增长 72%，若趋势延续 2026 年将达 7700 亿美元。",
+          "researchUnresolved": "Pennarun 在原文中的具体发言属于个人现场观察；未找到 Web Summit 官方逐字 transcript 或录像可独立核验其完整表述。",
+          "ref": "R2"
+        },
+        {
+          "id": "research-56-4-https://apenwarr.ca/log/20260520/is-open-source-ai-rewriting-the-rules-3-https://hai.stanford.edu/ai-index/2026-ai-index-report/technical-performance",
+          "sourceId": 56,
+          "sourceName": "Stanford HAI",
+          "sourcePublisher": "Stanford HAI",
+          "sourceKind": "Research",
+          "title": "Technical Performance | The 2026 AI Index Report",
+          "url": "https://hai.stanford.edu/ai-index/2026-ai-index-report/technical-performance",
+          "publishedAt": "2026-05-20T00:00:00.000Z",
+          "summary": "提供开放模型与闭源模型的可比 benchmark：截至 2026-03，顶级闭源模型领先顶级开放模型 3.3%，高于 2024-08 的 0.5%；同时指出顶级模型表现正在收敛，多个公司在 Arena Elo 上进入同一梯队。",
+          "fetchedAt": "2026-08-01T04:05:59.398Z",
+          "researchedFrom": "N7",
+          "researchRole": "Comparison",
+          "researchClaim": "Avery Pennarun 的“AI 需要 Android 式开放生态”更适合作为 explore 选题：Web Summit Vancouver 2026 的公开议程确实把 AI 控制权之争置于 open-source 与 closed systems 的框架下，而独立基准显示开放模型已经接近但尚未稳定追平闭源前沿，这使 Big Tech 以封闭全栈换取定价权的资本开支逻辑面临更高验证压力。",
+          "researchComparisons": "Web Summit Vancouver 2026 官方称活动有 20,235 名参会者、1,197 家 startup、768 名投资者，且开幕讨论明确围绕 open vs closed AI；Stanford HAI 2026 AI Index 显示截至 2026-03，顶级闭源模型领先顶级开放模型 3.3%，高于 2024-08 的 0.5%，同时前沿模型表现正在收敛；Epoch AI 估算 Alphabet、Amazon、Meta、Microsoft、Oracle 的合计 capex 自 2023Q2 起年化增长 72%，若趋势延续 2026 年将达 7700 亿美元。",
+          "researchUnresolved": "Pennarun 在原文中的具体发言属于个人现场观察；未找到 Web Summit 官方逐字 transcript 或录像可独立核验其完整表述。",
+          "ref": "R3"
+        },
+        {
+          "id": "research-56-4-https://apenwarr.ca/log/20260520/is-open-source-ai-rewriting-the-rules-4-https://epoch.ai/data-insights/hyperscaler-capex-trend",
+          "sourceId": 56,
+          "sourceName": "Epoch AI",
+          "sourcePublisher": "Epoch AI",
+          "sourceKind": "Research",
+          "title": "Hyperscaler capex has quadrupled since GPT-4's release",
+          "url": "https://epoch.ai/data-insights/hyperscaler-capex-trend",
+          "publishedAt": "2026-02-26T00:00:00.000Z",
+          "summary": "补齐 Big Tech AI spending 的量化基准：Epoch AI 基于 SEC filings 汇总 Alphabet、Amazon、Meta、Microsoft、Oracle 的 cash PP&E 与 finance lease ROU assets，估算其 capex 自 2023Q2 起年化增长 72%，若延续趋势 2026 年将达 7700 亿美元。",
+          "fetchedAt": "2026-08-01T04:05:59.398Z",
+          "researchedFrom": "N7",
+          "researchRole": "Comparison",
+          "researchClaim": "Avery Pennarun 的“AI 需要 Android 式开放生态”更适合作为 explore 选题：Web Summit Vancouver 2026 的公开议程确实把 AI 控制权之争置于 open-source 与 closed systems 的框架下，而独立基准显示开放模型已经接近但尚未稳定追平闭源前沿，这使 Big Tech 以封闭全栈换取定价权的资本开支逻辑面临更高验证压力。",
+          "researchComparisons": "Web Summit Vancouver 2026 官方称活动有 20,235 名参会者、1,197 家 startup、768 名投资者，且开幕讨论明确围绕 open vs closed AI；Stanford HAI 2026 AI Index 显示截至 2026-03，顶级闭源模型领先顶级开放模型 3.3%，高于 2024-08 的 0.5%，同时前沿模型表现正在收敛；Epoch AI 估算 Alphabet、Amazon、Meta、Microsoft、Oracle 的合计 capex 自 2023Q2 起年化增长 72%，若趋势延续 2026 年将达 7700 亿美元。",
+          "researchUnresolved": "Pennarun 在原文中的具体发言属于个人现场观察；未找到 Web Summit 官方逐字 transcript 或录像可独立核验其完整表述。",
+          "ref": "R4"
+        }
+      ],
+      "editorialBucket": "explore",
+      "permanent": true,
+      "feedBatchAt": "2026-08-01T04:05:59.398Z",
+      "updatedAt": "2026-05-20T00:00:00.000Z",
+      "updates": [
+        {
+          "addedAt": "2026-05-20T00:00:00.000Z",
+          "title": "开放AI补齐Android框架",
+          "summary": "Avery Pennarun把开放AI类比为Android式生态，认为可制衡垂直封闭平台；Stanford HAI与Epoch补充benchmark收敛与hyperscaler capex扩张背景。",
+          "evidence": [
+            {
+              "id": "56-4-https://apenwarr.ca/log/20260520/is-open-source-ai-rewriting-the-rules",
+              "sourceId": 56,
+              "sourceName": "Avery Pennarun",
+              "sourcePublisher": "Avery Pennarun",
+              "sourceKind": "Blog",
+              "title": "Web Summit Vancouver 2026: AI needs an Android-like ecosystem",
+              "url": "https://apenwarr.ca/log/20260520/is-open-source-ai-rewriting-the-rules",
+              "publishedAt": "2026-05-20T00:00:00.000Z",
+              "summary": "AI needs an open ‘Android’ to balance the vertically locked-in ‘iPhone’ of trillion-dollar AI companies. Open-source AI is closing the gap with closed systems faster than many people expected. That changes the economics, the security model, and the assumptions behind a lot of Big Tech’s AI spending. I joined a press conference at Web Summit to talk about wha",
+              "fetchedAt": "2026-08-01T04:05:59.398Z",
+              "firstSeenAt": "2026-07-31T14:18:13.755Z",
+              "ref": "N7",
+              "role": "佐证",
+              "takeaway": "Avery Pennarun在Web Summit Vancouver相关发言中提出AI需要类似Android的开放生态，以平衡大型AI公司的垂直锁定。"
+            },
+            {
+              "id": "research-56-4-https://apenwarr.ca/log/20260520/is-open-source-ai-rewriting-the-rules-1-https://vancouver.websummit.com/attendees/van26/220e4f1a-9920-456b-a335-e65bd5ec5194/avery-pennarun/",
+              "sourceId": 56,
+              "sourceName": "Web Summit Vancouver",
+              "sourcePublisher": "Web Summit Vancouver",
+              "sourceKind": "Official",
+              "title": "Avery Pennarun - Web Summit Vancouver",
+              "url": "https://vancouver.websummit.com/attendees/van26/220e4f1a-9920-456b-a335-e65bd5ec5194/avery-pennarun/",
+              "publishedAt": "2026-05-20T00:00:00.000Z",
+              "summary": "确认 Avery Pennarun 是 Web Summit Vancouver 2026 speaker，身份为 Tailscale Co-founder & CEO，类别标注为 Security；用于界定原文作者是否具备技术与安全领域直接观察视角。",
+              "fetchedAt": "2026-08-01T04:05:59.398Z",
+              "researchedFrom": "N7",
+              "researchRole": "Primary",
+              "researchClaim": "Avery Pennarun 的“AI 需要 Android 式开放生态”更适合作为 explore 选题：Web Summit Vancouver 2026 的公开议程确实把 AI 控制权之争置于 open-source 与 closed systems 的框架下，而独立基准显示开放模型已经接近但尚未稳定追平闭源前沿，这使 Big Tech 以封闭全栈换取定价权的资本开支逻辑面临更高验证压力。",
+              "researchComparisons": "Web Summit Vancouver 2026 官方称活动有 20,235 名参会者、1,197 家 startup、768 名投资者，且开幕讨论明确围绕 open vs closed AI；Stanford HAI 2026 AI Index 显示截至 2026-03，顶级闭源模型领先顶级开放模型 3.3%，高于 2024-08 的 0.5%，同时前沿模型表现正在收敛；Epoch AI 估算 Alphabet、Amazon、Meta、Microsoft、Oracle 的合计 capex 自 2023Q2 起年化增长 72%，若趋势延续 2026 年将达 7700 亿美元。",
+              "researchUnresolved": "Pennarun 在原文中的具体发言属于个人现场观察；未找到 Web Summit 官方逐字 transcript 或录像可独立核验其完整表述。",
+              "ref": "R1",
+              "role": "背景",
+              "takeaway": "Web Summit Vancouver官方页面确认Avery Pennarun为Tailscale Co-founder & CEO，议题归类于Security。"
+            },
+            {
+              "id": "research-56-4-https://apenwarr.ca/log/20260520/is-open-source-ai-rewriting-the-rules-2-https://vancouver.websummit.com/blog/news/web-summit-vancouver-welcomes-20235-attendees-with-its-largest-investor-turnout-yet/",
+              "sourceId": 56,
+              "sourceName": "Web Summit Vancouver",
+              "sourcePublisher": "Web Summit Vancouver",
+              "sourceKind": "Official",
+              "title": "Web Summit Vancouver welcomes 20,235 attendees with its largest investor turnout yet",
+              "url": "https://vancouver.websummit.com/blog/news/web-summit-vancouver-welcomes-20235-attendees-with-its-largest-investor-turnout-yet/",
+              "publishedAt": "2026-05-12T00:00:00.000Z",
+              "summary": "补齐事件背景：Web Summit Vancouver 2026 官方披露 20,235 名参会者、1,197 家 startup、768 名投资者，并称开幕夜讨论了 open-source frontier、closed systems 与 AI 控制权问题。",
+              "fetchedAt": "2026-08-01T04:05:59.398Z",
+              "researchedFrom": "N7",
+              "researchRole": "Context",
+              "researchClaim": "Avery Pennarun 的“AI 需要 Android 式开放生态”更适合作为 explore 选题：Web Summit Vancouver 2026 的公开议程确实把 AI 控制权之争置于 open-source 与 closed systems 的框架下，而独立基准显示开放模型已经接近但尚未稳定追平闭源前沿，这使 Big Tech 以封闭全栈换取定价权的资本开支逻辑面临更高验证压力。",
+              "researchComparisons": "Web Summit Vancouver 2026 官方称活动有 20,235 名参会者、1,197 家 startup、768 名投资者，且开幕讨论明确围绕 open vs closed AI；Stanford HAI 2026 AI Index 显示截至 2026-03，顶级闭源模型领先顶级开放模型 3.3%，高于 2024-08 的 0.5%，同时前沿模型表现正在收敛；Epoch AI 估算 Alphabet、Amazon、Meta、Microsoft、Oracle 的合计 capex 自 2023Q2 起年化增长 72%，若趋势延续 2026 年将达 7700 亿美元。",
+              "researchUnresolved": "Pennarun 在原文中的具体发言属于个人现场观察；未找到 Web Summit 官方逐字 transcript 或录像可独立核验其完整表述。",
+              "ref": "R2",
+              "role": "背景",
+              "takeaway": "Web Summit Vancouver官方披露本届会议有20,235名参会者、1,197家startup和768名投资者，并讨论open-source frontier、closed systems与AI控制权。"
+            },
+            {
+              "id": "research-56-4-https://apenwarr.ca/log/20260520/is-open-source-ai-rewriting-the-rules-3-https://hai.stanford.edu/ai-index/2026-ai-index-report/technical-performance",
+              "sourceId": 56,
+              "sourceName": "Stanford HAI",
+              "sourcePublisher": "Stanford HAI",
+              "sourceKind": "Research",
+              "title": "Technical Performance | The 2026 AI Index Report",
+              "url": "https://hai.stanford.edu/ai-index/2026-ai-index-report/technical-performance",
+              "publishedAt": "2026-05-20T00:00:00.000Z",
+              "summary": "提供开放模型与闭源模型的可比 benchmark：截至 2026-03，顶级闭源模型领先顶级开放模型 3.3%，高于 2024-08 的 0.5%；同时指出顶级模型表现正在收敛，多个公司在 Arena Elo 上进入同一梯队。",
+              "fetchedAt": "2026-08-01T04:05:59.398Z",
+              "researchedFrom": "N7",
+              "researchRole": "Comparison",
+              "researchClaim": "Avery Pennarun 的“AI 需要 Android 式开放生态”更适合作为 explore 选题：Web Summit Vancouver 2026 的公开议程确实把 AI 控制权之争置于 open-source 与 closed systems 的框架下，而独立基准显示开放模型已经接近但尚未稳定追平闭源前沿，这使 Big Tech 以封闭全栈换取定价权的资本开支逻辑面临更高验证压力。",
+              "researchComparisons": "Web Summit Vancouver 2026 官方称活动有 20,235 名参会者、1,197 家 startup、768 名投资者，且开幕讨论明确围绕 open vs closed AI；Stanford HAI 2026 AI Index 显示截至 2026-03，顶级闭源模型领先顶级开放模型 3.3%，高于 2024-08 的 0.5%，同时前沿模型表现正在收敛；Epoch AI 估算 Alphabet、Amazon、Meta、Microsoft、Oracle 的合计 capex 自 2023Q2 起年化增长 72%，若趋势延续 2026 年将达 7700 亿美元。",
+              "researchUnresolved": "Pennarun 在原文中的具体发言属于个人现场观察；未找到 Web Summit 官方逐字 transcript 或录像可独立核验其完整表述。",
+              "ref": "R3",
+              "role": "背景",
+              "takeaway": "Stanford HAI AI Index给出开放与闭源模型benchmark背景：截至2026年3月顶级闭源模型领先顶级开放模型3.3%，同时多个顶级模型在Arena Elo上进入同一梯队。"
+            },
+            {
+              "id": "research-56-4-https://apenwarr.ca/log/20260520/is-open-source-ai-rewriting-the-rules-4-https://epoch.ai/data-insights/hyperscaler-capex-trend",
+              "sourceId": 56,
+              "sourceName": "Epoch AI",
+              "sourcePublisher": "Epoch AI",
+              "sourceKind": "Research",
+              "title": "Hyperscaler capex has quadrupled since GPT-4's release",
+              "url": "https://epoch.ai/data-insights/hyperscaler-capex-trend",
+              "publishedAt": "2026-02-26T00:00:00.000Z",
+              "summary": "补齐 Big Tech AI spending 的量化基准：Epoch AI 基于 SEC filings 汇总 Alphabet、Amazon、Meta、Microsoft、Oracle 的 cash PP&E 与 finance lease ROU assets，估算其 capex 自 2023Q2 起年化增长 72%，若延续趋势 2026 年将达 7700 亿美元。",
+              "fetchedAt": "2026-08-01T04:05:59.398Z",
+              "researchedFrom": "N7",
+              "researchRole": "Comparison",
+              "researchClaim": "Avery Pennarun 的“AI 需要 Android 式开放生态”更适合作为 explore 选题：Web Summit Vancouver 2026 的公开议程确实把 AI 控制权之争置于 open-source 与 closed systems 的框架下，而独立基准显示开放模型已经接近但尚未稳定追平闭源前沿，这使 Big Tech 以封闭全栈换取定价权的资本开支逻辑面临更高验证压力。",
+              "researchComparisons": "Web Summit Vancouver 2026 官方称活动有 20,235 名参会者、1,197 家 startup、768 名投资者，且开幕讨论明确围绕 open vs closed AI；Stanford HAI 2026 AI Index 显示截至 2026-03，顶级闭源模型领先顶级开放模型 3.3%，高于 2024-08 的 0.5%，同时前沿模型表现正在收敛；Epoch AI 估算 Alphabet、Amazon、Meta、Microsoft、Oracle 的合计 capex 自 2023Q2 起年化增长 72%，若趋势延续 2026 年将达 7700 亿美元。",
+              "researchUnresolved": "Pennarun 在原文中的具体发言属于个人现场观察；未找到 Web Summit 官方逐字 transcript 或录像可独立核验其完整表述。",
+              "ref": "R4",
+              "role": "背景",
+              "takeaway": "Epoch AI基于SEC filings估算，主要hyperscaler的AI相关capex自GPT-4发布后显著扩张，若趋势延续2026年可达7700亿美元。"
+            }
+          ]
+        }
+      ]
+    },
     {
       "id": 46,
       "editorialBucket": "explore",
@@ -6493,264 +7101,6 @@
       "feedBatchAt": "2026-07-29T13:02:22.855Z"
     },
     {
-      "id": 4,
-      "category": "科技",
-      "eyebrow": "风险预警",
-      "title": "开源AI安全同盟升温",
-      "summary": "NVIDIA等推动Open Secure AI Alliance，开源AI监管与商业威胁讨论继续发酵。",
-      "why": "开放模型既被视为安全可观察基础，也被视为商业和政策风险源。",
-      "impact": "可能影响模型许可、企业采购和美国AI产业政策讨论。",
-      "shiftFrom": "开源AI多为技术路线",
-      "shiftTo": "升级为安全与政策议题",
-      "crossValidation": "NVIDIA强调开放安全联盟，Sequoia谈开放模型悖论，Gary Marcus和All-In从政策争论切入。",
-      "article": {
-        "lead": "开源AI的争论正在从“能不能替代闭源模型”扩展为安全、产业政策和资本市场议题。NVIDIA发布Open Secure AI Alliance相关内容，投资人与评论者也围绕开放模型、监管和美国竞争力持续发声。",
-        "sections": [
-          {
-            "heading": "开放安全联盟把开源纳入安全框架",
-            "body": "NVIDIA AI Blog称，开源软件是全球经济的重要支柱，支撑云计算、金融服务、制造、电信、政府和互联网服务。文章还称，网络安全是开源软件的前三大受益领域之一，并介绍Open Secure AI Alliance面向AI安全与安全保障的行业联合行动。"
-          },
-          {
-            "heading": "产业叙事出现明显分歧",
-            "body": "Sequoia发布“America’s Open-Model Paradox”，从美国开放模型处境切入。Gary Marcus发表致David Sacks公开信，标题摘要称中国正在缩小差距，但并不是因为美国AI监管太多。All-In相关节目标题讨论开源AI之争、Anthropic 15亿美元赔付，以及Chamath关于禁止开源AI可能冲击股市的观点。这些来源不完全一致：NVIDIA强调安全协作，评论者更关注政策后果。"
-          },
-          {
-            "heading": "重要性在于开放模型进入制度竞争",
-            "body": "事实层面，开放模型已同时出现在安全联盟、投资机构文章和政策评论节目中。编辑推断是，未来开放模型的竞争不只看参数、成本和性能，还会看许可证、出口政策、企业责任和安全评估。分歧本身说明这个议题尚未形成稳定共识。"
-          }
-        ],
-        "outlook": "下一步应观察Open Secure AI Alliance是否发布具体标准、成员名单和工具成果，以及美国政策讨论是否转化为对开放权重发布、模型托管和企业使用的明确规则。"
-      },
-      "validationType": "跨平台验证",
-      "sources": [
-        "Blog",
-        "Newsletter",
-        "YouTube"
-      ],
-      "sourceNames": [
-        "NVIDIA AI Blog",
-        "Sequoia Capital",
-        "Gary Marcus",
-        "All-In Podcast"
-      ],
-      "sourceCount": 4,
-      "age": "2 天前",
-      "score": 86,
-      "tone": "orange",
-      "evidence": [
-        {
-          "ref": "I51",
-          "sourceId": 130,
-          "sourceName": "NVIDIA AI Blog",
-          "sourceKind": "Blog",
-          "title": "Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security",
-          "summary": "Open source software is a critical pillar of the global economy. It underpins cloud computing, financial services, manufacturing, telecommunications, government and internet services by making technology accessible and observable to communities of experts. Cybersecurity is among the top three beneficiaries of open source software. The Open Secure AI Alliance",
-          "url": "https://blogs.nvidia.com/blog/open-secure-ai-alliance/",
-          "publishedAt": "2026-07-27T09:00:07.000Z",
-          "role": "主张",
-          "takeaway": "NVIDIA介绍Open Secure AI Alliance，强调开源与AI安全。"
-        },
-        {
-          "ref": "I165",
-          "sourceId": 94,
-          "sourceName": "Sequoia Capital",
-          "sourceKind": "Blog",
-          "title": "America’s Open-Model Paradox",
-          "summary": "The post America’s Open-Model Paradox appeared first on Sequoia Capital .",
-          "url": "https://sequoiacap.com/article/americas-open-model-paradox/",
-          "publishedAt": "2026-07-24T23:46:04.000Z",
-          "role": "佐证",
-          "takeaway": "Sequoia发布文章讨论美国开放模型悖论。"
-        },
-        {
-          "ref": "I166",
-          "sourceId": 89,
-          "sourceName": "Gary Marcus",
-          "sourceKind": "Newsletter",
-          "title": "An open letter to David Sacks",
-          "summary": "China is closing the gap, but it’s not because we have too much regulation on AI",
-          "url": "https://garymarcus.substack.com/p/an-open-letter-to-david-sacks",
-          "publishedAt": "2026-07-24T22:31:48.000Z",
-          "role": "佐证",
-          "takeaway": "Gary Marcus称中国追赶不因美国AI监管过多。"
-        },
-        {
-          "ref": "I151",
-          "sourceId": 6,
-          "sourceName": "All-In Podcast",
-          "sourceKind": "YouTube",
-          "title": "Chamath: Banning Open Source AI Will Crash the Stock Market",
-          "summary": "",
-          "url": "https://www.youtube.com/shorts/Ka2y-0Of0Dc",
-          "publishedAt": "2026-07-25T20:30:21.000Z",
-          "role": "佐证",
-          "takeaway": "All-In片段讨论禁止开源AI可能冲击股市。"
-        }
-      ],
-      "references": [
-        {
-          "ref": "I51",
-          "sourceId": 130,
-          "sourceName": "NVIDIA AI Blog",
-          "sourceKind": "Blog",
-          "title": "Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security",
-          "summary": "Open source software is a critical pillar of the global economy. It underpins cloud computing, financial services, manufacturing, telecommunications, government and internet services by making technology accessible and observable to communities of experts. Cybersecurity is among the top three beneficiaries of open source software. The Open Secure AI Alliance",
-          "url": "https://blogs.nvidia.com/blog/open-secure-ai-alliance/",
-          "publishedAt": "2026-07-27T09:00:07.000Z"
-        },
-        {
-          "ref": "I165",
-          "sourceId": 94,
-          "sourceName": "Sequoia Capital",
-          "sourceKind": "Blog",
-          "title": "America’s Open-Model Paradox",
-          "summary": "The post America’s Open-Model Paradox appeared first on Sequoia Capital .",
-          "url": "https://sequoiacap.com/article/americas-open-model-paradox/",
-          "publishedAt": "2026-07-24T23:46:04.000Z"
-        },
-        {
-          "ref": "I166",
-          "sourceId": 89,
-          "sourceName": "Gary Marcus",
-          "sourceKind": "Newsletter",
-          "title": "An open letter to David Sacks",
-          "summary": "China is closing the gap, but it’s not because we have too much regulation on AI",
-          "url": "https://garymarcus.substack.com/p/an-open-letter-to-david-sacks",
-          "publishedAt": "2026-07-24T22:31:48.000Z"
-        },
-        {
-          "ref": "I151",
-          "sourceId": 6,
-          "sourceName": "All-In Podcast",
-          "sourceKind": "YouTube",
-          "title": "Chamath: Banning Open Source AI Will Crash the Stock Market",
-          "summary": "",
-          "url": "https://www.youtube.com/shorts/Ka2y-0Of0Dc",
-          "publishedAt": "2026-07-25T20:30:21.000Z"
-        }
-      ],
-      "editorialBucket": "explore",
-      "permanent": true,
-      "feedBatchAt": "2026-07-29T13:02:22.855Z"
-    },
-    {
-      "id": 5,
-      "category": "AI & 模型",
-      "eyebrow": "产品信号",
-      "title": "AI使用从聊天转向代理",
-      "summary": "OpenAI研究工作任务扩展，Mollick指南被观察到从聊天模型转向代理系统。",
-      "why": "用户价值重心从回答问题转向完成跨角色、跨工具任务。",
-      "impact": "可能强化ChatGPT类产品向工作入口和一体化应用演进。",
-      "shiftFrom": "以聊天模型为中心",
-      "shiftTo": "以代理任务为中心",
-      "crossValidation": "OpenAI给出工作使用研究，Willison观察指南演化，Latent Space标题指向ChatGPT everything app。",
-      "article": {
-        "lead": "AI产品的主叙事正在从聊天框转向代理系统。OpenAI发布工作使用研究，Simon Willison观察Ethan Mollick的AI使用指南已经从模型选择转向代理系统，另有访谈标题直接指向ChatGPT成为everything app的计划。",
-        "sections": [
-          {
-            "heading": "工作场景开始被描述为任务扩展",
-            "body": "OpenAI Blog发布研究称，AI正在扩展人们在工作中做的事情，ChatGPT用户承担跨角色任务，并重塑工作边界。该表述没有只强调单一岗位自动化，而是把ChatGPT使用放在任务范围扩张和角色边界变化中。对企业研究者而言，这意味着观察对象从个体提效转向组织任务流。"
-          },
-          {
-            "heading": "独立观察显示使用指南也在改写",
-            "body": "Simon Willison评价Ethan Mollick的AI使用指南演化，称一年前仍主要围绕ChatGPT、Claude、Gemini等聊天模型，以及Deep Research等模式；今天更多围绕代理系统，即AI在其中执行任务的形态。Latent Space发布“OpenAI’s Plan to Make ChatGPT the Everything App”访谈标题，提供产品战略层面的相邻信号。三者分别来自研究、观察和访谈标题，强度不同但方向一致。"
-          },
-          {
-            "heading": "重要性在于入口和任务边界变化",
-            "body": "事实是，OpenAI把ChatGPT放进工作任务扩展框架，外部观察者也把AI使用从聊天迁移到代理系统。编辑推断是，如果用户开始把AI当作任务执行层，而非问答工具，产品入口、权限管理和数据连接的重要性都会上升。但具体采用速度仍需更多使用数据验证。"
-          }
-        ],
-        "outlook": "接下来应观察ChatGPT是否增加更多跨应用执行、企业权限和工作流功能，以及OpenAI后续研究是否披露任务类型、角色变化和留存指标。"
-      },
-      "validationType": "跨平台验证",
-      "sources": [
-        "Blog",
-        "YouTube"
-      ],
-      "sourceNames": [
-        "OpenAI Blog",
-        "Simon Willison",
-        "Latent Space"
-      ],
-      "sourceCount": 3,
-      "age": "22 小时前",
-      "score": 84,
-      "tone": "blue",
-      "evidence": [
-        {
-          "ref": "I24",
-          "sourceId": 131,
-          "sourceName": "OpenAI Blog",
-          "sourceKind": "Blog",
-          "title": "How AI is expanding what people do at work",
-          "summary": "New OpenAI research shows how AI is expanding what workers do, with ChatGPT users taking on tasks across roles and reshaping job boundaries.",
-          "url": "https://openai.com/index/how-ai-is-expanding-what-people-do-at-work",
-          "publishedAt": "2026-07-27T03:30:00.000Z",
-          "role": "主张",
-          "takeaway": "OpenAI研究称AI扩展工作任务并重塑角色边界。"
-        },
-        {
-          "ref": "I2",
-          "sourceId": 140,
-          "sourceName": "Simon Willison",
-          "sourceKind": "Blog",
-          "title": "An opinionated guide to which AI to use to do stuff",
-          "summary": "An opinionated guide to which AI to use to do stuff It's interesting watching the evolution of Ethan Mollick's guide over time. A year ago it was still all about chat - ChatGPT, Claude, Gemini - with o3, Claude 4 Opus, and Gemini 2.5 Pro as the models and Deep Research as a useful alternative mode. Today it's much more about agentic systems - \"where the AI i",
-          "url": "https://simonwillison.net/2026/Jul/27/an-opinionated-guide-to-which-ai-to-use-to-do-stuff/#atom-everything",
-          "publishedAt": "2026-07-27T21:55:53.000Z",
-          "role": "佐证",
-          "takeaway": "Willison观察AI使用指南从聊天转向代理系统。"
-        },
-        {
-          "ref": "I25",
-          "sourceId": 21,
-          "sourceName": "Latent Space",
-          "sourceKind": "YouTube",
-          "title": "OpenAI’s Plan to Make ChatGPT the Everything App — Akshay Nathan, OpenAI",
-          "summary": "",
-          "url": "https://www.youtube.com/watch?v=gKhW6vL4V9A",
-          "publishedAt": "2026-07-28T14:47:26.000Z",
-          "role": "佐证",
-          "takeaway": "Latent Space访谈题目指向ChatGPT everything app计划。"
-        }
-      ],
-      "references": [
-        {
-          "ref": "I24",
-          "sourceId": 131,
-          "sourceName": "OpenAI Blog",
-          "sourceKind": "Blog",
-          "title": "How AI is expanding what people do at work",
-          "summary": "New OpenAI research shows how AI is expanding what workers do, with ChatGPT users taking on tasks across roles and reshaping job boundaries.",
-          "url": "https://openai.com/index/how-ai-is-expanding-what-people-do-at-work",
-          "publishedAt": "2026-07-27T03:30:00.000Z"
-        },
-        {
-          "ref": "I2",
-          "sourceId": 140,
-          "sourceName": "Simon Willison",
-          "sourceKind": "Blog",
-          "title": "An opinionated guide to which AI to use to do stuff",
-          "summary": "An opinionated guide to which AI to use to do stuff It's interesting watching the evolution of Ethan Mollick's guide over time. A year ago it was still all about chat - ChatGPT, Claude, Gemini - with o3, Claude 4 Opus, and Gemini 2.5 Pro as the models and Deep Research as a useful alternative mode. Today it's much more about agentic systems - \"where the AI i",
-          "url": "https://simonwillison.net/2026/Jul/27/an-opinionated-guide-to-which-ai-to-use-to-do-stuff/#atom-everything",
-          "publishedAt": "2026-07-27T21:55:53.000Z"
-        },
-        {
-          "ref": "I25",
-          "sourceId": 21,
-          "sourceName": "Latent Space",
-          "sourceKind": "YouTube",
-          "title": "OpenAI’s Plan to Make ChatGPT the Everything App — Akshay Nathan, OpenAI",
-          "summary": "",
-          "url": "https://www.youtube.com/watch?v=gKhW6vL4V9A",
-          "publishedAt": "2026-07-28T14:47:26.000Z"
-        }
-      ],
-      "editorialBucket": "explore",
-      "permanent": true,
-      "feedBatchAt": "2026-07-29T13:02:22.855Z"
-    },
-    {
       "id": 8,
       "category": "投资",
       "eyebrow": "资本信号",
@@ -11919,6 +12269,190 @@
       "editorNote": "今日信息环境由智能体安全事件、AI coding 工具链分化、open-weight 模型竞争与算力下沉共同主导。",
       "signals": [
         {
+          "category": "AI 与 模型",
+          "eyebrow": "产品信号",
+          "title": "AI 使用从聊天转向智能体",
+          "summary": "OpenAI 研究工作任务扩展，Mollick 指南被观察到从聊天模型转向智能体系统。",
+          "why": "用户价值重心从回答问题转向完成跨角色、跨工具任务。",
+          "impact": "可能强化 ChatGPT 类产品向工作入口和一体化应用演进。",
+          "shiftFrom": "以聊天模型为中心",
+          "shiftTo": "以智能体任务为中心",
+          "crossValidation": "OpenAI 给出工作使用研究，Willison 观察指南演化，Latent Space 标题指向 ChatGPT everything app。",
+          "article": {
+            "lead": "AI 产品的主叙事正在从聊天框转向智能体系统。OpenAI 发布工作使用研究，Simon Willison 观察 Ethan Mollick 的 AI 使用指南已经从 model 选择转向智能体系统，另有访谈标题直接指向 ChatGPT 成为 everything app 的计划。",
+            "sections": [
+              {
+                "heading": "工作场景开始被描述为任务扩展",
+                "body": "OpenAI Blog 发布研究称，AI 正在扩展人们在工作中做的事情，ChatGPT 用户承担跨角色任务，并重塑工作边界。该表述没有只强调单一岗位自动化，而是把 ChatGPT 使用放在任务范围扩张和角色边界变化中。对企业研究者而言，这意味着观察对象从个体提效转向组织任务流。"
+              },
+              {
+                "heading": "独立观察显示使用指南也在改写",
+                "body": "Simon Willison 评价 Ethan Mollick 的 AI 使用指南演化，称一年前仍主要围绕 ChatGPT、Claude、Gemini 等聊天模型，以及 Deep Research 等模式；今天更多围绕智能体系统，即 AI 在其中执行任务的形态。Latent Space 发布“OpenAI’s Plan to Make ChatGPT the Everything App”访谈标题，提供产品战略层面的相邻信号。三者分别来自研究、观察和访谈标题，强度不同但方向一致。"
+              },
+              {
+                "heading": "重要性在于入口和任务边界变化",
+                "body": "事实是，OpenAI 把 ChatGPT 放进工作任务扩展框架，外部观察者也把 AI 使用从聊天迁移到智能体系统。编辑推断是，如果用户开始把 AI 当作任务执行层，而非问答工具，产品入口、权限管理和数据连接的重要性都会上升。但具体采用速度仍需更多使用数据验证。"
+              }
+            ],
+            "outlook": "接下来应观察 ChatGPT 是否增加更多跨应用执行、企业权限和 workflow 功能，以及 OpenAI 后续研究是否披露任务类型、角色变化和留存指标。"
+          },
+          "evidence": [
+            {
+              "ref": "I24",
+              "sourceName": "OpenAI Blog",
+              "sourceKind": "Blog",
+              "originalTitle": "How AI is expanding what people do at work",
+              "role": "主张",
+              "takeaway": "OpenAI 研究称 AI 扩展工作任务并重塑角色边界。"
+            },
+            {
+              "ref": "I2",
+              "sourceName": "Simon Willison",
+              "sourceKind": "Blog",
+              "originalTitle": "An opinionated guide to which AI to use to do stuff",
+              "role": "佐证",
+              "takeaway": "Willison 观察 AI 使用指南从聊天转向智能体系统。"
+            },
+            {
+              "ref": "I25",
+              "sourceName": "Latent Space",
+              "sourceKind": "YouTube",
+              "originalTitle": "OpenAI’s Plan to Make ChatGPT the Everything App — Akshay Nathan, OpenAI",
+              "role": "佐证",
+              "takeaway": "Latent Space 访谈题目指向 ChatGPT everything app 计划。"
+            },
+            {
+              "role": "最新进展",
+              "takeaway": "OpenAI披露avatarin基于GPT-Realtime为Yamada Denki部署24/7零售支持Agent，两周内3万人使用，92%调查反馈为正面。"
+            }
+          ],
+          "updates": [
+            {
+              "addedAt": "2026-07-30T00:00:00.000Z",
+              "title": "零售Agent进入门店场景",
+              "summary": "OpenAI案例称avatarin用GPT-Realtime为Yamada Denki提供24/7多语支持，两周3万人使用、92%问卷正面，补充AI从聊天转向现场服务代理的采用证据。",
+              "evidence": [
+                {
+                  "role": "最新进展",
+                  "takeaway": "OpenAI披露avatarin基于GPT-Realtime为Yamada Denki部署24/7零售支持Agent，两周内3万人使用，92%调查反馈为正面。"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "category": "科技",
+          "eyebrow": "风险预警",
+          "title": "open-source AI 安全同盟升温",
+          "summary": "NVIDIA 等推动 Open Secure AI Alliance，open-source AI 监管与商业威胁讨论继续发酵。",
+          "why": "开放模型既被视为安全可观察基础，也被视为商业和政策风险源。",
+          "impact": "可能影响 model 许可、企业采购和美国 AI 产业政策讨论。",
+          "shiftFrom": "open-source AI 多为技术路线",
+          "shiftTo": "升级为安全与政策议题",
+          "crossValidation": "NVIDIA 强调开放安全联盟，Sequoia 谈开放模型悖论，Gary Marcus 和 All-In 从政策争论切入。",
+          "article": {
+            "lead": "open-source AI 的争论正在从“能不能替代闭源 model”扩展为安全、产业政策和资本市场议题。NVIDIA 发布 Open Secure AI Alliance 相关内容，投资人与评论者也围绕开放模型、监管和美国竞争力持续发声。",
+            "sections": [
+              {
+                "heading": "开放安全联盟把 open-source 纳入安全框架",
+                "body": "NVIDIA AI Blog 称，open-source 软件是全球经济的重要支柱，支撑 cloud computing、金融服务、制造、电信、政府和互联网服务。文章还称，网络安全是 open-source 软件的前三大受益领域之一，并介绍 Open Secure AI Alliance 面向 AI 安全与安全保障的行业联合行动。"
+              },
+              {
+                "heading": "产业叙事出现明显分歧",
+                "body": "Sequoia 发布“America’s Open-Model Paradox”，从美国开放模型处境切入。Gary Marcus 发表致 David Sacks 公开信，标题摘要称中国正在缩小差距，但并不是因为美国 AI 监管太多。All-In 相关节目标题讨论 open-source AI 之争、Anthropic 15 亿美元赔付，以及 Chamath 关于禁止 open-source AI 可能冲击股市的观点。这些来源不完全一致：NVIDIA 强调安全协作，评论者更关注政策后果。"
+              },
+              {
+                "heading": "重要性在于开放模型进入制度竞争",
+                "body": "事实层面，开放模型已同时出现在安全联盟、投资机构文章和政策评论节目中。编辑推断是，未来开放模型的竞争不只看参数、成本和性能，还会看许可证、出口政策、企业责任和安全评估。分歧本身说明这个议题尚未形成稳定共识。"
+              }
+            ],
+            "outlook": "下一步应观察 Open Secure AI Alliance 是否发布具体标准、成员名单和工具成果，以及美国政策讨论是否转化为对 open-weight 发布、model 托管和企业使用的明确规则。"
+          },
+          "evidence": [
+            {
+              "ref": "I51",
+              "sourceName": "NVIDIA AI Blog",
+              "sourceKind": "Blog",
+              "originalTitle": "Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security",
+              "role": "主张",
+              "takeaway": "NVIDIA 介绍 Open Secure AI Alliance，强调 open-source 与 AI 安全。"
+            },
+            {
+              "ref": "I165",
+              "sourceName": "Sequoia Capital",
+              "sourceKind": "Blog",
+              "originalTitle": "America’s Open-Model Paradox",
+              "role": "佐证",
+              "takeaway": "Sequoia 发布文章讨论美国开放模型悖论。"
+            },
+            {
+              "ref": "I166",
+              "sourceName": "Gary Marcus",
+              "sourceKind": "Newsletter",
+              "originalTitle": "An open letter to David Sacks",
+              "role": "佐证",
+              "takeaway": "Gary Marcus 称中国追赶不因美国 AI 监管过多。"
+            },
+            {
+              "ref": "I151",
+              "sourceName": "All-In Podcast",
+              "sourceKind": "YouTube",
+              "originalTitle": "Chamath: Banning Open Source AI Will Crash the Stock Market",
+              "role": "佐证",
+              "takeaway": "All-In 片段讨论禁止 open-source AI 可能冲击股市。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "Avery Pennarun在Web Summit Vancouver相关发言中提出AI需要类似Android的开放生态，以平衡大型AI公司的垂直锁定。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "Web Summit Vancouver官方页面确认Avery Pennarun为Tailscale Co-founder & CEO，议题归类于Security。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "Web Summit Vancouver官方披露本届会议有20,235名参会者、1,197家startup和768名投资者，并讨论open-source frontier、closed systems与AI控制权。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "Stanford HAI AI Index给出开放与闭源模型benchmark背景：截至2026年3月顶级闭源模型领先顶级开放模型3.3%，同时多个顶级模型在Arena Elo上进入同一梯队。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "Epoch AI基于SEC filings估算，主要hyperscaler的AI相关capex自GPT-4发布后显著扩张，若趋势延续2026年可达7700亿美元。"
+            }
+          ],
+          "updates": [
+            {
+              "addedAt": "2026-05-20T00:00:00.000Z",
+              "title": "开放AI补齐Android框架",
+              "summary": "Avery Pennarun把开放AI类比为Android式生态，认为可制衡垂直封闭平台；Stanford HAI与Epoch补充benchmark收敛与hyperscaler capex扩张背景。",
+              "evidence": [
+                {
+                  "role": "佐证",
+                  "takeaway": "Avery Pennarun在Web Summit Vancouver相关发言中提出AI需要类似Android的开放生态，以平衡大型AI公司的垂直锁定。"
+                },
+                {
+                  "role": "背景",
+                  "takeaway": "Web Summit Vancouver官方页面确认Avery Pennarun为Tailscale Co-founder & CEO，议题归类于Security。"
+                },
+                {
+                  "role": "背景",
+                  "takeaway": "Web Summit Vancouver官方披露本届会议有20,235名参会者、1,197家startup和768名投资者，并讨论open-source frontier、closed systems与AI控制权。"
+                },
+                {
+                  "role": "背景",
+                  "takeaway": "Stanford HAI AI Index给出开放与闭源模型benchmark背景：截至2026年3月顶级闭源模型领先顶级开放模型3.3%，同时多个顶级模型在Arena Elo上进入同一梯队。"
+                },
+                {
+                  "role": "背景",
+                  "takeaway": "Epoch AI基于SEC filings估算，主要hyperscaler的AI相关capex自GPT-4发布后显著扩张，若趋势延续2026年可达7700亿美元。"
+                }
+              ]
+            }
+          ]
+        },
+        {
           "category": "AI & 模型",
           "eyebrow": "观点",
           "title": "AI评测转向对抗式出题",
@@ -14078,124 +14612,6 @@
               "originalTitle": "Kimi K3 AI Is Insane",
               "role": "佐证",
               "takeaway": "Two Minute Papers 发布关注 Kimi K3 的视频。"
-            }
-          ]
-        },
-        {
-          "category": "科技",
-          "eyebrow": "风险预警",
-          "title": "open-source AI 安全同盟升温",
-          "summary": "NVIDIA 等推动 Open Secure AI Alliance，open-source AI 监管与商业威胁讨论继续发酵。",
-          "why": "开放模型既被视为安全可观察基础，也被视为商业和政策风险源。",
-          "impact": "可能影响 model 许可、企业采购和美国 AI 产业政策讨论。",
-          "shiftFrom": "open-source AI 多为技术路线",
-          "shiftTo": "升级为安全与政策议题",
-          "crossValidation": "NVIDIA 强调开放安全联盟，Sequoia 谈开放模型悖论，Gary Marcus 和 All-In 从政策争论切入。",
-          "article": {
-            "lead": "open-source AI 的争论正在从“能不能替代闭源 model”扩展为安全、产业政策和资本市场议题。NVIDIA 发布 Open Secure AI Alliance 相关内容，投资人与评论者也围绕开放模型、监管和美国竞争力持续发声。",
-            "sections": [
-              {
-                "heading": "开放安全联盟把 open-source 纳入安全框架",
-                "body": "NVIDIA AI Blog 称，open-source 软件是全球经济的重要支柱，支撑 cloud computing、金融服务、制造、电信、政府和互联网服务。文章还称，网络安全是 open-source 软件的前三大受益领域之一，并介绍 Open Secure AI Alliance 面向 AI 安全与安全保障的行业联合行动。"
-              },
-              {
-                "heading": "产业叙事出现明显分歧",
-                "body": "Sequoia 发布“America’s Open-Model Paradox”，从美国开放模型处境切入。Gary Marcus 发表致 David Sacks 公开信，标题摘要称中国正在缩小差距，但并不是因为美国 AI 监管太多。All-In 相关节目标题讨论 open-source AI 之争、Anthropic 15 亿美元赔付，以及 Chamath 关于禁止 open-source AI 可能冲击股市的观点。这些来源不完全一致：NVIDIA 强调安全协作，评论者更关注政策后果。"
-              },
-              {
-                "heading": "重要性在于开放模型进入制度竞争",
-                "body": "事实层面，开放模型已同时出现在安全联盟、投资机构文章和政策评论节目中。编辑推断是，未来开放模型的竞争不只看参数、成本和性能，还会看许可证、出口政策、企业责任和安全评估。分歧本身说明这个议题尚未形成稳定共识。"
-              }
-            ],
-            "outlook": "下一步应观察 Open Secure AI Alliance 是否发布具体标准、成员名单和工具成果，以及美国政策讨论是否转化为对 open-weight 发布、model 托管和企业使用的明确规则。"
-          },
-          "evidence": [
-            {
-              "ref": "I51",
-              "sourceName": "NVIDIA AI Blog",
-              "sourceKind": "Blog",
-              "originalTitle": "Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security",
-              "role": "主张",
-              "takeaway": "NVIDIA 介绍 Open Secure AI Alliance，强调 open-source 与 AI 安全。"
-            },
-            {
-              "ref": "I165",
-              "sourceName": "Sequoia Capital",
-              "sourceKind": "Blog",
-              "originalTitle": "America’s Open-Model Paradox",
-              "role": "佐证",
-              "takeaway": "Sequoia 发布文章讨论美国开放模型悖论。"
-            },
-            {
-              "ref": "I166",
-              "sourceName": "Gary Marcus",
-              "sourceKind": "Newsletter",
-              "originalTitle": "An open letter to David Sacks",
-              "role": "佐证",
-              "takeaway": "Gary Marcus 称中国追赶不因美国 AI 监管过多。"
-            },
-            {
-              "ref": "I151",
-              "sourceName": "All-In Podcast",
-              "sourceKind": "YouTube",
-              "originalTitle": "Chamath: Banning Open Source AI Will Crash the Stock Market",
-              "role": "佐证",
-              "takeaway": "All-In 片段讨论禁止 open-source AI 可能冲击股市。"
-            }
-          ]
-        },
-        {
-          "category": "AI 与 模型",
-          "eyebrow": "产品信号",
-          "title": "AI 使用从聊天转向智能体",
-          "summary": "OpenAI 研究工作任务扩展，Mollick 指南被观察到从聊天模型转向智能体系统。",
-          "why": "用户价值重心从回答问题转向完成跨角色、跨工具任务。",
-          "impact": "可能强化 ChatGPT 类产品向工作入口和一体化应用演进。",
-          "shiftFrom": "以聊天模型为中心",
-          "shiftTo": "以智能体任务为中心",
-          "crossValidation": "OpenAI 给出工作使用研究，Willison 观察指南演化，Latent Space 标题指向 ChatGPT everything app。",
-          "article": {
-            "lead": "AI 产品的主叙事正在从聊天框转向智能体系统。OpenAI 发布工作使用研究，Simon Willison 观察 Ethan Mollick 的 AI 使用指南已经从 model 选择转向智能体系统，另有访谈标题直接指向 ChatGPT 成为 everything app 的计划。",
-            "sections": [
-              {
-                "heading": "工作场景开始被描述为任务扩展",
-                "body": "OpenAI Blog 发布研究称，AI 正在扩展人们在工作中做的事情，ChatGPT 用户承担跨角色任务，并重塑工作边界。该表述没有只强调单一岗位自动化，而是把 ChatGPT 使用放在任务范围扩张和角色边界变化中。对企业研究者而言，这意味着观察对象从个体提效转向组织任务流。"
-              },
-              {
-                "heading": "独立观察显示使用指南也在改写",
-                "body": "Simon Willison 评价 Ethan Mollick 的 AI 使用指南演化，称一年前仍主要围绕 ChatGPT、Claude、Gemini 等聊天模型，以及 Deep Research 等模式；今天更多围绕智能体系统，即 AI 在其中执行任务的形态。Latent Space 发布“OpenAI’s Plan to Make ChatGPT the Everything App”访谈标题，提供产品战略层面的相邻信号。三者分别来自研究、观察和访谈标题，强度不同但方向一致。"
-              },
-              {
-                "heading": "重要性在于入口和任务边界变化",
-                "body": "事实是，OpenAI 把 ChatGPT 放进工作任务扩展框架，外部观察者也把 AI 使用从聊天迁移到智能体系统。编辑推断是，如果用户开始把 AI 当作任务执行层，而非问答工具，产品入口、权限管理和数据连接的重要性都会上升。但具体采用速度仍需更多使用数据验证。"
-              }
-            ],
-            "outlook": "接下来应观察 ChatGPT 是否增加更多跨应用执行、企业权限和 workflow 功能，以及 OpenAI 后续研究是否披露任务类型、角色变化和留存指标。"
-          },
-          "evidence": [
-            {
-              "ref": "I24",
-              "sourceName": "OpenAI Blog",
-              "sourceKind": "Blog",
-              "originalTitle": "How AI is expanding what people do at work",
-              "role": "主张",
-              "takeaway": "OpenAI 研究称 AI 扩展工作任务并重塑角色边界。"
-            },
-            {
-              "ref": "I2",
-              "sourceName": "Simon Willison",
-              "sourceKind": "Blog",
-              "originalTitle": "An opinionated guide to which AI to use to do stuff",
-              "role": "佐证",
-              "takeaway": "Willison 观察 AI 使用指南从聊天转向智能体系统。"
-            },
-            {
-              "ref": "I25",
-              "sourceName": "Latent Space",
-              "sourceKind": "YouTube",
-              "originalTitle": "OpenAI’s Plan to Make ChatGPT the Everything App — Akshay Nathan, OpenAI",
-              "role": "佐证",
-              "takeaway": "Latent Space 访谈题目指向 ChatGPT everything app 计划。"
             }
           ]
         },
@@ -16608,6 +17024,190 @@
       "signals": [
         {
           "category": "AI & Models",
+          "eyebrow": "Product Signal",
+          "title": "AI Use Moves From Chat to Agents",
+          "summary": "OpenAI’s workplace-task research is broadening, while Mollick’s guide is being observed as shifting from chat models toward agent systems.",
+          "why": "User value is moving from answering questions to completing tasks across roles and tools.",
+          "impact": "ChatGPT-like products may be pushed further toward work entry points and integrated applications.",
+          "shiftFrom": "Chat-model-centric use",
+          "shiftTo": "Agent-task-centric use",
+          "crossValidation": "OpenAI offers workplace-use research, Willison observes the guide’s evolution, and a Latent Space title points to a ChatGPT everything-app direction.",
+          "article": {
+            "lead": "The main AI product narrative is shifting from the chat box to agent systems. OpenAI published research on workplace use, Simon Willison observed that Ethan Mollick’s AI-use guide has moved from model choice toward agent systems, and one interview title points directly to a plan for ChatGPT as an everything app.",
+            "sections": [
+              {
+                "heading": "Work is being described as task expansion",
+                "body": "OpenAI Blog published research saying AI is expanding what people do at work, with ChatGPT users taking on tasks across roles and reshaping work boundaries. The framing does not focus only on automating a single job; it places ChatGPT usage inside expanding task scope and changing role boundaries. For enterprise researchers, that shifts the object of study from individual productivity to organizational task flows."
+              },
+              {
+                "heading": "Independent observation shows usage guides are being rewritten",
+                "body": "Simon Willison commented on the evolution of Ethan Mollick’s AI-use guide, saying that a year ago it centered mainly on chat models such as ChatGPT, Claude, and Gemini, plus modes such as Deep Research. Today it is more focused on agent systems, where AI performs tasks. Latent Space published an interview titled “OpenAI’s Plan to Make ChatGPT the Everything App,” adding an adjacent product-strategy signal. The three sources differ in strength, but their direction is aligned."
+              },
+              {
+                "heading": "Entry points and task boundaries are changing",
+                "body": "The facts are that OpenAI is framing ChatGPT around workplace task expansion, and external observers are describing AI use as moving from chat to agent systems. The editorial inference is that if users begin treating AI as a task-execution layer rather than a Q&A tool, product entry points, permission management, and data connections all become more important. The speed of adoption still needs more usage data."
+              }
+            ],
+            "outlook": "Watch whether ChatGPT adds more cross-application execution, enterprise permissions, and workflow functions, and whether later OpenAI research discloses task types, role changes, and retention metrics."
+          },
+          "evidence": [
+            {
+              "ref": "I24",
+              "sourceName": "OpenAI Blog",
+              "sourceKind": "Blog",
+              "originalTitle": "How AI is expanding what people do at work",
+              "role": "主张",
+              "takeaway": "OpenAI research says AI is expanding workplace tasks and reshaping role boundaries."
+            },
+            {
+              "ref": "I2",
+              "sourceName": "Simon Willison",
+              "sourceKind": "Blog",
+              "originalTitle": "An opinionated guide to which AI to use to do stuff",
+              "role": "佐证",
+              "takeaway": "Willison observes that AI-use guidance is moving from chat toward agent systems."
+            },
+            {
+              "ref": "I25",
+              "sourceName": "Latent Space",
+              "sourceKind": "YouTube",
+              "originalTitle": "OpenAI’s Plan to Make ChatGPT the Everything App — Akshay Nathan, OpenAI",
+              "role": "佐证",
+              "takeaway": "The Latent Space interview title points to a ChatGPT everything-app plan."
+            },
+            {
+              "role": "Update",
+              "takeaway": "OpenAI disclosed a GPT-Realtime retail support agent deployed by avatarin for Yamada Denki, with concrete two-week usage and survey metrics."
+            }
+          ],
+          "updates": [
+            {
+              "addedAt": "2026-07-30T00:00:00.000Z",
+              "title": "Retail agents move in-store",
+              "summary": "OpenAI says avatarin used GPT-Realtime to provide 24/7 multilingual support for Yamada Denki shoppers, with 30,000 users in two weeks and 92% positive survey responses.",
+              "evidence": [
+                {
+                  "role": "Update",
+                  "takeaway": "OpenAI disclosed a GPT-Realtime retail support agent deployed by avatarin for Yamada Denki, with concrete two-week usage and survey metrics."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "category": "Technology",
+          "eyebrow": "Risk Watch",
+          "title": "Open-Source AI Security Coalition Gains Heat",
+          "summary": "NVIDIA and others are pushing the Open Secure AI Alliance as debate over open-source AI regulation and business risk continues to intensify.",
+          "why": "Open models are being framed both as a basis for observable security and as a source of commercial and policy risk.",
+          "impact": "The debate may affect model licensing, enterprise procurement, and U.S. AI industrial-policy discussions.",
+          "shiftFrom": "Open-source AI as mainly a technical path",
+          "shiftTo": "Open-source AI as a security and policy issue",
+          "crossValidation": "NVIDIA stresses an open security alliance, Sequoia discusses the open-model paradox, and Gary Marcus and All-In approach the issue through policy debate.",
+          "article": {
+            "lead": "The open-source AI debate is expanding from “can it replace closed models” into security, industrial policy, and capital-market questions. NVIDIA published material on the Open Secure AI Alliance, while investors and commentators continue to weigh in on open models, regulation, and U.S. competitiveness.",
+            "sections": [
+              {
+                "heading": "An open security alliance brings open source into the safety frame",
+                "body": "NVIDIA AI Blog says open-source software is a major pillar of the global economy, supporting cloud computing, financial services, manufacturing, telecommunications, government, and internet services. It also says cybersecurity is one of the top three areas benefiting from open-source software, and introduces the Open Secure AI Alliance as an industry effort for AI safety and security."
+              },
+              {
+                "heading": "The industry narrative is visibly split",
+                "body": "Sequoia published “America’s Open-Model Paradox,” focused on the U.S. position in open models. Gary Marcus published an open letter to David Sacks whose title summary says China is narrowing the gap, but not because the U.S. has too much AI regulation. An All-In segment discussed the open-source AI fight, Anthropic’s $1.5 billion settlement, and Chamath’s view that banning open-source AI could hit the stock market. These sources are not fully aligned: NVIDIA emphasizes security collaboration, while commentators focus more on policy consequences."
+              },
+              {
+                "heading": "Open models are becoming an institutional-competition issue",
+                "body": "At the factual level, open models now appear simultaneously in security alliances, investor essays, and policy commentary. The editorial inference is that future open-model competition will not be judged only on parameters, cost, and performance, but also on licenses, export policy, enterprise responsibility, and safety evaluation. The disagreement itself shows that no stable consensus has formed."
+              }
+            ],
+            "outlook": "Watch whether the Open Secure AI Alliance releases concrete standards, member lists, and tools, and whether U.S. policy debate turns into clear rules for open-weight releases, model hosting, and enterprise use."
+          },
+          "evidence": [
+            {
+              "ref": "I51",
+              "sourceName": "NVIDIA AI Blog",
+              "sourceKind": "Blog",
+              "originalTitle": "Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security",
+              "role": "主张",
+              "takeaway": "NVIDIA introduced the Open Secure AI Alliance and emphasized open source and AI security."
+            },
+            {
+              "ref": "I165",
+              "sourceName": "Sequoia Capital",
+              "sourceKind": "Blog",
+              "originalTitle": "America’s Open-Model Paradox",
+              "role": "佐证",
+              "takeaway": "Sequoia published an article on America’s open-model paradox."
+            },
+            {
+              "ref": "I166",
+              "sourceName": "Gary Marcus",
+              "sourceKind": "Newsletter",
+              "originalTitle": "An open letter to David Sacks",
+              "role": "佐证",
+              "takeaway": "Gary Marcus argues that China’s catch-up is not due to excessive U.S. AI regulation."
+            },
+            {
+              "ref": "I151",
+              "sourceName": "All-In Podcast",
+              "sourceKind": "YouTube",
+              "originalTitle": "Chamath: Banning Open Source AI Will Crash the Stock Market",
+              "role": "佐证",
+              "takeaway": "The All-In segment discussed the possibility that banning open-source AI could hit the stock market."
+            },
+            {
+              "role": "Support",
+              "takeaway": "Avery Pennarun argued at Web Summit Vancouver that AI needs an open Android-like ecosystem to balance vertically locked large AI platforms."
+            },
+            {
+              "role": "Context",
+              "takeaway": "Web Summit Vancouver’s official speaker page identifies Pennarun as Tailscale Co-founder & CEO and places him in the Security category."
+            },
+            {
+              "role": "Context",
+              "takeaway": "Web Summit Vancouver reported 20,235 attendees, 1,197 startups and 768 investors, with open-source frontier, closed systems and AI control among the opening-night themes."
+            },
+            {
+              "role": "Context",
+              "takeaway": "Stanford HAI’s AI Index says top closed models led top open models by 3.3% as of March 2026, while multiple top models clustered in the same Arena Elo tier."
+            },
+            {
+              "role": "Context",
+              "takeaway": "Epoch AI estimates from SEC filings that major hyperscaler capex has expanded sharply since GPT-4, with a trend path pointing to $770 billion in 2026."
+            }
+          ],
+          "updates": [
+            {
+              "addedAt": "2026-05-20T00:00:00.000Z",
+              "title": "Open AI gets an Android frame",
+              "summary": "Avery Pennarun frames open AI as an Android-like ecosystem that can counter vertically locked platforms, with Stanford HAI and Epoch adding benchmark and hyperscaler capex context.",
+              "evidence": [
+                {
+                  "role": "Support",
+                  "takeaway": "Avery Pennarun argued at Web Summit Vancouver that AI needs an open Android-like ecosystem to balance vertically locked large AI platforms."
+                },
+                {
+                  "role": "Context",
+                  "takeaway": "Web Summit Vancouver’s official speaker page identifies Pennarun as Tailscale Co-founder & CEO and places him in the Security category."
+                },
+                {
+                  "role": "Context",
+                  "takeaway": "Web Summit Vancouver reported 20,235 attendees, 1,197 startups and 768 investors, with open-source frontier, closed systems and AI control among the opening-night themes."
+                },
+                {
+                  "role": "Context",
+                  "takeaway": "Stanford HAI’s AI Index says top closed models led top open models by 3.3% as of March 2026, while multiple top models clustered in the same Arena Elo tier."
+                },
+                {
+                  "role": "Context",
+                  "takeaway": "Epoch AI estimates from SEC filings that major hyperscaler capex has expanded sharply since GPT-4, with a trend path pointing to $770 billion in 2026."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "category": "AI & Models",
           "eyebrow": "Thesis",
           "title": "AI Evaluation Is Moving Toward Adversarial Question Generation",
           "summary": "SepaRank has models generate and answer challenges, replacing a fixed question bank with one-to-many separation and calibration scoring. The evaluation bottleneck may be shifting to protocol design.",
@@ -18766,124 +19366,6 @@
               "originalTitle": "Kimi K3 AI Is Insane",
               "role": "佐证",
               "takeaway": "Two Minute Papers published a video focused on Kimi K3."
-            }
-          ]
-        },
-        {
-          "category": "Technology",
-          "eyebrow": "Risk Watch",
-          "title": "Open-Source AI Security Coalition Gains Heat",
-          "summary": "NVIDIA and others are pushing the Open Secure AI Alliance as debate over open-source AI regulation and business risk continues to intensify.",
-          "why": "Open models are being framed both as a basis for observable security and as a source of commercial and policy risk.",
-          "impact": "The debate may affect model licensing, enterprise procurement, and U.S. AI industrial-policy discussions.",
-          "shiftFrom": "Open-source AI as mainly a technical path",
-          "shiftTo": "Open-source AI as a security and policy issue",
-          "crossValidation": "NVIDIA stresses an open security alliance, Sequoia discusses the open-model paradox, and Gary Marcus and All-In approach the issue through policy debate.",
-          "article": {
-            "lead": "The open-source AI debate is expanding from “can it replace closed models” into security, industrial policy, and capital-market questions. NVIDIA published material on the Open Secure AI Alliance, while investors and commentators continue to weigh in on open models, regulation, and U.S. competitiveness.",
-            "sections": [
-              {
-                "heading": "An open security alliance brings open source into the safety frame",
-                "body": "NVIDIA AI Blog says open-source software is a major pillar of the global economy, supporting cloud computing, financial services, manufacturing, telecommunications, government, and internet services. It also says cybersecurity is one of the top three areas benefiting from open-source software, and introduces the Open Secure AI Alliance as an industry effort for AI safety and security."
-              },
-              {
-                "heading": "The industry narrative is visibly split",
-                "body": "Sequoia published “America’s Open-Model Paradox,” focused on the U.S. position in open models. Gary Marcus published an open letter to David Sacks whose title summary says China is narrowing the gap, but not because the U.S. has too much AI regulation. An All-In segment discussed the open-source AI fight, Anthropic’s $1.5 billion settlement, and Chamath’s view that banning open-source AI could hit the stock market. These sources are not fully aligned: NVIDIA emphasizes security collaboration, while commentators focus more on policy consequences."
-              },
-              {
-                "heading": "Open models are becoming an institutional-competition issue",
-                "body": "At the factual level, open models now appear simultaneously in security alliances, investor essays, and policy commentary. The editorial inference is that future open-model competition will not be judged only on parameters, cost, and performance, but also on licenses, export policy, enterprise responsibility, and safety evaluation. The disagreement itself shows that no stable consensus has formed."
-              }
-            ],
-            "outlook": "Watch whether the Open Secure AI Alliance releases concrete standards, member lists, and tools, and whether U.S. policy debate turns into clear rules for open-weight releases, model hosting, and enterprise use."
-          },
-          "evidence": [
-            {
-              "ref": "I51",
-              "sourceName": "NVIDIA AI Blog",
-              "sourceKind": "Blog",
-              "originalTitle": "Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security",
-              "role": "主张",
-              "takeaway": "NVIDIA introduced the Open Secure AI Alliance and emphasized open source and AI security."
-            },
-            {
-              "ref": "I165",
-              "sourceName": "Sequoia Capital",
-              "sourceKind": "Blog",
-              "originalTitle": "America’s Open-Model Paradox",
-              "role": "佐证",
-              "takeaway": "Sequoia published an article on America’s open-model paradox."
-            },
-            {
-              "ref": "I166",
-              "sourceName": "Gary Marcus",
-              "sourceKind": "Newsletter",
-              "originalTitle": "An open letter to David Sacks",
-              "role": "佐证",
-              "takeaway": "Gary Marcus argues that China’s catch-up is not due to excessive U.S. AI regulation."
-            },
-            {
-              "ref": "I151",
-              "sourceName": "All-In Podcast",
-              "sourceKind": "YouTube",
-              "originalTitle": "Chamath: Banning Open Source AI Will Crash the Stock Market",
-              "role": "佐证",
-              "takeaway": "The All-In segment discussed the possibility that banning open-source AI could hit the stock market."
-            }
-          ]
-        },
-        {
-          "category": "AI & Models",
-          "eyebrow": "Product Signal",
-          "title": "AI Use Moves From Chat to Agents",
-          "summary": "OpenAI’s workplace-task research is broadening, while Mollick’s guide is being observed as shifting from chat models toward agent systems.",
-          "why": "User value is moving from answering questions to completing tasks across roles and tools.",
-          "impact": "ChatGPT-like products may be pushed further toward work entry points and integrated applications.",
-          "shiftFrom": "Chat-model-centric use",
-          "shiftTo": "Agent-task-centric use",
-          "crossValidation": "OpenAI offers workplace-use research, Willison observes the guide’s evolution, and a Latent Space title points to a ChatGPT everything-app direction.",
-          "article": {
-            "lead": "The main AI product narrative is shifting from the chat box to agent systems. OpenAI published research on workplace use, Simon Willison observed that Ethan Mollick’s AI-use guide has moved from model choice toward agent systems, and one interview title points directly to a plan for ChatGPT as an everything app.",
-            "sections": [
-              {
-                "heading": "Work is being described as task expansion",
-                "body": "OpenAI Blog published research saying AI is expanding what people do at work, with ChatGPT users taking on tasks across roles and reshaping work boundaries. The framing does not focus only on automating a single job; it places ChatGPT usage inside expanding task scope and changing role boundaries. For enterprise researchers, that shifts the object of study from individual productivity to organizational task flows."
-              },
-              {
-                "heading": "Independent observation shows usage guides are being rewritten",
-                "body": "Simon Willison commented on the evolution of Ethan Mollick’s AI-use guide, saying that a year ago it centered mainly on chat models such as ChatGPT, Claude, and Gemini, plus modes such as Deep Research. Today it is more focused on agent systems, where AI performs tasks. Latent Space published an interview titled “OpenAI’s Plan to Make ChatGPT the Everything App,” adding an adjacent product-strategy signal. The three sources differ in strength, but their direction is aligned."
-              },
-              {
-                "heading": "Entry points and task boundaries are changing",
-                "body": "The facts are that OpenAI is framing ChatGPT around workplace task expansion, and external observers are describing AI use as moving from chat to agent systems. The editorial inference is that if users begin treating AI as a task-execution layer rather than a Q&A tool, product entry points, permission management, and data connections all become more important. The speed of adoption still needs more usage data."
-              }
-            ],
-            "outlook": "Watch whether ChatGPT adds more cross-application execution, enterprise permissions, and workflow functions, and whether later OpenAI research discloses task types, role changes, and retention metrics."
-          },
-          "evidence": [
-            {
-              "ref": "I24",
-              "sourceName": "OpenAI Blog",
-              "sourceKind": "Blog",
-              "originalTitle": "How AI is expanding what people do at work",
-              "role": "主张",
-              "takeaway": "OpenAI research says AI is expanding workplace tasks and reshaping role boundaries."
-            },
-            {
-              "ref": "I2",
-              "sourceName": "Simon Willison",
-              "sourceKind": "Blog",
-              "originalTitle": "An opinionated guide to which AI to use to do stuff",
-              "role": "佐证",
-              "takeaway": "Willison observes that AI-use guidance is moving from chat toward agent systems."
-            },
-            {
-              "ref": "I25",
-              "sourceName": "Latent Space",
-              "sourceKind": "YouTube",
-              "originalTitle": "OpenAI’s Plan to Make ChatGPT the Everything App — Akshay Nathan, OpenAI",
-              "role": "佐证",
-              "takeaway": "The Latent Space interview title points to a ChatGPT everything-app plan."
             }
           ]
         },
@@ -21295,12 +21777,12 @@
     "en": "gpt-5.6-sol"
   },
   "incremental": {
-    "lastAddedAt": "2026-08-01T01:42:20.033Z",
-    "lastScanAt": "2026-08-01T01:36:17.947Z",
-    "lastAddedCount": 1,
-    "lastUpdatedCount": 1,
+    "lastAddedAt": "2026-08-01T04:10:05.341Z",
+    "lastScanAt": "2026-08-01T04:05:59.398Z",
+    "lastAddedCount": 0,
+    "lastUpdatedCount": 2,
     "totalAppended": 38,
-    "totalUpdated": 20
+    "totalUpdated": 22
   },
   "exploreDepth": {
     "minimum": 50,
