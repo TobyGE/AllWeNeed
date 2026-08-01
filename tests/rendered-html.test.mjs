@@ -184,6 +184,16 @@ test("removes all disposable starter preview code", async () => {
 
   assert.match(page, /All We Need/);
   assert.match(page, /t\("搜索情报", "Search intelligence"\)/);
+  assert.match(page, /app-shell view-\$\{view\}/);
+  assert.doesNotMatch(page, /mobileAnalysisInExplore/);
+  assert.match(
+    page,
+    /view === "brief" && !isMobileLayout/,
+  );
+  assert.match(
+    styles,
+    /\.app-shell\.view-explore \.page-intro,[\s\S]*\.app-shell\.view-explore \.conversation-bridge-cta[\s\S]*display: none/,
+  );
   assert.match(styles, /prefers-reduced-motion/);
   assert.match(layout, /lang="zh-CN"/);
   assert.match(sourceLibrary, /刚刚抓取/);
@@ -617,8 +627,14 @@ test("removes all disposable starter preview code", async () => {
   assert.match(page, /function toggleExpandedExplore/);
   assert.match(page, /function toggleExpandedCompany/);
   assert.match(page, /matchMedia\("\(max-width: 700px\)"\)/);
-  assert.match(page, /view === "brief" && !mobileAnalysisInExplore/);
-  assert.match(page, /view === "explore" && mobileAnalysisInExplore/);
+  assert.equal(
+    page.match(/view === "brief" && !isMobileLayout/g)?.length,
+    2,
+  );
+  assert.doesNotMatch(
+    page,
+    /view === "explore" && isMobileLayout/,
+  );
   assert.match(page, /signal\.sourceCount >= 2/);
   assert.doesNotMatch(page, /localizedDiscoveries/);
   assert.match(page, /id=\{`explore-preview-\$\{signal\.id\}`\}/);

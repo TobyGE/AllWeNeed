@@ -268,7 +268,7 @@ export default function Home() {
   const [articleId, setArticleId] = useState<string | null>(null);
   const [routeReady, setRouteReady] = useState(false);
   const [heatNow, setHeatNow] = useState(dailyRadar.generatedAt);
-  const [mobileAnalysisInExplore, setMobileAnalysisInExplore] = useState(false);
+  const [isMobileLayout, setIsMobileLayout] = useState(false);
   const lastTrackedPath = useRef<string | null>(null);
   const languageCopy = dailyRadar.translations[locale];
   const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
@@ -337,7 +337,7 @@ export default function Home() {
 
   useEffect(() => {
     const media = window.matchMedia("(max-width: 700px)");
-    const syncLayout = () => setMobileAnalysisInExplore(media.matches);
+    const syncLayout = () => setIsMobileLayout(media.matches);
     const initialTimer = window.setTimeout(syncLayout, 0);
     media.addEventListener("change", syncLayout);
     return () => {
@@ -1071,7 +1071,7 @@ export default function Home() {
   }
 
   return (
-    <main className="app-shell">
+    <main className={`app-shell view-${view}`}>
       <aside className="sidebar">
         <div className="brand">
           <span className="brand-mark" aria-hidden="true">
@@ -2126,8 +2126,7 @@ export default function Home() {
               )}
             </section>
 
-            {((view === "brief" && !mobileAnalysisInExplore) ||
-              (view === "explore" && mobileAnalysisInExplore)) && (
+            {view === "brief" && !isMobileLayout && (
             <aside className="insight-column">
               <section className="panel trend-panel">
                 <div className="panel-heading">
@@ -2258,8 +2257,7 @@ export default function Home() {
             )}
           </div>
 
-          {((view === "brief" && !mobileAnalysisInExplore) ||
-            (view === "explore" && mobileAnalysisInExplore)) && (
+          {view === "brief" && !isMobileLayout && (
           <section className="signal-table-section">
             <div className="section-heading">
               <div>
