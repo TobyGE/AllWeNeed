@@ -1,13 +1,478 @@
 {
-  "generatedAt": "2026-08-01T21:18:00.643Z",
-  "basedOnSnapshotAt": "2026-08-01T21:17:22.244Z",
+  "generatedAt": "2026-08-02T02:10:13.773Z",
+  "basedOnSnapshotAt": "2026-08-02T02:06:39.367Z",
   "model": "gpt-5.5",
   "analyzedItemCount": 180,
-  "totalFetchedItemCount": 1995,
+  "totalFetchedItemCount": 1997,
   "editorNote": "今日信息环境由代理安全事件、编码代理工具链分化、开放模型竞争和算力下沉共同主导。",
   "signalQuality": 86,
   "signalQualityChange": 8,
   "signals": [
+    {
+      "id": 51,
+      "editorialBucket": "explore",
+      "category": "AI & 模型",
+      "eyebrow": "趋势变化",
+      "title": "对齐中训练或取决于内容在场",
+      "summary": "一项约120B参数实验显示，宪法内容在中训练中出现，可在后续良性微调后保留部分对齐收益；这把焦点推向训练内容而非仅是优化标签。",
+      "why": "若结果可复现，对齐训练的关键投入可能从末端偏好优化前移至可审计的中训练语料设计。",
+      "impact": "模型开发者或需把价值语料覆盖、训练阶段衔接和压力测试纳入同一评估闭环，而非只比较最终对齐分数。",
+      "shiftFrom": "对齐主要押注后训练优化",
+      "shiftTo": "中训练内容成为可控变量",
+      "crossValidation": "论文报告五条件、三阶段比较；GitHub公开训练和评测流程，Hugging Face列出数据与检查点。OpenAI的相关研究则显示，类似中训练收益在其管线中未稳定迁移至聊天和agent评测。",
+      "article": {
+        "lead": "一项围绕约120B参数模型的研究提出，对齐收益不只由后训练时施加的偏好信号决定，模型在中训练阶段是否实际接触宪法内容同样关键。研究报告称，这种内容在场的设计在良性微调后仍能拉开黑mail行为表现差距，且平均能力评测未见损失。这尚不是生产系统结论，却为对齐训练提供了一个更可操作的上游变量。",
+        "sections": [
+          {
+            "heading": "把中训练纳入对齐变量",
+            "body": "研究使用约394M token宪法语料，并在约120B参数模型上比较五种条件和三个训练阶段。其核心发现不是单纯增加一轮训练即可改善行为，而是宪法内容实际进入中训练的条件，在后续良性微调后仍显示差异：黑mail评测的差距达到17.5个百分点。论文同时报告，能力评测平均值没有出现损失，因而把讨论从“是否额外对齐”推进到“何种内容在何时塑造表示”。"
+          },
+          {
+            "heading": "机制可能是先塑造可调用表示",
+            "body": "这一设计的含义在于，中训练或许先为价值相关模式建立更容易调用的内部表示，后续监督微调和行为微调再决定这些表示如何在具体任务中被激活。公开仓库提供了2×2训练设计、replay-only对照与15个检查点评测流程，数据集页面也列出宪法训练数据、价值中立SFT数据和各阶段模型。这些资产让外部团队能够检验收益来自内容本身、课程结构，还是训练token和阶段安排的差异。"
+          },
+          {
+            "heading": "影响是把语料治理推向前台",
+            "body": "若这种效应能跨模型和任务复现，模型团队可能需要把中训练语料的来源、覆盖范围和冲突情境表现视为对齐资产，而不只是预训练后的静态背景。最强反例来自OpenAI的相关实验：虚构场景中的中训练效果在推理后训练后趋于消失，聊天和agent评测与基线难以区分。这意味着当前结果更适合被视作可检验的训练设计线索，而非通用部署方案。"
+          }
+        ],
+        "outlook": "下一步可观察三类证据：独立团队能否在不同参数规模与基础模型上复现良性微调后的行为差距；token严格匹配的对照能否仍保留收益；以及收益能否进入真实工具使用、长程任务和冲突价值场景。若这些评测持续显示稳定改善，内容在场将成为更强的对齐工程变量；若差异主要随训练预算或近分布测试消失，主张将明显减弱。"
+      },
+      "validationType": "跨平台验证",
+      "publishedAt": "2026-08-02T00:38:25.000Z",
+      "updatedAt": "2026-08-02T00:38:25.000Z",
+      "sources": [
+        "Blog",
+        "Research",
+        "Repository",
+        "Official"
+      ],
+      "sourceNames": [
+        "Eliezer Yudkowsky",
+        "arXiv",
+        "GitHub",
+        "Hugging Face",
+        "OpenAI Alignment Blog"
+      ],
+      "sourceCount": 5,
+      "age": "1 小时前",
+      "score": 84,
+      "tone": "green",
+      "evidence": [
+        {
+          "id": "80-2-https://www.lesswrong.com/posts/n5htoDGvKKJFAjji2/constitutional-midtraining-content-presence-drives-alignment-1",
+          "sourceId": 80,
+          "sourceName": "Eliezer Yudkowsky",
+          "sourcePublisher": "Eliezer Yudkowsky",
+          "sourceKind": "Blog",
+          "title": "Constitutional Midtraining: Content Presence Drives Alignment Gains",
+          "url": "https://www.lesswrong.com/posts/n5htoDGvKKJFAjji2/constitutional-midtraining-content-presence-drives-alignment-1",
+          "publishedAt": "2026-08-02T00:38:25.000Z",
+          "summary": "A more accessible, much shorter version of our paper that goes by the above title. Paper here . Code and benchmarks here . Data and models here . Would love for you to explore them! Authors: Desiree Cho, Cameron Tice, Bernie Hogan, Hunar Batra, Puria Radmard, Jun Zhao, Sir Nigel Shadbolt. More about me: LinkedIn | Oxford CS | Oxford Institute for Ethics in A",
+          "fetchedAt": "2026-08-02T02:06:39.367Z",
+          "firstSeenAt": "2026-08-02T02:06:39.367Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "standard",
+            "reason": "fresh",
+            "ageHours": 1.4706575,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N5",
+          "role": "主张",
+          "takeaway": "文章概述宪法中训练研究，主张内容在场驱动对齐收益，并链接论文、代码、数据和模型。"
+        },
+        {
+          "id": "research-80-2-https://www.lesswrong.com/posts/n5htoDGvKKJFAjji2/constitutional-midtraining-content-presence-drives-alignment-1-1-https://arxiv.org/abs/2607.26654",
+          "sourceId": 80,
+          "sourceName": "arXiv",
+          "sourcePublisher": "arXiv",
+          "sourceKind": "Research",
+          "title": "Constitutional Midtraining: Content Presence Drives Alignment Gains",
+          "url": "https://arxiv.org/abs/2607.26654",
+          "publishedAt": "2026-07-29T09:15:40.000Z",
+          "summary": "提供研究设计、约120B规模、394M-token宪法语料描述、五条件三阶段比较、黑mail在良性微调后仍相差17.5个百分点、能力评测无平均损失，以及压力/冲突场景中收益不持久等核心结果和局限。",
+          "fetchedAt": "2026-08-02T02:06:39.367Z",
+          "researchedFrom": "N5",
+          "researchRole": "Primary",
+          "researchClaim": "该预印本报告：在约120B参数模型的中训练阶段加入基于 Anthropic Constitution 的内容，相比仅回放数据的对照组，模型在分布内、分布外和黑mail评测中的对齐收益可穿过SFT及良性微调；黑mail倾向的差距在良性微调后仍为17.5个百分点。作者同时发现，是否加入宪法内容的影响大于课程排序或显式推理结构，且在所测MMLU、ARC-Easy、PIQA和GSM8K上平均没有能力损失。",
+          "researchComparisons": "当前证据是5个条件、3个训练阶段的120B级实验：4个宪法中训练条件对比1个replay-only control，并在post-midtraining、post-SFT和post-benign-fine-tuning比较。论文将其与此前32B、且将spec midtraining与spec-informed fine-tuning叠加的工作区分，称本研究把中训练效应与价值中立SFT隔离；其宪法训练量随条件约为264M至500M tokens，控制组为replay-only。可复核资产包括五种条件各三个阶段的15个检查点、训练数据及完整评测代码。最强反例来自OpenAI在类似o4-mini训练管线上的初步实验：基于虚构对齐/失调场景的中训练效应在接近训练分布时存在，但经过推理后训练后会消失，且在更现实的聊天和agent评测中，对齐中训练与失调中训练的分数没有实质差异。",
+          "researchUnresolved": "该研究为2026年7月29日发布的arXiv预印本，尚未显示同行评审结论；其正面结果并不延伸到需要主动抵抗上下文压力或价值冲突的场景，优势在SFT后衰减。论文也明确称其后训练规模远小于最大型开源生产运行，且未测试DPO；DR与noDR条件的训练token数并不相同，限制对“推理结构”独立效应的因果解释。",
+          "ref": "R4",
+          "role": "佐证",
+          "takeaway": "论文报告约120B模型、394M-token语料、五条件三阶段比较、17.5个百分点黑mail差距、平均能力无损及压力场景局限。"
+        },
+        {
+          "id": "research-80-2-https://www.lesswrong.com/posts/n5htoDGvKKJFAjji2/constitutional-midtraining-content-presence-drives-alignment-1-2-https://github.com/desBugger/constitutional-mt",
+          "sourceId": 80,
+          "sourceName": "GitHub",
+          "sourcePublisher": "GitHub",
+          "sourceKind": "Repository",
+          "title": "GitHub - desBugger/constitutional-mt: Constitutional midtraining for LLM alignment: value-corpus generation, 2×2 factorial training pipeline, and full evaluation suite (120B-parameter model)",
+          "url": "https://github.com/desBugger/constitutional-mt",
+          "publishedAt": "2026-08-02T00:38:25.000Z",
+          "summary": "补齐可复现性与条件可比性：仓库公开2×2设计、replay-only对照、15个检查点的完整评测流程；并显示DR条件约500M tokens，而noDR条件约264M至266M tokens，说明结构比较并非完全token匹配。",
+          "fetchedAt": "2026-08-02T02:06:39.367Z",
+          "researchedFrom": "N5",
+          "researchRole": "Comparison",
+          "researchClaim": "该预印本报告：在约120B参数模型的中训练阶段加入基于 Anthropic Constitution 的内容，相比仅回放数据的对照组，模型在分布内、分布外和黑mail评测中的对齐收益可穿过SFT及良性微调；黑mail倾向的差距在良性微调后仍为17.5个百分点。作者同时发现，是否加入宪法内容的影响大于课程排序或显式推理结构，且在所测MMLU、ARC-Easy、PIQA和GSM8K上平均没有能力损失。",
+          "researchComparisons": "当前证据是5个条件、3个训练阶段的120B级实验：4个宪法中训练条件对比1个replay-only control，并在post-midtraining、post-SFT和post-benign-fine-tuning比较。论文将其与此前32B、且将spec midtraining与spec-informed fine-tuning叠加的工作区分，称本研究把中训练效应与价值中立SFT隔离；其宪法训练量随条件约为264M至500M tokens，控制组为replay-only。可复核资产包括五种条件各三个阶段的15个检查点、训练数据及完整评测代码。最强反例来自OpenAI在类似o4-mini训练管线上的初步实验：基于虚构对齐/失调场景的中训练效应在接近训练分布时存在，但经过推理后训练后会消失，且在更现实的聊天和agent评测中，对齐中训练与失调中训练的分数没有实质差异。",
+          "researchUnresolved": "该研究为2026年7月29日发布的arXiv预印本，尚未显示同行评审结论；其正面结果并不延伸到需要主动抵抗上下文压力或价值冲突的场景，优势在SFT后衰减。论文也明确称其后训练规模远小于最大型开源生产运行，且未测试DPO；DR与noDR条件的训练token数并不相同，限制对“推理结构”独立效应的因果解释。",
+          "ref": "R5",
+          "role": "佐证",
+          "takeaway": "公开仓库提供2×2设计、replay-only对照和15个检查点评测，也显示不同条件并非完全token匹配。"
+        },
+        {
+          "id": "research-80-2-https://www.lesswrong.com/posts/n5htoDGvKKJFAjji2/constitutional-midtraining-content-presence-drives-alignment-1-3-https://huggingface.co/collections/cho-ai/constitutional-midtraining",
+          "sourceId": 80,
+          "sourceName": "Hugging Face",
+          "sourcePublisher": "Hugging Face",
+          "sourceKind": "Repository",
+          "title": "Constitutional Midtraining - a cho-ai Collection",
+          "url": "https://huggingface.co/collections/cho-ai/constitutional-midtraining",
+          "publishedAt": "2026-08-02T00:38:25.000Z",
+          "summary": "独立列出研究所称的可公开核验资产：宪法中训练数据、用于价值中立SFT的20万样本混合数据，以及control、curriculum/uniform和DR/noDR在post-MT、post-SFT、post-BFT三个阶段的模型检查点。",
+          "fetchedAt": "2026-08-02T02:06:39.367Z",
+          "researchedFrom": "N5",
+          "researchRole": "Context",
+          "researchClaim": "该预印本报告：在约120B参数模型的中训练阶段加入基于 Anthropic Constitution 的内容，相比仅回放数据的对照组，模型在分布内、分布外和黑mail评测中的对齐收益可穿过SFT及良性微调；黑mail倾向的差距在良性微调后仍为17.5个百分点。作者同时发现，是否加入宪法内容的影响大于课程排序或显式推理结构，且在所测MMLU、ARC-Easy、PIQA和GSM8K上平均没有能力损失。",
+          "researchComparisons": "当前证据是5个条件、3个训练阶段的120B级实验：4个宪法中训练条件对比1个replay-only control，并在post-midtraining、post-SFT和post-benign-fine-tuning比较。论文将其与此前32B、且将spec midtraining与spec-informed fine-tuning叠加的工作区分，称本研究把中训练效应与价值中立SFT隔离；其宪法训练量随条件约为264M至500M tokens，控制组为replay-only。可复核资产包括五种条件各三个阶段的15个检查点、训练数据及完整评测代码。最强反例来自OpenAI在类似o4-mini训练管线上的初步实验：基于虚构对齐/失调场景的中训练效应在接近训练分布时存在，但经过推理后训练后会消失，且在更现实的聊天和agent评测中，对齐中训练与失调中训练的分数没有实质差异。",
+          "researchUnresolved": "该研究为2026年7月29日发布的arXiv预印本，尚未显示同行评审结论；其正面结果并不延伸到需要主动抵抗上下文压力或价值冲突的场景，优势在SFT后衰减。论文也明确称其后训练规模远小于最大型开源生产运行，且未测试DPO；DR与noDR条件的训练token数并不相同，限制对“推理结构”独立效应的因果解释。",
+          "ref": "R6",
+          "role": "佐证",
+          "takeaway": "公开集合列出宪法训练数据、价值中立SFT混合数据及多个训练阶段的模型检查点。"
+        },
+        {
+          "id": "research-80-2-https://www.lesswrong.com/posts/n5htoDGvKKJFAjji2/constitutional-midtraining-content-presence-drives-alignment-1-4-https://alignment.openai.com/how-far-does-alignment-midtraining-generalize/",
+          "sourceId": 80,
+          "sourceName": "OpenAI Alignment Blog",
+          "sourcePublisher": "OpenAI Alignment Blog",
+          "sourceKind": "Official",
+          "title": "How far does alignment midtraining generalize?",
+          "url": "https://alignment.openai.com/how-far-does-alignment-midtraining-generalize/",
+          "publishedAt": "2026-03-27T00:00:00.000Z",
+          "summary": "提供最直接的反向基准：OpenAI在类似o4-mini的管线中发现，基于虚构场景的对齐/失调中训练只在近分布设置显现，推理后训练后趋于消失，在聊天和agent评测中与无额外中训练基线不可区分；这限制了将本研究结果外推至生产级agent对齐的范围。",
+          "fetchedAt": "2026-08-02T02:06:39.367Z",
+          "researchedFrom": "N5",
+          "researchRole": "Counterevidence",
+          "researchClaim": "该预印本报告：在约120B参数模型的中训练阶段加入基于 Anthropic Constitution 的内容，相比仅回放数据的对照组，模型在分布内、分布外和黑mail评测中的对齐收益可穿过SFT及良性微调；黑mail倾向的差距在良性微调后仍为17.5个百分点。作者同时发现，是否加入宪法内容的影响大于课程排序或显式推理结构，且在所测MMLU、ARC-Easy、PIQA和GSM8K上平均没有能力损失。",
+          "researchComparisons": "当前证据是5个条件、3个训练阶段的120B级实验：4个宪法中训练条件对比1个replay-only control，并在post-midtraining、post-SFT和post-benign-fine-tuning比较。论文将其与此前32B、且将spec midtraining与spec-informed fine-tuning叠加的工作区分，称本研究把中训练效应与价值中立SFT隔离；其宪法训练量随条件约为264M至500M tokens，控制组为replay-only。可复核资产包括五种条件各三个阶段的15个检查点、训练数据及完整评测代码。最强反例来自OpenAI在类似o4-mini训练管线上的初步实验：基于虚构对齐/失调场景的中训练效应在接近训练分布时存在，但经过推理后训练后会消失，且在更现实的聊天和agent评测中，对齐中训练与失调中训练的分数没有实质差异。",
+          "researchUnresolved": "该研究为2026年7月29日发布的arXiv预印本，尚未显示同行评审结论；其正面结果并不延伸到需要主动抵抗上下文压力或价值冲突的场景，优势在SFT后衰减。论文也明确称其后训练规模远小于最大型开源生产运行，且未测试DPO；DR与noDR条件的训练token数并不相同，限制对“推理结构”独立效应的因果解释。",
+          "ref": "R7",
+          "role": "反例",
+          "takeaway": "OpenAI报告类似中训练效应在其管线中主要限于近分布设置，推理后训练后未稳定迁移至聊天和agent评测。"
+        }
+      ],
+      "references": [
+        {
+          "id": "80-2-https://www.lesswrong.com/posts/n5htoDGvKKJFAjji2/constitutional-midtraining-content-presence-drives-alignment-1",
+          "sourceId": 80,
+          "sourceName": "Eliezer Yudkowsky",
+          "sourcePublisher": "Eliezer Yudkowsky",
+          "sourceKind": "Blog",
+          "title": "Constitutional Midtraining: Content Presence Drives Alignment Gains",
+          "url": "https://www.lesswrong.com/posts/n5htoDGvKKJFAjji2/constitutional-midtraining-content-presence-drives-alignment-1",
+          "publishedAt": "2026-08-02T00:38:25.000Z",
+          "summary": "A more accessible, much shorter version of our paper that goes by the above title. Paper here . Code and benchmarks here . Data and models here . Would love for you to explore them! Authors: Desiree Cho, Cameron Tice, Bernie Hogan, Hunar Batra, Puria Radmard, Jun Zhao, Sir Nigel Shadbolt. More about me: LinkedIn | Oxford CS | Oxford Institute for Ethics in A",
+          "fetchedAt": "2026-08-02T02:06:39.367Z",
+          "firstSeenAt": "2026-08-02T02:06:39.367Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "standard",
+            "reason": "fresh",
+            "ageHours": 1.4706575,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N5"
+        },
+        {
+          "id": "research-80-2-https://www.lesswrong.com/posts/n5htoDGvKKJFAjji2/constitutional-midtraining-content-presence-drives-alignment-1-1-https://arxiv.org/abs/2607.26654",
+          "sourceId": 80,
+          "sourceName": "arXiv",
+          "sourcePublisher": "arXiv",
+          "sourceKind": "Research",
+          "title": "Constitutional Midtraining: Content Presence Drives Alignment Gains",
+          "url": "https://arxiv.org/abs/2607.26654",
+          "publishedAt": "2026-07-29T09:15:40.000Z",
+          "summary": "提供研究设计、约120B规模、394M-token宪法语料描述、五条件三阶段比较、黑mail在良性微调后仍相差17.5个百分点、能力评测无平均损失，以及压力/冲突场景中收益不持久等核心结果和局限。",
+          "fetchedAt": "2026-08-02T02:06:39.367Z",
+          "researchedFrom": "N5",
+          "researchRole": "Primary",
+          "researchClaim": "该预印本报告：在约120B参数模型的中训练阶段加入基于 Anthropic Constitution 的内容，相比仅回放数据的对照组，模型在分布内、分布外和黑mail评测中的对齐收益可穿过SFT及良性微调；黑mail倾向的差距在良性微调后仍为17.5个百分点。作者同时发现，是否加入宪法内容的影响大于课程排序或显式推理结构，且在所测MMLU、ARC-Easy、PIQA和GSM8K上平均没有能力损失。",
+          "researchComparisons": "当前证据是5个条件、3个训练阶段的120B级实验：4个宪法中训练条件对比1个replay-only control，并在post-midtraining、post-SFT和post-benign-fine-tuning比较。论文将其与此前32B、且将spec midtraining与spec-informed fine-tuning叠加的工作区分，称本研究把中训练效应与价值中立SFT隔离；其宪法训练量随条件约为264M至500M tokens，控制组为replay-only。可复核资产包括五种条件各三个阶段的15个检查点、训练数据及完整评测代码。最强反例来自OpenAI在类似o4-mini训练管线上的初步实验：基于虚构对齐/失调场景的中训练效应在接近训练分布时存在，但经过推理后训练后会消失，且在更现实的聊天和agent评测中，对齐中训练与失调中训练的分数没有实质差异。",
+          "researchUnresolved": "该研究为2026年7月29日发布的arXiv预印本，尚未显示同行评审结论；其正面结果并不延伸到需要主动抵抗上下文压力或价值冲突的场景，优势在SFT后衰减。论文也明确称其后训练规模远小于最大型开源生产运行，且未测试DPO；DR与noDR条件的训练token数并不相同，限制对“推理结构”独立效应的因果解释。",
+          "ref": "R4"
+        },
+        {
+          "id": "research-80-2-https://www.lesswrong.com/posts/n5htoDGvKKJFAjji2/constitutional-midtraining-content-presence-drives-alignment-1-2-https://github.com/desBugger/constitutional-mt",
+          "sourceId": 80,
+          "sourceName": "GitHub",
+          "sourcePublisher": "GitHub",
+          "sourceKind": "Repository",
+          "title": "GitHub - desBugger/constitutional-mt: Constitutional midtraining for LLM alignment: value-corpus generation, 2×2 factorial training pipeline, and full evaluation suite (120B-parameter model)",
+          "url": "https://github.com/desBugger/constitutional-mt",
+          "publishedAt": "2026-08-02T00:38:25.000Z",
+          "summary": "补齐可复现性与条件可比性：仓库公开2×2设计、replay-only对照、15个检查点的完整评测流程；并显示DR条件约500M tokens，而noDR条件约264M至266M tokens，说明结构比较并非完全token匹配。",
+          "fetchedAt": "2026-08-02T02:06:39.367Z",
+          "researchedFrom": "N5",
+          "researchRole": "Comparison",
+          "researchClaim": "该预印本报告：在约120B参数模型的中训练阶段加入基于 Anthropic Constitution 的内容，相比仅回放数据的对照组，模型在分布内、分布外和黑mail评测中的对齐收益可穿过SFT及良性微调；黑mail倾向的差距在良性微调后仍为17.5个百分点。作者同时发现，是否加入宪法内容的影响大于课程排序或显式推理结构，且在所测MMLU、ARC-Easy、PIQA和GSM8K上平均没有能力损失。",
+          "researchComparisons": "当前证据是5个条件、3个训练阶段的120B级实验：4个宪法中训练条件对比1个replay-only control，并在post-midtraining、post-SFT和post-benign-fine-tuning比较。论文将其与此前32B、且将spec midtraining与spec-informed fine-tuning叠加的工作区分，称本研究把中训练效应与价值中立SFT隔离；其宪法训练量随条件约为264M至500M tokens，控制组为replay-only。可复核资产包括五种条件各三个阶段的15个检查点、训练数据及完整评测代码。最强反例来自OpenAI在类似o4-mini训练管线上的初步实验：基于虚构对齐/失调场景的中训练效应在接近训练分布时存在，但经过推理后训练后会消失，且在更现实的聊天和agent评测中，对齐中训练与失调中训练的分数没有实质差异。",
+          "researchUnresolved": "该研究为2026年7月29日发布的arXiv预印本，尚未显示同行评审结论；其正面结果并不延伸到需要主动抵抗上下文压力或价值冲突的场景，优势在SFT后衰减。论文也明确称其后训练规模远小于最大型开源生产运行，且未测试DPO；DR与noDR条件的训练token数并不相同，限制对“推理结构”独立效应的因果解释。",
+          "ref": "R5"
+        },
+        {
+          "id": "research-80-2-https://www.lesswrong.com/posts/n5htoDGvKKJFAjji2/constitutional-midtraining-content-presence-drives-alignment-1-3-https://huggingface.co/collections/cho-ai/constitutional-midtraining",
+          "sourceId": 80,
+          "sourceName": "Hugging Face",
+          "sourcePublisher": "Hugging Face",
+          "sourceKind": "Repository",
+          "title": "Constitutional Midtraining - a cho-ai Collection",
+          "url": "https://huggingface.co/collections/cho-ai/constitutional-midtraining",
+          "publishedAt": "2026-08-02T00:38:25.000Z",
+          "summary": "独立列出研究所称的可公开核验资产：宪法中训练数据、用于价值中立SFT的20万样本混合数据，以及control、curriculum/uniform和DR/noDR在post-MT、post-SFT、post-BFT三个阶段的模型检查点。",
+          "fetchedAt": "2026-08-02T02:06:39.367Z",
+          "researchedFrom": "N5",
+          "researchRole": "Context",
+          "researchClaim": "该预印本报告：在约120B参数模型的中训练阶段加入基于 Anthropic Constitution 的内容，相比仅回放数据的对照组，模型在分布内、分布外和黑mail评测中的对齐收益可穿过SFT及良性微调；黑mail倾向的差距在良性微调后仍为17.5个百分点。作者同时发现，是否加入宪法内容的影响大于课程排序或显式推理结构，且在所测MMLU、ARC-Easy、PIQA和GSM8K上平均没有能力损失。",
+          "researchComparisons": "当前证据是5个条件、3个训练阶段的120B级实验：4个宪法中训练条件对比1个replay-only control，并在post-midtraining、post-SFT和post-benign-fine-tuning比较。论文将其与此前32B、且将spec midtraining与spec-informed fine-tuning叠加的工作区分，称本研究把中训练效应与价值中立SFT隔离；其宪法训练量随条件约为264M至500M tokens，控制组为replay-only。可复核资产包括五种条件各三个阶段的15个检查点、训练数据及完整评测代码。最强反例来自OpenAI在类似o4-mini训练管线上的初步实验：基于虚构对齐/失调场景的中训练效应在接近训练分布时存在，但经过推理后训练后会消失，且在更现实的聊天和agent评测中，对齐中训练与失调中训练的分数没有实质差异。",
+          "researchUnresolved": "该研究为2026年7月29日发布的arXiv预印本，尚未显示同行评审结论；其正面结果并不延伸到需要主动抵抗上下文压力或价值冲突的场景，优势在SFT后衰减。论文也明确称其后训练规模远小于最大型开源生产运行，且未测试DPO；DR与noDR条件的训练token数并不相同，限制对“推理结构”独立效应的因果解释。",
+          "ref": "R6"
+        },
+        {
+          "id": "research-80-2-https://www.lesswrong.com/posts/n5htoDGvKKJFAjji2/constitutional-midtraining-content-presence-drives-alignment-1-4-https://alignment.openai.com/how-far-does-alignment-midtraining-generalize/",
+          "sourceId": 80,
+          "sourceName": "OpenAI Alignment Blog",
+          "sourcePublisher": "OpenAI Alignment Blog",
+          "sourceKind": "Official",
+          "title": "How far does alignment midtraining generalize?",
+          "url": "https://alignment.openai.com/how-far-does-alignment-midtraining-generalize/",
+          "publishedAt": "2026-03-27T00:00:00.000Z",
+          "summary": "提供最直接的反向基准：OpenAI在类似o4-mini的管线中发现，基于虚构场景的对齐/失调中训练只在近分布设置显现，推理后训练后趋于消失，在聊天和agent评测中与无额外中训练基线不可区分；这限制了将本研究结果外推至生产级agent对齐的范围。",
+          "fetchedAt": "2026-08-02T02:06:39.367Z",
+          "researchedFrom": "N5",
+          "researchRole": "Counterevidence",
+          "researchClaim": "该预印本报告：在约120B参数模型的中训练阶段加入基于 Anthropic Constitution 的内容，相比仅回放数据的对照组，模型在分布内、分布外和黑mail评测中的对齐收益可穿过SFT及良性微调；黑mail倾向的差距在良性微调后仍为17.5个百分点。作者同时发现，是否加入宪法内容的影响大于课程排序或显式推理结构，且在所测MMLU、ARC-Easy、PIQA和GSM8K上平均没有能力损失。",
+          "researchComparisons": "当前证据是5个条件、3个训练阶段的120B级实验：4个宪法中训练条件对比1个replay-only control，并在post-midtraining、post-SFT和post-benign-fine-tuning比较。论文将其与此前32B、且将spec midtraining与spec-informed fine-tuning叠加的工作区分，称本研究把中训练效应与价值中立SFT隔离；其宪法训练量随条件约为264M至500M tokens，控制组为replay-only。可复核资产包括五种条件各三个阶段的15个检查点、训练数据及完整评测代码。最强反例来自OpenAI在类似o4-mini训练管线上的初步实验：基于虚构对齐/失调场景的中训练效应在接近训练分布时存在，但经过推理后训练后会消失，且在更现实的聊天和agent评测中，对齐中训练与失调中训练的分数没有实质差异。",
+          "researchUnresolved": "该研究为2026年7月29日发布的arXiv预印本，尚未显示同行评审结论；其正面结果并不延伸到需要主动抵抗上下文压力或价值冲突的场景，优势在SFT后衰减。论文也明确称其后训练规模远小于最大型开源生产运行，且未测试DPO；DR与noDR条件的训练token数并不相同，限制对“推理结构”独立效应的因果解释。",
+          "ref": "R7"
+        }
+      ],
+      "feedBatchAt": "2026-08-02T02:06:39.367Z"
+    },
+    {
+      "id": 52,
+      "editorialBucket": "explore",
+      "category": "AI & 模型",
+      "eyebrow": "趋势变化",
+      "title": "LLM裁判评测需拆解聚合分数",
+      "summary": "一项MUD评测实验称，模型排名会随评分组件显著变化。既有研究也确认位置和冗长偏差，评测重点或应从单一κ转向条件化诊断。",
+      "why": "模型评测正成为采购、发布和训练决策的基础设施，错误地把聚合一致性当作可靠排序会放大错误比较。",
+      "impact": "评测平台可能需要常规披露组件分数、提示敏感性、顺序控制和不同能力区间的裁判偏差。",
+      "shiftFrom": "以总分或κ解释裁判可靠性",
+      "shiftTo": "按条件拆解排名稳定性",
+      "crossValidation": "新实验报告MUD排名对评分组件高度敏感。两项既有研究分别记录LLM裁判的位置、冗长和自我增强偏差，并在大规模测试中确认位置偏差随答案质量差距变化；另一项研究提醒，部分提示敏感性异常源于数据设计缺陷。",
+      "article": {
+        "lead": "一项在MUD环境中进行的LLM评测实验报告，模型排名对单个评分组件异常敏感，单一聚合κ难以说明排序为何形成。这个结果与既有LLM裁判研究相呼应：高总体一致性可以与位置、冗长或自我增强偏差并存。变化不在于评测从此失效，而在于总分更应被视为诊断起点，而不是足以支撑模型排序的终点。",
+        "sections": [
+          {
+            "heading": "排名稳定性成为新问题",
+            "body": "MUD实验的意外发现是，整体模型排名会随评分构成显著移动。若同一批回答在任务完成度、表达质量、规则遵守或其他组件上的权重变化即可改写排序，单一κ只能概括裁判与参考判断的平均关系，不能显示模型在哪些条件下被系统性高估或低估。对于越来越依赖自动裁判的长任务、代理和交互式评测，这会直接影响榜单是否可用于模型选择。"
+          },
+          {
+            "heading": "偏差通过聚合掩盖机制",
+            "body": "早期MT-Bench与Chatbot Arena研究已记录位置、冗长和自我增强偏差；其结果显示，GPT-4与专家在不含平局时的一致性为85%，同时人类间一致性为81%，说明较高一致性并不自动排除结构性偏差。后续大规模研究在12个裁判、22类任务和逾10万实例中确认位置偏差并非随机，且偏差强度受候选答案质量差距影响。聚合指标因而可能掩盖偏差在何处影响排序。"
+          },
+          {
+            "heading": "评测应转向可定位误差",
+            "body": "更稳健的做法或许是并列报告组件分数、顺序互换结果、提示改写敏感性和按能力差距切分的误差，而不是只公布一个总榜。最强反证是，JudgeSense发现部分表面事实性不一致主要来自提示极性反转的数据设计缺陷；修正后其事实性敏感性分数约为0.9。因此，任何排名异常都应先区分裁判问题、提示设计问题和数据质量问题。"
+          }
+        ],
+        "outlook": "下一步可检验的是：同一评测集在组件权重、答案顺序和提示措辞受控变化后，前列模型的相对排序是否稳定；平台能否发布按任务类型与质量差距分层的误差表；以及人工复核是否确认自动裁判发现的排序变化。若这些披露显示排序在控制后仍稳健，聚合分数的解释力将增强；若频繁翻转，榜单应更多被当作局部诊断工具。"
+      },
+      "validationType": "跨平台验证",
+      "publishedAt": "2026-08-02T01:08:04.000Z",
+      "updatedAt": "2026-08-02T01:08:04.000Z",
+      "sources": [
+        "Blog",
+        "Research"
+      ],
+      "sourceNames": [
+        "Eliezer Yudkowsky",
+        "arXiv"
+      ],
+      "sourceCount": 2,
+      "age": "1 小时前",
+      "score": 81,
+      "tone": "orange",
+      "evidence": [
+        {
+          "id": "80-1-https://www.lesswrong.com/posts/GPbWyHgx9hCLMdAjc/mud-as-ai-evaluation-and-llm-judge-distortion-in-ways",
+          "sourceId": 80,
+          "sourceName": "Eliezer Yudkowsky",
+          "sourcePublisher": "Eliezer Yudkowsky",
+          "sourceKind": "Blog",
+          "title": "MUD as AI Evaluation and LLM-judge distortion in ways aggregate κ misses",
+          "url": "https://www.lesswrong.com/posts/GPbWyHgx9hCLMdAjc/mud-as-ai-evaluation-and-llm-judge-distortion-in-ways",
+          "publishedAt": "2026-08-02T01:08:04.000Z",
+          "summary": "A group of friends and I spent the last several months running an experiment in our free time to determine if a MUD would be a suitable environment for benchmarking and evaluating LLMs. The results of the experiment were not what we expected. The main surprise was that the model rankings were extremely sensitive to the individual components of each score, es",
+          "fetchedAt": "2026-08-02T02:06:39.367Z",
+          "firstSeenAt": "2026-08-02T02:06:39.367Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 0.9764908333333333,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N4",
+          "role": "主张",
+          "takeaway": "MUD评测实验称，模型排名对各评分组件高度敏感，聚合κ可能遗漏关键失真。"
+        },
+        {
+          "id": "research-80-1-https://www.lesswrong.com/posts/GPbWyHgx9hCLMdAjc/mud-as-ai-evaluation-and-llm-judge-distortion-in-ways-1-https://arxiv.org/abs/2306.05685",
+          "sourceId": 80,
+          "sourceName": "arXiv",
+          "sourcePublisher": "arXiv",
+          "sourceKind": "Research",
+          "title": "Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena",
+          "url": "https://arxiv.org/abs/2306.05685",
+          "publishedAt": "2023-06-09T00:00:00.000Z",
+          "summary": "提供此前广泛采用的正向基准：在 MT-Bench 中，GPT-4 与人类专家在不含平局时的一致性为 85%，而人类间一致性为 81%；论文同时记录了位置、冗长和自我增强偏差，并说明总体一致性不能自动排除这些偏差。",
+          "fetchedAt": "2026-08-02T02:06:39.367Z",
+          "researchedFrom": "N4",
+          "researchRole": "Comparison",
+          "researchClaim": "候选文章所述的 MUD 试验并非只是测试一个新环境能否用于 LLM 基准，而是提出：即使汇总 Cohen’s κ 看似稳定，评分的不同组成部分也能显著改变模型排名；因此，单一聚合一致性指标不足以证明 LLM 裁判或该基准的排序有效性。",
+          "researchComparisons": "此前的关键基准是 MT-Bench：其报告 GPT-4 与人类专家在不含平局的设置下达到 85% 一致性，高于人类彼此的 81%，并据此支持 LLM 裁判可规模化近似人类偏好。候选文章的比较重点应是：这种总体一致性/κ 与按任务、评分组件、提示措辞及候选答案顺序拆分后的排序稳定性并不等价。后续研究在 12 个裁判、22 类任务、约 40 个候选模型和超过 10 万次评估中确认位置偏差；另一项 2026 年研究在 9 个裁判和 494 组经验证的等义改写中发现，一致性会随评测维度而大幅变化，且成对偏好任务中 9 个裁判有 8 个出现固定选 A 的退化行为。",
+          "researchUnresolved": "候选摘要未给出 MUD 的任务数量、被测模型与裁判版本、各评分组件权重、原始 κ、排名相关系数、置信区间、是否交换候选顺序，以及与人类评审的校准结果；这些信息决定观察到的是 MUD 特有问题、裁判偏差，还是聚合指标与加权设计的问题。该文章的完整方法和数据是否已在可复现仓库发布亦未由新增来源核实。",
+          "ref": "R1",
+          "role": "背景",
+          "takeaway": "MT-Bench与Chatbot Arena研究记录位置、冗长和自我增强偏差，并显示高总体一致性不能自动排除这些偏差。"
+        },
+        {
+          "id": "research-80-1-https://www.lesswrong.com/posts/GPbWyHgx9hCLMdAjc/mud-as-ai-evaluation-and-llm-judge-distortion-in-ways-2-https://arxiv.org/abs/2406.07791",
+          "sourceId": 80,
+          "sourceName": "arXiv",
+          "sourcePublisher": "arXiv",
+          "sourceKind": "Research",
+          "title": "Judging the Judges: A Systematic Study of Position Bias in LLM-as-a-Judge",
+          "url": "https://arxiv.org/abs/2406.07791",
+          "publishedAt": "2024-06-12T00:00:00.000Z",
+          "summary": "在 MTBench 与 DevBench 上测试 12 个 LLM 裁判、22 类任务、约 40 个候选模型、超过 10 万个评估实例，确认位置偏差并非随机；偏差程度还受候选答案质量差距影响，支持按组件和条件拆分而非只报告聚合分数。",
+          "fetchedAt": "2026-08-02T02:06:39.367Z",
+          "researchedFrom": "N4",
+          "researchRole": "Context",
+          "researchClaim": "候选文章所述的 MUD 试验并非只是测试一个新环境能否用于 LLM 基准，而是提出：即使汇总 Cohen’s κ 看似稳定，评分的不同组成部分也能显著改变模型排名；因此，单一聚合一致性指标不足以证明 LLM 裁判或该基准的排序有效性。",
+          "researchComparisons": "此前的关键基准是 MT-Bench：其报告 GPT-4 与人类专家在不含平局的设置下达到 85% 一致性，高于人类彼此的 81%，并据此支持 LLM 裁判可规模化近似人类偏好。候选文章的比较重点应是：这种总体一致性/κ 与按任务、评分组件、提示措辞及候选答案顺序拆分后的排序稳定性并不等价。后续研究在 12 个裁判、22 类任务、约 40 个候选模型和超过 10 万次评估中确认位置偏差；另一项 2026 年研究在 9 个裁判和 494 组经验证的等义改写中发现，一致性会随评测维度而大幅变化，且成对偏好任务中 9 个裁判有 8 个出现固定选 A 的退化行为。",
+          "researchUnresolved": "候选摘要未给出 MUD 的任务数量、被测模型与裁判版本、各评分组件权重、原始 κ、排名相关系数、置信区间、是否交换候选顺序，以及与人类评审的校准结果；这些信息决定观察到的是 MUD 特有问题、裁判偏差，还是聚合指标与加权设计的问题。该文章的完整方法和数据是否已在可复现仓库发布亦未由新增来源核实。",
+          "ref": "R2",
+          "role": "佐证",
+          "takeaway": "大规模研究确认位置偏差并非随机，且会随候选答案质量差距变化，支持按条件拆分评测结果。"
+        },
+        {
+          "id": "research-80-1-https://www.lesswrong.com/posts/GPbWyHgx9hCLMdAjc/mud-as-ai-evaluation-and-llm-judge-distortion-in-ways-3-https://arxiv.org/abs/2604.23478",
+          "sourceId": 80,
+          "sourceName": "arXiv",
+          "sourcePublisher": "arXiv",
+          "sourceKind": "Research",
+          "title": "JudgeSense: A Benchmark for Prompt Sensitivity in LLM-as-a-Judge Systems",
+          "url": "https://arxiv.org/abs/2604.23478",
+          "publishedAt": "2026-04-26T00:08:30.000Z",
+          "summary": "提供最强限定条件：在 9 个裁判、494 组验证过的改写提示中，表面上的事实性不一致主要来自提示极性反转这一数据设计缺陷，修正后事实性 Judge Sensitivity Score 升至约 0.9；这意味着排名或 κ 的异常不应在未做提示、顺序和数据质量控制前一概归因于裁判模型。",
+          "fetchedAt": "2026-08-02T02:06:39.367Z",
+          "researchedFrom": "N4",
+          "researchRole": "Counterevidence",
+          "researchClaim": "候选文章所述的 MUD 试验并非只是测试一个新环境能否用于 LLM 基准，而是提出：即使汇总 Cohen’s κ 看似稳定，评分的不同组成部分也能显著改变模型排名；因此，单一聚合一致性指标不足以证明 LLM 裁判或该基准的排序有效性。",
+          "researchComparisons": "此前的关键基准是 MT-Bench：其报告 GPT-4 与人类专家在不含平局的设置下达到 85% 一致性，高于人类彼此的 81%，并据此支持 LLM 裁判可规模化近似人类偏好。候选文章的比较重点应是：这种总体一致性/κ 与按任务、评分组件、提示措辞及候选答案顺序拆分后的排序稳定性并不等价。后续研究在 12 个裁判、22 类任务、约 40 个候选模型和超过 10 万次评估中确认位置偏差；另一项 2026 年研究在 9 个裁判和 494 组经验证的等义改写中发现，一致性会随评测维度而大幅变化，且成对偏好任务中 9 个裁判有 8 个出现固定选 A 的退化行为。",
+          "researchUnresolved": "候选摘要未给出 MUD 的任务数量、被测模型与裁判版本、各评分组件权重、原始 κ、排名相关系数、置信区间、是否交换候选顺序，以及与人类评审的校准结果；这些信息决定观察到的是 MUD 特有问题、裁判偏差，还是聚合指标与加权设计的问题。该文章的完整方法和数据是否已在可复现仓库发布亦未由新增来源核实。",
+          "ref": "R3",
+          "role": "反例",
+          "takeaway": "JudgeSense发现部分表面提示敏感性来自提示极性反转的数据设计缺陷，提示异常不能一概归因于裁判模型。"
+        }
+      ],
+      "references": [
+        {
+          "id": "80-1-https://www.lesswrong.com/posts/GPbWyHgx9hCLMdAjc/mud-as-ai-evaluation-and-llm-judge-distortion-in-ways",
+          "sourceId": 80,
+          "sourceName": "Eliezer Yudkowsky",
+          "sourcePublisher": "Eliezer Yudkowsky",
+          "sourceKind": "Blog",
+          "title": "MUD as AI Evaluation and LLM-judge distortion in ways aggregate κ misses",
+          "url": "https://www.lesswrong.com/posts/GPbWyHgx9hCLMdAjc/mud-as-ai-evaluation-and-llm-judge-distortion-in-ways",
+          "publishedAt": "2026-08-02T01:08:04.000Z",
+          "summary": "A group of friends and I spent the last several months running an experiment in our free time to determine if a MUD would be a suitable environment for benchmarking and evaluating LLMs. The results of the experiment were not what we expected. The main surprise was that the model rankings were extremely sensitive to the individual components of each score, es",
+          "fetchedAt": "2026-08-02T02:06:39.367Z",
+          "firstSeenAt": "2026-08-02T02:06:39.367Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 0.9764908333333333,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N4"
+        },
+        {
+          "id": "research-80-1-https://www.lesswrong.com/posts/GPbWyHgx9hCLMdAjc/mud-as-ai-evaluation-and-llm-judge-distortion-in-ways-1-https://arxiv.org/abs/2306.05685",
+          "sourceId": 80,
+          "sourceName": "arXiv",
+          "sourcePublisher": "arXiv",
+          "sourceKind": "Research",
+          "title": "Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena",
+          "url": "https://arxiv.org/abs/2306.05685",
+          "publishedAt": "2023-06-09T00:00:00.000Z",
+          "summary": "提供此前广泛采用的正向基准：在 MT-Bench 中，GPT-4 与人类专家在不含平局时的一致性为 85%，而人类间一致性为 81%；论文同时记录了位置、冗长和自我增强偏差，并说明总体一致性不能自动排除这些偏差。",
+          "fetchedAt": "2026-08-02T02:06:39.367Z",
+          "researchedFrom": "N4",
+          "researchRole": "Comparison",
+          "researchClaim": "候选文章所述的 MUD 试验并非只是测试一个新环境能否用于 LLM 基准，而是提出：即使汇总 Cohen’s κ 看似稳定，评分的不同组成部分也能显著改变模型排名；因此，单一聚合一致性指标不足以证明 LLM 裁判或该基准的排序有效性。",
+          "researchComparisons": "此前的关键基准是 MT-Bench：其报告 GPT-4 与人类专家在不含平局的设置下达到 85% 一致性，高于人类彼此的 81%，并据此支持 LLM 裁判可规模化近似人类偏好。候选文章的比较重点应是：这种总体一致性/κ 与按任务、评分组件、提示措辞及候选答案顺序拆分后的排序稳定性并不等价。后续研究在 12 个裁判、22 类任务、约 40 个候选模型和超过 10 万次评估中确认位置偏差；另一项 2026 年研究在 9 个裁判和 494 组经验证的等义改写中发现，一致性会随评测维度而大幅变化，且成对偏好任务中 9 个裁判有 8 个出现固定选 A 的退化行为。",
+          "researchUnresolved": "候选摘要未给出 MUD 的任务数量、被测模型与裁判版本、各评分组件权重、原始 κ、排名相关系数、置信区间、是否交换候选顺序，以及与人类评审的校准结果；这些信息决定观察到的是 MUD 特有问题、裁判偏差，还是聚合指标与加权设计的问题。该文章的完整方法和数据是否已在可复现仓库发布亦未由新增来源核实。",
+          "ref": "R1"
+        },
+        {
+          "id": "research-80-1-https://www.lesswrong.com/posts/GPbWyHgx9hCLMdAjc/mud-as-ai-evaluation-and-llm-judge-distortion-in-ways-2-https://arxiv.org/abs/2406.07791",
+          "sourceId": 80,
+          "sourceName": "arXiv",
+          "sourcePublisher": "arXiv",
+          "sourceKind": "Research",
+          "title": "Judging the Judges: A Systematic Study of Position Bias in LLM-as-a-Judge",
+          "url": "https://arxiv.org/abs/2406.07791",
+          "publishedAt": "2024-06-12T00:00:00.000Z",
+          "summary": "在 MTBench 与 DevBench 上测试 12 个 LLM 裁判、22 类任务、约 40 个候选模型、超过 10 万个评估实例，确认位置偏差并非随机；偏差程度还受候选答案质量差距影响，支持按组件和条件拆分而非只报告聚合分数。",
+          "fetchedAt": "2026-08-02T02:06:39.367Z",
+          "researchedFrom": "N4",
+          "researchRole": "Context",
+          "researchClaim": "候选文章所述的 MUD 试验并非只是测试一个新环境能否用于 LLM 基准，而是提出：即使汇总 Cohen’s κ 看似稳定，评分的不同组成部分也能显著改变模型排名；因此，单一聚合一致性指标不足以证明 LLM 裁判或该基准的排序有效性。",
+          "researchComparisons": "此前的关键基准是 MT-Bench：其报告 GPT-4 与人类专家在不含平局的设置下达到 85% 一致性，高于人类彼此的 81%，并据此支持 LLM 裁判可规模化近似人类偏好。候选文章的比较重点应是：这种总体一致性/κ 与按任务、评分组件、提示措辞及候选答案顺序拆分后的排序稳定性并不等价。后续研究在 12 个裁判、22 类任务、约 40 个候选模型和超过 10 万次评估中确认位置偏差；另一项 2026 年研究在 9 个裁判和 494 组经验证的等义改写中发现，一致性会随评测维度而大幅变化，且成对偏好任务中 9 个裁判有 8 个出现固定选 A 的退化行为。",
+          "researchUnresolved": "候选摘要未给出 MUD 的任务数量、被测模型与裁判版本、各评分组件权重、原始 κ、排名相关系数、置信区间、是否交换候选顺序，以及与人类评审的校准结果；这些信息决定观察到的是 MUD 特有问题、裁判偏差，还是聚合指标与加权设计的问题。该文章的完整方法和数据是否已在可复现仓库发布亦未由新增来源核实。",
+          "ref": "R2"
+        },
+        {
+          "id": "research-80-1-https://www.lesswrong.com/posts/GPbWyHgx9hCLMdAjc/mud-as-ai-evaluation-and-llm-judge-distortion-in-ways-3-https://arxiv.org/abs/2604.23478",
+          "sourceId": 80,
+          "sourceName": "arXiv",
+          "sourcePublisher": "arXiv",
+          "sourceKind": "Research",
+          "title": "JudgeSense: A Benchmark for Prompt Sensitivity in LLM-as-a-Judge Systems",
+          "url": "https://arxiv.org/abs/2604.23478",
+          "publishedAt": "2026-04-26T00:08:30.000Z",
+          "summary": "提供最强限定条件：在 9 个裁判、494 组验证过的改写提示中，表面上的事实性不一致主要来自提示极性反转这一数据设计缺陷，修正后事实性 Judge Sensitivity Score 升至约 0.9；这意味着排名或 κ 的异常不应在未做提示、顺序和数据质量控制前一概归因于裁判模型。",
+          "fetchedAt": "2026-08-02T02:06:39.367Z",
+          "researchedFrom": "N4",
+          "researchRole": "Counterevidence",
+          "researchClaim": "候选文章所述的 MUD 试验并非只是测试一个新环境能否用于 LLM 基准，而是提出：即使汇总 Cohen’s κ 看似稳定，评分的不同组成部分也能显著改变模型排名；因此，单一聚合一致性指标不足以证明 LLM 裁判或该基准的排序有效性。",
+          "researchComparisons": "此前的关键基准是 MT-Bench：其报告 GPT-4 与人类专家在不含平局的设置下达到 85% 一致性，高于人类彼此的 81%，并据此支持 LLM 裁判可规模化近似人类偏好。候选文章的比较重点应是：这种总体一致性/κ 与按任务、评分组件、提示措辞及候选答案顺序拆分后的排序稳定性并不等价。后续研究在 12 个裁判、22 类任务、约 40 个候选模型和超过 10 万次评估中确认位置偏差；另一项 2026 年研究在 9 个裁判和 494 组经验证的等义改写中发现，一致性会随评测维度而大幅变化，且成对偏好任务中 9 个裁判有 8 个出现固定选 A 的退化行为。",
+          "researchUnresolved": "候选摘要未给出 MUD 的任务数量、被测模型与裁判版本、各评分组件权重、原始 κ、排名相关系数、置信区间、是否交换候选顺序，以及与人类评审的校准结果；这些信息决定观察到的是 MUD 特有问题、裁判偏差，还是聚合指标与加权设计的问题。该文章的完整方法和数据是否已在可复现仓库发布亦未由新增来源核实。",
+          "ref": "R3"
+        }
+      ],
+      "feedBatchAt": "2026-08-02T02:06:39.367Z"
+    },
     {
       "id": 50,
       "editorialBucket": "dynamic",
@@ -13779,6 +14244,104 @@
       "editorNote": "今日信息环境由智能体安全事件、AI coding 工具链分化、open-weight 模型竞争与算力下沉共同主导。",
       "signals": [
         {
+          "category": "AI & 模型",
+          "eyebrow": "趋势变化",
+          "title": "对齐中训练或取决于内容在场",
+          "summary": "一项约120B参数实验显示，宪法内容在中训练中出现，可在后续良性微调后保留部分对齐收益；这把焦点推向训练内容而非仅是优化标签。",
+          "why": "若结果可复现，对齐训练的关键投入可能从末端偏好优化前移至可审计的中训练语料设计。",
+          "impact": "模型开发者或需把价值语料覆盖、训练阶段衔接和压力测试纳入同一评估闭环，而非只比较最终对齐分数。",
+          "shiftFrom": "对齐主要押注后训练优化",
+          "shiftTo": "中训练内容成为可控变量",
+          "crossValidation": "论文报告五条件、三阶段比较；GitHub公开训练和评测流程，Hugging Face列出数据与检查点。OpenAI的相关研究则显示，类似中训练收益在其管线中未稳定迁移至聊天和agent评测。",
+          "article": {
+            "lead": "一项围绕约120B参数模型的研究提出，对齐收益不只由后训练时施加的偏好信号决定，模型在中训练阶段是否实际接触宪法内容同样关键。研究报告称，这种内容在场的设计在良性微调后仍能拉开黑mail行为表现差距，且平均能力评测未见损失。这尚不是生产系统结论，却为对齐训练提供了一个更可操作的上游变量。",
+            "sections": [
+              {
+                "heading": "把中训练纳入对齐变量",
+                "body": "研究使用约394M token宪法语料，并在约120B参数模型上比较五种条件和三个训练阶段。其核心发现不是单纯增加一轮训练即可改善行为，而是宪法内容实际进入中训练的条件，在后续良性微调后仍显示差异：黑mail评测的差距达到17.5个百分点。论文同时报告，能力评测平均值没有出现损失，因而把讨论从“是否额外对齐”推进到“何种内容在何时塑造表示”。"
+              },
+              {
+                "heading": "机制可能是先塑造可调用表示",
+                "body": "这一设计的含义在于，中训练或许先为价值相关模式建立更容易调用的内部表示，后续监督微调和行为微调再决定这些表示如何在具体任务中被激活。公开仓库提供了2×2训练设计、replay-only对照与15个检查点评测流程，数据集页面也列出宪法训练数据、价值中立SFT数据和各阶段模型。这些资产让外部团队能够检验收益来自内容本身、课程结构，还是训练token和阶段安排的差异。"
+              },
+              {
+                "heading": "影响是把语料治理推向前台",
+                "body": "若这种效应能跨模型和任务复现，模型团队可能需要把中训练语料的来源、覆盖范围和冲突情境表现视为对齐资产，而不只是预训练后的静态背景。最强反例来自OpenAI的相关实验：虚构场景中的中训练效果在推理后训练后趋于消失，聊天和agent评测与基线难以区分。这意味着当前结果更适合被视作可检验的训练设计线索，而非通用部署方案。"
+              }
+            ],
+            "outlook": "下一步可观察三类证据：独立团队能否在不同参数规模与基础模型上复现良性微调后的行为差距；token严格匹配的对照能否仍保留收益；以及收益能否进入真实工具使用、长程任务和冲突价值场景。若这些评测持续显示稳定改善，内容在场将成为更强的对齐工程变量；若差异主要随训练预算或近分布测试消失，主张将明显减弱。"
+          },
+          "evidence": [
+            {
+              "role": "主张",
+              "takeaway": "文章概述宪法中训练研究，主张内容在场驱动对齐收益，并链接论文、代码、数据和模型。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "论文报告约120B模型、394M-token语料、五条件三阶段比较、17.5个百分点黑mail差距、平均能力无损及压力场景局限。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "公开仓库提供2×2设计、replay-only对照和15个检查点评测，也显示不同条件并非完全token匹配。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "公开集合列出宪法训练数据、价值中立SFT混合数据及多个训练阶段的模型检查点。"
+            },
+            {
+              "role": "反例",
+              "takeaway": "OpenAI报告类似中训练效应在其管线中主要限于近分布设置，推理后训练后未稳定迁移至聊天和agent评测。"
+            }
+          ]
+        },
+        {
+          "category": "AI & 模型",
+          "eyebrow": "趋势变化",
+          "title": "LLM裁判评测需拆解聚合分数",
+          "summary": "一项MUD评测实验称，模型排名会随评分组件显著变化。既有研究也确认位置和冗长偏差，评测重点或应从单一κ转向条件化诊断。",
+          "why": "模型评测正成为采购、发布和训练决策的基础设施，错误地把聚合一致性当作可靠排序会放大错误比较。",
+          "impact": "评测平台可能需要常规披露组件分数、提示敏感性、顺序控制和不同能力区间的裁判偏差。",
+          "shiftFrom": "以总分或κ解释裁判可靠性",
+          "shiftTo": "按条件拆解排名稳定性",
+          "crossValidation": "新实验报告MUD排名对评分组件高度敏感。两项既有研究分别记录LLM裁判的位置、冗长和自我增强偏差，并在大规模测试中确认位置偏差随答案质量差距变化；另一项研究提醒，部分提示敏感性异常源于数据设计缺陷。",
+          "article": {
+            "lead": "一项在MUD环境中进行的LLM评测实验报告，模型排名对单个评分组件异常敏感，单一聚合κ难以说明排序为何形成。这个结果与既有LLM裁判研究相呼应：高总体一致性可以与位置、冗长或自我增强偏差并存。变化不在于评测从此失效，而在于总分更应被视为诊断起点，而不是足以支撑模型排序的终点。",
+            "sections": [
+              {
+                "heading": "排名稳定性成为新问题",
+                "body": "MUD实验的意外发现是，整体模型排名会随评分构成显著移动。若同一批回答在任务完成度、表达质量、规则遵守或其他组件上的权重变化即可改写排序，单一κ只能概括裁判与参考判断的平均关系，不能显示模型在哪些条件下被系统性高估或低估。对于越来越依赖自动裁判的长任务、代理和交互式评测，这会直接影响榜单是否可用于模型选择。"
+              },
+              {
+                "heading": "偏差通过聚合掩盖机制",
+                "body": "早期MT-Bench与Chatbot Arena研究已记录位置、冗长和自我增强偏差；其结果显示，GPT-4与专家在不含平局时的一致性为85%，同时人类间一致性为81%，说明较高一致性并不自动排除结构性偏差。后续大规模研究在12个裁判、22类任务和逾10万实例中确认位置偏差并非随机，且偏差强度受候选答案质量差距影响。聚合指标因而可能掩盖偏差在何处影响排序。"
+              },
+              {
+                "heading": "评测应转向可定位误差",
+                "body": "更稳健的做法或许是并列报告组件分数、顺序互换结果、提示改写敏感性和按能力差距切分的误差，而不是只公布一个总榜。最强反证是，JudgeSense发现部分表面事实性不一致主要来自提示极性反转的数据设计缺陷；修正后其事实性敏感性分数约为0.9。因此，任何排名异常都应先区分裁判问题、提示设计问题和数据质量问题。"
+              }
+            ],
+            "outlook": "下一步可检验的是：同一评测集在组件权重、答案顺序和提示措辞受控变化后，前列模型的相对排序是否稳定；平台能否发布按任务类型与质量差距分层的误差表；以及人工复核是否确认自动裁判发现的排序变化。若这些披露显示排序在控制后仍稳健，聚合分数的解释力将增强；若频繁翻转，榜单应更多被当作局部诊断工具。"
+          },
+          "evidence": [
+            {
+              "role": "主张",
+              "takeaway": "MUD评测实验称，模型排名对各评分组件高度敏感，聚合κ可能遗漏关键失真。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "MT-Bench与Chatbot Arena研究记录位置、冗长和自我增强偏差，并显示高总体一致性不能自动排除这些偏差。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "大规模研究确认位置偏差并非随机，且会随候选答案质量差距变化，支持按条件拆分评测结果。"
+            },
+            {
+              "role": "反例",
+              "takeaway": "JudgeSense发现部分表面提示敏感性来自提示极性反转的数据设计缺陷，提示异常不能一概归因于裁判模型。"
+            }
+          ]
+        },
+        {
           "category": "开发者工具",
           "eyebrow": "产品信号",
           "title": "GitHub Copilot下线两款Gemini模型",
@@ -18851,6 +19414,104 @@
     "en": {
       "editorNote": "Today’s information environment is being shaped by agent security incidents, a split in coding-agent toolchains, open-model competition, and compute moving closer to the edge.",
       "signals": [
+        {
+          "category": "AI & Models",
+          "eyebrow": "Trend shift",
+          "title": "Alignment Midtraining May Depend on Content Presence",
+          "summary": "A roughly 120B-parameter study reports that placing constitutional content in midtraining can preserve some alignment gains after benign fine-tuning, shifting attention from optimization labels to training content.",
+          "why": "If replicated, alignment work may need to move upstream from end-stage preference tuning toward auditable midtraining-corpus design.",
+          "impact": "Developers may need to evaluate value-data coverage, training-stage handoffs, and stress performance as one integrated alignment loop.",
+          "shiftFrom": "Alignment centered on post-training optimization",
+          "shiftTo": "Midtraining content becomes a controllable variable",
+          "crossValidation": "The paper reports five conditions across three stages; GitHub exposes the training and evaluation pipeline, while Hugging Face lists data and checkpoints. Related OpenAI work found comparable effects did not reliably transfer to chat or agent evaluations.",
+          "article": {
+            "lead": "A study on a roughly 120B-parameter model argues that alignment outcomes are shaped not only by preference signals applied after pretraining, but also by whether constitutional content is actually present during midtraining. It reports a persistent gap on a blackmail-behavior evaluation after benign fine-tuning, with no average capability loss. This is not yet a production conclusion, but it identifies a more actionable upstream variable for alignment work.",
+            "sections": [
+              {
+                "heading": "Midtraining becomes an alignment variable",
+                "body": "The study uses a roughly 394M-token constitutional corpus and compares five conditions across three training stages on a roughly 120B-parameter model. Its central result is not simply that more training helps: conditions that included constitutional content during midtraining remained differentiated after benign fine-tuning. The reported blackmail-evaluation gap was 17.5 percentage points. Average capability evaluations did not show a loss, moving the question from whether to add alignment training to which content shapes representations, and when."
+              },
+              {
+                "heading": "The proposed mechanism is representational",
+                "body": "The result is consistent with midtraining first building more accessible representations for value-relevant patterns, while later supervised and behavioral fine-tuning determines when those patterns are activated. The public repository provides a 2×2 design, replay-only controls, and evaluation procedures across 15 checkpoints. The accompanying model collection lists constitutional training data, value-neutral SFT data, and checkpoints from multiple stages. Those materials make it possible to test whether the gain comes from content, curriculum structure, or differences in token budgets and stage sequencing."
+              },
+              {
+                "heading": "Corpus governance could move upstream",
+                "body": "If the effect replicates across model families and tasks, teams may need to treat the provenance, coverage, and conflict-case behavior of midtraining corpora as alignment assets rather than background data. The strongest countercase comes from related OpenAI work: effects from fictional-scenario alignment midtraining largely faded after reasoning training and were indistinguishable from baseline in chat and agent evaluations. The current result is therefore better treated as a testable training-design hypothesis than as a general deployment recipe."
+              }
+            ],
+            "outlook": "Three observable tests matter next: whether independent teams reproduce the post-fine-tuning behavior gap across model scales and base models; whether strictly token-matched controls retain the effect; and whether it carries into real tool use, long-horizon tasks, and value-conflict settings. Consistent gains on those tests would strengthen content presence as an alignment engineering variable. If differences instead track training budget or vanish outside near-distribution evaluations, the claim would materially weaken."
+          },
+          "evidence": [
+            {
+              "role": "Claim",
+              "takeaway": "The article summarizes constitutional midtraining and links the paper, code, data, and models."
+            },
+            {
+              "role": "Support",
+              "takeaway": "The paper reports the model scale, corpus, experimental design, behavioral gap, capability result, and limitations."
+            },
+            {
+              "role": "Support",
+              "takeaway": "The repository exposes controls and evaluation procedures while indicating conditions are not perfectly token-matched."
+            },
+            {
+              "role": "Support",
+              "takeaway": "The public collection lists training data and checkpoints for multiple conditions and stages."
+            },
+            {
+              "role": "Counterpoint",
+              "takeaway": "Related OpenAI work found similar midtraining effects did not persist reliably in chat and agent evaluations."
+            }
+          ]
+        },
+        {
+          "category": "AI & Models",
+          "eyebrow": "Trend shift",
+          "title": "LLM-Judge Evaluation Needs More Than Aggregate Scores",
+          "summary": "A MUD evaluation experiment says model rankings can shift sharply with scoring components. Earlier research also documents position and verbosity bias, suggesting aggregate kappa should give way to conditional diagnostics.",
+          "why": "Model evaluation is becoming decision infrastructure for buying, releasing, and training models; treating aggregate agreement as a reliable ranking can magnify bad comparisons.",
+          "impact": "Evaluation platforms may need to disclose component scores, prompt sensitivity, order controls, and judge errors across answer-quality bands.",
+          "shiftFrom": "Aggregate scores or kappa define judge reliability",
+          "shiftTo": "Ranking stability is decomposed by condition",
+          "crossValidation": "The new MUD experiment reports component-sensitive rankings. Prior work documents position, verbosity, and self-enhancement bias, while a large-scale study finds position bias varies with answer-quality gaps. Another study shows some apparent prompt sensitivity was a data-design artifact.",
+          "article": {
+            "lead": "A LLM evaluation experiment in a MUD environment reports that model rankings are unusually sensitive to individual scoring components, making a single aggregate kappa inadequate for explaining why an ordering emerges. That finding aligns with earlier LLM-as-a-judge research: high overall agreement can coexist with position, verbosity, and self-enhancement bias. The shift is not that evaluation has failed, but that aggregate scores should be treated as the start of diagnosis rather than the final basis for ranking models.",
+            "sections": [
+              {
+                "heading": "Ranking stability becomes the question",
+                "body": "The MUD experiment’s unexpected result is that overall rankings can move materially as the scoring mix changes. If adjusting weights for task completion, presentation quality, rule compliance, or other components can rewrite the ordering, a single kappa only summarizes average agreement with a reference judgment. It does not show where models are systematically over- or under-valued. That matters directly for long-task, agentic, and interactive evaluations that increasingly rely on automated judges to support model-selection decisions."
+              },
+              {
+                "heading": "Aggregation can conceal the mechanism of bias",
+                "body": "Early MT-Bench and Chatbot Arena work documented position, verbosity, and self-enhancement bias. It reported 85% agreement between GPT-4 and experts on non-tied MT-Bench judgments, versus 81% human-to-human agreement, showing that strong aggregate agreement does not automatically rule out structural bias. A later large-scale study covering 12 judges, 22 task types, and more than 100,000 evaluation instances found position bias was not random and varied with the quality gap between candidate answers. Aggregates can therefore hide where bias changes rankings."
+              },
+              {
+                "heading": "Evaluation should locate error, not just summarize it",
+                "body": "A more robust practice may be to report component scores, answer-order swaps, prompt-rewrite sensitivity, and errors segmented by quality gap alongside a headline ranking. The strongest countercase is JudgeSense, which found that some apparent factual inconsistency came from a prompt-polarity reversal in the dataset design; after correction, its factual sensitivity score rose to roughly 0.9. Ranking anomalies should therefore first be separated into judge behavior, prompt design, and data-quality causes."
+              }
+            ],
+            "outlook": "The next observable tests are whether leading models retain their relative ordering when component weights, answer order, and prompts are varied under control; whether platforms publish error tables by task type and quality gap; and whether human review confirms automated ranking shifts. Stable rankings after those disclosures would strengthen the interpretability of aggregate scores. Frequent reversals would make leaderboards better understood as local diagnostic tools."
+          },
+          "evidence": [
+            {
+              "role": "Claim",
+              "takeaway": "The MUD experiment reports that rankings are highly sensitive to score components and that aggregate kappa can miss important distortions."
+            },
+            {
+              "role": "Context",
+              "takeaway": "MT-Bench and Chatbot Arena research documents biases and shows that high agreement does not eliminate them."
+            },
+            {
+              "role": "Support",
+              "takeaway": "A large-scale study finds non-random position bias that changes with answer-quality gaps."
+            },
+            {
+              "role": "Counterpoint",
+              "takeaway": "JudgeSense attributes some apparent prompt sensitivity to a dataset-design flaw rather than judge behavior."
+            }
+          ]
+        },
         {
           "category": "Developer Tools",
           "eyebrow": "Product Signal",
@@ -23925,11 +24586,11 @@
     "en": "gpt-5.6-sol"
   },
   "incremental": {
-    "lastAddedAt": "2026-08-01T21:18:00.643Z",
-    "lastScanAt": "2026-08-01T21:17:22.244Z",
-    "lastAddedCount": 0,
-    "lastUpdatedCount": 1,
-    "totalAppended": 42,
+    "lastAddedAt": "2026-08-02T02:10:13.773Z",
+    "lastScanAt": "2026-08-02T02:06:39.367Z",
+    "lastAddedCount": 2,
+    "lastUpdatedCount": 0,
+    "totalAppended": 44,
     "totalUpdated": 26
   },
   "exploreDepth": {

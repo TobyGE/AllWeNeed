@@ -1,17 +1,188 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-01T21:17:22.244Z",
+  "generatedAt": "2026-08-02T02:06:39.367Z",
   "counts": {
-    "sources": 185,
-    "claims": 192,
-    "events": 71,
-    "articles": 71,
+    "sources": 194,
+    "claims": 201,
+    "events": 73,
+    "articles": 73,
     "updates": 26,
-    "edges": 523,
+    "edges": 543,
     "revisionsRequired": 0
   },
   "revisionQueue": [],
   "nodes": [
+    {
+      "id": "event_f29261eb155fda62",
+      "type": "event",
+      "signalId": 51,
+      "title": "对齐中训练或取决于内容在场",
+      "bucket": "explore",
+      "valueScore": 84,
+      "publishedAt": "2026-08-02T00:38:25.000Z",
+      "updatedAt": "2026-08-02T00:38:25.000Z"
+    },
+    {
+      "id": "article_b6eab4c21d28a329",
+      "type": "article",
+      "signalId": 51,
+      "title": "对齐中训练或取决于内容在场",
+      "version": 1,
+      "publishedAt": "2026-08-02T02:06:39.367Z"
+    },
+    {
+      "id": "source_bcd18548e2016775",
+      "type": "source",
+      "title": "Eliezer Yudkowsky",
+      "url": "https://www.lesswrong.com/posts/n5htoDGvKKJFAjji2/constitutional-midtraining-content-presence-drives-alignment-1",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-02T00:38:25.000Z"
+    },
+    {
+      "id": "claim_a9d06cf4bdbff07b",
+      "type": "claim",
+      "title": "文章概述宪法中训练研究，主张内容在场驱动对齐收益，并链接论文、代码、数据和模型。",
+      "role": "主张",
+      "addedAt": "2026-08-02T02:06:39.367Z"
+    },
+    {
+      "id": "source_e2ec60d8ee1c4185",
+      "type": "source",
+      "title": "arXiv",
+      "url": "https://arxiv.org/abs/2607.26654",
+      "sourceKind": "Research",
+      "publishedAt": "2026-07-29T09:15:40.000Z"
+    },
+    {
+      "id": "claim_7df63cf6ff117402",
+      "type": "claim",
+      "title": "论文报告约120B模型、394M-token语料、五条件三阶段比较、17.5个百分点黑mail差距、平均能力无损及压力场景局限。",
+      "role": "佐证",
+      "addedAt": "2026-08-02T02:06:39.367Z"
+    },
+    {
+      "id": "source_6c4274ed8f50c34a",
+      "type": "source",
+      "title": "GitHub",
+      "url": "https://github.com/desBugger/constitutional-mt",
+      "sourceKind": "Repository",
+      "publishedAt": "2026-08-02T00:38:25.000Z"
+    },
+    {
+      "id": "claim_bae6be90764d6863",
+      "type": "claim",
+      "title": "公开仓库提供2×2设计、replay-only对照和15个检查点评测，也显示不同条件并非完全token匹配。",
+      "role": "佐证",
+      "addedAt": "2026-08-02T02:06:39.367Z"
+    },
+    {
+      "id": "source_7320c300e5e545ff",
+      "type": "source",
+      "title": "Hugging Face",
+      "url": "https://huggingface.co/collections/cho-ai/constitutional-midtraining",
+      "sourceKind": "Repository",
+      "publishedAt": "2026-08-02T00:38:25.000Z"
+    },
+    {
+      "id": "claim_18a95b5ae8fd6460",
+      "type": "claim",
+      "title": "公开集合列出宪法训练数据、价值中立SFT混合数据及多个训练阶段的模型检查点。",
+      "role": "佐证",
+      "addedAt": "2026-08-02T02:06:39.367Z"
+    },
+    {
+      "id": "source_36686b59d2507a45",
+      "type": "source",
+      "title": "OpenAI Alignment Blog",
+      "url": "https://alignment.openai.com/how-far-does-alignment-midtraining-generalize/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-03-27T00:00:00.000Z"
+    },
+    {
+      "id": "claim_9386dad5d12c0b00",
+      "type": "claim",
+      "title": "OpenAI报告类似中训练效应在其管线中主要限于近分布设置，推理后训练后未稳定迁移至聊天和agent评测。",
+      "role": "反例",
+      "addedAt": "2026-08-02T02:06:39.367Z"
+    },
+    {
+      "id": "event_c7d4595e9661f2b8",
+      "type": "event",
+      "signalId": 52,
+      "title": "LLM裁判评测需拆解聚合分数",
+      "bucket": "explore",
+      "valueScore": 81,
+      "publishedAt": "2026-08-02T01:08:04.000Z",
+      "updatedAt": "2026-08-02T01:08:04.000Z"
+    },
+    {
+      "id": "article_7c34ec4e8da5ce36",
+      "type": "article",
+      "signalId": 52,
+      "title": "LLM裁判评测需拆解聚合分数",
+      "version": 1,
+      "publishedAt": "2026-08-02T02:06:39.367Z"
+    },
+    {
+      "id": "source_d7a24614bd65a9b3",
+      "type": "source",
+      "title": "Eliezer Yudkowsky",
+      "url": "https://www.lesswrong.com/posts/GPbWyHgx9hCLMdAjc/mud-as-ai-evaluation-and-llm-judge-distortion-in-ways",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-02T01:08:04.000Z"
+    },
+    {
+      "id": "claim_c31bb52f1b0f05a9",
+      "type": "claim",
+      "title": "MUD评测实验称，模型排名对各评分组件高度敏感，聚合κ可能遗漏关键失真。",
+      "role": "主张",
+      "addedAt": "2026-08-02T02:06:39.367Z"
+    },
+    {
+      "id": "source_16e11e26be5b54ef",
+      "type": "source",
+      "title": "arXiv",
+      "url": "https://arxiv.org/abs/2306.05685",
+      "sourceKind": "Research",
+      "publishedAt": "2023-06-09T00:00:00.000Z"
+    },
+    {
+      "id": "claim_b45e4eeecbba6f07",
+      "type": "claim",
+      "title": "MT-Bench与Chatbot Arena研究记录位置、冗长和自我增强偏差，并显示高总体一致性不能自动排除这些偏差。",
+      "role": "背景",
+      "addedAt": "2026-08-02T02:06:39.367Z"
+    },
+    {
+      "id": "source_2b3f10f1a57168fe",
+      "type": "source",
+      "title": "arXiv",
+      "url": "https://arxiv.org/abs/2406.07791",
+      "sourceKind": "Research",
+      "publishedAt": "2024-06-12T00:00:00.000Z"
+    },
+    {
+      "id": "claim_2f33f25dfac20703",
+      "type": "claim",
+      "title": "大规模研究确认位置偏差并非随机，且会随候选答案质量差距变化，支持按条件拆分评测结果。",
+      "role": "佐证",
+      "addedAt": "2026-08-02T02:06:39.367Z"
+    },
+    {
+      "id": "source_7ec2ca28e413dbb3",
+      "type": "source",
+      "title": "arXiv",
+      "url": "https://arxiv.org/abs/2604.23478",
+      "sourceKind": "Research",
+      "publishedAt": "2026-04-26T00:08:30.000Z"
+    },
+    {
+      "id": "claim_5fb47e40f498e881",
+      "type": "claim",
+      "title": "JudgeSense发现部分表面提示敏感性来自提示极性反转的数据设计缺陷，提示异常不能一概归因于裁判模型。",
+      "role": "反例",
+      "addedAt": "2026-08-02T02:06:39.367Z"
+    },
     {
       "id": "event_51e4353627257c24",
       "type": "event",
@@ -4360,6 +4531,135 @@
     }
   ],
   "edges": [
+    {
+      "id": "edge_c591da46420cf32a",
+      "from": "event_f29261eb155fda62",
+      "to": "article_b6eab4c21d28a329",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_41eb86931a956162",
+      "from": "source_bcd18548e2016775",
+      "to": "claim_a9d06cf4bdbff07b",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_bf57eadfb01d17e6",
+      "from": "claim_a9d06cf4bdbff07b",
+      "to": "event_f29261eb155fda62",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_c936ffbe5d91a6b3",
+      "from": "source_e2ec60d8ee1c4185",
+      "to": "claim_7df63cf6ff117402",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_b2f0ffdf7d7d6443",
+      "from": "claim_7df63cf6ff117402",
+      "to": "event_f29261eb155fda62",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_ca52e35188db1101",
+      "from": "source_6c4274ed8f50c34a",
+      "to": "claim_bae6be90764d6863",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_f4c2d09fe504cff8",
+      "from": "claim_bae6be90764d6863",
+      "to": "event_f29261eb155fda62",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_761a0894b9d1193d",
+      "from": "source_7320c300e5e545ff",
+      "to": "claim_18a95b5ae8fd6460",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_18091a058f7a0053",
+      "from": "claim_18a95b5ae8fd6460",
+      "to": "event_f29261eb155fda62",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_dfd87a148ff2300b",
+      "from": "source_36686b59d2507a45",
+      "to": "claim_9386dad5d12c0b00",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_858274415b437915",
+      "from": "claim_9386dad5d12c0b00",
+      "to": "event_f29261eb155fda62",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_b5b2158e344b4ce8",
+      "from": "event_c7d4595e9661f2b8",
+      "to": "article_7c34ec4e8da5ce36",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_d93809fbb3dbe3c3",
+      "from": "source_d7a24614bd65a9b3",
+      "to": "claim_c31bb52f1b0f05a9",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_2d62d04b766dee7b",
+      "from": "claim_c31bb52f1b0f05a9",
+      "to": "event_c7d4595e9661f2b8",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_7cf7f60865875389",
+      "from": "source_16e11e26be5b54ef",
+      "to": "claim_b45e4eeecbba6f07",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_e76b8342044f5ff0",
+      "from": "claim_b45e4eeecbba6f07",
+      "to": "event_c7d4595e9661f2b8",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_af81d26023b0999b",
+      "from": "source_2b3f10f1a57168fe",
+      "to": "claim_2f33f25dfac20703",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_f8a4deddfeeed0fc",
+      "from": "claim_2f33f25dfac20703",
+      "to": "event_c7d4595e9661f2b8",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_15e4ced1ca13ca72",
+      "from": "source_7ec2ca28e413dbb3",
+      "to": "claim_5fb47e40f498e881",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_69ed92d40ab5a5ac",
+      "from": "claim_5fb47e40f498e881",
+      "to": "event_c7d4595e9661f2b8",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
     {
       "id": "edge_f779ceaa6e43fe56",
       "from": "event_51e4353627257c24",
