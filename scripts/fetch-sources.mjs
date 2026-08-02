@@ -64,9 +64,16 @@ function decodeEntities(value = "") {
     amp: "&",
     apos: "'",
     gt: ">",
+    hellip: "…",
     lt: "<",
+    ldquo: "“",
+    lsquo: "‘",
+    mdash: "—",
+    ndash: "–",
     nbsp: " ",
     quot: '"',
+    rdquo: "”",
+    rsquo: "’",
   };
   return value
     .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, "$1")
@@ -192,6 +199,100 @@ export function parseFeed(xml, source, feedUrl) {
         ...(episodeDurationMinutes
           ? { durationMinutes: episodeDurationMinutes }
           : {}),
+        fetchedAt: checkedAt,
+      },
+    ];
+  }).slice(0, itemsPerSource);
+}
+
+function canonicalTechmemeOriginalUrl(value, feedUrl) {
+  const url = absoluteUrl(value, feedUrl);
+  if (!url) return null;
+  const parsed = new URL(url);
+  const hostname = parsed.hostname.toLowerCase();
+  if (
+    hostname === "techmeme.com" ||
+    hostname === "www.techmeme.com" ||
+    !["http:", "https:"].includes(parsed.protocol)
+  ) {
+    return null;
+  }
+  parsed.hash = "";
+  for (const key of [...parsed.searchParams.keys()]) {
+    if (
+      /^utm_/i.test(key) ||
+      [
+        "accesstoken",
+        "campaign",
+        "leadsource",
+        "mc_cid",
+        "mc_eid",
+        "ref",
+        "reflink",
+        "sharetoken",
+        "source",
+        "st",
+      ].includes(key.toLowerCase())
+    ) {
+      parsed.searchParams.delete(key);
+    }
+  }
+  return parsed.toString();
+}
+
+export function extractTechmemeOriginalUrl(block, feedUrl) {
+  const description = tagValue(block, [
+    "description",
+    "summary",
+    "content:encoded",
+    "content",
+  ]);
+  const candidates = [
+    ...decodeEntities(description).matchAll(
+      /<a\b[^>]*\bhref\s*=\s*["']([^"']+)["'][^>]*>/gi,
+    ),
+  ]
+    .map((match) => canonicalTechmemeOriginalUrl(match[1], feedUrl))
+    .filter(Boolean);
+
+  // Techmeme descriptions put the headline's original article link after the
+  // author/publisher homepage link. Choosing the final external anchor also
+  // handles social posts, where a profile link precedes the status URL.
+  return candidates.at(-1) ?? null;
+}
+
+export function parseTechmemeFeed(xml, source, feedUrl) {
+  const blocks = [
+    ...xml.matchAll(/<item(?:\s[^>]*)?>([\s\S]*?)<\/item>/gi),
+  ].map((match) => match[1]);
+
+  return blocks.flatMap((block, index) => {
+    const title = cleanText(tagValue(block, ["title"]));
+    const url = extractTechmemeOriginalUrl(block, feedUrl);
+    if (!title || !url) return [];
+
+    const description = tagValue(block, [
+      "description",
+      "summary",
+      "content:encoded",
+      "content",
+    ]);
+    return [
+      {
+        id: `${source.id}-${index}-${url}`,
+        sourceId: source.id,
+        sourceName: source.name,
+        sourcePublisher: source.publisher ?? source.name,
+        sourceKind: getSourceKind(source.url),
+        title,
+        url,
+        publishedAt: normalizeDate(
+          tagValue(block, ["pubDate", "published", "updated", "dc:date"]),
+        ),
+        summary: cleanText(description).slice(
+          0,
+          source.feedSummaryLimit ?? 700,
+        ),
         fetchedAt: checkedAt,
       },
     ];
@@ -521,6 +622,9 @@ export function parseSpaceXUpdatesJson(text, source) {
 }
 
 function parseConfiguredFeed(text, source, feedUrl) {
+  if (source.feedFormat === "techmeme-rss") {
+    return parseTechmemeFeed(text, source, feedUrl);
+  }
   if (source.feedFormat === "wordpress-json") {
     return parseWordPressJson(text, source, feedUrl);
   }

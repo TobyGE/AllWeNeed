@@ -24,7 +24,8 @@ export type SourceItem = {
     | "news-list-html"
     | "dated-changelog-html"
     | "spacex-updates-json"
-    | "huggingface-models-json";
+    | "huggingface-models-json"
+    | "techmeme-rss";
   feedLanguage?: "en";
   feedPathPrefixes?: string[];
   feedTitleFromDescription?: boolean;
@@ -643,6 +644,17 @@ const curatedSourceCatalog: SourceItem[] = [
     url: "https://www.youtube.com/channel/UC11aHtNnc5bEPLI4jf6mnYg",
     conversationSource: true,
     initialLookbackHours: 48,
+  },
+  {
+    id: 226,
+    name: "Techmeme",
+    publisher: "Techmeme",
+    description: "仅供内部发现重大科技新闻线索；抓取时还原原始报道 URL，公开稿件必须另行 grounding 到一手或独立来源。",
+    url: "https://www.techmeme.com/",
+    feedUrl: "https://www.techmeme.com/feed.xml",
+    feedFormat: "techmeme-rss",
+    discoveryOnly: true,
+    discoveryLevel: "A",
   },
 ];
 
