@@ -15,11 +15,11 @@ import {
 } from "./font-size-control";
 import {
   calculateSignalHeat,
-  compareConversationEditorialValue,
-  compareExposureEditorialValue,
   compareSignalHeat,
   formatExposureAge,
+  isAdaptiveBackfill,
   meetsExploreEditorialFloor,
+  selectAdaptiveFeedItems,
   type SignalHeat,
 } from "./signal-heat";
 import { getSourceKind, publicSourceCatalog } from "./source-catalog";
@@ -370,8 +370,7 @@ export default function Home() {
 
   const localizedSignals = useMemo(
     () =>
-      signals
-        .map((signal, index) => {
+      signals.map((signal, index) => {
           const translated = languageCopy.signals[index];
           const translatedUpdates = (
             translated as typeof translated & {
@@ -426,18 +425,17 @@ export default function Home() {
               };
             }),
           };
-        })
-        .sort((left, right) =>
-          compareExposureEditorialValue(left, right),
-        ),
+        }),
     [heatNow, languageCopy],
   );
 
   const localizedDynamicSignals = useMemo(
     () =>
-      localizedSignals.filter(
-        (signal) =>
-          signal.editorialBucket === "dynamic" && signal.heat.visible,
+      selectAdaptiveFeedItems(
+        localizedSignals.filter(
+          (signal) => signal.editorialBucket === "dynamic",
+        ),
+        "dynamic",
       ),
     [localizedSignals],
   );
@@ -568,17 +566,17 @@ export default function Home() {
           storyEvidenceUrls.has(evidence.url),
         ),
     );
-    return [...mergedStorySignals, ...deduplicatedCurated].sort(
-      compareExposureEditorialValue,
-    );
+    return [...mergedStorySignals, ...deduplicatedCurated];
   }, [locale, localizedCuratedExploreSignals, localizedSignals]);
 
   const activeExploreSignals = useMemo(
-    () =>
-      localizedExploreSignals.filter(
+    () => {
+      const qualified = localizedExploreSignals.filter(
         (signal) =>
-          meetsExploreEditorialFloor(signal) && signal.heat.visible,
-      ),
+          meetsExploreEditorialFloor(signal),
+      );
+      return selectAdaptiveFeedItems(qualified, "explore");
+    },
     [localizedExploreSignals],
   );
 
@@ -643,7 +641,7 @@ export default function Home() {
             },
             {
               now: heatNow,
-              profile: "explore",
+              profile: "conversation",
             },
           ),
           categoryKey: item.categoryZh,
@@ -659,8 +657,13 @@ export default function Home() {
         };
       },
     );
-    return localized.sort(compareConversationEditorialValue);
+    return localized;
   }, [heatNow, locale]);
+  const activeConversations = useMemo(
+    () =>
+      selectAdaptiveFeedItems(localizedConversations, "conversation"),
+    [localizedConversations],
+  );
   const trendSignals = useMemo(
     () =>
       activeExploreSignals
@@ -789,7 +792,7 @@ export default function Home() {
 
   const visibleConversations = useMemo(() => {
     const normalized = query.trim().toLowerCase();
-    return localizedConversations.filter((item) => {
+    return activeConversations.filter((item) => {
       const matchesCategory =
         activeCategory === "全部" || item.categoryKey === activeCategory;
       const matchesQuery =
@@ -799,14 +802,14 @@ export default function Home() {
           .includes(normalized);
       return matchesCategory && matchesQuery;
     });
-  }, [activeCategory, localizedConversations, query]);
+  }, [activeCategory, activeConversations, query]);
 
   const activeCategories = useMemo(() => {
     const displayItems =
       view === "explore"
         ? activeExploreSignals
         : view === "conversations"
-          ? localizedConversations
+          ? activeConversations
           : localizedDynamicSignals;
     const labels = new Map<string, string>();
     displayItems.forEach((item) => {
@@ -818,8 +821,8 @@ export default function Home() {
     ];
   }, [
     activeExploreSignals,
+    activeConversations,
     locale,
-    localizedConversations,
     localizedDynamicSignals,
     view,
   ]);
@@ -1124,7 +1127,7 @@ export default function Home() {
           >
             <span aria-hidden="true">◌</span>
             {t("对话", "Conversations")}
-            <span className="nav-count">{localizedConversations.length}</span>
+            <span className="nav-count">{activeConversations.length}</span>
           </a>
           <a
             className={`nav-item ${section === "sources" ? "active" : ""}`}
@@ -1358,12 +1361,12 @@ export default function Home() {
                     {locale === "zh" ? (
                       <>
                         已压缩成{" "}
-                        <span>{localizedConversations.length} 份精读</span>
+                        <span>{activeConversations.length} 份精读</span>
                       </>
                     ) : (
                       <>
                         distilled into{" "}
-                        <span>{localizedConversations.length} sharp notes</span>
+                        <span>{activeConversations.length} sharp notes</span>
                       </>
                     )}
                   </>
@@ -1405,7 +1408,7 @@ export default function Home() {
                             (signal) => signal.categoryKey,
                           ),
                         ).size
-                      : localizedConversations.length}
+                      : activeConversations.length}
                 </span>
                 <span>
                   {view === "brief"
@@ -1429,8 +1432,8 @@ export default function Home() {
                             `${activeExploreSignals.length} ongoing directions`,
                           )
                         : t(
-                            `${localizedConversations.length} 份完整字幕精读`,
-                            `${localizedConversations.length} full-transcript reads`,
+                            `${activeConversations.length} 份完整字幕精读`,
+                            `${activeConversations.length} full-transcript reads`,
                           )}
                   </small>
                 </span>
@@ -1575,6 +1578,11 @@ export default function Home() {
                           <span>
                             {formatExposureAge(signal.heat.ageHours, locale)}
                           </span>
+                          {isAdaptiveBackfill(signal.heat, "dynamic") && (
+                            <span className="adaptive-backfill">
+                              {t("精选回看", "Selected replay")}
+                            </span>
+                          )}
                           <span
                             className="heat-status"
                             data-stage={signal.heat.stage}
@@ -1807,6 +1815,28 @@ export default function Home() {
                           <span className="explore-number">0{index + 1}</span>
                           <span className="explore-category">{signal.category}</span>
                           <span className="explore-label">{signal.label}</span>
+                          <time
+                            className="explore-exposure-time"
+                            dateTime={signal.heat.lastActivityAt}
+                            title={new Intl.DateTimeFormat(
+                              locale === "zh" ? "zh-CN" : "en-US",
+                              {
+                                year: "numeric",
+                                month: "short",
+                                day: "numeric",
+                                hour: "2-digit",
+                                minute: "2-digit",
+                                timeZone: "America/New_York",
+                              },
+                            ).format(new Date(signal.heat.lastActivityAt))}
+                          >
+                            {formatExposureAge(signal.heat.ageHours, locale)}
+                          </time>
+                          {isAdaptiveBackfill(signal.heat, "explore") && (
+                            <span className="adaptive-backfill">
+                              {t("精选回看", "Selected replay")}
+                            </span>
+                          )}
                           <span
                             className="heat-status"
                             data-stage={signal.heat.stage}
@@ -1978,6 +2008,11 @@ export default function Home() {
                           <span>{item.sourceName}</span>
                           <span>·</span>
                           <time dateTime={item.publishedAt}>{publishedLabel}</time>
+                          {isAdaptiveBackfill(item.heat, "conversation") && (
+                            <span className="adaptive-backfill">
+                              {t("精选回看", "Selected replay")}
+                            </span>
+                          )}
                           <span className="conversation-duration">
                             {item.durationMinutes} min
                           </span>
@@ -2405,8 +2440,8 @@ export default function Home() {
               <i className="status-dot" />{" "}
               {view === "conversations"
                 ? t(
-                    `完整字幕精读完成 · 本周精选 ${localizedConversations.length} 期`,
-                    `Full-transcript review complete · ${localizedConversations.length} weekly picks`,
+                    `完整字幕精读完成 · 本周精选 ${activeConversations.length} 期`,
+                    `Full-transcript review complete · ${activeConversations.length} weekly picks`,
                   )
                 : t(
                     `GPT 分析完成 · 基于 ${dailyRadar.analyzedItemCount} 条高相关内容`,

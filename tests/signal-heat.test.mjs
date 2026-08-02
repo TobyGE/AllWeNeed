@@ -10,12 +10,14 @@ import {
   compareSignalHeat,
   DYNAMIC_FEED_MAX_EXPOSURE_HOURS,
   EXPLORE_EDITORIAL_FLOOR,
+  ADAPTIVE_FEED_POLICIES,
   exposureDecayPenalty,
   exposureEditorialScore,
   formatExposureAge,
   conversationExposureDecayPenalty,
   conversationExposureEditorialScore,
   meetsExploreEditorialFloor,
+  selectAdaptiveFeedItems,
 } from "../app/signal-heat.ts";
 
 const publishedAt = "2026-07-01T12:00:00.000Z";
@@ -303,14 +305,14 @@ test("conversations use a slower weekly exposure rhythm", () => {
     valueScore: 84,
     heat: calculateSignalHeat(
       { valueScore: 84, feedBatchAt: "2026-07-10T11:00:00.000Z" },
-      { now, profile: "explore" },
+      { now, profile: "conversation" },
     ),
   };
   const oldConversation = {
     valueScore: 94,
     heat: calculateSignalHeat(
       { valueScore: 94, feedBatchAt: "2026-07-03T12:00:00.000Z" },
-      { now, profile: "explore" },
+      { now, profile: "conversation" },
     ),
   };
 
@@ -325,6 +327,76 @@ test("conversations use a slower weekly exposure rhythm", () => {
       .sort(compareConversationEditorialValue)
       .map((item) => item.valueScore),
     [84, 94],
+  );
+});
+
+test("Explore leaves the main feed after 48 hours while conversations remain", () => {
+  const now = "2026-07-10T12:00:00.000Z";
+  const input = {
+    valueScore: 92,
+    feedBatchAt: "2026-07-08T11:59:00.000Z",
+  };
+
+  const explore = calculateSignalHeat(input, {
+    now,
+    profile: "explore",
+  });
+  const conversation = calculateSignalHeat(input, {
+    now,
+    profile: "conversation",
+  });
+
+  assert.ok(explore.ageHours > 48);
+  assert.equal(explore.visible, false);
+  assert.equal(conversation.visible, true);
+});
+
+test("adaptive inventory backfills without lowering quality or outranking fresh items", () => {
+  const fresh = Array.from({ length: 6 }, (_, index) => ({
+    id: `fresh-${index}`,
+    valueScore: 82 + index,
+    heat: {
+      score: 70,
+      stage: "hot",
+      visible: true,
+      ageHours: index + 1,
+      halfLifeHours: 100,
+      lastActivityAt: "2026-07-10T11:00:00.000Z",
+    },
+  }));
+  const expired = Array.from({ length: 8 }, (_, index) => ({
+    id: `expired-${index}`,
+    valueScore: 99 - index,
+    heat: {
+      score: 68,
+      stage: "warm",
+      visible: false,
+      ageHours: 49 + index,
+      halfLifeHours: 100,
+      lastActivityAt: "2026-07-08T11:00:00.000Z",
+    },
+  }));
+
+  const selected = selectAdaptiveFeedItems(
+    [...expired].reverse().concat([...fresh].reverse()),
+    "dynamic",
+  );
+
+  assert.equal(ADAPTIVE_FEED_POLICIES.dynamic.minimumItems, 10);
+  assert.equal(selected.length, 10);
+  assert.deepEqual(
+    selected.slice(0, fresh.length).map((item) => item.id),
+    [...fresh]
+      .sort(compareExposureEditorialValue)
+      .map((item) => item.id),
+  );
+  const selectedBackfill = selected.slice(fresh.length);
+  assert.ok(selectedBackfill.every((item) => item.heat.ageHours > 48));
+  assert.deepEqual(
+    selectedBackfill.map((item) => item.valueScore),
+    [...selectedBackfill]
+      .map((item) => item.valueScore)
+      .sort((left, right) => right - left),
   );
 });
 

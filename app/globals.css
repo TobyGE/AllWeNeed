@@ -1225,6 +1225,7 @@ button {
 
 .explore-card-top {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 6px;
 }
@@ -1257,6 +1258,15 @@ button {
   color: var(--explore-accent);
 }
 
+.explore-exposure-time {
+  color: #8a8b84;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: calc(6px + var(--font-adjust));
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
 .explore-featured .explore-number {
   color: #777971;
 }
@@ -1269,6 +1279,10 @@ button {
 .explore-featured .explore-label {
   background: color-mix(in srgb, var(--explore-accent) 28%, #1d1e1b);
   color: #d8cbff;
+}
+
+.explore-featured .explore-exposure-time {
+  color: #aeb0a8;
 }
 
 .explore-card h3 {
@@ -1661,6 +1675,26 @@ button {
   border-color: #d8d5cc;
   background: #f4f2ec;
   color: #7b7a73;
+}
+
+.adaptive-backfill {
+  border: 1px dashed #c7b98f;
+  border-radius: 999px;
+  background: #faf5e6;
+  padding: 3px 6px;
+  color: #8a6b20;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: calc(6px + var(--font-adjust));
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.explore-featured .adaptive-backfill,
+.conversation-featured .adaptive-backfill {
+  border-color: #756d54;
+  background: #302e25;
+  color: #e6d38e;
 }
 
 .explore-featured .heat-status {

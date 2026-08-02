@@ -1,9 +1,24 @@
 const HOUR_MS = 60 * 60 * 1_000;
 export const EXPLORE_EDITORIAL_FLOOR = 80;
 export const DYNAMIC_FEED_MAX_EXPOSURE_HOURS = 48;
+export const EXPLORE_FEED_MAX_EXPOSURE_HOURS = 48;
+export const ADAPTIVE_FEED_POLICIES = {
+  dynamic: {
+    minimumItems: 10,
+    exposureWindowsHours: [48, 72, 96],
+  },
+  explore: {
+    minimumItems: 20,
+    exposureWindowsHours: [48, 96, 168],
+  },
+  conversation: {
+    minimumItems: 12,
+    exposureWindowsHours: [7 * 24, 14 * 24, 30 * 24],
+  },
+} as const;
 
 export type SignalHeatStage = "hot" | "warm" | "cooling" | "dormant";
-export type SignalHeatProfile = "dynamic" | "explore";
+export type SignalHeatProfile = "dynamic" | "explore" | "conversation";
 
 type DatedEvidence = {
   publishedAt?: string | null;
@@ -40,6 +55,61 @@ export type SignalHeat = {
 export type EditoriallyRankedSignal = SignalHeatInput & {
   heat: SignalHeat;
 };
+
+export function selectAdaptiveFeedItems<
+  Item extends EditoriallyRankedSignal,
+>(items: Item[], profile: SignalHeatProfile) {
+  const policy = ADAPTIVE_FEED_POLICIES[profile];
+  const baseWindowHours = policy.exposureWindowsHours[0];
+  const currentComparator =
+    profile === "conversation"
+      ? compareConversationEditorialValue
+      : compareExposureEditorialValue;
+  const currentItems = items
+    .filter((item) => item.heat.visible)
+    .sort(currentComparator);
+  if (currentItems.length >= policy.minimumItems) {
+    return currentItems;
+  }
+  const missingItems = policy.minimumItems - currentItems.length;
+  const backfillWindows = policy.exposureWindowsHours.slice(1);
+  for (const [index, windowHours] of backfillWindows.entries()) {
+    const backfillItems = items
+      .filter(
+        (item) =>
+          item.heat.ageHours > baseWindowHours &&
+          item.heat.ageHours <= windowHours,
+      )
+      .sort(compareStoredEditorialValue);
+    if (
+      backfillItems.length >= missingItems ||
+      index === backfillWindows.length - 1
+    ) {
+      return [...currentItems, ...backfillItems.slice(0, missingItems)];
+    }
+  }
+  return currentItems;
+}
+
+function compareStoredEditorialValue(
+  left: EditoriallyRankedSignal,
+  right: EditoriallyRankedSignal,
+) {
+  const leftValue = Number(left.valueScore ?? left.score ?? 0);
+  const rightValue = Number(right.valueScore ?? right.score ?? 0);
+  const valueDifference = rightValue - leftValue;
+  if (valueDifference !== 0) return valueDifference;
+  return Date.parse(right.heat.lastActivityAt) -
+    Date.parse(left.heat.lastActivityAt);
+}
+
+export function isAdaptiveBackfill(
+  heat: SignalHeat,
+  profile: SignalHeatProfile,
+) {
+  return heat.ageHours >
+    ADAPTIVE_FEED_POLICIES[profile].exposureWindowsHours[0];
+}
 
 export function meetsExploreEditorialFloor(
   signal: Pick<SignalHeatInput, "score" | "valueScore">,
@@ -150,8 +220,11 @@ export function calculateSignalHeat(
   const visibilityThreshold = profile === "dynamic" ? 38 : 26;
   const minimumDwellHours = profile === "dynamic" ? 36 : 5 * 24;
   const withinMaximumExposure =
-    profile !== "dynamic" ||
-    ageHours <= DYNAMIC_FEED_MAX_EXPOSURE_HOURS;
+    profile === "conversation" ||
+    ageHours <=
+      (profile === "dynamic"
+        ? DYNAMIC_FEED_MAX_EXPOSURE_HOURS
+        : EXPLORE_FEED_MAX_EXPOSURE_HOURS);
   const visible =
     withinMaximumExposure &&
     (ageHours <= minimumDwellHours || heatScore >= visibilityThreshold);

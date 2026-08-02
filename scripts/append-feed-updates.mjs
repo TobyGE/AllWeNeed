@@ -383,6 +383,7 @@ function buildPrompt({ candidates, radar, scannedSnapshot }) {
 - bucket=dynamic 的至少一条核心 evidence 必须是在本次扫描前 7 天内发布的新一手事实。旧公告被新快讯、回顾文章或营销内容重新提及时，不构成新事件；如果没有新的状态变化必须 ignored。旧资料只能作为新事件的背景证据。
 - valueScore 必须是 0–99 的绝对编辑价值分，不是第1、第2、第3的名次。综合评估：影响范围 30%、信息增量 25%、证据强度 25%、对 AI/科技/投资判断的可行动性 20%。同一批内容将按此分数从高到低排列。
 - dynamic 的 valueScore 必须至少为 82；低于 82 的内容只有同时达到 Explore 的 ${exploreEditorialFloor} 分硬门槛与 thesis 标准时才能进入 explore，否则 ignored。宁缺毋滥，不为动态或 Explore 凑数。
+- 消费级设备恶意软件、广告欺诈、点击欺诈或单一小众终端事件，即使技术细节复杂、来源充分，也默认进入 Explore；只有已波及核心 AI/科技基础设施、关键供应链，或存在大规模在野利用时才可进入 dynamic。
 - 单一 Blog、YouTube、Newsletter、Fed 或 SEC 来源都允许收录，并标为“单一来源”；出现更多独立来源时再做 cross-validation。
 - 多条新增内容讲同一事件时合并成一篇稿件，逐项列出不同来源提供的事实或观点。
 - 若新增内容只是在佐证现有事件，或为现有事件补充了后续进展，放进 existingUpdates，追加“最新进展”和新 evidence；不得重写旧稿正文。只有出现可独立理解的新事件时才新建 feedStory。
@@ -1739,8 +1740,27 @@ export function qualifiesDynamicMateriality(event) {
   const valueScore =
     Number(event?.valueScore) || Number(event?.signal?.score) || 0;
   const materiality = cleanText(event?.materiality).toLowerCase();
+  const eventText = [
+    event?.changedVariable,
+    event?.signal?.title,
+    event?.signal?.summary,
+    event?.signal?.why,
+    event?.signal?.impact,
+  ]
+    .map(cleanText)
+    .filter(Boolean)
+    .join(" ");
+  const nicheConsumerRisk =
+    /廉价.*(?:电视|tv|盒子)|电视盒子|流媒体盒|广告欺诈|点击欺诈|\b(?:cheap|generic|off-brand)\s+(?:tv|streaming|android)\s+(?:box|stick|device)|\b(?:ad|click)\s+fraud\b/iu.test(
+      eventText,
+    );
+  const systemicCoreTechnologyImpact =
+    /前沿实验室|核心基础设施|关键基础设施|供应链攻击|大规模利用|在野利用|零日|\b(?:frontier lab|core infrastructure|critical infrastructure|supply-chain attack|widely exploited|actively exploited|zero-day)\b/iu.test(
+      eventText,
+    );
   if (valueScore < 82) return false;
   if (materiality === "minor") return false;
+  if (nicheConsumerRisk && !systemicCoreTechnologyImpact) return false;
   return true;
 }
 

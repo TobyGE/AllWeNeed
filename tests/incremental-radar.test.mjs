@@ -673,6 +673,31 @@ test("reserves dynamic for material signals with an editorial score of 82+", () 
     }),
     true,
   );
+  assert.equal(
+    qualifiesDynamicMateriality({
+      bucket: "dynamic",
+      materiality: "material",
+      changedVariable: "廉价 Android TV 盒子升级为自动广告欺诈节点",
+      valueScore: 92,
+      signal: {
+        title: "廉价TV盒子升级为自动广告欺诈节点",
+        summary: "设备使用YOLO和OCR自动执行点击欺诈。",
+      },
+    }),
+    false,
+  );
+  assert.equal(
+    qualifiesDynamicMateriality({
+      bucket: "dynamic",
+      materiality: "material",
+      changedVariable: "供应链攻击正在大规模利用廉价TV盒子进入关键基础设施",
+      valueScore: 92,
+      signal: {
+        title: "TV盒子供应链攻击波及关键基础设施",
+      },
+    }),
+    true,
+  );
 });
 
 test("promotes an official next-major-model disclosure from a frontier lab", () => {

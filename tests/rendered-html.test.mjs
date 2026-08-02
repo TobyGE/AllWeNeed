@@ -4,7 +4,7 @@ import test from "node:test";
 
 import {
   calculateSignalHeat,
-  compareExposureEditorialValue,
+  selectAdaptiveFeedItems,
 } from "../app/signal-heat.ts";
 import {
   getSourceKind,
@@ -71,7 +71,8 @@ test("server-renders the All We Need product shell", async () => {
       ["ok", "empty"].includes(status.status),
   ).length;
   assert.ok(html.includes(String(publicSuccessfulSources)));
-  const activeDynamicSignals = radar.signals
+  const activeDynamicSignals = selectAdaptiveFeedItems(
+    radar.signals
     .map((signal, index) => ({
       ...signal,
       translatedTitle: radar.translations.zh.signals[index].title,
@@ -82,9 +83,10 @@ test("server-renders the All We Need product shell", async () => {
     }))
     .filter(
       (signal) =>
-        signal.editorialBucket === "dynamic" && signal.heat.visible,
-    )
-    .sort(compareExposureEditorialValue);
+        signal.editorialBucket === "dynamic",
+    ),
+    "dynamic",
+  );
   const firstDynamicIndex = radar.signals.findIndex(
     (signal) => signal.id === activeDynamicSignals[0]?.id,
   );
@@ -612,8 +614,14 @@ test("removes all disposable starter preview code", async () => {
     );
   }
   assert.match(page, /explore-grid/);
+  assert.match(page, /className="explore-exposure-time"/);
+  assert.match(
+    page,
+    /formatExposureAge\(signal\.heat\.ageHours, locale\)/,
+  );
+  assert.match(styles, /\.explore-exposure-time/);
   assert.match(page, /signal-radar-locale/);
-  assert.match(page, /compareExposureEditorialValue/);
+  assert.match(page, /selectAdaptiveFeedItems/);
   assert.doesNotMatch(page, /all-we-need-read-history-v1/);
   assert.match(page, /href=\{`\?article=\$\{signal\.id\}`\}/);
   assert.match(page, /activeExploreArticle/);
