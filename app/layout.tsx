@@ -16,6 +16,37 @@ const geistMono = Geist_Mono({
 const title = "All We Need — AI 科技投资情报";
 const description =
   "从 X、YouTube、Reddit、Hugging Face 和博客中发现、验证并解释真正重要的 AI 与科技投资信号。";
+const gaMeasurementId = "G-8R17J8CJ1W";
+const analyticsBootstrap = `
+(() => {
+  const productionHosts = new Set([
+    "allweneed.info",
+    "www.allweneed.info",
+    "yingqiangge.github.io",
+  ]);
+  if (!productionHosts.has(window.location.hostname)) return;
+
+  window.dataLayer = window.dataLayer || [];
+  window.gtag =
+    window.gtag ||
+    function () {
+      window.dataLayer.push(arguments);
+    };
+
+  window.gtag("consent", "default", {
+    analytics_storage: navigator.globalPrivacyControl ? "denied" : "granted",
+    ad_storage: "denied",
+    ad_user_data: "denied",
+    ad_personalization: "denied",
+  });
+  window.gtag("js", new Date());
+  window.gtag("config", "${gaMeasurementId}", {
+    anonymize_ip: true,
+    send_page_view: false,
+  });
+  window.signalRadarAnalyticsReady = true;
+})();
+`;
 const restoreFontSize = `
 try {
   const storedFontSize = window.localStorage.getItem("all-we-need-font-size");
@@ -82,6 +113,11 @@ export default function RootLayout({
     <html lang="zh-CN" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: restoreFontSize }} />
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
+        />
+        <script dangerouslySetInnerHTML={{ __html: analyticsBootstrap }} />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}

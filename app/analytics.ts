@@ -25,8 +25,7 @@ declare global {
 function analyticsAllowed() {
   return (
     typeof window !== "undefined" &&
-    PRODUCTION_HOSTS.has(window.location.hostname) &&
-    !window.navigator.globalPrivacyControl
+    PRODUCTION_HOSTS.has(window.location.hostname)
   );
 }
 
@@ -40,12 +39,14 @@ export function initializeAnalytics() {
       window.dataLayer?.push(args);
     });
 
-  const script = document.createElement("script");
-  script.async = true;
-  script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
-  script.dataset.signalRadarAnalytics = "true";
-  document.head.appendChild(script);
-
+  window.gtag("consent", "default", {
+    analytics_storage: window.navigator.globalPrivacyControl
+      ? "denied"
+      : "granted",
+    ad_storage: "denied",
+    ad_user_data: "denied",
+    ad_personalization: "denied",
+  });
   window.gtag("js", new Date());
   window.gtag("config", GA_MEASUREMENT_ID, {
     anonymize_ip: true,

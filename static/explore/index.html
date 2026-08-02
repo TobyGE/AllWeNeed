@@ -24,6 +24,40 @@
       rel="canonical"
       href="https://allweneed.info/explore/"
     />
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-8R17J8CJ1W"
+    ></script>
+    <script>
+      (() => {
+        const productionHosts = new Set([
+          "allweneed.info",
+          "www.allweneed.info",
+          "yingqiangge.github.io",
+        ]);
+        if (!productionHosts.has(window.location.hostname)) return;
+        window.dataLayer = window.dataLayer || [];
+        window.gtag =
+          window.gtag ||
+          function () {
+            window.dataLayer.push(arguments);
+          };
+        window.gtag("consent", "default", {
+          analytics_storage: navigator.globalPrivacyControl
+            ? "denied"
+            : "granted",
+          ad_storage: "denied",
+          ad_user_data: "denied",
+          ad_personalization: "denied",
+        });
+        window.gtag("js", new Date());
+        window.gtag("config", "G-8R17J8CJ1W", {
+          anonymize_ip: true,
+          send_page_view: false,
+        });
+        window.signalRadarAnalyticsReady = true;
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
