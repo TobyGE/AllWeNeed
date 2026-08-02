@@ -253,7 +253,8 @@ export default function Home() {
     typeof window === "undefined"
       ? { view: "brief" as RadarView, section: "radar" as AppSection }
       : routeFromPathname(window.location.pathname);
-  const [locale, setLocale] = useState<"zh" | "en">("zh");
+  const [locale, setLocale] = useState<"zh" | "en">("en");
+  const [localePreferenceReady, setLocalePreferenceReady] = useState(false);
   const [fontSize, setFontSize] = useState<FontSizePreference>("medium");
   const [activeCategory, setActiveCategory] = useState("全部");
   const [query, setQuery] = useState("");
@@ -276,13 +277,14 @@ export default function Home() {
   const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
 
   useEffect(() => {
-    const timer = window.setTimeout(() => {
+    try {
       const storedLocale = window.localStorage.getItem("signal-radar-locale");
       if (storedLocale === "zh" || storedLocale === "en") {
         setLocale(storedLocale);
       }
-    }, 0);
-    return () => window.clearTimeout(timer);
+    } finally {
+      setLocalePreferenceReady(true);
+    }
   }, []);
 
   useEffect(() => {
@@ -303,9 +305,10 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
+    if (!localePreferenceReady) return;
     document.documentElement.lang = locale === "zh" ? "zh-CN" : "en";
     window.localStorage.setItem("signal-radar-locale", locale);
-  }, [locale]);
+  }, [locale, localePreferenceReady]);
 
   useEffect(() => {
     if (articleId) return;

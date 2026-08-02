@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const title = "All We Need — AI 科技投资情报";
+const title = "All We Need — AI, Tech & Investment Intelligence";
 const description =
-  "从 X、YouTube、Reddit、Hugging Face 和博客中发现、验证并解释真正重要的 AI 与科技投资信号。";
+  "Discover, verify, and explain the AI, technology, and investment signals that matter across original public sources.";
 const gaMeasurementId = "G-8R17J8CJ1W";
 const analyticsBootstrap = `
 (() => {
@@ -110,7 +110,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="zh-CN" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: restoreFontSize }} />
         <script

@@ -14,6 +14,15 @@ import {
 
 const templateRoot = new URL("../", import.meta.url);
 
+function escapeRenderedText(value) {
+  return value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#x27;");
+}
+
 async function render() {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
@@ -47,23 +56,26 @@ test("server-renders the All We Need product shell", async () => {
   const snapshot = JSON.parse(
     await readFile(new URL("../data/feed-snapshot.json", import.meta.url), "utf8"),
   );
-  assert.match(html, /<title>All We Need — AI 科技投资情报<\/title>/i);
-  assert.match(html, /值得关注的最新变化/);
-  assert.match(html, /正在形成的变化/);
-  assert.match(html, /最新动态/);
-  assert.match(html, /持续更新/);
+  assert.match(
+    html,
+    /<title>All We Need — AI, Tech &amp; Investment Intelligence<\/title>/i,
+  );
+  assert.match(html, /The latest changes/);
+  assert.match(html, /Changes Taking Shape/);
+  assert.match(html, /Latest Updates/);
+  assert.match(html, /Continuous feed/);
   assert.doesNotMatch(html, /今日简报|Today's Brief|Daily Brief/);
-  assert.match(html, /探索/);
+  assert.match(html, /Explore/);
   assert.doesNotMatch(html, />永久</);
-  assert.match(html, /投资与公司信号/);
+  assert.match(html, /Investment &amp; Company Signals/);
   assert.doesNotMatch(html, /GPT 已分析|GPT ANALYZED/);
   assert.match(html, /language-switch/);
   assert.match(html, />EN</);
   assert.match(html, /font-size-control/);
-  assert.match(html, /较大字体/);
-  assert.match(html, /超大字体/);
-  assert.match(html, /信源库/);
-  assert.match(html, /条真实内容已抓取/);
+  assert.match(html, /Larger text/);
+  assert.match(html, /Largest text/);
+  assert.match(html, /Sources/);
+  assert.match(html, /real items fetched/);
   const publicSourceIds = new Set(publicSourceCatalog.map((source) => source.id));
   const publicSuccessfulSources = snapshot.statuses.filter(
     (status) =>
@@ -75,7 +87,7 @@ test("server-renders the All We Need product shell", async () => {
     radar.signals
     .map((signal, index) => ({
       ...signal,
-      translatedTitle: radar.translations.zh.signals[index].title,
+      translatedTitle: radar.translations.en.signals[index].title,
       heat: calculateSignalHeat(signal, {
         now: radar.generatedAt,
         profile: "dynamic",
@@ -91,18 +103,18 @@ test("server-renders the All We Need product shell", async () => {
     (signal) => signal.id === activeDynamicSignals[0]?.id,
   );
   assert.ok(firstDynamicIndex >= 0);
-  assert.ok(html.includes(radar.translations.zh.signals[firstDynamicIndex].title));
+  assert.ok(html.includes(radar.translations.en.signals[firstDynamicIndex].title));
   const dynamicCount = activeDynamicSignals.length;
-  assert.match(html, new RegExp(`${dynamicCount}(?:<!-- -->)? 条动态`));
+  assert.match(html, new RegExp(`${dynamicCount}(?:<!-- -->)? updates`));
   assert.doesNotMatch(html, /30 个信号|30 signals|30 条动态|30 updates/);
   assert.match(
     html,
-    /将分散的信息噪声压缩为少数值得判断的变化，让事实、共识与转折在同一条脉络中显现/,
+    /Distilling a fragmented information landscape into a small set of consequential shifts/,
   );
   assert.doesNotMatch(html, /新批次置顶，批内按价值排序/);
   const expectedDynamicOrder = activeDynamicSignals;
   const renderedDynamicIndices = expectedDynamicOrder.map((signal) =>
-    html.indexOf(signal.translatedTitle),
+    html.indexOf(escapeRenderedText(signal.translatedTitle)),
   );
   assert.ok(renderedDynamicIndices.every((index) => index >= 0));
   assert.ok(
@@ -112,26 +124,30 @@ test("server-renders the All We Need product shell", async () => {
     ),
   );
   assert.match(html, /href="\?article=1"/);
-  assert.match(html, /高热 \d+|关注 \d+|降温 \d+/);
-  assert.match(html, /跨平台验证/);
+  assert.match(html, /High heat \d+|Watch \d+|Cooling \d+/);
+  assert.match(html, /Cross-platform · \d+ independent sources/);
   assert.ok(!html.includes(radar.translations.zh.signals[0].shiftTo));
-  assert.match(html, />预览</);
-  assert.match(html, /探索更多/);
-  assert.match(html, /看完发生了什么，再去看接下来可能发生什么/);
-  assert.ok(
-    html.indexOf("GPT 分析完成") < html.indexOf("看完发生了什么，再去看接下来可能发生什么"),
+  assert.match(html, />Preview</);
+  assert.match(html, /Explore more/);
+  assert.match(
+    html,
+    /You’ve seen what changed\. Now explore what may come next\./,
   );
-  assert.ok(html.includes(radar.translations.zh.companySignals[0].headline));
+  assert.ok(
+    html.indexOf("GPT analysis complete") <
+      html.indexOf("You’ve seen what changed. Now explore what may come next."),
+  );
+  assert.ok(html.includes(radar.translations.en.companySignals[0].headline));
   assert.match(html, /href="\?article=company-0"/);
   assert.ok(
     !html.includes(radar.translations.zh.companySignals[0].investmentRead),
   );
   assert.ok(!html.includes(radar.translations.zh.companySignals[0].catalyst));
   assert.ok(!html.includes(radar.translations.zh.companySignals[0].risk));
-  assert.match(html, /GPT 分析完成/);
+  assert.match(html, /GPT analysis complete/);
   assert.doesNotMatch(
     html,
-    /今日 Brief|Explore 信息流|MUST KNOW|WHY NOW|EVIDENCE TRAIL|INVESTMENT READ|CAPITAL &amp; COMPANY SIGNALS|GPT ANALYZED/,
+    /今日 Brief|Explore 信息流|GPT 已分析/,
   );
   assert.doesNotMatch(html, /codex-preview/);
   assert.doesNotMatch(html, /Your site is taking shape/);
@@ -219,7 +235,7 @@ test("removes all disposable starter preview code", async () => {
   );
   assert.match(page, /conversation-page-bridge-cta/);
   assert.match(styles, /prefers-reduced-motion/);
-  assert.match(layout, /lang="zh-CN"/);
+  assert.match(layout, /lang="en"/);
   assert.match(layout, /favicon\.png/);
   assert.match(layout, /apple-touch-icon\.png/);
   for (const staticEntry of [
@@ -621,6 +637,8 @@ test("removes all disposable starter preview code", async () => {
   );
   assert.match(styles, /\.explore-exposure-time/);
   assert.match(page, /signal-radar-locale/);
+  assert.match(page, /useState<"zh" \| "en">\("en"\)/);
+  assert.match(page, /localePreferenceReady/);
   assert.match(page, /selectAdaptiveFeedItems/);
   assert.doesNotMatch(page, /all-we-need-read-history-v1/);
   assert.match(page, /href=\{`\?article=\$\{signal\.id\}`\}/);
@@ -649,12 +667,12 @@ test("removes all disposable starter preview code", async () => {
   assert.match(staticConfig, /static\/explore\/index\.html/);
   assert.match(staticConfig, /static\/conversations\/index\.html/);
   assert.match(staticConfig, /static\/sources\/index\.html/);
-  assert.match(exploreEntry, /<title>探索 — All We Need<\/title>/);
+  assert.match(exploreEntry, /<title>Explore — All We Need<\/title>/);
   assert.match(
     conversationsEntry,
-    /<title>精选对谈 — All We Need<\/title>/,
+    /<title>Conversations — All We Need<\/title>/,
   );
-  assert.match(sourcesEntry, /<title>信源库 — All We Need<\/title>/);
+  assert.match(sourcesEntry, /<title>Sources — All We Need<\/title>/);
   const conversationData = JSON.parse(conversations);
   assert.ok(conversationData.items.length >= 20);
   assert.ok(
