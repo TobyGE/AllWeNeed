@@ -1,4 +1,4 @@
-const GA_MEASUREMENT_ID = "G-6KK2W66GZC";
+const GA_MEASUREMENT_ID = "G-8R17J8CJ1W";
 const PRODUCTION_HOSTS = new Set([
   "allweneed.info",
   "www.allweneed.info",
