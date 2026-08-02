@@ -28,6 +28,14 @@ causal mechanism. Use 75-85% of the essay for the thesis, evidence, and
 mechanism. Return exactly three sections: evidence, mechanism, then one bounded
 countercase. Do not add a fourth section or any field outside the requested
 schema. Never repeat the countercase after its section.
+Treat papers, preprints, research blogs, experiments, and benchmarks only as
+evidence, never as the finished Explore product. A research-led Explore item
+must also include at least one real-world adoption or deployment signal, a
+concrete company or institution action, or an independent replication from a
+different publisher. A paper summary, a cluster of papers, or a technical
+result with no external reality signal must be archived. The headline and
+central claim must state a falsifiable industry, product, organization, or
+behavior change rather than paraphrase a finding.
 The outlook must name observable conditions that change the thesis. Narrow a
 claim when evidence is thin; do not fill the article with disclaimers.
 `.trim(),
@@ -94,6 +102,12 @@ mechanism, then one bounded countercase. Do not add evidence arrays or any field
 outside the requested schema. Do not repeat uncertainty, benchmark caveats, or
 the countercase in the lead or outlook. The outlook must specify only the new
 observable condition that would strengthen or overturn the thesis.
+Use papers, research blogs, experiments, and benchmarks only as evidence. Never
+publish a paper explanation as Explore. Research-led items also require a
+real-world deployment or adoption, a concrete company or institution action,
+or an independent replication by another publisher. Otherwise archive them.
+The headline must express a testable industry, product, organization, or
+behavior change, not restate a research result.
 `.trim(),
   conversation: `
 Act as a concise conversation editor. Attribute every view to the speaker and

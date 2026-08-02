@@ -7,6 +7,7 @@ import {
   modelReasoningEffort,
   modelTaskInstructions,
 } from "./model-prompts.mjs";
+import { qualifiesExploreEvidenceBundle } from "./explore-quality.mjs";
 
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const radarPath = resolve(projectRoot, "data/daily-radar.json");
@@ -152,6 +153,8 @@ Explore 不是重复新闻，而是从已知事实中提出可继续验证的非
 - 至少 12 条使用两个或以上独立 sourceName；至少 8 条跨 sourceKind。
 - 至少 8 条为“高风险高潜”，至少 8 条为“跨界连接”。
 - 不得重复现有标题，也不得用同义标题重复同一个 thesis。
+- 论文、preprint、研究 Blog、实验结果和 benchmark 只能作为证据。研究主导的方向还必须有现实部署/采用、明确公司或机构动作，或来自不同发布者的独立复现/验证；单篇论文、多篇论文组合或纯技术讲解不得生成 Explore。
+- title 和 thesis 必须表达可证伪的产业、产品、组织或行为变化，不能复述研究发现。
 - title 必须具体，避免“值得关注”“迎来变化”“未来可期”等空话。
 - counterpoint 必须是真正可能推翻 thesis 的反证，不是礼貌性保留。
 - 每条都要写成完整站内稿：导语 + 三段正文 + outlook。文章只能有一个中心 thesis，约 70–80% 篇幅用于建立证据连接与机制，反方观点和证伪条件集中在一个有边界的段落。
@@ -491,6 +494,11 @@ function validateChineseItems({
     }
     if (!evidence.length) {
       throw new Error(`Explore item ${index + 1} has no valid evidence.`);
+    }
+    if (!qualifiesExploreEvidenceBundle(item, evidence)) {
+      throw new Error(
+        `Explore item ${index + 1} is a research explainer without real-world grounding.`,
+      );
     }
 
     const sourceNames = [...new Set(evidence.map((entry) => entry.sourceName))];

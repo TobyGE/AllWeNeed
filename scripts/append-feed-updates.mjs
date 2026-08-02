@@ -16,6 +16,7 @@ import {
   modelSearchContextSize,
   modelTaskInstructions,
 } from "./model-prompts.mjs";
+import { qualifiesExploreEvidenceBundle } from "./explore-quality.mjs";
 import {
   compareEditorialAssignments,
   shouldRunShadowEvaluation,
@@ -376,6 +377,7 @@ function buildPrompt({ candidates, radar, scannedSnapshot }) {
 - 小版本、library/repository/demo、单点技巧、孤立研究论文、单篇 Blog 观察、窄功能更新和一般知识不得因为“刚发布”进入 dynamic；如果也没有形成高价值 thesis，则直接 ignored，不能把 Explore 当作低质量内容的兜底区。
 - preview、alpha、beta 或 public beta 只是发布阶段标签，不能单独作为归档理由。若官方更新实质改变了 frontier model 的能力、benchmark、API 可用性、兼容接口、价格、context、分发范围或默认 model identity，应按重大模型/API 发布评估；从 Preview 转为官方 API public beta，并同时带来显著能力跃升或新增主流接口，属于可进入 dynamic 的明确状态变化。
 - bucket=explore 是稀缺的第二编辑层，只用于有清晰 thesis、二阶影响、跨界连接或值得持续验证的非共识判断。必须写清“什么变量正在变化”、作用机制和可证伪的下一步，不能只是把单篇内容换句话复述。
+- 论文、preprint、研究 Blog、实验结果和 benchmark 只能作为 Explore 的证据，不能单独成为 Explore 成品。研究材料主导的 Explore 必须同时具有至少一类外部现实信号：已经发生的产品部署/采用、明确的公司或机构动作，或来自不同发布者的独立复现/验证。单篇论文、多篇论文互相印证、只讨论方法和结果的技术讲解，即使措辞有洞察，也必须 ignored。headline 和 central claim 必须表达可证伪的产业、产品、组织或行为变化，不能只是改写论文结论。
 - Explore 的 valueScore 必须至少为 ${exploreEditorialFloor}，materiality 必须为 substantive 或 material，changedVariable 必须具体。低于门槛的“小知识”、普通教程、一般产品观察、营销发布、缺少机制的观点和仅靠措辞包装出的假设全部 ignored，并在 reason 前加“归档：未达到 Explore 编辑门槛”。
 - 内容单薄、题目党、未经验证的规模数字、过窄教程、个人随感、与 Radar 重点弱相关的条目放进 ignored，并在 reason 前加“归档：”。“已处理”不等于“必须发布”。
 - Radar 的核心范围是 AI、semiconductor、cloud infrastructure、developer tools、cybersecurity、robotics、frontier science、核心科技公司，以及直接影响这些领域的 Fed/监管/资本事件。“投资”只是观察角度，不是独立主题；普通消费、化工、地产、医药、传统制造公司的泛财报、荐股与行情内容必须 ignored，不能仅因出现“业绩、利润、融资、锂电”等词进入动态或探索。
@@ -1825,23 +1827,39 @@ export function qualifiesExploreMateriality(event) {
   return true;
 }
 
-export function applyEditorialPublicationBar(raw) {
+export function applyEditorialPublicationBar(raw, candidates = []) {
   const feedStories = [];
   const autoIgnored = [];
+  const candidateMap = new Map(
+    candidates.map((candidate) => [candidate.ref, candidate]),
+  );
 
   for (const event of raw?.feedStories ?? []) {
     const qualifiesAsDynamic =
       event?.bucket === "dynamic" && qualifiesDynamicMateriality(event);
     const qualifiesAsExplore = qualifiesExploreMateriality(event);
-    if (qualifiesAsDynamic || qualifiesAsExplore) {
+    const evidence = (event?.signal?.evidence ?? [])
+      .map((entry) => candidateMap.get(entry?.ref))
+      .filter(Boolean);
+    const qualifiesExploreEvidence =
+      candidates.length === 0 ||
+      qualifiesExploreEvidenceBundle(event, evidence);
+    if (
+      qualifiesAsDynamic ||
+      (qualifiesAsExplore && qualifiesExploreEvidence)
+    ) {
       feedStories.push(event);
       continue;
     }
+    const archiveReason =
+      qualifiesAsExplore && !qualifiesExploreEvidence
+        ? "归档：论文或研究材料缺少现实采用、公司动作或独立复现，不能单独进入 Explore"
+        : "归档：未达到 Explore 编辑门槛";
     for (const evidence of event?.signal?.evidence ?? []) {
       if (!evidence?.ref) continue;
       autoIgnored.push({
         ref: evidence.ref,
-        reason: "归档：未达到 Explore 编辑门槛",
+        reason: archiveReason,
       });
     }
   }
@@ -1920,7 +1938,11 @@ export function hydrateFeedStories({
     const qualifiesAsDynamic =
       (event.bucket === "dynamic" && qualifiesDynamicMateriality(event)) ||
       qualifiesOfficialFrontierLabDynamic(event, evidence);
-    if (!qualifiesAsDynamic && !qualifiesExploreMateriality(event)) {
+    if (
+      !qualifiesAsDynamic &&
+      (!qualifiesExploreMateriality(event) ||
+        !qualifiesExploreEvidenceBundle(event, evidence))
+    ) {
       continue;
     }
     const duplicateEvidence = evidence.find((item) =>
@@ -2603,6 +2625,7 @@ async function main() {
               parseJsonOutput(call.output),
               candidates,
             ),
+            candidates,
           );
           coverage = validateFeedCoverage(raw, candidates);
           hydratedStories = hydrateFeedStories({
@@ -2671,6 +2694,7 @@ async function main() {
               parseJsonOutput(shadowCall.output),
               candidates,
             ),
+            candidates,
           );
           validateFeedCoverage(shadowRaw, candidates);
           shadowEvaluation = {

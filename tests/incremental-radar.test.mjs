@@ -29,6 +29,10 @@ import {
   validateFeedCoverage,
   withoutDeferredResearchCandidates,
 } from "../scripts/append-feed-updates.mjs";
+import {
+  isResearchLikeEvidence,
+  qualifiesExploreEvidenceBundle,
+} from "../scripts/explore-quality.mjs";
 
 function article(prefix) {
   return {
@@ -766,6 +770,110 @@ test("keeps Explore as a scarce editorial layer with an 80-point hard floor", ()
     }),
     true,
   );
+});
+
+test("keeps papers as Explore evidence instead of standalone products", () => {
+  const paper = {
+    sourceName: "Example Lab",
+    sourceKind: "Research",
+    url: "https://example.com/research/new-monitor-method",
+    title: "A new method for held-out monitor evaluation",
+    summary: "The paper reports a benchmark result and an experiment.",
+  };
+  const researchBlog = {
+    sourceName: "Research Notes",
+    sourceKind: "Blog",
+    url: "https://lesswrong.com/posts/example",
+    title: "Held-out monitors sometimes degrade",
+    summary: "A technical result about monitor evaluation.",
+  };
+  const deployment = {
+    sourceName: "Acme AI",
+    sourceKind: "Official",
+    url: "https://acme.example/news/monitor-rollout",
+    title: "Acme deploys continuous monitor evaluation in production",
+    summary: "The company rolled out the system across its production agents.",
+  };
+  const replication = {
+    sourceName: "Independent Safety Lab",
+    sourceKind: "Blog",
+    url: "https://independent.example/replication",
+    title: "Independent lab reproduces the monitor degradation result",
+    summary: "The team independently replicated the finding.",
+  };
+  const event = {
+    signal: {
+      title: "监控评估转向持续性能测量",
+      summary: "研究结果只有在现实采用后才构成产业变化。",
+      article: article("monitor"),
+    },
+  };
+
+  assert.equal(isResearchLikeEvidence(paper), true);
+  assert.equal(isResearchLikeEvidence(researchBlog), true);
+  assert.equal(qualifiesExploreEvidenceBundle(event, [paper]), false);
+  assert.equal(
+    qualifiesExploreEvidenceBundle(event, [
+      {
+        ...paper,
+        summary:
+          "The paper discusses how the method could be deployed in production.",
+      },
+    ]),
+    false,
+  );
+  assert.equal(
+    qualifiesExploreEvidenceBundle(event, [researchBlog]),
+    false,
+  );
+  assert.equal(
+    qualifiesExploreEvidenceBundle(event, [paper, deployment]),
+    true,
+  );
+  assert.equal(
+    qualifiesExploreEvidenceBundle(event, [paper, replication]),
+    true,
+  );
+});
+
+test("archives a model-selected paper explainer without breaking coverage", () => {
+  const candidates = [
+    {
+      ref: "N1",
+      sourceName: "Example Lab",
+      sourceKind: "Research",
+      url: "https://example.com/research/paper",
+      title: "A new benchmark paper",
+      summary: "The paper reports a new benchmark result.",
+    },
+  ];
+  const raw = applyEditorialPublicationBar(
+    {
+      feedStories: [
+        {
+          bucket: "explore",
+          materiality: "substantive",
+          changedVariable: "新的 benchmark 改变模型评测方法",
+          valueScore: 88,
+          signal: {
+            title: "新 benchmark 改写评测",
+            evidence: [{ ref: "N1" }],
+          },
+        },
+      ],
+      ignored: [],
+    },
+    candidates,
+  );
+
+  assert.equal(raw.feedStories.length, 0);
+  assert.deepEqual(raw.ignored, [
+    {
+      ref: "N1",
+      reason:
+        "归档：论文或研究材料缺少现实采用、公司动作或独立复现，不能单独进入 Explore",
+    },
+  ]);
 });
 
 test("archives model-selected stories that miss both publication bars", () => {
