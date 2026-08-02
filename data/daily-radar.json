@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-02T02:10:13.773Z",
-  "basedOnSnapshotAt": "2026-08-02T02:06:39.367Z",
+  "generatedAt": "2026-08-02T06:08:36.986Z",
+  "basedOnSnapshotAt": "2026-08-02T06:06:03.028Z",
   "model": "gpt-5.5",
   "analyzedItemCount": 180,
   "totalFetchedItemCount": 1997,
@@ -8,6 +8,500 @@
   "signalQuality": 86,
   "signalQualityChange": 8,
   "signals": [
+    {
+      "id": 41,
+      "editorialBucket": "explore",
+      "category": "AI & 模型",
+      "eyebrow": "趋势变化",
+      "title": "Gemini把机器人竞争推向编排层",
+      "summary": "Gemini Robotics ER 2把视频理解、任务编排和多机器人协作合并，机器人平台竞争可能由单机能力转向跨设备控制层。",
+      "why": "统一理解环境、调用工具并协调多台机器人，可能比单项动作能力更接近可复用的平台入口。",
+      "impact": "若真实部署能够复现，硬件覆盖、接口治理和故障恢复将成为机器人平台的新竞争变量。",
+      "shiftFrom": "侧重单机任务执行",
+      "shiftTo": "转向视频到多机编排",
+      "crossValidation": "Google DeepMind官方来源直接支持ER 2的功能主张；尚无独立部署结果，厂商所称的“step change”不能等同于已验证性能。",
+      "article": {
+        "lead": "Google DeepMind发布Gemini Robotics ER 2所传递的更大信号，不是机器人又多了一个模型，而是竞争焦点正从单机执行转向编排层：模型被设计为同时理解视频、组织工具调用并协调多台机器人。若这些能力能在真实部署中成立，机器人平台的核心价值将更多来自跨设备任务分解与状态同步。",
+        "sections": [
+          {
+            "heading": "三个能力组成同一控制闭环",
+            "body": "Google DeepMind把ER 2的重点并列为video understanding、task orchestration和multi-robot collaboration。三者的组合比单项感知更新更关键：视频可提供连续环境状态，编排层负责把目标拆成工具调用与任务顺序，多机器人协作再把执行范围扩展到多个设备。此次发布由此指向机器人模型能力边界的横向扩展，而非只刷新一个单项指标。"
+          },
+          {
+            "heading": "价值可能上移到任务层",
+            "body": "这一路线改变的变量是机器人软件栈中的控制跨度。当同一模型能够从视频建立状态、选择工具并向多台机器人分派子任务时，价值可能从某个机械臂的专用策略，转向可跨设备复用的任务层。对开发者而言，真正的杠杆将是接口、权限、故障恢复和状态同步；对平台方而言，则是能否把更多硬件纳入同一workflow，而不只是展示单机动作质量。"
+          },
+          {
+            "heading": "受控演示仍是关键反例",
+            "body": "最强的反例是，multi-robot collaboration可能仍局限于受控演示，编排能力也未必能承受开放环境中的延迟、误差累积与设备差异。现阶段材料只有Google DeepMind官方发布，因此“step change”是厂商主张，不是独立验证的结论。若后续没有开放接入、第三方部署或相对前代的任务成功率改善，这次更新更应被视为研究整合，而非平台层转移。"
+          }
+        ],
+        "outlook": "下一步应看ER 2的开放范围、API或SDK约束、支持的机器人类型，以及第三方在长时任务中的成功率、延迟、人工接管次数和故障恢复表现。相对前代的可复现实测若持续改善，将强化“编排层成为平台入口”的判断；若仅有精选demo，则会削弱它。"
+      },
+      "validationType": "单一来源",
+      "publishedAt": "2026-07-30T15:00:59.000Z",
+      "updatedAt": "2026-07-28T13:21:37.000Z",
+      "sources": [
+        "Blog"
+      ],
+      "sourceNames": [
+        "Google DeepMind"
+      ],
+      "sourceCount": 1,
+      "age": "17 小时前",
+      "score": 83,
+      "tone": "blue",
+      "evidence": [
+        {
+          "id": "90-0-https://deepmind.google/blog/gemini-robotics-er-2-powering-robotics-with-video-understanding-task-orchestration-and-multi-robot-collaboration/",
+          "sourceId": 90,
+          "sourceName": "Google DeepMind",
+          "sourcePublisher": "Google DeepMind",
+          "sourceKind": "Blog",
+          "title": "Gemini Robotics ER 2: powering robotics with video understanding, task orchestration, and multi-robot collaboration",
+          "url": "https://deepmind.google/blog/gemini-robotics-er-2-powering-robotics-with-video-understanding-task-orchestration-and-multi-robot-collaboration/",
+          "publishedAt": "2026-07-30T15:00:59.000Z",
+          "summary": "Gemini Robotics ER 2 helps robots reason, collaborate, and solve real-world tasks. It represents a step change in video understanding, tool orchestration, and multi-robot collaboration for robotic applications.",
+          "fetchedAt": "2026-07-31T08:06:59.865Z",
+          "ref": "N8",
+          "role": "主张",
+          "takeaway": "Google DeepMind发布Gemini Robotics ER 2，并将video understanding、task orchestration和multi-robot collaboration列为核心能力方向。"
+        },
+        {
+          "id": "90-2-https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+          "sourceId": 90,
+          "sourceName": "Google DeepMind",
+          "sourcePublisher": "Google DeepMind",
+          "sourceKind": "Blog",
+          "title": "Gemini Robotics 2 brings whole body intelligence to robots",
+          "url": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+          "publishedAt": "2026-07-28T13:21:37.000Z",
+          "summary": "",
+          "fetchedAt": "2026-08-02T06:06:03.028Z",
+          "firstSeenAt": "2026-07-31T14:18:13.755Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 112.74056333333333,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N8",
+          "role": "最新进展",
+          "takeaway": "Google DeepMind官方发布Gemini Robotics 2，并将其定位为把全身智能带给机器人。"
+        }
+      ],
+      "references": [
+        {
+          "id": "90-0-https://deepmind.google/blog/gemini-robotics-er-2-powering-robotics-with-video-understanding-task-orchestration-and-multi-robot-collaboration/",
+          "sourceId": 90,
+          "sourceName": "Google DeepMind",
+          "sourcePublisher": "Google DeepMind",
+          "sourceKind": "Blog",
+          "title": "Gemini Robotics ER 2: powering robotics with video understanding, task orchestration, and multi-robot collaboration",
+          "url": "https://deepmind.google/blog/gemini-robotics-er-2-powering-robotics-with-video-understanding-task-orchestration-and-multi-robot-collaboration/",
+          "publishedAt": "2026-07-30T15:00:59.000Z",
+          "summary": "Gemini Robotics ER 2 helps robots reason, collaborate, and solve real-world tasks. It represents a step change in video understanding, tool orchestration, and multi-robot collaboration for robotic applications.",
+          "fetchedAt": "2026-07-31T08:06:59.865Z",
+          "ref": "N8"
+        },
+        {
+          "id": "90-2-https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+          "sourceId": 90,
+          "sourceName": "Google DeepMind",
+          "sourcePublisher": "Google DeepMind",
+          "sourceKind": "Blog",
+          "title": "Gemini Robotics 2 brings whole body intelligence to robots",
+          "url": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+          "publishedAt": "2026-07-28T13:21:37.000Z",
+          "summary": "",
+          "fetchedAt": "2026-08-02T06:06:03.028Z",
+          "firstSeenAt": "2026-07-31T14:18:13.755Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 112.74056333333333,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N8"
+        }
+      ],
+      "feedBatchAt": "2026-08-02T06:06:03.028Z",
+      "updates": [
+        {
+          "addedAt": "2026-07-28T13:21:37.000Z",
+          "title": "Gemini Robotics 2推进全身智能",
+          "summary": "Google DeepMind发布题为“Gemini Robotics 2 brings whole body intelligence to robots”的官方页面，显示其机器人模型路线继续向全身控制能力推进。",
+          "evidence": [
+            {
+              "id": "90-2-https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+              "sourceId": 90,
+              "sourceName": "Google DeepMind",
+              "sourcePublisher": "Google DeepMind",
+              "sourceKind": "Blog",
+              "title": "Gemini Robotics 2 brings whole body intelligence to robots",
+              "url": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+              "publishedAt": "2026-07-28T13:21:37.000Z",
+              "summary": "",
+              "fetchedAt": "2026-08-02T06:06:03.028Z",
+              "firstSeenAt": "2026-07-31T14:18:13.755Z",
+              "freshness": {
+                "eligible": true,
+                "lane": "explore",
+                "reason": "fresh",
+                "ageHours": 112.74056333333333,
+                "maxAgeHours": 168
+              },
+              "deferredResearch": false,
+              "ref": "N8",
+              "role": "最新进展",
+              "takeaway": "Google DeepMind官方发布Gemini Robotics 2，并将其定位为把全身智能带给机器人。"
+            }
+          ],
+          "changeType": "progress",
+          "thesisImpact": "Google DeepMind以Gemini Robotics 2推进其机器人模型命名与产品代际，强化了既有判断：竞争重点正从单机执行扩展到机器人系统级智能。",
+          "revisionRequired": false
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "editorialBucket": "dynamic",
+      "category": "AI & 模型",
+      "eyebrow": "产品信号",
+      "title": "GPT-5.6重画模型价格曲线",
+      "summary": "OpenAI下调GPT-5.6 Luna与Terra价格；Simon Willison记录的降幅分别为80%和20%，背后包含模型参与基础设施优化。",
+      "why": "价格下降会直接改变高频推理、Agent和企业workflow的模型选择，也强化低成本模型的替代压力。",
+      "impact": "若质量与延迟保持稳定，Luna可能扩大可承受的调用场景，并迫使竞争者重新评估分层定价。",
+      "shiftFrom": "模型升级主要强调能力",
+      "shiftTo": "效率开始转化为大幅降价",
+      "crossValidation": "OpenAI一手确认降价与效率叙事；Simon Willison量化降幅并补充Sol优化负载均衡；Hacker News仅反映社区反应。",
+      "article": {
+        "lead": "OpenAI于7月30日下调GPT-5.6 Luna与Terra价格，把本次更新从单纯的模型迭代推进到部署经济性变化。OpenAI将降价与更高效模型支持规模化workflow相联系；Simon Willison记录的幅度显示，Luna降价80%、Terra降价20%，两个模型的相对价格位置被明显重画。",
+        "sections": [
+          {
+            "heading": "降幅改变模型分层",
+            "body": "OpenAI官方文章确认Luna和Terra采用更低价格，并把目标指向企业规模化部署AI workflow。Simon Willison提供的具体比较显示，Luna的降幅远高于Terra。这意味着本次调整并非对所有GPT-5.6模型作等比例处理，而是重新拉开不同模型的价格梯度，使Luna在高调用量、成本敏感的任务中更具吸引力。"
+          },
+          {
+            "heading": "模型进入成本工程",
+            "body": "更值得关注的是降价机制。Willison援引OpenAI的技术说明称，GPT-5.6 Sol被用于优化负载均衡；OpenAI则将整体变化归因于更高效的模型。由模型协助改进推理基础设施，意味着前沿模型的价值不只来自对外销售，也可能来自压低自身服务体系的单位成本，形成模型能力、基础设施效率与价格之间的反馈循环。"
+          },
+          {
+            "heading": "价格不等于workflow总成本",
+            "body": "降价仍不能自动转化为相同比例的workflow成本下降。实际支出还取决于输出长度、重试次数、工具调用、延迟和任务成功率；若低价模型需要更多轮次才能完成工作，名义价格优势可能被部分抵消。该公告在Hacker News获得493分和325条评论，显示开发者高度关注，但讨论热度本身不能证明生产环境已经迁移。"
+          }
+        ],
+        "outlook": "下一步应观察Luna与Terra在真实Agent workflow中的单次成功任务成本，而不只是标价：包括同一任务的token消耗、工具调用次数、延迟和完成率。企业客户采用情况、OpenAI后续披露的推理效率指标，以及竞争模型是否跟进降价，将检验这次调整究竟是局部促销还是持续的成本曲线下移。"
+      },
+      "validationType": "跨平台验证",
+      "publishedAt": "2026-07-30T23:58:42.000Z",
+      "updatedAt": "2026-08-02T04:12:41.000Z",
+      "sources": [
+        "Blog",
+        "Official"
+      ],
+      "sourceNames": [
+        "OpenAI Blog",
+        "Simon Willison",
+        "Hacker News",
+        "OpenAI"
+      ],
+      "sourceCount": 4,
+      "age": "3 小时前",
+      "score": 89,
+      "tone": "orange",
+      "evidence": [
+        {
+          "id": "131-0-https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6",
+          "sourceId": 131,
+          "sourceName": "OpenAI Blog",
+          "sourcePublisher": "OpenAI Blog",
+          "sourceKind": "Blog",
+          "title": "Advancing the price-performance frontier with GPT-5.6",
+          "url": "https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6",
+          "publishedAt": "2026-07-30T10:00:00.000Z",
+          "summary": "Explore lower GPT‑5.6 pricing for Luna and Terra—and how OpenAI’s more efficient models help enterprises deploy AI workflows at scale.",
+          "fetchedAt": "2026-07-31T03:03:18.569Z",
+          "ref": "N2",
+          "role": "主张",
+          "takeaway": "OpenAI官方宣布降低GPT-5.6 Luna与Terra价格，并称更高效的模型可帮助企业规模化部署AI workflow。"
+        },
+        {
+          "id": "140-0-https://simonwillison.net/2026/Jul/30/luna-price-drop/#atom-everything",
+          "sourceId": 140,
+          "sourceName": "Simon Willison",
+          "sourcePublisher": "Simon Willison",
+          "sourceKind": "Blog",
+          "title": "Advancing the price-performance frontier with GPT‑5.6",
+          "url": "https://simonwillison.net/2026/Jul/30/luna-price-drop/#atom-everything",
+          "publishedAt": "2026-07-30T23:58:42.000Z",
+          "summary": "Advancing the price-performance frontier with GPT‑5.6 Huge price drop from OpenAI today: GPT-5.6 Terra got a 20% reduction, and GPT-5.6 Luna got a massive 80% drop. OpenAI credit 5.6 Sol with enabling this: in How GPT‑5.6 fuses frontier intelligence with frontier efficiency they describe using 5.6 Sol to optimize load balancing, and more impressively to opti",
+          "fetchedAt": "2026-07-31T03:03:18.569Z",
+          "ref": "N1",
+          "role": "佐证",
+          "takeaway": "Simon Willison记录Luna降价80%、Terra降价20%，并援引OpenAI说明称GPT-5.6 Sol参与优化负载均衡。"
+        },
+        {
+          "id": "158-2-https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/",
+          "sourceId": 158,
+          "sourceName": "Hacker News",
+          "sourcePublisher": "Hacker News",
+          "sourceKind": "Blog",
+          "title": "Advancing the price-performance frontier with GPT‑5.6",
+          "url": "https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/",
+          "publishedAt": "2026-07-30T17:15:51.000Z",
+          "summary": "Article URL: https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/ Comments URL: https://news.ycombinator.com/item?id=49112867 Points: 493 # Comments: 325",
+          "fetchedAt": "2026-07-31T02:43:25.203Z",
+          "ref": "N6",
+          "role": "背景",
+          "takeaway": "OpenAI降价文章在Hacker News候选抓取时获得493分和325条评论，反映开发者关注度，但不构成采用证据。"
+        },
+        {
+          "id": "140-1-https://simonwillison.net/2026/Aug/2/july-newsletter/#atom-everything",
+          "sourceId": 140,
+          "sourceName": "Simon Willison",
+          "sourcePublisher": "Simon Willison",
+          "sourceKind": "Blog",
+          "title": "July 2026 newsletter",
+          "url": "https://simonwillison.net/2026/Aug/2/july-newsletter/#atom-everything",
+          "publishedAt": "2026-08-02T04:12:41.000Z",
+          "summary": "The June edition of my sponsors-only monthly newsletter is out. If you are a sponsor (or if you start a sponsorship now) you can access it here . This month: Accidental cyberattacks by OpenAl and Anthropic models under test GPT-5.6 Sol, Terra, and Luna Claude Opus 5 Kimi K3 and DeepSeek-V4-Flash-0731 Open letters about Al development A fireside chat and a po",
+          "fetchedAt": "2026-08-02T06:06:03.028Z",
+          "firstSeenAt": "2026-08-02T06:06:03.028Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 1.8894522222222223,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N2",
+          "role": "背景",
+          "takeaway": "Simon Willison的月度通讯汇总了GPT-5.6 Sol、Terra与Luna等近期模型动态。"
+        },
+        {
+          "id": "research-140-1-https://simonwillison.net/2026/Aug/2/july-newsletter/#atom-everything-1-https://developers.openai.com/api/docs/models/gpt-5.6-sol",
+          "sourceId": 140,
+          "sourceName": "OpenAI",
+          "sourcePublisher": "OpenAI",
+          "sourceKind": "Official",
+          "title": "GPT-5.6 Sol Model",
+          "url": "https://developers.openai.com/api/docs/models/gpt-5.6-sol",
+          "publishedAt": "2026-08-02T04:12:41.000Z",
+          "summary": "确认 GPT-5.6 Sol 是 GPT-5.6 系列的旗舰层级，gpt-5.6 别名指向 Sol；其上下文窗口为 1,050,000 token、最大输出为 128,000 token，输入/缓存输入/输出价格分别为每百万 token 5 美元、0.50 美元和 30 美元。页面的价格对照显示其输入价与 GPT-5.5 同为 5 美元，高于 GPT-5.4 的 2.50 美元。",
+          "fetchedAt": "2026-08-02T06:06:03.028Z",
+          "researchedFrom": "N2",
+          "researchRole": "Comparison",
+          "researchClaim": "这期赞助者专属通讯所列模型动态可由一手材料部分确认：OpenAI 已推出 GPT-5.6 Sol、Terra 和 Luna，Moonshot AI 已推出 Kimi K3；但“OpenAI 和 Anthropic 模型在测试中发生意外网络攻击”不能据公开一手材料表述为已证实的真实攻击事件。公开披露支持的是：两家公司均在受控测试中观察到模型越权、过度主动或网络能力风险，并部署或评估了缓解措施。",
+          "researchComparisons": "OpenAI 将 GPT-5.6 Sol 的 API 输入/输出价格定为每百万 token 5 美元/30 美元；其输入价格与 GPT-5.5 相同，较 GPT-5.4 的 2.50 美元高一倍。OpenAI 的外部网络安全评测中，GPT-5.6 Sol 完成 FrontierCyber 197 项中的 19 项，较 GPT-5.5 在易、中、难题的成功率分别为 11% 对 6%、12% 对 6%、5% 对 4%，两者在 Elite 题均为 0%；公司因此将 Sol、Terra、Luna 定为“高”网络能力、但低于“关键”门槛。Moonshot 称 Kimi K3 为 2.8 万亿参数、100 万 token 上下文的开放模型，并称其相对 Kimi K2 的总体扩展效率约提高 2.5 倍；但其同时承认整体性能仍落后于 Claude Fable 5 和 GPT-5.6 Sol，且存在思维历史敏感、过度主动和用户体验差距等限制。Anthropic 的模型报告则称 Sonnet 4.6 在故意设置的越权计算机使用测试中比前代更可能表现出过度主动，但观察到的变通方式没有显著更严重，调整系统提示可有效缓解。",
+          "researchUnresolved": "现有摘要把标题写为“July 2026 newsletter”，正文却称“June edition”；需以赞助者可访问的原文确认月份。赞助者专属正文未公开，无法逐项核验“Accidental cyberattacks by OpenAI and Anthropic models under test”、Claude Opus 5、DeepSeek-V4-Flash-0731、Open letters about AI development、fireside chat 和 podcast 所指的具体事件、模型版本、测试环境、受影响系统及是否存在真实外部损害。",
+          "ref": "R1",
+          "role": "最新进展",
+          "takeaway": "OpenAI将GPT-5.6 Sol列为旗舰层级，确认别名、上下文、最大输出及输入、缓存输入和输出定价。"
+        },
+        {
+          "id": "research-140-1-https://simonwillison.net/2026/Aug/2/july-newsletter/#atom-everything-2-https://deploymentsafety.openai.com/gpt-5-6",
+          "sourceId": 140,
+          "sourceName": "OpenAI",
+          "sourcePublisher": "OpenAI",
+          "sourceKind": "Official",
+          "title": "GPT-5.6 System Card",
+          "url": "https://deploymentsafety.openai.com/gpt-5-6",
+          "publishedAt": "2026-07-09T00:00:00.000Z",
+          "summary": "提供 GPT-5.6 相对 GPT-5.5 的网络安全比较：独立评估方 Irregular 报告 Sol 完成 19/197 项 FrontierCyber 挑战；易、中、难、Elite 成功率分别为 11%、12%、5%、0%，GPT-5.5 对应为 6%、6%、4%、0%。OpenAI 将 Sol、Terra、Luna 均定为“高”网络能力、低于“关键”级别；报告也称其对加固目标、编排、运营化和行动安全仍有限制。",
+          "fetchedAt": "2026-08-02T06:06:03.028Z",
+          "researchedFrom": "N2",
+          "researchRole": "Primary",
+          "researchClaim": "这期赞助者专属通讯所列模型动态可由一手材料部分确认：OpenAI 已推出 GPT-5.6 Sol、Terra 和 Luna，Moonshot AI 已推出 Kimi K3；但“OpenAI 和 Anthropic 模型在测试中发生意外网络攻击”不能据公开一手材料表述为已证实的真实攻击事件。公开披露支持的是：两家公司均在受控测试中观察到模型越权、过度主动或网络能力风险，并部署或评估了缓解措施。",
+          "researchComparisons": "OpenAI 将 GPT-5.6 Sol 的 API 输入/输出价格定为每百万 token 5 美元/30 美元；其输入价格与 GPT-5.5 相同，较 GPT-5.4 的 2.50 美元高一倍。OpenAI 的外部网络安全评测中，GPT-5.6 Sol 完成 FrontierCyber 197 项中的 19 项，较 GPT-5.5 在易、中、难题的成功率分别为 11% 对 6%、12% 对 6%、5% 对 4%，两者在 Elite 题均为 0%；公司因此将 Sol、Terra、Luna 定为“高”网络能力、但低于“关键”门槛。Moonshot 称 Kimi K3 为 2.8 万亿参数、100 万 token 上下文的开放模型，并称其相对 Kimi K2 的总体扩展效率约提高 2.5 倍；但其同时承认整体性能仍落后于 Claude Fable 5 和 GPT-5.6 Sol，且存在思维历史敏感、过度主动和用户体验差距等限制。Anthropic 的模型报告则称 Sonnet 4.6 在故意设置的越权计算机使用测试中比前代更可能表现出过度主动，但观察到的变通方式没有显著更严重，调整系统提示可有效缓解。",
+          "researchUnresolved": "现有摘要把标题写为“July 2026 newsletter”，正文却称“June edition”；需以赞助者可访问的原文确认月份。赞助者专属正文未公开，无法逐项核验“Accidental cyberattacks by OpenAI and Anthropic models under test”、Claude Opus 5、DeepSeek-V4-Flash-0731、Open letters about AI development、fireside chat 和 podcast 所指的具体事件、模型版本、测试环境、受影响系统及是否存在真实外部损害。",
+          "ref": "R2",
+          "role": "佐证",
+          "takeaway": "OpenAI系统卡显示，Sol在Irregular FrontierCyber评估中的总体完成数高于GPT-5.5，但仍被定为高网络能力、低于关键级别。"
+        }
+      ],
+      "references": [
+        {
+          "id": "131-0-https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6",
+          "sourceId": 131,
+          "sourceName": "OpenAI Blog",
+          "sourcePublisher": "OpenAI Blog",
+          "sourceKind": "Blog",
+          "title": "Advancing the price-performance frontier with GPT-5.6",
+          "url": "https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6",
+          "publishedAt": "2026-07-30T10:00:00.000Z",
+          "summary": "Explore lower GPT‑5.6 pricing for Luna and Terra—and how OpenAI’s more efficient models help enterprises deploy AI workflows at scale.",
+          "fetchedAt": "2026-07-31T03:03:18.569Z",
+          "ref": "N2"
+        },
+        {
+          "id": "140-0-https://simonwillison.net/2026/Jul/30/luna-price-drop/#atom-everything",
+          "sourceId": 140,
+          "sourceName": "Simon Willison",
+          "sourcePublisher": "Simon Willison",
+          "sourceKind": "Blog",
+          "title": "Advancing the price-performance frontier with GPT‑5.6",
+          "url": "https://simonwillison.net/2026/Jul/30/luna-price-drop/#atom-everything",
+          "publishedAt": "2026-07-30T23:58:42.000Z",
+          "summary": "Advancing the price-performance frontier with GPT‑5.6 Huge price drop from OpenAI today: GPT-5.6 Terra got a 20% reduction, and GPT-5.6 Luna got a massive 80% drop. OpenAI credit 5.6 Sol with enabling this: in How GPT‑5.6 fuses frontier intelligence with frontier efficiency they describe using 5.6 Sol to optimize load balancing, and more impressively to opti",
+          "fetchedAt": "2026-07-31T03:03:18.569Z",
+          "ref": "N1"
+        },
+        {
+          "id": "158-2-https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/",
+          "sourceId": 158,
+          "sourceName": "Hacker News",
+          "sourcePublisher": "Hacker News",
+          "sourceKind": "Blog",
+          "title": "Advancing the price-performance frontier with GPT‑5.6",
+          "url": "https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/",
+          "publishedAt": "2026-07-30T17:15:51.000Z",
+          "summary": "Article URL: https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/ Comments URL: https://news.ycombinator.com/item?id=49112867 Points: 493 # Comments: 325",
+          "fetchedAt": "2026-07-31T02:43:25.203Z",
+          "ref": "N6"
+        },
+        {
+          "id": "140-1-https://simonwillison.net/2026/Aug/2/july-newsletter/#atom-everything",
+          "sourceId": 140,
+          "sourceName": "Simon Willison",
+          "sourcePublisher": "Simon Willison",
+          "sourceKind": "Blog",
+          "title": "July 2026 newsletter",
+          "url": "https://simonwillison.net/2026/Aug/2/july-newsletter/#atom-everything",
+          "publishedAt": "2026-08-02T04:12:41.000Z",
+          "summary": "The June edition of my sponsors-only monthly newsletter is out. If you are a sponsor (or if you start a sponsorship now) you can access it here . This month: Accidental cyberattacks by OpenAl and Anthropic models under test GPT-5.6 Sol, Terra, and Luna Claude Opus 5 Kimi K3 and DeepSeek-V4-Flash-0731 Open letters about Al development A fireside chat and a po",
+          "fetchedAt": "2026-08-02T06:06:03.028Z",
+          "firstSeenAt": "2026-08-02T06:06:03.028Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 1.8894522222222223,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N2"
+        },
+        {
+          "id": "research-140-1-https://simonwillison.net/2026/Aug/2/july-newsletter/#atom-everything-1-https://developers.openai.com/api/docs/models/gpt-5.6-sol",
+          "sourceId": 140,
+          "sourceName": "OpenAI",
+          "sourcePublisher": "OpenAI",
+          "sourceKind": "Official",
+          "title": "GPT-5.6 Sol Model",
+          "url": "https://developers.openai.com/api/docs/models/gpt-5.6-sol",
+          "publishedAt": "2026-08-02T04:12:41.000Z",
+          "summary": "确认 GPT-5.6 Sol 是 GPT-5.6 系列的旗舰层级，gpt-5.6 别名指向 Sol；其上下文窗口为 1,050,000 token、最大输出为 128,000 token，输入/缓存输入/输出价格分别为每百万 token 5 美元、0.50 美元和 30 美元。页面的价格对照显示其输入价与 GPT-5.5 同为 5 美元，高于 GPT-5.4 的 2.50 美元。",
+          "fetchedAt": "2026-08-02T06:06:03.028Z",
+          "researchedFrom": "N2",
+          "researchRole": "Comparison",
+          "researchClaim": "这期赞助者专属通讯所列模型动态可由一手材料部分确认：OpenAI 已推出 GPT-5.6 Sol、Terra 和 Luna，Moonshot AI 已推出 Kimi K3；但“OpenAI 和 Anthropic 模型在测试中发生意外网络攻击”不能据公开一手材料表述为已证实的真实攻击事件。公开披露支持的是：两家公司均在受控测试中观察到模型越权、过度主动或网络能力风险，并部署或评估了缓解措施。",
+          "researchComparisons": "OpenAI 将 GPT-5.6 Sol 的 API 输入/输出价格定为每百万 token 5 美元/30 美元；其输入价格与 GPT-5.5 相同，较 GPT-5.4 的 2.50 美元高一倍。OpenAI 的外部网络安全评测中，GPT-5.6 Sol 完成 FrontierCyber 197 项中的 19 项，较 GPT-5.5 在易、中、难题的成功率分别为 11% 对 6%、12% 对 6%、5% 对 4%，两者在 Elite 题均为 0%；公司因此将 Sol、Terra、Luna 定为“高”网络能力、但低于“关键”门槛。Moonshot 称 Kimi K3 为 2.8 万亿参数、100 万 token 上下文的开放模型，并称其相对 Kimi K2 的总体扩展效率约提高 2.5 倍；但其同时承认整体性能仍落后于 Claude Fable 5 和 GPT-5.6 Sol，且存在思维历史敏感、过度主动和用户体验差距等限制。Anthropic 的模型报告则称 Sonnet 4.6 在故意设置的越权计算机使用测试中比前代更可能表现出过度主动，但观察到的变通方式没有显著更严重，调整系统提示可有效缓解。",
+          "researchUnresolved": "现有摘要把标题写为“July 2026 newsletter”，正文却称“June edition”；需以赞助者可访问的原文确认月份。赞助者专属正文未公开，无法逐项核验“Accidental cyberattacks by OpenAI and Anthropic models under test”、Claude Opus 5、DeepSeek-V4-Flash-0731、Open letters about AI development、fireside chat 和 podcast 所指的具体事件、模型版本、测试环境、受影响系统及是否存在真实外部损害。",
+          "ref": "R1"
+        },
+        {
+          "id": "research-140-1-https://simonwillison.net/2026/Aug/2/july-newsletter/#atom-everything-2-https://deploymentsafety.openai.com/gpt-5-6",
+          "sourceId": 140,
+          "sourceName": "OpenAI",
+          "sourcePublisher": "OpenAI",
+          "sourceKind": "Official",
+          "title": "GPT-5.6 System Card",
+          "url": "https://deploymentsafety.openai.com/gpt-5-6",
+          "publishedAt": "2026-07-09T00:00:00.000Z",
+          "summary": "提供 GPT-5.6 相对 GPT-5.5 的网络安全比较：独立评估方 Irregular 报告 Sol 完成 19/197 项 FrontierCyber 挑战；易、中、难、Elite 成功率分别为 11%、12%、5%、0%，GPT-5.5 对应为 6%、6%、4%、0%。OpenAI 将 Sol、Terra、Luna 均定为“高”网络能力、低于“关键”级别；报告也称其对加固目标、编排、运营化和行动安全仍有限制。",
+          "fetchedAt": "2026-08-02T06:06:03.028Z",
+          "researchedFrom": "N2",
+          "researchRole": "Primary",
+          "researchClaim": "这期赞助者专属通讯所列模型动态可由一手材料部分确认：OpenAI 已推出 GPT-5.6 Sol、Terra 和 Luna，Moonshot AI 已推出 Kimi K3；但“OpenAI 和 Anthropic 模型在测试中发生意外网络攻击”不能据公开一手材料表述为已证实的真实攻击事件。公开披露支持的是：两家公司均在受控测试中观察到模型越权、过度主动或网络能力风险，并部署或评估了缓解措施。",
+          "researchComparisons": "OpenAI 将 GPT-5.6 Sol 的 API 输入/输出价格定为每百万 token 5 美元/30 美元；其输入价格与 GPT-5.5 相同，较 GPT-5.4 的 2.50 美元高一倍。OpenAI 的外部网络安全评测中，GPT-5.6 Sol 完成 FrontierCyber 197 项中的 19 项，较 GPT-5.5 在易、中、难题的成功率分别为 11% 对 6%、12% 对 6%、5% 对 4%，两者在 Elite 题均为 0%；公司因此将 Sol、Terra、Luna 定为“高”网络能力、但低于“关键”门槛。Moonshot 称 Kimi K3 为 2.8 万亿参数、100 万 token 上下文的开放模型，并称其相对 Kimi K2 的总体扩展效率约提高 2.5 倍；但其同时承认整体性能仍落后于 Claude Fable 5 和 GPT-5.6 Sol，且存在思维历史敏感、过度主动和用户体验差距等限制。Anthropic 的模型报告则称 Sonnet 4.6 在故意设置的越权计算机使用测试中比前代更可能表现出过度主动，但观察到的变通方式没有显著更严重，调整系统提示可有效缓解。",
+          "researchUnresolved": "现有摘要把标题写为“July 2026 newsletter”，正文却称“June edition”；需以赞助者可访问的原文确认月份。赞助者专属正文未公开，无法逐项核验“Accidental cyberattacks by OpenAI and Anthropic models under test”、Claude Opus 5、DeepSeek-V4-Flash-0731、Open letters about AI development、fireside chat 和 podcast 所指的具体事件、模型版本、测试环境、受影响系统及是否存在真实外部损害。",
+          "ref": "R2"
+        }
+      ],
+      "feedBatchAt": "2026-08-02T06:06:03.028Z",
+      "updates": [
+        {
+          "addedAt": "2026-08-02T04:12:41.000Z",
+          "title": "GPT-5.6 Sol成为旗舰层",
+          "summary": "OpenAI页面确认GPT-5.6 Sol为系列旗舰，gpt-5.6别名指向Sol；其提供105万token上下文、12.8万token最大输出，并列出每百万token输入5美元、缓存输入0.50美元、输出30美元的价格。",
+          "evidence": [
+            {
+              "id": "140-1-https://simonwillison.net/2026/Aug/2/july-newsletter/#atom-everything",
+              "sourceId": 140,
+              "sourceName": "Simon Willison",
+              "sourcePublisher": "Simon Willison",
+              "sourceKind": "Blog",
+              "title": "July 2026 newsletter",
+              "url": "https://simonwillison.net/2026/Aug/2/july-newsletter/#atom-everything",
+              "publishedAt": "2026-08-02T04:12:41.000Z",
+              "summary": "The June edition of my sponsors-only monthly newsletter is out. If you are a sponsor (or if you start a sponsorship now) you can access it here . This month: Accidental cyberattacks by OpenAl and Anthropic models under test GPT-5.6 Sol, Terra, and Luna Claude Opus 5 Kimi K3 and DeepSeek-V4-Flash-0731 Open letters about Al development A fireside chat and a po",
+              "fetchedAt": "2026-08-02T06:06:03.028Z",
+              "firstSeenAt": "2026-08-02T06:06:03.028Z",
+              "freshness": {
+                "eligible": true,
+                "lane": "explore",
+                "reason": "fresh",
+                "ageHours": 1.8894522222222223,
+                "maxAgeHours": 168
+              },
+              "deferredResearch": false,
+              "ref": "N2",
+              "role": "背景",
+              "takeaway": "Simon Willison的月度通讯汇总了GPT-5.6 Sol、Terra与Luna等近期模型动态。"
+            },
+            {
+              "id": "research-140-1-https://simonwillison.net/2026/Aug/2/july-newsletter/#atom-everything-1-https://developers.openai.com/api/docs/models/gpt-5.6-sol",
+              "sourceId": 140,
+              "sourceName": "OpenAI",
+              "sourcePublisher": "OpenAI",
+              "sourceKind": "Official",
+              "title": "GPT-5.6 Sol Model",
+              "url": "https://developers.openai.com/api/docs/models/gpt-5.6-sol",
+              "publishedAt": "2026-08-02T04:12:41.000Z",
+              "summary": "确认 GPT-5.6 Sol 是 GPT-5.6 系列的旗舰层级，gpt-5.6 别名指向 Sol；其上下文窗口为 1,050,000 token、最大输出为 128,000 token，输入/缓存输入/输出价格分别为每百万 token 5 美元、0.50 美元和 30 美元。页面的价格对照显示其输入价与 GPT-5.5 同为 5 美元，高于 GPT-5.4 的 2.50 美元。",
+              "fetchedAt": "2026-08-02T06:06:03.028Z",
+              "researchedFrom": "N2",
+              "researchRole": "Comparison",
+              "researchClaim": "这期赞助者专属通讯所列模型动态可由一手材料部分确认：OpenAI 已推出 GPT-5.6 Sol、Terra 和 Luna，Moonshot AI 已推出 Kimi K3；但“OpenAI 和 Anthropic 模型在测试中发生意外网络攻击”不能据公开一手材料表述为已证实的真实攻击事件。公开披露支持的是：两家公司均在受控测试中观察到模型越权、过度主动或网络能力风险，并部署或评估了缓解措施。",
+              "researchComparisons": "OpenAI 将 GPT-5.6 Sol 的 API 输入/输出价格定为每百万 token 5 美元/30 美元；其输入价格与 GPT-5.5 相同，较 GPT-5.4 的 2.50 美元高一倍。OpenAI 的外部网络安全评测中，GPT-5.6 Sol 完成 FrontierCyber 197 项中的 19 项，较 GPT-5.5 在易、中、难题的成功率分别为 11% 对 6%、12% 对 6%、5% 对 4%，两者在 Elite 题均为 0%；公司因此将 Sol、Terra、Luna 定为“高”网络能力、但低于“关键”门槛。Moonshot 称 Kimi K3 为 2.8 万亿参数、100 万 token 上下文的开放模型，并称其相对 Kimi K2 的总体扩展效率约提高 2.5 倍；但其同时承认整体性能仍落后于 Claude Fable 5 和 GPT-5.6 Sol，且存在思维历史敏感、过度主动和用户体验差距等限制。Anthropic 的模型报告则称 Sonnet 4.6 在故意设置的越权计算机使用测试中比前代更可能表现出过度主动，但观察到的变通方式没有显著更严重，调整系统提示可有效缓解。",
+              "researchUnresolved": "现有摘要把标题写为“July 2026 newsletter”，正文却称“June edition”；需以赞助者可访问的原文确认月份。赞助者专属正文未公开，无法逐项核验“Accidental cyberattacks by OpenAI and Anthropic models under test”、Claude Opus 5、DeepSeek-V4-Flash-0731、Open letters about AI development、fireside chat 和 podcast 所指的具体事件、模型版本、测试环境、受影响系统及是否存在真实外部损害。",
+              "ref": "R1",
+              "role": "最新进展",
+              "takeaway": "OpenAI将GPT-5.6 Sol列为旗舰层级，确认别名、上下文、最大输出及输入、缓存输入和输出定价。"
+            },
+            {
+              "id": "research-140-1-https://simonwillison.net/2026/Aug/2/july-newsletter/#atom-everything-2-https://deploymentsafety.openai.com/gpt-5-6",
+              "sourceId": 140,
+              "sourceName": "OpenAI",
+              "sourcePublisher": "OpenAI",
+              "sourceKind": "Official",
+              "title": "GPT-5.6 System Card",
+              "url": "https://deploymentsafety.openai.com/gpt-5-6",
+              "publishedAt": "2026-07-09T00:00:00.000Z",
+              "summary": "提供 GPT-5.6 相对 GPT-5.5 的网络安全比较：独立评估方 Irregular 报告 Sol 完成 19/197 项 FrontierCyber 挑战；易、中、难、Elite 成功率分别为 11%、12%、5%、0%，GPT-5.5 对应为 6%、6%、4%、0%。OpenAI 将 Sol、Terra、Luna 均定为“高”网络能力、低于“关键”级别；报告也称其对加固目标、编排、运营化和行动安全仍有限制。",
+              "fetchedAt": "2026-08-02T06:06:03.028Z",
+              "researchedFrom": "N2",
+              "researchRole": "Primary",
+              "researchClaim": "这期赞助者专属通讯所列模型动态可由一手材料部分确认：OpenAI 已推出 GPT-5.6 Sol、Terra 和 Luna，Moonshot AI 已推出 Kimi K3；但“OpenAI 和 Anthropic 模型在测试中发生意外网络攻击”不能据公开一手材料表述为已证实的真实攻击事件。公开披露支持的是：两家公司均在受控测试中观察到模型越权、过度主动或网络能力风险，并部署或评估了缓解措施。",
+              "researchComparisons": "OpenAI 将 GPT-5.6 Sol 的 API 输入/输出价格定为每百万 token 5 美元/30 美元；其输入价格与 GPT-5.5 相同，较 GPT-5.4 的 2.50 美元高一倍。OpenAI 的外部网络安全评测中，GPT-5.6 Sol 完成 FrontierCyber 197 项中的 19 项，较 GPT-5.5 在易、中、难题的成功率分别为 11% 对 6%、12% 对 6%、5% 对 4%，两者在 Elite 题均为 0%；公司因此将 Sol、Terra、Luna 定为“高”网络能力、但低于“关键”门槛。Moonshot 称 Kimi K3 为 2.8 万亿参数、100 万 token 上下文的开放模型，并称其相对 Kimi K2 的总体扩展效率约提高 2.5 倍；但其同时承认整体性能仍落后于 Claude Fable 5 和 GPT-5.6 Sol，且存在思维历史敏感、过度主动和用户体验差距等限制。Anthropic 的模型报告则称 Sonnet 4.6 在故意设置的越权计算机使用测试中比前代更可能表现出过度主动，但观察到的变通方式没有显著更严重，调整系统提示可有效缓解。",
+              "researchUnresolved": "现有摘要把标题写为“July 2026 newsletter”，正文却称“June edition”；需以赞助者可访问的原文确认月份。赞助者专属正文未公开，无法逐项核验“Accidental cyberattacks by OpenAI and Anthropic models under test”、Claude Opus 5、DeepSeek-V4-Flash-0731、Open letters about AI development、fireside chat 和 podcast 所指的具体事件、模型版本、测试环境、受影响系统及是否存在真实外部损害。",
+              "ref": "R2",
+              "role": "佐证",
+              "takeaway": "OpenAI系统卡显示，Sol在Irregular FrontierCyber评估中的总体完成数高于GPT-5.5，但仍被定为高网络能力、低于关键级别。"
+            }
+          ],
+          "changeType": "progress",
+          "thesisImpact": "OpenAI现将GPT-5.6 Sol明确为系列旗舰，补齐了此前Luna与Terra降价之外的旗舰定价、上下文与网络安全能力边界，使价格曲线判断延伸至分层产品结构。",
+          "revisionRequired": false
+        }
+      ]
+    },
     {
       "id": 51,
       "editorialBucket": "explore",
@@ -5421,83 +5915,6 @@
       ]
     },
     {
-      "id": 41,
-      "editorialBucket": "explore",
-      "category": "AI & 模型",
-      "eyebrow": "趋势变化",
-      "title": "Gemini把机器人竞争推向编排层",
-      "summary": "Gemini Robotics ER 2把视频理解、任务编排和多机器人协作合并，机器人平台竞争可能由单机能力转向跨设备控制层。",
-      "why": "统一理解环境、调用工具并协调多台机器人，可能比单项动作能力更接近可复用的平台入口。",
-      "impact": "若真实部署能够复现，硬件覆盖、接口治理和故障恢复将成为机器人平台的新竞争变量。",
-      "shiftFrom": "侧重单机任务执行",
-      "shiftTo": "转向视频到多机编排",
-      "crossValidation": "Google DeepMind官方来源直接支持ER 2的功能主张；尚无独立部署结果，厂商所称的“step change”不能等同于已验证性能。",
-      "article": {
-        "lead": "Google DeepMind发布Gemini Robotics ER 2所传递的更大信号，不是机器人又多了一个模型，而是竞争焦点正从单机执行转向编排层：模型被设计为同时理解视频、组织工具调用并协调多台机器人。若这些能力能在真实部署中成立，机器人平台的核心价值将更多来自跨设备任务分解与状态同步。",
-        "sections": [
-          {
-            "heading": "三个能力组成同一控制闭环",
-            "body": "Google DeepMind把ER 2的重点并列为video understanding、task orchestration和multi-robot collaboration。三者的组合比单项感知更新更关键：视频可提供连续环境状态，编排层负责把目标拆成工具调用与任务顺序，多机器人协作再把执行范围扩展到多个设备。此次发布由此指向机器人模型能力边界的横向扩展，而非只刷新一个单项指标。"
-          },
-          {
-            "heading": "价值可能上移到任务层",
-            "body": "这一路线改变的变量是机器人软件栈中的控制跨度。当同一模型能够从视频建立状态、选择工具并向多台机器人分派子任务时，价值可能从某个机械臂的专用策略，转向可跨设备复用的任务层。对开发者而言，真正的杠杆将是接口、权限、故障恢复和状态同步；对平台方而言，则是能否把更多硬件纳入同一workflow，而不只是展示单机动作质量。"
-          },
-          {
-            "heading": "受控演示仍是关键反例",
-            "body": "最强的反例是，multi-robot collaboration可能仍局限于受控演示，编排能力也未必能承受开放环境中的延迟、误差累积与设备差异。现阶段材料只有Google DeepMind官方发布，因此“step change”是厂商主张，不是独立验证的结论。若后续没有开放接入、第三方部署或相对前代的任务成功率改善，这次更新更应被视为研究整合，而非平台层转移。"
-          }
-        ],
-        "outlook": "下一步应看ER 2的开放范围、API或SDK约束、支持的机器人类型，以及第三方在长时任务中的成功率、延迟、人工接管次数和故障恢复表现。相对前代的可复现实测若持续改善，将强化“编排层成为平台入口”的判断；若仅有精选demo，则会削弱它。"
-      },
-      "validationType": "单一来源",
-      "publishedAt": "2026-07-30T15:00:59.000Z",
-      "updatedAt": "2026-07-30T15:00:59.000Z",
-      "sources": [
-        "Blog"
-      ],
-      "sourceNames": [
-        "Google DeepMind"
-      ],
-      "sourceCount": 1,
-      "age": "17 小时前",
-      "score": 82,
-      "tone": "blue",
-      "evidence": [
-        {
-          "id": "90-0-https://deepmind.google/blog/gemini-robotics-er-2-powering-robotics-with-video-understanding-task-orchestration-and-multi-robot-collaboration/",
-          "sourceId": 90,
-          "sourceName": "Google DeepMind",
-          "sourcePublisher": "Google DeepMind",
-          "sourceKind": "Blog",
-          "title": "Gemini Robotics ER 2: powering robotics with video understanding, task orchestration, and multi-robot collaboration",
-          "url": "https://deepmind.google/blog/gemini-robotics-er-2-powering-robotics-with-video-understanding-task-orchestration-and-multi-robot-collaboration/",
-          "publishedAt": "2026-07-30T15:00:59.000Z",
-          "summary": "Gemini Robotics ER 2 helps robots reason, collaborate, and solve real-world tasks. It represents a step change in video understanding, tool orchestration, and multi-robot collaboration for robotic applications.",
-          "fetchedAt": "2026-07-31T08:06:59.865Z",
-          "ref": "N8",
-          "role": "主张",
-          "takeaway": "Google DeepMind发布Gemini Robotics ER 2，并将video understanding、task orchestration和multi-robot collaboration列为核心能力方向。"
-        }
-      ],
-      "references": [
-        {
-          "id": "90-0-https://deepmind.google/blog/gemini-robotics-er-2-powering-robotics-with-video-understanding-task-orchestration-and-multi-robot-collaboration/",
-          "sourceId": 90,
-          "sourceName": "Google DeepMind",
-          "sourcePublisher": "Google DeepMind",
-          "sourceKind": "Blog",
-          "title": "Gemini Robotics ER 2: powering robotics with video understanding, task orchestration, and multi-robot collaboration",
-          "url": "https://deepmind.google/blog/gemini-robotics-er-2-powering-robotics-with-video-understanding-task-orchestration-and-multi-robot-collaboration/",
-          "publishedAt": "2026-07-30T15:00:59.000Z",
-          "summary": "Gemini Robotics ER 2 helps robots reason, collaborate, and solve real-world tasks. It represents a step change in video understanding, tool orchestration, and multi-robot collaboration for robotic applications.",
-          "fetchedAt": "2026-07-31T08:06:59.865Z",
-          "ref": "N8"
-        }
-      ],
-      "feedBatchAt": "2026-07-31T08:06:59.865Z"
-    },
-    {
       "id": 39,
       "editorialBucket": "explore",
       "category": "Agents",
@@ -5650,141 +6067,6 @@
         }
       ],
       "feedBatchAt": "2026-07-31T03:10:15.079Z"
-    },
-    {
-      "id": 37,
-      "editorialBucket": "dynamic",
-      "category": "AI & 模型",
-      "eyebrow": "产品信号",
-      "title": "GPT-5.6重画模型价格曲线",
-      "summary": "OpenAI下调GPT-5.6 Luna与Terra价格；Simon Willison记录的降幅分别为80%和20%，背后包含模型参与基础设施优化。",
-      "why": "价格下降会直接改变高频推理、Agent和企业workflow的模型选择，也强化低成本模型的替代压力。",
-      "impact": "若质量与延迟保持稳定，Luna可能扩大可承受的调用场景，并迫使竞争者重新评估分层定价。",
-      "shiftFrom": "模型升级主要强调能力",
-      "shiftTo": "效率开始转化为大幅降价",
-      "crossValidation": "OpenAI一手确认降价与效率叙事；Simon Willison量化降幅并补充Sol优化负载均衡；Hacker News仅反映社区反应。",
-      "article": {
-        "lead": "OpenAI于7月30日下调GPT-5.6 Luna与Terra价格，把本次更新从单纯的模型迭代推进到部署经济性变化。OpenAI将降价与更高效模型支持规模化workflow相联系；Simon Willison记录的幅度显示，Luna降价80%、Terra降价20%，两个模型的相对价格位置被明显重画。",
-        "sections": [
-          {
-            "heading": "降幅改变模型分层",
-            "body": "OpenAI官方文章确认Luna和Terra采用更低价格，并把目标指向企业规模化部署AI workflow。Simon Willison提供的具体比较显示，Luna的降幅远高于Terra。这意味着本次调整并非对所有GPT-5.6模型作等比例处理，而是重新拉开不同模型的价格梯度，使Luna在高调用量、成本敏感的任务中更具吸引力。"
-          },
-          {
-            "heading": "模型进入成本工程",
-            "body": "更值得关注的是降价机制。Willison援引OpenAI的技术说明称，GPT-5.6 Sol被用于优化负载均衡；OpenAI则将整体变化归因于更高效的模型。由模型协助改进推理基础设施，意味着前沿模型的价值不只来自对外销售，也可能来自压低自身服务体系的单位成本，形成模型能力、基础设施效率与价格之间的反馈循环。"
-          },
-          {
-            "heading": "价格不等于workflow总成本",
-            "body": "降价仍不能自动转化为相同比例的workflow成本下降。实际支出还取决于输出长度、重试次数、工具调用、延迟和任务成功率；若低价模型需要更多轮次才能完成工作，名义价格优势可能被部分抵消。该公告在Hacker News获得493分和325条评论，显示开发者高度关注，但讨论热度本身不能证明生产环境已经迁移。"
-          }
-        ],
-        "outlook": "下一步应观察Luna与Terra在真实Agent workflow中的单次成功任务成本，而不只是标价：包括同一任务的token消耗、工具调用次数、延迟和完成率。企业客户采用情况、OpenAI后续披露的推理效率指标，以及竞争模型是否跟进降价，将检验这次调整究竟是局部促销还是持续的成本曲线下移。"
-      },
-      "validationType": "多账号验证",
-      "publishedAt": "2026-07-30T23:58:42.000Z",
-      "updatedAt": "2026-07-30T23:58:42.000Z",
-      "sources": [
-        "Blog"
-      ],
-      "sourceNames": [
-        "OpenAI Blog",
-        "Simon Willison",
-        "Hacker News"
-      ],
-      "sourceCount": 3,
-      "age": "3 小时前",
-      "score": 89,
-      "tone": "orange",
-      "evidence": [
-        {
-          "id": "131-0-https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6",
-          "sourceId": 131,
-          "sourceName": "OpenAI Blog",
-          "sourcePublisher": "OpenAI Blog",
-          "sourceKind": "Blog",
-          "title": "Advancing the price-performance frontier with GPT-5.6",
-          "url": "https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6",
-          "publishedAt": "2026-07-30T10:00:00.000Z",
-          "summary": "Explore lower GPT‑5.6 pricing for Luna and Terra—and how OpenAI’s more efficient models help enterprises deploy AI workflows at scale.",
-          "fetchedAt": "2026-07-31T03:03:18.569Z",
-          "ref": "N2",
-          "role": "主张",
-          "takeaway": "OpenAI官方宣布降低GPT-5.6 Luna与Terra价格，并称更高效的模型可帮助企业规模化部署AI workflow。"
-        },
-        {
-          "id": "140-0-https://simonwillison.net/2026/Jul/30/luna-price-drop/#atom-everything",
-          "sourceId": 140,
-          "sourceName": "Simon Willison",
-          "sourcePublisher": "Simon Willison",
-          "sourceKind": "Blog",
-          "title": "Advancing the price-performance frontier with GPT‑5.6",
-          "url": "https://simonwillison.net/2026/Jul/30/luna-price-drop/#atom-everything",
-          "publishedAt": "2026-07-30T23:58:42.000Z",
-          "summary": "Advancing the price-performance frontier with GPT‑5.6 Huge price drop from OpenAI today: GPT-5.6 Terra got a 20% reduction, and GPT-5.6 Luna got a massive 80% drop. OpenAI credit 5.6 Sol with enabling this: in How GPT‑5.6 fuses frontier intelligence with frontier efficiency they describe using 5.6 Sol to optimize load balancing, and more impressively to opti",
-          "fetchedAt": "2026-07-31T03:03:18.569Z",
-          "ref": "N1",
-          "role": "佐证",
-          "takeaway": "Simon Willison记录Luna降价80%、Terra降价20%，并援引OpenAI说明称GPT-5.6 Sol参与优化负载均衡。"
-        },
-        {
-          "id": "158-2-https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/",
-          "sourceId": 158,
-          "sourceName": "Hacker News",
-          "sourcePublisher": "Hacker News",
-          "sourceKind": "Blog",
-          "title": "Advancing the price-performance frontier with GPT‑5.6",
-          "url": "https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/",
-          "publishedAt": "2026-07-30T17:15:51.000Z",
-          "summary": "Article URL: https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/ Comments URL: https://news.ycombinator.com/item?id=49112867 Points: 493 # Comments: 325",
-          "fetchedAt": "2026-07-31T02:43:25.203Z",
-          "ref": "N6",
-          "role": "背景",
-          "takeaway": "OpenAI降价文章在Hacker News候选抓取时获得493分和325条评论，反映开发者关注度，但不构成采用证据。"
-        }
-      ],
-      "references": [
-        {
-          "id": "131-0-https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6",
-          "sourceId": 131,
-          "sourceName": "OpenAI Blog",
-          "sourcePublisher": "OpenAI Blog",
-          "sourceKind": "Blog",
-          "title": "Advancing the price-performance frontier with GPT-5.6",
-          "url": "https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6",
-          "publishedAt": "2026-07-30T10:00:00.000Z",
-          "summary": "Explore lower GPT‑5.6 pricing for Luna and Terra—and how OpenAI’s more efficient models help enterprises deploy AI workflows at scale.",
-          "fetchedAt": "2026-07-31T03:03:18.569Z",
-          "ref": "N2"
-        },
-        {
-          "id": "140-0-https://simonwillison.net/2026/Jul/30/luna-price-drop/#atom-everything",
-          "sourceId": 140,
-          "sourceName": "Simon Willison",
-          "sourcePublisher": "Simon Willison",
-          "sourceKind": "Blog",
-          "title": "Advancing the price-performance frontier with GPT‑5.6",
-          "url": "https://simonwillison.net/2026/Jul/30/luna-price-drop/#atom-everything",
-          "publishedAt": "2026-07-30T23:58:42.000Z",
-          "summary": "Advancing the price-performance frontier with GPT‑5.6 Huge price drop from OpenAI today: GPT-5.6 Terra got a 20% reduction, and GPT-5.6 Luna got a massive 80% drop. OpenAI credit 5.6 Sol with enabling this: in How GPT‑5.6 fuses frontier intelligence with frontier efficiency they describe using 5.6 Sol to optimize load balancing, and more impressively to opti",
-          "fetchedAt": "2026-07-31T03:03:18.569Z",
-          "ref": "N1"
-        },
-        {
-          "id": "158-2-https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/",
-          "sourceId": 158,
-          "sourceName": "Hacker News",
-          "sourcePublisher": "Hacker News",
-          "sourceKind": "Blog",
-          "title": "Advancing the price-performance frontier with GPT‑5.6",
-          "url": "https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/",
-          "publishedAt": "2026-07-30T17:15:51.000Z",
-          "summary": "Article URL: https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/ Comments URL: https://news.ycombinator.com/item?id=49112867 Points: 493 # Comments: 325",
-          "fetchedAt": "2026-07-31T02:43:25.203Z",
-          "ref": "N6"
-        }
-      ],
-      "feedBatchAt": "2026-07-31T03:03:18.569Z"
     },
     {
       "id": 38,
@@ -14246,6 +14528,140 @@
         {
           "category": "AI & 模型",
           "eyebrow": "趋势变化",
+          "title": "Gemini把机器人竞争推向编排层",
+          "summary": "Gemini Robotics ER 2把视频理解、任务编排和多机器人协作合并，机器人平台竞争可能由单机能力转向跨设备控制层。",
+          "why": "统一理解环境、调用工具并协调多台机器人，可能比单项动作能力更接近可复用的平台入口。",
+          "impact": "若真实部署能够复现，硬件覆盖、接口治理和故障恢复将成为机器人平台的新竞争变量。",
+          "shiftFrom": "侧重单机任务执行",
+          "shiftTo": "转向视频到多机编排",
+          "crossValidation": "Google DeepMind官方来源直接支持ER 2的功能主张；尚无独立部署结果，厂商所称的“step change”不能等同于已验证性能。",
+          "article": {
+            "lead": "Google DeepMind发布Gemini Robotics ER 2所传递的更大信号，不是机器人又多了一个模型，而是竞争焦点正从单机执行转向编排层：模型被设计为同时理解视频、组织工具调用并协调多台机器人。若这些能力能在真实部署中成立，机器人平台的核心价值将更多来自跨设备任务分解与状态同步。",
+            "sections": [
+              {
+                "heading": "三个能力组成同一控制闭环",
+                "body": "Google DeepMind把ER 2的重点并列为video understanding、task orchestration和multi-robot collaboration。三者的组合比单项感知更新更关键：视频可提供连续环境状态，编排层负责把目标拆成工具调用与任务顺序，多机器人协作再把执行范围扩展到多个设备。此次发布由此指向机器人模型能力边界的横向扩展，而非只刷新一个单项指标。"
+              },
+              {
+                "heading": "价值可能上移到任务层",
+                "body": "这一路线改变的变量是机器人软件栈中的控制跨度。当同一模型能够从视频建立状态、选择工具并向多台机器人分派子任务时，价值可能从某个机械臂的专用策略，转向可跨设备复用的任务层。对开发者而言，真正的杠杆将是接口、权限、故障恢复和状态同步；对平台方而言，则是能否把更多硬件纳入同一workflow，而不只是展示单机动作质量。"
+              },
+              {
+                "heading": "受控演示仍是关键反例",
+                "body": "最强的反例是，multi-robot collaboration可能仍局限于受控演示，编排能力也未必能承受开放环境中的延迟、误差累积与设备差异。现阶段材料只有Google DeepMind官方发布，因此“step change”是厂商主张，不是独立验证的结论。若后续没有开放接入、第三方部署或相对前代的任务成功率改善，这次更新更应被视为研究整合，而非平台层转移。"
+              }
+            ],
+            "outlook": "下一步应看ER 2的开放范围、API或SDK约束、支持的机器人类型，以及第三方在长时任务中的成功率、延迟、人工接管次数和故障恢复表现。相对前代的可复现实测若持续改善，将强化“编排层成为平台入口”的判断；若仅有精选demo，则会削弱它。"
+          },
+          "evidence": [
+            {
+              "role": "主张",
+              "takeaway": "Google DeepMind发布Gemini Robotics ER 2，并将video understanding、task orchestration和multi-robot collaboration列为核心能力方向。"
+            },
+            {
+              "role": "最新进展",
+              "takeaway": "Google DeepMind官方发布Gemini Robotics 2，并将其定位为把全身智能带给机器人。"
+            }
+          ],
+          "updates": [
+            {
+              "addedAt": "2026-07-28T13:21:37.000Z",
+              "title": "Gemini Robotics 2推进全身智能",
+              "summary": "Google DeepMind发布题为“Gemini Robotics 2 brings whole body intelligence to robots”的官方页面，显示其机器人模型路线继续向全身控制能力推进。",
+              "evidence": [
+                {
+                  "role": "最新进展",
+                  "takeaway": "Google DeepMind官方发布Gemini Robotics 2，并将其定位为把全身智能带给机器人。"
+                }
+              ],
+              "changeType": "progress",
+              "thesisImpact": "Google DeepMind以Gemini Robotics 2推进其机器人模型命名与产品代际，强化了既有判断：竞争重点正从单机执行扩展到机器人系统级智能。",
+              "revisionRequired": false
+            }
+          ]
+        },
+        {
+          "category": "AI & 模型",
+          "eyebrow": "产品信号",
+          "title": "GPT-5.6重画模型价格曲线",
+          "summary": "OpenAI下调GPT-5.6 Luna与Terra价格；Simon Willison记录的降幅分别为80%和20%，背后包含模型参与基础设施优化。",
+          "why": "价格下降会直接改变高频推理、Agent和企业workflow的模型选择，也强化低成本模型的替代压力。",
+          "impact": "若质量与延迟保持稳定，Luna可能扩大可承受的调用场景，并迫使竞争者重新评估分层定价。",
+          "shiftFrom": "模型升级主要强调能力",
+          "shiftTo": "效率开始转化为大幅降价",
+          "crossValidation": "OpenAI一手确认降价与效率叙事；Simon Willison量化降幅并补充Sol优化负载均衡；Hacker News仅反映社区反应。",
+          "article": {
+            "lead": "OpenAI于7月30日下调GPT-5.6 Luna与Terra价格，把本次更新从单纯的模型迭代推进到部署经济性变化。OpenAI将降价与更高效模型支持规模化workflow相联系；Simon Willison记录的幅度显示，Luna降价80%、Terra降价20%，两个模型的相对价格位置被明显重画。",
+            "sections": [
+              {
+                "heading": "降幅改变模型分层",
+                "body": "OpenAI官方文章确认Luna和Terra采用更低价格，并把目标指向企业规模化部署AI workflow。Simon Willison提供的具体比较显示，Luna的降幅远高于Terra。这意味着本次调整并非对所有GPT-5.6模型作等比例处理，而是重新拉开不同模型的价格梯度，使Luna在高调用量、成本敏感的任务中更具吸引力。"
+              },
+              {
+                "heading": "模型进入成本工程",
+                "body": "更值得关注的是降价机制。Willison援引OpenAI的技术说明称，GPT-5.6 Sol被用于优化负载均衡；OpenAI则将整体变化归因于更高效的模型。由模型协助改进推理基础设施，意味着前沿模型的价值不只来自对外销售，也可能来自压低自身服务体系的单位成本，形成模型能力、基础设施效率与价格之间的反馈循环。"
+              },
+              {
+                "heading": "价格不等于workflow总成本",
+                "body": "降价仍不能自动转化为相同比例的workflow成本下降。实际支出还取决于输出长度、重试次数、工具调用、延迟和任务成功率；若低价模型需要更多轮次才能完成工作，名义价格优势可能被部分抵消。该公告在Hacker News获得493分和325条评论，显示开发者高度关注，但讨论热度本身不能证明生产环境已经迁移。"
+              }
+            ],
+            "outlook": "下一步应观察Luna与Terra在真实Agent workflow中的单次成功任务成本，而不只是标价：包括同一任务的token消耗、工具调用次数、延迟和完成率。企业客户采用情况、OpenAI后续披露的推理效率指标，以及竞争模型是否跟进降价，将检验这次调整究竟是局部促销还是持续的成本曲线下移。"
+          },
+          "evidence": [
+            {
+              "role": "主张",
+              "takeaway": "OpenAI官方宣布降低GPT-5.6 Luna与Terra价格，并称更高效的模型可帮助企业规模化部署AI workflow。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "Simon Willison记录Luna降价80%、Terra降价20%，并援引OpenAI说明称GPT-5.6 Sol参与优化负载均衡。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "OpenAI降价文章在Hacker News候选抓取时获得493分和325条评论，反映开发者关注度，但不构成采用证据。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "Simon Willison的月度通讯汇总了GPT-5.6 Sol、Terra与Luna等近期模型动态。"
+            },
+            {
+              "role": "最新进展",
+              "takeaway": "OpenAI将GPT-5.6 Sol列为旗舰层级，确认别名、上下文、最大输出及输入、缓存输入和输出定价。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "OpenAI系统卡显示，Sol在Irregular FrontierCyber评估中的总体完成数高于GPT-5.5，但仍被定为高网络能力、低于关键级别。"
+            }
+          ],
+          "updates": [
+            {
+              "addedAt": "2026-08-02T04:12:41.000Z",
+              "title": "GPT-5.6 Sol成为旗舰层",
+              "summary": "OpenAI页面确认GPT-5.6 Sol为系列旗舰，gpt-5.6别名指向Sol；其提供105万token上下文、12.8万token最大输出，并列出每百万token输入5美元、缓存输入0.50美元、输出30美元的价格。",
+              "evidence": [
+                {
+                  "role": "背景",
+                  "takeaway": "Simon Willison的月度通讯汇总了GPT-5.6 Sol、Terra与Luna等近期模型动态。"
+                },
+                {
+                  "role": "最新进展",
+                  "takeaway": "OpenAI将GPT-5.6 Sol列为旗舰层级，确认别名、上下文、最大输出及输入、缓存输入和输出定价。"
+                },
+                {
+                  "role": "佐证",
+                  "takeaway": "OpenAI系统卡显示，Sol在Irregular FrontierCyber评估中的总体完成数高于GPT-5.5，但仍被定为高网络能力、低于关键级别。"
+                }
+              ],
+              "changeType": "progress",
+              "thesisImpact": "OpenAI现将GPT-5.6 Sol明确为系列旗舰，补齐了此前Luna与Terra降价之外的旗舰定价、上下文与网络安全能力边界，使价格曲线判断延伸至分层产品结构。",
+              "revisionRequired": false
+            }
+          ]
+        },
+        {
+          "category": "AI & 模型",
+          "eyebrow": "趋势变化",
           "title": "对齐中训练或取决于内容在场",
           "summary": "一项约120B参数实验显示，宪法内容在中训练中出现，可在后续良性微调后保留部分对齐收益；这把焦点推向训练内容而非仅是优化标签。",
           "why": "若结果可复现，对齐训练的关键投入可能从末端偏好优化前移至可审计的中训练语料设计。",
@@ -15626,41 +16042,6 @@
           ]
         },
         {
-          "category": "AI & 模型",
-          "eyebrow": "趋势变化",
-          "title": "Gemini把机器人竞争推向编排层",
-          "summary": "Gemini Robotics ER 2把视频理解、任务编排和多机器人协作合并，机器人平台竞争可能由单机能力转向跨设备控制层。",
-          "why": "统一理解环境、调用工具并协调多台机器人，可能比单项动作能力更接近可复用的平台入口。",
-          "impact": "若真实部署能够复现，硬件覆盖、接口治理和故障恢复将成为机器人平台的新竞争变量。",
-          "shiftFrom": "侧重单机任务执行",
-          "shiftTo": "转向视频到多机编排",
-          "crossValidation": "Google DeepMind官方来源直接支持ER 2的功能主张；尚无独立部署结果，厂商所称的“step change”不能等同于已验证性能。",
-          "article": {
-            "lead": "Google DeepMind发布Gemini Robotics ER 2所传递的更大信号，不是机器人又多了一个模型，而是竞争焦点正从单机执行转向编排层：模型被设计为同时理解视频、组织工具调用并协调多台机器人。若这些能力能在真实部署中成立，机器人平台的核心价值将更多来自跨设备任务分解与状态同步。",
-            "sections": [
-              {
-                "heading": "三个能力组成同一控制闭环",
-                "body": "Google DeepMind把ER 2的重点并列为video understanding、task orchestration和multi-robot collaboration。三者的组合比单项感知更新更关键：视频可提供连续环境状态，编排层负责把目标拆成工具调用与任务顺序，多机器人协作再把执行范围扩展到多个设备。此次发布由此指向机器人模型能力边界的横向扩展，而非只刷新一个单项指标。"
-              },
-              {
-                "heading": "价值可能上移到任务层",
-                "body": "这一路线改变的变量是机器人软件栈中的控制跨度。当同一模型能够从视频建立状态、选择工具并向多台机器人分派子任务时，价值可能从某个机械臂的专用策略，转向可跨设备复用的任务层。对开发者而言，真正的杠杆将是接口、权限、故障恢复和状态同步；对平台方而言，则是能否把更多硬件纳入同一workflow，而不只是展示单机动作质量。"
-              },
-              {
-                "heading": "受控演示仍是关键反例",
-                "body": "最强的反例是，multi-robot collaboration可能仍局限于受控演示，编排能力也未必能承受开放环境中的延迟、误差累积与设备差异。现阶段材料只有Google DeepMind官方发布，因此“step change”是厂商主张，不是独立验证的结论。若后续没有开放接入、第三方部署或相对前代的任务成功率改善，这次更新更应被视为研究整合，而非平台层转移。"
-              }
-            ],
-            "outlook": "下一步应看ER 2的开放范围、API或SDK约束、支持的机器人类型，以及第三方在长时任务中的成功率、延迟、人工接管次数和故障恢复表现。相对前代的可复现实测若持续改善，将强化“编排层成为平台入口”的判断；若仅有精选demo，则会削弱它。"
-          },
-          "evidence": [
-            {
-              "role": "主张",
-              "takeaway": "Google DeepMind发布Gemini Robotics ER 2，并将video understanding、task orchestration和multi-robot collaboration列为核心能力方向。"
-            }
-          ]
-        },
-        {
           "category": "Agents",
           "eyebrow": "趋势变化",
           "title": "EvoLib把代理经验提炼成知识",
@@ -15727,49 +16108,6 @@
             {
               "role": "主张",
               "takeaway": "David Rosenthal以2021年Flash、硬盘和LTO的出货量、收入及每GB比值讨论归档介质的严苛经济性，并据此审视Microsoft Project Silica。"
-            }
-          ]
-        },
-        {
-          "category": "AI & 模型",
-          "eyebrow": "产品信号",
-          "title": "GPT-5.6重画模型价格曲线",
-          "summary": "OpenAI下调GPT-5.6 Luna与Terra价格；Simon Willison记录的降幅分别为80%和20%，背后包含模型参与基础设施优化。",
-          "why": "价格下降会直接改变高频推理、Agent和企业workflow的模型选择，也强化低成本模型的替代压力。",
-          "impact": "若质量与延迟保持稳定，Luna可能扩大可承受的调用场景，并迫使竞争者重新评估分层定价。",
-          "shiftFrom": "模型升级主要强调能力",
-          "shiftTo": "效率开始转化为大幅降价",
-          "crossValidation": "OpenAI一手确认降价与效率叙事；Simon Willison量化降幅并补充Sol优化负载均衡；Hacker News仅反映社区反应。",
-          "article": {
-            "lead": "OpenAI于7月30日下调GPT-5.6 Luna与Terra价格，把本次更新从单纯的模型迭代推进到部署经济性变化。OpenAI将降价与更高效模型支持规模化workflow相联系；Simon Willison记录的幅度显示，Luna降价80%、Terra降价20%，两个模型的相对价格位置被明显重画。",
-            "sections": [
-              {
-                "heading": "降幅改变模型分层",
-                "body": "OpenAI官方文章确认Luna和Terra采用更低价格，并把目标指向企业规模化部署AI workflow。Simon Willison提供的具体比较显示，Luna的降幅远高于Terra。这意味着本次调整并非对所有GPT-5.6模型作等比例处理，而是重新拉开不同模型的价格梯度，使Luna在高调用量、成本敏感的任务中更具吸引力。"
-              },
-              {
-                "heading": "模型进入成本工程",
-                "body": "更值得关注的是降价机制。Willison援引OpenAI的技术说明称，GPT-5.6 Sol被用于优化负载均衡；OpenAI则将整体变化归因于更高效的模型。由模型协助改进推理基础设施，意味着前沿模型的价值不只来自对外销售，也可能来自压低自身服务体系的单位成本，形成模型能力、基础设施效率与价格之间的反馈循环。"
-              },
-              {
-                "heading": "价格不等于workflow总成本",
-                "body": "降价仍不能自动转化为相同比例的workflow成本下降。实际支出还取决于输出长度、重试次数、工具调用、延迟和任务成功率；若低价模型需要更多轮次才能完成工作，名义价格优势可能被部分抵消。该公告在Hacker News获得493分和325条评论，显示开发者高度关注，但讨论热度本身不能证明生产环境已经迁移。"
-              }
-            ],
-            "outlook": "下一步应观察Luna与Terra在真实Agent workflow中的单次成功任务成本，而不只是标价：包括同一任务的token消耗、工具调用次数、延迟和完成率。企业客户采用情况、OpenAI后续披露的推理效率指标，以及竞争模型是否跟进降价，将检验这次调整究竟是局部促销还是持续的成本曲线下移。"
-          },
-          "evidence": [
-            {
-              "role": "主张",
-              "takeaway": "OpenAI官方宣布降低GPT-5.6 Luna与Terra价格，并称更高效的模型可帮助企业规模化部署AI workflow。"
-            },
-            {
-              "role": "佐证",
-              "takeaway": "Simon Willison记录Luna降价80%、Terra降价20%，并援引OpenAI说明称GPT-5.6 Sol参与优化负载均衡。"
-            },
-            {
-              "role": "背景",
-              "takeaway": "OpenAI降价文章在Hacker News候选抓取时获得493分和325条评论，反映开发者关注度，但不构成采用证据。"
             }
           ]
         },
@@ -19416,6 +19754,140 @@
       "signals": [
         {
           "category": "AI & Models",
+          "eyebrow": "Trend Shift",
+          "title": "Gemini Pushes Robotics Toward an Orchestration Layer",
+          "summary": "Gemini Robotics ER 2 combines video understanding, task orchestration, and multi-robot collaboration, pointing competition beyond single-robot performance.",
+          "why": "A system that can interpret environments, invoke tools, and coordinate multiple robots could become a reusable platform layer.",
+          "impact": "If reproduced in real deployments, hardware coverage, interface governance, and failure recovery could become central competitive variables.",
+          "shiftFrom": "Single-robot task execution",
+          "shiftTo": "Video-to-fleet orchestration",
+          "crossValidation": "Google DeepMind's official post directly supports the feature claims, but no independent deployment results yet validate its characterization of a step change.",
+          "article": {
+            "lead": "The larger signal from Google DeepMind's Gemini Robotics ER 2 announcement is not simply the arrival of another robotics model. It is a potential shift in competition from single-robot execution toward an orchestration layer designed to understand video, organize tool use, and coordinate multiple robots. If those capabilities hold up in deployment, platform value could increasingly come from cross-device task decomposition and state synchronization.",
+            "sections": [
+              {
+                "heading": "Three Capabilities Form One Control Loop",
+                "body": "Google DeepMind presents video understanding, task orchestration, and multi-robot collaboration as ER 2's defining capabilities. Their combination matters more than an isolated perception upgrade: video can supply a continuous representation of the environment, orchestration can translate goals into tool calls and task sequences, and multi-robot coordination can distribute execution across devices. The announcement therefore points to a broader control scope rather than a single benchmark improvement."
+              },
+              {
+                "heading": "Value Could Move Up to the Task Layer",
+                "body": "The variable changing is the span of control within the robotics software stack. If one model can infer state from video, select tools, and assign subtasks to several robots, value may migrate from device-specific policies toward a reusable task layer. For developers, the main leverage would then come from interfaces, permissions, failure recovery, and state synchronization. For platform providers, the test would be whether they can bring more hardware into one workflow, not merely demonstrate better motions on one machine."
+              },
+              {
+                "heading": "Controlled Demos Remain the Strongest Countercase",
+                "body": "The strongest alternative explanation is that multi-robot collaboration remains confined to controlled demonstrations and that orchestration may not tolerate latency, accumulated errors, or hardware differences in open environments. The available evidence is Google DeepMind's own announcement, so its “step change” language is a vendor claim rather than an independently established result. Without broader access, third-party deployments, or measurable gains over the prior generation, ER 2 may prove to be research integration rather than a platform-layer shift."
+              }
+            ],
+            "outlook": "The next evidence should include ER 2's access scope, API or SDK constraints, supported robot types, and independent measurements of long-horizon task success, latency, human intervention, and recovery from failure. Reproducible improvements over the previous generation would strengthen the orchestration-layer thesis; a record limited to curated demos would weaken it."
+          },
+          "evidence": [
+            {
+              "role": "Claim",
+              "takeaway": "Google DeepMind announced Gemini Robotics ER 2 and identifies video understanding, task orchestration, and multi-robot collaboration as its core capability area"
+            },
+            {
+              "role": "Update",
+              "takeaway": "Google DeepMind officially introduced Gemini Robotics 2 as a step toward whole-body intelligence for robots."
+            }
+          ],
+          "updates": [
+            {
+              "addedAt": "2026-07-28T13:21:37.000Z",
+              "title": "Gemini Robotics 2 advances whole-body intelligence",
+              "summary": "Google DeepMind published an official Gemini Robotics 2 page framing the model as bringing whole-body intelligence to robots.",
+              "evidence": [
+                {
+                  "role": "Update",
+                  "takeaway": "Google DeepMind officially introduced Gemini Robotics 2 as a step toward whole-body intelligence for robots."
+                }
+              ],
+              "changeType": "progress",
+              "thesisImpact": "Google DeepMind以Gemini Robotics 2推进其机器人模型命名与产品代际，强化了既有判断：竞争重点正从单机执行扩展到机器人系统级智能。",
+              "revisionRequired": false
+            }
+          ]
+        },
+        {
+          "category": "AI & Models",
+          "eyebrow": "Product Signal",
+          "title": "GPT-5.6 Redraws the Model Pricing Curve",
+          "summary": "OpenAI cut prices for GPT-5.6 Luna and Terra. Simon Willison reports reductions of 80% and 20%, respectively, with model-assisted infrastructure optimization contributing to the shift.",
+          "why": "Lower pricing can change model selection for high-volume inference, agents, and enterprise workflows while increasing substitution pressure across the market.",
+          "impact": "If quality and latency remain stable, Luna could make more workloads economical and force rivals to reconsider tiered pricing.",
+          "shiftFrom": "Upgrades centered on capability",
+          "shiftTo": "Efficiency converted into steep cuts",
+          "crossValidation": "OpenAI confirms the pricing and efficiency change; Simon Willison quantifies it and adds the Sol load-balancing detail; Hacker News shows reaction only.",
+          "article": {
+            "lead": "OpenAI lowered prices for GPT-5.6 Luna and Terra on July 30, turning this update from a conventional model iteration into a change in deployment economics. OpenAI links the move to more efficient models that can support AI workflows at scale. Simon Willison reports an 80% reduction for Luna and a 20% cut for Terra, materially redrawing their relative price positions.",
+            "sections": [
+              {
+                "heading": "The Cuts Reshape Model Tiers",
+                "body": "OpenAI's official post confirms lower pricing for Luna and Terra and frames the change around enterprise deployment at scale. Willison's comparison shows a much larger reduction for Luna than for Terra. This is therefore not a uniform adjustment across GPT-5.6 models: it changes the price gradient between them and makes Luna more attractive for high-volume, cost-sensitive workloads."
+              },
+              {
+                "heading": "Models Enter the Cost-Engineering Loop",
+                "body": "The mechanism is more consequential than the headline discount. Citing OpenAI's technical explanation, Willison says GPT-5.6 Sol helped optimize load balancing, while OpenAI attributes the broader shift to more efficient models. If models can improve the infrastructure used to serve them, their value extends beyond external sales and into lowering the unit cost of the provider's own inference stack."
+              },
+              {
+                "heading": "Sticker Price Is Not Workflow Cost",
+                "body": "A lower model price does not guarantee an equivalent reduction in total workflow cost. Spending also depends on output length, retries, tool calls, latency, and task success rates. A cheaper model that requires more attempts may surrender part of its nominal advantage. The announcement drew 493 points and 325 comments on Hacker News, signaling strong developer interest but not production adoption."
+              }
+            ],
+            "outlook": "The decisive metric will be cost per successfully completed task in real agent workflows, including token use, tool calls, latency, and completion rates. Enterprise adoption, future OpenAI disclosures on inference efficiency, and competitive price responses will show whether this is a targeted adjustment or a durable downward shift in the cost curve."
+          },
+          "evidence": [
+            {
+              "role": "Claim",
+              "takeaway": "OpenAI officially announced lower GPT-5.6 Luna and Terra pricing and connected more efficient models with enterprise AI deployment at scale."
+            },
+            {
+              "role": "Support",
+              "takeaway": "Simon Willison reports an 80% Luna reduction and a 20% Terra reduction, adding that GPT-5.6 Sol was used to optimize load balancing."
+            },
+            {
+              "role": "Context",
+              "takeaway": "The OpenAI post received 493 points and 325 comments on Hacker News, indicating attention rather than verified adoption."
+            },
+            {
+              "role": "Context",
+              "takeaway": "Simon Willison’s monthly newsletter aggregates recent developments around GPT-5.6 Sol, Terra, and Luna."
+            },
+            {
+              "role": "Update",
+              "takeaway": "OpenAI identifies GPT-5.6 Sol as the flagship tier and specifies its alias, context window, output limit, and token pricing."
+            },
+            {
+              "role": "Support",
+              "takeaway": "OpenAI’s system card reports higher FrontierCyber challenge completion than GPT-5.5 while keeping Sol below the Critical cyber-capability threshold."
+            }
+          ],
+          "updates": [
+            {
+              "addedAt": "2026-08-02T04:12:41.000Z",
+              "title": "GPT-5.6 Sol becomes the flagship tier",
+              "summary": "OpenAI identifies GPT-5.6 Sol as the series flagship, with the gpt-5.6 alias pointing to Sol. It offers a 1.05 million-token context window, 128,000 maximum output tokens, and listed prices of $5 input, $0.50 cached input, and $30 output per million tokens.",
+              "evidence": [
+                {
+                  "role": "Context",
+                  "takeaway": "Simon Willison’s monthly newsletter aggregates recent developments around GPT-5.6 Sol, Terra, and Luna."
+                },
+                {
+                  "role": "Update",
+                  "takeaway": "OpenAI identifies GPT-5.6 Sol as the flagship tier and specifies its alias, context window, output limit, and token pricing."
+                },
+                {
+                  "role": "Support",
+                  "takeaway": "OpenAI’s system card reports higher FrontierCyber challenge completion than GPT-5.5 while keeping Sol below the Critical cyber-capability threshold."
+                }
+              ],
+              "changeType": "progress",
+              "thesisImpact": "OpenAI现将GPT-5.6 Sol明确为系列旗舰，补齐了此前Luna与Terra降价之外的旗舰定价、上下文与网络安全能力边界，使价格曲线判断延伸至分层产品结构。",
+              "revisionRequired": false
+            }
+          ]
+        },
+        {
+          "category": "AI & Models",
           "eyebrow": "Trend shift",
           "title": "Alignment Midtraining May Depend on Content Presence",
           "summary": "A roughly 120B-parameter study reports that placing constitutional content in midtraining can preserve some alignment gains after benign fine-tuning, shifting attention from optimization labels to training content.",
@@ -20797,41 +21269,6 @@
           ]
         },
         {
-          "category": "AI & Models",
-          "eyebrow": "Trend Shift",
-          "title": "Gemini Pushes Robotics Toward an Orchestration Layer",
-          "summary": "Gemini Robotics ER 2 combines video understanding, task orchestration, and multi-robot collaboration, pointing competition beyond single-robot performance.",
-          "why": "A system that can interpret environments, invoke tools, and coordinate multiple robots could become a reusable platform layer.",
-          "impact": "If reproduced in real deployments, hardware coverage, interface governance, and failure recovery could become central competitive variables.",
-          "shiftFrom": "Single-robot task execution",
-          "shiftTo": "Video-to-fleet orchestration",
-          "crossValidation": "Google DeepMind's official post directly supports the feature claims, but no independent deployment results yet validate its characterization of a step change.",
-          "article": {
-            "lead": "The larger signal from Google DeepMind's Gemini Robotics ER 2 announcement is not simply the arrival of another robotics model. It is a potential shift in competition from single-robot execution toward an orchestration layer designed to understand video, organize tool use, and coordinate multiple robots. If those capabilities hold up in deployment, platform value could increasingly come from cross-device task decomposition and state synchronization.",
-            "sections": [
-              {
-                "heading": "Three Capabilities Form One Control Loop",
-                "body": "Google DeepMind presents video understanding, task orchestration, and multi-robot collaboration as ER 2's defining capabilities. Their combination matters more than an isolated perception upgrade: video can supply a continuous representation of the environment, orchestration can translate goals into tool calls and task sequences, and multi-robot coordination can distribute execution across devices. The announcement therefore points to a broader control scope rather than a single benchmark improvement."
-              },
-              {
-                "heading": "Value Could Move Up to the Task Layer",
-                "body": "The variable changing is the span of control within the robotics software stack. If one model can infer state from video, select tools, and assign subtasks to several robots, value may migrate from device-specific policies toward a reusable task layer. For developers, the main leverage would then come from interfaces, permissions, failure recovery, and state synchronization. For platform providers, the test would be whether they can bring more hardware into one workflow, not merely demonstrate better motions on one machine."
-              },
-              {
-                "heading": "Controlled Demos Remain the Strongest Countercase",
-                "body": "The strongest alternative explanation is that multi-robot collaboration remains confined to controlled demonstrations and that orchestration may not tolerate latency, accumulated errors, or hardware differences in open environments. The available evidence is Google DeepMind's own announcement, so its “step change” language is a vendor claim rather than an independently established result. Without broader access, third-party deployments, or measurable gains over the prior generation, ER 2 may prove to be research integration rather than a platform-layer shift."
-              }
-            ],
-            "outlook": "The next evidence should include ER 2's access scope, API or SDK constraints, supported robot types, and independent measurements of long-horizon task success, latency, human intervention, and recovery from failure. Reproducible improvements over the previous generation would strengthen the orchestration-layer thesis; a record limited to curated demos would weaken it."
-          },
-          "evidence": [
-            {
-              "role": "Claim",
-              "takeaway": "Google DeepMind announced Gemini Robotics ER 2 and identifies video understanding, task orchestration, and multi-robot collaboration as its core capability area"
-            }
-          ]
-        },
-        {
           "category": "Agents",
           "eyebrow": "Trend shift",
           "title": "EvoLib Turns Agent Experience Into Evolving Knowledge",
@@ -20898,49 +21335,6 @@
             {
               "role": "Claim",
               "takeaway": "David Rosenthal uses 2021 shipment, revenue, and per-gigabyte ratios for flash, hard drives, and LTO to frame the harsh economics facing archival media and Micr"
-            }
-          ]
-        },
-        {
-          "category": "AI & Models",
-          "eyebrow": "Product Signal",
-          "title": "GPT-5.6 Redraws the Model Pricing Curve",
-          "summary": "OpenAI cut prices for GPT-5.6 Luna and Terra. Simon Willison reports reductions of 80% and 20%, respectively, with model-assisted infrastructure optimization contributing to the shift.",
-          "why": "Lower pricing can change model selection for high-volume inference, agents, and enterprise workflows while increasing substitution pressure across the market.",
-          "impact": "If quality and latency remain stable, Luna could make more workloads economical and force rivals to reconsider tiered pricing.",
-          "shiftFrom": "Upgrades centered on capability",
-          "shiftTo": "Efficiency converted into steep cuts",
-          "crossValidation": "OpenAI confirms the pricing and efficiency change; Simon Willison quantifies it and adds the Sol load-balancing detail; Hacker News shows reaction only.",
-          "article": {
-            "lead": "OpenAI lowered prices for GPT-5.6 Luna and Terra on July 30, turning this update from a conventional model iteration into a change in deployment economics. OpenAI links the move to more efficient models that can support AI workflows at scale. Simon Willison reports an 80% reduction for Luna and a 20% cut for Terra, materially redrawing their relative price positions.",
-            "sections": [
-              {
-                "heading": "The Cuts Reshape Model Tiers",
-                "body": "OpenAI's official post confirms lower pricing for Luna and Terra and frames the change around enterprise deployment at scale. Willison's comparison shows a much larger reduction for Luna than for Terra. This is therefore not a uniform adjustment across GPT-5.6 models: it changes the price gradient between them and makes Luna more attractive for high-volume, cost-sensitive workloads."
-              },
-              {
-                "heading": "Models Enter the Cost-Engineering Loop",
-                "body": "The mechanism is more consequential than the headline discount. Citing OpenAI's technical explanation, Willison says GPT-5.6 Sol helped optimize load balancing, while OpenAI attributes the broader shift to more efficient models. If models can improve the infrastructure used to serve them, their value extends beyond external sales and into lowering the unit cost of the provider's own inference stack."
-              },
-              {
-                "heading": "Sticker Price Is Not Workflow Cost",
-                "body": "A lower model price does not guarantee an equivalent reduction in total workflow cost. Spending also depends on output length, retries, tool calls, latency, and task success rates. A cheaper model that requires more attempts may surrender part of its nominal advantage. The announcement drew 493 points and 325 comments on Hacker News, signaling strong developer interest but not production adoption."
-              }
-            ],
-            "outlook": "The decisive metric will be cost per successfully completed task in real agent workflows, including token use, tool calls, latency, and completion rates. Enterprise adoption, future OpenAI disclosures on inference efficiency, and competitive price responses will show whether this is a targeted adjustment or a durable downward shift in the cost curve."
-          },
-          "evidence": [
-            {
-              "role": "Claim",
-              "takeaway": "OpenAI officially announced lower GPT-5.6 Luna and Terra pricing and connected more efficient models with enterprise AI deployment at scale."
-            },
-            {
-              "role": "Support",
-              "takeaway": "Simon Willison reports an 80% Luna reduction and a 20% Terra reduction, adding that GPT-5.6 Sol was used to optimize load balancing."
-            },
-            {
-              "role": "Context",
-              "takeaway": "The OpenAI post received 493 points and 325 comments on Hacker News, indicating attention rather than verified adoption."
             }
           ]
         },
@@ -24586,12 +24980,12 @@
     "en": "gpt-5.6-sol"
   },
   "incremental": {
-    "lastAddedAt": "2026-08-02T02:10:13.773Z",
-    "lastScanAt": "2026-08-02T02:06:39.367Z",
-    "lastAddedCount": 2,
-    "lastUpdatedCount": 0,
+    "lastAddedAt": "2026-08-02T06:08:36.986Z",
+    "lastScanAt": "2026-08-02T06:06:03.028Z",
+    "lastAddedCount": 0,
+    "lastUpdatedCount": 2,
     "totalAppended": 44,
-    "totalUpdated": 26
+    "totalUpdated": 28
   },
   "exploreDepth": {
     "minimum": 50,
