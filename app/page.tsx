@@ -278,7 +278,7 @@ export default function Home() {
 
   useEffect(() => {
     try {
-      const storedLocale = window.localStorage.getItem("signal-radar-locale");
+      const storedLocale = window.localStorage.getItem("all-we-need-locale");
       if (storedLocale === "zh" || storedLocale === "en") {
         setLocale(storedLocale);
       }
@@ -307,7 +307,7 @@ export default function Home() {
   useEffect(() => {
     if (!localePreferenceReady) return;
     document.documentElement.lang = locale === "zh" ? "zh-CN" : "en";
-    window.localStorage.setItem("signal-radar-locale", locale);
+    window.localStorage.setItem("all-we-need-locale", locale);
   }, [locale, localePreferenceReady]);
 
   useEffect(() => {

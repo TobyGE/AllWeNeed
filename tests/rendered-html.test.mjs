@@ -636,7 +636,8 @@ test("removes all disposable starter preview code", async () => {
     /formatExposureAge\(signal\.heat\.ageHours, locale\)/,
   );
   assert.match(styles, /\.explore-exposure-time/);
-  assert.match(page, /signal-radar-locale/);
+  assert.match(page, /all-we-need-locale/);
+  assert.doesNotMatch(page, /signal-radar-locale/);
   assert.match(page, /useState<"zh" \| "en">\("en"\)/);
   assert.match(page, /localePreferenceReady/);
   assert.match(page, /selectAdaptiveFeedItems/);
