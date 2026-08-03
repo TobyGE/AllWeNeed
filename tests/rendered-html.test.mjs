@@ -127,7 +127,7 @@ test("server-renders the All We Need product shell", async () => {
   assert.match(html, /High heat \d+|Watch \d+|Cooling \d+/);
   assert.match(html, /Cross-platform · \d+ independent sources/);
   assert.ok(!html.includes(radar.translations.zh.signals[0].shiftTo));
-  assert.match(html, />Preview</);
+  assert.doesNotMatch(html, />Preview</);
   assert.match(html, /Explore more/);
   assert.match(
     html,
@@ -652,7 +652,7 @@ test("removes all disposable starter preview code", async () => {
   assert.doesNotMatch(page, /permanent-badge/);
   assert.equal(page.match(/<StoryLinkIcon \/>/g)?.length, 4);
   assert.match(page, /conversation-grid/);
-  assert.match(page, /function toggleExpandedConversation/);
+  assert.doesNotMatch(page, /function toggleExpandedConversation/);
   assert.match(page, /function conversationsMore/);
   assert.match(page, /t\("精选对谈", "Conversations"\)/);
   assert.match(page, /conversation-bridge-cta/);
@@ -695,21 +695,7 @@ test("removes all disposable starter preview code", async () => {
         source.conversationSource && getSourceKind(source.url) === "Podcast",
     ),
   );
-  assert.match(
-    page,
-    /const \[expanded, setExpanded\] = useState<number\[]>\(\[\]\)/,
-  );
-  assert.match(
-    page,
-    /const \[expandedExplore, setExpandedExplore\] = useState<string\[]>\(\[\]\)/,
-  );
-  assert.match(
-    page,
-    /const \[expandedCompany, setExpandedCompany\] = useState<string\[]>\(\[\]\)/,
-  );
-  assert.match(page, /expandedConversation/);
-  assert.match(page, /function toggleExpandedExplore/);
-  assert.match(page, /function toggleExpandedCompany/);
+  assert.doesNotMatch(page, /setExpanded|toggleExpanded/);
   assert.match(page, /matchMedia\("\(max-width: 700px\)"\)/);
   assert.equal(
     page.match(/view === "brief" && !isMobileLayout/g)?.length,
@@ -721,12 +707,9 @@ test("removes all disposable starter preview code", async () => {
   );
   assert.match(page, /signal\.sourceCount >= 2/);
   assert.doesNotMatch(page, /localizedDiscoveries/);
-  assert.match(page, /id=\{`explore-preview-\$\{signal\.id\}`\}/);
-  assert.match(page, /id=\{`company-preview-\$\{item\.id\}`\}/);
-  assert.match(page, /id=\{`conversation-preview-\$\{item\.id\}`\}/);
-  assert.equal(page.match(/t\("预览", "Preview"\)/g)?.length, 4);
-  assert.match(styles, /\.explore-card\.explore-featured\.explore-expanded/);
-  assert.match(styles, /\.explore-card-actions \.analysis-toggle/);
+  assert.doesNotMatch(page, /-preview-\$\{/);
+  assert.doesNotMatch(page, /t\("预览", "Preview"\)/);
+  assert.doesNotMatch(page, /className="analysis-toggle"/);
   assert.match(articleView, /这篇稿子基于什么/);
   assert.match(articleView, /evidence\.url/);
   assert.match(articleView, /返回探索/);
@@ -734,7 +717,7 @@ test("removes all disposable starter preview code", async () => {
   assert.match(packageJson, /expand-explore-articles\.mjs/);
   assert.match(packageJson, /ensure-explore-depth\.mjs/);
   assert.match(page, /SourceLibrary locale=\{locale\}/);
-  assert.match(page, /最强反方观点/);
+  assert.doesNotMatch(page, /最强反方观点/);
   assert.doesNotMatch(page, /SkeletonPreview|codex-preview/);
   assert.doesNotMatch(layout, /Starter Project|codex-preview/);
   assert.doesNotMatch(packageJson, /react-loading-skeleton/);

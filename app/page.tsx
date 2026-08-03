@@ -258,12 +258,6 @@ export default function Home() {
   const [fontSize, setFontSize] = useState<FontSizePreference>("medium");
   const [activeCategory, setActiveCategory] = useState("全部");
   const [query, setQuery] = useState("");
-  const [expanded, setExpanded] = useState<number[]>([]);
-  const [expandedExplore, setExpandedExplore] = useState<string[]>([]);
-  const [expandedCompany, setExpandedCompany] = useState<string[]>([]);
-  const [expandedConversation, setExpandedConversation] = useState<string[]>(
-    [],
-  );
   const [saved, setSaved] = useState<number[]>([]);
   const [view, setView] = useState<RadarView>(initialRoute.view);
   const [section, setSection] = useState<AppSection>(initialRoute.section);
@@ -360,10 +354,6 @@ export default function Home() {
       setArticleId(value || null);
       setActiveCategory("全部");
       setQuery("");
-      setExpanded([]);
-      setExpandedExplore([]);
-      setExpandedCompany([]);
-      setExpandedConversation([]);
       setRouteReady(true);
     };
     readLocation();
@@ -830,37 +820,9 @@ export default function Home() {
     view,
   ]);
 
-  function toggleExpanded(id: number) {
-    setExpanded((items) =>
-      items.includes(id) ? items.filter((item) => item !== id) : [...items, id],
-    );
-  }
-
-  function toggleExpandedExplore(id: string) {
-    setExpandedExplore((items) =>
-      items.includes(id) ? items.filter((item) => item !== id) : [...items, id],
-    );
-  }
-
-  function toggleExpandedCompany(id: string) {
-    setExpandedCompany((items) =>
-      items.includes(id) ? items.filter((item) => item !== id) : [...items, id],
-    );
-  }
-
-  function toggleExpandedConversation(id: string) {
-    setExpandedConversation((items) =>
-      items.includes(id) ? items.filter((item) => item !== id) : [...items, id],
-    );
-  }
-
-  function resetExpandedContent() {
+  function resetFeedFilters() {
     setActiveCategory("全部");
     setQuery("");
-    setExpanded([]);
-    setExpandedExplore([]);
-    setExpandedCompany([]);
-    setExpandedConversation([]);
   }
 
   function pushSectionPath(pathname: string) {
@@ -877,14 +839,14 @@ export default function Home() {
   }
 
   function switchView(nextView: RadarView) {
-    resetExpandedContent();
+    resetFeedFilters();
     setView(nextView);
     setSection("radar");
     pushSectionPath(pathForView(nextView));
   }
 
   function switchToSources() {
-    resetExpandedContent();
+    resetFeedFilters();
     setSection("sources");
     pushSectionPath(sectionPath("sources"));
     window.scrollTo({ top: 0, behavior: "instant" });
@@ -1565,7 +1527,6 @@ export default function Home() {
               {view === "brief" ? (
               <div className="signal-list">
                 {visibleSignals.map((signal, index) => {
-                  const isExpanded = expanded.includes(signal.id);
                   const isSaved = saved.includes(signal.id);
                   return (
                     <article
@@ -1606,123 +1567,6 @@ export default function Home() {
                         </a>
                         <p className="signal-summary">{signal.summary}</p>
 
-                        {isExpanded && (
-                          <div
-                            className="signal-analysis"
-                            id={`brief-preview-${signal.id}`}
-                          >
-                            {signal.updates?.length ? (
-                              <div className="feed-update-list">
-                                <span className="analysis-label">
-                                  {t("最新进展", "LATEST UPDATES")}
-                                </span>
-                                {signal.updates.slice(0, 3).map((update) => (
-                                  <article
-                                    className="feed-update"
-                                    key={`${update.addedAt}-${update.title}`}
-                                  >
-                                    <div>
-                                      <strong>{update.title}</strong>
-                                      <time dateTime={update.addedAt}>
-                                        {new Intl.DateTimeFormat(
-                                          locale === "zh" ? "zh-CN" : "en-US",
-                                          {
-                                            month: "short",
-                                            day: "numeric",
-                                            hour: "2-digit",
-                                            minute: "2-digit",
-                                            timeZone: "America/New_York",
-                                          },
-                                        ).format(new Date(update.addedAt))}
-                                      </time>
-                                    </div>
-                                    <p>{update.summary}</p>
-                                  </article>
-                                ))}
-                              </div>
-                            ) : null}
-                            <div className="signal-shift">
-                              <div>
-                                <span>{t("此前", "BEFORE")}</span>
-                                <strong>{signal.shiftFrom}</strong>
-                              </div>
-                              <i aria-hidden="true">→</i>
-                              <div>
-                                <span>{t("现在", "NOW")}</span>
-                                <strong>{signal.shiftTo}</strong>
-                              </div>
-                            </div>
-                            <div>
-                              <span className="analysis-label">
-                                {t("为什么重要", "WHY IT MATTERS")}
-                              </span>
-                              <p>{signal.why}</p>
-                            </div>
-                            <div>
-                              <span className="analysis-label">
-                                {t("可能影响", "POTENTIAL IMPACT")}
-                              </span>
-                              <p>{signal.impact}</p>
-                            </div>
-                            <div className="validation-summary">
-                              <span className="analysis-label">
-                                {t(
-                                  signal.validationType,
-                                  signal.validationType === "跨平台验证"
-                                    ? "Cross-platform validation"
-                                    : signal.validationType === "多账号验证"
-                                      ? "Multi-source validation"
-                                      : "Single source",
-                                )}
-                              </span>
-                              <p>{signal.crossValidation}</p>
-                            </div>
-                            <div className="evidence-block">
-                              <div className="evidence-heading">
-                                <span className="analysis-label">
-                                  {t(
-                                    `结论依据 · ${signal.evidence.length} 个账号`,
-                                    `EVIDENCE · ${signal.evidence.length} sources`,
-                                  )}
-                                </span>
-                                <small>
-                                  {t("点击查看原始内容", "Open original content")}
-                                </small>
-                              </div>
-                              <div className="evidence-widget-grid">
-                                {signal.evidence.map((evidence, evidenceIndex) => (
-                                  <a
-                                    href={evidence.url}
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    className="evidence-widget"
-                                    key={evidence.url}
-                                    title={evidence.title}
-                                  >
-                                    <div className="evidence-widget-top">
-                                      <span className="evidence-number">
-                                        0{evidenceIndex + 1}
-                                      </span>
-                                      <span className="evidence-platform">
-                                        {shortKind(evidence.sourceKind, locale)}
-                                      </span>
-                                      <span className="evidence-role">
-                                        {evidence.role}
-                                      </span>
-                                    </div>
-                                    <strong>{evidence.sourceName}</strong>
-                                    <p>{evidence.takeaway}</p>
-                                    <footer>
-                                      <span>{evidence.title}</span>
-                                      <i>↗</i>
-                                    </footer>
-                                  </a>
-                                ))}
-                              </div>
-                            </div>
-                          </div>
-                        )}
-
                         <div className="signal-footer">
                           <div className="source-pills">
                             {signal.sources.map((source) => (
@@ -1744,17 +1588,6 @@ export default function Home() {
                             </small>
                           </div>
                           <div className="card-actions">
-                            <button
-                              type="button"
-                              className="analysis-toggle"
-                              onClick={() => toggleExpanded(signal.id)}
-                              aria-expanded={isExpanded}
-                              aria-controls={`brief-preview-${signal.id}`}
-                            >
-                              {isExpanded
-                                ? t("收起", "Collapse")
-                                : t("预览", "Preview")}
-                            </button>
                             <span className="signal-score">
                               <i style={{ width: `${signal.score}%` }} />
                               {signal.score}
@@ -1806,12 +1639,11 @@ export default function Home() {
               ) : view === "explore" ? (
                 <div className="explore-grid">
                   {visibleExploreSignals.map((signal, index) => {
-                    const isExpanded = expandedExplore.includes(signal.id);
                     return (
                       <article
                         className={`explore-card explore-tone-${signal.tone} ${
                           index === 0 ? "explore-featured" : ""
-                        } ${isExpanded ? "explore-expanded" : ""}`}
+                        }`}
                         key={signal.id}
                       >
                         <div className="explore-card-top">
@@ -1861,96 +1693,6 @@ export default function Home() {
                           </a>
                         </h3>
                         <p className="explore-thesis">{signal.thesis}</p>
-
-                        {isExpanded && (
-                          <div
-                            className="explore-preview"
-                            id={`explore-preview-${signal.id}`}
-                          >
-                            <div className="explore-reasoning">
-                              <div>
-                                <span>{t("为什么是现在", "WHY NOW")}</span>
-                                <p>{signal.whyNow}</p>
-                              </div>
-                              <div className="explore-counterpoint">
-                                <span>
-                                  {t(
-                                    "最强反方观点",
-                                    "STRONGEST COUNTERPOINT",
-                                  )}
-                                </span>
-                                <p>{signal.counterpoint}</p>
-                              </div>
-                            </div>
-
-                            <div className="explore-metrics">
-                              <span>
-                                <small>{t("时间跨度", "HORIZON")}</small>
-                                <strong>{signal.horizon}</strong>
-                              </span>
-                              <span>
-                                <small>{t("置信度", "CONFIDENCE")}</small>
-                                <strong>{signal.confidence}</strong>
-                              </span>
-                              <span>
-                                <small>{t("验证状态", "VALIDATION")}</small>
-                                <strong>
-                                  {t(
-                                    signal.validationType,
-                                    signal.validationType === "跨平台验证"
-                                      ? "Cross-platform"
-                                      : signal.validationType === "多账号验证"
-                                        ? "Multi-source"
-                                        : "Single source",
-                                  )}
-                                </strong>
-                              </span>
-                            </div>
-
-                            <div className="explore-evidence">
-                              <div>
-                                <span>{t("证据路径", "EVIDENCE TRAIL")}</span>
-                                <small>
-                                  {t(
-                                    `${signal.sourceCount} 个独立账号`,
-                                    `${signal.sourceCount} independent sources`,
-                                  )}
-                                </small>
-                              </div>
-                              {signal.evidence.map((evidence) => (
-                                <a
-                                  href={evidence.url}
-                                  target="_blank"
-                                  rel="noreferrer"
-                                  key={evidence.url}
-                                >
-                                  <span>
-                                    {shortKind(evidence.sourceKind, locale)}
-                                  </span>
-                                  <div>
-                                    <strong>{evidence.sourceName}</strong>
-                                    <p>{evidence.takeaway}</p>
-                                  </div>
-                                  <i>↗</i>
-                                </a>
-                              ))}
-                            </div>
-                          </div>
-                        )}
-
-                        <div className="explore-card-actions">
-                          <button
-                            type="button"
-                            className="analysis-toggle"
-                            onClick={() => toggleExpandedExplore(signal.id)}
-                            aria-expanded={isExpanded}
-                            aria-controls={`explore-preview-${signal.id}`}
-                          >
-                            {isExpanded
-                              ? t("收起", "Collapse")
-                              : t("预览", "Preview")}
-                          </button>
-                        </div>
                       </article>
                     );
                   })}
@@ -1985,7 +1727,6 @@ export default function Home() {
               ) : (
                 <div className="conversation-grid">
                   {visibleConversations.map((item, index) => {
-                    const isExpanded = expandedConversation.includes(item.id);
                     const publishedLabel = new Intl.DateTimeFormat(
                       locale === "zh" ? "zh-CN" : "en-US",
                       {
@@ -1998,7 +1739,7 @@ export default function Home() {
                       <article
                         className={`conversation-card ${
                           index === 0 ? "conversation-featured" : ""
-                        } ${isExpanded ? "conversation-expanded" : ""}`}
+                        }`}
                         key={item.id}
                       >
                         <div className="conversation-card-head">
@@ -2039,58 +1780,7 @@ export default function Home() {
                           <strong>{item.guest}</strong>
                         </div>
 
-                        {isExpanded && (
-                          <div
-                            className="conversation-preview"
-                            id={`conversation-preview-${item.id}`}
-                          >
-                            <div className="conversation-why">
-                              <span>{t("为什么值得听", "WHY LISTEN")}</span>
-                              <p>{item.whyListen}</p>
-                            </div>
-                            <ol className="conversation-takeaways">
-                              {item.takeaways.map((takeaway, takeawayIndex) => (
-                                <li key={`${item.id}-${takeawayIndex}`}>
-                                  <span>0{takeawayIndex + 1}</span>
-                                  <p>{takeaway}</p>
-                                </li>
-                              ))}
-                            </ol>
-                            <div className="conversation-counterpoint">
-                              <span>
-                                {t(
-                                  "最值得保留的疑问",
-                                  "THE QUESTION TO KEEP OPEN",
-                                )}
-                              </span>
-                              <p>{item.counterpoint}</p>
-                            </div>
-                            <a
-                              className="conversation-original"
-                              href={item.url}
-                              target="_blank"
-                              rel="noreferrer"
-                            >
-                              <span>
-                                {t("打开完整节目", "Open full conversation")}
-                              </span>
-                              <i aria-hidden="true">↗</i>
-                            </a>
-                          </div>
-                        )}
-
                         <footer className="conversation-card-actions">
-                          <button
-                            type="button"
-                            className="analysis-toggle"
-                            onClick={() => toggleExpandedConversation(item.id)}
-                            aria-expanded={isExpanded}
-                            aria-controls={`conversation-preview-${item.id}`}
-                          >
-                            {isExpanded
-                              ? t("收起", "Collapse")
-                              : t("预览", "Preview")}
-                          </button>
                           <a
                             href={`?article=${item.id}`}
                             onClick={(event) => {
@@ -2294,7 +1984,6 @@ export default function Home() {
             <div className="investment-board">
               {localizedCompanySignals.map((item, index) => {
                 const baseStance = dailyRadar.companySignals[index].stance;
-                const isExpanded = expandedCompany.includes(item.id);
                 const stanceTone =
                   baseStance === "偏积极"
                     ? "positive"
@@ -2338,92 +2027,10 @@ export default function Home() {
                       <p>{item.whatChanged}</p>
                     </div>
 
-                    {isExpanded && (
-                      <div
-                        className="investment-preview"
-                        id={`company-preview-${item.id}`}
-                      >
-                        <div className="investment-read">
-                          <span>{t("投资解读", "INVESTMENT READ")}</span>
-                          <p>{item.investmentRead}</p>
-                        </div>
-
-                        <div className="investment-checks">
-                          <div>
-                            <span className="check-icon catalyst">↗</span>
-                            <p>
-                              <strong>
-                                {t("潜在催化因素", "POTENTIAL CATALYST")}
-                              </strong>
-                              {item.catalyst}
-                            </p>
-                          </div>
-                          <div>
-                            <span className="check-icon risk">!</span>
-                            <p>
-                              <strong>
-                                {t("反证风险", "DISCONFIRMING RISK")}
-                              </strong>
-                              {item.risk}
-                            </p>
-                          </div>
-                        </div>
-
-                        <div className="investment-watch">
-                          <span>{t("下一步观察", "WATCH NEXT")}</span>
-                          <p>{item.watchNext}</p>
-                        </div>
-
-                        <div className="investment-evidence">
-                          <div className="investment-evidence-head">
-                            <span>{t("证据链", "EVIDENCE CHAIN")}</span>
-                            <small>
-                              {t(
-                                `${item.validationType} · ${item.sourceCount} 个账号`,
-                                `${
-                                  item.validationType === "跨平台验证"
-                                    ? "Cross-platform"
-                                    : "Multi-source"
-                                } · ${item.sourceCount} sources`,
-                              )}
-                            </small>
-                          </div>
-                          {item.evidence.map((evidence) => (
-                            <a
-                              href={evidence.url}
-                              target="_blank"
-                              rel="noreferrer"
-                              key={evidence.url}
-                            >
-                              <span className="investment-source-mark">
-                                {shortKind(evidence.sourceKind, locale)}
-                              </span>
-                              <div>
-                                <strong>{evidence.sourceName}</strong>
-                                <p>{evidence.takeaway}</p>
-                              </div>
-                              <i>↗</i>
-                            </a>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
                     <footer className="investment-card-footer">
                       <span className={`stance-badge stance-${stanceTone}`}>
                         {item.stance}
                       </span>
-                      <button
-                        type="button"
-                        className="analysis-toggle"
-                        onClick={() => toggleExpandedCompany(item.id)}
-                        aria-expanded={isExpanded}
-                        aria-controls={`company-preview-${item.id}`}
-                      >
-                        {isExpanded
-                          ? t("收起", "Collapse")
-                          : t("预览", "Preview")}
-                      </button>
                       <span className="investment-disclaimer">
                         {t(
                           "非投资建议 · 持续验证",
