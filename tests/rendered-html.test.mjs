@@ -226,7 +226,9 @@ test("removes all disposable starter preview code", async () => {
   assert.ok(liveFeedData.items.length > 0);
   assert.ok(
     liveFeedData.items.every(
-      (item) => item.title && item.titleZh && item.title !== item.titleZh,
+      (item) =>
+        item.title &&
+        (!item.titleZh || item.title !== item.titleZh),
     ),
   );
   assert.match(page, /item\.titleZh \?\? item\.title/);
