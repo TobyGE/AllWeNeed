@@ -15,6 +15,13 @@ const futureToleranceHours = 1;
 const directSourceLimit = 3;
 const maximumLiveItems = 10;
 const sourceById = new Map(sourceCatalog.map((source) => [source.id, source]));
+const allowedAccessMethods = new Set([
+  "official-api",
+  "official-oembed",
+  "public-feed",
+  "public-page-metadata",
+  "publisher-url",
+]);
 
 const authoritativePublisherPattern =
   /\b(?:OpenAI|Anthropic|Google(?: DeepMind)?|Meta|Amazon|AWS|Microsoft|NVIDIA|AMD|Broadcom|TSMC|ASML|Lam Research|KLA|Apple|SpaceX|ByteDance Seed|DeepSeek|Hugging Face|Model Context Protocol|Alibaba|Qwen|Tencent(?: Hunyuan)?|Baidu|ERNIE|MiniMax|Moonshot|Kimi|Z\.ai|GLM|StepFun|Baichuan|01\.AI|Mistral|Cohere|xAI|Tesla|Oracle|Palantir|Federal Reserve|SEC|CISA|NIST)\b/iu;
@@ -48,7 +55,18 @@ function canonicalUrl(value) {
     for (const key of [...url.searchParams.keys()]) {
       if (
         /^utm_/i.test(key) ||
-        ["campaign", "ref", "source", "st"].includes(key.toLowerCase())
+        [
+          "accesstoken",
+          "campaign",
+          "gift",
+          "ref",
+          "sharetoken",
+          "smid",
+          "source",
+          "st",
+          "unlocked_article_code",
+          "view_token",
+        ].includes(key.toLowerCase())
       ) {
         url.searchParams.delete(key);
       }
@@ -86,6 +104,31 @@ function translationCacheKey(item) {
   return `${canonicalUrl(item.url)}\n${item.title?.trim() ?? ""}`;
 }
 
+function accessMethodForLiveItem(item, configuredSource, sourceStatus) {
+  if (allowedAccessMethods.has(item.accessMethod)) {
+    return item.accessMethod;
+  }
+  if (
+    item.groundedFromDiscovery &&
+    allowedAccessMethods.has(item.originalTitleMethod)
+  ) {
+    return item.originalTitleMethod;
+  }
+  if (
+    configuredSource &&
+    !configuredSource.discoveryOnly &&
+    (configuredSource.feedUrl ||
+      configuredSource.secCik ||
+      ["ok", "empty"].includes(sourceStatus?.status)) &&
+    (sourceStatus?.feedUrl ||
+      configuredSource.feedUrl ||
+      configuredSource.secCik)
+  ) {
+    return configuredSource.secCik ? "official-api" : "public-feed";
+  }
+  return null;
+}
+
 export function buildLiveFeed(snapshot, now = snapshot?.generatedAt) {
   const generatedAtMs = parseTime(now);
   if (generatedAtMs === null) {
@@ -98,6 +141,9 @@ export function buildLiveFeed(snapshot, now = snapshot?.generatedAt) {
   const seenUrls = new Set();
   const seenTitles = new Set();
   const sourceCounts = new Map();
+  const statusBySourceId = new Map(
+    (snapshot.statuses ?? []).map((status) => [status.sourceId, status]),
+  );
   const clusteredOriginalUrls = new Set(
     (snapshot.items ?? []).flatMap((item) => {
       const configuredSource = sourceById.get(item.sourceId);
@@ -116,10 +162,18 @@ export function buildLiveFeed(snapshot, now = snapshot?.generatedAt) {
     .flatMap((item) => {
       const configuredSource = sourceById.get(item.sourceId);
       const discovery = isDiscoveryItem(item, configuredSource);
+      const accessMethod = accessMethodForLiveItem(
+        item,
+        configuredSource,
+        statusBySourceId.get(item.sourceId),
+      );
       if (
         item.conversationSource ||
         configuredSource?.conversationSource ||
-        discovery
+        discovery ||
+        item.publicContentPolicy === "exclude" ||
+        configuredSource?.publicContentPolicy === "exclude" ||
+        !accessMethod
       ) {
         return [];
       }
@@ -170,6 +224,8 @@ export function buildLiveFeed(snapshot, now = snapshot?.generatedAt) {
         sourceKind,
         title,
         url,
+        accessMethod,
+        publicContentPolicy: "headline-source-link-only",
         publishedAt: new Date(publishedAtMs).toISOString(),
         firstSeenAt:
           parseTime(item.firstSeenAt) === null ? null : item.firstSeenAt,

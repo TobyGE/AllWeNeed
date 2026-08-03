@@ -124,11 +124,15 @@ function canonicalComparisonUrl(value) {
         [
           "accesstoken",
           "campaign",
+          "gift",
           "ref",
           "ref_src",
           "sharetoken",
+          "smid",
           "source",
           "st",
+          "unlocked_article_code",
+          "view_token",
         ].includes(key.toLowerCase())
       ) {
         url.searchParams.delete(key);
@@ -517,14 +521,18 @@ function canonicalTechmemeOriginalUrl(value, feedUrl) {
       [
         "accesstoken",
         "campaign",
+        "gift",
         "leadsource",
         "mc_cid",
         "mc_eid",
         "ref",
         "reflink",
         "sharetoken",
+        "smid",
         "source",
         "st",
+        "unlocked_article_code",
+        "view_token",
       ].includes(key.toLowerCase())
     ) {
       parsed.searchParams.delete(key);
@@ -2284,6 +2292,15 @@ export async function main() {
       );
       return {
         ...item,
+        accessMethod:
+          item.accessMethod ??
+          (item.groundedFromDiscovery
+            ? item.originalTitleMethod
+            : source?.secCik
+              ? "official-api"
+              : "public-feed"),
+        publicContentPolicy:
+          source?.publicContentPolicy ?? "headline-source-link-only",
         title:
           source?.feedTitleFromDescription && item.summary
             ? item.summary

@@ -32,7 +32,7 @@ Rules:
 - Preserve every id and array order. Return every input exactly once.
 - Never rewrite the English title or URL.
 - Translate the complete source title into natural Simplified Chinese without adding, removing, or interpreting facts.
-- Lead with the news subject or claim. Never mechanically begin a Chinese title with an unfamiliar surname plus “说” or “称” (for example, “朱说，…”). When an English title ends with a brief surname attribution and the input does not identify that person, omit the attribution instead of inventing an identity.
+- Lead with the news subject or claim. Never mechanically begin a Chinese title with an unfamiliar surname plus “说” or “称” (for example, “朱说，…”). When an English title ends with a brief attribution and the input does not identify that person, preserve that it is a claim with neutral wording such as “被指” instead of inventing an identity or turning the opinion into fact.
 - Return JSON only in this exact shape:
 {"items":[{"id":"unchanged id","titleZh":"忠实的中文标题"}]}
 
@@ -181,6 +181,18 @@ export function mergeLiveTitleTranslations(items, result) {
     ) {
       throw new Error(
         `Live title localization has a dangling surname attribution for ${source.id}.`,
+      );
+    }
+    if (
+      /,\s*["'’]?\s*[A-Z][\p{L}'’-]{1,30}\s+(?:says|said)\s*$/iu.test(
+        source.title ?? "",
+      ) &&
+      !/(?:被指|表示|认为|声称|指出|据|称|说|访谈)/u.test(
+        translated.titleZh.trim(),
+      )
+    ) {
+      throw new Error(
+        `Live title localization dropped a material attribution for ${source.id}.`,
       );
     }
     translatedById.set(source.id, translated.titleZh.trim());

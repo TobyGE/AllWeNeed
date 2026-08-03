@@ -35,6 +35,7 @@ export type SourceItem = {
   initialLookbackHours?: number;
   discoveryOnly?: boolean;
   discoveryLevel?: "A" | "B";
+  publicContentPolicy?: "headline-source-link-only" | "exclude";
   publisher?: string;
   secCik?: string;
   ticker?: string;
@@ -769,6 +770,7 @@ const discoveredSourceCatalog: SourceItem[] = (
         initialLookbackHours: source.initialLookbackHours ?? 48,
       }
     : {}),
+  publicContentPolicy: "headline-source-link-only",
 }));
 
 export const sourceCatalog: SourceItem[] = [

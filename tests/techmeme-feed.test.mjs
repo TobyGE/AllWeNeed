@@ -31,12 +31,12 @@ test("extracts the original report instead of the Techmeme permalink", () => {
       <title>Amazon launches a new AI service (Jane Doe/Example News)</title>
       <link>https://www.techmeme.com/260802/p1#a260802p1</link>
       <description><![CDATA[
-        <a href="https://example.com/story?utm_source=techmeme&accessToken=gift-token">
+        <a href="https://example.com/story?utm_source=techmeme&accessToken=gift-token&unlocked_article_code=secret&view_token=secret">
           <img src="https://www.techmeme.com/260802/i1.jpg">
         </a>
         <a href="https://www.techmeme.com/260802/p1#a260802p1">Permalink</a>
         Jane Doe / <a href="https://example.com/">Example News</a>:
-        <b><a href="https://example.com/story?utm_source=techmeme&accessToken=gift-token">
+        <b><a href="https://example.com/story?utm_source=techmeme&accessToken=gift-token&unlocked_article_code=secret&view_token=secret">
           Amazon launches a new AI service
         </a></b> &mdash; &ldquo;Available now&rdquo;
       ]]></description>

@@ -90,9 +90,10 @@ the English source title or URL. Provide a natural, lossless Simplified Chinese
 translation of every source title without adding, removing, or interpreting
 facts. Lead with the news subject or claim. Never mechanically begin with an
 unfamiliar surname plus “说” or “称”. If an English title ends with a brief
-surname attribution and the input does not identify that person, omit the
-attribution rather than inventing an identity. Preserve every supplied id and
-array order exactly once.
+surname attribution and the input does not identify that person, preserve that
+the statement is a claim with neutral wording such as “被指”; do not invent an
+identity or turn an opinion into fact. Preserve every supplied id and array
+order exactly once.
 `.trim(),
 });
 
@@ -162,7 +163,8 @@ URL. Translate every title naturally into Simplified Chinese without adding,
 removing, or interpreting facts. Lead with the news subject or claim. Never
 mechanically begin with an unfamiliar surname plus “说” or “称”. If an English
 title ends with a brief surname attribution and the input does not identify
-that person, omit the attribution rather than inventing an identity. Preserve
+that person, preserve that the statement is a claim with neutral wording such
+as “被指”; do not invent an identity or turn an opinion into fact. Preserve
 every id and array order exactly once.
 `.trim(),
 });

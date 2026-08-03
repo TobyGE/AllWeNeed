@@ -31,6 +31,8 @@ function item(overrides = {}) {
     sourceName: "OpenAI",
     sourcePublisher: "OpenAI",
     sourceKind: "Blog",
+    accessMethod: "public-feed",
+    publicContentPolicy: "headline-source-link-only",
     title: "OpenAI launches a new agent model API",
     url: "https://openai.com/index/agent-model",
     publishedAt: "2026-08-02T19:40:00.000Z",
@@ -56,6 +58,40 @@ test("builds a strict 6-hour live window without stale padding", () => {
   assert.equal(feed.windowHours, 6);
   assert.deepEqual(feed.items.map((entry) => entry.id), ["item-1"]);
   assert.equal(feed.items[0].prominence, "lead");
+  assert.equal(
+    feed.items[0].publicContentPolicy,
+    "headline-source-link-only",
+  );
+  assert.equal("summary" in feed.items[0], false);
+});
+
+test("keeps items without public access provenance out of Live", () => {
+  const feed = buildLiveFeed(
+    snapshot([
+      item({
+        id: "unproven",
+        sourceId: 999_999,
+        sourceName: "Unknown Publisher",
+        sourcePublisher: "Unknown Publisher",
+        accessMethod: undefined,
+      }),
+    ]),
+  );
+
+  assert.deepEqual(feed.items, []);
+});
+
+test("removes access and gift tokens from public Live links", () => {
+  const feed = buildLiveFeed(
+    snapshot([
+      item({
+        url:
+          "https://example.com/ai-model?unlocked_article_code=secret&view_token=secret&utm_source=test",
+      }),
+    ]),
+  );
+
+  assert.equal(feed.items[0].url, "https://example.com/ai-model");
 });
 
 test("keeps A-level discovery wording private until an original source appears", () => {
@@ -398,12 +434,24 @@ test("Live localization rejects dangling surname attribution in Chinese", () => 
     mergeLiveTitleTranslations([source], {
       items: [
         {
-          id: source.id,
-          titleZh: "SpaceX正经历一场“身份危机”",
-        },
-      ],
-    })[0].titleZh,
-    "SpaceX正经历一场“身份危机”",
+            id: source.id,
+            titleZh: "SpaceX被指正面临一场“身份危机”",
+          },
+        ],
+      })[0].titleZh,
+    "SpaceX被指正面临一场“身份危机”",
+  );
+  assert.throws(
+    () =>
+      mergeLiveTitleTranslations([source], {
+        items: [
+          {
+            id: source.id,
+            titleZh: "SpaceX正经历一场“身份危机”",
+          },
+        ],
+      }),
+    /dropped a material attribution/,
   );
 });
 
