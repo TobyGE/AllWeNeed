@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-03T09:11:54.116Z",
+  "generatedAt": "2026-08-03T10:05:58.951Z",
   "counts": {
-    "sources": 222,
-    "claims": 236,
-    "events": 76,
-    "articles": 76,
+    "sources": 227,
+    "claims": 241,
+    "events": 77,
+    "articles": 77,
     "updates": 35,
-    "edges": 650,
+    "edges": 661,
     "revisionsRequired": 1
   },
   "revisionQueue": [
@@ -23,6 +23,99 @@
     }
   ],
   "nodes": [
+    {
+      "id": "event_40042df0d09940e2",
+      "type": "event",
+      "signalId": 55,
+      "title": "DEEPX估值跃升考验边缘芯片兑现",
+      "bucket": "explore",
+      "valueScore": 83,
+      "publishedAt": "2026-08-03T09:45:07.000Z",
+      "updatedAt": "2026-08-03T09:45:07.000Z"
+    },
+    {
+      "id": "article_c215ae7db93e69a3",
+      "type": "article",
+      "signalId": 55,
+      "title": "DEEPX估值跃升考验边缘芯片兑现",
+      "version": 1,
+      "publishedAt": "2026-08-03T10:05:58.951Z"
+    },
+    {
+      "id": "source_c2e1da076c7e4163",
+      "type": "source",
+      "title": "Bloomberg Technology",
+      "url": "https://www.bloomberg.com/news/articles/2026-08-03/ai-chip-designer-deepx-s-value-surges-to-2-2-billion-in-funding",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-03T09:45:07.000Z"
+    },
+    {
+      "id": "claim_1ab7c3397998eccb",
+      "type": "claim",
+      "title": "Bloomberg报道称，DEEPX获得新融资，估值约22亿美元，约为此前估值的四倍。",
+      "role": "主张",
+      "addedAt": "2026-08-03T10:05:58.951Z"
+    },
+    {
+      "id": "source_06e2b889ed819aee",
+      "type": "source",
+      "title": "DealSite",
+      "url": "https://dealsite.co.kr/articles/165199/075023",
+      "sourceKind": "Media",
+      "publishedAt": "2026-07-13T00:00:00.000Z"
+    },
+    {
+      "id": "claim_e43e3ad13a4035c4",
+      "type": "claim",
+      "title": "DealSite报道称，DEEPX本轮已确认超过3,000亿韩元资金，投前估值为2.85万亿韩元，并进入后续交割。",
+      "role": "佐证",
+      "addedAt": "2026-08-03T10:05:58.951Z"
+    },
+    {
+      "id": "source_6603fd2b58841436",
+      "type": "source",
+      "title": "DEEPX via PR Newswire",
+      "url": "https://www.prnewswire.com/news-releases/korean-semiconductor-industry-titans-back-deepx-in-series-c-funding-round-302141172.html",
+      "sourceKind": "Official",
+      "publishedAt": "2024-05-09T23:00:00.000Z"
+    },
+    {
+      "id": "claim_6c4d9c88556b0ad9",
+      "type": "claim",
+      "title": "DEEPX在2024年宣布完成1,100亿韩元Series C融资，并称估值较此前一轮增长逾八倍。",
+      "role": "背景",
+      "addedAt": "2026-08-03T10:05:58.951Z"
+    },
+    {
+      "id": "source_03b943b4b04d2093",
+      "type": "source",
+      "title": "DEEPX",
+      "url": "https://deepx.ai/deepx-announces-global-physical-ai-mass-production-partnership-with-aaeon/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-06-08T00:00:00.000Z"
+    },
+    {
+      "id": "claim_bd78f26ed1710dd2",
+      "type": "claim",
+      "title": "DEEPX宣布与AAEON达成为期三年的量产合作备忘录，拟将NPU集成至工业电脑、单板电脑和边缘网关。",
+      "role": "佐证",
+      "addedAt": "2026-08-03T10:05:58.951Z"
+    },
+    {
+      "id": "source_f363d6b4f9cde6ff",
+      "type": "source",
+      "title": "Seoul Economic Daily",
+      "url": "https://en.sedaily.com/news/2026/07/09/deepx-scales-back-pre-ipo-as-national-growth-fund",
+      "sourceKind": "Media",
+      "publishedAt": "2026-07-09T00:00:00.000Z"
+    },
+    {
+      "id": "claim_5bf22a0ef61c3693",
+      "type": "claim",
+      "title": "Seoul Economic Daily报道称，DEEPX下调Pre-IPO融资目标，且其上年合并营收为33亿韩元、净亏损589亿韩元。",
+      "role": "反例",
+      "addedAt": "2026-08-03T10:05:58.951Z"
+    },
     {
       "id": "event_0c9d4afc6715e91b",
       "type": "event",
@@ -5162,6 +5255,77 @@
     }
   ],
   "edges": [
+    {
+      "id": "edge_83774e68b2005567",
+      "from": "event_40042df0d09940e2",
+      "to": "article_c215ae7db93e69a3",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_ff00c7bcea2a5c55",
+      "from": "source_c2e1da076c7e4163",
+      "to": "claim_1ab7c3397998eccb",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_c611c4ca8472c9d4",
+      "from": "claim_1ab7c3397998eccb",
+      "to": "event_40042df0d09940e2",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_1c1a7cfde510d582",
+      "from": "source_06e2b889ed819aee",
+      "to": "claim_e43e3ad13a4035c4",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_f7a1cd54655c464f",
+      "from": "claim_e43e3ad13a4035c4",
+      "to": "event_40042df0d09940e2",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_944f4df13ed45386",
+      "from": "source_6603fd2b58841436",
+      "to": "claim_6c4d9c88556b0ad9",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_dc0cea088ab30a13",
+      "from": "claim_6c4d9c88556b0ad9",
+      "to": "event_40042df0d09940e2",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_4782055aab42a2fb",
+      "from": "source_03b943b4b04d2093",
+      "to": "claim_bd78f26ed1710dd2",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_163cea9b25ca4df5",
+      "from": "claim_bd78f26ed1710dd2",
+      "to": "event_40042df0d09940e2",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_e64bbbb37034e307",
+      "from": "source_f363d6b4f9cde6ff",
+      "to": "claim_5bf22a0ef61c3693",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_02528977f710b8fb",
+      "from": "claim_5bf22a0ef61c3693",
+      "to": "event_40042df0d09940e2",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
     {
       "id": "edge_e14ac870acaf4a93",
       "from": "event_0c9d4afc6715e91b",
