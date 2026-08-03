@@ -50,7 +50,7 @@ test("builds a strict 6-hour live window without stale padding", () => {
   assert.equal(feed.items[0].prominence, "lead");
 });
 
-test("turns an A-level cluster discovery into a public original-source item", () => {
+test("keeps A-level discovery wording private until an original source appears", () => {
   const feed = buildLiveFeed(
     snapshot([
       item({
@@ -67,11 +67,39 @@ test("turns an A-level cluster discovery into a public original-source item", ()
     ]),
   );
 
+  assert.deepEqual(feed.items, []);
+});
+
+test("uses the original-source headline when a cluster URL is corroborated", () => {
+  const feed = buildLiveFeed(
+    snapshot([
+      item({
+        id: "cluster",
+        sourceId: 226,
+        sourceName: "Techmeme",
+        sourcePublisher: "Techmeme",
+        title:
+          "Techmeme's long editorial rewrite of an AI launch (Jane Doe/Example News)",
+        url: "https://example.com/astra?utm_source=techmeme",
+        discoveryOnly: true,
+        discoveryLevel: "A",
+      }),
+      item({
+        id: "original",
+        sourceId: 999,
+        sourceName: "Example News",
+        sourcePublisher: "Example News",
+        title: "OpenAI launches Astra for scientific reasoning",
+        url: "https://example.com/astra",
+      }),
+    ]),
+  );
+
   assert.equal(feed.items.length, 1);
   assert.equal(feed.items[0].sourceName, "Example News");
   assert.equal(
     feed.items[0].title,
-    "OpenAI previews AI model Astra for scientific reasoning",
+    "OpenAI launches Astra for scientific reasoning",
   );
   assert.equal(feed.items[0].url, "https://example.com/astra");
   assert.equal(feed.items[0].discoveredThroughCluster, true);

@@ -67,23 +67,8 @@ function displayDomain(value) {
   }
 }
 
-function discoveryHeadline(item) {
-  const match = item.title?.match(/\s+\(([^()]+)\)\s*$/);
-  if (!match) {
-    return {
-      title: item.title?.trim() ?? "",
-      sourceName: displayDomain(item.url) || "Original source",
-    };
-  }
-  const attribution = match[1]
-    .split("/")
-    .map((part) => part.trim())
-    .filter(Boolean);
-  return {
-    title: item.title.slice(0, match.index).trim(),
-    sourceName:
-      attribution.at(-1) ?? displayDomain(item.url) ?? "Original source",
-  };
+function isDiscoveryItem(item, configuredSource) {
+  return Boolean(item.discoveryOnly || configuredSource?.discoveryOnly);
 }
 
 function normalizedTitle(value) {
@@ -113,15 +98,28 @@ export function buildLiveFeed(snapshot, now = snapshot?.generatedAt) {
   const seenUrls = new Set();
   const seenTitles = new Set();
   const sourceCounts = new Map();
+  const clusteredOriginalUrls = new Set(
+    (snapshot.items ?? []).flatMap((item) => {
+      const configuredSource = sourceById.get(item.sourceId);
+      if (
+        !isDiscoveryItem(item, configuredSource) ||
+        (item.discoveryLevel ?? configuredSource?.discoveryLevel) !== "A"
+      ) {
+        return [];
+      }
+      const url = canonicalUrl(item.url);
+      return url ? [url.toLowerCase()] : [];
+    }),
+  );
 
   const items = (snapshot.items ?? [])
     .flatMap((item) => {
       const configuredSource = sourceById.get(item.sourceId);
+      const discovery = isDiscoveryItem(item, configuredSource);
       if (
         item.conversationSource ||
         configuredSource?.conversationSource ||
-        ((item.discoveryOnly || configuredSource?.discoveryOnly) &&
-          (item.discoveryLevel ?? configuredSource?.discoveryLevel) !== "A")
+        discovery
       ) {
         return [];
       }
@@ -136,20 +134,15 @@ export function buildLiveFeed(snapshot, now = snapshot?.generatedAt) {
       const url = canonicalUrl(item.url);
       if (!url || /(^|\.)techmeme\.com$/i.test(displayDomain(url))) return [];
 
-      const discovery = Boolean(
-        item.discoveryOnly || configuredSource?.discoveryOnly,
-      );
-      const discoveryCopy = discovery ? discoveryHeadline(item) : null;
-      const title = discoveryCopy?.title ?? item.title?.trim() ?? "";
+      const title = item.title?.trim() ?? "";
       const sourceName =
-        discoveryCopy?.sourceName ??
         item.sourcePublisher ??
         item.sourceName ??
         displayDomain(url);
       if (!title || !sourceName) return [];
       const sourceKind = getSourceKind(url);
       const candidateText = `${title} ${item.summary ?? ""}`;
-      const scopeText = discovery ? title : candidateText;
+      const clustered = clusteredOriginalUrls.has(url.toLowerCase());
       const authoritative = authoritativePublisherPattern.test(
         `${sourceName} ${item.sourceName ?? ""}`,
       );
@@ -158,9 +151,8 @@ export function buildLiveFeed(snapshot, now = snapshot?.generatedAt) {
       );
       if (
         Number(item.durationMinutes ?? 0) >= 20 ||
-        !liveScopePattern.test(scopeText) ||
-        (!discovery &&
-          !authoritative &&
+        !liveScopePattern.test(candidateText) ||
+        (!authoritative &&
           !trustedNewsPublisher &&
           !materialEventPattern.test(candidateText))
       ) {
@@ -178,9 +170,9 @@ export function buildLiveFeed(snapshot, now = snapshot?.generatedAt) {
         publishedAt: new Date(publishedAtMs).toISOString(),
         firstSeenAt:
           parseTime(item.firstSeenAt) === null ? null : item.firstSeenAt,
-        discoveredThroughCluster: discovery,
+        discoveredThroughCluster: clustered,
         prominence:
-          discovery ||
+          clustered ||
           (authoritative && materialEventPattern.test(candidateText))
             ? "lead"
             : "river",
@@ -202,7 +194,7 @@ export function buildLiveFeed(snapshot, now = snapshot?.generatedAt) {
       }
       const identity = sourceIdentity(item);
       const count = sourceCounts.get(identity) ?? 0;
-      if (!item.discoveredThroughCluster && count >= directSourceLimit) {
+      if (count >= directSourceLimit) {
         return false;
       }
       seenUrls.add(urlKey);
