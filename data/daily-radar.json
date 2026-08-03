@@ -1,13 +1,525 @@
 {
-  "generatedAt": "2026-08-03T10:10:20.360Z",
-  "basedOnSnapshotAt": "2026-08-03T10:05:58.951Z",
+  "generatedAt": "2026-08-03T14:12:36.764Z",
+  "basedOnSnapshotAt": "2026-08-03T14:06:05.779Z",
   "model": "gpt-5.5",
   "analyzedItemCount": 180,
-  "totalFetchedItemCount": 2090,
+  "totalFetchedItemCount": 2091,
   "editorNote": "今日信息环境由代理安全事件、编码代理工具链分化、开放模型竞争和算力下沉共同主导。",
   "signalQuality": 86,
   "signalQualityChange": 8,
   "signals": [
+    {
+      "id": 56,
+      "editorialBucket": "dynamic",
+      "category": "AI & 模型",
+      "eyebrow": "产品信号",
+      "title": "Alibaba将Qwen3.8-Max推入默认API",
+      "summary": "Alibaba Cloud现将qwen3.8-max列为默认启用思考的hybrid-thinking模型；此前仅有Token Plan独家的Qwen3.8-Max-Preview。",
+      "why": "这将Alibaba旗舰模型从受限预览推进到更广泛的开发者产品层，直接影响其在代理和长任务市场的竞争位置。",
+      "impact": "若开放权重计划和长时程能力得到独立验证，Qwen或将扩大开源模型在复杂企业工作流中的可选范围。",
+      "shiftFrom": "Token Plan独家预览",
+      "shiftTo": "默认启用思考的API模型",
+      "crossValidation": "Alibaba Cloud当前文档确认正式模型的API状态；7月官方公告界定此前预览限制。媒体报道补充2.4万亿参数、长任务定位及拟开放权重计划；历史第三方评测则限制领先性判断。",
+      "article": {
+        "lead": "Alibaba正把Qwen3.8-Max从受限预览推进至默认API产品层。Alibaba Cloud当前文档将qwen3.8-max列为默认启用思考的hybrid-thinking模型，而此前的Qwen3.8-Max-Preview仅限Token Plan使用。这一变化使其不再只是面向订阅用户的预览型号，而成为Alibaba面向开发者部署旗舰能力的明确产品信号。",
+        "sections": [
+          {
+            "heading": "旗舰模型跨出受限预览",
+            "body": "Alibaba Cloud的模型文档显示，qwen3.8-max现以默认开启思考模式的hybrid-thinking模型提供；同一文档仍将qwen3.8-max-preview标作Token Plan限定的thinking-only版本。官方在7月曾将预览版称为Qwen家族最新、最强模型，覆盖开发、数据分析、办公和视觉理解等任务。两份产品材料共同表明，Qwen3.8-Max的状态已从限定预览转为可被开发者在API工作流中调用的正式型号。"
+          },
+          {
+            "heading": "长任务定位需要产品化承接",
+            "body": "The Decoder报道称，Qwen3.8-Max拥有2.4万亿参数，定位于可持续处理数日复杂任务，并计划在下周发布权重。若这一计划落地，API可用性与开放权重将形成两条分发路径：企业可以先以托管模型接入，开发者也可围绕权重进行本地化部署和定制。Alibaba此前对Qwen3.7-Max的内部测试称，其可连续运行35小时、进行逾1,000次工具调用；这说明该公司已将长时程代理执行作为旗舰模型迭代的核心叙事。"
+          },
+          {
+            "heading": "正式命名不等于性能领先",
+            "body": "此次变化的关键不在于参数规模本身，而在于Alibaba是否能把长任务能力转化为稳定、可复用的开发者工作流。其前代Qwen3.7-Max的长时程结果来自厂商内部测试，不能直接证明Qwen3.8-Max的表现。更重要的反证来自Artificial Analysis对更早Qwen3-Max-Thinking的评估：其综合指数和代理任务指标均落后于部分同业模型。因此，Qwen3.8-Max的正式产品状态已清晰，但其相对领先位置仍须依赖外部评测和真实部署结果确认。"
+          }
+        ],
+        "outlook": "下一步可观察三类证据：Alibaba是否按报道发布权重及完整模型卡；API文档是否披露价格、上下文长度、工具调用和地区可用范围；以及独立评测是否在长时程代理、代码和推理任务上将Qwen3.8-Max置于前列。若权重未发布、能力主张缺少可复现实验，正式API化对竞争格局的含义将明显减弱。"
+      },
+      "validationType": "跨平台验证",
+      "publishedAt": "2026-08-03T10:48:50.000Z",
+      "updatedAt": "2026-08-03T10:48:50.000Z",
+      "sources": [
+        "Blog",
+        "Official",
+        "Media"
+      ],
+      "sourceNames": [
+        "The Decoder",
+        "Alibaba Cloud Model Studio",
+        "Model Studio",
+        "Alibaba Group",
+        "Artificial Analysis"
+      ],
+      "sourceCount": 5,
+      "age": "3 小时前",
+      "score": 86,
+      "tone": "blue",
+      "evidence": [
+        {
+          "id": "232-3-https://the-decoder.com/alibabas-open-weight-qwen3-8-max-takes-on-long-horizon-ai-tasks-with-2-4-trillion-parameters/",
+          "sourceId": 232,
+          "sourceName": "The Decoder AI",
+          "sourcePublisher": "The Decoder",
+          "sourceKind": "Blog",
+          "title": "Alibaba’s open-weight Qwen3.8-Max takes on long-horizon AI tasks with 2.4 trillion parameters",
+          "url": "https://the-decoder.com/alibabas-open-weight-qwen3-8-max-takes-on-long-horizon-ai-tasks-with-2-4-trillion-parameters/",
+          "publishedAt": "2026-08-03T10:48:50.000Z",
+          "summary": "Alibaba's new flagship model Qwen3.8-Max is built to handle complex tasks on its own over days at a time, from reproducing research papers to designing chips autonomously. The team plans to release the weights next week. The article Alibaba’s open-weight Qwen3.8-Max takes on long-horizon AI tasks with 2.4 trillion parameters appeared first on The Decoder .",
+          "fetchedAt": "2026-08-03T14:06:05.779Z",
+          "firstSeenAt": "2026-08-03T14:06:05.779Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "standard",
+            "reason": "fresh",
+            "ageHours": 3.2877163888888887,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N1",
+          "role": "主张",
+          "takeaway": "报道称Alibaba推出2.4万亿参数Qwen3.8-Max，主打长时程复杂任务，并计划于下周发布权重。"
+        },
+        {
+          "id": "research-232-3-https://the-decoder.com/alibabas-open-weight-qwen3-8-max-takes-on-long-horizon-ai-tasks-with-2-4-trillion-parameters/-1-https://help.aliyun.com/en/model-studio/deep-thinking",
+          "sourceId": 232,
+          "sourceName": "Alibaba Cloud Model Studio",
+          "sourcePublisher": "Alibaba Cloud Model Studio",
+          "sourceKind": "Official",
+          "title": "Use deep thinking models via API",
+          "url": "https://help.aliyun.com/en/model-studio/deep-thinking",
+          "publishedAt": "2026-08-03T10:48:50.000Z",
+          "summary": "补齐当前产品状态：文档将 qwen3.8-max 列为默认启用思考的 hybrid-thinking 模型，同时将 qwen3.8-max-preview 列为仅限 Token Plan 的 thinking-only 版本；也列出了此前 Qwen3.7-Max、Qwen3.6-Max-Preview 和 Qwen3-Max 的可比产品状态。",
+          "fetchedAt": "2026-08-03T14:06:05.779Z",
+          "researchedFrom": "N1",
+          "researchRole": "Primary",
+          "researchClaim": "Qwen3.8-Max 的实质变化是从 2026年7月仅限订阅用户的预览版，走向已被 Alibaba Cloud 文档列为正式 qwen3.8-max 的旗舰推理模型；Alibaba 将其定位为 2.4 trillion-parameter、面向长时程 coding、专业协作和自主 agent 任务的 Qwen 旗舰，并称可用于复现 research papers 与 chip design。其 open-weight 承诺在 2026年8月3日之后的下一周才应接受可下载权重、许可证和模型卡的检验。",
+          "researchComparisons": "当前状态：Alibaba Cloud 的深度思考模型文档已将 qwen3.8-max 列为默认开启思考的 hybrid-thinking 型号，同时将 qwen3.8-max-preview 标为仅限 Token Plan 的 thinking-only 型号。此前状态：2026年7月19日，Alibaba 仅将 Qwen3.8-Max-Preview 作为 Token Plan 独家预览提供，并以全栈开发、数据分析、办公流程和视觉理解宣传其能力。可比的既有 agent 基准是 Qwen3.7-Max：Alibaba 在 2026年5月公布的内部测试称其连续运行35小时、调用工具超过1,000次，并产出性能为芯片厂商官方版本10倍的计算内核；但该数字不是 Qwen3.8-Max 的独立复现实测。独立的较早代 Qwen3-Max-Thinking 测试显示，其 Artificial Analysis Intelligence Index 为40，落后于 Kimi K2.5 的47、DeepSeek V3.2 和 GLM-4.7 的42，说明新一代的领先定位仍须用同类第三方评测验证。",
+          "researchUnresolved": "尚未找到 Qwen3.8-Max 的官方模型卡、可下载权重、许可证、按 token 的公开 API 定价、披露方法的基准表或独立评测；2.4 trillion 参数、长时程自主执行和相对前沿模型的性能定位目前应视为 Alibaba 主张，而非已完成的第三方基准结论。",
+          "ref": "R1",
+          "role": "佐证",
+          "takeaway": "Alibaba Cloud当前文档将qwen3.8-max列为默认启用思考的hybrid-thinking模型，并将预览版列为Token Plan限定版本。"
+        },
+        {
+          "id": "research-232-3-https://the-decoder.com/alibabas-open-weight-qwen3-8-max-takes-on-long-horizon-ai-tasks-with-2-4-trillion-parameters/-2-https://modelstudio.alibabacloud.com/intl/blog/model-studio-token-plan-individual/",
+          "sourceId": 232,
+          "sourceName": "Model Studio",
+          "sourcePublisher": "Model Studio",
+          "sourceKind": "Official",
+          "title": "Model Studio Token Plan for Individual: One Subscription for Every AI Model, Up to 3x More Value",
+          "url": "https://modelstudio.alibabacloud.com/intl/blog/model-studio-token-plan-individual/",
+          "publishedAt": "2026-07-19T00:00:00.000Z",
+          "summary": "补齐此前状态：Qwen3.8-Max-Preview 于2026年7月19日作为 Token Plan 独家预览推出，官方当时将其称为 Qwen 家族最新、最强模型，并宣传全栈开发、数据分析、办公工作流及视觉理解用途；该状态与后续正式 qwen3.8-max 文档形成可核验比较。",
+          "fetchedAt": "2026-08-03T14:06:05.779Z",
+          "researchedFrom": "N1",
+          "researchRole": "Comparison",
+          "researchClaim": "Qwen3.8-Max 的实质变化是从 2026年7月仅限订阅用户的预览版，走向已被 Alibaba Cloud 文档列为正式 qwen3.8-max 的旗舰推理模型；Alibaba 将其定位为 2.4 trillion-parameter、面向长时程 coding、专业协作和自主 agent 任务的 Qwen 旗舰，并称可用于复现 research papers 与 chip design。其 open-weight 承诺在 2026年8月3日之后的下一周才应接受可下载权重、许可证和模型卡的检验。",
+          "researchComparisons": "当前状态：Alibaba Cloud 的深度思考模型文档已将 qwen3.8-max 列为默认开启思考的 hybrid-thinking 型号，同时将 qwen3.8-max-preview 标为仅限 Token Plan 的 thinking-only 型号。此前状态：2026年7月19日，Alibaba 仅将 Qwen3.8-Max-Preview 作为 Token Plan 独家预览提供，并以全栈开发、数据分析、办公流程和视觉理解宣传其能力。可比的既有 agent 基准是 Qwen3.7-Max：Alibaba 在 2026年5月公布的内部测试称其连续运行35小时、调用工具超过1,000次，并产出性能为芯片厂商官方版本10倍的计算内核；但该数字不是 Qwen3.8-Max 的独立复现实测。独立的较早代 Qwen3-Max-Thinking 测试显示，其 Artificial Analysis Intelligence Index 为40，落后于 Kimi K2.5 的47、DeepSeek V3.2 和 GLM-4.7 的42，说明新一代的领先定位仍须用同类第三方评测验证。",
+          "researchUnresolved": "尚未找到 Qwen3.8-Max 的官方模型卡、可下载权重、许可证、按 token 的公开 API 定价、披露方法的基准表或独立评测；2.4 trillion 参数、长时程自主执行和相对前沿模型的性能定位目前应视为 Alibaba 主张，而非已完成的第三方基准结论。",
+          "ref": "R2",
+          "role": "背景",
+          "takeaway": "官方7月公告显示Qwen3.8-Max-Preview当时仅作为Token Plan独家预览推出。"
+        },
+        {
+          "id": "research-232-3-https://the-decoder.com/alibabas-open-weight-qwen3-8-max-takes-on-long-horizon-ai-tasks-with-2-4-trillion-parameters/-3-https://alihome.alibaba-inc.com/en-US/document-1994119844504535040",
+          "sourceId": 232,
+          "sourceName": "Alibaba Group",
+          "sourcePublisher": "Alibaba Group",
+          "sourceKind": "Official",
+          "title": "Alibaba Unveils New AI Chip, Flagship Model, and Rebuilt Cloud Stack AI for Agentic Era",
+          "url": "https://alihome.alibaba-inc.com/en-US/document-1994119844504535040",
+          "publishedAt": "2026-05-20T00:00:00.000Z",
+          "summary": "提供前代旗舰的明确 agent 参照：Alibaba 称 Qwen3.7-Max 在内部任务中连续运行35小时、进行了超过1,000次工具调用，并生成比芯片厂商官方版本快10倍的生产级 AI 计算内核；该结果为厂商内部测试，不能直接当作 Qwen3.8-Max 的独立性能证明。",
+          "fetchedAt": "2026-08-03T14:06:05.779Z",
+          "researchedFrom": "N1",
+          "researchRole": "Comparison",
+          "researchClaim": "Qwen3.8-Max 的实质变化是从 2026年7月仅限订阅用户的预览版，走向已被 Alibaba Cloud 文档列为正式 qwen3.8-max 的旗舰推理模型；Alibaba 将其定位为 2.4 trillion-parameter、面向长时程 coding、专业协作和自主 agent 任务的 Qwen 旗舰，并称可用于复现 research papers 与 chip design。其 open-weight 承诺在 2026年8月3日之后的下一周才应接受可下载权重、许可证和模型卡的检验。",
+          "researchComparisons": "当前状态：Alibaba Cloud 的深度思考模型文档已将 qwen3.8-max 列为默认开启思考的 hybrid-thinking 型号，同时将 qwen3.8-max-preview 标为仅限 Token Plan 的 thinking-only 型号。此前状态：2026年7月19日，Alibaba 仅将 Qwen3.8-Max-Preview 作为 Token Plan 独家预览提供，并以全栈开发、数据分析、办公流程和视觉理解宣传其能力。可比的既有 agent 基准是 Qwen3.7-Max：Alibaba 在 2026年5月公布的内部测试称其连续运行35小时、调用工具超过1,000次，并产出性能为芯片厂商官方版本10倍的计算内核；但该数字不是 Qwen3.8-Max 的独立复现实测。独立的较早代 Qwen3-Max-Thinking 测试显示，其 Artificial Analysis Intelligence Index 为40，落后于 Kimi K2.5 的47、DeepSeek V3.2 和 GLM-4.7 的42，说明新一代的领先定位仍须用同类第三方评测验证。",
+          "researchUnresolved": "尚未找到 Qwen3.8-Max 的官方模型卡、可下载权重、许可证、按 token 的公开 API 定价、披露方法的基准表或独立评测；2.4 trillion 参数、长时程自主执行和相对前沿模型的性能定位目前应视为 Alibaba 主张，而非已完成的第三方基准结论。",
+          "ref": "R3",
+          "role": "背景",
+          "takeaway": "Alibaba此前称Qwen3.7-Max可在内部任务中连续运行35小时并完成逾1,000次工具调用。"
+        },
+        {
+          "id": "research-232-3-https://the-decoder.com/alibabas-open-weight-qwen3-8-max-takes-on-long-horizon-ai-tasks-with-2-4-trillion-parameters/-4-https://artificialanalysis.ai/articles/qwen3-max-thinking-everything-you-need-to-know",
+          "sourceId": 232,
+          "sourceName": "Artificial Analysis",
+          "sourcePublisher": "Artificial Analysis",
+          "sourceKind": "Media",
+          "title": "Qwen 3 Max Thinking Benchmarks and Analysis",
+          "url": "https://artificialanalysis.ai/articles/qwen3-max-thinking-everything-you-need-to-know",
+          "publishedAt": "2026-01-29T00:00:00.000Z",
+          "summary": "提供最强的独立历史反例与评测基准：Qwen3-Max-Thinking 的 Artificial Analysis Intelligence Index 为40，低于 Kimi K2.5 的47以及 DeepSeek V3.2、GLM-4.7 的42；其 agentic GDPval-AA Elo 为1,170，也低于上述部分同业。这说明仅凭 Alibaba 对 Qwen3.8-Max 的定位不足以证明其已处于领先位置。",
+          "fetchedAt": "2026-08-03T14:06:05.779Z",
+          "researchedFrom": "N1",
+          "researchRole": "Counterevidence",
+          "researchClaim": "Qwen3.8-Max 的实质变化是从 2026年7月仅限订阅用户的预览版，走向已被 Alibaba Cloud 文档列为正式 qwen3.8-max 的旗舰推理模型；Alibaba 将其定位为 2.4 trillion-parameter、面向长时程 coding、专业协作和自主 agent 任务的 Qwen 旗舰，并称可用于复现 research papers 与 chip design。其 open-weight 承诺在 2026年8月3日之后的下一周才应接受可下载权重、许可证和模型卡的检验。",
+          "researchComparisons": "当前状态：Alibaba Cloud 的深度思考模型文档已将 qwen3.8-max 列为默认开启思考的 hybrid-thinking 型号，同时将 qwen3.8-max-preview 标为仅限 Token Plan 的 thinking-only 型号。此前状态：2026年7月19日，Alibaba 仅将 Qwen3.8-Max-Preview 作为 Token Plan 独家预览提供，并以全栈开发、数据分析、办公流程和视觉理解宣传其能力。可比的既有 agent 基准是 Qwen3.7-Max：Alibaba 在 2026年5月公布的内部测试称其连续运行35小时、调用工具超过1,000次，并产出性能为芯片厂商官方版本10倍的计算内核；但该数字不是 Qwen3.8-Max 的独立复现实测。独立的较早代 Qwen3-Max-Thinking 测试显示，其 Artificial Analysis Intelligence Index 为40，落后于 Kimi K2.5 的47、DeepSeek V3.2 和 GLM-4.7 的42，说明新一代的领先定位仍须用同类第三方评测验证。",
+          "researchUnresolved": "尚未找到 Qwen3.8-Max 的官方模型卡、可下载权重、许可证、按 token 的公开 API 定价、披露方法的基准表或独立评测；2.4 trillion 参数、长时程自主执行和相对前沿模型的性能定位目前应视为 Alibaba 主张，而非已完成的第三方基准结论。",
+          "ref": "R4",
+          "role": "反例",
+          "takeaway": "Artificial Analysis历史评测显示，Qwen3-Max-Thinking的综合与代理指标低于部分同业模型。"
+        }
+      ],
+      "references": [
+        {
+          "id": "232-3-https://the-decoder.com/alibabas-open-weight-qwen3-8-max-takes-on-long-horizon-ai-tasks-with-2-4-trillion-parameters/",
+          "sourceId": 232,
+          "sourceName": "The Decoder AI",
+          "sourcePublisher": "The Decoder",
+          "sourceKind": "Blog",
+          "title": "Alibaba’s open-weight Qwen3.8-Max takes on long-horizon AI tasks with 2.4 trillion parameters",
+          "url": "https://the-decoder.com/alibabas-open-weight-qwen3-8-max-takes-on-long-horizon-ai-tasks-with-2-4-trillion-parameters/",
+          "publishedAt": "2026-08-03T10:48:50.000Z",
+          "summary": "Alibaba's new flagship model Qwen3.8-Max is built to handle complex tasks on its own over days at a time, from reproducing research papers to designing chips autonomously. The team plans to release the weights next week. The article Alibaba’s open-weight Qwen3.8-Max takes on long-horizon AI tasks with 2.4 trillion parameters appeared first on The Decoder .",
+          "fetchedAt": "2026-08-03T14:06:05.779Z",
+          "firstSeenAt": "2026-08-03T14:06:05.779Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "standard",
+            "reason": "fresh",
+            "ageHours": 3.2877163888888887,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N1"
+        },
+        {
+          "id": "research-232-3-https://the-decoder.com/alibabas-open-weight-qwen3-8-max-takes-on-long-horizon-ai-tasks-with-2-4-trillion-parameters/-1-https://help.aliyun.com/en/model-studio/deep-thinking",
+          "sourceId": 232,
+          "sourceName": "Alibaba Cloud Model Studio",
+          "sourcePublisher": "Alibaba Cloud Model Studio",
+          "sourceKind": "Official",
+          "title": "Use deep thinking models via API",
+          "url": "https://help.aliyun.com/en/model-studio/deep-thinking",
+          "publishedAt": "2026-08-03T10:48:50.000Z",
+          "summary": "补齐当前产品状态：文档将 qwen3.8-max 列为默认启用思考的 hybrid-thinking 模型，同时将 qwen3.8-max-preview 列为仅限 Token Plan 的 thinking-only 版本；也列出了此前 Qwen3.7-Max、Qwen3.6-Max-Preview 和 Qwen3-Max 的可比产品状态。",
+          "fetchedAt": "2026-08-03T14:06:05.779Z",
+          "researchedFrom": "N1",
+          "researchRole": "Primary",
+          "researchClaim": "Qwen3.8-Max 的实质变化是从 2026年7月仅限订阅用户的预览版，走向已被 Alibaba Cloud 文档列为正式 qwen3.8-max 的旗舰推理模型；Alibaba 将其定位为 2.4 trillion-parameter、面向长时程 coding、专业协作和自主 agent 任务的 Qwen 旗舰，并称可用于复现 research papers 与 chip design。其 open-weight 承诺在 2026年8月3日之后的下一周才应接受可下载权重、许可证和模型卡的检验。",
+          "researchComparisons": "当前状态：Alibaba Cloud 的深度思考模型文档已将 qwen3.8-max 列为默认开启思考的 hybrid-thinking 型号，同时将 qwen3.8-max-preview 标为仅限 Token Plan 的 thinking-only 型号。此前状态：2026年7月19日，Alibaba 仅将 Qwen3.8-Max-Preview 作为 Token Plan 独家预览提供，并以全栈开发、数据分析、办公流程和视觉理解宣传其能力。可比的既有 agent 基准是 Qwen3.7-Max：Alibaba 在 2026年5月公布的内部测试称其连续运行35小时、调用工具超过1,000次，并产出性能为芯片厂商官方版本10倍的计算内核；但该数字不是 Qwen3.8-Max 的独立复现实测。独立的较早代 Qwen3-Max-Thinking 测试显示，其 Artificial Analysis Intelligence Index 为40，落后于 Kimi K2.5 的47、DeepSeek V3.2 和 GLM-4.7 的42，说明新一代的领先定位仍须用同类第三方评测验证。",
+          "researchUnresolved": "尚未找到 Qwen3.8-Max 的官方模型卡、可下载权重、许可证、按 token 的公开 API 定价、披露方法的基准表或独立评测；2.4 trillion 参数、长时程自主执行和相对前沿模型的性能定位目前应视为 Alibaba 主张，而非已完成的第三方基准结论。",
+          "ref": "R1"
+        },
+        {
+          "id": "research-232-3-https://the-decoder.com/alibabas-open-weight-qwen3-8-max-takes-on-long-horizon-ai-tasks-with-2-4-trillion-parameters/-2-https://modelstudio.alibabacloud.com/intl/blog/model-studio-token-plan-individual/",
+          "sourceId": 232,
+          "sourceName": "Model Studio",
+          "sourcePublisher": "Model Studio",
+          "sourceKind": "Official",
+          "title": "Model Studio Token Plan for Individual: One Subscription for Every AI Model, Up to 3x More Value",
+          "url": "https://modelstudio.alibabacloud.com/intl/blog/model-studio-token-plan-individual/",
+          "publishedAt": "2026-07-19T00:00:00.000Z",
+          "summary": "补齐此前状态：Qwen3.8-Max-Preview 于2026年7月19日作为 Token Plan 独家预览推出，官方当时将其称为 Qwen 家族最新、最强模型，并宣传全栈开发、数据分析、办公工作流及视觉理解用途；该状态与后续正式 qwen3.8-max 文档形成可核验比较。",
+          "fetchedAt": "2026-08-03T14:06:05.779Z",
+          "researchedFrom": "N1",
+          "researchRole": "Comparison",
+          "researchClaim": "Qwen3.8-Max 的实质变化是从 2026年7月仅限订阅用户的预览版，走向已被 Alibaba Cloud 文档列为正式 qwen3.8-max 的旗舰推理模型；Alibaba 将其定位为 2.4 trillion-parameter、面向长时程 coding、专业协作和自主 agent 任务的 Qwen 旗舰，并称可用于复现 research papers 与 chip design。其 open-weight 承诺在 2026年8月3日之后的下一周才应接受可下载权重、许可证和模型卡的检验。",
+          "researchComparisons": "当前状态：Alibaba Cloud 的深度思考模型文档已将 qwen3.8-max 列为默认开启思考的 hybrid-thinking 型号，同时将 qwen3.8-max-preview 标为仅限 Token Plan 的 thinking-only 型号。此前状态：2026年7月19日，Alibaba 仅将 Qwen3.8-Max-Preview 作为 Token Plan 独家预览提供，并以全栈开发、数据分析、办公流程和视觉理解宣传其能力。可比的既有 agent 基准是 Qwen3.7-Max：Alibaba 在 2026年5月公布的内部测试称其连续运行35小时、调用工具超过1,000次，并产出性能为芯片厂商官方版本10倍的计算内核；但该数字不是 Qwen3.8-Max 的独立复现实测。独立的较早代 Qwen3-Max-Thinking 测试显示，其 Artificial Analysis Intelligence Index 为40，落后于 Kimi K2.5 的47、DeepSeek V3.2 和 GLM-4.7 的42，说明新一代的领先定位仍须用同类第三方评测验证。",
+          "researchUnresolved": "尚未找到 Qwen3.8-Max 的官方模型卡、可下载权重、许可证、按 token 的公开 API 定价、披露方法的基准表或独立评测；2.4 trillion 参数、长时程自主执行和相对前沿模型的性能定位目前应视为 Alibaba 主张，而非已完成的第三方基准结论。",
+          "ref": "R2"
+        },
+        {
+          "id": "research-232-3-https://the-decoder.com/alibabas-open-weight-qwen3-8-max-takes-on-long-horizon-ai-tasks-with-2-4-trillion-parameters/-3-https://alihome.alibaba-inc.com/en-US/document-1994119844504535040",
+          "sourceId": 232,
+          "sourceName": "Alibaba Group",
+          "sourcePublisher": "Alibaba Group",
+          "sourceKind": "Official",
+          "title": "Alibaba Unveils New AI Chip, Flagship Model, and Rebuilt Cloud Stack AI for Agentic Era",
+          "url": "https://alihome.alibaba-inc.com/en-US/document-1994119844504535040",
+          "publishedAt": "2026-05-20T00:00:00.000Z",
+          "summary": "提供前代旗舰的明确 agent 参照：Alibaba 称 Qwen3.7-Max 在内部任务中连续运行35小时、进行了超过1,000次工具调用，并生成比芯片厂商官方版本快10倍的生产级 AI 计算内核；该结果为厂商内部测试，不能直接当作 Qwen3.8-Max 的独立性能证明。",
+          "fetchedAt": "2026-08-03T14:06:05.779Z",
+          "researchedFrom": "N1",
+          "researchRole": "Comparison",
+          "researchClaim": "Qwen3.8-Max 的实质变化是从 2026年7月仅限订阅用户的预览版，走向已被 Alibaba Cloud 文档列为正式 qwen3.8-max 的旗舰推理模型；Alibaba 将其定位为 2.4 trillion-parameter、面向长时程 coding、专业协作和自主 agent 任务的 Qwen 旗舰，并称可用于复现 research papers 与 chip design。其 open-weight 承诺在 2026年8月3日之后的下一周才应接受可下载权重、许可证和模型卡的检验。",
+          "researchComparisons": "当前状态：Alibaba Cloud 的深度思考模型文档已将 qwen3.8-max 列为默认开启思考的 hybrid-thinking 型号，同时将 qwen3.8-max-preview 标为仅限 Token Plan 的 thinking-only 型号。此前状态：2026年7月19日，Alibaba 仅将 Qwen3.8-Max-Preview 作为 Token Plan 独家预览提供，并以全栈开发、数据分析、办公流程和视觉理解宣传其能力。可比的既有 agent 基准是 Qwen3.7-Max：Alibaba 在 2026年5月公布的内部测试称其连续运行35小时、调用工具超过1,000次，并产出性能为芯片厂商官方版本10倍的计算内核；但该数字不是 Qwen3.8-Max 的独立复现实测。独立的较早代 Qwen3-Max-Thinking 测试显示，其 Artificial Analysis Intelligence Index 为40，落后于 Kimi K2.5 的47、DeepSeek V3.2 和 GLM-4.7 的42，说明新一代的领先定位仍须用同类第三方评测验证。",
+          "researchUnresolved": "尚未找到 Qwen3.8-Max 的官方模型卡、可下载权重、许可证、按 token 的公开 API 定价、披露方法的基准表或独立评测；2.4 trillion 参数、长时程自主执行和相对前沿模型的性能定位目前应视为 Alibaba 主张，而非已完成的第三方基准结论。",
+          "ref": "R3"
+        },
+        {
+          "id": "research-232-3-https://the-decoder.com/alibabas-open-weight-qwen3-8-max-takes-on-long-horizon-ai-tasks-with-2-4-trillion-parameters/-4-https://artificialanalysis.ai/articles/qwen3-max-thinking-everything-you-need-to-know",
+          "sourceId": 232,
+          "sourceName": "Artificial Analysis",
+          "sourcePublisher": "Artificial Analysis",
+          "sourceKind": "Media",
+          "title": "Qwen 3 Max Thinking Benchmarks and Analysis",
+          "url": "https://artificialanalysis.ai/articles/qwen3-max-thinking-everything-you-need-to-know",
+          "publishedAt": "2026-01-29T00:00:00.000Z",
+          "summary": "提供最强的独立历史反例与评测基准：Qwen3-Max-Thinking 的 Artificial Analysis Intelligence Index 为40，低于 Kimi K2.5 的47以及 DeepSeek V3.2、GLM-4.7 的42；其 agentic GDPval-AA Elo 为1,170，也低于上述部分同业。这说明仅凭 Alibaba 对 Qwen3.8-Max 的定位不足以证明其已处于领先位置。",
+          "fetchedAt": "2026-08-03T14:06:05.779Z",
+          "researchedFrom": "N1",
+          "researchRole": "Counterevidence",
+          "researchClaim": "Qwen3.8-Max 的实质变化是从 2026年7月仅限订阅用户的预览版，走向已被 Alibaba Cloud 文档列为正式 qwen3.8-max 的旗舰推理模型；Alibaba 将其定位为 2.4 trillion-parameter、面向长时程 coding、专业协作和自主 agent 任务的 Qwen 旗舰，并称可用于复现 research papers 与 chip design。其 open-weight 承诺在 2026年8月3日之后的下一周才应接受可下载权重、许可证和模型卡的检验。",
+          "researchComparisons": "当前状态：Alibaba Cloud 的深度思考模型文档已将 qwen3.8-max 列为默认开启思考的 hybrid-thinking 型号，同时将 qwen3.8-max-preview 标为仅限 Token Plan 的 thinking-only 型号。此前状态：2026年7月19日，Alibaba 仅将 Qwen3.8-Max-Preview 作为 Token Plan 独家预览提供，并以全栈开发、数据分析、办公流程和视觉理解宣传其能力。可比的既有 agent 基准是 Qwen3.7-Max：Alibaba 在 2026年5月公布的内部测试称其连续运行35小时、调用工具超过1,000次，并产出性能为芯片厂商官方版本10倍的计算内核；但该数字不是 Qwen3.8-Max 的独立复现实测。独立的较早代 Qwen3-Max-Thinking 测试显示，其 Artificial Analysis Intelligence Index 为40，落后于 Kimi K2.5 的47、DeepSeek V3.2 和 GLM-4.7 的42，说明新一代的领先定位仍须用同类第三方评测验证。",
+          "researchUnresolved": "尚未找到 Qwen3.8-Max 的官方模型卡、可下载权重、许可证、按 token 的公开 API 定价、披露方法的基准表或独立评测；2.4 trillion 参数、长时程自主执行和相对前沿模型的性能定位目前应视为 Alibaba 主张，而非已完成的第三方基准结论。",
+          "ref": "R4"
+        }
+      ],
+      "feedBatchAt": "2026-08-03T14:06:05.779Z"
+    },
+    {
+      "id": 57,
+      "editorialBucket": "explore",
+      "category": "投资",
+      "eyebrow": "资本信号",
+      "title": "Horizon3融资押注持续安全验证",
+      "summary": "TechCrunch称Horizon3.ai完成2.5亿美元E轮融资、估值20亿美元。其产品已披露数千家机构采用，资本正押注持续自动化验证替代年度渗透测试。",
+      "why": "融资规模较其此前1亿美元D轮显著扩大，反映企业安全预算可能开始为持续验证而非周期性测试配置更多资金。",
+      "impact": "若客户续约和自动化测试频率同步增长，安全平台竞争或更重视攻击面验证的运营数据，而不只是检测能力。",
+      "shiftFrom": "1亿美元D轮融资",
+      "shiftTo": "2.5亿美元E轮及20亿美元估值",
+      "crossValidation": "TechCrunch提供本轮融资和估值信息；公司此前披露D轮、客户采用和生产测试规模，SEC文件可核验旧融资实际销售额。NIST指南则说明自动化测试仍需人工核查。",
+      "article": {
+        "lead": "Horizon3.ai据TechCrunch报道完成2.5亿美元E轮融资、估值达到20亿美元。若该融资信息获得后续公司或投资方确认，它反映的并不只是单一安全公司的估值上升：资本正在为“持续验证”这一安全运营模式定价，即让企业反复检验真实攻击路径，而不是主要依赖年度或项目制渗透测试。",
+        "sections": [
+          {
+            "heading": "融资规模指向运营型安全预算",
+            "body": "TechCrunch称，Horizon3.ai的新一轮融资为2.5亿美元，估值20亿美元。作为比较，公司在2025年宣布的Series D为1亿美元，相关SEC Form D显示当时计划发行1亿美元股权、申报时已售约7300万美元。单从融资规模看，本轮资本投入显著扩大。编辑上看，这意味着投资者可能不再只把自动化渗透测试视为单点工具，而是在押注其成为企业安全运营中的持续性支出类别。"
+          },
+          {
+            "heading": "产品采用让论点不止于融资",
+            "body": "Horizon3.ai在2025年6月称，其NodeZero平台已被3,000多家机构使用，ARR同比增长超过100%，并达到Rule of 40 positive；同年5月，公司又称5,500多名客户执行了逾25万次生产安全渗透测试。这些均为公司自报数据，不能代替审计后的留存或收入指标，但它们说明融资叙事有实际部署作为支点。持续运行的验证频率若能提高，平台积累的攻击路径、修复结果和环境变化数据，也可能成为区别于一次性服务的产品资产。"
+          },
+          {
+            "heading": "自动化价值取决于闭环而非替代人",
+            "body": "这一模式的机制是把测试从合规节点改为持续反馈环：系统发现暴露面，模拟攻击路径，再将修复优先级返回安全团队。其价值取决于测试结果能否与真实风险和修复动作连通，而非仅增加扫描次数。NIST关于安全测试的指南指出，自动化工具的发现通常仍需人工检查以排除误报，人工检查往往更准确，且渗透测试本身可能影响目标系统可用性。这构成最强反例：持续自动化验证未必等同于更少的人力或更低的运营风险。"
+          }
+        ],
+        "outlook": "后续应观察公司或领投方是否正式披露融资条款，以及客户数、ARR、净留存、测试频率和修复转化率是否随融资增长。若更多大型企业把持续验证纳入采购并披露可量化续约数据，资本对这一类别的判断将被强化；若增长主要来自试用、误报处置成本上升或服务介入，相关估值逻辑将受削弱。"
+      },
+      "validationType": "跨平台验证",
+      "publishedAt": "2026-08-03T12:50:46.000Z",
+      "updatedAt": "2026-08-03T12:50:46.000Z",
+      "sources": [
+        "Blog",
+        "SEC",
+        "Official",
+        "Research"
+      ],
+      "sourceNames": [
+        "TechCrunch",
+        "U.S. Securities and Exchange Commission",
+        "Horizon3.ai",
+        "National Institute of Standards and Technology"
+      ],
+      "sourceCount": 4,
+      "age": "1 小时前",
+      "score": 80,
+      "tone": "green",
+      "evidence": [
+        {
+          "id": "grounded-page-metadata-2080e3a392660eb8",
+          "sourceId": 228,
+          "sourceName": "TechCrunch",
+          "sourcePublisher": "TechCrunch",
+          "sourceKind": "Blog",
+          "title": "Horizon3 hits $2 billion valuation with $250M Series E as AI threats escalate | TechCrunch",
+          "url": "https://techcrunch.com/2026/08/03/horizon3-hits-2-billion-valuation-with-250m-series-e-as-ai-threats-escalate/",
+          "publishedAt": "2026-08-03T12:50:46.000Z",
+          "summary": "Cybersecurity startup Horizon3 raised $250 million at a $2 billion valuation as companies want continuous, AI-powered security validation instead of annual pentesting.",
+          "fetchedAt": "2026-08-03T14:06:05.779Z",
+          "groundedFromDiscovery": true,
+          "originalTitleMethod": "public-page-metadata",
+          "discoveredThroughCluster": true,
+          "firstSeenAt": "2026-08-03T14:06:05.779Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "standard",
+            "reason": "fresh",
+            "ageHours": 1.2554941666666666,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N7",
+          "role": "主张",
+          "takeaway": "TechCrunch报道称Horizon3.ai完成2.5亿美元Series E融资，估值20亿美元，企业正寻求持续的AI驱动安全验证。"
+        },
+        {
+          "id": "research-grounded-page-metadata-2080e3a392660eb8-1-https://www.sec.gov/Archives/edgar/data/1801975/000180197525000001/xslFormDX01/primary_doc.xml",
+          "sourceId": 228,
+          "sourceName": "U.S. Securities and Exchange Commission",
+          "sourcePublisher": "U.S. Securities and Exchange Commission",
+          "sourceKind": "SEC",
+          "title": "SEC FORM D",
+          "url": "https://www.sec.gov/Archives/edgar/data/1801975/000180197525000001/xslFormDX01/primary_doc.xml",
+          "publishedAt": "2025-05-22T00:00:00.000Z",
+          "summary": "补齐上一轮可监管核验的融资实际数：Horizon 3 AI, Inc.申报1亿美元Rule 506(b)股权发行，首次销售日为2025年5月8日；截至申报已售72,999,996美元，剩余27,000,004美元，已有5名投资者。",
+          "fetchedAt": "2026-08-03T14:06:05.779Z",
+          "researchedFrom": "N7",
+          "researchRole": "Comparison",
+          "researchClaim": "本轮融资若按候选所述完成，将把 Horizon3.ai 的融资规模和估值推进到新阶段；在此之前，公司已于2025年完成1亿美元Series D，并在2026年5月披露其平台已服务5,500多家客户、执行超过25万次生产环境渗透测试。",
+          "researchComparisons": "可核验的此前融资基准是：2025年5月提交的SEC Form D申报1亿美元股权融资、已售约7,300万美元；公司随后宣布该轮为1亿美元Series D。候选所称2 billion美元估值相较于2025年5月独立媒体报道的“高于7.5亿美元”未核实估值，意味着至少约1.25 billion美元、或约167%的增量，但两者均未披露pre-money或post-money口径，不能严格比较。运营KPI方面，公司2025年6月称3,000多家机构、15万次以上测试和ARR同比增长100%以上；2026年5月称5,500多家客户、25万次以上测试。",
+          "researchUnresolved": "未找到公司、投资方或SEC就250 million美元Series E、2 billion美元估值、投资者名单、pre-/post-money口径或收入/ARR金额的独立一手确认；因此该估值和融资完成状态仍主要依赖候选报道。公司披露的客户、测试量、ARR增长和安全成效为自身口径；最强反例是NIST指出自动化工具的发现常须人工验证以排除误报，且渗透测试本身存在操作风险，因此持续自动化验证不等同于完全取代人工测试。",
+          "ref": "R9",
+          "role": "背景",
+          "takeaway": "SEC Form D显示Horizon 3 AI此前申报1亿美元股权发行，申报时已售约7300万美元。"
+        },
+        {
+          "id": "research-grounded-page-metadata-2080e3a392660eb8-2-https://www.businesswire.com/news/home/20250610254822/en/Horizon3.ai-Raises-%24100M-to-Cement-Leadership-in-Autonomous-Security",
+          "sourceId": 228,
+          "sourceName": "Horizon3.ai",
+          "sourcePublisher": "Horizon3.ai",
+          "sourceKind": "Official",
+          "title": "Horizon3.ai Raises $100M to Cement Leadership in Autonomous Security",
+          "url": "https://www.businesswire.com/news/home/20250610254822/en/Horizon3.ai-Raises-%24100M-to-Cement-Leadership-in-Autonomous-Security",
+          "publishedAt": "2025-06-10T00:00:00.000Z",
+          "summary": "补齐此前公开宣布的融资与经营基准：公司称NEA领投1亿美元Series D；当时NodeZero由3,000多家机构使用，公司称ARR同比增长100%以上并达到Rule of 40 positive。",
+          "fetchedAt": "2026-08-03T14:06:05.779Z",
+          "researchedFrom": "N7",
+          "researchRole": "Comparison",
+          "researchClaim": "本轮融资若按候选所述完成，将把 Horizon3.ai 的融资规模和估值推进到新阶段；在此之前，公司已于2025年完成1亿美元Series D，并在2026年5月披露其平台已服务5,500多家客户、执行超过25万次生产环境渗透测试。",
+          "researchComparisons": "可核验的此前融资基准是：2025年5月提交的SEC Form D申报1亿美元股权融资、已售约7,300万美元；公司随后宣布该轮为1亿美元Series D。候选所称2 billion美元估值相较于2025年5月独立媒体报道的“高于7.5亿美元”未核实估值，意味着至少约1.25 billion美元、或约167%的增量，但两者均未披露pre-money或post-money口径，不能严格比较。运营KPI方面，公司2025年6月称3,000多家机构、15万次以上测试和ARR同比增长100%以上；2026年5月称5,500多家客户、25万次以上测试。",
+          "researchUnresolved": "未找到公司、投资方或SEC就250 million美元Series E、2 billion美元估值、投资者名单、pre-/post-money口径或收入/ARR金额的独立一手确认；因此该估值和融资完成状态仍主要依赖候选报道。公司披露的客户、测试量、ARR增长和安全成效为自身口径；最强反例是NIST指出自动化工具的发现常须人工验证以排除误报，且渗透测试本身存在操作风险，因此持续自动化验证不等同于完全取代人工测试。",
+          "ref": "R10",
+          "role": "背景",
+          "takeaway": "公司2025年称完成NEA领投的1亿美元Series D，NodeZero获3,000多家机构使用，ARR同比增长超过100%。"
+        },
+        {
+          "id": "research-grounded-page-metadata-2080e3a392660eb8-3-https://horizon3.ai/news/press-release/horizon3-safe-autonomous-ai-cyber-defense/",
+          "sourceId": 228,
+          "sourceName": "Horizon3.ai",
+          "sourcePublisher": "Horizon3.ai",
+          "sourceKind": "Official",
+          "title": "Horizon3 Announces Breakthrough Research Making Autonomous AI Cyber Defense Safe to Deploy",
+          "url": "https://horizon3.ai/news/press-release/horizon3-safe-autonomous-ai-cyber-defense/",
+          "publishedAt": "2026-05-06T00:00:00.000Z",
+          "summary": "补齐紧邻候选融资前的公司自报规模和产品验证口径：公司称5,500多名客户已执行超过25万次生产安全渗透测试；其研究在161家机构、250多个企业攻击图上测试，但这些指标及结论尚非独立审计。",
+          "fetchedAt": "2026-08-03T14:06:05.779Z",
+          "researchedFrom": "N7",
+          "researchRole": "Context",
+          "researchClaim": "本轮融资若按候选所述完成，将把 Horizon3.ai 的融资规模和估值推进到新阶段；在此之前，公司已于2025年完成1亿美元Series D，并在2026年5月披露其平台已服务5,500多家客户、执行超过25万次生产环境渗透测试。",
+          "researchComparisons": "可核验的此前融资基准是：2025年5月提交的SEC Form D申报1亿美元股权融资、已售约7,300万美元；公司随后宣布该轮为1亿美元Series D。候选所称2 billion美元估值相较于2025年5月独立媒体报道的“高于7.5亿美元”未核实估值，意味着至少约1.25 billion美元、或约167%的增量，但两者均未披露pre-money或post-money口径，不能严格比较。运营KPI方面，公司2025年6月称3,000多家机构、15万次以上测试和ARR同比增长100%以上；2026年5月称5,500多家客户、25万次以上测试。",
+          "researchUnresolved": "未找到公司、投资方或SEC就250 million美元Series E、2 billion美元估值、投资者名单、pre-/post-money口径或收入/ARR金额的独立一手确认；因此该估值和融资完成状态仍主要依赖候选报道。公司披露的客户、测试量、ARR增长和安全成效为自身口径；最强反例是NIST指出自动化工具的发现常须人工验证以排除误报，且渗透测试本身存在操作风险，因此持续自动化验证不等同于完全取代人工测试。",
+          "ref": "R11",
+          "role": "佐证",
+          "takeaway": "公司称5,500多名客户已执行逾25万次生产安全渗透测试，但相关规模和效果未经独立审计。"
+        },
+        {
+          "id": "research-grounded-page-metadata-2080e3a392660eb8-4-https://csrc.nist.gov/pubs/sp/800/115/final",
+          "sourceId": 228,
+          "sourceName": "National Institute of Standards and Technology",
+          "sourcePublisher": "National Institute of Standards and Technology",
+          "sourceKind": "Research",
+          "title": "Technical Guide to Information Security Testing and Assessment",
+          "url": "https://csrc.nist.gov/pubs/sp/800/115/final",
+          "publishedAt": "2008-09-30T00:00:00.000Z",
+          "summary": "提供持续自动化渗透测试叙事的关键限制：NIST将该指南定位为技术测试方法的收益与局限概述，而非完整测试计划；其指南指出自动化工具的发现常需人工检查来隔离误报，人工检查通常更准确，且渗透测试存在使目标系统受损或不可用的操作风险。",
+          "fetchedAt": "2026-08-03T14:06:05.779Z",
+          "researchedFrom": "N7",
+          "researchRole": "Counterevidence",
+          "researchClaim": "本轮融资若按候选所述完成，将把 Horizon3.ai 的融资规模和估值推进到新阶段；在此之前，公司已于2025年完成1亿美元Series D，并在2026年5月披露其平台已服务5,500多家客户、执行超过25万次生产环境渗透测试。",
+          "researchComparisons": "可核验的此前融资基准是：2025年5月提交的SEC Form D申报1亿美元股权融资、已售约7,300万美元；公司随后宣布该轮为1亿美元Series D。候选所称2 billion美元估值相较于2025年5月独立媒体报道的“高于7.5亿美元”未核实估值，意味着至少约1.25 billion美元、或约167%的增量，但两者均未披露pre-money或post-money口径，不能严格比较。运营KPI方面，公司2025年6月称3,000多家机构、15万次以上测试和ARR同比增长100%以上；2026年5月称5,500多家客户、25万次以上测试。",
+          "researchUnresolved": "未找到公司、投资方或SEC就250 million美元Series E、2 billion美元估值、投资者名单、pre-/post-money口径或收入/ARR金额的独立一手确认；因此该估值和融资完成状态仍主要依赖候选报道。公司披露的客户、测试量、ARR增长和安全成效为自身口径；最强反例是NIST指出自动化工具的发现常须人工验证以排除误报，且渗透测试本身存在操作风险，因此持续自动化验证不等同于完全取代人工测试。",
+          "ref": "R12",
+          "role": "反例",
+          "takeaway": "NIST指南指出自动化安全测试发现通常需要人工核查以排除误报，且渗透测试可能带来可用性风险。"
+        }
+      ],
+      "references": [
+        {
+          "id": "grounded-page-metadata-2080e3a392660eb8",
+          "sourceId": 228,
+          "sourceName": "TechCrunch",
+          "sourcePublisher": "TechCrunch",
+          "sourceKind": "Blog",
+          "title": "Horizon3 hits $2 billion valuation with $250M Series E as AI threats escalate | TechCrunch",
+          "url": "https://techcrunch.com/2026/08/03/horizon3-hits-2-billion-valuation-with-250m-series-e-as-ai-threats-escalate/",
+          "publishedAt": "2026-08-03T12:50:46.000Z",
+          "summary": "Cybersecurity startup Horizon3 raised $250 million at a $2 billion valuation as companies want continuous, AI-powered security validation instead of annual pentesting.",
+          "fetchedAt": "2026-08-03T14:06:05.779Z",
+          "groundedFromDiscovery": true,
+          "originalTitleMethod": "public-page-metadata",
+          "discoveredThroughCluster": true,
+          "firstSeenAt": "2026-08-03T14:06:05.779Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "standard",
+            "reason": "fresh",
+            "ageHours": 1.2554941666666666,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N7"
+        },
+        {
+          "id": "research-grounded-page-metadata-2080e3a392660eb8-1-https://www.sec.gov/Archives/edgar/data/1801975/000180197525000001/xslFormDX01/primary_doc.xml",
+          "sourceId": 228,
+          "sourceName": "U.S. Securities and Exchange Commission",
+          "sourcePublisher": "U.S. Securities and Exchange Commission",
+          "sourceKind": "SEC",
+          "title": "SEC FORM D",
+          "url": "https://www.sec.gov/Archives/edgar/data/1801975/000180197525000001/xslFormDX01/primary_doc.xml",
+          "publishedAt": "2025-05-22T00:00:00.000Z",
+          "summary": "补齐上一轮可监管核验的融资实际数：Horizon 3 AI, Inc.申报1亿美元Rule 506(b)股权发行，首次销售日为2025年5月8日；截至申报已售72,999,996美元，剩余27,000,004美元，已有5名投资者。",
+          "fetchedAt": "2026-08-03T14:06:05.779Z",
+          "researchedFrom": "N7",
+          "researchRole": "Comparison",
+          "researchClaim": "本轮融资若按候选所述完成，将把 Horizon3.ai 的融资规模和估值推进到新阶段；在此之前，公司已于2025年完成1亿美元Series D，并在2026年5月披露其平台已服务5,500多家客户、执行超过25万次生产环境渗透测试。",
+          "researchComparisons": "可核验的此前融资基准是：2025年5月提交的SEC Form D申报1亿美元股权融资、已售约7,300万美元；公司随后宣布该轮为1亿美元Series D。候选所称2 billion美元估值相较于2025年5月独立媒体报道的“高于7.5亿美元”未核实估值，意味着至少约1.25 billion美元、或约167%的增量，但两者均未披露pre-money或post-money口径，不能严格比较。运营KPI方面，公司2025年6月称3,000多家机构、15万次以上测试和ARR同比增长100%以上；2026年5月称5,500多家客户、25万次以上测试。",
+          "researchUnresolved": "未找到公司、投资方或SEC就250 million美元Series E、2 billion美元估值、投资者名单、pre-/post-money口径或收入/ARR金额的独立一手确认；因此该估值和融资完成状态仍主要依赖候选报道。公司披露的客户、测试量、ARR增长和安全成效为自身口径；最强反例是NIST指出自动化工具的发现常须人工验证以排除误报，且渗透测试本身存在操作风险，因此持续自动化验证不等同于完全取代人工测试。",
+          "ref": "R9"
+        },
+        {
+          "id": "research-grounded-page-metadata-2080e3a392660eb8-2-https://www.businesswire.com/news/home/20250610254822/en/Horizon3.ai-Raises-%24100M-to-Cement-Leadership-in-Autonomous-Security",
+          "sourceId": 228,
+          "sourceName": "Horizon3.ai",
+          "sourcePublisher": "Horizon3.ai",
+          "sourceKind": "Official",
+          "title": "Horizon3.ai Raises $100M to Cement Leadership in Autonomous Security",
+          "url": "https://www.businesswire.com/news/home/20250610254822/en/Horizon3.ai-Raises-%24100M-to-Cement-Leadership-in-Autonomous-Security",
+          "publishedAt": "2025-06-10T00:00:00.000Z",
+          "summary": "补齐此前公开宣布的融资与经营基准：公司称NEA领投1亿美元Series D；当时NodeZero由3,000多家机构使用，公司称ARR同比增长100%以上并达到Rule of 40 positive。",
+          "fetchedAt": "2026-08-03T14:06:05.779Z",
+          "researchedFrom": "N7",
+          "researchRole": "Comparison",
+          "researchClaim": "本轮融资若按候选所述完成，将把 Horizon3.ai 的融资规模和估值推进到新阶段；在此之前，公司已于2025年完成1亿美元Series D，并在2026年5月披露其平台已服务5,500多家客户、执行超过25万次生产环境渗透测试。",
+          "researchComparisons": "可核验的此前融资基准是：2025年5月提交的SEC Form D申报1亿美元股权融资、已售约7,300万美元；公司随后宣布该轮为1亿美元Series D。候选所称2 billion美元估值相较于2025年5月独立媒体报道的“高于7.5亿美元”未核实估值，意味着至少约1.25 billion美元、或约167%的增量，但两者均未披露pre-money或post-money口径，不能严格比较。运营KPI方面，公司2025年6月称3,000多家机构、15万次以上测试和ARR同比增长100%以上；2026年5月称5,500多家客户、25万次以上测试。",
+          "researchUnresolved": "未找到公司、投资方或SEC就250 million美元Series E、2 billion美元估值、投资者名单、pre-/post-money口径或收入/ARR金额的独立一手确认；因此该估值和融资完成状态仍主要依赖候选报道。公司披露的客户、测试量、ARR增长和安全成效为自身口径；最强反例是NIST指出自动化工具的发现常须人工验证以排除误报，且渗透测试本身存在操作风险，因此持续自动化验证不等同于完全取代人工测试。",
+          "ref": "R10"
+        },
+        {
+          "id": "research-grounded-page-metadata-2080e3a392660eb8-3-https://horizon3.ai/news/press-release/horizon3-safe-autonomous-ai-cyber-defense/",
+          "sourceId": 228,
+          "sourceName": "Horizon3.ai",
+          "sourcePublisher": "Horizon3.ai",
+          "sourceKind": "Official",
+          "title": "Horizon3 Announces Breakthrough Research Making Autonomous AI Cyber Defense Safe to Deploy",
+          "url": "https://horizon3.ai/news/press-release/horizon3-safe-autonomous-ai-cyber-defense/",
+          "publishedAt": "2026-05-06T00:00:00.000Z",
+          "summary": "补齐紧邻候选融资前的公司自报规模和产品验证口径：公司称5,500多名客户已执行超过25万次生产安全渗透测试；其研究在161家机构、250多个企业攻击图上测试，但这些指标及结论尚非独立审计。",
+          "fetchedAt": "2026-08-03T14:06:05.779Z",
+          "researchedFrom": "N7",
+          "researchRole": "Context",
+          "researchClaim": "本轮融资若按候选所述完成，将把 Horizon3.ai 的融资规模和估值推进到新阶段；在此之前，公司已于2025年完成1亿美元Series D，并在2026年5月披露其平台已服务5,500多家客户、执行超过25万次生产环境渗透测试。",
+          "researchComparisons": "可核验的此前融资基准是：2025年5月提交的SEC Form D申报1亿美元股权融资、已售约7,300万美元；公司随后宣布该轮为1亿美元Series D。候选所称2 billion美元估值相较于2025年5月独立媒体报道的“高于7.5亿美元”未核实估值，意味着至少约1.25 billion美元、或约167%的增量，但两者均未披露pre-money或post-money口径，不能严格比较。运营KPI方面，公司2025年6月称3,000多家机构、15万次以上测试和ARR同比增长100%以上；2026年5月称5,500多家客户、25万次以上测试。",
+          "researchUnresolved": "未找到公司、投资方或SEC就250 million美元Series E、2 billion美元估值、投资者名单、pre-/post-money口径或收入/ARR金额的独立一手确认；因此该估值和融资完成状态仍主要依赖候选报道。公司披露的客户、测试量、ARR增长和安全成效为自身口径；最强反例是NIST指出自动化工具的发现常须人工验证以排除误报，且渗透测试本身存在操作风险，因此持续自动化验证不等同于完全取代人工测试。",
+          "ref": "R11"
+        },
+        {
+          "id": "research-grounded-page-metadata-2080e3a392660eb8-4-https://csrc.nist.gov/pubs/sp/800/115/final",
+          "sourceId": 228,
+          "sourceName": "National Institute of Standards and Technology",
+          "sourcePublisher": "National Institute of Standards and Technology",
+          "sourceKind": "Research",
+          "title": "Technical Guide to Information Security Testing and Assessment",
+          "url": "https://csrc.nist.gov/pubs/sp/800/115/final",
+          "publishedAt": "2008-09-30T00:00:00.000Z",
+          "summary": "提供持续自动化渗透测试叙事的关键限制：NIST将该指南定位为技术测试方法的收益与局限概述，而非完整测试计划；其指南指出自动化工具的发现常需人工检查来隔离误报，人工检查通常更准确，且渗透测试存在使目标系统受损或不可用的操作风险。",
+          "fetchedAt": "2026-08-03T14:06:05.779Z",
+          "researchedFrom": "N7",
+          "researchRole": "Counterevidence",
+          "researchClaim": "本轮融资若按候选所述完成，将把 Horizon3.ai 的融资规模和估值推进到新阶段；在此之前，公司已于2025年完成1亿美元Series D，并在2026年5月披露其平台已服务5,500多家客户、执行超过25万次生产环境渗透测试。",
+          "researchComparisons": "可核验的此前融资基准是：2025年5月提交的SEC Form D申报1亿美元股权融资、已售约7,300万美元；公司随后宣布该轮为1亿美元Series D。候选所称2 billion美元估值相较于2025年5月独立媒体报道的“高于7.5亿美元”未核实估值，意味着至少约1.25 billion美元、或约167%的增量，但两者均未披露pre-money或post-money口径，不能严格比较。运营KPI方面，公司2025年6月称3,000多家机构、15万次以上测试和ARR同比增长100%以上；2026年5月称5,500多家客户、25万次以上测试。",
+          "researchUnresolved": "未找到公司、投资方或SEC就250 million美元Series E、2 billion美元估值、投资者名单、pre-/post-money口径或收入/ARR金额的独立一手确认；因此该估值和融资完成状态仍主要依赖候选报道。公司披露的客户、测试量、ARR增长和安全成效为自身口径；最强反例是NIST指出自动化工具的发现常须人工验证以排除误报，且渗透测试本身存在操作风险，因此持续自动化验证不等同于完全取代人工测试。",
+          "ref": "R12"
+        }
+      ],
+      "feedBatchAt": "2026-08-03T14:06:05.779Z"
+    },
     {
       "id": 55,
       "editorialBucket": "explore",
@@ -16510,6 +17022,108 @@
       "editorNote": "今日信息环境由智能体安全事件、AI coding 工具链分化、open-weight 模型竞争与算力下沉共同主导。",
       "signals": [
         {
+          "category": "AI & 模型",
+          "eyebrow": "产品信号",
+          "title": "Alibaba将Qwen3.8-Max推入默认API",
+          "summary": "Alibaba Cloud现将qwen3.8-max列为默认启用思考的hybrid-thinking模型；此前仅有Token Plan独家的Qwen3.8-Max-Preview。",
+          "why": "这将Alibaba旗舰模型从受限预览推进到更广泛的开发者产品层，直接影响其在代理和长任务市场的竞争位置。",
+          "impact": "若开放权重计划和长时程能力得到独立验证，Qwen或将扩大开源模型在复杂企业工作流中的可选范围。",
+          "shiftFrom": "Token Plan独家预览",
+          "shiftTo": "默认启用思考的API模型",
+          "crossValidation": "Alibaba Cloud当前文档确认正式模型的API状态；7月官方公告界定此前预览限制。媒体报道补充2.4万亿参数、长任务定位及拟开放权重计划；历史第三方评测则限制领先性判断。",
+          "article": {
+            "lead": "Alibaba正把Qwen3.8-Max从受限预览推进至默认API产品层。Alibaba Cloud当前文档将qwen3.8-max列为默认启用思考的hybrid-thinking模型，而此前的Qwen3.8-Max-Preview仅限Token Plan使用。这一变化使其不再只是面向订阅用户的预览型号，而成为Alibaba面向开发者部署旗舰能力的明确产品信号。",
+            "sections": [
+              {
+                "heading": "旗舰模型跨出受限预览",
+                "body": "Alibaba Cloud的模型文档显示，qwen3.8-max现以默认开启思考模式的hybrid-thinking模型提供；同一文档仍将qwen3.8-max-preview标作Token Plan限定的thinking-only版本。官方在7月曾将预览版称为Qwen家族最新、最强模型，覆盖开发、数据分析、办公和视觉理解等任务。两份产品材料共同表明，Qwen3.8-Max的状态已从限定预览转为可被开发者在API工作流中调用的正式型号。"
+              },
+              {
+                "heading": "长任务定位需要产品化承接",
+                "body": "The Decoder报道称，Qwen3.8-Max拥有2.4万亿参数，定位于可持续处理数日复杂任务，并计划在下周发布权重。若这一计划落地，API可用性与开放权重将形成两条分发路径：企业可以先以托管模型接入，开发者也可围绕权重进行本地化部署和定制。Alibaba此前对Qwen3.7-Max的内部测试称，其可连续运行35小时、进行逾1,000次工具调用；这说明该公司已将长时程代理执行作为旗舰模型迭代的核心叙事。"
+              },
+              {
+                "heading": "正式命名不等于性能领先",
+                "body": "此次变化的关键不在于参数规模本身，而在于Alibaba是否能把长任务能力转化为稳定、可复用的开发者工作流。其前代Qwen3.7-Max的长时程结果来自厂商内部测试，不能直接证明Qwen3.8-Max的表现。更重要的反证来自Artificial Analysis对更早Qwen3-Max-Thinking的评估：其综合指数和代理任务指标均落后于部分同业模型。因此，Qwen3.8-Max的正式产品状态已清晰，但其相对领先位置仍须依赖外部评测和真实部署结果确认。"
+              }
+            ],
+            "outlook": "下一步可观察三类证据：Alibaba是否按报道发布权重及完整模型卡；API文档是否披露价格、上下文长度、工具调用和地区可用范围；以及独立评测是否在长时程代理、代码和推理任务上将Qwen3.8-Max置于前列。若权重未发布、能力主张缺少可复现实验，正式API化对竞争格局的含义将明显减弱。"
+          },
+          "evidence": [
+            {
+              "role": "主张",
+              "takeaway": "报道称Alibaba推出2.4万亿参数Qwen3.8-Max，主打长时程复杂任务，并计划于下周发布权重。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "Alibaba Cloud当前文档将qwen3.8-max列为默认启用思考的hybrid-thinking模型，并将预览版列为Token Plan限定版本。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "官方7月公告显示Qwen3.8-Max-Preview当时仅作为Token Plan独家预览推出。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "Alibaba此前称Qwen3.7-Max可在内部任务中连续运行35小时并完成逾1,000次工具调用。"
+            },
+            {
+              "role": "反例",
+              "takeaway": "Artificial Analysis历史评测显示，Qwen3-Max-Thinking的综合与代理指标低于部分同业模型。"
+            }
+          ]
+        },
+        {
+          "category": "投资",
+          "eyebrow": "资本信号",
+          "title": "Horizon3融资押注持续安全验证",
+          "summary": "TechCrunch称Horizon3.ai完成2.5亿美元E轮融资、估值20亿美元。其产品已披露数千家机构采用，资本正押注持续自动化验证替代年度渗透测试。",
+          "why": "融资规模较其此前1亿美元D轮显著扩大，反映企业安全预算可能开始为持续验证而非周期性测试配置更多资金。",
+          "impact": "若客户续约和自动化测试频率同步增长，安全平台竞争或更重视攻击面验证的运营数据，而不只是检测能力。",
+          "shiftFrom": "1亿美元D轮融资",
+          "shiftTo": "2.5亿美元E轮及20亿美元估值",
+          "crossValidation": "TechCrunch提供本轮融资和估值信息；公司此前披露D轮、客户采用和生产测试规模，SEC文件可核验旧融资实际销售额。NIST指南则说明自动化测试仍需人工核查。",
+          "article": {
+            "lead": "Horizon3.ai据TechCrunch报道完成2.5亿美元E轮融资、估值达到20亿美元。若该融资信息获得后续公司或投资方确认，它反映的并不只是单一安全公司的估值上升：资本正在为“持续验证”这一安全运营模式定价，即让企业反复检验真实攻击路径，而不是主要依赖年度或项目制渗透测试。",
+            "sections": [
+              {
+                "heading": "融资规模指向运营型安全预算",
+                "body": "TechCrunch称，Horizon3.ai的新一轮融资为2.5亿美元，估值20亿美元。作为比较，公司在2025年宣布的Series D为1亿美元，相关SEC Form D显示当时计划发行1亿美元股权、申报时已售约7300万美元。单从融资规模看，本轮资本投入显著扩大。编辑上看，这意味着投资者可能不再只把自动化渗透测试视为单点工具，而是在押注其成为企业安全运营中的持续性支出类别。"
+              },
+              {
+                "heading": "产品采用让论点不止于融资",
+                "body": "Horizon3.ai在2025年6月称，其NodeZero平台已被3,000多家机构使用，ARR同比增长超过100%，并达到Rule of 40 positive；同年5月，公司又称5,500多名客户执行了逾25万次生产安全渗透测试。这些均为公司自报数据，不能代替审计后的留存或收入指标，但它们说明融资叙事有实际部署作为支点。持续运行的验证频率若能提高，平台积累的攻击路径、修复结果和环境变化数据，也可能成为区别于一次性服务的产品资产。"
+              },
+              {
+                "heading": "自动化价值取决于闭环而非替代人",
+                "body": "这一模式的机制是把测试从合规节点改为持续反馈环：系统发现暴露面，模拟攻击路径，再将修复优先级返回安全团队。其价值取决于测试结果能否与真实风险和修复动作连通，而非仅增加扫描次数。NIST关于安全测试的指南指出，自动化工具的发现通常仍需人工检查以排除误报，人工检查往往更准确，且渗透测试本身可能影响目标系统可用性。这构成最强反例：持续自动化验证未必等同于更少的人力或更低的运营风险。"
+              }
+            ],
+            "outlook": "后续应观察公司或领投方是否正式披露融资条款，以及客户数、ARR、净留存、测试频率和修复转化率是否随融资增长。若更多大型企业把持续验证纳入采购并披露可量化续约数据，资本对这一类别的判断将被强化；若增长主要来自试用、误报处置成本上升或服务介入，相关估值逻辑将受削弱。"
+          },
+          "evidence": [
+            {
+              "role": "主张",
+              "takeaway": "TechCrunch报道称Horizon3.ai完成2.5亿美元Series E融资，估值20亿美元，企业正寻求持续的AI驱动安全验证。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "SEC Form D显示Horizon 3 AI此前申报1亿美元股权发行，申报时已售约7300万美元。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "公司2025年称完成NEA领投的1亿美元Series D，NodeZero获3,000多家机构使用，ARR同比增长超过100%。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "公司称5,500多名客户已执行逾25万次生产安全渗透测试，但相关规模和效果未经独立审计。"
+            },
+            {
+              "role": "反例",
+              "takeaway": "NIST指南指出自动化安全测试发现通常需要人工核查以排除误报，且渗透测试可能带来可用性风险。"
+            }
+          ]
+        },
+        {
           "category": "算力",
           "eyebrow": "资本信号",
           "title": "DEEPX估值跃升考验边缘芯片兑现",
@@ -22123,6 +22737,108 @@
     "en": {
       "editorNote": "Today’s information environment is being shaped by agent security incidents, a split in coding-agent toolchains, open-model competition, and compute moving closer to the edge.",
       "signals": [
+        {
+          "category": "AI & Models",
+          "eyebrow": "Product Signal",
+          "title": "Alibaba Moves Qwen3.8-Max Into Default API Access",
+          "summary": "Alibaba Cloud now lists qwen3.8-max as a hybrid-thinking model with thinking enabled by default, following a Token Plan-only preview.",
+          "why": "The move takes Alibaba's flagship model beyond a restricted preview and into a clearer developer-product position for agents and long-running tasks.",
+          "impact": "If its planned weight release and long-horizon claims are independently validated, Qwen could broaden open-model options for complex enterprise workflows.",
+          "shiftFrom": "Token Plan-only preview",
+          "shiftTo": "Default-thinking API model",
+          "crossValidation": "Current Alibaba Cloud documentation confirms the API status, while a July announcement establishes the prior preview restriction. Media reporting adds the scale and weight-release plan; historical third-party tests temper leadership claims.",
+          "article": {
+            "lead": "Alibaba is moving Qwen3.8-Max from a restricted preview toward a default API product tier. Current Alibaba Cloud documentation lists qwen3.8-max as a hybrid-thinking model with thinking enabled by default, while Qwen3.8-Max-Preview had been limited to Token Plan users. That makes the model a clearer deployment signal rather than merely a subscriber preview.",
+            "sections": [
+              {
+                "heading": "A flagship model leaves restricted preview",
+                "body": "Alibaba Cloud's documentation lists qwen3.8-max as a hybrid-thinking model with thinking enabled by default. The same documentation still describes qwen3.8-max-preview as a Token Plan-restricted, thinking-only version. In July, Alibaba called the preview its newest and strongest Qwen model, positioning it for development, data analysis, office workflows, and visual understanding. Together, the materials show a transition from limited preview to an API model available for developer workflows."
+              },
+              {
+                "heading": "Long-horizon positioning needs product delivery",
+                "body": "The Decoder reports that Qwen3.8-Max has 2.4 trillion parameters, is aimed at complex tasks lasting days, and is scheduled for a weight release next week. If that release occurs, hosted API access and open weights would create two distribution paths: enterprises could adopt the managed model, while developers could customize and deploy weights locally. Alibaba's earlier internal claims for Qwen3.7-Max—35 hours of operation and more than 1,000 tool calls—show that long-running agent execution has become central to its flagship-model narrative."
+              },
+              {
+                "heading": "Formal availability is not proof of leadership",
+                "body": "The important change is not parameter count alone, but whether Alibaba can turn long-horizon capability into dependable, reusable developer workflows. The earlier Qwen3.7-Max results were internal tests and do not demonstrate Qwen3.8-Max performance directly. Historical Artificial Analysis results also provide a meaningful counterpoint: Qwen3-Max-Thinking trailed several peers on both its composite index and agentic-task measure. The product-status change is clear; its competitive rank still requires external testing and deployment evidence."
+              }
+            ],
+            "outlook": "Watch for three observable signals: whether Alibaba releases weights and a full model card as reported; whether API documentation adds pricing, context length, tool-use limits, and regional availability; and whether independent tests place Qwen3.8-Max near the frontier on long-horizon agent, coding, and reasoning tasks. A delayed weight release or unreproducible capability claims would materially weaken the competitive implication."
+          },
+          "evidence": [
+            {
+              "role": "Claim",
+              "takeaway": "Reports a 2.4-trillion-parameter Qwen3.8-Max aimed at long-running complex tasks, with a planned weight release."
+            },
+            {
+              "role": "Support",
+              "takeaway": "Current Alibaba Cloud documentation lists qwen3.8-max as a default-thinking hybrid-thinking model."
+            },
+            {
+              "role": "Context",
+              "takeaway": "Alibaba's July announcement describes Qwen3.8-Max-Preview as a Token Plan-exclusive preview."
+            },
+            {
+              "role": "Context",
+              "takeaway": "Alibaba previously claimed long-running internal agent results for Qwen3.7-Max."
+            },
+            {
+              "role": "Counterpoint",
+              "takeaway": "Historical independent evaluation placed Qwen3-Max-Thinking behind several peers on composite and agentic measures."
+            }
+          ]
+        },
+        {
+          "category": "Investment",
+          "eyebrow": "Capital Signal",
+          "title": "Horizon3 Funding Bets on Continuous Security Validation",
+          "summary": "TechCrunch reports that Horizon3.ai raised a $250 million Series E at a $2 billion valuation. With thousands of institutions previously disclosed as users, the funding backs continuous automated validation over annual pentesting.",
+          "why": "The round is materially larger than Horizon3's prior $100 million Series D, suggesting that enterprise security budgets may allocate more toward continuous validation rather than periodic testing.",
+          "impact": "If retention and testing frequency rise with adoption, security-platform competition may place more value on operational validation data than detection capability alone.",
+          "shiftFrom": "$100M Series D",
+          "shiftTo": "$250M Series E, $2B valuation",
+          "crossValidation": "TechCrunch provides the new funding and valuation claim. Company disclosures establish prior financing, adoption, and test volume, while an SEC filing verifies prior sales. NIST guidance qualifies how far automation can replace human review.",
+          "article": {
+            "lead": "TechCrunch reports that Horizon3.ai raised a $250 million Series E at a $2 billion valuation. If subsequently confirmed by the company or investors, the round signals more than one cybersecurity valuation: capital is pricing a shift toward continuous validation, in which enterprises repeatedly test real attack paths instead of relying mainly on annual or project-based penetration tests.",
+            "sections": [
+              {
+                "heading": "The round points to operational security budgets",
+                "body": "TechCrunch reports a $250 million round at a $2 billion valuation. By comparison, Horizon3.ai announced a $100 million Series D in 2025, and an SEC Form D recorded a planned $100 million equity offering with roughly $73 million sold at filing. The latest capital commitment is substantially larger. Editorially, that suggests investors may be treating automated pentesting less as a point product and more as a potential recurring operating-security category."
+              },
+              {
+                "heading": "Adoption gives the thesis more than a funding hook",
+                "body": "In June 2025, Horizon3.ai said more than 3,000 institutions used its NodeZero platform, that ARR had grown more than 100% year over year, and that it was Rule of 40 positive. In May, it said more than 5,500 customers had run over 250,000 production security penetration tests. These are company-reported figures rather than audited retention or revenue data, but they provide an operational basis for the funding narrative. If verification runs become more frequent, the resulting data on attack paths, remediation outcomes, and changing environments could become a product asset."
+              },
+              {
+                "heading": "The value depends on a closed loop, not replacing people",
+                "body": "The mechanism is to turn testing from a compliance event into a feedback loop: identify exposure, simulate attack paths, and return remediation priorities to security teams. Its value depends on connecting findings to real risk and remediation rather than simply increasing scan volume. NIST's security-testing guidance is the strongest countercase: automated findings often need human checking to isolate false positives, human examination is often more accurate, and penetration testing can itself affect availability. Continuous automation therefore does not necessarily mean less labor or lower operational risk."
+              }
+            ],
+            "outlook": "Watch for formal confirmation of the round and for measurable customer signals: ARR, net retention, validation frequency, and remediation conversion. The thesis would strengthen if large enterprises disclose procurement and renewal metrics for continuous validation. It would weaken if growth is driven mainly by trials, rising false-positive handling costs, or expanding service intervention."
+          },
+          "evidence": [
+            {
+              "role": "Claim",
+              "takeaway": "Reports a $250 million Series E at a $2 billion valuation and demand for continuous AI-powered security validation."
+            },
+            {
+              "role": "Context",
+              "takeaway": "An SEC filing records Horizon3's earlier planned $100 million equity offering and sales amount."
+            },
+            {
+              "role": "Context",
+              "takeaway": "The company previously announced a $100 million Series D and disclosed adoption and ARR-growth claims."
+            },
+            {
+              "role": "Support",
+              "takeaway": "The company disclosed customer and production-test volumes, without independent audit."
+            },
+            {
+              "role": "Counterpoint",
+              "takeaway": "NIST notes that automated findings often require human review and that testing can create operational risk."
+            }
+          ]
+        },
         {
           "category": "Compute",
           "eyebrow": "Capital signal",
@@ -27738,11 +28454,11 @@
     "en": "gpt-5.6-sol"
   },
   "incremental": {
-    "lastAddedAt": "2026-08-03T10:10:20.360Z",
-    "lastScanAt": "2026-08-03T10:05:58.951Z",
-    "lastAddedCount": 1,
+    "lastAddedAt": "2026-08-03T14:12:36.764Z",
+    "lastScanAt": "2026-08-03T14:06:05.779Z",
+    "lastAddedCount": 2,
     "lastUpdatedCount": 0,
-    "totalAppended": 47,
+    "totalAppended": 49,
     "totalUpdated": 35
   },
   "exploreDepth": {
