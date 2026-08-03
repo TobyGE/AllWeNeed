@@ -25,20 +25,15 @@ function argumentValue(name, fallback) {
 }
 
 function buildPrompt(items) {
-  return `Evaluate these newly discovered items for All We Need's six-hour Live feed.
+  return `Translate these already-selected items for All We Need's six-hour Live feed.
 
 Rules:
-- Include a concrete, current AI or core-technology event from a direct source.
-- Include material releases, official lab or major-company announcements, security events, policy decisions, infrastructure changes, or original reporting with a concrete new fact.
-- Exclude generic earnings or market chatter, promotion, paper explanations, unsupported speculation, pure opinion, minor commentary, stale non-events, and semantic duplicates.
-- Priority affects ordering only; it must not be the sole reason to exclude a genuine new event.
+- Every input item has already passed deterministic source, freshness, scope, and deduplication checks. Do not make an editorial include/exclude decision.
 - Preserve every id and array order. Return every input exactly once.
 - Never rewrite the English title or URL.
-- For include decisions, translate the complete source title into natural Simplified Chinese without adding facts.
-- For exclude decisions, titleZh must be an empty string.
-- reason must be one of: material_event, duplicate, opinion_or_explainer, generic_finance, promotion, stale_or_non_event, off_topic.
+- Translate the complete source title into natural Simplified Chinese without adding, removing, or interpreting facts.
 - Return JSON only in this exact shape:
-{"items":[{"id":"unchanged id","decision":"include","titleZh":"忠实的中文标题","reason":"material_event"}]}
+{"items":[{"id":"unchanged id","titleZh":"忠实的中文标题"}]}
 
 Input:
 ${JSON.stringify(
@@ -97,7 +92,7 @@ async function callSubscriptionModel({
         model,
         task: "live",
         fallbackInstructions:
-          "Strictly select material current AI and core-technology events, translate included source titles losslessly, account for every id, and return only valid JSON.",
+          "Translate every supplied Live source title losslessly into Simplified Chinese, preserve every id and array order, make no editorial decision, and return only valid JSON.",
       }),
       input: [
         {
@@ -183,92 +178,51 @@ export function mergeLiveTitleTranslations(items, result) {
   }));
 }
 
-const liveDecisionReasons = new Set([
-  "material_event",
-  "duplicate",
-  "opinion_or_explainer",
-  "generic_finance",
-  "promotion",
-  "stale_or_non_event",
-  "off_topic",
-]);
-
-export function applyLiveEditorialDecisions(
-  items,
-  result,
-  { model, decidedAt },
-) {
-  if (!Array.isArray(result?.items) || result.items.length !== items.length) {
-    throw new Error("Live editorial gate returned the wrong item count.");
-  }
-  const included = [];
-  const excluded = [];
-  for (const [index, source] of items.entries()) {
-    const decision = result.items[index];
-    if (
-      decision?.id !== source.id ||
-      !["include", "exclude"].includes(decision.decision) ||
-      !liveDecisionReasons.has(decision.reason)
-    ) {
-      throw new Error(
-        `Live editorial gate does not match item ${source.id}.`,
-      );
-    }
-    if (decision.decision === "include") {
-      if (
-        decision.reason !== "material_event" ||
-        typeof decision.titleZh !== "string" ||
-        !decision.titleZh.trim()
-      ) {
-        throw new Error(
-          `Included Live item ${source.id} has an invalid translation.`,
-        );
-      }
-      included.push({
-        ...source,
-        titleZh: decision.titleZh.trim(),
-        liveDecision: "include",
-        liveDecisionModel: model,
-        liveDecisionAt: decidedAt,
-      });
-      continue;
-    }
-    if (
-      typeof decision.titleZh !== "string" ||
-      decision.titleZh.trim()
-    ) {
-      throw new Error(
-        `Excluded Live item ${source.id} must not have a translation.`,
-      );
-    }
-    excluded.push({
-      id: source.id,
-      reason: decision.reason,
-    });
-  }
-  return { included, excluded };
-}
-
-export function isLiveModelCoolingDown(feed, now = Date.now()) {
-  const lastDecisionAt = Date.parse(feed?.liveDecisionAt ?? "");
-  if (!Number.isFinite(lastDecisionAt)) return false;
+export function isLiveLocalizationCoolingDown(feed, now = Date.now()) {
+  const lastLocalizedAt = Date.parse(feed?.localizedAt ?? "");
+  if (!Number.isFinite(lastLocalizedAt)) return false;
   return (
-    now - lastDecisionAt <
+    now - lastLocalizedAt <
     liveModelCooldownMinutes * 60 * 1_000
   );
+}
+
+function removeLegacyEditorialState(feed) {
+  let changed = false;
+  for (const key of [
+    "excludedItems",
+    "liveDecisionModel",
+    "liveDecisionAt",
+  ]) {
+    if (key in feed) {
+      delete feed[key];
+      changed = true;
+    }
+  }
+  for (const item of feed.items ?? []) {
+    for (const key of [
+      "liveDecision",
+      "liveDecisionModel",
+      "liveDecisionAt",
+    ]) {
+      if (key in item) {
+        delete item[key];
+        changed = true;
+      }
+    }
+  }
+  return changed;
 }
 
 async function main() {
   const feedPath = argumentValue("feed", "data/live-feed.json");
   const feed = JSON.parse(await readFile(feedPath, "utf8"));
+  const removedLegacyState = removeLegacyEditorialState(feed);
   const missing = (feed.items ?? []).filter(
-    (item) =>
-      !item.titleZh?.trim() ||
-      item.liveDecision !== "include" ||
-      !item.liveDecisionModel,
+    (item) => !item.titleZh?.trim(),
   );
   if (!missing.length) {
-    if (feed.pendingItemCount) {
+    if (feed.pendingItemCount || removedLegacyState) {
       feed.pendingItemCount = 0;
       await writeFile(
         feedPath,
@@ -277,16 +231,12 @@ async function main() {
       );
     }
     console.log(
-      `Live editorial gate unchanged: ${feed.items.length} cached decisions; no GPT call.`,
+      `Live localization unchanged: ${feed.items.length} items already translated; no GPT call.`,
     );
     return;
   }
 
-  if (isLiveModelCoolingDown(feed)) {
-    const pendingIds = new Set(missing.map((item) => item.id));
-    feed.items = (feed.items ?? []).filter(
-      (item) => !pendingIds.has(item.id),
-    );
+  if (isLiveLocalizationCoolingDown(feed)) {
     feed.pendingItemCount = missing.length;
     await writeFile(
       feedPath,
@@ -294,65 +244,52 @@ async function main() {
       "utf8",
     );
     console.log(
-      `Queued ${missing.length} new Live items during the ${liveModelCooldownMinutes}-minute GPT cooldown; ${feed.items.length} cached items remain public.`,
+      `Kept ${missing.length} untranslated Live items public during the ${liveModelCooldownMinutes}-minute localization cooldown.`,
     );
     return;
   }
 
-  const auth = await loadSubscriptionAuth();
+  let auth;
+  try {
+    auth = await loadSubscriptionAuth();
+  } catch (error) {
+    feed.pendingItemCount = missing.length;
+    await writeFile(
+      feedPath,
+      `${JSON.stringify(feed, null, 2)}\n`,
+      "utf8",
+    );
+    console.warn(
+      `Live items remain public in English because localization credentials are unavailable: ${
+        error instanceof Error ? error.message : error
+      }`,
+    );
+    return;
+  }
   const prompt = buildPrompt(missing);
   let lastError;
   for (const model of [...new Set(modelRoutes.live)]) {
     try {
       console.log(
-        `Evaluating ${missing.length} new Live items with ${model}...`,
+        `Translating ${missing.length} new Live items with ${model}...`,
       );
-      const decidedAt = new Date().toISOString();
-      const { included, excluded } = applyLiveEditorialDecisions(
+      const localizedAt = new Date().toISOString();
+      const translated = mergeLiveTitleTranslations(
         missing,
         parseJsonOutput(
           await callSubscriptionModel({ model, prompt, ...auth }),
         ),
-        { model, decidedAt },
       );
-      const includedById = new Map(
-        included.map((item) => [item.id, item]),
+      const translatedById = new Map(
+        translated.map((item) => [item.id, item.titleZh]),
       );
-      const excludedById = new Map(
-        excluded.map((item) => [item.id, item]),
-      );
-      const missingIds = new Set(missing.map((item) => item.id));
-      feed.items = feed.items.flatMap((item) => {
-        if (!missingIds.has(item.id)) return [item];
-        const accepted = includedById.get(item.id);
-        return accepted ? [accepted] : [];
-      });
-      const currentExcluded = missing
-        .filter((item) => excludedById.has(item.id))
-        .map((item) => ({
-          id: item.id,
-          title: item.title,
-          url: item.url,
-          reason: excludedById.get(item.id).reason,
-          liveDecisionModel: model,
-          liveDecisionAt: decidedAt,
-        }));
-      const exclusionKey = (item) =>
-        `${item.url?.trim() ?? ""}\n${item.title?.trim() ?? ""}`;
-      feed.excludedItems = [
-        ...(feed.excludedItems ?? []),
-        ...currentExcluded,
-      ].filter(
-        (item, index, values) =>
-          values.findIndex(
-            (candidate) =>
-              exclusionKey(candidate) === exclusionKey(item),
-          ) === index,
+      feed.items = feed.items.map((item) =>
+        translatedById.has(item.id)
+          ? { ...item, titleZh: translatedById.get(item.id) }
+          : item,
       );
       feed.localizationModel = model;
-      feed.localizedAt = decidedAt;
-      feed.liveDecisionModel = model;
-      feed.liveDecisionAt = decidedAt;
+      feed.localizedAt = localizedAt;
       feed.pendingItemCount = 0;
       await writeFile(
         feedPath,
@@ -360,21 +297,29 @@ async function main() {
         "utf8",
       );
       console.log(
-        `Live editorial gate included ${included.length}, excluded ${excluded.length}, and kept ${feed.items.length} items in the current window.`,
+        `Live localization translated ${translated.length} items and kept all ${feed.items.length} deterministic selections public.`,
       );
       return;
     } catch (error) {
       lastError = error;
       console.warn(
-        `${model} Live editorial gate failed: ${
+        `${model} Live localization failed: ${
           error instanceof Error ? error.message : error
         }`,
       );
     }
   }
-  throw new Error("All Live editorial gate model calls failed.", {
-    cause: lastError,
-  });
+  feed.pendingItemCount = missing.length;
+  await writeFile(
+    feedPath,
+    `${JSON.stringify(feed, null, 2)}\n`,
+    "utf8",
+  );
+  console.warn(
+    `All Live localization model calls failed; ${missing.length} items remain public in English: ${
+      lastError instanceof Error ? lastError.message : lastError
+    }`,
+  );
 }
 
 const invokedPath = process.argv[1] ? resolve(process.argv[1]) : "";

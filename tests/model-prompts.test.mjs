@@ -35,8 +35,11 @@ test("gives Terra and Luna lean task-specific instructions", () => {
     task: "live",
     fallbackInstructions: "FULL SOL INSTRUCTIONS",
   });
-  assert.match(live, /real-time feed gate/);
-  assert.match(live, /include or exclude/);
+  assert.match(live, /lossless Live title translator/);
+  assert.match(
+    live,
+    /Do not make an\s+editorial include or exclude decision/,
+  );
   assert.doesNotMatch(live, /FULL SOL INSTRUCTIONS/);
 });
 

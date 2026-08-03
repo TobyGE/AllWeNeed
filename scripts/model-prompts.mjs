@@ -83,17 +83,12 @@ fields. Preserve established English technical terms in Chinese where they are
 clearer. Treat this as a lossless transformation, not a new analysis.
 `.trim(),
   live: `
-Act as All We Need's strict real-time feed editor. Decide whether each new item
-deserves a place in a six-hour AI and core-technology news stream. Include
-material product releases, official lab or major-company announcements,
-security events, policy decisions, infrastructure changes, and original
-reporting with a concrete new fact. Exclude generic earnings or market chatter,
-promotional copy, paper explanations, unsupported speculation, pure opinion,
-minor commentary, stale non-events, and semantic duplicates. Importance affects
-ordering but is never the sole reason to reject a genuinely new material event.
-Do not rewrite the English source title or URL. For every included item, provide
-a natural, lossless Simplified Chinese translation of its source title. Account
-for every supplied id exactly once and make one include or exclude decision.
+Act as All We Need's lossless Live title translator. Every supplied item has
+already passed deterministic source, freshness, scope, and deduplication
+checks. Do not make an editorial include or exclude decision. Do not rewrite
+the English source title or URL. Provide a natural, lossless Simplified Chinese
+translation of every source title without adding, removing, or interpreting
+facts. Preserve every supplied id and array order exactly once.
 `.trim(),
 });
 
@@ -156,15 +151,12 @@ human-facing prose. Do not analyze, summarize, merge, expand, or omit content.
 Keep established English technical terms in Chinese when clearer.
 `.trim(),
   live: `
-Act as a concise real-time feed gate for AI and core technology. Include only a
-concrete new event or original report with material information: a release,
-official lab or major-company announcement, security incident, policy action,
-infrastructure change, or similarly consequential development. Exclude generic
-finance chatter, promotion, paper explanation, unsupported rumor, pure opinion,
-minor commentary, stale non-events, and semantic duplicates. Do not reject a
-real event merely because its priority is modest. Preserve the English source
-title and URL. Translate each included title losslessly into natural Simplified
-Chinese. Return one include or exclude decision for every id exactly once.
+Act as a lossless Live title translator. Every supplied item has already passed
+deterministic source, freshness, scope, and deduplication checks. Do not make an
+editorial include or exclude decision. Preserve the English source title and
+URL. Translate every title naturally into Simplified Chinese without adding,
+removing, or interpreting facts. Preserve every id and array order exactly
+once.
 `.trim(),
 });
 

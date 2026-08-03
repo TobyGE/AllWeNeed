@@ -218,6 +218,78 @@ test("uses a publisher's public metadata instead of aggregation copy", () => {
   assert.equal(original.originalTitleMethod, "public-page-metadata");
 });
 
+test("grounds a Techmeme lead to Nikkei's original page metadata", async () => {
+  const [grounded] = await groundDiscoveryOriginals(
+    [
+      {
+        id: "techmeme-nikkei",
+        sourceId: 226,
+        sourceName: "Techmeme",
+        title: "Aggregator wording that must remain private",
+        url: "https://asia.nikkei.com/business/technology/artificial-intelligence/central-asia-data-centers",
+        publishedAt: "2026-08-03T04:10:00.000Z",
+        discoveryOnly: true,
+        discoveryLevel: "A",
+      },
+    ],
+    {
+      cachedItems: [],
+      fetcher: async () => ({
+        text: `
+          <html><head>
+            <meta property="og:title" content="Starting gun for Central Asia data center race triggered"/>
+            <meta property="og:description" content="Nvidia-supported campuses are taking shape."/>
+            <meta name="date" content="2026-08-03T10:53:07.000+09:00"/>
+          </head></html>
+        `,
+      }),
+    },
+  );
+
+  assert.equal(grounded.sourceId, 900221);
+  assert.equal(grounded.sourceName, "Nikkei Asia");
+  assert.equal(
+    grounded.title,
+    "Starting gun for Central Asia data center race triggered",
+  );
+  assert.equal(grounded.publishedAt, "2026-08-03T01:53:07.000Z");
+  assert.equal(grounded.groundedFromDiscovery, true);
+  assert.equal(grounded.originalTitleMethod, "public-page-metadata");
+  assert.doesNotMatch(JSON.stringify(grounded), /Aggregator wording/);
+});
+
+test("reuses configured publisher identity when grounding Bloomberg metadata", async () => {
+  const [grounded] = await groundDiscoveryOriginals(
+    [
+      {
+        id: "techmeme-bloomberg",
+        sourceId: 226,
+        sourceName: "Techmeme",
+        title: "Private cluster copy",
+        url: "https://www.bloomberg.com/news/articles/2026-08-03/example",
+        publishedAt: "2026-08-03T03:40:00.000Z",
+        discoveryOnly: true,
+        discoveryLevel: "A",
+      },
+    ],
+    {
+      cachedItems: [],
+      fetcher: async () => ({
+        text: `
+          <html><head>
+            <meta property="og:title" content="Alibaba Releases New Open AI Model"/>
+            <meta property="article:published_time" content="2026-08-03T03:35:00.000Z"/>
+          </head></html>
+        `,
+      }),
+    },
+  );
+
+  assert.equal(grounded.sourceId, 233);
+  assert.equal(grounded.sourceName, "Bloomberg");
+  assert.equal(grounded.title, "Alibaba Releases New Open AI Model");
+});
+
 test("rejects bot-block pages as original metadata", () => {
   assert.equal(
     originalFromPublicPageMetadata(

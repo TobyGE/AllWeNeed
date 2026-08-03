@@ -370,8 +370,8 @@ async function publishLiveOnly({
       scannedAt: scannedSnapshot.generatedAt,
       itemCount: liveFeed.items.length,
       pendingItemCount: liveFeed.pendingItemCount ?? 0,
-      editorialModel: liveFeed.liveDecisionModel ?? null,
-      editorialAt: liveFeed.liveDecisionAt ?? null,
+      localizationModel: liveFeed.localizationModel ?? null,
+      localizedAt: liveFeed.localizedAt ?? null,
     };
     await mkdir(dirname(liveReportPath), { recursive: true });
     await writeFile(
@@ -475,8 +475,8 @@ async function publishLiveOnly({
     scannedAt: scannedSnapshot.generatedAt,
     itemCount: liveFeed.items.length,
     pendingItemCount: liveFeed.pendingItemCount ?? 0,
-    editorialModel: liveFeed.liveDecisionModel ?? null,
-    editorialAt: liveFeed.liveDecisionAt ?? null,
+    localizationModel: liveFeed.localizationModel ?? null,
+    localizedAt: liveFeed.localizedAt ?? null,
     radarCommit,
     homepageCommit,
     publishedUrl: "https://allweneed.info/live/",

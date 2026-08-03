@@ -3,11 +3,9 @@ import test from "node:test";
 
 import {
   buildLiveFeed,
-  retainDecidedLiveItemsDuringCooldown,
 } from "../scripts/build-live-feed.mjs";
 import {
-  applyLiveEditorialDecisions,
-  isLiveModelCoolingDown,
+  isLiveLocalizationCoolingDown,
   liveModelCooldownMinutes,
   mergeLiveTitleTranslations,
 } from "../scripts/localize-live-feed.mjs";
@@ -193,6 +191,54 @@ test("admits core-tech reporting from trusted high-frequency news feeds", () => 
   assert.deepEqual(feed.items.map((entry) => entry.id), ["trusted-news"]);
 });
 
+test("admits official model-feed updates without requiring an AI keyword", () => {
+  const feed = buildLiveFeed(
+    snapshot([
+      item({
+        id: "minimax-h3",
+        sourceId: 212,
+        sourceName: "MiniMax — Hugging Face Models",
+        sourcePublisher: "MiniMax",
+        title: "MiniMax-H3 model update",
+        url: "https://huggingface.co/MiniMaxAI/MiniMax-H3",
+        summary:
+          "task: image-text-to-video · tags: diffusers, text-to-video",
+      }),
+    ]),
+  );
+
+  assert.deepEqual(feed.items.map((entry) => entry.id), ["minimax-h3"]);
+});
+
+test("trusted media analysis enters Live without model judgment", () => {
+  const feed = buildLiveFeed(
+    snapshot([
+      item({
+        id: "wsj-analysis",
+        sourceId: 900226,
+        sourceName: "The Wall Street Journal",
+        sourcePublisher: "The Wall Street Journal",
+        title:
+          "The Race to Build an American Alternative to Cheap AI From China",
+        url: "https://www.wsj.com/tech/ai/american-open-weight-models",
+        summary:
+          "A reported look at the US open-weight AI model ecosystem.",
+      }),
+      item({
+        id: "independent-explainer",
+        sourceId: 80,
+        sourceName: "Independent Blog",
+        sourcePublisher: "Independent Blog",
+        title: "Single Forward Pass Evals on three AI models",
+        url: "https://example.com/model-evals",
+        summary: "A personal model benchmark explanation.",
+      }),
+    ]),
+  );
+
+  assert.deepEqual(feed.items.map((entry) => entry.id), ["wsj-analysis"]);
+});
+
 test("does not treat a generic crypto or market headline as core tech", () => {
   const feed = buildLiveFeed(
     snapshot([
@@ -218,8 +264,8 @@ test("prevents one prolific direct source from flooding the river", () => {
       title: `AI model release ${index}`,
       url: `https://example.com/model-${index}`,
       sourceId: 90,
-      sourceName: "Model Lab Blog",
-      sourcePublisher: "Model Lab Blog",
+      sourceName: "MiniMax",
+      sourcePublisher: "MiniMax",
       publishedAt: `2026-08-02T19:${String(50 - index).padStart(2, "0")}:00.000Z`,
     }),
   );
@@ -262,110 +308,85 @@ test("merges cached Chinese titles without changing the original headline", () =
   assert.equal(localized[0].titleZh, "OpenAI 发布新的 Agent 模型 API");
 });
 
-test("Live editorial decisions preserve direct-source facts and remove noise", () => {
+test("Live localization preserves every deterministic selection", () => {
   const items = [
     item(),
     item({
-      id: "opinion",
-      title: "My thoughts on where AI may go next",
-      url: "https://example.com/ai-opinion",
+      id: "reported-analysis",
+      sourceName: "The Wall Street Journal",
+      title: "The race to build an American open-weight AI ecosystem",
+      url: "https://wsj.com/tech/ai/open-weight-ecosystem",
     }),
   ];
-  const decidedAt = "2026-08-02T20:00:00.000Z";
-  const result = applyLiveEditorialDecisions(
+  const localized = mergeLiveTitleTranslations(
     items,
     {
       items: [
         {
           id: "item-1",
-          decision: "include",
           titleZh: "OpenAI 发布新的 Agent 模型 API",
-          reason: "material_event",
         },
         {
-          id: "opinion",
-          decision: "exclude",
-          titleZh: "",
-          reason: "opinion_or_explainer",
+          id: "reported-analysis",
+          titleZh: "美国开放权重 AI 生态竞赛",
         },
       ],
     },
-    { model: "gpt-5.6-luna", decidedAt },
   );
 
-  assert.deepEqual(result.excluded, [
-    { id: "opinion", reason: "opinion_or_explainer" },
-  ]);
-  assert.equal(result.included.length, 1);
-  assert.equal(
-    result.included[0].title,
-    "OpenAI launches a new agent model API",
-  );
-  assert.equal(
-    result.included[0].url,
-    "https://openai.com/index/agent-model",
-  );
-  assert.equal(result.included[0].liveDecisionModel, "gpt-5.6-luna");
-  assert.equal(result.included[0].liveDecisionAt, decidedAt);
+  assert.equal(localized.length, 2);
+  assert.equal(localized[0].title, items[0].title);
+  assert.equal(localized[0].url, items[0].url);
+  assert.equal(localized[1].title, items[1].title);
+  assert.equal(localized[1].url, items[1].url);
+  assert.equal(localized[1].titleZh, "美国开放权重 AI 生态竞赛");
 });
 
-test("Live editorial decisions require exact ids and valid translations", () => {
+test("Live localization requires exact ids and complete translations", () => {
   assert.throws(
     () =>
-      applyLiveEditorialDecisions(
+      mergeLiveTitleTranslations(
         [item()],
         {
           items: [
             {
               id: "wrong-id",
-              decision: "include",
               titleZh: "翻译",
-              reason: "material_event",
             },
           ],
-        },
-        {
-          model: "gpt-5.6-luna",
-          decidedAt: generatedAt,
         },
       ),
     /does not match item/,
   );
   assert.throws(
     () =>
-      applyLiveEditorialDecisions(
+      mergeLiveTitleTranslations(
         [item()],
         {
           items: [
             {
               id: "item-1",
-              decision: "exclude",
-              titleZh: "不该出现的翻译",
-              reason: "off_topic",
+              titleZh: "",
             },
           ],
         },
-        {
-          model: "gpt-5.6-luna",
-          decidedAt: generatedAt,
-        },
       ),
-    /must not have a translation/,
+    /does not match item/,
   );
 });
 
-test("Live model calls use a two-hour cooldown", () => {
+test("Live localization calls use a two-hour cooldown", () => {
   assert.equal(liveModelCooldownMinutes, 120);
-  const feed = { liveDecisionAt: "2026-08-02T20:00:00.000Z" };
+  const feed = { localizedAt: "2026-08-02T20:00:00.000Z" };
   assert.equal(
-    isLiveModelCoolingDown(
+    isLiveLocalizationCoolingDown(
       feed,
       Date.parse("2026-08-02T21:59:59.000Z"),
     ),
     true,
   );
   assert.equal(
-    isLiveModelCoolingDown(
+    isLiveLocalizationCoolingDown(
       feed,
       Date.parse("2026-08-02T22:00:00.000Z"),
     ),
@@ -373,36 +394,24 @@ test("Live model calls use a two-hour cooldown", () => {
   );
 });
 
-test("new Live items wait outside the public feed during model cooldown", () => {
-  const accepted = {
-    ...item(),
-    titleZh: "OpenAI 发布新的 Agent 模型 API",
-    liveDecision: "include",
-    liveDecisionModel: "gpt-5.6-luna",
-  };
-  const pending = item({
-    id: "pending",
-    title: "Anthropic launches a new Claude API",
-    url: "https://anthropic.com/news/new-claude-api",
-  });
-  const previous = {
-    liveDecisionAt: "2026-08-02T20:00:00.000Z",
-  };
+test("untranslated Live items remain public without model approval", () => {
+  const feed = buildLiveFeed(
+    snapshot([
+      item(),
+      item({
+        id: "new-company-item",
+        sourceId: 2,
+        sourceName: "Anthropic",
+        sourcePublisher: "Anthropic",
+        title: "Anthropic launches a new Claude API",
+        url: "https://anthropic.com/news/new-claude-api",
+      }),
+    ]),
+  );
 
   assert.deepEqual(
-    retainDecidedLiveItemsDuringCooldown(
-      [accepted, pending],
-      previous,
-      "2026-08-02T21:00:00.000Z",
-    ).map((entry) => entry.id),
-    ["item-1"],
+    feed.items.map((entry) => entry.id),
+    ["item-1", "new-company-item"],
   );
-  assert.deepEqual(
-    retainDecidedLiveItemsDuringCooldown(
-      [accepted, pending],
-      previous,
-      "2026-08-02T22:00:00.000Z",
-    ).map((entry) => entry.id),
-    ["item-1", "pending"],
-  );
+  assert.ok(feed.items.every((entry) => !entry.titleZh));
 });

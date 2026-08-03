@@ -177,54 +177,124 @@ const publisherUrlTitleRules = [
 
 const publisherMetadataRules = [
   {
+    hostname: /(^|\.)asia\.nikkei\.com$/i,
+    publisher: "Nikkei Asia",
+    sourceId: 900221,
+  },
+  {
+    hostname: /(^|\.)theverge\.com$/i,
+    publisher: "The Verge",
+    sourceId: 227,
+  },
+  {
+    hostname: /(^|\.)techcrunch\.com$/i,
+    publisher: "TechCrunch",
+    sourceId: 228,
+  },
+  {
+    hostname: /(^|\.)venturebeat\.com$/i,
+    publisher: "VentureBeat",
+    sourceId: 229,
+  },
+  {
+    hostname: /(^|\.)arstechnica\.com$/i,
+    publisher: "Ars Technica",
+    sourceId: 230,
+  },
+  {
+    hostname: /(^|\.)wired\.com$/i,
+    publisher: "WIRED",
+    sourceId: 231,
+  },
+  {
+    hostname: /(^|\.)the-decoder\.com$/i,
+    publisher: "The Decoder",
+    sourceId: 232,
+  },
+  {
+    hostname: /(^|\.)bloomberg\.com$/i,
+    publisher: "Bloomberg",
+    sourceId: 233,
+  },
+  {
+    hostname: /(^|\.)bbc\.(?:com|co\.uk)$/i,
+    publisher: "BBC",
+    sourceId: 234,
+  },
+  {
+    hostname: /(^|\.)engadget\.com$/i,
+    publisher: "Engadget",
+    sourceId: 235,
+  },
+  {
+    hostname: /(^|\.)theinformation\.com$/i,
+    publisher: "The Information",
+    sourceId: 236,
+  },
+  {
+    hostname: /(^|\.)wsj\.com$/i,
+    publisher: "The Wall Street Journal",
+    sourceId: 900226,
+  },
+  {
     hostname: /(^|\.)scientificamerican\.com$/i,
     publisher: "Scientific American",
+    sourceId: 900301,
   },
   {
     hostname: /(^|\.)ft\.com$/i,
     publisher: "Financial Times",
+    sourceId: 900302,
   },
   {
     hostname: /(^|\.)reuters\.com$/i,
     publisher: "Reuters",
+    sourceId: 900303,
   },
   {
     hostname: /(^|\.)nytimes\.com$/i,
     publisher: "The New York Times",
+    sourceId: 900304,
   },
   {
     hostname: /(^|\.)washingtonpost\.com$/i,
     publisher: "The Washington Post",
+    sourceId: 900305,
   },
   {
     hostname: /(^|\.)cnbc\.com$/i,
     publisher: "CNBC",
+    sourceId: 900306,
   },
   {
     hostname: /(^|\.)axios\.com$/i,
     publisher: "Axios",
+    sourceId: 900307,
   },
   {
     hostname: /(^|\.)404media\.co$/i,
     publisher: "404 Media",
+    sourceId: 900308,
   },
   {
     hostname: /(^|\.)semafor\.com$/i,
     publisher: "Semafor",
+    sourceId: 900309,
   },
   {
     hostname: /(^|\.)platformer\.news$/i,
     publisher: "Platformer",
+    sourceId: 900310,
   },
 ];
 
-function publicMetadataPublisher(value) {
+function publicMetadataRule(value) {
   try {
     const hostname = new URL(value).hostname;
     return (
       publisherMetadataRules.find((rule) =>
         rule.hostname.test(hostname),
-      )?.publisher ?? null
+      ) ?? null
     );
   } catch {
     return null;
@@ -235,6 +305,7 @@ export function originalFromPublicPageMetadata(
   item,
   html,
   publisher,
+  sourceId = 900226,
 ) {
   const metadata = extractPageMetadata(html);
   const title = cleanText(metadata.title ?? "");
@@ -252,7 +323,7 @@ export function originalFromPublicPageMetadata(
       .update(item.url)
       .digest("hex")
       .slice(0, 16)}`,
-    sourceId: 900226,
+    sourceId,
     sourceName: publisher,
     sourcePublisher: publisher,
     sourceKind: getSourceKind(item.url),
@@ -2117,14 +2188,15 @@ export async function groundDiscoveryOriginals(
       continue;
     }
 
-    const metadataPublisher = publicMetadataPublisher(item.url);
-    if (metadataPublisher) {
+    const metadataRule = publicMetadataRule(item.url);
+    if (metadataRule) {
       try {
         const response = await fetcher(item.url, 12_000);
         const original = originalFromPublicPageMetadata(
           item,
           response.text,
-          metadataPublisher,
+          metadataRule.publisher,
+          metadataRule.sourceId,
         );
         if (original) {
           grounded.push(original);

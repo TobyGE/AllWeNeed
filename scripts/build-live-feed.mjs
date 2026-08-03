@@ -6,7 +6,6 @@ import {
   getSourceKind,
   sourceCatalog,
 } from "../app/source-catalog.ts";
-import { globalModelCooldownMinutes } from "./update-policy.mjs";
 
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const defaultSnapshotPath = resolve(projectRoot, "data/feed-snapshot.json");
@@ -18,10 +17,10 @@ const maximumLiveItems = 10;
 const sourceById = new Map(sourceCatalog.map((source) => [source.id, source]));
 
 const authoritativePublisherPattern =
-  /\b(?:OpenAI|Anthropic|Google(?: DeepMind)?|Meta|Amazon|AWS|Microsoft|NVIDIA|AMD|Broadcom|TSMC|ASML|Lam Research|KLA|Apple|SpaceX|ByteDance Seed|DeepSeek|Hugging Face|Model Context Protocol|Federal Reserve|SEC|CISA|NIST)\b/iu;
+  /\b(?:OpenAI|Anthropic|Google(?: DeepMind)?|Meta|Amazon|AWS|Microsoft|NVIDIA|AMD|Broadcom|TSMC|ASML|Lam Research|KLA|Apple|SpaceX|ByteDance Seed|DeepSeek|Hugging Face|Model Context Protocol|Alibaba|Qwen|Tencent(?: Hunyuan)?|Baidu|ERNIE|MiniMax|Moonshot|Kimi|Z\.ai|GLM|StepFun|Baichuan|01\.AI|Mistral|Cohere|xAI|Tesla|Oracle|Palantir|Federal Reserve|SEC|CISA|NIST)\b/iu;
 
 const trustedNewsPublisherPattern =
-  /\b(?:The Verge|TechCrunch|VentureBeat|Ars Technica|WIRED|The Decoder|Bloomberg|BBC|Engadget|The Information|The Wall Street Journal|WSJ|Scientific American|Financial Times|Reuters|The New York Times|The Washington Post|CNBC|Axios|404 Media|Semafor|Platformer)\b/iu;
+  /\b(?:Nikkei Asia|The Verge|TechCrunch|VentureBeat|Ars Technica|WIRED|The Decoder|Bloomberg|BBC|Engadget|The Information|The Wall Street Journal|WSJ|Scientific American|Financial Times|Reuters|The New York Times|The Washington Post|CNBC|Axios|404 Media|Semafor|Platformer)\b/iu;
 
 const materialEventPattern =
   /\b(?:launch(?:ed|ing)?|releas(?:e|ed|ing)|introduc(?:e|ed|ing)|available now|general availability|preview|beta|model|api|pricing|price cut|earnings|results|guidance|acquisition|merger|funding|security advisory|breach|incident|cve-\d+|vulnerability|regulation|enforcement|ban|sanction)\b|(?:正式发布|正式上线|推出|开放API|降价|财报|业绩|指引|收购|合并|融资|安全公告|漏洞|攻击|事故|监管决定|制裁)/iu;
@@ -85,30 +84,6 @@ function sourceIdentity(item) {
 
 function translationCacheKey(item) {
   return `${canonicalUrl(item.url)}\n${item.title?.trim() ?? ""}`;
-}
-
-export function retainDecidedLiveItemsDuringCooldown(
-  items,
-  previousLiveFeed,
-  now,
-) {
-  const lastDecisionAt = Date.parse(
-    previousLiveFeed?.liveDecisionAt ?? "",
-  );
-  const nowMs = Date.parse(now ?? "");
-  if (
-    !Number.isFinite(lastDecisionAt) ||
-    !Number.isFinite(nowMs) ||
-    nowMs - lastDecisionAt >=
-      globalModelCooldownMinutes * 60 * 1_000
-  ) {
-    return items;
-  }
-  return items.filter(
-    (item) =>
-      item.liveDecision === "include" &&
-      Boolean(item.liveDecisionModel),
-  );
 }
 
 export function buildLiveFeed(snapshot, now = snapshot?.generatedAt) {
@@ -176,13 +151,13 @@ export function buildLiveFeed(snapshot, now = snapshot?.generatedAt) {
       const trustedNewsPublisher = trustedNewsPublisherPattern.test(
         `${sourceName} ${item.sourceName ?? ""}`,
       );
+      const officialModelFeed =
+        authoritative &&
+        configuredSource?.feedFormat === "huggingface-models-json";
       if (
         Number(item.durationMinutes ?? 0) >= 20 ||
-        !liveScopePattern.test(candidateText) ||
-        (!authoritative &&
-          !trustedNewsPublisher &&
-          !clustered &&
-          !materialEventPattern.test(candidateText))
+        (!liveScopePattern.test(candidateText) && !officialModelFeed) ||
+        (!authoritative && !trustedNewsPublisher && !clustered)
       ) {
         return [];
       }
@@ -254,62 +229,31 @@ async function main() {
     // The first live build creates the canonical file.
   }
   if (previousLiveFeed) {
-    const cachedDecisions = new Map(
+    const cachedTranslations = new Map(
       (previousLiveFeed.items ?? [])
-        .filter(
-          (item) =>
-            item.titleZh &&
-            item.liveDecision === "include" &&
-            item.liveDecisionModel,
-        )
+        .filter((item) => item.titleZh)
         .map((item) => [
           translationCacheKey(item),
-          {
-            titleZh: item.titleZh,
-            liveDecision: item.liveDecision,
-            liveDecisionModel: item.liveDecisionModel,
-            liveDecisionAt: item.liveDecisionAt,
-          },
+          item.titleZh,
         ]),
     );
-    const cachedExclusions = new Map(
-      (previousLiveFeed.excludedItems ?? []).map((item) => [
-        translationCacheKey(item),
-        item,
-      ]),
-    );
-    liveFeed.items = liveFeed.items.flatMap((item) => {
+    liveFeed.items = liveFeed.items.map((item) => {
       const key = translationCacheKey(item);
-      if (cachedExclusions.has(key)) return [];
-      const decision = cachedDecisions.get(key);
-      return decision ? [{ ...item, ...decision }] : [item];
+      const titleZh = cachedTranslations.get(key);
+      return titleZh ? { ...item, titleZh } : item;
     });
-    liveFeed.items = retainDecidedLiveItemsDuringCooldown(
-      liveFeed.items,
-      previousLiveFeed,
-      liveFeed.generatedAt,
-    );
-    liveFeed.excludedItems = [...cachedExclusions.values()].filter(
-      (item) =>
-        (snapshot.items ?? []).some(
-          (candidate) =>
-            translationCacheKey(candidate) === translationCacheKey(item),
-        ),
-    );
-    if (liveFeed.items.some((item) => item.liveDecisionModel)) {
+    if (liveFeed.items.some((item) => item.titleZh)) {
       liveFeed.localizationModel = previousLiveFeed.localizationModel;
       liveFeed.localizedAt = previousLiveFeed.localizedAt;
     }
-    liveFeed.liveDecisionModel = previousLiveFeed.liveDecisionModel;
-    liveFeed.liveDecisionAt = previousLiveFeed.liveDecisionAt;
-    liveFeed.pendingItemCount = previousLiveFeed.pendingItemCount ?? 0;
+    liveFeed.pendingItemCount = liveFeed.items.filter(
+      (item) => !item.titleZh,
+    ).length;
   }
   if (
     previousLiveFeed &&
     JSON.stringify(previousLiveFeed.items ?? []) ===
-      JSON.stringify(liveFeed.items) &&
-    JSON.stringify(previousLiveFeed.excludedItems ?? []) ===
-      JSON.stringify(liveFeed.excludedItems ?? [])
+      JSON.stringify(liveFeed.items)
   ) {
     console.log(
       `Live feed unchanged: ${liveFeed.items.length} items at ${previousLiveFeed.generatedAt}`,
