@@ -1415,16 +1415,14 @@ export default function Home() {
                 {view === "live" ? (
                   <>
                     {t("信息正在发生，", "See it as it happens.")}
-                    <br />
                     {locale === "zh" ? (
                       <>
-                        最近 6 小时{" "}
-                        <span>{liveStreamItems.length} 条动态</span>
+                        <span>{liveStreamItems.length} 条动态持续更新</span>
                       </>
                     ) : (
                       <>
-                        <span>{liveStreamItems.length} updates</span> in the last
-                        6 hours
+                        {" "}
+                        <span>{liveStreamItems.length} live updates</span>
                       </>
                     )}
                   </>
@@ -1526,7 +1524,7 @@ export default function Home() {
                 </span>
                 <span>
                   {view === "live"
-                    ? t("6 小时信息流", "6-hour live stream")
+                    ? t("实时信息流", "Live stream")
                     : view === "brief"
                     ? t("当前信号质量", "Current Signal Quality")
                     : view === "explore"
@@ -2302,8 +2300,8 @@ export default function Home() {
               <i className="status-dot" />{" "}
               {view === "live"
                 ? t(
-                    `${liveFeed.successfulSources} 个信源在线 · 最近 6 小时 ${liveStreamItems.length} 条`,
-                    `${liveFeed.successfulSources} sources online · ${liveStreamItems.length} items in 6 hours`,
+                    `${liveFeed.successfulSources} 个信源在线 · 当前 ${liveStreamItems.length} 条`,
+                    `${liveFeed.successfulSources} sources online · ${liveStreamItems.length} current items`,
                   )
                 : view === "conversations"
                 ? t(

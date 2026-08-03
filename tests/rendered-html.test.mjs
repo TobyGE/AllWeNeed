@@ -217,7 +217,11 @@ test("removes all disposable starter preview code", async () => {
   assert.match(page, /Happening now/);
   assert.doesNotMatch(page, /Latest river|最新流/);
   assert.doesNotMatch(page, /今日稍早|Earlier today/);
-  assert.match(page, /6-hour live stream/);
+  assert.match(page, /Live stream/);
+  assert.doesNotMatch(
+    page,
+    /最近 6 小时|6-hour live stream|items in 6 hours/,
+  );
   assert.doesNotMatch(page, /mobileAnalysisInExplore/);
   assert.match(
     page,
