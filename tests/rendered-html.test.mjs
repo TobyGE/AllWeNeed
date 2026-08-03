@@ -3,10 +3,6 @@ import { access, readFile } from "node:fs/promises";
 import test from "node:test";
 
 import {
-  calculateSignalHeat,
-  selectAdaptiveFeedItems,
-} from "../app/signal-heat.ts";
-import {
   getSourceKind,
   publicSourceCatalog,
   sourceCatalog as configuredSources,
@@ -60,15 +56,14 @@ test("server-renders the All We Need product shell", async () => {
     html,
     /<title>All We Need — AI, Tech &amp; Investment Intelligence<\/title>/i,
   );
-  assert.match(html, /The shifts that matter/);
-  assert.match(html, /Changes Taking Shape/);
+  assert.match(html, /See it as it happens/);
   assert.match(html, />Live</);
   assert.match(html, />Focus</);
   assert.doesNotMatch(html, /Continuous feed|持续更新 · 最近更新/);
   assert.doesNotMatch(html, /今日简报|Today's Brief|Daily Brief/);
   assert.match(html, /Explore/);
   assert.doesNotMatch(html, />永久</);
-  assert.match(html, /Investment &amp; Company Signals/);
+  assert.doesNotMatch(html, /Investment &amp; Company Signals/);
   assert.doesNotMatch(html, /GPT 已分析|GPT ANALYZED/);
   assert.match(html, /language-switch/);
   assert.match(html, />EN</);
@@ -84,68 +79,15 @@ test("server-renders the All We Need product shell", async () => {
       ["ok", "empty"].includes(status.status),
   ).length;
   assert.ok(html.includes(String(publicSuccessfulSources)));
-  const activeDynamicSignals = selectAdaptiveFeedItems(
-    radar.signals
-    .map((signal, index) => ({
-      ...signal,
-      translatedTitle: radar.translations.en.signals[index].title,
-      heat: calculateSignalHeat(signal, {
-        now: radar.generatedAt,
-        profile: "dynamic",
-      }),
-    }))
-    .filter(
-      (signal) =>
-        signal.editorialBucket === "dynamic",
-    ),
-    "dynamic",
-  );
-  const firstDynamicIndex = radar.signals.findIndex(
-    (signal) => signal.id === activeDynamicSignals[0]?.id,
-  );
-  assert.ok(firstDynamicIndex >= 0);
-  assert.ok(html.includes(radar.translations.en.signals[firstDynamicIndex].title));
-  const dynamicCount = activeDynamicSignals.length;
-  assert.match(html, new RegExp(`${dynamicCount}(?:<!-- -->)? updates`));
-  assert.doesNotMatch(html, /30 个信号|30 signals|30 条动态|30 updates/);
-  assert.match(
-    html,
-    /Distilling a fragmented information landscape into a small set of consequential shifts/,
-  );
+  assert.match(html, /class="app-shell view-live"/);
+  assert.match(html, /href="\/focus\/"/);
+  assert.doesNotMatch(html, /Distilling a fragmented information landscape/);
   assert.doesNotMatch(html, /新批次置顶，批内按价值排序/);
-  const expectedDynamicOrder = activeDynamicSignals;
-  const renderedDynamicIndices = expectedDynamicOrder.map((signal) =>
-    html.indexOf(escapeRenderedText(signal.translatedTitle)),
-  );
-  assert.ok(renderedDynamicIndices.every((index) => index >= 0));
-  assert.ok(
-    renderedDynamicIndices.every(
-      (index, position) =>
-        position === 0 || renderedDynamicIndices[position - 1] < index,
-    ),
-  );
-  assert.match(html, /href="\?article=1"/);
-  assert.match(html, /High heat \d+|Watch \d+|Cooling \d+/);
-  assert.match(html, /Cross-platform · \d+ independent sources/);
-  assert.ok(!html.includes(radar.translations.zh.signals[0].shiftTo));
   assert.doesNotMatch(html, />Preview</);
-  assert.match(html, /Explore more/);
-  assert.match(
+  assert.doesNotMatch(
     html,
-    /You’ve seen what changed\. Now explore what may come next\./,
+    new RegExp(escapeRenderedText(radar.translations.en.companySignals[0].headline)),
   );
-  assert.ok(
-    html.indexOf("GPT analysis complete") <
-      html.indexOf("You’ve seen what changed. Now explore what may come next."),
-  );
-  assert.ok(html.includes(radar.translations.en.companySignals[0].headline));
-  assert.match(html, /href="\?article=company-0"/);
-  assert.ok(
-    !html.includes(radar.translations.zh.companySignals[0].investmentRead),
-  );
-  assert.ok(!html.includes(radar.translations.zh.companySignals[0].catalyst));
-  assert.ok(!html.includes(radar.translations.zh.companySignals[0].risk));
-  assert.match(html, /GPT analysis complete/);
   assert.doesNotMatch(
     html,
     /今日 Brief|Explore 信息流|GPT 已分析/,
@@ -175,6 +117,7 @@ test("removes all disposable starter preview code", async () => {
     staticConfig,
     homeEntry,
     liveEntry,
+    focusEntry,
     exploreEntry,
     conversationsEntry,
     sourcesEntry,
@@ -202,6 +145,7 @@ test("removes all disposable starter preview code", async () => {
     readFile(new URL("../vite.static.config.ts", import.meta.url), "utf8"),
     readFile(new URL("../static/index.html", import.meta.url), "utf8"),
     readFile(new URL("../static/live/index.html", import.meta.url), "utf8"),
+    readFile(new URL("../static/focus/index.html", import.meta.url), "utf8"),
     readFile(new URL("../static/explore/index.html", import.meta.url), "utf8"),
     readFile(
       new URL("../static/conversations/index.html", import.meta.url),
@@ -701,6 +645,10 @@ test("removes all disposable starter preview code", async () => {
   assert.match(page, /function sectionPath/);
   assert.match(page, /pathname\.startsWith\("\/intelligence\/"\)/);
   assert.match(page, /function routeFromPathname/);
+  assert.match(page, /target === "live"\) return `\$\{base\}\/`/);
+  assert.match(page, /target === "brief"\) return `\$\{base\}\/focus\//);
+  assert.match(page, /endsWith\("\/focus"\)/);
+  assert.match(page, /return \{ view: "live", section: "radar" \}/);
   assert.match(page, /window\.history\.pushState/);
   assert.match(
     page,
@@ -708,15 +656,18 @@ test("removes all disposable starter preview code", async () => {
   );
   assert.match(staticConfig, /static\/explore\/index\.html/);
   assert.match(staticConfig, /static\/live\/index\.html/);
+  assert.match(staticConfig, /static\/focus\/index\.html/);
   assert.match(staticConfig, /static\/conversations\/index\.html/);
   assert.match(staticConfig, /static\/sources\/index\.html/);
   assert.match(exploreEntry, /<title>Explore — All We Need<\/title>/);
   assert.match(liveEntry, /<title>Live — All We Need<\/title>/);
+  assert.match(focusEntry, /<title>Focus — All We Need<\/title>/);
   assert.match(
     conversationsEntry,
     /<title>Podcasts — All We Need<\/title>/,
   );
   assert.match(sourcesEntry, /<title>Sources — All We Need<\/title>/);
+  assert.match(articleView, /`\$\{basePath\}\/focus\/`/);
   const conversationData = JSON.parse(conversations);
   assert.ok(conversationData.items.length >= 20);
   assert.ok(

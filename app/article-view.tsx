@@ -128,7 +128,7 @@ export function ArticleView({
     ? `${basePath}/explore/`
     : isConversation
       ? `${basePath}/conversations/`
-      : `${basePath}/`;
+      : `${basePath}/focus/`;
   const article = signal.article ?? fallbackArticle(signal, locale);
   useEffect(() => {
     const previousTitle = document.title;

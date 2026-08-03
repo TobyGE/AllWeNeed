@@ -184,7 +184,8 @@ function sectionPath(
     typeof window === "undefined" ? "/" : window.location.pathname,
 ) {
   const base = basePathFromPathname(pathname);
-  if (target === "brief") return `${base}/`;
+  if (target === "live") return `${base}/`;
+  if (target === "brief") return `${base}/focus/`;
   return `${base}/${target}/`;
 }
 
@@ -196,6 +197,9 @@ function routeFromPathname(pathname: string): {
   if (normalized.endsWith("/live")) {
     return { view: "live", section: "radar" };
   }
+  if (normalized.endsWith("/focus")) {
+    return { view: "brief", section: "radar" };
+  }
   if (normalized.endsWith("/explore")) {
     return { view: "explore", section: "radar" };
   }
@@ -205,7 +209,7 @@ function routeFromPathname(pathname: string): {
   if (normalized.endsWith("/sources")) {
     return { view: "brief", section: "sources" };
   }
-  return { view: "brief", section: "radar" };
+  return { view: "live", section: "radar" };
 }
 
 function pathForView(view: RadarView) {
@@ -291,7 +295,7 @@ function formatLiveAge(activityAt: string, now: string, locale: "zh" | "en") {
 export default function Home() {
   const initialRoute =
     typeof window === "undefined"
-      ? { view: "brief" as RadarView, section: "radar" as AppSection }
+      ? { view: "live" as RadarView, section: "radar" as AppSection }
       : routeFromPathname(window.location.pathname);
   const [locale, setLocale] = useState<"zh" | "en">("en");
   const [localePreferenceReady, setLocalePreferenceReady] = useState(false);
@@ -1447,7 +1451,8 @@ export default function Home() {
               <h1>
                 {view === "live" ? (
                   <>
-                    {t("信息正在发生，", "See it as it happens.")}
+                    {t("信息正在发生", "See it as it happens.")}
+                    <br />
                     {locale === "zh" ? (
                       <>
                         <span>{liveStreamItems.length} 条动态持续更新</span>
@@ -1508,15 +1513,9 @@ export default function Home() {
                   </>
                 )}
               </h1>
-              <p className="intro-copy">
-                {view === "live" ? (
-                  <>
-                    {t(
-                      "来自公开一手信源的连续时间线。按发布时间倒序，只做轻量去重；需要判断和验证的内容会进入焦点。",
-                      "A continuous timeline from public original sources, ordered by publication time with lightweight deduplication. The items that warrant judgment and verification graduate into Focus.",
-                    )}
-                  </>
-                ) : view === "brief" ? (
+              {view !== "live" ? (
+                <p className="intro-copy">
+                  {view === "brief" ? (
                   <>
                     {t(
                       "将分散的信息噪声压缩为少数值得判断的变化，让事实、共识与转折在同一条脉络中显现。",
@@ -1537,8 +1536,9 @@ export default function Home() {
                       "Skip the long runway and go straight to each speaker’s central claim, supporting detail, and strongest counterpoint—then return to the full program when it earns your time.",
                     )}
                   </>
-                )}
-              </p>
+                  )}
+                </p>
+              ) : null}
             </div>
             <div className="brief-score">
               <div>

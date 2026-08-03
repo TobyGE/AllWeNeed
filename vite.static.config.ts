@@ -19,6 +19,9 @@ export default defineConfig({
         live: fileURLToPath(
           new URL("./static/live/index.html", import.meta.url),
         ),
+        focus: fileURLToPath(
+          new URL("./static/focus/index.html", import.meta.url),
+        ),
         explore: fileURLToPath(
           new URL("./static/explore/index.html", import.meta.url),
         ),
