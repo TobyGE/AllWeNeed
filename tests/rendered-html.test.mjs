@@ -60,9 +60,10 @@ test("server-renders the All We Need product shell", async () => {
     html,
     /<title>All We Need — AI, Tech &amp; Investment Intelligence<\/title>/i,
   );
-  assert.match(html, /The latest changes/);
+  assert.match(html, /The shifts that matter/);
   assert.match(html, /Changes Taking Shape/);
-  assert.match(html, /Latest Updates/);
+  assert.match(html, />Live</);
+  assert.match(html, />Focus</);
   assert.match(html, /Continuous feed/);
   assert.doesNotMatch(html, /今日简报|Today's Brief|Daily Brief/);
   assert.match(html, /Explore/);
@@ -161,6 +162,7 @@ test("removes all disposable starter preview code", async () => {
     packageJson,
     sourceLibrary,
     snapshot,
+    liveFeed,
     radar,
     sourceCatalog,
     articleView,
@@ -168,8 +170,11 @@ test("removes all disposable starter preview code", async () => {
     exploreArticleScript,
     fetchScript,
     analyzeScript,
+    liveFeedScript,
+    smartFeedScript,
     staticConfig,
     homeEntry,
+    liveEntry,
     exploreEntry,
     conversationsEntry,
     sourcesEntry,
@@ -181,6 +186,7 @@ test("removes all disposable starter preview code", async () => {
     readFile(new URL("../package.json", import.meta.url), "utf8"),
     readFile(new URL("../app/source-library.tsx", import.meta.url), "utf8"),
     readFile(new URL("../data/feed-snapshot.json", import.meta.url), "utf8"),
+    readFile(new URL("../data/live-feed.json", import.meta.url), "utf8"),
     readFile(new URL("../data/daily-radar.json", import.meta.url), "utf8"),
     readFile(new URL("../app/source-catalog.ts", import.meta.url), "utf8"),
     readFile(new URL("../app/article-view.tsx", import.meta.url), "utf8"),
@@ -191,8 +197,11 @@ test("removes all disposable starter preview code", async () => {
     ),
     readFile(new URL("../scripts/fetch-sources.mjs", import.meta.url), "utf8"),
     readFile(new URL("../scripts/analyze-radar.mjs", import.meta.url), "utf8"),
+    readFile(new URL("../scripts/build-live-feed.mjs", import.meta.url), "utf8"),
+    readFile(new URL("../scripts/run-smart-feed.mjs", import.meta.url), "utf8"),
     readFile(new URL("../vite.static.config.ts", import.meta.url), "utf8"),
     readFile(new URL("../static/index.html", import.meta.url), "utf8"),
+    readFile(new URL("../static/live/index.html", import.meta.url), "utf8"),
     readFile(new URL("../static/explore/index.html", import.meta.url), "utf8"),
     readFile(
       new URL("../static/conversations/index.html", import.meta.url),
@@ -204,6 +213,11 @@ test("removes all disposable starter preview code", async () => {
   assert.match(page, /All We Need/);
   assert.match(page, /t\("搜索情报", "Search intelligence"\)/);
   assert.match(page, /app-shell view-\$\{view\}/);
+  assert.match(page, /liveFeed\.items/);
+  assert.match(page, /Happening now/);
+  assert.doesNotMatch(page, /Latest river|最新流/);
+  assert.doesNotMatch(page, /今日稍早|Earlier today/);
+  assert.match(page, /6-hour live stream/);
   assert.doesNotMatch(page, /mobileAnalysisInExplore/);
   assert.match(
     page,
@@ -231,7 +245,7 @@ test("removes all disposable starter preview code", async () => {
   );
   assert.equal(
     (page.match(/className="explore-more-actions"/g) ?? []).length,
-    3,
+    4,
   );
   assert.match(page, /conversation-page-bridge-cta/);
   assert.match(styles, /prefers-reduced-motion/);
@@ -255,9 +269,29 @@ test("removes all disposable starter preview code", async () => {
   assert.match(sourceLibrary, /刚刚抓取/);
   assert.match(sourceLibrary, /官方 API 凭证/);
   const snapshotData = JSON.parse(snapshot);
+  const liveFeedData = JSON.parse(liveFeed);
   assert.equal(snapshotData.totalSources, snapshotData.statuses.length);
   assert.ok(snapshotData.successfulSources >= 120);
   assert.ok(snapshotData.items.length > 1000);
+  assert.equal(liveFeedData.windowHours, 6);
+  assert.ok(liveFeedData.items.length > 0);
+  assert.ok(
+    liveFeedData.items.every(
+      (item) => item.title && item.titleZh && item.title !== item.titleZh,
+    ),
+  );
+  assert.match(page, /item\.titleZh \?\? item\.title/);
+  assert.ok(
+    liveFeedData.items.every(
+      (item) =>
+        !item.conversationSource &&
+        item.sourceName !== "Techmeme" &&
+        !/techmeme\.com/i.test(item.url),
+    ),
+  );
+  assert.match(liveFeedScript, /directSourceLimit = 3/);
+  assert.match(liveFeedScript, /discoveredThroughCluster/);
+  assert.match(smartFeedScript, /"cycle:live"/);
   assert.equal(
     snapshotData.statuses.filter(
       (status) => status.kind === "YouTube" && status.status === "error",
@@ -650,11 +684,13 @@ test("removes all disposable starter preview code", async () => {
   assert.match(page, /kind="conversation"/);
   assert.match(page, /function StoryLinkIcon/);
   assert.doesNotMatch(page, /permanent-badge/);
-  assert.equal(page.match(/<StoryLinkIcon \/>/g)?.length, 4);
+  assert.equal(page.match(/<StoryLinkIcon \/>/g)?.length, 5);
+  assert.match(page, /className="live-lead-grid"/);
+  assert.match(page, /6 \* 60 \* 60 \* 1_000/);
   assert.match(page, /conversation-grid/);
   assert.doesNotMatch(page, /function toggleExpandedConversation/);
   assert.match(page, /function conversationsMore/);
-  assert.match(page, /t\("精选对谈", "Conversations"\)/);
+  assert.match(page, /t\("精选播客", "Podcasts"\)/);
   assert.match(page, /conversation-bridge-cta/);
   assert.match(page, /function basePathFromPathname/);
   assert.match(page, /function sectionPath/);
@@ -666,12 +702,14 @@ test("removes all disposable starter preview code", async () => {
     /`\$\{window\.location\.pathname\}\$\{window\.location\.search\}`/,
   );
   assert.match(staticConfig, /static\/explore\/index\.html/);
+  assert.match(staticConfig, /static\/live\/index\.html/);
   assert.match(staticConfig, /static\/conversations\/index\.html/);
   assert.match(staticConfig, /static\/sources\/index\.html/);
   assert.match(exploreEntry, /<title>Explore — All We Need<\/title>/);
+  assert.match(liveEntry, /<title>Live — All We Need<\/title>/);
   assert.match(
     conversationsEntry,
-    /<title>Conversations — All We Need<\/title>/,
+    /<title>Podcasts — All We Need<\/title>/,
   );
   assert.match(sourcesEntry, /<title>Sources — All We Need<\/title>/);
   const conversationData = JSON.parse(conversations);

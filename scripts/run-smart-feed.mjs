@@ -44,6 +44,19 @@ function forwardedArguments() {
 
 run("npm", ["run", "poll:feed"]);
 const plan = JSON.parse(await readFile(planPath, "utf8"));
+
+// Live is an independent lightweight publication lane. It only asks the
+// localization model for titles that are new to the six-hour window; cached
+// translations are reused. Publish it before the curated cycle so fresh wire
+// items do not wait for the full analysis cadence.
+run("npm", [
+  "run",
+  "cycle:live",
+  "--",
+  "--reuse-snapshot",
+  ...forwardedArguments(),
+]);
+
 if (!plan.shouldRunFullCycle) {
   runOptional("npm", ["run", "scout:sources:scheduled"]);
   console.log(

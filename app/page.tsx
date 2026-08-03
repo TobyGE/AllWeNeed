@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import conversations from "../data/conversations.json";
 import dailyRadar from "../data/daily-radar.json";
 import snapshot from "../data/feed-snapshot.json";
+import liveFeed from "../data/live-feed.json";
 import {
   trackAnalyticsEvent,
   trackPageView,
@@ -29,6 +30,7 @@ type SignalReference = {
   sourceName: string;
   sourceKind: string;
   title: string;
+  titleZh?: string;
   url: string;
   publishedAt: string | null;
 };
@@ -146,7 +148,26 @@ type Conversation = {
   };
 };
 
-type RadarView = "brief" | "explore" | "conversations";
+type LiveStreamItem = {
+  id: string;
+  sourceId: number;
+  sourceName: string;
+  sourcePublisher?: string;
+  sourceKind: string;
+  title: string;
+  url: string;
+  publishedAt: string | null;
+  summary: string;
+  fetchedAt: string;
+  firstSeenAt?: string;
+  activityAt: string;
+  categoryKey: string;
+  category: string;
+  discoveredThroughCluster: boolean;
+  prominence: "lead" | "river";
+};
+
+type RadarView = "live" | "brief" | "explore" | "conversations";
 type AppSection = "radar" | "sources";
 
 type SiteSection = RadarView | "sources";
@@ -172,6 +193,9 @@ function routeFromPathname(pathname: string): {
   section: AppSection;
 } {
   const normalized = pathname.replace(/\/+$/, "");
+  if (normalized.endsWith("/live")) {
+    return { view: "live", section: "radar" };
+  }
   if (normalized.endsWith("/explore")) {
     return { view: "explore", section: "radar" };
   }
@@ -218,7 +242,6 @@ const publicSuccessfulSources = publicStatuses.filter((status) =>
 const publicNeedsAuthSources = publicStatuses.filter(
   (status) => status.status === "needs_auth",
 ).length;
-
 function shortKind(kind: string, locale: "zh" | "en") {
   if (locale === "zh") {
     if (kind === "Newsletter") return "简报";
@@ -246,6 +269,23 @@ function heatLabel(heat: SignalHeat, locale: "zh" | "en") {
     dormant: locale === "zh" ? "沉寂" : "Dormant",
   };
   return `${labels[heat.stage]} ${heat.score}`;
+}
+
+function formatLiveAge(activityAt: string, now: string, locale: "zh" | "en") {
+  const ageMinutes = Math.max(
+    0,
+    Math.floor((Date.parse(now) - Date.parse(activityAt)) / 60_000),
+  );
+  if (ageMinutes < 1) return locale === "zh" ? "刚刚" : "Just now";
+  if (ageMinutes < 60) {
+    return locale === "zh" ? `${ageMinutes} 分钟前` : `${ageMinutes}m ago`;
+  }
+  const ageHours = Math.floor(ageMinutes / 60);
+  if (ageHours < 24) {
+    return locale === "zh" ? `${ageHours} 小时前` : `${ageHours}h ago`;
+  }
+  const ageDays = Math.floor(ageHours / 24);
+  return locale === "zh" ? `${ageDays} 天前` : `${ageDays}d ago`;
 }
 
 export default function Home() {
@@ -315,10 +355,14 @@ export default function Home() {
           ? locale === "zh"
             ? "探索 — All We Need"
             : "Explore — All We Need"
+          : view === "live"
+            ? locale === "zh"
+              ? "动态 — All We Need"
+              : "Live — All We Need"
           : view === "conversations"
             ? locale === "zh"
-              ? "精选对谈 — All We Need"
-              : "Conversations — All We Need"
+              ? "播客 — All We Need"
+              : "Podcasts — All We Need"
             : locale === "zh"
               ? "All We Need — AI 科技投资情报"
               : "All We Need — AI, Tech & Investment Intelligence";
@@ -432,6 +476,37 @@ export default function Home() {
       ),
     [localizedSignals],
   );
+
+  const liveStreamItems = useMemo(() => {
+    const nowMs = Date.parse(heatNow);
+    const windowStartMs = nowMs - 6 * 60 * 60 * 1_000;
+    const futureToleranceMs = nowMs + 60 * 60 * 1_000;
+
+    return liveFeed.items
+      .map(
+        (item): LiveStreamItem => ({
+          ...item,
+          title: locale === "zh" ? item.titleZh ?? item.title : item.title,
+          summary: "",
+          firstSeenAt: item.firstSeenAt ?? undefined,
+          activityAt: item.publishedAt,
+          categoryKey: item.sourceKind,
+          category:
+            locale === "zh"
+              ? shortKind(item.sourceKind, locale)
+              : item.sourceKind,
+          prominence: item.prominence as "lead" | "river",
+        }),
+      )
+      .filter((item) => {
+        const activityAtMs = Date.parse(item.activityAt);
+        return (
+          Number.isFinite(activityAtMs) &&
+          activityAtMs >= windowStartMs &&
+          activityAtMs <= futureToleranceMs
+        );
+      });
+  }, [heatNow, locale]);
 
   const localizedCuratedExploreSignals = useMemo(
     () =>
@@ -707,6 +782,8 @@ export default function Home() {
             ? "dynamic"
             : section === "sources"
               ? "sources"
+              : view === "live"
+                ? "live"
               : view === "brief"
                 ? "index"
                 : view;
@@ -754,6 +831,14 @@ export default function Home() {
       timeZone: "America/New_York",
     },
   ).format(new Date(dailyRadar.generatedAt));
+  const liveScanTimeLabel = new Intl.DateTimeFormat(
+    locale === "zh" ? "zh-CN" : "en-US",
+    {
+      hour: "2-digit",
+      minute: "2-digit",
+      timeZone: "America/New_York",
+    },
+  ).format(new Date(liveFeed.generatedAt));
 
   const visibleSignals = useMemo(() => {
     const normalized = query.trim().toLowerCase();
@@ -768,6 +853,25 @@ export default function Home() {
       return matchesCategory && matchesQuery;
     });
   }, [activeCategory, localizedDynamicSignals, query]);
+
+  const visibleLiveItems = useMemo(() => {
+    const normalized = query.trim().toLowerCase();
+    return liveStreamItems.filter((item) => {
+      const matchesCategory =
+        activeCategory === "全部" || item.categoryKey === activeCategory;
+      const matchesQuery =
+        !normalized ||
+        `${item.title} ${item.sourceName} ${item.sourcePublisher ?? ""} ${item.sourceKind}`
+          .toLowerCase()
+          .includes(normalized);
+      return matchesCategory && matchesQuery;
+    });
+  }, [activeCategory, liveStreamItems, query]);
+
+  const liveLeadItems = useMemo(() => {
+    return visibleLiveItems
+      .slice(0, 10);
+  }, [visibleLiveItems]);
 
   const visibleExploreSignals = useMemo(() => {
     const normalized = query.trim().toLowerCase();
@@ -799,7 +903,9 @@ export default function Home() {
 
   const activeCategories = useMemo(() => {
     const displayItems =
-      view === "explore"
+      view === "live"
+        ? liveStreamItems
+        : view === "explore"
         ? activeExploreSignals
         : view === "conversations"
           ? activeConversations
@@ -815,6 +921,7 @@ export default function Home() {
   }, [
     activeExploreSignals,
     activeConversations,
+    liveStreamItems,
     locale,
     localizedDynamicSignals,
     view,
@@ -940,7 +1047,7 @@ export default function Home() {
               title: activeConversationArticle.originalTitle,
               url: activeConversationArticle.url,
               publishedAt: activeConversationArticle.publishedAt,
-              role: t("完整节目", "Full conversation"),
+              role: t("完整节目", "Full episode"),
               takeaway: activeConversationArticle.whyListen,
             },
           ],
@@ -1059,6 +1166,18 @@ export default function Home() {
 
         <nav className="side-nav" aria-label={t("主要导航", "Primary navigation")}>
           <a
+            className={`nav-item ${section === "radar" && view === "live" ? "active" : ""}`}
+            href={sectionPath("live")}
+            onClick={(event) => {
+              event.preventDefault();
+              switchView("live");
+            }}
+          >
+            <span aria-hidden="true">◉</span>
+            {t("动态", "Live")}
+            <span className="nav-count">{liveStreamItems.length}</span>
+          </a>
+          <a
             className={`nav-item ${section === "radar" && view === "brief" ? "active" : ""}`}
             href={sectionPath("brief")}
             onClick={(event) => {
@@ -1067,7 +1186,7 @@ export default function Home() {
             }}
           >
             <span aria-hidden="true">⌁</span>
-            {t("最新动态", "Latest Updates")}
+            {t("焦点", "Focus")}
             <span className="nav-count">{localizedDynamicSignals.length}</span>
           </a>
           <a
@@ -1091,7 +1210,7 @@ export default function Home() {
             }}
           >
             <span aria-hidden="true">◌</span>
-            {t("对话", "Conversations")}
+            {t("播客", "Podcasts")}
             <span className="nav-count">{activeConversations.length}</span>
           </a>
           <a
@@ -1282,15 +1401,36 @@ export default function Home() {
                       "本周精选 · 从公开对谈中提炼值得带走的判断",
                       "This week’s picks · The ideas worth carrying forward",
                     )
+                  : view === "live"
+                    ? t(
+                        `实时采集 · 最近扫描 ${liveScanTimeLabel}`,
+                        `Live ingest · Last scanned ${liveScanTimeLabel}`,
+                      )
                   : t(
                       `持续更新 · 最近更新 ${analysisTimeLabel}`,
                       `Continuous feed · Updated ${analysisTimeLabel}`,
                     )}
               </p>
               <h1>
-                {view === "brief" ? (
+                {view === "live" ? (
                   <>
-                    {t("值得关注的最新变化，", "The latest changes")}
+                    {t("信息正在发生，", "See it as it happens.")}
+                    <br />
+                    {locale === "zh" ? (
+                      <>
+                        最近 6 小时{" "}
+                        <span>{liveStreamItems.length} 条动态</span>
+                      </>
+                    ) : (
+                      <>
+                        <span>{liveStreamItems.length} updates</span> in the last
+                        6 hours
+                      </>
+                    )}
+                  </>
+                ) : view === "brief" ? (
+                  <>
+                    {t("真正值得关注的变化，", "The shifts that matter,")}
                     <br />
                     {locale === "zh" ? (
                       <>
@@ -1321,7 +1461,7 @@ export default function Home() {
                   </>
                 ) : (
                   <>
-                    {t("值得听的长对话，", "The week’s best conversations,")}
+                    {t("本周值得听的播客，", "The week’s best podcasts,")}
                     <br />
                     {locale === "zh" ? (
                       <>
@@ -1338,7 +1478,14 @@ export default function Home() {
                 )}
               </h1>
               <p className="intro-copy">
-                {view === "brief" ? (
+                {view === "live" ? (
+                  <>
+                    {t(
+                      "来自公开一手信源的连续时间线。按发布时间倒序，只做轻量去重；需要判断和验证的内容会进入焦点。",
+                      "A continuous timeline from public original sources, ordered by publication time with lightweight deduplication. The items that warrant judgment and verification graduate into Focus.",
+                    )}
+                  </>
+                ) : view === "brief" ? (
                   <>
                     {t(
                       "将分散的信息噪声压缩为少数值得判断的变化，让事实、共识与转折在同一条脉络中显现。",
@@ -1365,7 +1512,9 @@ export default function Home() {
             <div className="brief-score">
               <div>
                 <span className="score-ring">
-                  {view === "brief"
+                  {view === "live"
+                    ? liveStreamItems.length
+                    : view === "brief"
                     ? dailyRadar.signalQuality
                     : view === "explore"
                       ? new Set(
@@ -1376,13 +1525,20 @@ export default function Home() {
                       : activeConversations.length}
                 </span>
                 <span>
-                  {view === "brief"
+                  {view === "live"
+                    ? t("6 小时信息流", "6-hour live stream")
+                    : view === "brief"
                     ? t("当前信号质量", "Current Signal Quality")
                     : view === "explore"
                       ? t("探索主题覆盖", "Explore Coverage")
-                      : t("本周对话精选", "Weekly Conversation Picks")}
+                      : t("本周播客精选", "Weekly Podcast Picks")}
                   <small>
-                    {view === "brief"
+                    {view === "live"
+                      ? t(
+                          `${new Set(liveStreamItems.map((item) => item.sourceName)).size} 个活跃来源`,
+                          `${new Set(liveStreamItems.map((item) => item.sourceName)).size} active sources`,
+                        )
+                      : view === "brief"
                       ? t(
                           `较基准 ${
                             dailyRadar.signalQualityChange >= 0 ? "高" : "低"
@@ -1409,6 +1565,8 @@ export default function Home() {
               >
                 {(view === "brief"
                   ? coveredKinds
+                  : view === "live"
+                    ? [...new Set(liveStreamItems.map((item) => item.sourceKind))]
                   : view === "explore"
                     ? exploreKinds
                     : locale === "zh"
@@ -1427,6 +1585,16 @@ export default function Home() {
               aria-label={t("内容视图", "Content view")}
             >
               <a
+                className={view === "live" ? "selected" : ""}
+                href={sectionPath("live")}
+                onClick={(event) => {
+                  event.preventDefault();
+                  switchView("live");
+                }}
+              >
+                {t("动态", "Live")}
+              </a>
+              <a
                 className={view === "brief" ? "selected" : ""}
                 href={sectionPath("brief")}
                 onClick={(event) => {
@@ -1434,7 +1602,7 @@ export default function Home() {
                   switchView("brief");
                 }}
               >
-                {t("最新动态", "Latest Updates")}
+                {t("焦点", "Focus")}
               </a>
               <a
                 className={view === "explore" ? "selected" : ""}
@@ -1454,7 +1622,7 @@ export default function Home() {
                   switchView("conversations");
                 }}
               >
-                {t("对话", "Conversations")}
+                {t("播客", "Podcasts")}
               </a>
             </div>
             <div
@@ -1478,7 +1646,9 @@ export default function Home() {
 
           <div
             className={`dashboard-grid ${
-              view === "explore"
+              view === "live"
+                ? "live-layout"
+                : view === "explore"
                 ? "explore-layout"
                 : view === "conversations"
                   ? "conversation-layout"
@@ -1489,15 +1659,19 @@ export default function Home() {
               <div className="section-heading">
                 <div>
                   <span className="section-kicker">
-                    {view === "brief"
+                    {view === "live"
+                      ? t("持续采集", "LIVE WIRE")
+                      : view === "brief"
                       ? t("持续更新", "LIVE FEED")
                       : view === "explore"
                         ? t("探索发现", "DISCOVERY FEED")
                         : t("本周精选", "THIS WEEK’S PICKS")}
                   </span>
                   <h2>
-                    {view === "brief"
-                      ? t("最新信号", "Latest Signals")
+                    {view === "live"
+                      ? t("刚刚发生", "Just in")
+                      : view === "brief"
+                      ? t("关键焦点", "Key Focus")
                       : view === "explore"
                         ? t(
                             "为你发现的高信号内容",
@@ -1507,7 +1681,12 @@ export default function Home() {
                   </h2>
                 </div>
                 <span className="result-count">
-                  {view === "brief"
+                  {view === "live"
+                    ? t(
+                        `${visibleLiveItems.length} 条原始更新`,
+                        `${visibleLiveItems.length} source updates`,
+                      )
+                    : view === "brief"
                     ? t(
                         `${visibleSignals.length} 个事件簇`,
                         `${visibleSignals.length} event clusters`,
@@ -1524,7 +1703,80 @@ export default function Home() {
                 </span>
               </div>
 
-              {view === "brief" ? (
+              {view === "live" ? (
+                <div className="live-wire">
+                  {liveLeadItems.length > 0 && (
+                    <section className="live-lead-section">
+                      <div className="live-band-heading">
+                        <span className="live-pulse" aria-hidden="true" />
+                        <strong>{t("正在发生", "Happening now")}</strong>
+                      </div>
+                      <div className="live-lead-grid">
+                        {liveLeadItems.map((item) => (
+                          <article className="live-lead-item" key={item.id}>
+                            <div>
+                              <time dateTime={item.activityAt}>
+                                {formatLiveAge(
+                                  item.activityAt,
+                                  heatNow,
+                                  locale,
+                                )}
+                              </time>
+                              <span>{item.sourceName}</span>
+                              {item.discoveredThroughCluster && (
+                                <em>{t("多源跟进", "Clustered")}</em>
+                              )}
+                            </div>
+                            <a
+                              href={item.url}
+                              target="_blank"
+                              rel="noreferrer"
+                              onClick={() =>
+                                trackAnalyticsEvent("live_item_open", {
+                                  source_id: item.sourceId,
+                                  source_name: item.sourceName,
+                                  source_kind: item.sourceKind,
+                                  item_url: item.url,
+                                  language: locale,
+                                  placement: "happening_now",
+                                })
+                              }
+                            >
+                              <span>{item.title}</span>
+                              <StoryLinkIcon />
+                            </a>
+                          </article>
+                        ))}
+                      </div>
+                    </section>
+                  )}
+
+                  {visibleLiveItems.length === 0 && (
+                    <div className="empty-state">
+                      <span>⌕</span>
+                      <strong>
+                        {t("没有找到匹配的动态", "No matching live updates")}
+                      </strong>
+                      <p>
+                        {t(
+                          "换一个关键词或清除来源筛选。",
+                          "Try another keyword or clear the source filter.",
+                        )}
+                      </p>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setQuery("");
+                          setActiveCategory("全部");
+                        }}
+                      >
+                        {t("清除筛选", "Clear filters")}
+                      </button>
+                    </div>
+                  )}
+
+                </div>
+              ) : view === "brief" ? (
               <div className="signal-list">
                 {visibleSignals.map((signal, index) => {
                   const isSaved = saved.includes(signal.id);
@@ -1801,8 +2053,8 @@ export default function Home() {
                       <span>◌</span>
                       <strong>
                         {t(
-                          "没有找到匹配的对话",
-                          "No matching conversations",
+                          "没有找到匹配的播客",
+                          "No matching podcasts",
                         )}
                       </strong>
                       <p>
@@ -2048,7 +2300,12 @@ export default function Home() {
           <footer className="footer">
             <span>
               <i className="status-dot" />{" "}
-              {view === "conversations"
+              {view === "live"
+                ? t(
+                    `${liveFeed.successfulSources} 个信源在线 · 最近 6 小时 ${liveStreamItems.length} 条`,
+                    `${liveFeed.successfulSources} sources online · ${liveStreamItems.length} items in 6 hours`,
+                  )
+                : view === "conversations"
                 ? t(
                     `完整字幕精读完成 · 本周精选 ${activeConversations.length} 期`,
                     `Full-transcript review complete · ${activeConversations.length} weekly picks`,
@@ -2059,6 +2316,12 @@ export default function Home() {
                   )}
             </span>
             <span>
+              {view === "live"
+                ? t(
+                    `无模型实时流 · 扫描于 ${liveScanTimeLabel}`,
+                    `Model-free live stream · Scanned ${liveScanTimeLabel}`,
+                  )
+                : <>
               {view === "conversations"
                 ? conversations.model
                 : dailyRadar.model}{" "}
@@ -2071,14 +2334,61 @@ export default function Home() {
                   ? "This week’s edition"
                   : `Updated ${analysisTimeLabel}`,
               )}
+              </>
+              }
             </span>
           </footer>
+
+          {view === "live" && visibleLiveItems.length > 0 && (
+            <section className="explore-more-cta live-to-focus-cta explore-more-page-end">
+              <div>
+                <span className="explore-more-kicker">
+                  {t("从信息到判断", "FROM FLOW TO JUDGMENT")}
+                </span>
+                <h3>
+                  {t(
+                    "看完刚刚发生了什么，再看哪些变化真正值得记住",
+                    "You’ve seen what just happened. Now see which shifts are worth remembering.",
+                  )}
+                </h3>
+                <p>
+                  {t(
+                    "进入焦点，查看经过交叉验证、合并同类项和编辑判断后的关键事件。",
+                    "Move into Focus for the consequential events that survived cross-validation, clustering, and editorial judgment.",
+                  )}
+                </p>
+              </div>
+              <div className="explore-more-actions">
+                <a
+                  href={sectionPath("brief")}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    briefMore();
+                  }}
+                >
+                  <span>{t("查看焦点", "Open Focus")}</span>
+                  <i aria-hidden="true">→</i>
+                </a>
+                <a
+                  className="conversation-more-button"
+                  href={sectionPath("explore")}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    exploreMore();
+                  }}
+                >
+                  <span>{t("探索更多", "Explore")}</span>
+                  <i aria-hidden="true">→</i>
+                </a>
+              </div>
+            </section>
+          )}
 
           {view === "brief" && visibleSignals.length > 0 && (
             <section className="explore-more-cta explore-more-page-end">
               <div>
                 <span className="explore-more-kicker">
-                  {t("动态之外", "BEYOND THE FEED")}
+                  {t("焦点之外", "BEYOND FOCUS")}
                 </span>
                 <h3>
                   {t(
@@ -2112,7 +2422,7 @@ export default function Home() {
                     conversationsMore();
                   }}
                 >
-                  <span>{t("精选对谈", "Conversations")}</span>
+                  <span>{t("精选播客", "Podcasts")}</span>
                   <i aria-hidden="true">→</i>
                 </a>
               </div>
@@ -2133,8 +2443,8 @@ export default function Home() {
                 </h3>
                 <p>
                   {t(
-                    "进入精选对谈，用几分钟读完本周高质量 interviews、podcasts 与长对话的核心论点。",
-                    "Open curated conversations and absorb the week’s best interviews, podcasts, and long-form discussions in minutes.",
+                    "进入精选播客，用几分钟读完本周高质量访谈、播客与长对话的核心论点。",
+                    "Open curated podcasts and absorb the week’s best interviews and long-form discussions in minutes.",
                   )}
                 </p>
               </div>
@@ -2146,7 +2456,7 @@ export default function Home() {
                     conversationsMore();
                   }}
                 >
-                  <span>{t("精选对谈", "Conversations")}</span>
+                  <span>{t("精选播客", "Podcasts")}</span>
                   <i aria-hidden="true">→</i>
                 </a>
                 <a
@@ -2157,7 +2467,7 @@ export default function Home() {
                     briefMore();
                   }}
                 >
-                  <span>{t("最近动态", "Latest")}</span>
+                  <span>{t("焦点", "Focus")}</span>
                   <i aria-hidden="true">→</i>
                 </a>
               </div>
@@ -2168,7 +2478,7 @@ export default function Home() {
             <section className="explore-more-cta conversation-page-bridge-cta explore-more-page-end">
               <div>
                 <span className="explore-more-kicker">
-                  {t("对话之外", "BEYOND THE CONVERSATION")}
+                  {t("节目之外", "BEYOND THE EPISODE")}
                 </span>
                 <h3>
                   {t(
@@ -2178,8 +2488,8 @@ export default function Home() {
                 </h3>
                 <p>
                   {t(
-                    "最近动态追踪正在发生的事件；探索连接非共识观点、二阶影响与仍在形成中的早期信号。",
-                    "Latest tracks events in motion; Explore connects non-consensus views, second-order effects, and early signals still taking shape.",
+                    "焦点追踪真正重要的事件；探索连接非共识观点、二阶影响与仍在形成中的早期信号。",
+                    "Focus tracks consequential events; Explore connects non-consensus views, second-order effects, and early signals still taking shape.",
                   )}
                 </p>
               </div>
@@ -2202,7 +2512,7 @@ export default function Home() {
                     briefMore();
                   }}
                 >
-                  <span>{t("最近动态", "Latest")}</span>
+                  <span>{t("焦点", "Focus")}</span>
                   <i aria-hidden="true">→</i>
                 </a>
               </div>

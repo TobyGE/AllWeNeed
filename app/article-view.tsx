@@ -206,7 +206,7 @@ export function ArticleView({
               : isCompany
                 ? t("CAPITAL 公司稿", "CAPITAL & COMPANY")
                 : isConversation
-                  ? t("CONVERSATION 对话笔记", "CONVERSATION NOTES")
+                  ? t("PODCAST 播客笔记", "PODCAST NOTES")
                   : t("RADAR 编辑稿", "RADAR EDITORIAL")}
           </span>
         </div>
@@ -226,8 +226,8 @@ export function ArticleView({
               : isCompany
                 ? t("投资与公司信号", "Investment & Company Signals")
                 : isConversation
-                  ? t("对话", "Conversations")
-                  : t("最新动态", "Latest Updates")}
+                  ? t("播客", "Podcasts")
+                  : t("焦点", "Focus")}
           </a>
           <span>/</span>
           <span>{signal.category}</span>
@@ -368,7 +368,7 @@ export function ArticleView({
               </strong>
               <span>
                 {isConversation
-                  ? t("分钟完整对谈", "minutes of conversation")
+                  ? t("分钟完整节目", "minutes in the full episode")
                   : t("个独立来源支撑本文", "independent sources")}
               </span>
             </div>
@@ -381,7 +381,7 @@ export function ArticleView({
               <span>{t("原始材料", "SOURCE MATERIAL")}</span>
               <h2>
                 {isConversation
-                  ? t("打开完整节目", "Open the full conversation")
+                  ? t("打开完整节目", "Open the full episode")
                   : t("这篇稿子基于什么", "What this article is based on")}
               </h2>
             </div>
@@ -426,8 +426,8 @@ export function ArticleView({
               : isCompany
                 ? t("返回投资与公司信号", "Back to company signals")
                 : isConversation
-                  ? t("返回对话", "Back to Conversations")
-                  : t("返回最新动态", "Back to latest updates")}
+                  ? t("返回播客", "Back to Podcasts")
+                  : t("返回焦点", "Back to Focus")}
           </a>
           <span>All We Need · {dateLabel}</span>
         </footer>

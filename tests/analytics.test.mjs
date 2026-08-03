@@ -15,7 +15,7 @@ const layoutSource = await readFile(
   "utf8",
 );
 const staticEntrypoints = await Promise.all(
-  ["../static/index.html", "../static/explore/index.html", "../static/conversations/index.html", "../static/sources/index.html"].map(
+  ["../static/index.html", "../static/live/index.html", "../static/explore/index.html", "../static/conversations/index.html", "../static/sources/index.html"].map(
     (entrypoint) => readFile(new URL(entrypoint, import.meta.url), "utf8"),
   ),
 );
