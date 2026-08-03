@@ -390,6 +390,10 @@ async function publishLiveOnly({
     "Homepage live repository",
   );
 
+  // rendered-html.test.mjs exercises dist/server/index.js. A production
+  // checkout can retain an older dist after a fast-forward, so rebuild the
+  // server bundle before validating the freshly pulled Live implementation.
+  runCommand("npm", ["run", "build"], { cwd: projectRoot });
   runCommand(
     process.execPath,
     [
