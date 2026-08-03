@@ -3,7 +3,11 @@ import test from "node:test";
 
 import {
   extractTechmemeOriginalUrl,
+  groundDiscoveryOriginals,
+  originalFromPublicPageMetadata,
+  originalTitleFromPublisherUrl,
   parseTechmemeFeed,
+  parseXOriginalOembed,
 } from "../scripts/fetch-sources.mjs";
 import {
   publicSourceCatalog,
@@ -85,4 +89,145 @@ test("registers Techmeme as a private high-priority discovery source", () => {
   assert.equal(techmeme?.discoveryOnly, true);
   assert.equal(techmeme?.discoveryLevel, "A");
   assert.equal(publicSourceCatalog.some((item) => item.id === 226), false);
+});
+
+test("registers The Information official Atom with its compatible transport", () => {
+  const source = sourceCatalog.find((item) => item.id === 236);
+  assert.equal(source?.feedUrl, "https://www.theinformation.com/feed");
+  assert.equal(source?.feedTransport, "curl");
+});
+
+test("extracts original X post copy from the official oEmbed response", () => {
+  const original = parseXOriginalOembed({
+    author_name: "Andrej Karpathy",
+    html: `
+      <blockquote>
+        <p>We&#39;re starting to leave the territory where you&#39;d test an LLM by creating a single artifact. This is the original post text. <a href="https://t.co/example">pic.twitter.com/example</a></p>
+      </blockquote>
+    `,
+  });
+
+  assert.equal(original.authorName, "Andrej Karpathy");
+  assert.match(original.originalText, /^We're starting to leave/);
+  assert.doesNotMatch(original.originalText, /Techmeme/);
+  assert.doesNotMatch(original.originalText, /t\.co/);
+});
+
+test("derives a publisher-authored WSJ headline from its stable article URL", () => {
+  assert.deepEqual(
+    originalTitleFromPublisherUrl(
+      "https://www.wsj.com/tech/ai/the-race-to-build-an-american-alternative-to-cheap-ai-from-china-2e99a28a",
+    ),
+    {
+      title:
+        "The Race to Build an American Alternative to Cheap AI From China",
+      publisher: "The Wall Street Journal",
+      sourceId: 900226,
+    },
+  );
+});
+
+test("grounds a discovered X post through the official oEmbed endpoint", async () => {
+  const [grounded] = await groundDiscoveryOriginals(
+    [
+      {
+        id: "cluster-x",
+        sourceId: 226,
+        sourceName: "Techmeme",
+        title: "Aggregator rewrite that must stay private",
+        url: "https://x.com/karpathy/status/2083749667410727319",
+        publishedAt: "2026-08-02T22:00:00.000Z",
+        discoveryOnly: true,
+        discoveryLevel: "A",
+      },
+    ],
+    {
+      cachedItems: [],
+      fetcher: async () => ({
+        text: JSON.stringify({
+          author_name: "Andrej Karpathy",
+          html: "<blockquote><p>The original post says LLMs can now create much larger worlds.</p></blockquote>",
+        }),
+      }),
+    },
+  );
+
+  assert.equal(grounded.sourceId, 26);
+  assert.equal(grounded.sourceName, "Andrej Karpathy");
+  assert.equal(
+    grounded.title,
+    "The original post says LLMs can now create much larger worlds.",
+  );
+  assert.equal(grounded.originalTitleMethod, "official-oembed");
+  assert.doesNotMatch(JSON.stringify(grounded), /Aggregator rewrite/);
+});
+
+test("does not synthesize another original when a direct feed already has it", async () => {
+  const discovery = {
+    id: "cluster",
+    sourceId: 226,
+    sourceName: "Techmeme",
+    title: "Private aggregation wording",
+    url: "https://www.theinformation.com/articles/original-story",
+    publishedAt: "2026-08-02T22:00:00.000Z",
+    discoveryOnly: true,
+    discoveryLevel: "A",
+  };
+  const direct = {
+    id: "direct",
+    sourceId: 236,
+    sourceName: "The Information",
+    title: "Original Story",
+    url: discovery.url,
+    publishedAt: "2026-08-02T21:30:00.000Z",
+  };
+  const grounded = await groundDiscoveryOriginals([discovery, direct], {
+    cachedItems: [],
+    fetcher: async () => {
+      throw new Error("no network call expected");
+    },
+  });
+
+  assert.deepEqual(grounded, []);
+});
+
+test("uses a publisher's public metadata instead of aggregation copy", () => {
+  const original = originalFromPublicPageMetadata(
+    {
+      url: "https://www.scientificamerican.com/article/ai-proof/",
+      publishedAt: "2026-08-03T02:50:01.000Z",
+    },
+    `
+      <html><head>
+        <meta property="og:title" content="AI helped produce two cryptography proofs"/>
+        <meta property="og:description" content="Two teams used AI while working on the same problem."/>
+        <script type="application/ld+json">
+          {"datePublished":"2026-07-31T12:00:00-04:00"}
+        </script>
+      </head></html>
+    `,
+    "Scientific American",
+  );
+
+  assert.equal(
+    original.title,
+    "AI helped produce two cryptography proofs",
+  );
+  assert.equal(original.sourceName, "Scientific American");
+  assert.equal(original.publishedAt, "2026-07-31T16:00:00.000Z");
+  assert.equal(original.originalTitleMethod, "public-page-metadata");
+});
+
+test("rejects bot-block pages as original metadata", () => {
+  assert.equal(
+    originalFromPublicPageMetadata(
+      {
+        url: "https://www.reuters.com/example",
+        publishedAt: "2026-08-03T02:50:01.000Z",
+      },
+      "<title>Just a moment...</title>",
+      "Reuters",
+    ),
+    null,
+  );
 });

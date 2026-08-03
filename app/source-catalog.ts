@@ -27,6 +27,7 @@ export type SourceItem = {
     | "huggingface-models-json"
     | "techmeme-rss";
   feedLanguage?: "en";
+  feedTransport?: "curl";
   feedPathPrefixes?: string[];
   feedTitleFromDescription?: boolean;
   feedSummaryLimit?: number;
@@ -736,6 +737,16 @@ const curatedSourceCatalog: SourceItem[] = [
     url: "https://www.engadget.com/",
     feedUrl: "https://www.engadget.com/rss.xml",
     feedLanguage: "en",
+  },
+  {
+    id: 236,
+    name: "The Information",
+    publisher: "The Information",
+    description: "The Information 官方公开 Atom Feed；用于以原始标题和原始链接承接聚合发现，不复制聚合站改写文案。",
+    url: "https://www.theinformation.com/",
+    feedUrl: "https://www.theinformation.com/feed",
+    feedLanguage: "en",
+    feedTransport: "curl",
   },
 ];
 

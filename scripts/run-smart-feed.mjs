@@ -45,10 +45,12 @@ function forwardedArguments() {
 run("npm", ["run", "poll:feed"]);
 const plan = JSON.parse(await readFile(planPath, "utf8"));
 
-// Live is an independent lightweight publication lane. It only asks the
-// localization model for titles that are new to the six-hour window; cached
-// translations are reused. Publish it before the curated cycle so fresh wire
-// items do not wait for the full analysis cadence.
+// Live is an independent lightweight publication lane. It asks the Live
+// editorial model only about undecided additions to the six-hour window;
+// accepted decisions and translations are cached, rejected candidates are
+// remembered, and a two-hour Live-model cooldown queues bursts safely.
+// Publish it before the curated cycle so fresh wire items do not wait for the
+// full analysis cadence.
 run("npm", [
   "run",
   "cycle:live",

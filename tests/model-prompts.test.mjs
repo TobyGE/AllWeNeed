@@ -30,6 +30,14 @@ test("gives Terra and Luna lean task-specific instructions", () => {
   assert.match(scout, /durable publishers/);
   assert.match(scout, /fetchable RSS/);
   assert.doesNotMatch(scout, /FULL SOL INSTRUCTIONS/);
+  const live = modelTaskInstructions({
+    model: "gpt-5.6-luna",
+    task: "live",
+    fallbackInstructions: "FULL SOL INSTRUCTIONS",
+  });
+  assert.match(live, /real-time feed gate/);
+  assert.match(live, /include or exclude/);
+  assert.doesNotMatch(live, /FULL SOL INSTRUCTIONS/);
 });
 
 test("preserves Sol effort while using medium-cost 5.6 tiers", () => {
@@ -45,6 +53,14 @@ test("preserves Sol effort while using medium-cost 5.6 tiers", () => {
     modelReasoningEffort({
       model: "gpt-5.6-luna",
       task: "localization",
+      fallbackEffort: "medium",
+    }),
+    "low",
+  );
+  assert.equal(
+    modelReasoningEffort({
+      model: "gpt-5.6-luna",
+      task: "live",
       fallbackEffort: "medium",
     }),
     "low",

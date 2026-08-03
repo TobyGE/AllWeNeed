@@ -64,7 +64,7 @@ test("server-renders the All We Need product shell", async () => {
   assert.match(html, /Changes Taking Shape/);
   assert.match(html, />Live</);
   assert.match(html, />Focus</);
-  assert.match(html, /Continuous feed/);
+  assert.doesNotMatch(html, /Continuous feed|持续更新 · 最近更新/);
   assert.doesNotMatch(html, /今日简报|Today's Brief|Daily Brief/);
   assert.match(html, /Explore/);
   assert.doesNotMatch(html, />永久</);
@@ -218,6 +218,7 @@ test("removes all disposable starter preview code", async () => {
   assert.doesNotMatch(page, /Latest river|最新流/);
   assert.doesNotMatch(page, /今日稍早|Earlier today/);
   assert.match(page, /Live stream/);
+  assert.match(page, /all-we-need-live-last-refresh/);
   assert.doesNotMatch(
     page,
     /最近 6 小时|6-hour live stream|items in 6 hours/,

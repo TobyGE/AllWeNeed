@@ -379,6 +379,47 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
+    if (view !== "live" || articleId) return;
+    const refreshKey = "all-we-need-live-last-refresh";
+    const refreshIntervalMs = 5 * 60 * 1_000;
+    const storedRefreshAt = Number(
+      window.sessionStorage.getItem(refreshKey) ?? "0",
+    );
+    if (!Number.isFinite(storedRefreshAt) || storedRefreshAt <= 0) {
+      window.sessionStorage.setItem(refreshKey, String(Date.now()));
+    }
+    const refreshVisibleLivePage = () => {
+      if (document.visibilityState !== "visible") return;
+      const lastRefreshAt = Number(
+        window.sessionStorage.getItem(refreshKey) ?? "0",
+      );
+      if (
+        Number.isFinite(lastRefreshAt) &&
+        Date.now() - lastRefreshAt < refreshIntervalMs
+      ) {
+        return;
+      }
+      window.sessionStorage.setItem(refreshKey, String(Date.now()));
+      window.location.reload();
+    };
+    const timer = window.setInterval(
+      refreshVisibleLivePage,
+      refreshIntervalMs,
+    );
+    document.addEventListener(
+      "visibilitychange",
+      refreshVisibleLivePage,
+    );
+    return () => {
+      window.clearInterval(timer);
+      document.removeEventListener(
+        "visibilitychange",
+        refreshVisibleLivePage,
+      );
+    };
+  }, [articleId, view]);
+
+  useEffect(() => {
     const media = window.matchMedia("(max-width: 700px)");
     const syncLayout = () => setIsMobileLayout(media.matches);
     const initialTimer = window.setTimeout(syncLayout, 0);
@@ -1395,22 +1436,14 @@ export default function Home() {
             <>
           <section className="page-intro">
             <div>
-              <p className="date-line">
-                {view === "conversations"
-                  ? t(
-                      "本周精选 · 从公开对谈中提炼值得带走的判断",
-                      "This week’s picks · The ideas worth carrying forward",
-                    )
-                  : view === "live"
-                    ? t(
-                        `实时采集 · 最近扫描 ${liveScanTimeLabel}`,
-                        `Live ingest · Last scanned ${liveScanTimeLabel}`,
-                      )
-                  : t(
-                      `持续更新 · 最近更新 ${analysisTimeLabel}`,
-                      `Continuous feed · Updated ${analysisTimeLabel}`,
-                    )}
-              </p>
+              {view === "conversations" ? (
+                <p className="date-line">
+                  {t(
+                    "本周精选 · 从公开对谈中提炼值得带走的判断",
+                    "This week’s picks · The ideas worth carrying forward",
+                  )}
+                </p>
+              ) : null}
               <h1>
                 {view === "live" ? (
                   <>
@@ -2316,8 +2349,8 @@ export default function Home() {
             <span>
               {view === "live"
                 ? t(
-                    `无模型实时流 · 扫描于 ${liveScanTimeLabel}`,
-                    `Model-free live stream · Scanned ${liveScanTimeLabel}`,
+                    `扫描于 ${liveScanTimeLabel}`,
+                    `Scanned ${liveScanTimeLabel}`,
                   )
                 : <>
               {view === "conversations"

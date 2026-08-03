@@ -57,6 +57,13 @@ export const modelRoutes = Object.freeze({
     "gpt-5.6-sol",
     "gpt-5.5",
   ),
+  live: modelChain(
+    process.env.SIGNAL_RADAR_LIVE_MODEL?.trim(),
+    "gpt-5.6-luna",
+    "gpt-5.6-terra",
+    "gpt-5.6-sol",
+    "gpt-5.5",
+  ),
 });
 
 export function writingModelsForItems(items, laneForItem) {

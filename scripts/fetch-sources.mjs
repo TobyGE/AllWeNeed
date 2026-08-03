@@ -1,7 +1,9 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
+import { execFile } from "node:child_process";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { promisify } from "node:util";
 import {
   getSourceKind,
   sourceCatalog,
@@ -35,6 +37,7 @@ if (selectedSourceIds.size && !dryRun) {
   throw new Error("--source-ids 只能与 --dry-run 一起使用，避免局部覆盖完整快照");
 }
 const crawlerUserAgent = "SignalRadar/1.0 (personal research)";
+const execFileAsync = promisify(execFile);
 const secUserAgent =
   process.env.SEC_USER_AGENT?.trim() || crawlerUserAgent;
 let secRequestGate = Promise.resolve();
@@ -109,6 +112,225 @@ function normalizeDate(value) {
   if (!value) return null;
   const parsed = new Date(cleanText(value));
   return Number.isNaN(parsed.getTime()) ? null : parsed.toISOString();
+}
+
+function canonicalComparisonUrl(value) {
+  try {
+    const url = new URL(value);
+    url.hash = "";
+    for (const key of [...url.searchParams.keys()]) {
+      if (
+        /^utm_/i.test(key) ||
+        [
+          "accesstoken",
+          "campaign",
+          "ref",
+          "ref_src",
+          "sharetoken",
+          "source",
+          "st",
+        ].includes(key.toLowerCase())
+      ) {
+        url.searchParams.delete(key);
+      }
+    }
+    return url.toString().replace(/\/$/, "").toLowerCase();
+  } catch {
+    return "";
+  }
+}
+
+function truncateOriginalText(value, limit = 180) {
+  const text = cleanText(value);
+  if (text.length <= limit) return text;
+  const shortened = text.slice(0, limit + 1).replace(/\s+\S*$/, "").trim();
+  return `${shortened || text.slice(0, limit).trim()}…`;
+}
+
+export function parseXOriginalOembed(payload) {
+  const value =
+    typeof payload === "string" ? JSON.parse(payload) : payload;
+  const paragraph =
+    String(value?.html ?? "").match(
+      /<p(?:\s[^>]*)?>([\s\S]*?)<\/p>/i,
+    )?.[1] ?? "";
+  const originalText = cleanText(paragraph).replace(
+    /\s+(?:https:\/\/t\.co\/\S+|pic\.twitter\.com\/\S+)\s*$/i,
+    "",
+  );
+  const authorName = cleanText(value?.author_name ?? "");
+  if (!originalText || !authorName) return null;
+  return {
+    authorName,
+    originalText,
+    title: truncateOriginalText(originalText),
+  };
+}
+
+const publisherUrlTitleRules = [
+  {
+    hostname: /(^|\.)wsj\.com$/i,
+    publisher: "The Wall Street Journal",
+    sourceId: 900226,
+  },
+];
+
+const publisherMetadataRules = [
+  {
+    hostname: /(^|\.)scientificamerican\.com$/i,
+    publisher: "Scientific American",
+  },
+  {
+    hostname: /(^|\.)ft\.com$/i,
+    publisher: "Financial Times",
+  },
+  {
+    hostname: /(^|\.)reuters\.com$/i,
+    publisher: "Reuters",
+  },
+  {
+    hostname: /(^|\.)nytimes\.com$/i,
+    publisher: "The New York Times",
+  },
+  {
+    hostname: /(^|\.)washingtonpost\.com$/i,
+    publisher: "The Washington Post",
+  },
+  {
+    hostname: /(^|\.)cnbc\.com$/i,
+    publisher: "CNBC",
+  },
+  {
+    hostname: /(^|\.)axios\.com$/i,
+    publisher: "Axios",
+  },
+  {
+    hostname: /(^|\.)404media\.co$/i,
+    publisher: "404 Media",
+  },
+  {
+    hostname: /(^|\.)semafor\.com$/i,
+    publisher: "Semafor",
+  },
+  {
+    hostname: /(^|\.)platformer\.news$/i,
+    publisher: "Platformer",
+  },
+];
+
+function publicMetadataPublisher(value) {
+  try {
+    const hostname = new URL(value).hostname;
+    return (
+      publisherMetadataRules.find((rule) =>
+        rule.hostname.test(hostname),
+      )?.publisher ?? null
+    );
+  } catch {
+    return null;
+  }
+}
+
+export function originalFromPublicPageMetadata(
+  item,
+  html,
+  publisher,
+) {
+  const metadata = extractPageMetadata(html);
+  const title = cleanText(metadata.title ?? "");
+  if (
+    !title ||
+    title.length < 12 ||
+    /(?:access denied|attention required|just a moment|page not found|robot check)/i.test(
+      title,
+    )
+  ) {
+    return null;
+  }
+  return {
+    id: `grounded-page-metadata-${createHash("sha256")
+      .update(item.url)
+      .digest("hex")
+      .slice(0, 16)}`,
+    sourceId: 900226,
+    sourceName: publisher,
+    sourcePublisher: publisher,
+    sourceKind: getSourceKind(item.url),
+    title,
+    url: item.url,
+    publishedAt: metadata.publishedAt ?? item.publishedAt,
+    summary: cleanText(metadata.summary || title).slice(0, 1_200),
+    fetchedAt: checkedAt,
+    groundedFromDiscovery: true,
+    originalTitleMethod: "public-page-metadata",
+  };
+}
+
+function titleCasePublisherSlug(slug) {
+  const lowerCaseWords = new Set([
+    "a",
+    "an",
+    "and",
+    "at",
+    "but",
+    "for",
+    "in",
+    "nor",
+    "of",
+    "on",
+    "or",
+    "the",
+    "to",
+    "with",
+  ]);
+  const upperCaseWords = new Map([
+    ["ai", "AI"],
+    ["api", "API"],
+    ["aws", "AWS"],
+    ["ceo", "CEO"],
+    ["gpu", "GPU"],
+    ["gpt", "GPT"],
+    ["llm", "LLM"],
+    ["nvidia", "Nvidia"],
+    ["openai", "OpenAI"],
+    ["u-s", "U.S."],
+    ["us", "U.S."],
+  ]);
+  return slug
+    .split("-")
+    .filter(Boolean)
+    .map((word, index) => {
+      const normalized = word.toLowerCase();
+      if (upperCaseWords.has(normalized)) {
+        return upperCaseWords.get(normalized);
+      }
+      if (index > 0 && lowerCaseWords.has(normalized)) return normalized;
+      return `${normalized.slice(0, 1).toUpperCase()}${normalized.slice(1)}`;
+    })
+    .join(" ");
+}
+
+export function originalTitleFromPublisherUrl(value) {
+  try {
+    const url = new URL(value);
+    const rule = publisherUrlTitleRules.find((candidate) =>
+      candidate.hostname.test(url.hostname),
+    );
+    if (!rule) return null;
+    const rawSlug = url.pathname.split("/").filter(Boolean).at(-1) ?? "";
+    const slug = rawSlug.replace(/-[a-f0-9]{8,}$/i, "");
+    if (slug.split("-").filter(Boolean).length < 5) return null;
+    const title = titleCasePublisherSlug(slug);
+    return title
+      ? {
+          title,
+          publisher: rule.publisher,
+          sourceId: rule.sourceId,
+        }
+      : null;
+  } catch {
+    return null;
+  }
 }
 
 function absoluteUrl(value, baseUrl) {
@@ -980,6 +1202,37 @@ async function fetchText(url, timeoutMs = 10_000, validators = {}) {
   };
 }
 
+async function fetchTextWithCurl(url, timeoutMs = 15_000) {
+  const { stdout } = await execFileAsync(
+    "curl",
+    [
+      "--fail",
+      "--location",
+      "--silent",
+      "--show-error",
+      "--compressed",
+      "--max-time",
+      String(Math.max(1, Math.ceil(timeoutMs / 1_000))),
+      "--user-agent",
+      "AllWeNeedFeedReader/1.0 (+https://allweneed.info)",
+      url,
+    ],
+    {
+      encoding: "utf8",
+      maxBuffer: 8 * 1_024 * 1_024,
+      timeout: timeoutMs + 2_000,
+    },
+  );
+  return {
+    text: stdout,
+    contentType: "application/xml",
+    finalUrl: url,
+    notModified: false,
+    etag: null,
+    lastModified: null,
+  };
+}
+
 async function fetchSecText(url, timeoutMs = 25_000, validators = {}) {
   const turn = secRequestGate.then(async () => {
     const waitMs = Math.max(0, 150 - (Date.now() - secLastRequestAt));
@@ -1527,16 +1780,21 @@ async function fetchFeedSource(source) {
           const canRevalidate =
             previousStatus?.requestUrl === candidate ||
             previousStatus?.feedUrl === candidate;
-          const result = await fetchText(
-            candidate,
-            source.feedUrl || kind === "YouTube" ? 25_000 : 15_000,
-            canRevalidate
-              ? {
-                  etag: previousStatus.etag,
-                  lastModified: previousStatus.lastModified,
-                }
-              : {},
-          );
+          const requestTimeout =
+            source.feedUrl || kind === "YouTube" ? 25_000 : 15_000;
+          const result =
+            source.feedTransport === "curl"
+              ? await fetchTextWithCurl(candidate, requestTimeout)
+              : await fetchText(
+                  candidate,
+                  requestTimeout,
+                  canRevalidate
+                    ? {
+                        etag: previousStatus.etag,
+                        lastModified: previousStatus.lastModified,
+                      }
+                    : {},
+                );
           if (result.notModified) {
             return {
               items: cachedItems,
@@ -1748,6 +2006,188 @@ async function mapWithConcurrency(items, limit, worker) {
   return results;
 }
 
+function configuredDiscoveryItem(item) {
+  const source = sourceCatalog.find(
+    (candidate) => candidate.id === item.sourceId,
+  );
+  return Boolean(item.discoveryOnly || source?.discoveryOnly);
+}
+
+function directItemUrls(items) {
+  return new Set(
+    items.flatMap((item) => {
+      if (configuredDiscoveryItem(item)) return [];
+      const url = canonicalComparisonUrl(item.url);
+      return url ? [url] : [];
+    }),
+  );
+}
+
+function cachedGroundedOriginals(items) {
+  return new Map(
+    items.flatMap((item) => {
+      if (!item.groundedFromDiscovery) return [];
+      const url = canonicalComparisonUrl(item.url);
+      return url ? [[url, item]] : [];
+    }),
+  );
+}
+
+export async function groundDiscoveryOriginals(
+  items,
+  {
+    fetcher = fetchText,
+    cachedItems = previousSnapshot.items,
+  } = {},
+) {
+  const directUrls = directItemUrls(items);
+  const cachedByUrl = cachedGroundedOriginals(cachedItems);
+  const xSourcesByUsername = new Map(
+    sourceCatalog.flatMap((source) => {
+      try {
+        const url = new URL(source.url);
+        if (getSourceKind(source.url) !== "X") return [];
+        const username = url.pathname.split("/").filter(Boolean)[0];
+        return username ? [[username.toLowerCase(), source]] : [];
+      } catch {
+        return [];
+      }
+    }),
+  );
+  const grounded = [];
+
+  for (const item of items) {
+    if (
+      !configuredDiscoveryItem(item) ||
+      (item.discoveryLevel ??
+        sourceCatalog.find((source) => source.id === item.sourceId)
+          ?.discoveryLevel) !== "A"
+    ) {
+      continue;
+    }
+    const urlKey = canonicalComparisonUrl(item.url);
+    if (!urlKey || directUrls.has(urlKey)) continue;
+
+    const cached = cachedByUrl.get(urlKey);
+    if (cached) {
+      grounded.push({ ...cached, fetchedAt: checkedAt });
+      directUrls.add(urlKey);
+      continue;
+    }
+
+    let originalUrl;
+    try {
+      originalUrl = new URL(item.url);
+    } catch {
+      continue;
+    }
+    const xMatch = originalUrl.pathname.match(
+      /^\/([^/]+)\/status\/(\d+)/i,
+    );
+    if (/^(?:www\.)?x\.com$/i.test(originalUrl.hostname) && xMatch) {
+      try {
+        const response = await fetcher(
+          `https://publish.x.com/oembed?url=${encodeURIComponent(
+            item.url,
+          )}&omit_script=true`,
+          12_000,
+        );
+        const original = parseXOriginalOembed(response.text);
+        const source = xSourcesByUsername.get(xMatch[1].toLowerCase());
+        if (original && source) {
+          grounded.push({
+            id: `grounded-x-${xMatch[2]}`,
+            sourceId: source.id,
+            sourceName: original.authorName,
+            sourcePublisher: original.authorName,
+            sourceKind: "X",
+            title: original.title,
+            url: item.url,
+            publishedAt: item.publishedAt,
+            summary: original.originalText.slice(0, 1_200),
+            fetchedAt: checkedAt,
+            groundedFromDiscovery: true,
+            originalTitleMethod: "official-oembed",
+          });
+          directUrls.add(urlKey);
+        }
+      } catch {
+        // Keep the discovery item private when the official endpoint is down.
+      }
+      continue;
+    }
+
+    const metadataPublisher = publicMetadataPublisher(item.url);
+    if (metadataPublisher) {
+      try {
+        const response = await fetcher(item.url, 12_000);
+        const original = originalFromPublicPageMetadata(
+          item,
+          response.text,
+          metadataPublisher,
+        );
+        if (original) {
+          grounded.push(original);
+          directUrls.add(urlKey);
+          continue;
+        }
+      } catch {
+        // Fall through to any publisher-URL resolver below.
+      }
+    }
+
+    const publisherTitle = originalTitleFromPublisherUrl(item.url);
+    if (publisherTitle) {
+      grounded.push({
+        id: `grounded-publisher-url-${createHash("sha256")
+          .update(item.url)
+          .digest("hex")
+          .slice(0, 16)}`,
+        sourceId: publisherTitle.sourceId,
+        sourceName: publisherTitle.publisher,
+        sourcePublisher: publisherTitle.publisher,
+        sourceKind: getSourceKind(item.url),
+        title: publisherTitle.title,
+        url: item.url,
+        publishedAt: item.publishedAt,
+        summary: publisherTitle.title,
+        fetchedAt: checkedAt,
+        groundedFromDiscovery: true,
+        originalTitleMethod: "publisher-url",
+      });
+      directUrls.add(urlKey);
+    }
+  }
+
+  return grounded;
+}
+
+function preferDirectItems(items) {
+  const byUrl = new Map();
+  for (const item of items) {
+    const key = canonicalComparisonUrl(item.url) || item.url;
+    const existing = byUrl.get(key);
+    if (!existing) {
+      byUrl.set(key, item);
+      continue;
+    }
+    const existingDiscovery = configuredDiscoveryItem(existing);
+    const itemDiscovery = configuredDiscoveryItem(item);
+    if (existingDiscovery && !itemDiscovery) {
+      byUrl.set(key, {
+        ...item,
+        discoveredThroughCluster: true,
+      });
+    } else if (!existingDiscovery && itemDiscovery) {
+      byUrl.set(key, {
+        ...existing,
+        discoveredThroughCluster: true,
+      });
+    }
+  }
+  return [...byUrl.values()];
+}
+
 export async function main() {
   const sourcesToFetch = selectedSourceIds.size
     ? sourceCatalog.filter((source) => selectedSourceIds.has(source.id))
@@ -1762,12 +2202,9 @@ export async function main() {
   );
 
   const statuses = results.map((result) => result.status);
-  const items = results
-    .flatMap((result) => result.items)
-    .filter(
-      (item, index, array) =>
-        array.findIndex((candidate) => candidate.url === item.url) === index,
-    )
+  const fetchedItems = results.flatMap((result) => result.items);
+  const groundedOriginals = await groundDiscoveryOriginals(fetchedItems);
+  const items = preferDirectItems([...fetchedItems, ...groundedOriginals])
     .map((item) => {
       const source = sourcesById.get(item.sourceId);
       const previousItem = previousItemsByProcessingKey.get(

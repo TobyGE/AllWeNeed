@@ -6,6 +6,7 @@ import {
   getSourceKind,
   sourceCatalog,
 } from "../app/source-catalog.ts";
+import { globalModelCooldownMinutes } from "./update-policy.mjs";
 
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const defaultSnapshotPath = resolve(projectRoot, "data/feed-snapshot.json");
@@ -20,7 +21,7 @@ const authoritativePublisherPattern =
   /\b(?:OpenAI|Anthropic|Google(?: DeepMind)?|Meta|Amazon|AWS|Microsoft|NVIDIA|AMD|Broadcom|TSMC|ASML|Lam Research|KLA|Apple|SpaceX|ByteDance Seed|DeepSeek|Hugging Face|Model Context Protocol|Federal Reserve|SEC|CISA|NIST)\b/iu;
 
 const trustedNewsPublisherPattern =
-  /\b(?:The Verge|TechCrunch|VentureBeat|Ars Technica|WIRED|The Decoder|Bloomberg|BBC|Engadget)\b/iu;
+  /\b(?:The Verge|TechCrunch|VentureBeat|Ars Technica|WIRED|The Decoder|Bloomberg|BBC|Engadget|The Information|The Wall Street Journal|WSJ|Scientific American|Financial Times|Reuters|The New York Times|The Washington Post|CNBC|Axios|404 Media|Semafor|Platformer)\b/iu;
 
 const materialEventPattern =
   /\b(?:launch(?:ed|ing)?|releas(?:e|ed|ing)|introduc(?:e|ed|ing)|available now|general availability|preview|beta|model|api|pricing|price cut|earnings|results|guidance|acquisition|merger|funding|security advisory|breach|incident|cve-\d+|vulnerability|regulation|enforcement|ban|sanction)\b|(?:正式发布|正式上线|推出|开放API|降价|财报|业绩|指引|收购|合并|融资|安全公告|漏洞|攻击|事故|监管决定|制裁)/iu;
@@ -86,6 +87,30 @@ function translationCacheKey(item) {
   return `${canonicalUrl(item.url)}\n${item.title?.trim() ?? ""}`;
 }
 
+export function retainDecidedLiveItemsDuringCooldown(
+  items,
+  previousLiveFeed,
+  now,
+) {
+  const lastDecisionAt = Date.parse(
+    previousLiveFeed?.liveDecisionAt ?? "",
+  );
+  const nowMs = Date.parse(now ?? "");
+  if (
+    !Number.isFinite(lastDecisionAt) ||
+    !Number.isFinite(nowMs) ||
+    nowMs - lastDecisionAt >=
+      globalModelCooldownMinutes * 60 * 1_000
+  ) {
+    return items;
+  }
+  return items.filter(
+    (item) =>
+      item.liveDecision === "include" &&
+      Boolean(item.liveDecisionModel),
+  );
+}
+
 export function buildLiveFeed(snapshot, now = snapshot?.generatedAt) {
   const generatedAtMs = parseTime(now);
   if (generatedAtMs === null) {
@@ -142,7 +167,9 @@ export function buildLiveFeed(snapshot, now = snapshot?.generatedAt) {
       if (!title || !sourceName) return [];
       const sourceKind = getSourceKind(url);
       const candidateText = `${title} ${item.summary ?? ""}`;
-      const clustered = clusteredOriginalUrls.has(url.toLowerCase());
+      const clustered =
+        Boolean(item.discoveredThroughCluster) ||
+        clusteredOriginalUrls.has(url.toLowerCase());
       const authoritative = authoritativePublisherPattern.test(
         `${sourceName} ${item.sourceName ?? ""}`,
       );
@@ -154,6 +181,7 @@ export function buildLiveFeed(snapshot, now = snapshot?.generatedAt) {
         !liveScopePattern.test(candidateText) ||
         (!authoritative &&
           !trustedNewsPublisher &&
+          !clustered &&
           !materialEventPattern.test(candidateText))
       ) {
         return [];
@@ -226,24 +254,62 @@ async function main() {
     // The first live build creates the canonical file.
   }
   if (previousLiveFeed) {
-    const cachedTranslations = new Map(
+    const cachedDecisions = new Map(
       (previousLiveFeed.items ?? [])
-        .filter((item) => item.titleZh)
-        .map((item) => [translationCacheKey(item), item.titleZh]),
+        .filter(
+          (item) =>
+            item.titleZh &&
+            item.liveDecision === "include" &&
+            item.liveDecisionModel,
+        )
+        .map((item) => [
+          translationCacheKey(item),
+          {
+            titleZh: item.titleZh,
+            liveDecision: item.liveDecision,
+            liveDecisionModel: item.liveDecisionModel,
+            liveDecisionAt: item.liveDecisionAt,
+          },
+        ]),
     );
-    liveFeed.items = liveFeed.items.map((item) => {
-      const titleZh = cachedTranslations.get(translationCacheKey(item));
-      return titleZh ? { ...item, titleZh } : item;
+    const cachedExclusions = new Map(
+      (previousLiveFeed.excludedItems ?? []).map((item) => [
+        translationCacheKey(item),
+        item,
+      ]),
+    );
+    liveFeed.items = liveFeed.items.flatMap((item) => {
+      const key = translationCacheKey(item);
+      if (cachedExclusions.has(key)) return [];
+      const decision = cachedDecisions.get(key);
+      return decision ? [{ ...item, ...decision }] : [item];
     });
-    if (liveFeed.items.some((item) => item.titleZh)) {
+    liveFeed.items = retainDecidedLiveItemsDuringCooldown(
+      liveFeed.items,
+      previousLiveFeed,
+      liveFeed.generatedAt,
+    );
+    liveFeed.excludedItems = [...cachedExclusions.values()].filter(
+      (item) =>
+        (snapshot.items ?? []).some(
+          (candidate) =>
+            translationCacheKey(candidate) === translationCacheKey(item),
+        ),
+    );
+    if (liveFeed.items.some((item) => item.liveDecisionModel)) {
       liveFeed.localizationModel = previousLiveFeed.localizationModel;
       liveFeed.localizedAt = previousLiveFeed.localizedAt;
     }
+    liveFeed.liveDecisionModel = previousLiveFeed.liveDecisionModel;
+    liveFeed.liveDecisionAt = previousLiveFeed.liveDecisionAt;
+    liveFeed.pendingItemCount = previousLiveFeed.pendingItemCount ?? 0;
   }
   if (
     previousLiveFeed &&
     JSON.stringify(previousLiveFeed.items ?? []) ===
-      JSON.stringify(liveFeed.items)
+      JSON.stringify(liveFeed.items) &&
+    JSON.stringify(previousLiveFeed.excludedItems ?? []) ===
+      JSON.stringify(liveFeed.excludedItems ?? [])
   ) {
     console.log(
       `Live feed unchanged: ${liveFeed.items.length} items at ${previousLiveFeed.generatedAt}`,

@@ -47,6 +47,12 @@ test("routes each workload to the intended GPT-5.6 tier", () => {
     "gpt-5.6-sol",
     "gpt-5.5",
   ]);
+  assert.deepEqual([...modelRoutes.live], [
+    "gpt-5.6-luna",
+    "gpt-5.6-terra",
+    "gpt-5.6-sol",
+    "gpt-5.5",
+  ]);
 });
 
 test("uses Terra for both fast-lane and ordinary writing", () => {

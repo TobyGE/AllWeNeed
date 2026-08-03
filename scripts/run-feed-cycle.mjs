@@ -360,14 +360,18 @@ async function publishLiveOnly({
 
   const radarStatus = gitStatus(projectRoot);
   if (!radarStatus) {
+    const liveFeed = await readJson(
+      resolve(projectRoot, "data/live-feed.json"),
+    );
     const report = {
       status: "live_no_changes",
       startedAt,
       finishedAt: new Date().toISOString(),
       scannedAt: scannedSnapshot.generatedAt,
-      itemCount: (await readJson(
-        resolve(projectRoot, "data/live-feed.json"),
-      )).items.length,
+      itemCount: liveFeed.items.length,
+      pendingItemCount: liveFeed.pendingItemCount ?? 0,
+      editorialModel: liveFeed.liveDecisionModel ?? null,
+      editorialAt: liveFeed.liveDecisionAt ?? null,
     };
     await mkdir(dirname(liveReportPath), { recursive: true });
     await writeFile(
@@ -470,6 +474,9 @@ async function publishLiveOnly({
     finishedAt: new Date().toISOString(),
     scannedAt: scannedSnapshot.generatedAt,
     itemCount: liveFeed.items.length,
+    pendingItemCount: liveFeed.pendingItemCount ?? 0,
+    editorialModel: liveFeed.liveDecisionModel ?? null,
+    editorialAt: liveFeed.liveDecisionAt ?? null,
     radarCommit,
     homepageCommit,
     publishedUrl: "https://allweneed.info/live/",

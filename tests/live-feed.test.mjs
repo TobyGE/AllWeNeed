@@ -1,8 +1,16 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-import { buildLiveFeed } from "../scripts/build-live-feed.mjs";
-import { mergeLiveTitleTranslations } from "../scripts/localize-live-feed.mjs";
+import {
+  buildLiveFeed,
+  retainDecidedLiveItemsDuringCooldown,
+} from "../scripts/build-live-feed.mjs";
+import {
+  applyLiveEditorialDecisions,
+  isLiveModelCoolingDown,
+  liveModelCooldownMinutes,
+  mergeLiveTitleTranslations,
+} from "../scripts/localize-live-feed.mjs";
 
 const generatedAt = "2026-08-02T20:00:00.000Z";
 
@@ -105,6 +113,38 @@ test("uses the original-source headline when a cluster URL is corroborated", () 
   assert.equal(feed.items[0].discoveredThroughCluster, true);
   assert.equal(feed.items[0].prominence, "lead");
   assert.doesNotMatch(JSON.stringify(feed), /Techmeme/);
+});
+
+test("allows an A-level cluster only after an original post is grounded", () => {
+  const feed = buildLiveFeed(
+    snapshot([
+      item({
+        id: "cluster",
+        sourceId: 226,
+        sourceName: "Techmeme",
+        sourcePublisher: "Techmeme",
+        title: "Aggregator interpretation of a Karpathy post",
+        url: "https://x.com/karpathy/status/2083749667410727319",
+        discoveryOnly: true,
+        discoveryLevel: "A",
+      }),
+      item({
+        id: "original-post",
+        sourceId: 26,
+        sourceName: "Andrej Karpathy",
+        sourcePublisher: "Andrej Karpathy",
+        title: "We're starting to leave the territory where you'd test an LLM",
+        summary: "Original post text about an LLM creating larger worlds.",
+        url: "https://x.com/karpathy/status/2083749667410727319",
+        groundedFromDiscovery: true,
+      }),
+    ]),
+  );
+
+  assert.equal(feed.items.length, 1);
+  assert.equal(feed.items[0].sourceName, "Andrej Karpathy");
+  assert.match(feed.items[0].title, /^We're starting/);
+  assert.doesNotMatch(JSON.stringify(feed), /Aggregator interpretation/);
 });
 
 test("keeps low-signal essays and long conversations out of Live", () => {
@@ -220,4 +260,149 @@ test("merges cached Chinese titles without changing the original headline", () =
 
   assert.equal(localized[0].title, "OpenAI launches a new agent model API");
   assert.equal(localized[0].titleZh, "OpenAI 发布新的 Agent 模型 API");
+});
+
+test("Live editorial decisions preserve direct-source facts and remove noise", () => {
+  const items = [
+    item(),
+    item({
+      id: "opinion",
+      title: "My thoughts on where AI may go next",
+      url: "https://example.com/ai-opinion",
+    }),
+  ];
+  const decidedAt = "2026-08-02T20:00:00.000Z";
+  const result = applyLiveEditorialDecisions(
+    items,
+    {
+      items: [
+        {
+          id: "item-1",
+          decision: "include",
+          titleZh: "OpenAI 发布新的 Agent 模型 API",
+          reason: "material_event",
+        },
+        {
+          id: "opinion",
+          decision: "exclude",
+          titleZh: "",
+          reason: "opinion_or_explainer",
+        },
+      ],
+    },
+    { model: "gpt-5.6-luna", decidedAt },
+  );
+
+  assert.deepEqual(result.excluded, [
+    { id: "opinion", reason: "opinion_or_explainer" },
+  ]);
+  assert.equal(result.included.length, 1);
+  assert.equal(
+    result.included[0].title,
+    "OpenAI launches a new agent model API",
+  );
+  assert.equal(
+    result.included[0].url,
+    "https://openai.com/index/agent-model",
+  );
+  assert.equal(result.included[0].liveDecisionModel, "gpt-5.6-luna");
+  assert.equal(result.included[0].liveDecisionAt, decidedAt);
+});
+
+test("Live editorial decisions require exact ids and valid translations", () => {
+  assert.throws(
+    () =>
+      applyLiveEditorialDecisions(
+        [item()],
+        {
+          items: [
+            {
+              id: "wrong-id",
+              decision: "include",
+              titleZh: "翻译",
+              reason: "material_event",
+            },
+          ],
+        },
+        {
+          model: "gpt-5.6-luna",
+          decidedAt: generatedAt,
+        },
+      ),
+    /does not match item/,
+  );
+  assert.throws(
+    () =>
+      applyLiveEditorialDecisions(
+        [item()],
+        {
+          items: [
+            {
+              id: "item-1",
+              decision: "exclude",
+              titleZh: "不该出现的翻译",
+              reason: "off_topic",
+            },
+          ],
+        },
+        {
+          model: "gpt-5.6-luna",
+          decidedAt: generatedAt,
+        },
+      ),
+    /must not have a translation/,
+  );
+});
+
+test("Live model calls use a two-hour cooldown", () => {
+  assert.equal(liveModelCooldownMinutes, 120);
+  const feed = { liveDecisionAt: "2026-08-02T20:00:00.000Z" };
+  assert.equal(
+    isLiveModelCoolingDown(
+      feed,
+      Date.parse("2026-08-02T21:59:59.000Z"),
+    ),
+    true,
+  );
+  assert.equal(
+    isLiveModelCoolingDown(
+      feed,
+      Date.parse("2026-08-02T22:00:00.000Z"),
+    ),
+    false,
+  );
+});
+
+test("new Live items wait outside the public feed during model cooldown", () => {
+  const accepted = {
+    ...item(),
+    titleZh: "OpenAI 发布新的 Agent 模型 API",
+    liveDecision: "include",
+    liveDecisionModel: "gpt-5.6-luna",
+  };
+  const pending = item({
+    id: "pending",
+    title: "Anthropic launches a new Claude API",
+    url: "https://anthropic.com/news/new-claude-api",
+  });
+  const previous = {
+    liveDecisionAt: "2026-08-02T20:00:00.000Z",
+  };
+
+  assert.deepEqual(
+    retainDecidedLiveItemsDuringCooldown(
+      [accepted, pending],
+      previous,
+      "2026-08-02T21:00:00.000Z",
+    ).map((entry) => entry.id),
+    ["item-1"],
+  );
+  assert.deepEqual(
+    retainDecidedLiveItemsDuringCooldown(
+      [accepted, pending],
+      previous,
+      "2026-08-02T22:00:00.000Z",
+    ).map((entry) => entry.id),
+    ["item-1", "pending"],
+  );
 });
