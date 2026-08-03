@@ -377,6 +377,36 @@ test("Live localization requires exact ids and complete translations", () => {
   );
 });
 
+test("Live localization rejects dangling surname attribution in Chinese", () => {
+  const source = item({
+    title: "SpaceX Has a Bit of an 'Identity Crisis,' Zhu Says",
+  });
+
+  assert.throws(
+    () =>
+      mergeLiveTitleTranslations([source], {
+        items: [
+          {
+            id: source.id,
+            titleZh: "朱说，SpaceX有点“身份危机”",
+          },
+        ],
+      }),
+    /dangling surname attribution/,
+  );
+  assert.equal(
+    mergeLiveTitleTranslations([source], {
+      items: [
+        {
+          id: source.id,
+          titleZh: "SpaceX正经历一场“身份危机”",
+        },
+      ],
+    })[0].titleZh,
+    "SpaceX正经历一场“身份危机”",
+  );
+});
+
 test("Live localization calls use a two-hour cooldown", () => {
   assert.equal(liveModelCooldownMinutes, 120);
   const feed = { localizedAt: "2026-08-02T20:00:00.000Z" };

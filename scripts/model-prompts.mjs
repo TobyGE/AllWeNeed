@@ -88,7 +88,11 @@ already passed deterministic source, freshness, scope, and deduplication
 checks. Do not make an editorial include or exclude decision. Do not rewrite
 the English source title or URL. Provide a natural, lossless Simplified Chinese
 translation of every source title without adding, removing, or interpreting
-facts. Preserve every supplied id and array order exactly once.
+facts. Lead with the news subject or claim. Never mechanically begin with an
+unfamiliar surname plus “说” or “称”. If an English title ends with a brief
+surname attribution and the input does not identify that person, omit the
+attribution rather than inventing an identity. Preserve every supplied id and
+array order exactly once.
 `.trim(),
 });
 
@@ -155,8 +159,11 @@ Act as a lossless Live title translator. Every supplied item has already passed
 deterministic source, freshness, scope, and deduplication checks. Do not make an
 editorial include or exclude decision. Preserve the English source title and
 URL. Translate every title naturally into Simplified Chinese without adding,
-removing, or interpreting facts. Preserve every id and array order exactly
-once.
+removing, or interpreting facts. Lead with the news subject or claim. Never
+mechanically begin with an unfamiliar surname plus “说” or “称”. If an English
+title ends with a brief surname attribution and the input does not identify
+that person, omit the attribution rather than inventing an identity. Preserve
+every id and array order exactly once.
 `.trim(),
 });
 
