@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-03T04:10:06.591Z",
+  "generatedAt": "2026-08-03T06:17:10.553Z",
   "counts": {
-    "sources": 212,
-    "claims": 222,
+    "sources": 218,
+    "claims": 231,
     "events": 76,
     "articles": 76,
-    "updates": 32,
-    "edges": 609,
+    "updates": 34,
+    "edges": 635,
     "revisionsRequired": 0
   },
   "revisionQueue": [],
@@ -1386,6 +1386,84 @@
       "addedAt": "2026-08-01T09:06:49.698Z"
     },
     {
+      "id": "source_0ea0dfed203de327",
+      "type": "source",
+      "title": "The Information",
+      "url": "https://www.theinformation.com/briefings/exclusive-openai-previews-astra-ai-model-dc",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-07-31T22:09:49.000Z"
+    },
+    {
+      "id": "claim_b909b6f1bbab79cb",
+      "type": "claim",
+      "title": "报道称OpenAI正准备发布暂名Astra的新模型家族，三名知情人士称其长时程任务能力有所提升，Sam Altman曾在华盛顿演示该模型。",
+      "role": "佐证",
+      "addedAt": "2026-08-01T09:06:49.698Z"
+    },
+    {
+      "id": "source_238c8d8bf6e82e96",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://openai.com/index/previewing-gpt-5-6-sol/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-06-26T00:00:00.000Z"
+    },
+    {
+      "id": "claim_b887b6164df8f47e",
+      "type": "claim",
+      "title": "GPT-5.6 Sol此前仍处有限预览，是OpenAI当时公开定位最强的模型，构成Astra出现前的产品层级基准。",
+      "role": "背景",
+      "addedAt": "2026-08-01T09:06:49.698Z"
+    },
+    {
+      "id": "source_2a64bad82b9fe860",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://deploymentsafety.openai.com/gpt-5-6-preview",
+      "sourceKind": "Research",
+      "publishedAt": "2026-06-26T00:00:00.000Z"
+    },
+    {
+      "id": "claim_edbb9f0b9742c3e1",
+      "type": "claim",
+      "title": "GPT-5.6系统卡显示，模型虽可发现漏洞和部分利用链，但未能对加固目标完成自主端到端攻击，说明长时程能力不应被直接外推为可靠自主性。",
+      "role": "反例",
+      "addedAt": "2026-08-01T09:06:49.698Z"
+    },
+    {
+      "id": "source_845cfd8afc1734d9",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://openai.com/index/first-proof-submissions/",
+      "sourceKind": "Research",
+      "publishedAt": "2026-02-20T00:00:00.000Z"
+    },
+    {
+      "id": "claim_965acfbe75d89630",
+      "type": "claim",
+      "title": "OpenAI此前承认部分数学证明曾被后续判错，且结果存在人工选择、监督和修订，因此仍需专家独立审查。",
+      "role": "反例",
+      "addedAt": "2026-08-01T09:06:49.698Z"
+    },
+    {
+      "id": "update_4b10db5703a419bc",
+      "type": "update",
+      "signalId": 48,
+      "title": "Astra展示长时程任务信号",
+      "summary": "The Information称Sam Altman已在华盛顿向政策制定者演示暂名Astra的模型，并称其重点提升长时程任务完成能力。OpenAI随后正式将Astra称为下一主要模型，并披露十项数学与理论计算机科学进展。",
+      "addedAt": "2026-08-01T00:00:00.000Z",
+      "changeType": "corroboration",
+      "thesisImpact": "强化Astra已被OpenAI正式定位为下一主要模型的判断，并补充其面向长时程任务的外部预览信号；数学结果仍不能直接等同于可靠的端到端自主执行能力。",
+      "revisionRequired": false
+    },
+    {
+      "id": "claim_88fef948093e0e44",
+      "type": "claim",
+      "title": "OpenAI首次正式将Astra称为下一主要模型，并披露其内部版本在十个长期开放数学和理论计算机科学问题上的结果。",
+      "role": "最新进展",
+      "addedAt": "2026-08-01T00:00:00.000Z"
+    },
+    {
       "id": "update_2545e35046a94c6f",
       "type": "update",
       "signalId": 48,
@@ -1559,6 +1637,61 @@
       "title": "Artificial Analysis给出DeepSeek V4 Flash的独立指数，但未明确该成绩是否对应0731 SKU。",
       "role": "反例",
       "addedAt": "2026-08-01T09:06:49.698Z"
+    },
+    {
+      "id": "source_c625f40b55d19620",
+      "type": "source",
+      "title": "The Information",
+      "url": "https://www.theinformation.com/briefings/deepseek-makes-splash-small-affordable-v4-flash-model",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-02T04:10:31.000Z"
+    },
+    {
+      "id": "claim_6014f5103d03168a",
+      "type": "claim",
+      "title": "The Information将V4-Flash描述为更小、更便宜的V4版本，并称早期测试认为其能力可与更大模型竞争。",
+      "role": "佐证",
+      "addedAt": "2026-08-01T09:06:49.698Z"
+    },
+    {
+      "id": "source_e547d0d8cbe359a0",
+      "type": "source",
+      "title": "DeepSeek",
+      "url": "https://api-docs.deepseek.com/updates/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-07-31T00:00:00.000Z"
+    },
+    {
+      "id": "claim_46e9c3eae71061c8",
+      "type": "claim",
+      "title": "DeepSeek变更日志确认V4-Flash API公共测试版于7月31日上线，公布八项代理基准及测试设置，并说明APP、WEB和V4-Pro API未更新。",
+      "role": "最新进展",
+      "addedAt": "2026-08-01T09:06:49.698Z"
+    },
+    {
+      "id": "update_192c392001bf4f2c",
+      "type": "update",
+      "signalId": 42,
+      "title": "V4-Flash补齐现行API参数",
+      "summary": "DeepSeek确认V4-Flash于7月31日进入API公共测试版，当前版本为DeepSeek-V4-Flash-0731，提供1M上下文、384K最大输出和2,500并发额度。公司同时披露峰时价格拟翻倍，但尚未公布生效日期。",
+      "addedAt": "2026-08-02T04:10:31.000Z",
+      "changeType": "corroboration",
+      "thesisImpact": "强化V4-Flash已从预览走向可用API版本的判断，并补齐当前版本、上下文、输出和并发参数；其低价优势仍受拟议峰时加价影响。",
+      "revisionRequired": false
+    },
+    {
+      "id": "claim_469cedfb97275d23",
+      "type": "claim",
+      "title": "此前V4-Flash Preview拥有284B总参数、13B激活参数，提供1M上下文和思考与非思考模式。",
+      "role": "背景",
+      "addedAt": "2026-08-02T04:10:31.000Z"
+    },
+    {
+      "id": "claim_108b98c0566bb236",
+      "type": "claim",
+      "title": "DeepSeek定价页确认当前API版本、1M上下文、384K最大输出和2,500并发额度，并称峰时价格拟翻倍但生效日期待公告。",
+      "role": "最新进展",
+      "addedAt": "2026-08-02T04:10:31.000Z"
     },
     {
       "id": "update_246c8e37a8b48969",
@@ -6197,6 +6330,105 @@
       "updateTitle": null
     },
     {
+      "id": "edge_a2c99ea4b088b3a8",
+      "from": "source_0ea0dfed203de327",
+      "to": "claim_b909b6f1bbab79cb",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_ad40375182de66ef",
+      "from": "claim_b909b6f1bbab79cb",
+      "to": "event_a55c7b236981d2db",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_c444c520b063b5f5",
+      "from": "source_238c8d8bf6e82e96",
+      "to": "claim_b887b6164df8f47e",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_bd6b97aecb09b47e",
+      "from": "claim_b887b6164df8f47e",
+      "to": "event_a55c7b236981d2db",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_d93bb4872a9b81a1",
+      "from": "source_2a64bad82b9fe860",
+      "to": "claim_edbb9f0b9742c3e1",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_50170eac622f9047",
+      "from": "claim_edbb9f0b9742c3e1",
+      "to": "event_a55c7b236981d2db",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_8bab3c0046f8f209",
+      "from": "source_845cfd8afc1734d9",
+      "to": "claim_965acfbe75d89630",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_76f620537256ee3d",
+      "from": "claim_965acfbe75d89630",
+      "to": "event_a55c7b236981d2db",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_00b4bb02ba82d8b6",
+      "from": "update_4b10db5703a419bc",
+      "to": "event_a55c7b236981d2db",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_d7cf5138e7b6aa9d",
+      "from": "claim_b909b6f1bbab79cb",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "Astra展示长时程任务信号"
+    },
+    {
+      "id": "edge_a091fa30d4e6665b",
+      "from": "source_9337088aa5bc28bb",
+      "to": "claim_88fef948093e0e44",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_2a5c7fa488d0eab7",
+      "from": "claim_88fef948093e0e44",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "Astra展示长时程任务信号"
+    },
+    {
+      "id": "edge_e8aa86e2f893e9e0",
+      "from": "claim_b887b6164df8f47e",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "Astra展示长时程任务信号"
+    },
+    {
+      "id": "edge_61f2d990bce35dd0",
+      "from": "claim_edbb9f0b9742c3e1",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "Astra展示长时程任务信号"
+    },
+    {
+      "id": "edge_70cffb37c28f8e11",
+      "from": "claim_965acfbe75d89630",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "Astra展示长时程任务信号"
+    },
+    {
       "id": "edge_e7e2738e28034832",
       "from": "update_2545e35046a94c6f",
       "to": "event_a55c7b236981d2db",
@@ -6344,6 +6576,78 @@
       "to": "event_fd6738bc4783b911",
       "relation": "evidence_for",
       "updateTitle": null
+    },
+    {
+      "id": "edge_eb927146d318b411",
+      "from": "source_c625f40b55d19620",
+      "to": "claim_6014f5103d03168a",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_3d6d0b053bbf8147",
+      "from": "claim_6014f5103d03168a",
+      "to": "event_fd6738bc4783b911",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_57a4b1fc75944607",
+      "from": "source_e547d0d8cbe359a0",
+      "to": "claim_46e9c3eae71061c8",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_c9814502b34ec3a6",
+      "from": "claim_46e9c3eae71061c8",
+      "to": "event_fd6738bc4783b911",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_f3454c65e0ee39de",
+      "from": "update_192c392001bf4f2c",
+      "to": "event_fd6738bc4783b911",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_a5f536f390ef9590",
+      "from": "claim_6014f5103d03168a",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "V4-Flash补齐现行API参数"
+    },
+    {
+      "id": "edge_7a222dd2c3005be7",
+      "from": "claim_46e9c3eae71061c8",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "V4-Flash补齐现行API参数"
+    },
+    {
+      "id": "edge_ca9d33a37d61c80e",
+      "from": "source_57fb8eea07a5cdcc",
+      "to": "claim_469cedfb97275d23",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_eb3eea349b3a7a52",
+      "from": "claim_469cedfb97275d23",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "V4-Flash补齐现行API参数"
+    },
+    {
+      "id": "edge_2ece406021b6baab",
+      "from": "source_280758cc57a6ef53",
+      "to": "claim_108b98c0566bb236",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_2754e05bb1d5b0f6",
+      "from": "claim_108b98c0566bb236",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "V4-Flash补齐现行API参数"
     },
     {
       "id": "edge_1e298dbbe400f434",

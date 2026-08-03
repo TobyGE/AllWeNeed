@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-08-03T04:13:52.767Z",
-  "basedOnSnapshotAt": "2026-08-03T04:10:06.591Z",
+  "generatedAt": "2026-08-03T06:22:30.523Z",
+  "basedOnSnapshotAt": "2026-08-03T06:17:10.553Z",
   "model": "gpt-5.5",
   "analyzedItemCount": 180,
-  "totalFetchedItemCount": 2087,
+  "totalFetchedItemCount": 2175,
   "editorNote": "今日信息环境由代理安全事件、编码代理工具链分化、开放模型竞争和算力下沉共同主导。",
   "signalQuality": 86,
   "signalQualityChange": 8,
@@ -3472,9 +3472,10 @@
         "OpenAI Blog",
         "OpenAI",
         "Leiden Declaration working group",
-        "Simon Willison"
+        "Simon Willison",
+        "The Information"
       ],
-      "sourceCount": 4,
+      "sourceCount": 5,
       "age": "9 小时前",
       "score": 83,
       "tone": "green",
@@ -3616,6 +3617,90 @@
           "ref": "N1",
           "role": "佐证",
           "takeaway": "Simon Willison评论OpenAI公布的十项数学与理论计算机科学进展，并将其视为前沿模型科研能力展示的一部分。"
+        },
+        {
+          "id": "236-6-https://www.theinformation.com/briefings/exclusive-openai-previews-astra-ai-model-dc",
+          "sourceId": 236,
+          "sourceName": "The Information",
+          "sourcePublisher": "The Information",
+          "sourceKind": "Blog",
+          "title": "Exclusive: OpenAI Previews ‘Astra’ AI Model in DC",
+          "url": "https://www.theinformation.com/briefings/exclusive-openai-previews-astra-ai-model-dc",
+          "publishedAt": "2026-07-31T22:09:49.000Z",
+          "summary": "OpenAI is preparing to release a new model family, tentatively using the name “Astra,” with improved abilities to complete long-running tasks, according to three people briefed on the plans. OpenAI CEO Sam Altman demonstrated Astra to policymakers and regulators in Washington, D.C., this week, ...",
+          "fetchedAt": "2026-08-03T06:17:10.553Z",
+          "firstSeenAt": "2026-08-03T04:10:06.591Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 56.12265361111111,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N3",
+          "role": "佐证",
+          "takeaway": "报道称OpenAI正准备发布暂名Astra的新模型家族，三名知情人士称其长时程任务能力有所提升，Sam Altman曾在华盛顿演示该模型。"
+        },
+        {
+          "id": "research-236-6-https://www.theinformation.com/briefings/exclusive-openai-previews-astra-ai-model-dc-2-https://openai.com/index/previewing-gpt-5-6-sol/",
+          "sourceId": 236,
+          "sourceName": "OpenAI",
+          "sourcePublisher": "OpenAI",
+          "sourceKind": "Official",
+          "title": "Previewing GPT-5.6 Sol: a next-generation model",
+          "url": "https://openai.com/index/previewing-gpt-5-6-sol/",
+          "publishedAt": "2026-06-26T00:00:00.000Z",
+          "summary": "提供Astra之前的公开产品基准：GPT-5.6 Sol、Terra、Luna处于有限预览；Sol引入max推理和使用子代理的ultra模式，并被称为当时OpenAI最强模型，但尚未广泛可用。",
+          "fetchedAt": "2026-08-03T06:17:10.553Z",
+          "researchedFrom": "N3",
+          "researchRole": "Comparison",
+          "researchClaim": "OpenAI已在2026年8月1日的官方发布中确认，Astra是其“下一主要模型”，并称内部版本已在数学与理论计算机科学的10个长期开放问题上取得解决或实质进展；这使此前关于“Astra”名称和能力的报道从匿名消息升级为公司公开确认。",
+          "researchComparisons": "此前可公开获得的前沿产品是6月26日开始有限预览的GPT-5.6系列：Sol为旗舰、Terra为日常工作平衡版、Luna为低成本快速版；OpenAI当时称Sol在长时程编码、生物和网络安全任务上较GPT-5.5改进，并以“ultra”模式用子代理协作复杂任务。相比之下，Astra尚未公布可用性、定价、完整基准或与GPT-5.6的直接分数对比。现有可量化的Astra披露是：发现这10项结果所需token按Sol API费率约值2,000美元，随后由人类借助同一模型整理成手稿并以Lean证书形式化。",
+          "researchUnresolved": "Astra的发布日期、最终产品名称、模型规格、访问范围、与GPT-5.6及外部竞品的可复现基准，以及10项数学结果的独立同行评审状态均未公开。",
+          "ref": "R9",
+          "role": "背景",
+          "takeaway": "GPT-5.6 Sol此前仍处有限预览，是OpenAI当时公开定位最强的模型，构成Astra出现前的产品层级基准。"
+        },
+        {
+          "id": "research-236-6-https://www.theinformation.com/briefings/exclusive-openai-previews-astra-ai-model-dc-3-https://deploymentsafety.openai.com/gpt-5-6-preview",
+          "sourceId": 236,
+          "sourceName": "OpenAI",
+          "sourcePublisher": "OpenAI",
+          "sourceKind": "Research",
+          "title": "GPT-5.6 Preview System Card",
+          "url": "https://deploymentsafety.openai.com/gpt-5-6-preview",
+          "publishedAt": "2026-06-26T00:00:00.000Z",
+          "summary": "为“长时程任务能力提升即等于已证实可靠自主能力”的叙事提供反证：GPT-5.6在网络安全测试中能发现漏洞和部分利用链，但未能对加固目标完成自主端到端攻击；系统卡也称评测只是潜在能力的下界。",
+          "fetchedAt": "2026-08-03T06:17:10.553Z",
+          "researchedFrom": "N3",
+          "researchRole": "Counterevidence",
+          "researchClaim": "OpenAI已在2026年8月1日的官方发布中确认，Astra是其“下一主要模型”，并称内部版本已在数学与理论计算机科学的10个长期开放问题上取得解决或实质进展；这使此前关于“Astra”名称和能力的报道从匿名消息升级为公司公开确认。",
+          "researchComparisons": "此前可公开获得的前沿产品是6月26日开始有限预览的GPT-5.6系列：Sol为旗舰、Terra为日常工作平衡版、Luna为低成本快速版；OpenAI当时称Sol在长时程编码、生物和网络安全任务上较GPT-5.5改进，并以“ultra”模式用子代理协作复杂任务。相比之下，Astra尚未公布可用性、定价、完整基准或与GPT-5.6的直接分数对比。现有可量化的Astra披露是：发现这10项结果所需token按Sol API费率约值2,000美元，随后由人类借助同一模型整理成手稿并以Lean证书形式化。",
+          "researchUnresolved": "Astra的发布日期、最终产品名称、模型规格、访问范围、与GPT-5.6及外部竞品的可复现基准，以及10项数学结果的独立同行评审状态均未公开。",
+          "ref": "R10",
+          "role": "反例",
+          "takeaway": "GPT-5.6系统卡显示，模型虽可发现漏洞和部分利用链，但未能对加固目标完成自主端到端攻击，说明长时程能力不应被直接外推为可靠自主性。"
+        },
+        {
+          "id": "research-236-6-https://www.theinformation.com/briefings/exclusive-openai-previews-astra-ai-model-dc-4-https://openai.com/index/first-proof-submissions/",
+          "sourceId": 236,
+          "sourceName": "OpenAI",
+          "sourcePublisher": "OpenAI",
+          "sourceKind": "Research",
+          "title": "Our First Proof submissions",
+          "url": "https://openai.com/index/first-proof-submissions/",
+          "publishedAt": "2026-02-20T00:00:00.000Z",
+          "summary": "提供数学能力主张的最强方法论保留：OpenAI承认其此前一个被认为可能正确的证明后来被判定错误；部分结果经人工选择、有限人工监督和反馈后修订，公司称该过程并非严格受控实验，正确性仍需专家审查。",
+          "fetchedAt": "2026-08-03T06:17:10.553Z",
+          "researchedFrom": "N3",
+          "researchRole": "Counterevidence",
+          "researchClaim": "OpenAI已在2026年8月1日的官方发布中确认，Astra是其“下一主要模型”，并称内部版本已在数学与理论计算机科学的10个长期开放问题上取得解决或实质进展；这使此前关于“Astra”名称和能力的报道从匿名消息升级为公司公开确认。",
+          "researchComparisons": "此前可公开获得的前沿产品是6月26日开始有限预览的GPT-5.6系列：Sol为旗舰、Terra为日常工作平衡版、Luna为低成本快速版；OpenAI当时称Sol在长时程编码、生物和网络安全任务上较GPT-5.5改进，并以“ultra”模式用子代理协作复杂任务。相比之下，Astra尚未公布可用性、定价、完整基准或与GPT-5.6的直接分数对比。现有可量化的Astra披露是：发现这10项结果所需token按Sol API费率约值2,000美元，随后由人类借助同一模型整理成手稿并以Lean证书形式化。",
+          "researchUnresolved": "Astra的发布日期、最终产品名称、模型规格、访问范围、与GPT-5.6及外部竞品的可复现基准，以及10项数学结果的独立同行评审状态均未公开。",
+          "ref": "R11",
+          "role": "反例",
+          "takeaway": "OpenAI此前承认部分数学证明曾被后续判错，且结果存在人工选择、监督和修订，因此仍需专家独立审查。"
         }
       ],
       "references": [
@@ -3742,10 +3827,200 @@
           },
           "deferredResearch": false,
           "ref": "N1"
+        },
+        {
+          "id": "236-6-https://www.theinformation.com/briefings/exclusive-openai-previews-astra-ai-model-dc",
+          "sourceId": 236,
+          "sourceName": "The Information",
+          "sourcePublisher": "The Information",
+          "sourceKind": "Blog",
+          "title": "Exclusive: OpenAI Previews ‘Astra’ AI Model in DC",
+          "url": "https://www.theinformation.com/briefings/exclusive-openai-previews-astra-ai-model-dc",
+          "publishedAt": "2026-07-31T22:09:49.000Z",
+          "summary": "OpenAI is preparing to release a new model family, tentatively using the name “Astra,” with improved abilities to complete long-running tasks, according to three people briefed on the plans. OpenAI CEO Sam Altman demonstrated Astra to policymakers and regulators in Washington, D.C., this week, ...",
+          "fetchedAt": "2026-08-03T06:17:10.553Z",
+          "firstSeenAt": "2026-08-03T04:10:06.591Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 56.12265361111111,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N3"
+        },
+        {
+          "id": "research-236-6-https://www.theinformation.com/briefings/exclusive-openai-previews-astra-ai-model-dc-2-https://openai.com/index/previewing-gpt-5-6-sol/",
+          "sourceId": 236,
+          "sourceName": "OpenAI",
+          "sourcePublisher": "OpenAI",
+          "sourceKind": "Official",
+          "title": "Previewing GPT-5.6 Sol: a next-generation model",
+          "url": "https://openai.com/index/previewing-gpt-5-6-sol/",
+          "publishedAt": "2026-06-26T00:00:00.000Z",
+          "summary": "提供Astra之前的公开产品基准：GPT-5.6 Sol、Terra、Luna处于有限预览；Sol引入max推理和使用子代理的ultra模式，并被称为当时OpenAI最强模型，但尚未广泛可用。",
+          "fetchedAt": "2026-08-03T06:17:10.553Z",
+          "researchedFrom": "N3",
+          "researchRole": "Comparison",
+          "researchClaim": "OpenAI已在2026年8月1日的官方发布中确认，Astra是其“下一主要模型”，并称内部版本已在数学与理论计算机科学的10个长期开放问题上取得解决或实质进展；这使此前关于“Astra”名称和能力的报道从匿名消息升级为公司公开确认。",
+          "researchComparisons": "此前可公开获得的前沿产品是6月26日开始有限预览的GPT-5.6系列：Sol为旗舰、Terra为日常工作平衡版、Luna为低成本快速版；OpenAI当时称Sol在长时程编码、生物和网络安全任务上较GPT-5.5改进，并以“ultra”模式用子代理协作复杂任务。相比之下，Astra尚未公布可用性、定价、完整基准或与GPT-5.6的直接分数对比。现有可量化的Astra披露是：发现这10项结果所需token按Sol API费率约值2,000美元，随后由人类借助同一模型整理成手稿并以Lean证书形式化。",
+          "researchUnresolved": "Astra的发布日期、最终产品名称、模型规格、访问范围、与GPT-5.6及外部竞品的可复现基准，以及10项数学结果的独立同行评审状态均未公开。",
+          "ref": "R9"
+        },
+        {
+          "id": "research-236-6-https://www.theinformation.com/briefings/exclusive-openai-previews-astra-ai-model-dc-3-https://deploymentsafety.openai.com/gpt-5-6-preview",
+          "sourceId": 236,
+          "sourceName": "OpenAI",
+          "sourcePublisher": "OpenAI",
+          "sourceKind": "Research",
+          "title": "GPT-5.6 Preview System Card",
+          "url": "https://deploymentsafety.openai.com/gpt-5-6-preview",
+          "publishedAt": "2026-06-26T00:00:00.000Z",
+          "summary": "为“长时程任务能力提升即等于已证实可靠自主能力”的叙事提供反证：GPT-5.6在网络安全测试中能发现漏洞和部分利用链，但未能对加固目标完成自主端到端攻击；系统卡也称评测只是潜在能力的下界。",
+          "fetchedAt": "2026-08-03T06:17:10.553Z",
+          "researchedFrom": "N3",
+          "researchRole": "Counterevidence",
+          "researchClaim": "OpenAI已在2026年8月1日的官方发布中确认，Astra是其“下一主要模型”，并称内部版本已在数学与理论计算机科学的10个长期开放问题上取得解决或实质进展；这使此前关于“Astra”名称和能力的报道从匿名消息升级为公司公开确认。",
+          "researchComparisons": "此前可公开获得的前沿产品是6月26日开始有限预览的GPT-5.6系列：Sol为旗舰、Terra为日常工作平衡版、Luna为低成本快速版；OpenAI当时称Sol在长时程编码、生物和网络安全任务上较GPT-5.5改进，并以“ultra”模式用子代理协作复杂任务。相比之下，Astra尚未公布可用性、定价、完整基准或与GPT-5.6的直接分数对比。现有可量化的Astra披露是：发现这10项结果所需token按Sol API费率约值2,000美元，随后由人类借助同一模型整理成手稿并以Lean证书形式化。",
+          "researchUnresolved": "Astra的发布日期、最终产品名称、模型规格、访问范围、与GPT-5.6及外部竞品的可复现基准，以及10项数学结果的独立同行评审状态均未公开。",
+          "ref": "R10"
+        },
+        {
+          "id": "research-236-6-https://www.theinformation.com/briefings/exclusive-openai-previews-astra-ai-model-dc-4-https://openai.com/index/first-proof-submissions/",
+          "sourceId": 236,
+          "sourceName": "OpenAI",
+          "sourcePublisher": "OpenAI",
+          "sourceKind": "Research",
+          "title": "Our First Proof submissions",
+          "url": "https://openai.com/index/first-proof-submissions/",
+          "publishedAt": "2026-02-20T00:00:00.000Z",
+          "summary": "提供数学能力主张的最强方法论保留：OpenAI承认其此前一个被认为可能正确的证明后来被判定错误；部分结果经人工选择、有限人工监督和反馈后修订，公司称该过程并非严格受控实验，正确性仍需专家审查。",
+          "fetchedAt": "2026-08-03T06:17:10.553Z",
+          "researchedFrom": "N3",
+          "researchRole": "Counterevidence",
+          "researchClaim": "OpenAI已在2026年8月1日的官方发布中确认，Astra是其“下一主要模型”，并称内部版本已在数学与理论计算机科学的10个长期开放问题上取得解决或实质进展；这使此前关于“Astra”名称和能力的报道从匿名消息升级为公司公开确认。",
+          "researchComparisons": "此前可公开获得的前沿产品是6月26日开始有限预览的GPT-5.6系列：Sol为旗舰、Terra为日常工作平衡版、Luna为低成本快速版；OpenAI当时称Sol在长时程编码、生物和网络安全任务上较GPT-5.5改进，并以“ultra”模式用子代理协作复杂任务。相比之下，Astra尚未公布可用性、定价、完整基准或与GPT-5.6的直接分数对比。现有可量化的Astra披露是：发现这10项结果所需token按Sol API费率约值2,000美元，随后由人类借助同一模型整理成手稿并以Lean证书形式化。",
+          "researchUnresolved": "Astra的发布日期、最终产品名称、模型规格、访问范围、与GPT-5.6及外部竞品的可复现基准，以及10项数学结果的独立同行评审状态均未公开。",
+          "ref": "R11"
         }
       ],
       "feedBatchAt": "2026-08-01T09:06:49.698Z",
       "updates": [
+        {
+          "addedAt": "2026-08-01T00:00:00.000Z",
+          "title": "Astra展示长时程任务信号",
+          "summary": "The Information称Sam Altman已在华盛顿向政策制定者演示暂名Astra的模型，并称其重点提升长时程任务完成能力。OpenAI随后正式将Astra称为下一主要模型，并披露十项数学与理论计算机科学进展。",
+          "evidence": [
+            {
+              "id": "236-6-https://www.theinformation.com/briefings/exclusive-openai-previews-astra-ai-model-dc",
+              "sourceId": 236,
+              "sourceName": "The Information",
+              "sourcePublisher": "The Information",
+              "sourceKind": "Blog",
+              "title": "Exclusive: OpenAI Previews ‘Astra’ AI Model in DC",
+              "url": "https://www.theinformation.com/briefings/exclusive-openai-previews-astra-ai-model-dc",
+              "publishedAt": "2026-07-31T22:09:49.000Z",
+              "summary": "OpenAI is preparing to release a new model family, tentatively using the name “Astra,” with improved abilities to complete long-running tasks, according to three people briefed on the plans. OpenAI CEO Sam Altman demonstrated Astra to policymakers and regulators in Washington, D.C., this week, ...",
+              "fetchedAt": "2026-08-03T06:17:10.553Z",
+              "firstSeenAt": "2026-08-03T04:10:06.591Z",
+              "freshness": {
+                "eligible": true,
+                "lane": "explore",
+                "reason": "fresh",
+                "ageHours": 56.12265361111111,
+                "maxAgeHours": 168
+              },
+              "deferredResearch": false,
+              "ref": "N3",
+              "role": "佐证",
+              "takeaway": "报道称OpenAI正准备发布暂名Astra的新模型家族，三名知情人士称其长时程任务能力有所提升，Sam Altman曾在华盛顿演示该模型。"
+            },
+            {
+              "id": "research-236-6-https://www.theinformation.com/briefings/exclusive-openai-previews-astra-ai-model-dc-1-https://openai.com/index/ten-advances-in-mathematics/",
+              "sourceId": 236,
+              "sourceName": "OpenAI",
+              "sourcePublisher": "OpenAI",
+              "sourceKind": "Research",
+              "title": "Ten advances in mathematics and theoretical computer science",
+              "url": "https://openai.com/index/ten-advances-in-mathematics/",
+              "publishedAt": "2026-08-01T00:00:00.000Z",
+              "summary": "官方首次明确称Astra为“下一主要模型”，并披露内部版本在10个长期开放问题上的结果、约2,000美元Sol API费率token成本估算、人工整理手稿及Lean形式化证书。",
+              "fetchedAt": "2026-08-03T06:17:10.553Z",
+              "researchedFrom": "N3",
+              "researchRole": "Primary",
+              "researchClaim": "OpenAI已在2026年8月1日的官方发布中确认，Astra是其“下一主要模型”，并称内部版本已在数学与理论计算机科学的10个长期开放问题上取得解决或实质进展；这使此前关于“Astra”名称和能力的报道从匿名消息升级为公司公开确认。",
+              "researchComparisons": "此前可公开获得的前沿产品是6月26日开始有限预览的GPT-5.6系列：Sol为旗舰、Terra为日常工作平衡版、Luna为低成本快速版；OpenAI当时称Sol在长时程编码、生物和网络安全任务上较GPT-5.5改进，并以“ultra”模式用子代理协作复杂任务。相比之下，Astra尚未公布可用性、定价、完整基准或与GPT-5.6的直接分数对比。现有可量化的Astra披露是：发现这10项结果所需token按Sol API费率约值2,000美元，随后由人类借助同一模型整理成手稿并以Lean证书形式化。",
+              "researchUnresolved": "Astra的发布日期、最终产品名称、模型规格、访问范围、与GPT-5.6及外部竞品的可复现基准，以及10项数学结果的独立同行评审状态均未公开。",
+              "ref": "R8",
+              "role": "最新进展",
+              "takeaway": "OpenAI首次正式将Astra称为下一主要模型，并披露其内部版本在十个长期开放数学和理论计算机科学问题上的结果。"
+            },
+            {
+              "id": "research-236-6-https://www.theinformation.com/briefings/exclusive-openai-previews-astra-ai-model-dc-2-https://openai.com/index/previewing-gpt-5-6-sol/",
+              "sourceId": 236,
+              "sourceName": "OpenAI",
+              "sourcePublisher": "OpenAI",
+              "sourceKind": "Official",
+              "title": "Previewing GPT-5.6 Sol: a next-generation model",
+              "url": "https://openai.com/index/previewing-gpt-5-6-sol/",
+              "publishedAt": "2026-06-26T00:00:00.000Z",
+              "summary": "提供Astra之前的公开产品基准：GPT-5.6 Sol、Terra、Luna处于有限预览；Sol引入max推理和使用子代理的ultra模式，并被称为当时OpenAI最强模型，但尚未广泛可用。",
+              "fetchedAt": "2026-08-03T06:17:10.553Z",
+              "researchedFrom": "N3",
+              "researchRole": "Comparison",
+              "researchClaim": "OpenAI已在2026年8月1日的官方发布中确认，Astra是其“下一主要模型”，并称内部版本已在数学与理论计算机科学的10个长期开放问题上取得解决或实质进展；这使此前关于“Astra”名称和能力的报道从匿名消息升级为公司公开确认。",
+              "researchComparisons": "此前可公开获得的前沿产品是6月26日开始有限预览的GPT-5.6系列：Sol为旗舰、Terra为日常工作平衡版、Luna为低成本快速版；OpenAI当时称Sol在长时程编码、生物和网络安全任务上较GPT-5.5改进，并以“ultra”模式用子代理协作复杂任务。相比之下，Astra尚未公布可用性、定价、完整基准或与GPT-5.6的直接分数对比。现有可量化的Astra披露是：发现这10项结果所需token按Sol API费率约值2,000美元，随后由人类借助同一模型整理成手稿并以Lean证书形式化。",
+              "researchUnresolved": "Astra的发布日期、最终产品名称、模型规格、访问范围、与GPT-5.6及外部竞品的可复现基准，以及10项数学结果的独立同行评审状态均未公开。",
+              "ref": "R9",
+              "role": "背景",
+              "takeaway": "GPT-5.6 Sol此前仍处有限预览，是OpenAI当时公开定位最强的模型，构成Astra出现前的产品层级基准。"
+            },
+            {
+              "id": "research-236-6-https://www.theinformation.com/briefings/exclusive-openai-previews-astra-ai-model-dc-3-https://deploymentsafety.openai.com/gpt-5-6-preview",
+              "sourceId": 236,
+              "sourceName": "OpenAI",
+              "sourcePublisher": "OpenAI",
+              "sourceKind": "Research",
+              "title": "GPT-5.6 Preview System Card",
+              "url": "https://deploymentsafety.openai.com/gpt-5-6-preview",
+              "publishedAt": "2026-06-26T00:00:00.000Z",
+              "summary": "为“长时程任务能力提升即等于已证实可靠自主能力”的叙事提供反证：GPT-5.6在网络安全测试中能发现漏洞和部分利用链，但未能对加固目标完成自主端到端攻击；系统卡也称评测只是潜在能力的下界。",
+              "fetchedAt": "2026-08-03T06:17:10.553Z",
+              "researchedFrom": "N3",
+              "researchRole": "Counterevidence",
+              "researchClaim": "OpenAI已在2026年8月1日的官方发布中确认，Astra是其“下一主要模型”，并称内部版本已在数学与理论计算机科学的10个长期开放问题上取得解决或实质进展；这使此前关于“Astra”名称和能力的报道从匿名消息升级为公司公开确认。",
+              "researchComparisons": "此前可公开获得的前沿产品是6月26日开始有限预览的GPT-5.6系列：Sol为旗舰、Terra为日常工作平衡版、Luna为低成本快速版；OpenAI当时称Sol在长时程编码、生物和网络安全任务上较GPT-5.5改进，并以“ultra”模式用子代理协作复杂任务。相比之下，Astra尚未公布可用性、定价、完整基准或与GPT-5.6的直接分数对比。现有可量化的Astra披露是：发现这10项结果所需token按Sol API费率约值2,000美元，随后由人类借助同一模型整理成手稿并以Lean证书形式化。",
+              "researchUnresolved": "Astra的发布日期、最终产品名称、模型规格、访问范围、与GPT-5.6及外部竞品的可复现基准，以及10项数学结果的独立同行评审状态均未公开。",
+              "ref": "R10",
+              "role": "反例",
+              "takeaway": "GPT-5.6系统卡显示，模型虽可发现漏洞和部分利用链，但未能对加固目标完成自主端到端攻击，说明长时程能力不应被直接外推为可靠自主性。"
+            },
+            {
+              "id": "research-236-6-https://www.theinformation.com/briefings/exclusive-openai-previews-astra-ai-model-dc-4-https://openai.com/index/first-proof-submissions/",
+              "sourceId": 236,
+              "sourceName": "OpenAI",
+              "sourcePublisher": "OpenAI",
+              "sourceKind": "Research",
+              "title": "Our First Proof submissions",
+              "url": "https://openai.com/index/first-proof-submissions/",
+              "publishedAt": "2026-02-20T00:00:00.000Z",
+              "summary": "提供数学能力主张的最强方法论保留：OpenAI承认其此前一个被认为可能正确的证明后来被判定错误；部分结果经人工选择、有限人工监督和反馈后修订，公司称该过程并非严格受控实验，正确性仍需专家审查。",
+              "fetchedAt": "2026-08-03T06:17:10.553Z",
+              "researchedFrom": "N3",
+              "researchRole": "Counterevidence",
+              "researchClaim": "OpenAI已在2026年8月1日的官方发布中确认，Astra是其“下一主要模型”，并称内部版本已在数学与理论计算机科学的10个长期开放问题上取得解决或实质进展；这使此前关于“Astra”名称和能力的报道从匿名消息升级为公司公开确认。",
+              "researchComparisons": "此前可公开获得的前沿产品是6月26日开始有限预览的GPT-5.6系列：Sol为旗舰、Terra为日常工作平衡版、Luna为低成本快速版；OpenAI当时称Sol在长时程编码、生物和网络安全任务上较GPT-5.5改进，并以“ultra”模式用子代理协作复杂任务。相比之下，Astra尚未公布可用性、定价、完整基准或与GPT-5.6的直接分数对比。现有可量化的Astra披露是：发现这10项结果所需token按Sol API费率约值2,000美元，随后由人类借助同一模型整理成手稿并以Lean证书形式化。",
+              "researchUnresolved": "Astra的发布日期、最终产品名称、模型规格、访问范围、与GPT-5.6及外部竞品的可复现基准，以及10项数学结果的独立同行评审状态均未公开。",
+              "ref": "R11",
+              "role": "反例",
+              "takeaway": "OpenAI此前承认部分数学证明曾被后续判错，且结果存在人工选择、监督和修订，因此仍需专家独立审查。"
+            }
+          ],
+          "changeType": "corroboration",
+          "thesisImpact": "强化Astra已被OpenAI正式定位为下一主要模型的判断，并补充其面向长时程任务的外部预览信号；数学结果仍不能直接等同于可靠的端到端自主执行能力。",
+          "revisionRequired": false
+        },
         {
           "addedAt": "2026-08-01T20:34:49.000Z",
           "title": "外部评论聚焦Astra科研展示",
@@ -3855,9 +4130,10 @@
         "Hugging Face / DeepSeek-AI",
         "Simon Willison",
         "Product Hunt",
-        "Artificial Analysis"
+        "Artificial Analysis",
+        "The Information"
       ],
-      "sourceCount": 6,
+      "sourceCount": 7,
       "age": "9 小时前",
       "score": 90,
       "tone": "green",
@@ -4030,6 +4306,50 @@
           "ref": "R8",
           "role": "反例",
           "takeaway": "Artificial Analysis给出DeepSeek V4 Flash的独立指数，但未明确该成绩是否对应0731 SKU。"
+        },
+        {
+          "id": "236-3-https://www.theinformation.com/briefings/deepseek-makes-splash-small-affordable-v4-flash-model",
+          "sourceId": 236,
+          "sourceName": "The Information",
+          "sourcePublisher": "The Information",
+          "sourceKind": "Blog",
+          "title": "DeepSeek Makes a Splash with Small, Affordable V4-Flash Model",
+          "url": "https://www.theinformation.com/briefings/deepseek-makes-splash-small-affordable-v4-flash-model",
+          "publishedAt": "2026-08-02T04:10:31.000Z",
+          "summary": "Chinese AI developer DeepSeek’s release on Friday of a smaller version of its flagship V4 open-source model is causing a stir. In early tests, the model, V4-Flash, demonstrated capabilities comparable to much larger open-source and proprietary models, and it’s also less expensive than those ...",
+          "fetchedAt": "2026-08-03T06:17:10.553Z",
+          "firstSeenAt": "2026-08-03T04:10:06.591Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 26.110986944444445,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N5",
+          "role": "佐证",
+          "takeaway": "The Information将V4-Flash描述为更小、更便宜的V4版本，并称早期测试认为其能力可与更大模型竞争。"
+        },
+        {
+          "id": "research-236-3-https://www.theinformation.com/briefings/deepseek-makes-splash-small-affordable-v4-flash-model-1-https://api-docs.deepseek.com/updates/",
+          "sourceId": 236,
+          "sourceName": "DeepSeek",
+          "sourcePublisher": "DeepSeek",
+          "sourceKind": "Official",
+          "title": "Change Log",
+          "url": "https://api-docs.deepseek.com/updates/",
+          "publishedAt": "2026-07-31T00:00:00.000Z",
+          "summary": "确认 7 月 31 日 V4-Flash API 公共测试版上线、模型标识不变；列出八项代理基准分数，并说明测试使用 DeepSeek Harness minimal mode、max effort、top_p 0.95、temperature 1.0，且该版仅后训练、APP/WEB 与 V4-Pro API 未更新。",
+          "fetchedAt": "2026-08-03T06:17:10.553Z",
+          "researchedFrom": "N5",
+          "researchRole": "Primary",
+          "researchClaim": "DeepSeek 于 2026 年 7 月 31 日将 DeepSeek-V4-Flash-0731 以公共测试版形式上线 API；该版本保持 284B 总参数、13B 激活参数的既有架构与规模，仅进行后训练，但公司称其代理能力较 V4-Pro-Preview 显著提升。",
+          "researchComparisons": "此前状态是 2026 年 4 月 24 日发布的 V4-Flash Preview，DeepSeek 当时仅称其推理能力接近 V4-Pro、在简单代理任务上与其相当。当前官方公布 V4-Flash-0731 的 Terminal Bench 2.1 为 82.7、NL2Repo 为 54.2、Cybergym 为 76.7、DeepSWE 为 54.4、Toolathlon verified 为 70.3、Agent Last Exam 为 25.2、Automation Bench（Public）为 25.1；当前常规 API 标价为每百万 token：缓存未命中输入 0.14 美元、输出 0.28 美元，分别为 V4-Pro 的约 32% 和 32%，且并发额度为 2,500 对 500。",
+          "researchUnresolved": "官方未公布上述公开基准中 V4-Pro-Preview 的逐项分数，也未提供独立复现实验；DSBench-FullStack（68.7）和 DSBench-Hard（59.6）为 DeepSeek 内部测试集。价格页还称峰时价格将为常规价格的两倍，但截至页面抓取时未公布生效日期；“低成本”结论应区分常规与未来峰时定价。",
+          "ref": "R12",
+          "role": "最新进展",
+          "takeaway": "DeepSeek变更日志确认V4-Flash API公共测试版于7月31日上线，公布八项代理基准及测试设置，并说明APP、WEB和V4-Pro API未更新。"
         }
       ],
       "references": [
@@ -4183,10 +4503,144 @@
           "researchComparisons": "相对 DeepSeek-V4-Flash（Preview），厂商报告的 Terminal Bench 2.1 从 61.8 升至 82.7、NL2Repo 从 39.4 升至 54.2、DeepSWE 从 7.3 升至 54.4、Toolathlon-Verified 从 49.7 升至 70.3；在同一厂商表格中，其 Terminal Bench 2.1、NL2Repo、Cybergym、DeepSWE、Toolathlon-Verified、Agents' Last Exam 和 AutomationBench Public 均高于 DeepSeek-V4-Pro（Preview），但仍低于 Opus-4.8 的多项结果。现行官方 API 将 deepseek-v4-flash 指向 DeepSeek-V4-Flash-0731，提供 1M context、最高 384K 输出；标准价格为每百万 token：缓存命中输入 $0.0028、缓存未命中输入 $0.14、输出 $0.28，而 DeepSeek-V4-Pro 对应为 $0.003625、$0.435 和 $0.87。",
           "researchUnresolved": "厂商公布的多数 agent 基准使用尚未发布的 DeepSeek Harness 最小模式及 max reasoning effort；其中 DSBench-FullStack 和 DSBench-Hard 为内部测试集。独立评测页面尚未明确将其结果标注为 0731 版本，因此不能把厂商的版本间跃升直接等同于已独立复现的结论。",
           "ref": "R8"
+        },
+        {
+          "id": "236-3-https://www.theinformation.com/briefings/deepseek-makes-splash-small-affordable-v4-flash-model",
+          "sourceId": 236,
+          "sourceName": "The Information",
+          "sourcePublisher": "The Information",
+          "sourceKind": "Blog",
+          "title": "DeepSeek Makes a Splash with Small, Affordable V4-Flash Model",
+          "url": "https://www.theinformation.com/briefings/deepseek-makes-splash-small-affordable-v4-flash-model",
+          "publishedAt": "2026-08-02T04:10:31.000Z",
+          "summary": "Chinese AI developer DeepSeek’s release on Friday of a smaller version of its flagship V4 open-source model is causing a stir. In early tests, the model, V4-Flash, demonstrated capabilities comparable to much larger open-source and proprietary models, and it’s also less expensive than those ...",
+          "fetchedAt": "2026-08-03T06:17:10.553Z",
+          "firstSeenAt": "2026-08-03T04:10:06.591Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 26.110986944444445,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N5"
+        },
+        {
+          "id": "research-236-3-https://www.theinformation.com/briefings/deepseek-makes-splash-small-affordable-v4-flash-model-1-https://api-docs.deepseek.com/updates/",
+          "sourceId": 236,
+          "sourceName": "DeepSeek",
+          "sourcePublisher": "DeepSeek",
+          "sourceKind": "Official",
+          "title": "Change Log",
+          "url": "https://api-docs.deepseek.com/updates/",
+          "publishedAt": "2026-07-31T00:00:00.000Z",
+          "summary": "确认 7 月 31 日 V4-Flash API 公共测试版上线、模型标识不变；列出八项代理基准分数，并说明测试使用 DeepSeek Harness minimal mode、max effort、top_p 0.95、temperature 1.0，且该版仅后训练、APP/WEB 与 V4-Pro API 未更新。",
+          "fetchedAt": "2026-08-03T06:17:10.553Z",
+          "researchedFrom": "N5",
+          "researchRole": "Primary",
+          "researchClaim": "DeepSeek 于 2026 年 7 月 31 日将 DeepSeek-V4-Flash-0731 以公共测试版形式上线 API；该版本保持 284B 总参数、13B 激活参数的既有架构与规模，仅进行后训练，但公司称其代理能力较 V4-Pro-Preview 显著提升。",
+          "researchComparisons": "此前状态是 2026 年 4 月 24 日发布的 V4-Flash Preview，DeepSeek 当时仅称其推理能力接近 V4-Pro、在简单代理任务上与其相当。当前官方公布 V4-Flash-0731 的 Terminal Bench 2.1 为 82.7、NL2Repo 为 54.2、Cybergym 为 76.7、DeepSWE 为 54.4、Toolathlon verified 为 70.3、Agent Last Exam 为 25.2、Automation Bench（Public）为 25.1；当前常规 API 标价为每百万 token：缓存未命中输入 0.14 美元、输出 0.28 美元，分别为 V4-Pro 的约 32% 和 32%，且并发额度为 2,500 对 500。",
+          "researchUnresolved": "官方未公布上述公开基准中 V4-Pro-Preview 的逐项分数，也未提供独立复现实验；DSBench-FullStack（68.7）和 DSBench-Hard（59.6）为 DeepSeek 内部测试集。价格页还称峰时价格将为常规价格的两倍，但截至页面抓取时未公布生效日期；“低成本”结论应区分常规与未来峰时定价。",
+          "ref": "R12"
         }
       ],
       "feedBatchAt": "2026-08-01T09:06:49.698Z",
       "updates": [
+        {
+          "addedAt": "2026-08-02T04:10:31.000Z",
+          "title": "V4-Flash补齐现行API参数",
+          "summary": "DeepSeek确认V4-Flash于7月31日进入API公共测试版，当前版本为DeepSeek-V4-Flash-0731，提供1M上下文、384K最大输出和2,500并发额度。公司同时披露峰时价格拟翻倍，但尚未公布生效日期。",
+          "evidence": [
+            {
+              "id": "236-3-https://www.theinformation.com/briefings/deepseek-makes-splash-small-affordable-v4-flash-model",
+              "sourceId": 236,
+              "sourceName": "The Information",
+              "sourcePublisher": "The Information",
+              "sourceKind": "Blog",
+              "title": "DeepSeek Makes a Splash with Small, Affordable V4-Flash Model",
+              "url": "https://www.theinformation.com/briefings/deepseek-makes-splash-small-affordable-v4-flash-model",
+              "publishedAt": "2026-08-02T04:10:31.000Z",
+              "summary": "Chinese AI developer DeepSeek’s release on Friday of a smaller version of its flagship V4 open-source model is causing a stir. In early tests, the model, V4-Flash, demonstrated capabilities comparable to much larger open-source and proprietary models, and it’s also less expensive than those ...",
+              "fetchedAt": "2026-08-03T06:17:10.553Z",
+              "firstSeenAt": "2026-08-03T04:10:06.591Z",
+              "freshness": {
+                "eligible": true,
+                "lane": "explore",
+                "reason": "fresh",
+                "ageHours": 26.110986944444445,
+                "maxAgeHours": 168
+              },
+              "deferredResearch": false,
+              "ref": "N5",
+              "role": "佐证",
+              "takeaway": "The Information将V4-Flash描述为更小、更便宜的V4版本，并称早期测试认为其能力可与更大模型竞争。"
+            },
+            {
+              "id": "research-236-3-https://www.theinformation.com/briefings/deepseek-makes-splash-small-affordable-v4-flash-model-1-https://api-docs.deepseek.com/updates/",
+              "sourceId": 236,
+              "sourceName": "DeepSeek",
+              "sourcePublisher": "DeepSeek",
+              "sourceKind": "Official",
+              "title": "Change Log",
+              "url": "https://api-docs.deepseek.com/updates/",
+              "publishedAt": "2026-07-31T00:00:00.000Z",
+              "summary": "确认 7 月 31 日 V4-Flash API 公共测试版上线、模型标识不变；列出八项代理基准分数，并说明测试使用 DeepSeek Harness minimal mode、max effort、top_p 0.95、temperature 1.0，且该版仅后训练、APP/WEB 与 V4-Pro API 未更新。",
+              "fetchedAt": "2026-08-03T06:17:10.553Z",
+              "researchedFrom": "N5",
+              "researchRole": "Primary",
+              "researchClaim": "DeepSeek 于 2026 年 7 月 31 日将 DeepSeek-V4-Flash-0731 以公共测试版形式上线 API；该版本保持 284B 总参数、13B 激活参数的既有架构与规模，仅进行后训练，但公司称其代理能力较 V4-Pro-Preview 显著提升。",
+              "researchComparisons": "此前状态是 2026 年 4 月 24 日发布的 V4-Flash Preview，DeepSeek 当时仅称其推理能力接近 V4-Pro、在简单代理任务上与其相当。当前官方公布 V4-Flash-0731 的 Terminal Bench 2.1 为 82.7、NL2Repo 为 54.2、Cybergym 为 76.7、DeepSWE 为 54.4、Toolathlon verified 为 70.3、Agent Last Exam 为 25.2、Automation Bench（Public）为 25.1；当前常规 API 标价为每百万 token：缓存未命中输入 0.14 美元、输出 0.28 美元，分别为 V4-Pro 的约 32% 和 32%，且并发额度为 2,500 对 500。",
+              "researchUnresolved": "官方未公布上述公开基准中 V4-Pro-Preview 的逐项分数，也未提供独立复现实验；DSBench-FullStack（68.7）和 DSBench-Hard（59.6）为 DeepSeek 内部测试集。价格页还称峰时价格将为常规价格的两倍，但截至页面抓取时未公布生效日期；“低成本”结论应区分常规与未来峰时定价。",
+              "ref": "R12",
+              "role": "最新进展",
+              "takeaway": "DeepSeek变更日志确认V4-Flash API公共测试版于7月31日上线，公布八项代理基准及测试设置，并说明APP、WEB和V4-Pro API未更新。"
+            },
+            {
+              "id": "research-236-3-https://www.theinformation.com/briefings/deepseek-makes-splash-small-affordable-v4-flash-model-2-https://api-docs.deepseek.com/news/news260424/",
+              "sourceId": 236,
+              "sourceName": "DeepSeek",
+              "sourcePublisher": "DeepSeek",
+              "sourceKind": "Official",
+              "title": "DeepSeek V4 Preview Release",
+              "url": "https://api-docs.deepseek.com/news/news260424/",
+              "publishedAt": "2026-04-24T00:00:00.000Z",
+              "summary": "补足更新前基准：V4-Flash Preview 为 284B 总参数、13B 激活参数；公司当时的表述是其推理能力接近 V4-Pro、简单代理任务与 V4-Pro 相当，并提供 1M 上下文及思考/非思考模式。",
+              "fetchedAt": "2026-08-03T06:17:10.553Z",
+              "researchedFrom": "N5",
+              "researchRole": "Comparison",
+              "researchClaim": "DeepSeek 于 2026 年 7 月 31 日将 DeepSeek-V4-Flash-0731 以公共测试版形式上线 API；该版本保持 284B 总参数、13B 激活参数的既有架构与规模，仅进行后训练，但公司称其代理能力较 V4-Pro-Preview 显著提升。",
+              "researchComparisons": "此前状态是 2026 年 4 月 24 日发布的 V4-Flash Preview，DeepSeek 当时仅称其推理能力接近 V4-Pro、在简单代理任务上与其相当。当前官方公布 V4-Flash-0731 的 Terminal Bench 2.1 为 82.7、NL2Repo 为 54.2、Cybergym 为 76.7、DeepSWE 为 54.4、Toolathlon verified 为 70.3、Agent Last Exam 为 25.2、Automation Bench（Public）为 25.1；当前常规 API 标价为每百万 token：缓存未命中输入 0.14 美元、输出 0.28 美元，分别为 V4-Pro 的约 32% 和 32%，且并发额度为 2,500 对 500。",
+              "researchUnresolved": "官方未公布上述公开基准中 V4-Pro-Preview 的逐项分数，也未提供独立复现实验；DSBench-FullStack（68.7）和 DSBench-Hard（59.6）为 DeepSeek 内部测试集。价格页还称峰时价格将为常规价格的两倍，但截至页面抓取时未公布生效日期；“低成本”结论应区分常规与未来峰时定价。",
+              "ref": "R13",
+              "role": "背景",
+              "takeaway": "此前V4-Flash Preview拥有284B总参数、13B激活参数，提供1M上下文和思考与非思考模式。"
+            },
+            {
+              "id": "research-236-3-https://www.theinformation.com/briefings/deepseek-makes-splash-small-affordable-v4-flash-model-3-https://api-docs.deepseek.com/quick_start/pricing/",
+              "sourceId": 236,
+              "sourceName": "DeepSeek",
+              "sourcePublisher": "DeepSeek",
+              "sourceKind": "Official",
+              "title": "Models & Pricing",
+              "url": "https://api-docs.deepseek.com/quick_start/pricing/",
+              "publishedAt": "2026-08-02T04:10:31.000Z",
+              "summary": "确认当前 API 实际版本为 DeepSeek-V4-Flash-0731，以及常规定价、1M 上下文、384K 最大输出和 2,500 并发额度；同时披露拟实施峰时价格翻倍、但生效日期待官方公告，限制了“更便宜”结论的确定性。",
+              "fetchedAt": "2026-08-03T06:17:10.553Z",
+              "researchedFrom": "N5",
+              "researchRole": "Counterevidence",
+              "researchClaim": "DeepSeek 于 2026 年 7 月 31 日将 DeepSeek-V4-Flash-0731 以公共测试版形式上线 API；该版本保持 284B 总参数、13B 激活参数的既有架构与规模，仅进行后训练，但公司称其代理能力较 V4-Pro-Preview 显著提升。",
+              "researchComparisons": "此前状态是 2026 年 4 月 24 日发布的 V4-Flash Preview，DeepSeek 当时仅称其推理能力接近 V4-Pro、在简单代理任务上与其相当。当前官方公布 V4-Flash-0731 的 Terminal Bench 2.1 为 82.7、NL2Repo 为 54.2、Cybergym 为 76.7、DeepSWE 为 54.4、Toolathlon verified 为 70.3、Agent Last Exam 为 25.2、Automation Bench（Public）为 25.1；当前常规 API 标价为每百万 token：缓存未命中输入 0.14 美元、输出 0.28 美元，分别为 V4-Pro 的约 32% 和 32%，且并发额度为 2,500 对 500。",
+              "researchUnresolved": "官方未公布上述公开基准中 V4-Pro-Preview 的逐项分数，也未提供独立复现实验；DSBench-FullStack（68.7）和 DSBench-Hard（59.6）为 DeepSeek 内部测试集。价格页还称峰时价格将为常规价格的两倍，但截至页面抓取时未公布生效日期；“低成本”结论应区分常规与未来峰时定价。",
+              "ref": "R14",
+              "role": "最新进展",
+              "takeaway": "DeepSeek定价页确认当前API版本、1M上下文、384K最大输出和2,500并发额度，并称峰时价格拟翻倍但生效日期待公告。"
+            }
+          ],
+          "changeType": "corroboration",
+          "thesisImpact": "强化V4-Flash已从预览走向可用API版本的判断，并补齐当前版本、上下文、输出和并发参数；其低价优势仍受拟议峰时加价影响。",
+          "revisionRequired": false
+        },
         {
           "addedAt": "2026-07-31T13:38:23.000Z",
           "title": "0731正式版补齐长上下文接口",
@@ -16423,9 +16877,55 @@
             {
               "role": "佐证",
               "takeaway": "Simon Willison评论OpenAI公布的十项数学与理论计算机科学进展，并将其视为前沿模型科研能力展示的一部分。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "报道称OpenAI正准备发布暂名Astra的新模型家族，三名知情人士称其长时程任务能力有所提升，Sam Altman曾在华盛顿演示该模型。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "GPT-5.6 Sol此前仍处有限预览，是OpenAI当时公开定位最强的模型，构成Astra出现前的产品层级基准。"
+            },
+            {
+              "role": "反例",
+              "takeaway": "GPT-5.6系统卡显示，模型虽可发现漏洞和部分利用链，但未能对加固目标完成自主端到端攻击，说明长时程能力不应被直接外推为可靠自主性。"
+            },
+            {
+              "role": "反例",
+              "takeaway": "OpenAI此前承认部分数学证明曾被后续判错，且结果存在人工选择、监督和修订，因此仍需专家独立审查。"
             }
           ],
           "updates": [
+            {
+              "addedAt": "2026-08-01T00:00:00.000Z",
+              "title": "Astra展示长时程任务信号",
+              "summary": "The Information称Sam Altman已在华盛顿向政策制定者演示暂名Astra的模型，并称其重点提升长时程任务完成能力。OpenAI随后正式将Astra称为下一主要模型，并披露十项数学与理论计算机科学进展。",
+              "evidence": [
+                {
+                  "role": "佐证",
+                  "takeaway": "报道称OpenAI正准备发布暂名Astra的新模型家族，三名知情人士称其长时程任务能力有所提升，Sam Altman曾在华盛顿演示该模型。"
+                },
+                {
+                  "role": "最新进展",
+                  "takeaway": "OpenAI首次正式将Astra称为下一主要模型，并披露其内部版本在十个长期开放数学和理论计算机科学问题上的结果。"
+                },
+                {
+                  "role": "背景",
+                  "takeaway": "GPT-5.6 Sol此前仍处有限预览，是OpenAI当时公开定位最强的模型，构成Astra出现前的产品层级基准。"
+                },
+                {
+                  "role": "反例",
+                  "takeaway": "GPT-5.6系统卡显示，模型虽可发现漏洞和部分利用链，但未能对加固目标完成自主端到端攻击，说明长时程能力不应被直接外推为可靠自主性。"
+                },
+                {
+                  "role": "反例",
+                  "takeaway": "OpenAI此前承认部分数学证明曾被后续判错，且结果存在人工选择、监督和修订，因此仍需专家独立审查。"
+                }
+              ],
+              "changeType": "corroboration",
+              "thesisImpact": "强化Astra已被OpenAI正式定位为下一主要模型的判断，并补充其面向长时程任务的外部预览信号；数学结果仍不能直接等同于可靠的端到端自主执行能力。",
+              "revisionRequired": false
+            },
             {
               "addedAt": "2026-08-01T20:34:49.000Z",
               "title": "外部评论聚焦Astra科研展示",
@@ -16520,9 +17020,43 @@
             {
               "role": "反例",
               "takeaway": "Artificial Analysis给出DeepSeek V4 Flash的独立指数，但未明确该成绩是否对应0731 SKU。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "The Information将V4-Flash描述为更小、更便宜的V4版本，并称早期测试认为其能力可与更大模型竞争。"
+            },
+            {
+              "role": "最新进展",
+              "takeaway": "DeepSeek变更日志确认V4-Flash API公共测试版于7月31日上线，公布八项代理基准及测试设置，并说明APP、WEB和V4-Pro API未更新。"
             }
           ],
           "updates": [
+            {
+              "addedAt": "2026-08-02T04:10:31.000Z",
+              "title": "V4-Flash补齐现行API参数",
+              "summary": "DeepSeek确认V4-Flash于7月31日进入API公共测试版，当前版本为DeepSeek-V4-Flash-0731，提供1M上下文、384K最大输出和2,500并发额度。公司同时披露峰时价格拟翻倍，但尚未公布生效日期。",
+              "evidence": [
+                {
+                  "role": "佐证",
+                  "takeaway": "The Information将V4-Flash描述为更小、更便宜的V4版本，并称早期测试认为其能力可与更大模型竞争。"
+                },
+                {
+                  "role": "最新进展",
+                  "takeaway": "DeepSeek变更日志确认V4-Flash API公共测试版于7月31日上线，公布八项代理基准及测试设置，并说明APP、WEB和V4-Pro API未更新。"
+                },
+                {
+                  "role": "背景",
+                  "takeaway": "此前V4-Flash Preview拥有284B总参数、13B激活参数，提供1M上下文和思考与非思考模式。"
+                },
+                {
+                  "role": "最新进展",
+                  "takeaway": "DeepSeek定价页确认当前API版本、1M上下文、384K最大输出和2,500并发额度，并称峰时价格拟翻倍但生效日期待公告。"
+                }
+              ],
+              "changeType": "corroboration",
+              "thesisImpact": "强化V4-Flash已从预览走向可用API版本的判断，并补齐当前版本、上下文、输出和并发参数；其低价优势仍受拟议峰时加价影响。",
+              "revisionRequired": false
+            },
             {
               "addedAt": "2026-07-31T13:38:23.000Z",
               "title": "0731正式版补齐长上下文接口",
@@ -21860,9 +22394,55 @@
             {
               "role": "Support",
               "takeaway": "Simon Willison comments on OpenAI’s ten mathematics and theoretical computer science advances as a display of frontier-model research capability."
+            },
+            {
+              "role": "Support",
+              "takeaway": "The Information reported, citing three people briefed on the plans, that Astra is being prepared as a new model family with stronger long-running task capabilities and was demonstrated in Washington."
+            },
+            {
+              "role": "Context",
+              "takeaway": "GPT-5.6 Sol was previously OpenAI's publicly described top model, but remained in limited preview."
+            },
+            {
+              "role": "Counterpoint",
+              "takeaway": "The GPT-5.6 system card says the model could not autonomously complete end-to-end attacks against hardened targets, limiting extrapolation from task capability to reliable autonomy."
+            },
+            {
+              "role": "Counterpoint",
+              "takeaway": "OpenAI has previously acknowledged that an apparently correct proof was later found wrong and that some results involved human selection and revision."
             }
           ],
           "updates": [
+            {
+              "addedAt": "2026-08-01T00:00:00.000Z",
+              "title": "Astra adds a long-horizon task signal",
+              "summary": "The Information reported that Sam Altman demonstrated the tentatively named Astra in Washington and that the model is intended to improve long-running task completion. OpenAI subsequently identified Astra as its next major model and disclosed ten mathematics and theoretical computer-science advances.",
+              "evidence": [
+                {
+                  "role": "Support",
+                  "takeaway": "The Information reported, citing three people briefed on the plans, that Astra is being prepared as a new model family with stronger long-running task capabilities and was demonstrated in Washington."
+                },
+                {
+                  "role": "Update",
+                  "takeaway": "OpenAI formally called Astra its next major model and described results on ten long-standing mathematics and theoretical computer-science problems."
+                },
+                {
+                  "role": "Context",
+                  "takeaway": "GPT-5.6 Sol was previously OpenAI's publicly described top model, but remained in limited preview."
+                },
+                {
+                  "role": "Counterpoint",
+                  "takeaway": "The GPT-5.6 system card says the model could not autonomously complete end-to-end attacks against hardened targets, limiting extrapolation from task capability to reliable autonomy."
+                },
+                {
+                  "role": "Counterpoint",
+                  "takeaway": "OpenAI has previously acknowledged that an apparently correct proof was later found wrong and that some results involved human selection and revision."
+                }
+              ],
+              "changeType": "corroboration",
+              "thesisImpact": "强化Astra已被OpenAI正式定位为下一主要模型的判断，并补充其面向长时程任务的外部预览信号；数学结果仍不能直接等同于可靠的端到端自主执行能力。",
+              "revisionRequired": false
+            },
             {
               "addedAt": "2026-08-01T20:34:49.000Z",
               "title": "External commentary spotlights Astra research display",
@@ -21957,9 +22537,43 @@
             {
               "role": "Counterpoint",
               "takeaway": "Artificial Analysis reports an independent DeepSeek V4 Flash index but does not clearly label it as the 0731 SKU."
+            },
+            {
+              "role": "Support",
+              "takeaway": "The Information characterized V4-Flash as a smaller, cheaper V4 variant and said early tests suggested competitiveness with larger models."
+            },
+            {
+              "role": "Update",
+              "takeaway": "DeepSeek's changelog confirms the July 31 public API beta, lists eight agent benchmark results and test settings, and says its app, web product, and V4-Pro API were not updated."
             }
           ],
           "updates": [
+            {
+              "addedAt": "2026-08-02T04:10:31.000Z",
+              "title": "V4-Flash adds current API parameters",
+              "summary": "DeepSeek confirmed that V4-Flash entered public API beta on July 31. The current DeepSeek-V4-Flash-0731 version offers a 1M-token context window, 384K maximum output, and 2,500 concurrent requests. The company also proposed doubling peak-time prices, without setting an effective date.",
+              "evidence": [
+                {
+                  "role": "Support",
+                  "takeaway": "The Information characterized V4-Flash as a smaller, cheaper V4 variant and said early tests suggested competitiveness with larger models."
+                },
+                {
+                  "role": "Update",
+                  "takeaway": "DeepSeek's changelog confirms the July 31 public API beta, lists eight agent benchmark results and test settings, and says its app, web product, and V4-Pro API were not updated."
+                },
+                {
+                  "role": "Context",
+                  "takeaway": "The prior V4-Flash Preview had 284B total parameters, 13B active parameters, a 1M-token context window, and thinking and non-thinking modes."
+                },
+                {
+                  "role": "Update",
+                  "takeaway": "DeepSeek's pricing page confirms the current API version, context, output, and concurrency limits, while saying a proposed peak-time price increase awaits an official effective date."
+                }
+              ],
+              "changeType": "corroboration",
+              "thesisImpact": "强化V4-Flash已从预览走向可用API版本的判断，并补齐当前版本、上下文、输出和并发参数；其低价优势仍受拟议峰时加价影响。",
+              "revisionRequired": false
+            },
             {
               "addedAt": "2026-07-31T13:38:23.000Z",
               "title": "0731 release adds long-context API details",
@@ -26401,12 +27015,12 @@
     "en": "gpt-5.6-sol"
   },
   "incremental": {
-    "lastAddedAt": "2026-08-03T04:13:52.767Z",
-    "lastScanAt": "2026-08-03T04:10:06.591Z",
-    "lastAddedCount": 2,
+    "lastAddedAt": "2026-08-03T06:22:30.523Z",
+    "lastScanAt": "2026-08-03T06:17:10.553Z",
+    "lastAddedCount": 0,
     "lastUpdatedCount": 2,
     "totalAppended": 46,
-    "totalUpdated": 32
+    "totalUpdated": 34
   },
   "exploreDepth": {
     "minimum": 50,
