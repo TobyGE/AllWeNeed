@@ -187,6 +187,24 @@ export function isLiveLocalizationCoolingDown(feed, now = Date.now()) {
   );
 }
 
+export function shouldDeferLiveLocalization(
+  feed,
+  { required = false, now = Date.now() } = {},
+) {
+  return !required && isLiveLocalizationCoolingDown(feed, now);
+}
+
+export function assertLiveLocalizationComplete(feed) {
+  const missing = (feed.items ?? []).filter(
+    (item) => !item.titleZh?.trim(),
+  );
+  if (missing.length || Number(feed.pendingItemCount ?? 0) > 0) {
+    throw new Error(
+      `Live localization is incomplete: ${missing.length} untranslated item(s).`,
+    );
+  }
+}
+
 function removeLegacyEditorialState(feed) {
   let changed = false;
   for (const key of [
@@ -216,6 +234,7 @@ function removeLegacyEditorialState(feed) {
 
 async function main() {
   const feedPath = argumentValue("feed", "data/live-feed.json");
+  const required = process.argv.includes("--required");
   const feed = JSON.parse(await readFile(feedPath, "utf8"));
   const removedLegacyState = removeLegacyEditorialState(feed);
   const missing = (feed.items ?? []).filter(
@@ -236,7 +255,7 @@ async function main() {
     return;
   }
 
-  if (isLiveLocalizationCoolingDown(feed)) {
+  if (shouldDeferLiveLocalization(feed, { required })) {
     feed.pendingItemCount = missing.length;
     await writeFile(
       feedPath,
@@ -264,6 +283,7 @@ async function main() {
         error instanceof Error ? error.message : error
       }`,
     );
+    if (required) throw error;
     return;
   }
   const prompt = buildPrompt(missing);
@@ -320,6 +340,12 @@ async function main() {
       lastError instanceof Error ? lastError.message : lastError
     }`,
   );
+  if (required) {
+    throw new Error(
+      `Required Live localization failed for ${missing.length} item(s).`,
+      { cause: lastError },
+    );
+  }
 }
 
 const invokedPath = process.argv[1] ? resolve(process.argv[1]) : "";

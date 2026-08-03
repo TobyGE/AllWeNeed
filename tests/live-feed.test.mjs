@@ -5,9 +5,11 @@ import {
   buildLiveFeed,
 } from "../scripts/build-live-feed.mjs";
 import {
+  assertLiveLocalizationComplete,
   isLiveLocalizationCoolingDown,
   liveModelCooldownMinutes,
   mergeLiveTitleTranslations,
+  shouldDeferLiveLocalization,
 } from "../scripts/localize-live-feed.mjs";
 
 const generatedAt = "2026-08-02T20:00:00.000Z";
@@ -392,6 +394,20 @@ test("Live localization calls use a two-hour cooldown", () => {
     ),
     false,
   );
+  assert.equal(
+    shouldDeferLiveLocalization(feed, {
+      required: false,
+      now: Date.parse("2026-08-02T21:00:00.000Z"),
+    }),
+    true,
+  );
+  assert.equal(
+    shouldDeferLiveLocalization(feed, {
+      required: true,
+      now: Date.parse("2026-08-02T21:00:00.000Z"),
+    }),
+    false,
+  );
 });
 
 test("untranslated Live items remain public without model approval", () => {
@@ -414,4 +430,21 @@ test("untranslated Live items remain public without model approval", () => {
     ["item-1", "new-company-item"],
   );
   assert.ok(feed.items.every((entry) => !entry.titleZh));
+});
+
+test("required Live publication rejects untranslated titles", () => {
+  assert.throws(
+    () =>
+      assertLiveLocalizationComplete({
+        items: [item({ titleZh: undefined })],
+        pendingItemCount: 1,
+      }),
+    /localization is incomplete/,
+  );
+  assert.doesNotThrow(() =>
+    assertLiveLocalizationComplete({
+      items: [item({ titleZh: "OpenAI 发布新的 Agent 模型 API" })],
+      pendingItemCount: 0,
+    }),
+  );
 });

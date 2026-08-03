@@ -9,6 +9,7 @@ import {
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { assertSnapshotHealth } from "./append-feed-updates.mjs";
+import { assertLiveLocalizationComplete } from "./localize-live-feed.mjs";
 
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const defaultHomepageRepo =
@@ -354,8 +355,14 @@ async function publishLiveOnly({
   );
   runCommand(
     process.execPath,
-    [resolve(projectRoot, "scripts/localize-live-feed.mjs")],
+    [
+      resolve(projectRoot, "scripts/localize-live-feed.mjs"),
+      "--required",
+    ],
     { cwd: projectRoot },
+  );
+  assertLiveLocalizationComplete(
+    await readJson(resolve(projectRoot, "data/live-feed.json")),
   );
 
   const radarStatus = gitStatus(projectRoot);
