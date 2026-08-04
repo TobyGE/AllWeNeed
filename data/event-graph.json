@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-04T15:07:28.293Z",
+  "generatedAt": "2026-08-04T17:06:15.723Z",
   "counts": {
-    "sources": 278,
-    "claims": 310,
-    "events": 86,
-    "articles": 86,
+    "sources": 289,
+    "claims": 321,
+    "events": 89,
+    "articles": 89,
     "updates": 42,
-    "edges": 831,
+    "edges": 856,
     "revisionsRequired": 2
   },
   "revisionQueue": [
@@ -33,6 +33,225 @@
     }
   ],
   "nodes": [
+    {
+      "id": "event_4b6d42737b758598",
+      "type": "event",
+      "signalId": 65,
+      "title": "企业开始自建编码代理控制层",
+      "bucket": "explore",
+      "valueScore": 84,
+      "publishedAt": "2026-08-04T17:03:50.000Z",
+      "updatedAt": "2026-08-04T17:03:50.000Z"
+    },
+    {
+      "id": "article_c2c77376d88afbff",
+      "type": "article",
+      "signalId": 65,
+      "title": "企业开始自建编码代理控制层",
+      "version": 1,
+      "publishedAt": "2026-08-04T17:06:15.723Z"
+    },
+    {
+      "id": "source_7040cf516d7e1ef2",
+      "type": "source",
+      "title": "The Information",
+      "url": "https://www.theinformation.com/articles/firms-like-coinbase-building-coding-agents-complement-anthropics-claude-code",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-04T17:03:50.000Z"
+    },
+    {
+      "id": "claim_e1be9a6d6468316e",
+      "type": "claim",
+      "title": "报道Coinbase、Shopify和Ramp正建设内部编码代理，Coinbase的Forge已面向全体工程师推出。",
+      "role": "主张",
+      "addedAt": "2026-08-04T17:06:15.723Z"
+    },
+    {
+      "id": "source_113db06c00111d8d",
+      "type": "source",
+      "title": "Coinbase",
+      "url": "https://www.coinbase.com/blog/coding-had-a-concurrency-problem-how-mux-helped-solve-it",
+      "sourceKind": "Official",
+      "publishedAt": "2026-05-11T00:00:00.000Z"
+    },
+    {
+      "id": "claim_ebfbaed8e44d1ae8",
+      "type": "claim",
+      "title": "Coinbase披露内部Mux拥有600多名用户、支持5,068个已合并PR，并提示用户选择偏差会影响效率比较。",
+      "role": "佐证",
+      "addedAt": "2026-08-04T17:06:15.723Z"
+    },
+    {
+      "id": "source_96356add8c324d95",
+      "type": "source",
+      "title": "Shopify Engineering",
+      "url": "https://shopify.engineering/under-the-river",
+      "sourceKind": "Official",
+      "publishedAt": "2026-05-28T00:00:00.000Z"
+    },
+    {
+      "id": "claim_aec9e1a0f7a0a6c2",
+      "type": "claim",
+      "title": "Shopify披露River已共同署名八分之一已合并PR，并依托提供沙箱、凭证代理和可观测性的Aquifer平台。",
+      "role": "佐证",
+      "addedAt": "2026-08-04T17:06:15.723Z"
+    },
+    {
+      "id": "source_5d6ce3a0e3b887d1",
+      "type": "source",
+      "title": "Association for Computational Linguistics",
+      "url": "https://aclanthology.org/2026.acl-long.1107/",
+      "sourceKind": "Research",
+      "publishedAt": "2026-07-01T00:00:00.000Z"
+    },
+    {
+      "id": "claim_a4434f3983d4cafc",
+      "type": "claim",
+      "title": "同行评议评测显示，最佳代码代理组合在真实多文件任务中仅23.8%的回答同时达到功能正确与安全要求。",
+      "role": "反例",
+      "addedAt": "2026-08-04T17:06:15.723Z"
+    },
+    {
+      "id": "event_2cb02a2eef439f2b",
+      "type": "event",
+      "signalId": 66,
+      "title": "SK hynix与Sandisk发布HBF规范",
+      "bucket": "dynamic",
+      "valueScore": 83,
+      "publishedAt": "2026-08-04T00:00:00.000Z",
+      "updatedAt": "2026-08-04T00:00:00.000Z"
+    },
+    {
+      "id": "article_789228b10115becc",
+      "type": "article",
+      "signalId": 66,
+      "title": "SK hynix与Sandisk发布HBF规范",
+      "version": 1,
+      "publishedAt": "2026-08-04T17:06:15.723Z"
+    },
+    {
+      "id": "source_b258a2363dd26946",
+      "type": "source",
+      "title": "SK hynix",
+      "url": "https://news.skhynix.com/en/hbf-at-fms-2026/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-04T00:00:00.000Z"
+    },
+    {
+      "id": "claim_f82eed71aee8ff87",
+      "type": "claim",
+      "title": "SK hynix确认与Sandisk发布HBF首个标准规范，经OCP披露，容量最高512GB，带宽约0.4TB/s至3.0TB/s。",
+      "role": "主张",
+      "addedAt": "2026-08-04T17:06:15.723Z"
+    },
+    {
+      "id": "source_8e5633b91bcbedc3",
+      "type": "source",
+      "title": "Tom's Hardware",
+      "url": "https://www.tomshardware.com/pc-components/ssds/sk-hynix-and-sandisk-announce-new-high-bandwidth-flash-speedy-hbf-standard-is-targeted-at-inference-ai-servers",
+      "sourceKind": "Media",
+      "publishedAt": "2026-02-26T00:00:00.000Z"
+    },
+    {
+      "id": "claim_449fd2f43479f4c3",
+      "type": "claim",
+      "title": "Tom's Hardware独立确认SK hynix与Sandisk联合发布HBF，并称其面向AI推理服务器。",
+      "role": "佐证",
+      "addedAt": "2026-08-04T17:06:15.723Z"
+    },
+    {
+      "id": "event_eafb3c52e317364c",
+      "type": "event",
+      "signalId": 67,
+      "title": "NSF把AI资源下沉至区域枢纽",
+      "bucket": "explore",
+      "valueScore": 82,
+      "publishedAt": "2026-08-04T16:00:56.000Z",
+      "updatedAt": "2026-08-04T16:00:56.000Z"
+    },
+    {
+      "id": "article_055ada5570244143",
+      "type": "article",
+      "signalId": 67,
+      "title": "NSF把AI资源下沉至区域枢纽",
+      "version": 1,
+      "publishedAt": "2026-08-04T17:06:15.723Z"
+    },
+    {
+      "id": "source_bdd0633960bede87",
+      "type": "source",
+      "title": "NVIDIA AI Blog",
+      "url": "https://blogs.nvidia.com/blog/nsf-state-regional-ai-hub-program/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-04T16:00:56.000Z"
+    },
+    {
+      "id": "claim_8701921d02cdc242",
+      "type": "claim",
+      "title": "NVIDIA宣布加入NSF当天启动的州和区域AI基础设施枢纽计划，以扩大AI科研与教育资源获得渠道。",
+      "role": "主张",
+      "addedAt": "2026-08-04T17:06:15.723Z"
+    },
+    {
+      "id": "source_0ece099b3c292ff8",
+      "type": "source",
+      "title": "U.S. National Science Foundation",
+      "url": "https://www.nsf.gov/cise/updates/nairr-2-years-advancing-american-artificial-intelligence",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-04T16:00:56.000Z"
+    },
+    {
+      "id": "claim_d0fd4535c3f7a181",
+      "type": "claim",
+      "title": "NSF称NAIRR已覆盖600多个研究团队和6,000名学生，并表示州和区域枢纽此前仍处于探索阶段。",
+      "role": "背景",
+      "addedAt": "2026-08-04T17:06:15.723Z"
+    },
+    {
+      "id": "source_775fc8414254aa1e",
+      "type": "source",
+      "title": "U.S. National Science Foundation",
+      "url": "https://www.nsf.gov/news/nsf-initiative-aims-make-every-american-worker-business",
+      "sourceKind": "Official",
+      "publishedAt": "2026-03-25T00:00:00.000Z"
+    },
+    {
+      "id": "claim_219fdbeac9f02292",
+      "type": "claim",
+      "title": "NSF此前规划最多56个协调枢纽，每个每年最高100万美元、支持三年，聚焦AI技能、地方部署和采用。",
+      "role": "佐证",
+      "addedAt": "2026-08-04T17:06:15.723Z"
+    },
+    {
+      "id": "source_cc8717ce494e37c9",
+      "type": "source",
+      "title": "U.S. National Science Foundation",
+      "url": "https://www.nsf.gov/news/nsf-nvidia-partnership-enables-ai2-develop-fully-open-ai",
+      "sourceKind": "Official",
+      "publishedAt": "2025-08-14T00:00:00.000Z"
+    },
+    {
+      "id": "claim_aeae8bdc95ba171d",
+      "type": "claim",
+      "title": "NSF与NVIDIA此前为Ai2开放模型项目合计投入1.52亿美元，构成双方公共AI资源合作先例。",
+      "role": "佐证",
+      "addedAt": "2026-08-04T17:06:15.723Z"
+    },
+    {
+      "id": "source_a13ab41585286101",
+      "type": "source",
+      "title": "The White House",
+      "url": "https://www.whitehouse.gov/releases/2026/07/45502/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-07-22T00:00:00.000Z"
+    },
+    {
+      "id": "claim_6aabbe52f79f9012",
+      "type": "claim",
+      "title": "白宫称Genesis Mission已有逾50亿美元承诺和共享平台，要求区域枢纽证明其相对全国资源的新增价值。",
+      "role": "反例",
+      "addedAt": "2026-08-04T17:06:15.723Z"
+    },
     {
       "id": "event_99656a3cbc8afc22",
       "type": "event",
@@ -6395,6 +6614,167 @@
     }
   ],
   "edges": [
+    {
+      "id": "edge_60c6c45e7ecab4b8",
+      "from": "event_4b6d42737b758598",
+      "to": "article_c2c77376d88afbff",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_5519a28c0d50d3b5",
+      "from": "source_7040cf516d7e1ef2",
+      "to": "claim_e1be9a6d6468316e",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_d22f160496224510",
+      "from": "claim_e1be9a6d6468316e",
+      "to": "event_4b6d42737b758598",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_1b9982021d935a08",
+      "from": "source_113db06c00111d8d",
+      "to": "claim_ebfbaed8e44d1ae8",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_12e824aed04e2669",
+      "from": "claim_ebfbaed8e44d1ae8",
+      "to": "event_4b6d42737b758598",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_3d8dd8dd9171a561",
+      "from": "source_96356add8c324d95",
+      "to": "claim_aec9e1a0f7a0a6c2",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_5d9d152f0dc49e4b",
+      "from": "claim_aec9e1a0f7a0a6c2",
+      "to": "event_4b6d42737b758598",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_778bcfb0242167be",
+      "from": "source_5d6ce3a0e3b887d1",
+      "to": "claim_a4434f3983d4cafc",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_f155483af161aea4",
+      "from": "claim_a4434f3983d4cafc",
+      "to": "event_4b6d42737b758598",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_e4c412c716d56a12",
+      "from": "event_2cb02a2eef439f2b",
+      "to": "article_789228b10115becc",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_6017b30c1fc11574",
+      "from": "source_b258a2363dd26946",
+      "to": "claim_f82eed71aee8ff87",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_72d38c8e5f3a471c",
+      "from": "claim_f82eed71aee8ff87",
+      "to": "event_2cb02a2eef439f2b",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_9b76aaeb4dcd7773",
+      "from": "source_8e5633b91bcbedc3",
+      "to": "claim_449fd2f43479f4c3",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_cd6edb86e57b3e5f",
+      "from": "claim_449fd2f43479f4c3",
+      "to": "event_2cb02a2eef439f2b",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_1fd07620544bddfd",
+      "from": "event_eafb3c52e317364c",
+      "to": "article_055ada5570244143",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_12563c72917cf7e3",
+      "from": "source_bdd0633960bede87",
+      "to": "claim_8701921d02cdc242",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_b9006a3e7119a608",
+      "from": "claim_8701921d02cdc242",
+      "to": "event_eafb3c52e317364c",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_d94f0cf7bb05dcbb",
+      "from": "source_0ece099b3c292ff8",
+      "to": "claim_d0fd4535c3f7a181",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_7eb515681a7ddb32",
+      "from": "claim_d0fd4535c3f7a181",
+      "to": "event_eafb3c52e317364c",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_230b8759fb379d08",
+      "from": "source_775fc8414254aa1e",
+      "to": "claim_219fdbeac9f02292",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_e1fb70475d2f6c11",
+      "from": "claim_219fdbeac9f02292",
+      "to": "event_eafb3c52e317364c",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_02564baf0fe8a990",
+      "from": "source_cc8717ce494e37c9",
+      "to": "claim_aeae8bdc95ba171d",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_e21eb976997fc5a9",
+      "from": "claim_aeae8bdc95ba171d",
+      "to": "event_eafb3c52e317364c",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_3b0dde6698ea6ad5",
+      "from": "source_a13ab41585286101",
+      "to": "claim_6aabbe52f79f9012",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_75c2ba1f36335329",
+      "from": "claim_6aabbe52f79f9012",
+      "to": "event_eafb3c52e317364c",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
     {
       "id": "edge_e925ec1379a99082",
       "from": "event_99656a3cbc8afc22",
