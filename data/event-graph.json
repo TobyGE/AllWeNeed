@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-04T02:20:37.239Z",
+  "generatedAt": "2026-08-04T05:11:02.522Z",
   "counts": {
-    "sources": 258,
-    "claims": 283,
+    "sources": 260,
+    "claims": 288,
     "events": 81,
     "articles": 81,
-    "updates": 39,
-    "edges": 762,
+    "updates": 40,
+    "edges": 775,
     "revisionsRequired": 2
   },
   "revisionQueue": [
@@ -248,6 +248,68 @@
       "title": "Palantir第一季度10-Q说明TCV和RDV包含选择权假设，且多数合同可便利终止，限制这些指标对未来收入的锁定程度。",
       "role": "反例",
       "addedAt": "2026-08-03T22:06:16.111Z"
+    },
+    {
+      "id": "source_154c2a3fe1b12464",
+      "type": "source",
+      "title": "The Information",
+      "url": "https://www.theinformation.com/articles/palantirs-rocket-ship-growth",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-04T00:01:26.000Z"
+    },
+    {
+      "id": "claim_9b378a133ec6c10a",
+      "type": "claim",
+      "title": "报道称Palantir收入增速已连续多个季度加快，并称其第二季度业绩强于此前预测。",
+      "role": "佐证",
+      "addedAt": "2026-08-03T22:06:16.111Z"
+    },
+    {
+      "id": "source_226890cf9069fb62",
+      "type": "source",
+      "title": "Stock Titan",
+      "url": "https://www.stocktitan.net/news/PLTR/palantir-reports-q2-2026-u-s-comm-revenue-growth-of-149-y-y-and-c8762wptyyap.html",
+      "sourceKind": "Media",
+      "publishedAt": "2026-08-03T00:00:00.000Z"
+    },
+    {
+      "id": "claim_d31f5de6b6a62c0d",
+      "type": "claim",
+      "title": "刊载的季度业绩内容显示，Palantir第二季度收入约19.35亿美元、同比增长93%，美国商业收入同比增长149%，并上调全年指引。",
+      "role": "最新进展",
+      "addedAt": "2026-08-03T22:06:16.111Z"
+    },
+    {
+      "id": "update_a12de0e5757d1930",
+      "type": "update",
+      "signalId": 58,
+      "title": "Palantir上调全年增长目标",
+      "summary": "Palantir第二季度收入约19.35亿美元，同比增长93%，高于此前17.97亿至18.01亿美元的指引及18.1亿美元市场共识；公司将全年收入增长目标上调至82%，美国商业收入同比增长149%。",
+      "addedAt": "2026-08-04T00:01:26.000Z",
+      "changeType": "corroboration",
+      "thesisImpact": "新增业绩材料量化了Palantir本季收入相对指引和市场预期的上行，并将全年收入增长指引上调至82%，强化其增长再加速与商业需求扩张的判断。",
+      "revisionRequired": false
+    },
+    {
+      "id": "claim_1553feb4798ccc57",
+      "type": "claim",
+      "title": "第一季度业务更新显示，公司此前给出的第二季度收入指引为17.97亿至18.01亿美元，全年收入指引为76.50亿至76.62亿美元。",
+      "role": "背景",
+      "addedAt": "2026-08-04T00:01:26.000Z"
+    },
+    {
+      "id": "claim_25088935848d05c0",
+      "type": "claim",
+      "title": "业绩日前的分析师收入共识为18.1亿美元，可与约19.35亿美元实际收入比较。",
+      "role": "佐证",
+      "addedAt": "2026-08-04T00:01:26.000Z"
+    },
+    {
+      "id": "claim_d99d05dc22b52227",
+      "type": "claim",
+      "title": "第一季度10-Q提供了公司收入、客户及业务分部披露的法定口径基线。",
+      "role": "背景",
+      "addedAt": "2026-08-04T00:01:26.000Z"
     },
     {
       "id": "event_a55c7b236981d2db",
@@ -6090,6 +6152,91 @@
       "to": "event_10d5fbaa20c08c68",
       "relation": "evidence_for",
       "updateTitle": null
+    },
+    {
+      "id": "edge_efd5edcb0ac50f6b",
+      "from": "source_154c2a3fe1b12464",
+      "to": "claim_9b378a133ec6c10a",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_b7f852ba39b7b58f",
+      "from": "claim_9b378a133ec6c10a",
+      "to": "event_10d5fbaa20c08c68",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_2abf96d7b6f58d9e",
+      "from": "source_226890cf9069fb62",
+      "to": "claim_d31f5de6b6a62c0d",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_3184c4d1501ab2b3",
+      "from": "claim_d31f5de6b6a62c0d",
+      "to": "event_10d5fbaa20c08c68",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_18591310f70d46b6",
+      "from": "update_a12de0e5757d1930",
+      "to": "event_10d5fbaa20c08c68",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_c912b9e8fa182de8",
+      "from": "claim_9b378a133ec6c10a",
+      "to": "event_10d5fbaa20c08c68",
+      "relation": "update_evidence_for",
+      "updateTitle": "Palantir上调全年增长目标"
+    },
+    {
+      "id": "edge_ad76587292f74dc4",
+      "from": "claim_d31f5de6b6a62c0d",
+      "to": "event_10d5fbaa20c08c68",
+      "relation": "update_evidence_for",
+      "updateTitle": "Palantir上调全年增长目标"
+    },
+    {
+      "id": "edge_5d66ff1d8ae2731a",
+      "from": "source_ffc04b035ff2f088",
+      "to": "claim_1553feb4798ccc57",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_d25a8e2f91eed241",
+      "from": "claim_1553feb4798ccc57",
+      "to": "event_10d5fbaa20c08c68",
+      "relation": "update_evidence_for",
+      "updateTitle": "Palantir上调全年增长目标"
+    },
+    {
+      "id": "edge_ef8305923b4a811d",
+      "from": "source_5a97004cdc4c0bf6",
+      "to": "claim_25088935848d05c0",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_682c177f81b73489",
+      "from": "claim_25088935848d05c0",
+      "to": "event_10d5fbaa20c08c68",
+      "relation": "update_evidence_for",
+      "updateTitle": "Palantir上调全年增长目标"
+    },
+    {
+      "id": "edge_1b7073dbd60e9f9f",
+      "from": "source_9382cda3c61004b9",
+      "to": "claim_d99d05dc22b52227",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_756a048f4740f959",
+      "from": "claim_d99d05dc22b52227",
+      "to": "event_10d5fbaa20c08c68",
+      "relation": "update_evidence_for",
+      "updateTitle": "Palantir上调全年增长目标"
     },
     {
       "id": "edge_6fed68f54bfc5931",
