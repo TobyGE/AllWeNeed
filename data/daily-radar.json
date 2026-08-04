@@ -1,13 +1,232 @@
 {
-  "generatedAt": "2026-08-04T07:12:21.157Z",
-  "basedOnSnapshotAt": "2026-08-04T07:07:40.344Z",
+  "generatedAt": "2026-08-04T09:15:29.232Z",
+  "basedOnSnapshotAt": "2026-08-04T09:07:40.545Z",
   "model": "gpt-5.5",
   "analyzedItemCount": 180,
-  "totalFetchedItemCount": 2092,
+  "totalFetchedItemCount": 2093,
   "editorNote": "今日信息环境由代理安全事件、编码代理工具链分化、开放模型竞争和算力下沉共同主导。",
   "signalQuality": 86,
   "signalQualityChange": 8,
   "signals": [
+    {
+      "id": 61,
+      "editorialBucket": "dynamic",
+      "category": "AI & 模型",
+      "eyebrow": "产品信号",
+      "title": "MiniMax开放H3视频模型权重",
+      "summary": "MiniMax H3权重已在官方Hugging Face仓库开放下载，使一款支持音视频生成与2K流程的视频模型从预告进入可本地部署和评估阶段。",
+      "why": "开放权重把视频模型竞争从托管API体验延伸至本地部署、微调和工作流集成，扩大了开发者的可选模型范围。",
+      "impact": "若社区复现其高质量表现，开源视频生成的能力与部署成本差距或收窄；但完整2K流程仍依赖官方API。",
+      "shiftFrom": "H3仅公布能力、权重未开放",
+      "shiftTo": "官方仓库已提供模型权重",
+      "crossValidation": "MiniMax首发公告确认7月31日时权重尚未开放；其官方Hugging Face仓库随后确认可下载。Artificial Analysis的独立榜单将H3列第2，而非第1，支持其接近前沿但不支持绝对领先表述。",
+      "article": {
+        "lead": "MiniMax H3已从一款宣布能力但尚未开放权重的视频模型，转为可供下载和部署的开放权重模型。这一变化的核心不在于单次榜单名次，而在于高规格音视频生成能力开始进入开发者可直接评估、适配和集成的范围，令开源视频模型与闭源服务的竞争更具可操作性。",
+        "sections": [
+          {
+            "heading": "权重开放完成状态切换",
+            "body": "MiniMax在7月31日的首发公告中称H3可生成最高15秒、2K、原生立体声音频视频，但当时明确表示权重将在未来数日开放。官方Hugging Face组织仓库现已提供MiniMax-H3下载，这使模型不再只是托管能力声明，而成为开发团队能够获取并实际测试的资产。仓库列出的基础输出规格为4至15秒、24fps和默认短边768px，并提供经H3-Regenerate-2K实现2K输出的路径。"
+          },
+          {
+            "heading": "开放改变的是部署与迭代边界",
+            "body": "开放权重的意义在于，视频生成系统的竞争不再完全由模型供应商的网页产品和API定价决定。团队可围绕H3评估推理效率、接入自身素材管线，并探索面向广告、游戏资产和短视频制作的定制工作流。MiniMax的仓库同时说明，H3-Context-IR依赖托管服务，未包含于此次开放发布；完整2K流程也需要官方API。因此，开放的是核心模型能力与基础生成路径，并非整个生产系统的所有组件。"
+          },
+          {
+            "heading": "接近榜首不等于已确立领先",
+            "body": "Artificial Analysis当前众包偏好榜将MiniMax H3列为第2，Elo为1,234，样本数为6,077；Google Gemini Omni Flash以1,245居首。该比较显示H3已进入前沿视频模型区间，也明显领先榜单中排名第22的开放权重LTX-2.3 Fast，但不能支持“开放模型首次登顶”这一更强结论。榜单偏好、样本规模和具体任务覆盖仍可能影响这一排序。"
+          }
+        ],
+        "outlook": "下一步可观察三类证据：开发者是否公布可复现的本地推理成本、速度和显存需求；独立榜单在更多样本下是否仍显示H3接近闭源领先模型；以及MiniMax是否开放当前依赖托管服务的上下文与完整2K组件。若这些组件仍长期仅限API，开放权重对完整生产部署的影响将受限。"
+      },
+      "validationType": "跨平台验证",
+      "publishedAt": "2026-08-03T13:52:29.000Z",
+      "updatedAt": "2026-08-03T13:52:29.000Z",
+      "sources": [
+        "Blog",
+        "Official",
+        "Repository",
+        "Research"
+      ],
+      "sourceNames": [
+        "The Decoder",
+        "MiniMax",
+        "MiniMaxAI on Hugging Face",
+        "Artificial Analysis"
+      ],
+      "sourceCount": 4,
+      "age": "19 小时前",
+      "score": 83,
+      "tone": "orange",
+      "evidence": [
+        {
+          "id": "232-3-https://the-decoder.com/chinas-minimax-h3-is-the-first-open-model-to-top-an-ai-video-ranking/",
+          "sourceId": 232,
+          "sourceName": "The Decoder AI",
+          "sourcePublisher": "The Decoder",
+          "sourceKind": "Blog",
+          "title": "China's MiniMax H3 is the first open model to top an AI video ranking",
+          "url": "https://the-decoder.com/chinas-minimax-h3-is-the-first-open-model-to-top-an-ai-video-ranking/",
+          "publishedAt": "2026-08-03T13:52:29.000Z",
+          "summary": "MiniMax releases H3 video model weights, putting an open model at the top of a video ranking for the first time. The article China's MiniMax H3 is the first open model to top an AI video ranking appeared first on The Decoder .",
+          "fetchedAt": "2026-08-03T18:07:02.829Z",
+          "firstSeenAt": "2026-08-03T14:06:05.779Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 19.253206944444443,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N4",
+          "role": "佐证",
+          "takeaway": "报道指出MiniMax发布H3视频模型权重，并称其在一个视频排名中表现突出。"
+        },
+        {
+          "id": "research-232-3-https://the-decoder.com/chinas-minimax-h3-is-the-first-open-model-to-top-an-ai-video-ranking/-1-https://www.minimax.io/blog/minimax-h3",
+          "sourceId": 232,
+          "sourceName": "MiniMax",
+          "sourcePublisher": "MiniMax",
+          "sourceKind": "Official",
+          "title": "MiniMax H3: An Open Model Breaking the Boundaries Between Tasks and Modalities",
+          "url": "https://www.minimax.io/blog/minimax-h3",
+          "publishedAt": "2026-07-31T00:00:00.000Z",
+          "summary": "MiniMax 的首发公告确认 H3 于 2026-07-31 推出，声称可生成最高 15 秒、2K、原生立体声音频视频；同时明确当时权重尚未开放，仅计划在未来数日开放，构成权重发布前的可比状态。",
+          "fetchedAt": "2026-08-04T09:07:40.545Z",
+          "researchedFrom": "N4",
+          "researchRole": "Primary",
+          "researchClaim": "MiniMax 在 2026-07-31 发布 H3，并随后在其 Hugging Face 组织账户提供模型权重；但截至 2026-08-04，H3 在 Artificial Analysis 含音频文生视频众包偏好榜位列第 2，而非第 1，因此“登顶”只能作为可能短暂的历史快照表述，不能写成当前事实。",
+          "researchComparisons": "此前状态：MiniMax 在 2026-07-31 的发布公告称计划在未来数日开放权重。当前状态：MiniMaxAI/MiniMax-H3 仓库已提供权重，支持最高 15 秒、2K、24fps 和 32kHz 立体声音频；但完整官方工作流并非全本地，H3-Context-IR 未纳入开放发布，2K 复现需要调用官方 Context-IR 与 Regenerate-2K API。决定性基准：Artificial Analysis 当前榜单中 H3 的 Elo 为 1,234、95% 区间为±9、样本数为 6,077，低于第 1 名 Google Gemini Omni Flash 的 1,245、±8、10,070 样本，差 11 Elo；H3 仍明显高于榜内此前排名最高的开放权重模型 LTX-2.3 Fast（第 22，980 Elo），高 254 Elo。",
+          "researchUnresolved": "无法从可公开核验的榜单历史快照确认 H3 是否曾在 2026-08-03 的某一具体时点位列第 1，亦无法严格证明其为该榜单历史上“首个”登顶的开放权重模型；“open model”应限定为权重可获得且受 MiniMax H3 Community License Agreement 约束，而非笼统等同于完整系统完全开源。",
+          "ref": "R1",
+          "role": "背景",
+          "takeaway": "MiniMax于7月31日发布H3时称权重尚未开放，计划在未来数日开放，并披露其音视频与2K生成能力。"
+        },
+        {
+          "id": "research-232-3-https://the-decoder.com/chinas-minimax-h3-is-the-first-open-model-to-top-an-ai-video-ranking/-2-https://huggingface.co/MiniMaxAI/MiniMax-H3",
+          "sourceId": 232,
+          "sourceName": "MiniMaxAI on Hugging Face",
+          "sourcePublisher": "MiniMaxAI on Hugging Face",
+          "sourceKind": "Repository",
+          "title": "MiniMaxAI/MiniMax-H3",
+          "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3",
+          "publishedAt": "2026-08-03T13:52:29.000Z",
+          "summary": "官方组织仓库确认模型权重可下载，并列出 4–15 秒、24fps、默认短边 768px及经 H3-Regenerate-2K 达到 2K 的规格；同时说明 H3-Context-IR 依赖托管服务、未包含在本次开放发布中，完整 2K 流程需要官方 API。",
+          "fetchedAt": "2026-08-04T09:07:40.545Z",
+          "researchedFrom": "N4",
+          "researchRole": "Primary",
+          "researchClaim": "MiniMax 在 2026-07-31 发布 H3，并随后在其 Hugging Face 组织账户提供模型权重；但截至 2026-08-04，H3 在 Artificial Analysis 含音频文生视频众包偏好榜位列第 2，而非第 1，因此“登顶”只能作为可能短暂的历史快照表述，不能写成当前事实。",
+          "researchComparisons": "此前状态：MiniMax 在 2026-07-31 的发布公告称计划在未来数日开放权重。当前状态：MiniMaxAI/MiniMax-H3 仓库已提供权重，支持最高 15 秒、2K、24fps 和 32kHz 立体声音频；但完整官方工作流并非全本地，H3-Context-IR 未纳入开放发布，2K 复现需要调用官方 Context-IR 与 Regenerate-2K API。决定性基准：Artificial Analysis 当前榜单中 H3 的 Elo 为 1,234、95% 区间为±9、样本数为 6,077，低于第 1 名 Google Gemini Omni Flash 的 1,245、±8、10,070 样本，差 11 Elo；H3 仍明显高于榜内此前排名最高的开放权重模型 LTX-2.3 Fast（第 22，980 Elo），高 254 Elo。",
+          "researchUnresolved": "无法从可公开核验的榜单历史快照确认 H3 是否曾在 2026-08-03 的某一具体时点位列第 1，亦无法严格证明其为该榜单历史上“首个”登顶的开放权重模型；“open model”应限定为权重可获得且受 MiniMax H3 Community License Agreement 约束，而非笼统等同于完整系统完全开源。",
+          "ref": "R2",
+          "role": "主张",
+          "takeaway": "MiniMax官方Hugging Face仓库确认H3权重可下载，并列出时长、帧率、分辨率及2K流程的限制。"
+        },
+        {
+          "id": "research-232-3-https://the-decoder.com/chinas-minimax-h3-is-the-first-open-model-to-top-an-ai-video-ranking/-3-https://artificialanalysis.ai/embed/text-to-video-leaderboard/leaderboard/text-to-video",
+          "sourceId": 232,
+          "sourceName": "Artificial Analysis",
+          "sourcePublisher": "Artificial Analysis",
+          "sourceKind": "Research",
+          "title": "Artificial Analysis Text to Video Leaderboard",
+          "url": "https://artificialanalysis.ai/embed/text-to-video-leaderboard/leaderboard/text-to-video",
+          "publishedAt": "2026-08-03T13:52:29.000Z",
+          "summary": "独立众包偏好榜当前将 MiniMax H3 列为第 2，Elo 1,234、95% 区间±9、6,077 样本；Google Gemini Omni Flash 以 1,245、±8、10,070 样本居第 1。榜单亦显示开放权重 LTX-2.3 Fast 为第 22、980 Elo，提供开放权重模型的直接比较基准。",
+          "fetchedAt": "2026-08-04T09:07:40.545Z",
+          "researchedFrom": "N4",
+          "researchRole": "Counterevidence",
+          "researchClaim": "MiniMax 在 2026-07-31 发布 H3，并随后在其 Hugging Face 组织账户提供模型权重；但截至 2026-08-04，H3 在 Artificial Analysis 含音频文生视频众包偏好榜位列第 2，而非第 1，因此“登顶”只能作为可能短暂的历史快照表述，不能写成当前事实。",
+          "researchComparisons": "此前状态：MiniMax 在 2026-07-31 的发布公告称计划在未来数日开放权重。当前状态：MiniMaxAI/MiniMax-H3 仓库已提供权重，支持最高 15 秒、2K、24fps 和 32kHz 立体声音频；但完整官方工作流并非全本地，H3-Context-IR 未纳入开放发布，2K 复现需要调用官方 Context-IR 与 Regenerate-2K API。决定性基准：Artificial Analysis 当前榜单中 H3 的 Elo 为 1,234、95% 区间为±9、样本数为 6,077，低于第 1 名 Google Gemini Omni Flash 的 1,245、±8、10,070 样本，差 11 Elo；H3 仍明显高于榜内此前排名最高的开放权重模型 LTX-2.3 Fast（第 22，980 Elo），高 254 Elo。",
+          "researchUnresolved": "无法从可公开核验的榜单历史快照确认 H3 是否曾在 2026-08-03 的某一具体时点位列第 1，亦无法严格证明其为该榜单历史上“首个”登顶的开放权重模型；“open model”应限定为权重可获得且受 MiniMax H3 Community License Agreement 约束，而非笼统等同于完整系统完全开源。",
+          "ref": "R3",
+          "role": "反例",
+          "takeaway": "Artificial Analysis榜单将H3列第2，低于Gemini Omni Flash，并提供与其他开放权重视频模型的比较。"
+        }
+      ],
+      "references": [
+        {
+          "id": "232-3-https://the-decoder.com/chinas-minimax-h3-is-the-first-open-model-to-top-an-ai-video-ranking/",
+          "sourceId": 232,
+          "sourceName": "The Decoder AI",
+          "sourcePublisher": "The Decoder",
+          "sourceKind": "Blog",
+          "title": "China's MiniMax H3 is the first open model to top an AI video ranking",
+          "url": "https://the-decoder.com/chinas-minimax-h3-is-the-first-open-model-to-top-an-ai-video-ranking/",
+          "publishedAt": "2026-08-03T13:52:29.000Z",
+          "summary": "MiniMax releases H3 video model weights, putting an open model at the top of a video ranking for the first time. The article China's MiniMax H3 is the first open model to top an AI video ranking appeared first on The Decoder .",
+          "fetchedAt": "2026-08-03T18:07:02.829Z",
+          "firstSeenAt": "2026-08-03T14:06:05.779Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 19.253206944444443,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N4"
+        },
+        {
+          "id": "research-232-3-https://the-decoder.com/chinas-minimax-h3-is-the-first-open-model-to-top-an-ai-video-ranking/-1-https://www.minimax.io/blog/minimax-h3",
+          "sourceId": 232,
+          "sourceName": "MiniMax",
+          "sourcePublisher": "MiniMax",
+          "sourceKind": "Official",
+          "title": "MiniMax H3: An Open Model Breaking the Boundaries Between Tasks and Modalities",
+          "url": "https://www.minimax.io/blog/minimax-h3",
+          "publishedAt": "2026-07-31T00:00:00.000Z",
+          "summary": "MiniMax 的首发公告确认 H3 于 2026-07-31 推出，声称可生成最高 15 秒、2K、原生立体声音频视频；同时明确当时权重尚未开放，仅计划在未来数日开放，构成权重发布前的可比状态。",
+          "fetchedAt": "2026-08-04T09:07:40.545Z",
+          "researchedFrom": "N4",
+          "researchRole": "Primary",
+          "researchClaim": "MiniMax 在 2026-07-31 发布 H3，并随后在其 Hugging Face 组织账户提供模型权重；但截至 2026-08-04，H3 在 Artificial Analysis 含音频文生视频众包偏好榜位列第 2，而非第 1，因此“登顶”只能作为可能短暂的历史快照表述，不能写成当前事实。",
+          "researchComparisons": "此前状态：MiniMax 在 2026-07-31 的发布公告称计划在未来数日开放权重。当前状态：MiniMaxAI/MiniMax-H3 仓库已提供权重，支持最高 15 秒、2K、24fps 和 32kHz 立体声音频；但完整官方工作流并非全本地，H3-Context-IR 未纳入开放发布，2K 复现需要调用官方 Context-IR 与 Regenerate-2K API。决定性基准：Artificial Analysis 当前榜单中 H3 的 Elo 为 1,234、95% 区间为±9、样本数为 6,077，低于第 1 名 Google Gemini Omni Flash 的 1,245、±8、10,070 样本，差 11 Elo；H3 仍明显高于榜内此前排名最高的开放权重模型 LTX-2.3 Fast（第 22，980 Elo），高 254 Elo。",
+          "researchUnresolved": "无法从可公开核验的榜单历史快照确认 H3 是否曾在 2026-08-03 的某一具体时点位列第 1，亦无法严格证明其为该榜单历史上“首个”登顶的开放权重模型；“open model”应限定为权重可获得且受 MiniMax H3 Community License Agreement 约束，而非笼统等同于完整系统完全开源。",
+          "ref": "R1"
+        },
+        {
+          "id": "research-232-3-https://the-decoder.com/chinas-minimax-h3-is-the-first-open-model-to-top-an-ai-video-ranking/-2-https://huggingface.co/MiniMaxAI/MiniMax-H3",
+          "sourceId": 232,
+          "sourceName": "MiniMaxAI on Hugging Face",
+          "sourcePublisher": "MiniMaxAI on Hugging Face",
+          "sourceKind": "Repository",
+          "title": "MiniMaxAI/MiniMax-H3",
+          "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3",
+          "publishedAt": "2026-08-03T13:52:29.000Z",
+          "summary": "官方组织仓库确认模型权重可下载，并列出 4–15 秒、24fps、默认短边 768px及经 H3-Regenerate-2K 达到 2K 的规格；同时说明 H3-Context-IR 依赖托管服务、未包含在本次开放发布中，完整 2K 流程需要官方 API。",
+          "fetchedAt": "2026-08-04T09:07:40.545Z",
+          "researchedFrom": "N4",
+          "researchRole": "Primary",
+          "researchClaim": "MiniMax 在 2026-07-31 发布 H3，并随后在其 Hugging Face 组织账户提供模型权重；但截至 2026-08-04，H3 在 Artificial Analysis 含音频文生视频众包偏好榜位列第 2，而非第 1，因此“登顶”只能作为可能短暂的历史快照表述，不能写成当前事实。",
+          "researchComparisons": "此前状态：MiniMax 在 2026-07-31 的发布公告称计划在未来数日开放权重。当前状态：MiniMaxAI/MiniMax-H3 仓库已提供权重，支持最高 15 秒、2K、24fps 和 32kHz 立体声音频；但完整官方工作流并非全本地，H3-Context-IR 未纳入开放发布，2K 复现需要调用官方 Context-IR 与 Regenerate-2K API。决定性基准：Artificial Analysis 当前榜单中 H3 的 Elo 为 1,234、95% 区间为±9、样本数为 6,077，低于第 1 名 Google Gemini Omni Flash 的 1,245、±8、10,070 样本，差 11 Elo；H3 仍明显高于榜内此前排名最高的开放权重模型 LTX-2.3 Fast（第 22，980 Elo），高 254 Elo。",
+          "researchUnresolved": "无法从可公开核验的榜单历史快照确认 H3 是否曾在 2026-08-03 的某一具体时点位列第 1，亦无法严格证明其为该榜单历史上“首个”登顶的开放权重模型；“open model”应限定为权重可获得且受 MiniMax H3 Community License Agreement 约束，而非笼统等同于完整系统完全开源。",
+          "ref": "R2"
+        },
+        {
+          "id": "research-232-3-https://the-decoder.com/chinas-minimax-h3-is-the-first-open-model-to-top-an-ai-video-ranking/-3-https://artificialanalysis.ai/embed/text-to-video-leaderboard/leaderboard/text-to-video",
+          "sourceId": 232,
+          "sourceName": "Artificial Analysis",
+          "sourcePublisher": "Artificial Analysis",
+          "sourceKind": "Research",
+          "title": "Artificial Analysis Text to Video Leaderboard",
+          "url": "https://artificialanalysis.ai/embed/text-to-video-leaderboard/leaderboard/text-to-video",
+          "publishedAt": "2026-08-03T13:52:29.000Z",
+          "summary": "独立众包偏好榜当前将 MiniMax H3 列为第 2，Elo 1,234、95% 区间±9、6,077 样本；Google Gemini Omni Flash 以 1,245、±8、10,070 样本居第 1。榜单亦显示开放权重 LTX-2.3 Fast 为第 22、980 Elo，提供开放权重模型的直接比较基准。",
+          "fetchedAt": "2026-08-04T09:07:40.545Z",
+          "researchedFrom": "N4",
+          "researchRole": "Counterevidence",
+          "researchClaim": "MiniMax 在 2026-07-31 发布 H3，并随后在其 Hugging Face 组织账户提供模型权重；但截至 2026-08-04，H3 在 Artificial Analysis 含音频文生视频众包偏好榜位列第 2，而非第 1，因此“登顶”只能作为可能短暂的历史快照表述，不能写成当前事实。",
+          "researchComparisons": "此前状态：MiniMax 在 2026-07-31 的发布公告称计划在未来数日开放权重。当前状态：MiniMaxAI/MiniMax-H3 仓库已提供权重，支持最高 15 秒、2K、24fps 和 32kHz 立体声音频；但完整官方工作流并非全本地，H3-Context-IR 未纳入开放发布，2K 复现需要调用官方 Context-IR 与 Regenerate-2K API。决定性基准：Artificial Analysis 当前榜单中 H3 的 Elo 为 1,234、95% 区间为±9、样本数为 6,077，低于第 1 名 Google Gemini Omni Flash 的 1,245、±8、10,070 样本，差 11 Elo；H3 仍明显高于榜内此前排名最高的开放权重模型 LTX-2.3 Fast（第 22，980 Elo），高 254 Elo。",
+          "researchUnresolved": "无法从可公开核验的榜单历史快照确认 H3 是否曾在 2026-08-03 的某一具体时点位列第 1，亦无法严格证明其为该榜单历史上“首个”登顶的开放权重模型；“open model”应限定为权重可获得且受 MiniMax H3 Community License Agreement 约束，而非笼统等同于完整系统完全开源。",
+          "ref": "R3"
+        }
+      ],
+      "feedBatchAt": "2026-08-04T09:07:40.545Z"
+    },
     {
       "id": 60,
       "editorialBucket": "dynamic",
@@ -13053,14 +13272,16 @@
       "sources": [
         "SEC",
         "IR",
-        "Media"
+        "Media",
+        "Blog"
       ],
       "sourceNames": [
         "Microsoft",
         "Microsoft Investor Relations",
-        "Associated Press"
+        "Associated Press",
+        "The Information"
       ],
-      "sourceCount": 3,
+      "sourceCount": 4,
       "age": "4 小时前",
       "score": 90,
       "tone": "green",
@@ -13150,6 +13371,52 @@
           "summary": "AP reports FactSet consensus of $87.62 billion in quarterly revenue and $4.24 in EPS, along with Microsoft's approximately 9% after-hours share-price increase to $426.03 and management commentary that calendar 2026 investment expectations were unchanged.",
           "role": "佐证",
           "takeaway": "提供具名FactSet收入一致预期和盘后市场反应，并确认约1750亿美元CapEx口径变化主要来自租赁分类调整，而非底层投资计划下调。"
+        },
+        {
+          "id": "236-1-https://www.theinformation.com/briefings/microsoft-closes-2026-finally",
+          "sourceId": 236,
+          "sourceName": "The Information",
+          "sourcePublisher": "The Information",
+          "sourceKind": "Blog",
+          "title": "Microsoft Closes Up for 2026, Finally",
+          "url": "https://www.theinformation.com/briefings/microsoft-closes-2026-finally",
+          "publishedAt": "2026-08-03T22:02:24.000Z",
+          "summary": "Shares of Microsoft closed 0.8% higher than where it finished 2025, the first time all year it closed up for the year so far, Koyfin data shows. The stock has rallied 25% since last Wednesday, when Microsoft reported its June quarter earnings showing accelerating growth in both its cloud ...",
+          "fetchedAt": "2026-08-04T09:07:40.545Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-03T22:06:16.111Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "standard",
+            "reason": "fresh",
+            "ageHours": 11.087929166666667,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N6",
+          "role": "背景",
+          "takeaway": "报道指出微软股价在披露六月季度业绩后反弹，并将市场关注点放在云业务加速增长。"
+        },
+        {
+          "id": "research-236-1-https://www.theinformation.com/briefings/microsoft-closes-2026-finally-1-https://www.microsoft.com/en-us/investor/earnings/fy-2026-q4/press-release-webcast",
+          "sourceId": 236,
+          "sourceName": "Microsoft",
+          "sourcePublisher": "Microsoft",
+          "sourceKind": "IR",
+          "title": "FY26 Q4 - Press Releases - Investor Relations - Microsoft",
+          "url": "https://www.microsoft.com/en-us/investor/earnings/fy-2026-q4/press-release-webcast",
+          "publishedAt": "2026-07-29T00:00:00.000Z",
+          "summary": "补齐FY26第四财季实际业绩：营收900亿美元、同比增长18%，GAAP EPS为4.81美元、非GAAP EPS为4.74美元，Microsoft Cloud收入593亿美元、同比增长27%，Azure及其他云服务收入增长43%；同时披露GAAP业绩含OpenAI投资影响。",
+          "fetchedAt": "2026-08-04T09:07:40.545Z",
+          "researchedFrom": "N6",
+          "researchRole": "Primary",
+          "researchClaim": "微软截至2026年6月30日的FY26第四财季营收同比增长18%至900亿美元，Azure及其他云服务收入增长43%，高于公司此前39%至40%的固定汇率指引；强于预期的云增长、Copilot变现和FY27开局指引为股价反弹提供了基本面依据。",
+          "researchComparisons": "实际营收900亿美元，高于微软在2026年4月29日给出的867亿至878亿美元指引，亦高于FactSet调查的876.2亿美元共识；GAAP每股收益4.81美元、非GAAP每股收益4.74美元，FactSet共识为4.24美元。Azure增长43%，较上一财季的40%加速，并超过此前39%至40%的固定汇率指引；微软指引FY27第一财季Azure固定汇率增长约45%、总营收898.5亿至909.5亿美元，同比增长16%至17%。反面基准是，季度资本开支达410亿美元、公司整体毛利率同比下降至67%，且FY27资本开支预计继续同比增长；Windows OEM及设备收入当季下降7%、Xbox内容与服务下降10%。",
+          "researchUnresolved": "所给摘要中“自上周三以来上涨25%”及“2026年首次收盘高于2025年末”的Koyfin价格数据，未在新增的可公开核验原始文件中独立确认；需以Koyfin终端导出或交易所历史收盘价补证。",
+          "ref": "R8",
+          "role": "最新进展",
+          "takeaway": "微软披露FY26 Q4营收900亿美元，同比增长18%；Microsoft Cloud收入593亿美元，同比增长27%；Azure及其他云服务增长43%。"
         }
       ],
       "references": [
@@ -13226,11 +13493,171 @@
           "publishedAt": "2026-07-29T21:20:50.000Z",
           "fetchedAt": "2026-07-30T02:17:46.001Z",
           "summary": "AP reports FactSet consensus of $87.62 billion in quarterly revenue and $4.24 in EPS, along with Microsoft's approximately 9% after-hours share-price increase to $426.03 and management commentary that calendar 2026 investment expectations were unchanged."
+        },
+        {
+          "id": "236-1-https://www.theinformation.com/briefings/microsoft-closes-2026-finally",
+          "sourceId": 236,
+          "sourceName": "The Information",
+          "sourcePublisher": "The Information",
+          "sourceKind": "Blog",
+          "title": "Microsoft Closes Up for 2026, Finally",
+          "url": "https://www.theinformation.com/briefings/microsoft-closes-2026-finally",
+          "publishedAt": "2026-08-03T22:02:24.000Z",
+          "summary": "Shares of Microsoft closed 0.8% higher than where it finished 2025, the first time all year it closed up for the year so far, Koyfin data shows. The stock has rallied 25% since last Wednesday, when Microsoft reported its June quarter earnings showing accelerating growth in both its cloud ...",
+          "fetchedAt": "2026-08-04T09:07:40.545Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-03T22:06:16.111Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "standard",
+            "reason": "fresh",
+            "ageHours": 11.087929166666667,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N6"
+        },
+        {
+          "id": "research-236-1-https://www.theinformation.com/briefings/microsoft-closes-2026-finally-1-https://www.microsoft.com/en-us/investor/earnings/fy-2026-q4/press-release-webcast",
+          "sourceId": 236,
+          "sourceName": "Microsoft",
+          "sourcePublisher": "Microsoft",
+          "sourceKind": "IR",
+          "title": "FY26 Q4 - Press Releases - Investor Relations - Microsoft",
+          "url": "https://www.microsoft.com/en-us/investor/earnings/fy-2026-q4/press-release-webcast",
+          "publishedAt": "2026-07-29T00:00:00.000Z",
+          "summary": "补齐FY26第四财季实际业绩：营收900亿美元、同比增长18%，GAAP EPS为4.81美元、非GAAP EPS为4.74美元，Microsoft Cloud收入593亿美元、同比增长27%，Azure及其他云服务收入增长43%；同时披露GAAP业绩含OpenAI投资影响。",
+          "fetchedAt": "2026-08-04T09:07:40.545Z",
+          "researchedFrom": "N6",
+          "researchRole": "Primary",
+          "researchClaim": "微软截至2026年6月30日的FY26第四财季营收同比增长18%至900亿美元，Azure及其他云服务收入增长43%，高于公司此前39%至40%的固定汇率指引；强于预期的云增长、Copilot变现和FY27开局指引为股价反弹提供了基本面依据。",
+          "researchComparisons": "实际营收900亿美元，高于微软在2026年4月29日给出的867亿至878亿美元指引，亦高于FactSet调查的876.2亿美元共识；GAAP每股收益4.81美元、非GAAP每股收益4.74美元，FactSet共识为4.24美元。Azure增长43%，较上一财季的40%加速，并超过此前39%至40%的固定汇率指引；微软指引FY27第一财季Azure固定汇率增长约45%、总营收898.5亿至909.5亿美元，同比增长16%至17%。反面基准是，季度资本开支达410亿美元、公司整体毛利率同比下降至67%，且FY27资本开支预计继续同比增长；Windows OEM及设备收入当季下降7%、Xbox内容与服务下降10%。",
+          "researchUnresolved": "所给摘要中“自上周三以来上涨25%”及“2026年首次收盘高于2025年末”的Koyfin价格数据，未在新增的可公开核验原始文件中独立确认；需以Koyfin终端导出或交易所历史收盘价补证。",
+          "ref": "R8"
         }
       ],
       "editorialBucket": "dynamic",
       "feedBatchAt": "2026-07-29T20:21:07.772Z",
-      "editorialRewrittenAt": "2026-07-30T02:17:46.001Z"
+      "editorialRewrittenAt": "2026-07-30T02:17:46.001Z",
+      "updates": [
+        {
+          "addedAt": "2026-08-03T22:02:24.000Z",
+          "title": "微软Azure增速升至43%",
+          "summary": "微软FY26 Q4营收900亿美元、Azure及其他云服务增长43%，高于此前39%至40%的固定汇率指引；公司预计FY27 Q1 Azure固定汇率增长约45%，但资本开支仍将上升。",
+          "evidence": [
+            {
+              "id": "236-1-https://www.theinformation.com/briefings/microsoft-closes-2026-finally",
+              "sourceId": 236,
+              "sourceName": "The Information",
+              "sourcePublisher": "The Information",
+              "sourceKind": "Blog",
+              "title": "Microsoft Closes Up for 2026, Finally",
+              "url": "https://www.theinformation.com/briefings/microsoft-closes-2026-finally",
+              "publishedAt": "2026-08-03T22:02:24.000Z",
+              "summary": "Shares of Microsoft closed 0.8% higher than where it finished 2025, the first time all year it closed up for the year so far, Koyfin data shows. The stock has rallied 25% since last Wednesday, when Microsoft reported its June quarter earnings showing accelerating growth in both its cloud ...",
+              "fetchedAt": "2026-08-04T09:07:40.545Z",
+              "accessMethod": "public-feed",
+              "publicContentPolicy": "headline-source-link-only",
+              "firstSeenAt": "2026-08-03T22:06:16.111Z",
+              "freshness": {
+                "eligible": true,
+                "lane": "standard",
+                "reason": "fresh",
+                "ageHours": 11.087929166666667,
+                "maxAgeHours": 168
+              },
+              "deferredResearch": false,
+              "ref": "N6",
+              "role": "背景",
+              "takeaway": "报道指出微软股价在披露六月季度业绩后反弹，并将市场关注点放在云业务加速增长。"
+            },
+            {
+              "id": "research-236-1-https://www.theinformation.com/briefings/microsoft-closes-2026-finally-1-https://www.microsoft.com/en-us/investor/earnings/fy-2026-q4/press-release-webcast",
+              "sourceId": 236,
+              "sourceName": "Microsoft",
+              "sourcePublisher": "Microsoft",
+              "sourceKind": "IR",
+              "title": "FY26 Q4 - Press Releases - Investor Relations - Microsoft",
+              "url": "https://www.microsoft.com/en-us/investor/earnings/fy-2026-q4/press-release-webcast",
+              "publishedAt": "2026-07-29T00:00:00.000Z",
+              "summary": "补齐FY26第四财季实际业绩：营收900亿美元、同比增长18%，GAAP EPS为4.81美元、非GAAP EPS为4.74美元，Microsoft Cloud收入593亿美元、同比增长27%，Azure及其他云服务收入增长43%；同时披露GAAP业绩含OpenAI投资影响。",
+              "fetchedAt": "2026-08-04T09:07:40.545Z",
+              "researchedFrom": "N6",
+              "researchRole": "Primary",
+              "researchClaim": "微软截至2026年6月30日的FY26第四财季营收同比增长18%至900亿美元，Azure及其他云服务收入增长43%，高于公司此前39%至40%的固定汇率指引；强于预期的云增长、Copilot变现和FY27开局指引为股价反弹提供了基本面依据。",
+              "researchComparisons": "实际营收900亿美元，高于微软在2026年4月29日给出的867亿至878亿美元指引，亦高于FactSet调查的876.2亿美元共识；GAAP每股收益4.81美元、非GAAP每股收益4.74美元，FactSet共识为4.24美元。Azure增长43%，较上一财季的40%加速，并超过此前39%至40%的固定汇率指引；微软指引FY27第一财季Azure固定汇率增长约45%、总营收898.5亿至909.5亿美元，同比增长16%至17%。反面基准是，季度资本开支达410亿美元、公司整体毛利率同比下降至67%，且FY27资本开支预计继续同比增长；Windows OEM及设备收入当季下降7%、Xbox内容与服务下降10%。",
+              "researchUnresolved": "所给摘要中“自上周三以来上涨25%”及“2026年首次收盘高于2025年末”的Koyfin价格数据，未在新增的可公开核验原始文件中独立确认；需以Koyfin终端导出或交易所历史收盘价补证。",
+              "ref": "R8",
+              "role": "最新进展",
+              "takeaway": "微软披露FY26 Q4营收900亿美元，同比增长18%；Microsoft Cloud收入593亿美元，同比增长27%；Azure及其他云服务增长43%。"
+            },
+            {
+              "id": "research-236-1-https://www.theinformation.com/briefings/microsoft-closes-2026-finally-2-https://www.microsoft.com/en-us/investor/events/fy-2026/earnings-fy-2026-q3",
+              "sourceId": 236,
+              "sourceName": "Microsoft",
+              "sourcePublisher": "Microsoft",
+              "sourceKind": "IR",
+              "title": "Microsoft Fiscal Year 2026 Third Quarter Earnings Conference Call",
+              "url": "https://www.microsoft.com/en-us/investor/events/fy-2026/earnings-fy-2026-q3",
+              "publishedAt": "2026-04-29T00:00:00.000Z",
+              "summary": "补齐此前状态与公司基准：微软当时指引FY26第四财季总营收867亿至878亿美元、Azure固定汇率增长39%至40%，并预计季度资本开支超过400亿美元；实际Q4营收和Azure增长均超过该指引。",
+              "fetchedAt": "2026-08-04T09:07:40.545Z",
+              "researchedFrom": "N6",
+              "researchRole": "Comparison",
+              "researchClaim": "微软截至2026年6月30日的FY26第四财季营收同比增长18%至900亿美元，Azure及其他云服务收入增长43%，高于公司此前39%至40%的固定汇率指引；强于预期的云增长、Copilot变现和FY27开局指引为股价反弹提供了基本面依据。",
+              "researchComparisons": "实际营收900亿美元，高于微软在2026年4月29日给出的867亿至878亿美元指引，亦高于FactSet调查的876.2亿美元共识；GAAP每股收益4.81美元、非GAAP每股收益4.74美元，FactSet共识为4.24美元。Azure增长43%，较上一财季的40%加速，并超过此前39%至40%的固定汇率指引；微软指引FY27第一财季Azure固定汇率增长约45%、总营收898.5亿至909.5亿美元，同比增长16%至17%。反面基准是，季度资本开支达410亿美元、公司整体毛利率同比下降至67%，且FY27资本开支预计继续同比增长；Windows OEM及设备收入当季下降7%、Xbox内容与服务下降10%。",
+              "researchUnresolved": "所给摘要中“自上周三以来上涨25%”及“2026年首次收盘高于2025年末”的Koyfin价格数据，未在新增的可公开核验原始文件中独立确认；需以Koyfin终端导出或交易所历史收盘价补证。",
+              "ref": "R9",
+              "role": "背景",
+              "takeaway": "微软此前指引FY26 Q4 Azure固定汇率增长39%至40%，总营收867亿至878亿美元，并预计资本开支超过400亿美元。"
+            },
+            {
+              "id": "research-236-1-https://www.theinformation.com/briefings/microsoft-closes-2026-finally-3-https://www.microsoft.com/en-us/investor/events/fy-2026/earnings-fy-2026-q4",
+              "sourceId": 236,
+              "sourceName": "Microsoft",
+              "sourcePublisher": "Microsoft",
+              "sourceKind": "IR",
+              "title": "Microsoft Fiscal Year 2026 Fourth Quarter Earnings Conference Call",
+              "url": "https://www.microsoft.com/en-us/investor/events/fy-2026/earnings-fy-2026-q4",
+              "publishedAt": "2026-07-29T00:00:00.000Z",
+              "summary": "补齐前瞻与反面证据：FY27第一财季Azure固定汇率增长指引约45%、总营收指引898.5亿至909.5亿美元；但Q4资本开支为410亿美元、公司毛利率降至67%，FY27资本开支仍将同比增加，且Windows OEM及设备和Xbox内容与服务收入分别下降7%和10%。",
+              "fetchedAt": "2026-08-04T09:07:40.545Z",
+              "researchedFrom": "N6",
+              "researchRole": "Counterevidence",
+              "researchClaim": "微软截至2026年6月30日的FY26第四财季营收同比增长18%至900亿美元，Azure及其他云服务收入增长43%，高于公司此前39%至40%的固定汇率指引；强于预期的云增长、Copilot变现和FY27开局指引为股价反弹提供了基本面依据。",
+              "researchComparisons": "实际营收900亿美元，高于微软在2026年4月29日给出的867亿至878亿美元指引，亦高于FactSet调查的876.2亿美元共识；GAAP每股收益4.81美元、非GAAP每股收益4.74美元，FactSet共识为4.24美元。Azure增长43%，较上一财季的40%加速，并超过此前39%至40%的固定汇率指引；微软指引FY27第一财季Azure固定汇率增长约45%、总营收898.5亿至909.5亿美元，同比增长16%至17%。反面基准是，季度资本开支达410亿美元、公司整体毛利率同比下降至67%，且FY27资本开支预计继续同比增长；Windows OEM及设备收入当季下降7%、Xbox内容与服务下降10%。",
+              "researchUnresolved": "所给摘要中“自上周三以来上涨25%”及“2026年首次收盘高于2025年末”的Koyfin价格数据，未在新增的可公开核验原始文件中独立确认；需以Koyfin终端导出或交易所历史收盘价补证。",
+              "ref": "R10",
+              "role": "最新进展",
+              "takeaway": "微软指引FY27 Q1 Azure固定汇率增长约45%，同时披露Q4资本开支410亿美元、毛利率67%，并预计FY27资本开支继续同比增加。"
+            },
+            {
+              "id": "research-236-1-https://www.theinformation.com/briefings/microsoft-closes-2026-finally-4-https://apnews.com/article/microsoft-earnings-results-ai-f7dff4fb9d51a2bdec56a13e5da1053d",
+              "sourceId": 236,
+              "sourceName": "Associated Press",
+              "sourcePublisher": "Associated Press",
+              "sourceKind": "Media",
+              "title": "Microsoft beats Wall Street expectations with $90B in revenue",
+              "url": "https://apnews.com/article/microsoft-earnings-results-ai-f7dff4fb9d51a2bdec56a13e5da1053d",
+              "publishedAt": "2026-07-30T00:00:00.000Z",
+              "summary": "补齐明确注明数据提供方的市场共识：FactSet Research调查的分析师预期微软季度营收876.2亿美元、每股收益4.24美元；并提供市场对资本开支与AI投资回报的独立背景。",
+              "fetchedAt": "2026-08-04T09:07:40.545Z",
+              "researchedFrom": "N6",
+              "researchRole": "Consensus",
+              "researchClaim": "微软截至2026年6月30日的FY26第四财季营收同比增长18%至900亿美元，Azure及其他云服务收入增长43%，高于公司此前39%至40%的固定汇率指引；强于预期的云增长、Copilot变现和FY27开局指引为股价反弹提供了基本面依据。",
+              "researchComparisons": "实际营收900亿美元，高于微软在2026年4月29日给出的867亿至878亿美元指引，亦高于FactSet调查的876.2亿美元共识；GAAP每股收益4.81美元、非GAAP每股收益4.74美元，FactSet共识为4.24美元。Azure增长43%，较上一财季的40%加速，并超过此前39%至40%的固定汇率指引；微软指引FY27第一财季Azure固定汇率增长约45%、总营收898.5亿至909.5亿美元，同比增长16%至17%。反面基准是，季度资本开支达410亿美元、公司整体毛利率同比下降至67%，且FY27资本开支预计继续同比增长；Windows OEM及设备收入当季下降7%、Xbox内容与服务下降10%。",
+              "researchUnresolved": "所给摘要中“自上周三以来上涨25%”及“2026年首次收盘高于2025年末”的Koyfin价格数据，未在新增的可公开核验原始文件中独立确认；需以Koyfin终端导出或交易所历史收盘价补证。",
+              "ref": "R11",
+              "role": "佐证",
+              "takeaway": "Associated Press援引FactSet称，分析师此前预计微软季度营收876.2亿美元、每股收益4.24美元。"
+            }
+          ],
+          "changeType": "corroboration",
+          "thesisImpact": "新材料补充了微软FY26 Q4实际业绩、超出此前指引的Azure增速及FY27前瞻，强化AI云商业化加速但资本开支压力上升的原判断。",
+          "revisionRequired": false
+        }
+      ]
     },
     {
       "id": 10,
@@ -18809,6 +19236,53 @@
       "editorNote": "今日信息环境由智能体安全事件、AI coding 工具链分化、open-weight 模型竞争与算力下沉共同主导。",
       "signals": [
         {
+          "category": "AI & 模型",
+          "eyebrow": "产品信号",
+          "title": "MiniMax开放H3视频模型权重",
+          "summary": "MiniMax H3权重已在官方Hugging Face仓库开放下载，使一款支持音视频生成与2K流程的视频模型从预告进入可本地部署和评估阶段。",
+          "why": "开放权重把视频模型竞争从托管API体验延伸至本地部署、微调和工作流集成，扩大了开发者的可选模型范围。",
+          "impact": "若社区复现其高质量表现，开源视频生成的能力与部署成本差距或收窄；但完整2K流程仍依赖官方API。",
+          "shiftFrom": "H3仅公布能力、权重未开放",
+          "shiftTo": "官方仓库已提供模型权重",
+          "crossValidation": "MiniMax首发公告确认7月31日时权重尚未开放；其官方Hugging Face仓库随后确认可下载。Artificial Analysis的独立榜单将H3列第2，而非第1，支持其接近前沿但不支持绝对领先表述。",
+          "article": {
+            "lead": "MiniMax H3已从一款宣布能力但尚未开放权重的视频模型，转为可供下载和部署的开放权重模型。这一变化的核心不在于单次榜单名次，而在于高规格音视频生成能力开始进入开发者可直接评估、适配和集成的范围，令开源视频模型与闭源服务的竞争更具可操作性。",
+            "sections": [
+              {
+                "heading": "权重开放完成状态切换",
+                "body": "MiniMax在7月31日的首发公告中称H3可生成最高15秒、2K、原生立体声音频视频，但当时明确表示权重将在未来数日开放。官方Hugging Face组织仓库现已提供MiniMax-H3下载，这使模型不再只是托管能力声明，而成为开发团队能够获取并实际测试的资产。仓库列出的基础输出规格为4至15秒、24fps和默认短边768px，并提供经H3-Regenerate-2K实现2K输出的路径。"
+              },
+              {
+                "heading": "开放改变的是部署与迭代边界",
+                "body": "开放权重的意义在于，视频生成系统的竞争不再完全由模型供应商的网页产品和API定价决定。团队可围绕H3评估推理效率、接入自身素材管线，并探索面向广告、游戏资产和短视频制作的定制工作流。MiniMax的仓库同时说明，H3-Context-IR依赖托管服务，未包含于此次开放发布；完整2K流程也需要官方API。因此，开放的是核心模型能力与基础生成路径，并非整个生产系统的所有组件。"
+              },
+              {
+                "heading": "接近榜首不等于已确立领先",
+                "body": "Artificial Analysis当前众包偏好榜将MiniMax H3列为第2，Elo为1,234，样本数为6,077；Google Gemini Omni Flash以1,245居首。该比较显示H3已进入前沿视频模型区间，也明显领先榜单中排名第22的开放权重LTX-2.3 Fast，但不能支持“开放模型首次登顶”这一更强结论。榜单偏好、样本规模和具体任务覆盖仍可能影响这一排序。"
+              }
+            ],
+            "outlook": "下一步可观察三类证据：开发者是否公布可复现的本地推理成本、速度和显存需求；独立榜单在更多样本下是否仍显示H3接近闭源领先模型；以及MiniMax是否开放当前依赖托管服务的上下文与完整2K组件。若这些组件仍长期仅限API，开放权重对完整生产部署的影响将受限。"
+          },
+          "evidence": [
+            {
+              "role": "佐证",
+              "takeaway": "报道指出MiniMax发布H3视频模型权重，并称其在一个视频排名中表现突出。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "MiniMax于7月31日发布H3时称权重尚未开放，计划在未来数日开放，并披露其音视频与2K生成能力。"
+            },
+            {
+              "role": "主张",
+              "takeaway": "MiniMax官方Hugging Face仓库确认H3权重可下载，并列出时长、帧率、分辨率及2K流程的限制。"
+            },
+            {
+              "role": "反例",
+              "takeaway": "Artificial Analysis榜单将H3列第2，低于Gemini Omni Flash，并提供与其他开放权重视频模型的比较。"
+            }
+          ]
+        },
+        {
           "category": "算力",
           "eyebrow": "风险预警",
           "title": "Texas暂停数据中心并网审批",
@@ -22316,6 +22790,46 @@
             {
               "role": "佐证",
               "takeaway": "提供具名FactSet收入一致预期和盘后市场反应，并确认约1750亿美元CapEx口径变化主要来自租赁分类调整，而非底层投资计划下调。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "报道指出微软股价在披露六月季度业绩后反弹，并将市场关注点放在云业务加速增长。"
+            },
+            {
+              "role": "最新进展",
+              "takeaway": "微软披露FY26 Q4营收900亿美元，同比增长18%；Microsoft Cloud收入593亿美元，同比增长27%；Azure及其他云服务增长43%。"
+            }
+          ],
+          "updates": [
+            {
+              "addedAt": "2026-08-03T22:02:24.000Z",
+              "title": "微软Azure增速升至43%",
+              "summary": "微软FY26 Q4营收900亿美元、Azure及其他云服务增长43%，高于此前39%至40%的固定汇率指引；公司预计FY27 Q1 Azure固定汇率增长约45%，但资本开支仍将上升。",
+              "evidence": [
+                {
+                  "role": "背景",
+                  "takeaway": "报道指出微软股价在披露六月季度业绩后反弹，并将市场关注点放在云业务加速增长。"
+                },
+                {
+                  "role": "最新进展",
+                  "takeaway": "微软披露FY26 Q4营收900亿美元，同比增长18%；Microsoft Cloud收入593亿美元，同比增长27%；Azure及其他云服务增长43%。"
+                },
+                {
+                  "role": "背景",
+                  "takeaway": "微软此前指引FY26 Q4 Azure固定汇率增长39%至40%，总营收867亿至878亿美元，并预计资本开支超过400亿美元。"
+                },
+                {
+                  "role": "最新进展",
+                  "takeaway": "微软指引FY27 Q1 Azure固定汇率增长约45%，同时披露Q4资本开支410亿美元、毛利率67%，并预计FY27资本开支继续同比增加。"
+                },
+                {
+                  "role": "佐证",
+                  "takeaway": "Associated Press援引FactSet称，分析师此前预计微软季度营收876.2亿美元、每股收益4.24美元。"
+                }
+              ],
+              "changeType": "corroboration",
+              "thesisImpact": "新材料补充了微软FY26 Q4实际业绩、超出此前指引的Azure增速及FY27前瞻，强化AI云商业化加速但资本开支压力上升的原判断。",
+              "revisionRequired": false
             }
           ]
         },
@@ -24871,6 +25385,53 @@
     "en": {
       "editorNote": "Today’s information environment is being shaped by agent security incidents, a split in coding-agent toolchains, open-model competition, and compute moving closer to the edge.",
       "signals": [
+        {
+          "category": "AI & Models",
+          "eyebrow": "Product signal",
+          "title": "MiniMax Opens H3 Video Model Weights",
+          "summary": "MiniMax H3 weights are now downloadable from the official Hugging Face repository, moving the audio-video model from announcement to direct deployment and evaluation.",
+          "why": "Open weights extend video-model competition beyond hosted APIs to local deployment, fine-tuning, and workflow integration.",
+          "impact": "If community testing confirms its quality, open video models could narrow the capability and deployment gap with closed services. Full 2K workflows still require MiniMax's API.",
+          "shiftFrom": "H3 was announced without open weights",
+          "shiftTo": "Official downloadable weights are available",
+          "crossValidation": "MiniMax's launch post said weights were not yet available; its official Hugging Face repository later confirmed downloads. Artificial Analysis ranks H3 second, supporting frontier proximity but not an outright lead.",
+          "article": {
+            "lead": "MiniMax H3 has moved from a video model with announced capabilities but unavailable weights to a downloadable open-weight release. The consequential change is not a single leaderboard position: developers can now directly evaluate, adapt, and integrate high-specification audio-video generation, making open video models a more practical competitive alternative to closed services.",
+            "sections": [
+              {
+                "heading": "Weights mark a real release transition",
+                "body": "MiniMax's July 31 launch announcement said H3 could generate up to 15-second, 2K audio-video outputs with native stereo audio, while explicitly stating that weights would arrive in the following days. The official MiniMax-H3 Hugging Face repository now provides downloads. That changes H3 from a hosted-capability claim into an asset developers can test directly. The repository lists 4-to-15-second generation, 24fps, and a default 768px short edge, with an H3-Regenerate-2K path for 2K output."
+              },
+              {
+                "heading": "The new boundary is deployment and iteration",
+                "body": "Open weights matter because video-model competition is no longer determined solely by a provider's interface and API pricing. Teams can assess inference efficiency, connect H3 to proprietary media pipelines, and build specialized workflows for advertising, game assets, or short-form production. The release is not a complete production stack, however. MiniMax says H3-Context-IR depends on hosted services and is excluded from this release, while the full 2K workflow requires the official API."
+              },
+              {
+                "heading": "Near the top is not the same as leading",
+                "body": "Artificial Analysis currently ranks MiniMax H3 second on its crowdsourced preference leaderboard, with an Elo of 1,234 across 6,077 samples. Google Gemini Omni Flash leads at 1,245. The comparison places H3 in the frontier tier and well ahead of the listed open-weight LTX-2.3 Fast at rank 22, but it does not substantiate a claim that H3 is the top-ranked open model. Preference rankings, sample sizes, and task coverage can all affect the result."
+              }
+            ],
+            "outlook": "The next observable evidence is whether developers publish reproducible local inference cost, speed, and memory requirements; whether independent rankings retain H3's position with larger samples; and whether MiniMax opens the currently hosted context and full-2K components. If those components remain API-only, the practical effect of the open-weight release will be narrower."
+          },
+          "evidence": [
+            {
+              "role": "Support",
+              "takeaway": "The report says MiniMax released H3 video-model weights and highlighted its leaderboard performance."
+            },
+            {
+              "role": "Context",
+              "takeaway": "MiniMax's July 31 announcement said weights were not yet open and described H3's audio-video and 2K capabilities."
+            },
+            {
+              "role": "Claim",
+              "takeaway": "MiniMax's official Hugging Face repository confirms downloadable H3 weights and specifies generation formats and 2K limitations."
+            },
+            {
+              "role": "Counterpoint",
+              "takeaway": "Artificial Analysis ranks H3 second behind Gemini Omni Flash and provides a direct open-weight comparison."
+            }
+          ]
+        },
         {
           "category": "Compute Infrastructure",
           "eyebrow": "Risk Alert",
@@ -28379,6 +28940,46 @@
             {
               "role": "Support",
               "takeaway": "Provides the named FactSet revenue consensus and observed after-hours reaction, and confirms that the roughly $175 billion CapEx presentation reflects lease-classification changes rather than a reduction in the underlying investment plan."
+            },
+            {
+              "role": "Context",
+              "takeaway": "The report notes that Microsoft's shares rebounded after its June-quarter earnings, with cloud acceleration central to investor attention."
+            },
+            {
+              "role": "Update",
+              "takeaway": "Microsoft reported $90 billion in FY26 Q4 revenue, 27% Microsoft Cloud growth, and 43% Azure and other cloud-services growth."
+            }
+          ],
+          "updates": [
+            {
+              "addedAt": "2026-08-03T22:02:24.000Z",
+              "title": "Microsoft Azure Growth Reaches 43%",
+              "summary": "Microsoft reported $90 billion in FY26 Q4 revenue and 43% Azure and other cloud-services growth, above its prior constant-currency Azure outlook of 39% to 40%. It guided to roughly 45% Azure growth for FY27 Q1 while expecting further capex growth.",
+              "evidence": [
+                {
+                  "role": "Context",
+                  "takeaway": "The report notes that Microsoft's shares rebounded after its June-quarter earnings, with cloud acceleration central to investor attention."
+                },
+                {
+                  "role": "Update",
+                  "takeaway": "Microsoft reported $90 billion in FY26 Q4 revenue, 27% Microsoft Cloud growth, and 43% Azure and other cloud-services growth."
+                },
+                {
+                  "role": "Context",
+                  "takeaway": "Microsoft had previously guided to 39% to 40% constant-currency Azure growth and more than $40 billion of quarterly capex."
+                },
+                {
+                  "role": "Update",
+                  "takeaway": "Microsoft guided to roughly 45% constant-currency Azure growth for FY27 Q1, while reporting $41 billion of Q4 capex and a 67% gross margin."
+                },
+                {
+                  "role": "Support",
+                  "takeaway": "Associated Press cited FactSet estimates of $87.62 billion in quarterly revenue and $4.24 in earnings per share."
+                }
+              ],
+              "changeType": "corroboration",
+              "thesisImpact": "新材料补充了微软FY26 Q4实际业绩、超出此前指引的Azure增速及FY27前瞻，强化AI云商业化加速但资本开支压力上升的原判断。",
+              "revisionRequired": false
             }
           ]
         },
@@ -30935,12 +31536,12 @@
     "en": "gpt-5.6-sol"
   },
   "incremental": {
-    "lastAddedAt": "2026-08-04T07:12:21.157Z",
-    "lastScanAt": "2026-08-04T07:07:40.344Z",
+    "lastAddedAt": "2026-08-04T09:15:29.232Z",
+    "lastScanAt": "2026-08-04T09:07:40.545Z",
     "lastAddedCount": 1,
-    "lastUpdatedCount": 0,
-    "totalAppended": 52,
-    "totalUpdated": 40
+    "lastUpdatedCount": 1,
+    "totalAppended": 53,
+    "totalUpdated": 41
   },
   "exploreDepth": {
     "minimum": 50,
