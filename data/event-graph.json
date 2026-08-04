@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-04T11:07:09.403Z",
+  "generatedAt": "2026-08-04T13:06:12.452Z",
   "counts": {
-    "sources": 273,
-    "claims": 305,
-    "events": 84,
-    "articles": 84,
+    "sources": 276,
+    "claims": 308,
+    "events": 85,
+    "articles": 85,
     "updates": 42,
-    "edges": 819,
+    "edges": 826,
     "revisionsRequired": 2
   },
   "revisionQueue": [
@@ -33,6 +33,69 @@
     }
   ],
   "nodes": [
+    {
+      "id": "event_406524798e5bfdb9",
+      "type": "event",
+      "signalId": 63,
+      "title": "Cloudflare推出代理开发与管理层",
+      "bucket": "dynamic",
+      "valueScore": 83,
+      "publishedAt": "2026-08-04T13:00:00.000Z",
+      "updatedAt": "2026-08-04T13:00:00.000Z"
+    },
+    {
+      "id": "article_a8339b405853e532",
+      "type": "article",
+      "signalId": 63,
+      "title": "Cloudflare推出代理开发与管理层",
+      "version": 1,
+      "publishedAt": "2026-08-04T13:06:12.452Z"
+    },
+    {
+      "id": "source_1bb6dbc9f8bf0fdb",
+      "type": "source",
+      "title": "Cloudflare Blog",
+      "url": "https://blog.cloudflare.com/agents-on-cloudflare/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-04T13:00:00.000Z"
+    },
+    {
+      "id": "claim_505b2bd862028181",
+      "type": "claim",
+      "title": "Cloudflare发布Cloudflare Agents，将已部署代理会话汇集至单一体验，并提供规模化运行表现的信息与洞察。",
+      "role": "主张",
+      "addedAt": "2026-08-04T13:06:12.452Z"
+    },
+    {
+      "id": "source_e3bdcbca976f2657",
+      "type": "source",
+      "title": "Cloudflare Blog",
+      "url": "https://blog.cloudflare.com/agent-development-lifecycle/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-04T13:00:00.000Z"
+    },
+    {
+      "id": "claim_25ce120ee96f8c2c",
+      "type": "claim",
+      "title": "Cloudflare宣布Agent Development Lifecycle及其底层平台原语，指出代理代码生成速度可能超过团队审查、部署和维护速度。",
+      "role": "佐证",
+      "addedAt": "2026-08-04T13:06:12.452Z"
+    },
+    {
+      "id": "source_00270719c43b63ae",
+      "type": "source",
+      "title": "Cloudflare Blog",
+      "url": "https://blog.cloudflare.com/wallets/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-04T13:00:00.000Z"
+    },
+    {
+      "id": "claim_a17fa2e9b97b16e5",
+      "type": "claim",
+      "title": "Cloudflare Wallets计划借助x402，为AI代理提供原生支付与可验证身份，以在安全护栏内购买API和内容。",
+      "role": "佐证",
+      "addedAt": "2026-08-04T13:06:12.452Z"
+    },
     {
       "id": "event_2176d15e07149822",
       "type": "event",
@@ -6284,6 +6347,51 @@
     }
   ],
   "edges": [
+    {
+      "id": "edge_6945ea4cc37913a0",
+      "from": "event_406524798e5bfdb9",
+      "to": "article_a8339b405853e532",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_78aa8ee691c7701b",
+      "from": "source_1bb6dbc9f8bf0fdb",
+      "to": "claim_505b2bd862028181",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_97826f449a4ca788",
+      "from": "claim_505b2bd862028181",
+      "to": "event_406524798e5bfdb9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_9ba3886dfe6f3bb0",
+      "from": "source_e3bdcbca976f2657",
+      "to": "claim_25ce120ee96f8c2c",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_837c832dfc7d3485",
+      "from": "claim_25ce120ee96f8c2c",
+      "to": "event_406524798e5bfdb9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_05ee480485b6ec31",
+      "from": "source_00270719c43b63ae",
+      "to": "claim_a17fa2e9b97b16e5",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_b625656461cc973f",
+      "from": "claim_a17fa2e9b97b16e5",
+      "to": "event_406524798e5bfdb9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
     {
       "id": "edge_f96eab309c442b7a",
       "from": "event_2176d15e07149822",
