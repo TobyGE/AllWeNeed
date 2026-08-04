@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-04T17:06:15.723Z",
+  "generatedAt": "2026-08-04T19:06:42.419Z",
   "counts": {
-    "sources": 289,
-    "claims": 321,
+    "sources": 290,
+    "claims": 322,
     "events": 89,
     "articles": 89,
-    "updates": 42,
-    "edges": 856,
+    "updates": 43,
+    "edges": 860,
     "revisionsRequired": 2
   },
   "revisionQueue": [
@@ -536,6 +536,32 @@
       "title": "ERCOT此前确认大型负荷接入申请超过438,000MW，近89%来自数据中心，并说明既有批次化接入框架。",
       "role": "背景",
       "addedAt": "2026-08-04T07:07:40.344Z"
+    },
+    {
+      "id": "source_bb7cbbefafedfa23",
+      "type": "source",
+      "title": "The Verge",
+      "url": "https://www.theverge.com/policy/975071/texas-data-center-audit",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-04T15:33:21.000Z"
+    },
+    {
+      "id": "claim_86cf437e3e9f8628",
+      "type": "claim",
+      "title": "The Verge报道称，Texas启动对数据中心项目的审计，接网审批可能因此放缓。",
+      "role": "佐证",
+      "addedAt": "2026-08-04T07:07:40.344Z"
+    },
+    {
+      "id": "update_88dab1859ee2bc39",
+      "type": "update",
+      "signalId": 60,
+      "title": "Texas审计获独立媒体确认",
+      "summary": "The Verge报道称，Texas要求数据中心在接入电网前通过审计，可能放慢新设施的审批进程。",
+      "addedAt": "2026-08-04T15:33:21.000Z",
+      "changeType": "corroboration",
+      "thesisImpact": "The Verge补充了Texas审计将影响新数据中心并网审批的媒体确认，强化原判断：接网审计已成为项目推进的实际约束。",
+      "revisionRequired": false
     },
     {
       "id": "event_37f15826094ecb00",
@@ -6973,6 +6999,32 @@
       "to": "event_58ab3648b5e9fb18",
       "relation": "evidence_for",
       "updateTitle": null
+    },
+    {
+      "id": "edge_740df9abc0fe0764",
+      "from": "source_bb7cbbefafedfa23",
+      "to": "claim_86cf437e3e9f8628",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_775aad67f327d152",
+      "from": "claim_86cf437e3e9f8628",
+      "to": "event_58ab3648b5e9fb18",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_ea03c728c119db25",
+      "from": "update_88dab1859ee2bc39",
+      "to": "event_58ab3648b5e9fb18",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_fdf8e5668f479cfd",
+      "from": "claim_86cf437e3e9f8628",
+      "to": "event_58ab3648b5e9fb18",
+      "relation": "update_evidence_for",
+      "updateTitle": "Texas审计获独立媒体确认"
     },
     {
       "id": "edge_804328f423d3d4c5",

@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-08-04T17:12:18.636Z",
-  "basedOnSnapshotAt": "2026-08-04T17:06:15.723Z",
+  "generatedAt": "2026-08-04T19:10:43.396Z",
+  "basedOnSnapshotAt": "2026-08-04T19:06:42.419Z",
   "model": "gpt-5.5",
   "analyzedItemCount": 180,
-  "totalFetchedItemCount": 2089,
+  "totalFetchedItemCount": 2087,
   "editorNote": "今日信息环境由代理安全事件、编码代理工具链分化、开放模型竞争和算力下沉共同主导。",
   "signalQuality": 86,
   "signalQualityChange": 8,
@@ -1303,17 +1303,19 @@
         ],
         "outlook": "下一步可观察审计是否公布项目筛选标准、被暂停项目数量及恢复审批的时间表。若官方随后披露大量申请被撤销、降容或要求新增可靠性措施，将强化电力接入成为Texas算力扩张实质约束的判断；若多数项目迅速恢复推进且接入规则未收紧，则说明此次暂停主要是队列清理，而非长期供给限制。"
       },
-      "validationType": "多账号验证",
+      "validationType": "跨平台验证",
       "publishedAt": "2026-08-03T00:00:00.000Z",
       "updatedAt": "2026-08-03T00:00:00.000Z",
       "sources": [
-        "Official"
+        "Official",
+        "Blog"
       ],
       "sourceNames": [
         "Office of the Texas Governor",
-        "ERCOT"
+        "ERCOT",
+        "The Verge"
       ],
-      "sourceCount": 2,
+      "sourceCount": 3,
       "age": "1 天前",
       "score": 88,
       "tone": "green",
@@ -1353,6 +1355,32 @@
           "ref": "G2",
           "role": "背景",
           "takeaway": "ERCOT此前确认大型负荷接入申请超过438,000MW，近89%来自数据中心，并说明既有批次化接入框架。"
+        },
+        {
+          "id": "227-7-https://www.theverge.com/policy/975071/texas-data-center-audit",
+          "sourceId": 227,
+          "sourceName": "The Verge",
+          "sourcePublisher": "The Verge",
+          "sourceKind": "Blog",
+          "title": "Texas says data centers must pass an audit before connecting to the grid",
+          "url": "https://www.theverge.com/policy/975071/texas-data-center-audit",
+          "publishedAt": "2026-08-04T15:33:21.000Z",
+          "summary": "Texas announced new a audit on data centers that could slow approval for new facilities seeking to connect to the state energy grid. Governor Greg Abbott (R) on Monday directed the Public Utility Commission of Texas (PUCT) and the Electric Reliability Council of Texas (ERCOT) to verify and audit new data center proposals, writing that […]",
+          "fetchedAt": "2026-08-04T19:06:42.419Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-04T17:06:15.723Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "standard",
+            "reason": "fresh",
+            "ageHours": 3.555949722222222,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N8",
+          "role": "佐证",
+          "takeaway": "The Verge报道称，Texas启动对数据中心项目的审计，接网审批可能因此放缓。"
         }
       ],
       "references": [
@@ -1387,9 +1415,71 @@
           "groundingClaim": "On August 3, 2026, Texas Governor Greg Abbott directed the PUCT and ERCOT to audit all data centers advancing through ERCOT’s interconnection process before any project moves forward; noncompliant projects must be denied connection. The governor’s release states that ERCOT was considering more than 474 GW of connection requests, over five times ERCOT’s record peak demand, with approximately 90% attributed to data centers.",
           "groundingNotes": "",
           "ref": "G2"
+        },
+        {
+          "id": "227-7-https://www.theverge.com/policy/975071/texas-data-center-audit",
+          "sourceId": 227,
+          "sourceName": "The Verge",
+          "sourcePublisher": "The Verge",
+          "sourceKind": "Blog",
+          "title": "Texas says data centers must pass an audit before connecting to the grid",
+          "url": "https://www.theverge.com/policy/975071/texas-data-center-audit",
+          "publishedAt": "2026-08-04T15:33:21.000Z",
+          "summary": "Texas announced new a audit on data centers that could slow approval for new facilities seeking to connect to the state energy grid. Governor Greg Abbott (R) on Monday directed the Public Utility Commission of Texas (PUCT) and the Electric Reliability Council of Texas (ERCOT) to verify and audit new data center proposals, writing that […]",
+          "fetchedAt": "2026-08-04T19:06:42.419Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-04T17:06:15.723Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "standard",
+            "reason": "fresh",
+            "ageHours": 3.555949722222222,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N8"
         }
       ],
-      "feedBatchAt": "2026-08-04T07:07:40.344Z"
+      "feedBatchAt": "2026-08-04T07:07:40.344Z",
+      "updates": [
+        {
+          "addedAt": "2026-08-04T15:33:21.000Z",
+          "title": "Texas审计获独立媒体确认",
+          "summary": "The Verge报道称，Texas要求数据中心在接入电网前通过审计，可能放慢新设施的审批进程。",
+          "evidence": [
+            {
+              "id": "227-7-https://www.theverge.com/policy/975071/texas-data-center-audit",
+              "sourceId": 227,
+              "sourceName": "The Verge",
+              "sourcePublisher": "The Verge",
+              "sourceKind": "Blog",
+              "title": "Texas says data centers must pass an audit before connecting to the grid",
+              "url": "https://www.theverge.com/policy/975071/texas-data-center-audit",
+              "publishedAt": "2026-08-04T15:33:21.000Z",
+              "summary": "Texas announced new a audit on data centers that could slow approval for new facilities seeking to connect to the state energy grid. Governor Greg Abbott (R) on Monday directed the Public Utility Commission of Texas (PUCT) and the Electric Reliability Council of Texas (ERCOT) to verify and audit new data center proposals, writing that […]",
+              "fetchedAt": "2026-08-04T19:06:42.419Z",
+              "accessMethod": "public-feed",
+              "publicContentPolicy": "headline-source-link-only",
+              "firstSeenAt": "2026-08-04T17:06:15.723Z",
+              "freshness": {
+                "eligible": true,
+                "lane": "standard",
+                "reason": "fresh",
+                "ageHours": 3.555949722222222,
+                "maxAgeHours": 168
+              },
+              "deferredResearch": false,
+              "ref": "N8",
+              "role": "佐证",
+              "takeaway": "The Verge报道称，Texas启动对数据中心项目的审计，接网审批可能因此放缓。"
+            }
+          ],
+          "changeType": "corroboration",
+          "thesisImpact": "The Verge补充了Texas审计将影响新数据中心并网审批的媒体确认，强化原判断：接网审计已成为项目推进的实际约束。",
+          "revisionRequired": false
+        }
+      ]
     },
     {
       "id": 59,
@@ -20845,6 +20935,26 @@
             {
               "role": "背景",
               "takeaway": "ERCOT此前确认大型负荷接入申请超过438,000MW，近89%来自数据中心，并说明既有批次化接入框架。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "The Verge报道称，Texas启动对数据中心项目的审计，接网审批可能因此放缓。"
+            }
+          ],
+          "updates": [
+            {
+              "addedAt": "2026-08-04T15:33:21.000Z",
+              "title": "Texas审计获独立媒体确认",
+              "summary": "The Verge报道称，Texas要求数据中心在接入电网前通过审计，可能放慢新设施的审批进程。",
+              "evidence": [
+                {
+                  "role": "佐证",
+                  "takeaway": "The Verge报道称，Texas启动对数据中心项目的审计，接网审批可能因此放缓。"
+                }
+              ],
+              "changeType": "corroboration",
+              "thesisImpact": "The Verge补充了Texas审计将影响新数据中心并网审批的媒体确认，强化原判断：接网审计已成为项目推进的实际约束。",
+              "revisionRequired": false
             }
           ]
         },
@@ -27291,6 +27401,26 @@
             {
               "role": "Context",
               "takeaway": "ERCOT previously reported more than 438,000MW of large-load requests, nearly 89% from data centers, and documented the existing batch-based interconnection proc"
+            },
+            {
+              "role": "Support",
+              "takeaway": "The Verge reports that Texas has launched an audit of data-center proposals that could slow grid-connection approvals."
+            }
+          ],
+          "updates": [
+            {
+              "addedAt": "2026-08-04T15:33:21.000Z",
+              "title": "Independent report confirms Texas data-center audit",
+              "summary": "The Verge reports that Texas requires data centers to pass an audit before grid connection, potentially slowing approvals for new facilities.",
+              "evidence": [
+                {
+                  "role": "Support",
+                  "takeaway": "The Verge reports that Texas has launched an audit of data-center proposals that could slow grid-connection approvals."
+                }
+              ],
+              "changeType": "corroboration",
+              "thesisImpact": "The Verge补充了Texas审计将影响新数据中心并网审批的媒体确认，强化原判断：接网审计已成为项目推进的实际约束。",
+              "revisionRequired": false
             }
           ]
         },
@@ -33397,12 +33527,12 @@
     "en": "gpt-5.6-sol"
   },
   "incremental": {
-    "lastAddedAt": "2026-08-04T17:12:18.636Z",
-    "lastScanAt": "2026-08-04T17:06:15.723Z",
-    "lastAddedCount": 3,
-    "lastUpdatedCount": 0,
+    "lastAddedAt": "2026-08-04T19:10:43.396Z",
+    "lastScanAt": "2026-08-04T19:06:42.419Z",
+    "lastAddedCount": 0,
+    "lastUpdatedCount": 1,
     "totalAppended": 59,
-    "totalUpdated": 42
+    "totalUpdated": 43
   },
   "exploreDepth": {
     "minimum": 50,
