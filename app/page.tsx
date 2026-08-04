@@ -5,6 +5,7 @@ import conversations from "../data/conversations.json";
 import dailyRadar from "../data/daily-radar.json";
 import snapshot from "../data/feed-snapshot.json";
 import liveFeed from "../data/live-feed.json";
+import trafficSummary from "../data/traffic-summary.json";
 import {
   trackAnalyticsEvent,
   trackPageView,
@@ -25,6 +26,7 @@ import {
 } from "./signal-heat";
 import { getSourceKind, publicSourceCatalog } from "./source-catalog";
 import { SourceLibrary } from "./source-library";
+import { VisitorMap, type TrafficSummary } from "./visitor-map";
 
 type SignalReference = {
   sourceName: string;
@@ -1315,6 +1317,11 @@ export default function Home() {
             {t("＋ 添加主题", "+ Add topic")}
           </button>
         </div>
+
+        <VisitorMap
+          locale={locale}
+          summary={trafficSummary as TrafficSummary}
+        />
 
         <div className="coverage-card">
           <div className="coverage-top">
