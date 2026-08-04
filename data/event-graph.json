@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-04T13:06:12.452Z",
+  "generatedAt": "2026-08-04T15:07:28.293Z",
   "counts": {
-    "sources": 276,
-    "claims": 308,
-    "events": 85,
-    "articles": 85,
+    "sources": 278,
+    "claims": 310,
+    "events": 86,
+    "articles": 86,
     "updates": 42,
-    "edges": 826,
+    "edges": 831,
     "revisionsRequired": 2
   },
   "revisionQueue": [
@@ -33,6 +33,54 @@
     }
   ],
   "nodes": [
+    {
+      "id": "event_99656a3cbc8afc22",
+      "type": "event",
+      "signalId": 64,
+      "title": "Obsidian获8500万美元AI安全融资",
+      "bucket": "dynamic",
+      "valueScore": 83,
+      "publishedAt": "2026-08-04T00:00:00.000Z",
+      "updatedAt": "2026-08-04T00:00:00.000Z"
+    },
+    {
+      "id": "article_46fb306df7776422",
+      "type": "article",
+      "signalId": 64,
+      "title": "Obsidian获8500万美元AI安全融资",
+      "version": 1,
+      "publishedAt": "2026-08-04T15:07:28.293Z"
+    },
+    {
+      "id": "source_0de333ac815bc506",
+      "type": "source",
+      "title": "Obsidian Security",
+      "url": "https://www.obsidiansecurity.com/news/unlocking-ai-potential-securely",
+      "sourceKind": "IR",
+      "publishedAt": "2026-08-04T00:00:00.000Z"
+    },
+    {
+      "id": "claim_67e568414ec8d711",
+      "type": "claim",
+      "title": "Obsidian Security官方公告确认其于2026年8月4日完成8500万美元Series D融资，估值11亿美元，并定位于保护企业AI agents和非人类身份。",
+      "role": "主张",
+      "addedAt": "2026-08-04T15:07:28.293Z"
+    },
+    {
+      "id": "source_80161c6a36c9fc06",
+      "type": "source",
+      "title": "Obsidian Security",
+      "url": "https://www.obsidiansecurity.com/news/obsidian-security-lands-90m-to-detect-and-fix-major-saas-risks",
+      "sourceKind": "IR",
+      "publishedAt": "2022-04-14T00:00:00.000Z"
+    },
+    {
+      "id": "claim_b754c421c41b5814",
+      "type": "claim",
+      "title": "Obsidian Security官方页面确认公司曾于2022年4月完成9000万美元Series C融资。",
+      "role": "背景",
+      "addedAt": "2026-08-04T15:07:28.293Z"
+    },
     {
       "id": "event_406524798e5bfdb9",
       "type": "event",
@@ -6347,6 +6395,38 @@
     }
   ],
   "edges": [
+    {
+      "id": "edge_e925ec1379a99082",
+      "from": "event_99656a3cbc8afc22",
+      "to": "article_46fb306df7776422",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_335ffd45fe901573",
+      "from": "source_0de333ac815bc506",
+      "to": "claim_67e568414ec8d711",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_98acea679a2327c1",
+      "from": "claim_67e568414ec8d711",
+      "to": "event_99656a3cbc8afc22",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_a16bf8e5236a5f33",
+      "from": "source_80161c6a36c9fc06",
+      "to": "claim_b754c421c41b5814",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_fe3d7e1b20e1862c",
+      "from": "claim_b754c421c41b5814",
+      "to": "event_99656a3cbc8afc22",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
     {
       "id": "edge_6945ea4cc37913a0",
       "from": "event_406524798e5bfdb9",
