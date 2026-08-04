@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-04T05:11:02.522Z",
+  "generatedAt": "2026-08-04T07:07:40.344Z",
   "counts": {
-    "sources": 260,
-    "claims": 288,
-    "events": 81,
-    "articles": 81,
+    "sources": 262,
+    "claims": 290,
+    "events": 82,
+    "articles": 82,
     "updates": 40,
-    "edges": 775,
+    "edges": 780,
     "revisionsRequired": 2
   },
   "revisionQueue": [
@@ -33,6 +33,54 @@
     }
   ],
   "nodes": [
+    {
+      "id": "event_58ab3648b5e9fb18",
+      "type": "event",
+      "signalId": 60,
+      "title": "Texas暂停数据中心并网审批",
+      "bucket": "dynamic",
+      "valueScore": 88,
+      "publishedAt": "2026-08-03T00:00:00.000Z",
+      "updatedAt": "2026-08-03T00:00:00.000Z"
+    },
+    {
+      "id": "article_2d12d0a9cedfe6c6",
+      "type": "article",
+      "signalId": 60,
+      "title": "Texas暂停数据中心并网审批",
+      "version": 1,
+      "publishedAt": "2026-08-04T07:07:40.344Z"
+    },
+    {
+      "id": "source_02211f03d876d065",
+      "type": "source",
+      "title": "Office of the Texas Governor",
+      "url": "https://gov.texas.gov/news/post/governor-abbott-directs-comprehensive-data-center-audit",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-03T00:00:00.000Z"
+    },
+    {
+      "id": "claim_8b531a3bd8b54a00",
+      "type": "claim",
+      "title": "Texas州长办公室确认全面审计指令、审计完成前项目不得推进、非合规接入将被拒绝，以及超过474GW申请中约90%为数据中心。",
+      "role": "主张",
+      "addedAt": "2026-08-04T07:07:40.344Z"
+    },
+    {
+      "id": "source_21653c0173b420ad",
+      "type": "source",
+      "title": "ERCOT",
+      "url": "https://www.ercot.com/news/release/06182026-puct-approves-ercots",
+      "sourceKind": "Official",
+      "publishedAt": "2026-06-18T00:00:00.000Z"
+    },
+    {
+      "id": "claim_4eb110502b4f050b",
+      "type": "claim",
+      "title": "ERCOT此前确认大型负荷接入申请超过438,000MW，近89%来自数据中心，并说明既有批次化接入框架。",
+      "role": "背景",
+      "addedAt": "2026-08-04T07:07:40.344Z"
+    },
     {
       "id": "event_37f15826094ecb00",
       "type": "event",
@@ -5985,6 +6033,38 @@
     }
   ],
   "edges": [
+    {
+      "id": "edge_ac2ff8ed2a434c2c",
+      "from": "event_58ab3648b5e9fb18",
+      "to": "article_2d12d0a9cedfe6c6",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_9e5dd3ea64ea03a2",
+      "from": "source_02211f03d876d065",
+      "to": "claim_8b531a3bd8b54a00",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_88bc58a36be4b17c",
+      "from": "claim_8b531a3bd8b54a00",
+      "to": "event_58ab3648b5e9fb18",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_d3a98decd2e8b6be",
+      "from": "source_21653c0173b420ad",
+      "to": "claim_4eb110502b4f050b",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_1cd8c0f2060d47e6",
+      "from": "claim_4eb110502b4f050b",
+      "to": "event_58ab3648b5e9fb18",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
     {
       "id": "edge_804328f423d3d4c5",
       "from": "event_37f15826094ecb00",

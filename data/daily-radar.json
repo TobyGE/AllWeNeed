@@ -1,13 +1,131 @@
 {
-  "generatedAt": "2026-08-04T05:15:47.324Z",
-  "basedOnSnapshotAt": "2026-08-04T05:11:02.522Z",
+  "generatedAt": "2026-08-04T07:12:21.157Z",
+  "basedOnSnapshotAt": "2026-08-04T07:07:40.344Z",
   "model": "gpt-5.5",
   "analyzedItemCount": 180,
-  "totalFetchedItemCount": 2192,
+  "totalFetchedItemCount": 2092,
   "editorNote": "今日信息环境由代理安全事件、编码代理工具链分化、开放模型竞争和算力下沉共同主导。",
   "signalQuality": 86,
   "signalQualityChange": 8,
   "signals": [
+    {
+      "id": 60,
+      "editorialBucket": "dynamic",
+      "category": "算力",
+      "eyebrow": "风险预警",
+      "title": "Texas暂停数据中心并网审批",
+      "summary": "Texas要求审计大型数据中心接网申请，并在审计完成前暂停项目推进。排队申请已超过474GW，其中约九成为数据中心。",
+      "why": "并网审批从常规排队转为审计优先，可能直接延后AI数据中心的建设和通电节奏。",
+      "impact": "若审计导致项目筛减或接入条件收紧，Texas的算力供给扩张、土地价值和电力合同定价都可能重估。",
+      "shiftFrom": "大型负荷按既有批次接入",
+      "shiftTo": "审计完成前暂停项目推进",
+      "crossValidation": "Texas州长办公室确认审计命令、暂停推进及474GW申请规模；ERCOT此前披露大型负荷排队超过438GW，近89%来自数据中心，说明压力并非单一项目现象。",
+      "article": {
+        "lead": "Texas已把大型数据中心接入电网从常规排队流程转入审计优先状态：州长要求公共事业委员会和ERCOT完成全面审计前，不再推进相关项目，并要求拒绝不合规接入申请。超过474GW的申请队列中，约90%来自数据中心，意味着AI算力扩张正首先受制于电力接入而非服务器采购。",
+        "sections": [
+          {
+            "heading": "并网审批出现明确停顿",
+            "body": "Texas州长办公室8月3日发布指令，要求Public Utility Commission of Texas与ERCOT对数据中心项目开展全面审计，并在审计完成前暂停相关项目继续推进。该命令同时要求拒绝不符合要求的并网申请。官方披露，当前申请队列超过474GW，数据中心约占90%。这不是对远期用电需求的评论，而是已影响大型负荷接入流程的行政动作。"
+          },
+          {
+            "heading": "需求申报规模放大了系统风险",
+            "body": "ERCOT在6月获批的Batch Zero流程中已披露，等待接入的大型用电负荷超过438,000MW，其中近89%来自数据中心。既有批次机制原本意在让大型用户接入与系统可靠性保护并行；最新审计令则表明，申请数量、项目成熟度和电网可靠性之间的矛盾已不足以靠常规排序消化。对AI园区而言，拿到土地、GPU和融资并不等于能按计划获得稳定电力。"
+          },
+          {
+            "heading": "算力投资的瓶颈可能转向接电权",
+            "body": "这一变化可能使开发商更重视可验证的负荷预测、备用电源、需求响应安排与实际建设进度，而非仅以意向容量争取排队位置。最强的反例是，ERCOT此前已经建立面向大型负荷的批次接入框架，审计未必意味着长期全面禁止新项目；但在审计结果明确前，接入时间的不确定性本身已成为影响项目回报和客户交付承诺的变量。"
+          }
+        ],
+        "outlook": "下一步可观察审计是否公布项目筛选标准、被暂停项目数量及恢复审批的时间表。若官方随后披露大量申请被撤销、降容或要求新增可靠性措施，将强化电力接入成为Texas算力扩张实质约束的判断；若多数项目迅速恢复推进且接入规则未收紧，则说明此次暂停主要是队列清理，而非长期供给限制。"
+      },
+      "validationType": "多账号验证",
+      "publishedAt": "2026-08-03T00:00:00.000Z",
+      "updatedAt": "2026-08-03T00:00:00.000Z",
+      "sources": [
+        "Official"
+      ],
+      "sourceNames": [
+        "Office of the Texas Governor",
+        "ERCOT"
+      ],
+      "sourceCount": 2,
+      "age": "1 天前",
+      "score": 88,
+      "tone": "green",
+      "evidence": [
+        {
+          "id": "ground-226-7-https://www.texastribune.org/2026/08/03/texas-data-center-project-audit-greg-abbott/-1-https://gov.texas.gov/news/post/governor-abbott-directs-comprehensive-data-center-audit",
+          "sourceId": 226,
+          "sourceName": "Office of the Texas Governor",
+          "sourcePublisher": "Office of the Texas Governor",
+          "sourceKind": "Official",
+          "title": "Governor Abbott Directs Comprehensive Data Center Audit",
+          "url": "https://gov.texas.gov/news/post/governor-abbott-directs-comprehensive-data-center-audit",
+          "publishedAt": "2026-08-03T00:00:00.000Z",
+          "summary": "Directly confirms the August 3 audit directive, the requirement to complete the audit before projects move forward, denial of noncompliant grid connections, the more-than-474-GW request queue, the more-than-five-times comparison, and the approximately 90% data-center share.",
+          "fetchedAt": "2026-08-04T07:07:40.344Z",
+          "groundedFrom": "N3",
+          "groundingClaim": "On August 3, 2026, Texas Governor Greg Abbott directed the PUCT and ERCOT to audit all data centers advancing through ERCOT’s interconnection process before any project moves forward; noncompliant projects must be denied connection. The governor’s release states that ERCOT was considering more than 474 GW of connection requests, over five times ERCOT’s record peak demand, with approximately 90% attributed to data centers.",
+          "groundingNotes": "",
+          "ref": "G1",
+          "role": "主张",
+          "takeaway": "Texas州长办公室确认全面审计指令、审计完成前项目不得推进、非合规接入将被拒绝，以及超过474GW申请中约90%为数据中心。"
+        },
+        {
+          "id": "ground-226-7-https://www.texastribune.org/2026/08/03/texas-data-center-project-audit-greg-abbott/-2-https://www.ercot.com/news/release/06182026-puct-approves-ercots",
+          "sourceId": 226,
+          "sourceName": "ERCOT",
+          "sourcePublisher": "ERCOT",
+          "sourceKind": "Official",
+          "title": "PUCT Approves ERCOT's Batch Zero Process for Connecting Large Electricity Users While Protecting System Reliability for Texans",
+          "url": "https://www.ercot.com/news/release/06182026-puct-approves-ercots",
+          "publishedAt": "2026-06-18T00:00:00.000Z",
+          "summary": "Independently confirms the scale of ERCOT’s large-load interconnection backlog, reporting more than 438,000 MW of requests and nearly 89% from data centers, while documenting the existing batch-based connection framework.",
+          "fetchedAt": "2026-08-04T07:07:40.344Z",
+          "groundedFrom": "N3",
+          "groundingClaim": "On August 3, 2026, Texas Governor Greg Abbott directed the PUCT and ERCOT to audit all data centers advancing through ERCOT’s interconnection process before any project moves forward; noncompliant projects must be denied connection. The governor’s release states that ERCOT was considering more than 474 GW of connection requests, over five times ERCOT’s record peak demand, with approximately 90% attributed to data centers.",
+          "groundingNotes": "",
+          "ref": "G2",
+          "role": "背景",
+          "takeaway": "ERCOT此前确认大型负荷接入申请超过438,000MW，近89%来自数据中心，并说明既有批次化接入框架。"
+        }
+      ],
+      "references": [
+        {
+          "id": "ground-226-7-https://www.texastribune.org/2026/08/03/texas-data-center-project-audit-greg-abbott/-1-https://gov.texas.gov/news/post/governor-abbott-directs-comprehensive-data-center-audit",
+          "sourceId": 226,
+          "sourceName": "Office of the Texas Governor",
+          "sourcePublisher": "Office of the Texas Governor",
+          "sourceKind": "Official",
+          "title": "Governor Abbott Directs Comprehensive Data Center Audit",
+          "url": "https://gov.texas.gov/news/post/governor-abbott-directs-comprehensive-data-center-audit",
+          "publishedAt": "2026-08-03T00:00:00.000Z",
+          "summary": "Directly confirms the August 3 audit directive, the requirement to complete the audit before projects move forward, denial of noncompliant grid connections, the more-than-474-GW request queue, the more-than-five-times comparison, and the approximately 90% data-center share.",
+          "fetchedAt": "2026-08-04T07:07:40.344Z",
+          "groundedFrom": "N3",
+          "groundingClaim": "On August 3, 2026, Texas Governor Greg Abbott directed the PUCT and ERCOT to audit all data centers advancing through ERCOT’s interconnection process before any project moves forward; noncompliant projects must be denied connection. The governor’s release states that ERCOT was considering more than 474 GW of connection requests, over five times ERCOT’s record peak demand, with approximately 90% attributed to data centers.",
+          "groundingNotes": "",
+          "ref": "G1"
+        },
+        {
+          "id": "ground-226-7-https://www.texastribune.org/2026/08/03/texas-data-center-project-audit-greg-abbott/-2-https://www.ercot.com/news/release/06182026-puct-approves-ercots",
+          "sourceId": 226,
+          "sourceName": "ERCOT",
+          "sourcePublisher": "ERCOT",
+          "sourceKind": "Official",
+          "title": "PUCT Approves ERCOT's Batch Zero Process for Connecting Large Electricity Users While Protecting System Reliability for Texans",
+          "url": "https://www.ercot.com/news/release/06182026-puct-approves-ercots",
+          "publishedAt": "2026-06-18T00:00:00.000Z",
+          "summary": "Independently confirms the scale of ERCOT’s large-load interconnection backlog, reporting more than 438,000 MW of requests and nearly 89% from data centers, while documenting the existing batch-based connection framework.",
+          "fetchedAt": "2026-08-04T07:07:40.344Z",
+          "groundedFrom": "N3",
+          "groundingClaim": "On August 3, 2026, Texas Governor Greg Abbott directed the PUCT and ERCOT to audit all data centers advancing through ERCOT’s interconnection process before any project moves forward; noncompliant projects must be denied connection. The governor’s release states that ERCOT was considering more than 474 GW of connection requests, over five times ERCOT’s record peak demand, with approximately 90% attributed to data centers.",
+          "groundingNotes": "",
+          "ref": "G2"
+        }
+      ],
+      "feedBatchAt": "2026-08-04T07:07:40.344Z"
+    },
     {
       "id": 59,
       "editorialBucket": "explore",
@@ -18691,6 +18809,45 @@
       "editorNote": "今日信息环境由智能体安全事件、AI coding 工具链分化、open-weight 模型竞争与算力下沉共同主导。",
       "signals": [
         {
+          "category": "算力",
+          "eyebrow": "风险预警",
+          "title": "Texas暂停数据中心并网审批",
+          "summary": "Texas要求审计大型数据中心接网申请，并在审计完成前暂停项目推进。排队申请已超过474GW，其中约九成为数据中心。",
+          "why": "并网审批从常规排队转为审计优先，可能直接延后AI数据中心的建设和通电节奏。",
+          "impact": "若审计导致项目筛减或接入条件收紧，Texas的算力供给扩张、土地价值和电力合同定价都可能重估。",
+          "shiftFrom": "大型负荷按既有批次接入",
+          "shiftTo": "审计完成前暂停项目推进",
+          "crossValidation": "Texas州长办公室确认审计命令、暂停推进及474GW申请规模；ERCOT此前披露大型负荷排队超过438GW，近89%来自数据中心，说明压力并非单一项目现象。",
+          "article": {
+            "lead": "Texas已把大型数据中心接入电网从常规排队流程转入审计优先状态：州长要求公共事业委员会和ERCOT完成全面审计前，不再推进相关项目，并要求拒绝不合规接入申请。超过474GW的申请队列中，约90%来自数据中心，意味着AI算力扩张正首先受制于电力接入而非服务器采购。",
+            "sections": [
+              {
+                "heading": "并网审批出现明确停顿",
+                "body": "Texas州长办公室8月3日发布指令，要求Public Utility Commission of Texas与ERCOT对数据中心项目开展全面审计，并在审计完成前暂停相关项目继续推进。该命令同时要求拒绝不符合要求的并网申请。官方披露，当前申请队列超过474GW，数据中心约占90%。这不是对远期用电需求的评论，而是已影响大型负荷接入流程的行政动作。"
+              },
+              {
+                "heading": "需求申报规模放大了系统风险",
+                "body": "ERCOT在6月获批的Batch Zero流程中已披露，等待接入的大型用电负荷超过438,000MW，其中近89%来自数据中心。既有批次机制原本意在让大型用户接入与系统可靠性保护并行；最新审计令则表明，申请数量、项目成熟度和电网可靠性之间的矛盾已不足以靠常规排序消化。对AI园区而言，拿到土地、GPU和融资并不等于能按计划获得稳定电力。"
+              },
+              {
+                "heading": "算力投资的瓶颈可能转向接电权",
+                "body": "这一变化可能使开发商更重视可验证的负荷预测、备用电源、需求响应安排与实际建设进度，而非仅以意向容量争取排队位置。最强的反例是，ERCOT此前已经建立面向大型负荷的批次接入框架，审计未必意味着长期全面禁止新项目；但在审计结果明确前，接入时间的不确定性本身已成为影响项目回报和客户交付承诺的变量。"
+              }
+            ],
+            "outlook": "下一步可观察审计是否公布项目筛选标准、被暂停项目数量及恢复审批的时间表。若官方随后披露大量申请被撤销、降容或要求新增可靠性措施，将强化电力接入成为Texas算力扩张实质约束的判断；若多数项目迅速恢复推进且接入规则未收紧，则说明此次暂停主要是队列清理，而非长期供给限制。"
+          },
+          "evidence": [
+            {
+              "role": "主张",
+              "takeaway": "Texas州长办公室确认全面审计指令、审计完成前项目不得推进、非合规接入将被拒绝，以及超过474GW申请中约90%为数据中心。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "ERCOT此前确认大型负荷接入申请超过438,000MW，近89%来自数据中心，并说明既有批次化接入框架。"
+            }
+          ]
+        },
+        {
           "category": "Agents",
           "eyebrow": "趋势变化",
           "title": "NAB把代理AI推进至客户部署前测试",
@@ -24714,6 +24871,45 @@
     "en": {
       "editorNote": "Today’s information environment is being shaped by agent security incidents, a split in coding-agent toolchains, open-model competition, and compute moving closer to the edge.",
       "signals": [
+        {
+          "category": "Compute Infrastructure",
+          "eyebrow": "Risk Alert",
+          "title": "Texas Pauses Data-Center Grid Approvals",
+          "summary": "Texas has ordered an audit of large data-center interconnection requests and paused project advancement pending its completion. More than 474GW is in the queue, with data centers accounting for roughly 90%.",
+          "why": "Interconnection has shifted from routine queue processing to audit-first review, potentially delaying data-center construction and energization.",
+          "impact": "If the audit trims projects or tightens requirements, Texas compute expansion, land values and power-contract economics could be repriced.",
+          "shiftFrom": "Large loads used existing batch interconnection",
+          "shiftTo": "Projects pause pending an audit",
+          "crossValidation": "The governor’s office confirms the directive, pause and 474GW queue; ERCOT had independently reported more than 438GW of large-load requests, nearly 89% from data centers.",
+          "article": {
+            "lead": "Texas has moved large data-center interconnection from routine queue management to audit-first review. The governor ordered the Public Utility Commission of Texas and ERCOT to complete a comprehensive audit before projects advance, while noncompliant requests are to be denied. With more than 474GW in the queue and data centers representing roughly 90%, AI build-outs now face a power-access constraint alongside hardware procurement.",
+            "sections": [
+              {
+                "heading": "A tangible pause in interconnection",
+                "body": "A directive issued by the Texas governor’s office on August 3 requires the Public Utility Commission of Texas and ERCOT to conduct a comprehensive audit of data-center projects. Relevant projects cannot move forward until that work is completed, and noncompliant interconnection requests are to be denied. The state reports a queue above 474GW, with data centers accounting for about 90%. This is an administrative change affecting the connection process, not merely a warning about future electricity demand."
+              },
+              {
+                "heading": "The request queue has become a reliability issue",
+                "body": "ERCOT’s previously approved Batch Zero process had already identified more than 438,000MW of large-load interconnection requests, nearly 89% of them from data centers. That framework was designed to balance large-user connections with system reliability. The new audit suggests that queue size, project maturity and grid reliability can no longer be resolved through ordinary sequencing alone. For AI campuses, land, GPUs and financing do not guarantee power on the planned schedule."
+              },
+              {
+                "heading": "Power-access rights may become the constraint",
+                "body": "The shift could increase the value of verifiable load forecasts, backup generation, demand-response commitments and demonstrable construction progress, rather than speculative capacity requests. The strongest countercase is that ERCOT already has a batch-based framework for large loads, so the audit does not necessarily imply a lasting ban on new projects. Yet until its findings are known, uncertainty around connection timing is itself a material variable for project returns and customer delivery commitments."
+              }
+            ],
+            "outlook": "Watch for the audit’s screening criteria, the number of paused projects and a timetable for resumed approvals. Evidence of widespread withdrawals, capacity reductions or new reliability obligations would strengthen the case that grid access has become a binding constraint on Texas compute growth. A rapid resumption of most projects without tighter rules would instead indicate that this is primarily a queue-cleanup exercise."
+          },
+          "evidence": [
+            {
+              "role": "Claim",
+              "takeaway": "The Texas governor’s office confirms the comprehensive audit, project pause, rejection of noncompliant connections, the more-than-474GW queue and the approximat"
+            },
+            {
+              "role": "Context",
+              "takeaway": "ERCOT previously reported more than 438,000MW of large-load requests, nearly 89% from data centers, and documented the existing batch-based interconnection proc"
+            }
+          ]
+        },
         {
           "category": "Agents",
           "eyebrow": "Trend Shift",
@@ -30739,11 +30935,11 @@
     "en": "gpt-5.6-sol"
   },
   "incremental": {
-    "lastAddedAt": "2026-08-04T05:15:47.324Z",
-    "lastScanAt": "2026-08-04T05:11:02.522Z",
-    "lastAddedCount": 0,
-    "lastUpdatedCount": 1,
-    "totalAppended": 51,
+    "lastAddedAt": "2026-08-04T07:12:21.157Z",
+    "lastScanAt": "2026-08-04T07:07:40.344Z",
+    "lastAddedCount": 1,
+    "lastUpdatedCount": 0,
+    "totalAppended": 52,
     "totalUpdated": 40
   },
   "exploreDepth": {
