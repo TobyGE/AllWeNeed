@@ -56,6 +56,11 @@ test("server-renders the All We Need product shell", async () => {
     html,
     /<title>All We Need — AI, Tech &amp; Investment Intelligence<\/title>/i,
   );
+  assert.match(
+    html,
+    /<link rel="canonical" href="https:\/\/allweneed\.info\/"\/?>/i,
+  );
+  assert.match(html, /<meta name="robots" content="index, follow/i);
   assert.match(html, /See it as it happens/);
   assert.match(html, />Live</);
   assert.match(html, />Focus</);
@@ -215,6 +220,30 @@ test("removes all disposable starter preview code", async () => {
   }
   await access(new URL("public/favicon.png", templateRoot));
   await access(new URL("public/apple-touch-icon.png", templateRoot));
+  await access(new URL("public/robots.txt", templateRoot));
+  await access(new URL("public/sitemap.xml", templateRoot));
+  assert.match(
+    await readFile(new URL("public/robots.txt", templateRoot), "utf8"),
+    /Sitemap: https:\/\/allweneed\.info\/sitemap\.xml/,
+  );
+  const sitemap = await readFile(
+    new URL("public/sitemap.xml", templateRoot),
+    "utf8",
+  );
+  for (const url of [
+    "https://allweneed.info/",
+    "https://allweneed.info/focus/",
+    "https://allweneed.info/explore/",
+    "https://allweneed.info/conversations/",
+    "https://allweneed.info/sources/",
+  ]) {
+    assert.match(sitemap, new RegExp(escapeRenderedText(url)));
+  }
+  assert.doesNotMatch(sitemap, /https:\/\/allweneed\.info\/live\//);
+  assert.match(
+    liveEntry,
+    /rel="canonical" href="https:\/\/allweneed\.info\/"/,
+  );
   assert.match(sourceLibrary, /刚刚抓取/);
   assert.match(sourceLibrary, /官方 API 凭证/);
   const snapshotData = JSON.parse(snapshot);

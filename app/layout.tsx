@@ -72,6 +72,20 @@ export async function generateMetadata(): Promise<Metadata> {
     metadataBase,
     title,
     description,
+    alternates: {
+      canonical: "https://allweneed.info/",
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+      },
+    },
     icons: {
       icon: [{ url: "/favicon.png", type: "image/png", sizes: "64x64" }],
       apple: [
