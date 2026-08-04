@@ -1,13 +1,269 @@
 {
-  "generatedAt": "2026-08-03T22:13:56.530Z",
-  "basedOnSnapshotAt": "2026-08-03T22:06:16.111Z",
+  "generatedAt": "2026-08-04T02:25:54.198Z",
+  "basedOnSnapshotAt": "2026-08-04T02:20:37.239Z",
   "model": "gpt-5.5",
   "analyzedItemCount": 180,
-  "totalFetchedItemCount": 2093,
+  "totalFetchedItemCount": 2094,
   "editorNote": "今日信息环境由代理安全事件、编码代理工具链分化、开放模型竞争和算力下沉共同主导。",
   "signalQuality": 86,
   "signalQualityChange": 8,
   "signals": [
+    {
+      "id": 59,
+      "editorialBucket": "explore",
+      "category": "Agents",
+      "eyebrow": "趋势变化",
+      "title": "NAB把代理AI推进至客户部署前测试",
+      "summary": "NAB正测试代理AI平台的安全和运营护栏，以准备向银行客户部署；其获批AI工具覆盖员工数已从15,000增至约25,000。",
+      "why": "受监管银行的代理AI竞争，正在从内部试点数量转向能否用统一治理与可审计控制支撑客户场景。",
+      "impact": "若测试转为受控上线，银行采购重点或更偏向权限、监督、回退与多云数据治理，而非单纯模型能力。",
+      "shiftFrom": "以内部AI项目和员工工具为主",
+      "shiftTo": "验证客户部署的代理护栏",
+      "crossValidation": "Bloomberg报道NAB即将测试客户部署护栏；NAB业绩材料显示平台与员工采用规模升级。APRA和澳大利亚网络安全中心则提供监管要求与部署约束。",
+      "article": {
+        "lead": "National Australia Bank正把代理AI从员工效率工具推进到面向客户部署前的控制验证阶段。这一变化并不等同于代理已大规模服务客户，但它表明受监管银行的关键问题正从“是否采用AI”转向“能否证明代理在权限、运营和故障场景下可被控制”。",
+        "sections": [
+          {
+            "heading": "从内部项目走向部署准备",
+            "body": "NAB在FY25仍将Agentic AI描述为未来方向，当时有超过100个AI项目处于管线或生产阶段，逾15,000名员工借AI减少例行工作。截至1H26，NAB称其agentic platform已在单一可扩展平台上支持代理用例，使用获批AI工具的员工约增至25,000人。Bloomberg进一步报道称，该行计划很快测试平台的安全与运营护栏，为向银行客户更广泛部署做准备。"
+          },
+          {
+            "heading": "护栏成为代理扩张的运行机制",
+            "body": "NAB将代理平台连接到现代数据平台、多云基础设施以及负责政策、控制、监督和绩效的管理层，意味着其并非将代理视为独立聊天工具。客户场景中的代理需要访问数据、调用系统并在业务流程内行动，因此统一身份、权限边界、审计记录和人工接管能力，决定了模型输出能否转化为可运营服务。员工覆盖规模上升，也使这些控制从试验要求变成持续运行要求。"
+          },
+          {
+            "heading": "银行采购或转向可验证控制",
+            "body": "如果NAB的测试进入受控客户上线，代理AI的竞争可能更看重治理组件能否嵌入既有银行系统，而非仅展示任务完成率。最强的反面证据来自APRA：其调研发现大型受监管机构的AI采用速度已超过治理、风险管理、保证和运营韧性的成熟度，并要求关键依赖AI的业务具备后备流程、特权访问控制及对代理工作流的测试。"
+          }
+        ],
+        "outlook": "值得观察的下一步包括：NAB是否公布首批客户代理用例、适用业务范围和人工监督方式；其护栏测试是否披露权限控制、异常升级或审计指标；以及员工AI覆盖扩大后，是否同步报告可量化的运营效率、风险事件或客户服务结果。这些证据将检验平台是否已从部署准备进入可复制运营。"
+      },
+      "validationType": "跨平台验证",
+      "publishedAt": "2026-08-04T01:15:00.000Z",
+      "updatedAt": "2026-08-04T01:15:00.000Z",
+      "sources": [
+        "Blog",
+        "IR",
+        "Regulator"
+      ],
+      "sourceNames": [
+        "Bloomberg",
+        "National Australia Bank",
+        "Australian Prudential Regulation Authority",
+        "Australian Cyber Security Centre"
+      ],
+      "sourceCount": 4,
+      "age": "1 小时前",
+      "score": 81,
+      "tone": "blue",
+      "evidence": [
+        {
+          "id": "233-2-https://www.bloomberg.com/news/articles/2026-08-04/nab-tests-ai-agents-in-plan-to-deploy-tech-to-banking-customers",
+          "sourceId": 233,
+          "sourceName": "Bloomberg Technology",
+          "sourcePublisher": "Bloomberg",
+          "sourceKind": "Blog",
+          "title": "NAB Tests AI Agents in Plan to Deploy Tech to Banking Customers",
+          "url": "https://www.bloomberg.com/news/articles/2026-08-04/nab-tests-ai-agents-in-plan-to-deploy-tech-to-banking-customers",
+          "publishedAt": "2026-08-04T01:15:00.000Z",
+          "summary": "National Australia Bank Ltd.’s technology chief said the firm will soon begin testing the security and operational guardrails of an agentic artificial intelligence platform as the country’s largest lenders seek to deploy the technology more widely.",
+          "fetchedAt": "2026-08-04T02:20:37.239Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-04T02:20:37.239Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 1.0936775,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N8",
+          "role": "主张",
+          "takeaway": "Bloomberg报道称NAB将测试代理AI平台的安全和运营护栏，以准备向银行客户更广泛部署。"
+        },
+        {
+          "id": "research-233-2-https://www.bloomberg.com/news/articles/2026-08-04/nab-tests-ai-agents-in-plan-to-deploy-tech-to-banking-customers-1-https://www.nab.com.au/content/dam/nab/documents/reports/corporate/2026-half-year-results-investor-presentation.pdf",
+          "sourceId": 233,
+          "sourceName": "National Australia Bank",
+          "sourcePublisher": "National Australia Bank",
+          "sourceKind": "IR",
+          "title": "NAB 2026 Half Year Results Investor Presentation",
+          "url": "https://www.nab.com.au/content/dam/nab/documents/reports/corporate/2026-half-year-results-investor-presentation.pdf",
+          "publishedAt": "2026-08-04T01:15:00.000Z",
+          "summary": "披露截至1H26的现状：NAB的agentic platform在单一、可扩展的平台上支持agentic用例，并由现代数据平台、多云基础设施及负责政策、控制、监督和绩效的管理层支撑；约25,000名员工通过获批AI工具减少例行工作。",
+          "fetchedAt": "2026-08-04T02:20:37.239Z",
+          "researchedFrom": "N8",
+          "researchRole": "Primary",
+          "researchClaim": "NAB已从把Agentic AI列为“明日”重点的准备阶段，推进到拥有单一、可扩展的agentic platform来支持获批用例；但面向银行客户的部署仍取决于尚未披露结果的安全与运营护栏测试。",
+          "researchComparisons": "截至FY25，NAB将Agentic AI描述为未来价值加速方向，重点仍是云端基础设施、现代数据平台、AI素养及可审计的风险治理；当时超过100个AI项目处于管线或生产阶段，超过15,000名员工在减少例行工作时间。截至1H26，NAB披露其agentic platform已可在单一可扩展平台上支持agentic用例，约25,000名员工使用获批AI工具减少例行工作，较FY25增加约10,000人；但公司没有公布该平台向客户开放的日期、测试通过标准、自动化权限范围或客户结果指标。",
+          "researchUnresolved": "尚未公开：护栏测试的具体范围、独立验证方式和通过门槛；首批客户/产品及上线时间；代理可执行的操作、人工复核和权限限制；以及对错误率、欺诈损失、客户体验或成本节省的量化目标。",
+          "ref": "R9",
+          "role": "佐证",
+          "takeaway": "NAB 1H26材料称其agentic platform由现代数据平台、多云基础设施及治理控制支撑，约25,000名员工使用获批AI工具。"
+        },
+        {
+          "id": "research-233-2-https://www.bloomberg.com/news/articles/2026-08-04/nab-tests-ai-agents-in-plan-to-deploy-tech-to-banking-customers-2-https://www.nab.com.au/content/dam/nab/documents/reports/corporate/2025-full-year-results-investor-presentation.pdf",
+          "sourceId": 233,
+          "sourceName": "National Australia Bank",
+          "sourcePublisher": "National Australia Bank",
+          "sourceKind": "IR",
+          "title": "NAB 2025 Full Year Results Investor Presentation",
+          "url": "https://www.nab.com.au/content/dam/nab/documents/reports/corporate/2025-full-year-results-investor-presentation.pdf",
+          "publishedAt": "2026-08-04T01:15:00.000Z",
+          "summary": "提供此前基准：FY25时NAB将Agentic AI定位为“AI tomorrow”，仍聚焦安全、可扩展的云基础设施、现代数据平台、AI教育及透明和可审计的风险治理；当时超过100个AI项目在管线或生产中，超过15,000名员工借AI减少例行工作。",
+          "fetchedAt": "2026-08-04T02:20:37.239Z",
+          "researchedFrom": "N8",
+          "researchRole": "Comparison",
+          "researchClaim": "NAB已从把Agentic AI列为“明日”重点的准备阶段，推进到拥有单一、可扩展的agentic platform来支持获批用例；但面向银行客户的部署仍取决于尚未披露结果的安全与运营护栏测试。",
+          "researchComparisons": "截至FY25，NAB将Agentic AI描述为未来价值加速方向，重点仍是云端基础设施、现代数据平台、AI素养及可审计的风险治理；当时超过100个AI项目处于管线或生产阶段，超过15,000名员工在减少例行工作时间。截至1H26，NAB披露其agentic platform已可在单一可扩展平台上支持agentic用例，约25,000名员工使用获批AI工具减少例行工作，较FY25增加约10,000人；但公司没有公布该平台向客户开放的日期、测试通过标准、自动化权限范围或客户结果指标。",
+          "researchUnresolved": "尚未公开：护栏测试的具体范围、独立验证方式和通过门槛；首批客户/产品及上线时间；代理可执行的操作、人工复核和权限限制；以及对错误率、欺诈损失、客户体验或成本节省的量化目标。",
+          "ref": "R10",
+          "role": "背景",
+          "takeaway": "NAB FY25材料将Agentic AI定位为未来方向，当时逾100个AI项目在管线或生产中，逾15,000名员工使用AI。"
+        },
+        {
+          "id": "research-233-2-https://www.bloomberg.com/news/articles/2026-08-04/nab-tests-ai-agents-in-plan-to-deploy-tech-to-banking-customers-3-https://www.apra.gov.au/news-and-publications/apra-letter-industry-artificial-intelligence-ai",
+          "sourceId": 233,
+          "sourceName": "Australian Prudential Regulation Authority",
+          "sourcePublisher": "Australian Prudential Regulation Authority",
+          "sourceKind": "Regulator",
+          "title": "APRA Letter to Industry on Artificial Intelligence (AI)",
+          "url": "https://www.apra.gov.au/news-and-publications/apra-letter-industry-artificial-intelligence-ai",
+          "publishedAt": "2026-04-30T00:00:00.000Z",
+          "summary": "构成最强监管反例：APRA称其对大型受监管机构的调研发现，AI采用速度已超过治理、风险管理、保证和运营韧性的成熟度；并点名提示注入、数据泄露、不安全集成和自主代理滥用等攻击路径，要求关键业务依赖AI时具备可信的后备流程、特权访问控制、渗透测试和对agentic工作流的控制。",
+          "fetchedAt": "2026-08-04T02:20:37.239Z",
+          "researchedFrom": "N8",
+          "researchRole": "Counterevidence",
+          "researchClaim": "NAB已从把Agentic AI列为“明日”重点的准备阶段，推进到拥有单一、可扩展的agentic platform来支持获批用例；但面向银行客户的部署仍取决于尚未披露结果的安全与运营护栏测试。",
+          "researchComparisons": "截至FY25，NAB将Agentic AI描述为未来价值加速方向，重点仍是云端基础设施、现代数据平台、AI素养及可审计的风险治理；当时超过100个AI项目处于管线或生产阶段，超过15,000名员工在减少例行工作时间。截至1H26，NAB披露其agentic platform已可在单一可扩展平台上支持agentic用例，约25,000名员工使用获批AI工具减少例行工作，较FY25增加约10,000人；但公司没有公布该平台向客户开放的日期、测试通过标准、自动化权限范围或客户结果指标。",
+          "researchUnresolved": "尚未公开：护栏测试的具体范围、独立验证方式和通过门槛；首批客户/产品及上线时间；代理可执行的操作、人工复核和权限限制；以及对错误率、欺诈损失、客户体验或成本节省的量化目标。",
+          "ref": "R11",
+          "role": "反例",
+          "takeaway": "APRA称受监管机构的AI采用速度快于治理成熟度，并要求对关键业务AI依赖设置回退、访问控制、测试和代理工作流控制。"
+        },
+        {
+          "id": "research-233-2-https://www.bloomberg.com/news/articles/2026-08-04/nab-tests-ai-agents-in-plan-to-deploy-tech-to-banking-customers-4-https://www.cyber.gov.au/about-us/view-all-content/news/new-joint-guidance-provides-mitigations-for-cautious-adoption-of-agentic-ai",
+          "sourceId": 233,
+          "sourceName": "Australian Cyber Security Centre",
+          "sourcePublisher": "Australian Cyber Security Centre",
+          "sourceKind": "Regulator",
+          "title": "New joint guidance provides mitigations for careful adoption of agentic AI services",
+          "url": "https://www.cyber.gov.au/about-us/view-all-content/news/new-joint-guidance-provides-mitigations-for-cautious-adoption-of-agentic-ai",
+          "publishedAt": "2026-05-01T00:00:00.000Z",
+          "summary": "提供适用的部署基准：澳大利亚网络安全中心与国际伙伴建议agentic AI应渐进部署、限于低风险任务，并实施严格权限控制、持续监控、强身份管理和人工监督；这表明“开始测试护栏”不等同于可安全大规模面向客户自主运行。",
+          "fetchedAt": "2026-08-04T02:20:37.239Z",
+          "researchedFrom": "N8",
+          "researchRole": "Counterevidence",
+          "researchClaim": "NAB已从把Agentic AI列为“明日”重点的准备阶段，推进到拥有单一、可扩展的agentic platform来支持获批用例；但面向银行客户的部署仍取决于尚未披露结果的安全与运营护栏测试。",
+          "researchComparisons": "截至FY25，NAB将Agentic AI描述为未来价值加速方向，重点仍是云端基础设施、现代数据平台、AI素养及可审计的风险治理；当时超过100个AI项目处于管线或生产阶段，超过15,000名员工在减少例行工作时间。截至1H26，NAB披露其agentic platform已可在单一可扩展平台上支持agentic用例，约25,000名员工使用获批AI工具减少例行工作，较FY25增加约10,000人；但公司没有公布该平台向客户开放的日期、测试通过标准、自动化权限范围或客户结果指标。",
+          "researchUnresolved": "尚未公开：护栏测试的具体范围、独立验证方式和通过门槛；首批客户/产品及上线时间；代理可执行的操作、人工复核和权限限制；以及对错误率、欺诈损失、客户体验或成本节省的量化目标。",
+          "ref": "R12",
+          "role": "佐证",
+          "takeaway": "澳大利亚网络安全中心与国际伙伴建议代理AI渐进部署于低风险任务，并实施严格权限、持续监控、强身份管理和人工监督。"
+        }
+      ],
+      "references": [
+        {
+          "id": "233-2-https://www.bloomberg.com/news/articles/2026-08-04/nab-tests-ai-agents-in-plan-to-deploy-tech-to-banking-customers",
+          "sourceId": 233,
+          "sourceName": "Bloomberg Technology",
+          "sourcePublisher": "Bloomberg",
+          "sourceKind": "Blog",
+          "title": "NAB Tests AI Agents in Plan to Deploy Tech to Banking Customers",
+          "url": "https://www.bloomberg.com/news/articles/2026-08-04/nab-tests-ai-agents-in-plan-to-deploy-tech-to-banking-customers",
+          "publishedAt": "2026-08-04T01:15:00.000Z",
+          "summary": "National Australia Bank Ltd.’s technology chief said the firm will soon begin testing the security and operational guardrails of an agentic artificial intelligence platform as the country’s largest lenders seek to deploy the technology more widely.",
+          "fetchedAt": "2026-08-04T02:20:37.239Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-04T02:20:37.239Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 1.0936775,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N8"
+        },
+        {
+          "id": "research-233-2-https://www.bloomberg.com/news/articles/2026-08-04/nab-tests-ai-agents-in-plan-to-deploy-tech-to-banking-customers-1-https://www.nab.com.au/content/dam/nab/documents/reports/corporate/2026-half-year-results-investor-presentation.pdf",
+          "sourceId": 233,
+          "sourceName": "National Australia Bank",
+          "sourcePublisher": "National Australia Bank",
+          "sourceKind": "IR",
+          "title": "NAB 2026 Half Year Results Investor Presentation",
+          "url": "https://www.nab.com.au/content/dam/nab/documents/reports/corporate/2026-half-year-results-investor-presentation.pdf",
+          "publishedAt": "2026-08-04T01:15:00.000Z",
+          "summary": "披露截至1H26的现状：NAB的agentic platform在单一、可扩展的平台上支持agentic用例，并由现代数据平台、多云基础设施及负责政策、控制、监督和绩效的管理层支撑；约25,000名员工通过获批AI工具减少例行工作。",
+          "fetchedAt": "2026-08-04T02:20:37.239Z",
+          "researchedFrom": "N8",
+          "researchRole": "Primary",
+          "researchClaim": "NAB已从把Agentic AI列为“明日”重点的准备阶段，推进到拥有单一、可扩展的agentic platform来支持获批用例；但面向银行客户的部署仍取决于尚未披露结果的安全与运营护栏测试。",
+          "researchComparisons": "截至FY25，NAB将Agentic AI描述为未来价值加速方向，重点仍是云端基础设施、现代数据平台、AI素养及可审计的风险治理；当时超过100个AI项目处于管线或生产阶段，超过15,000名员工在减少例行工作时间。截至1H26，NAB披露其agentic platform已可在单一可扩展平台上支持agentic用例，约25,000名员工使用获批AI工具减少例行工作，较FY25增加约10,000人；但公司没有公布该平台向客户开放的日期、测试通过标准、自动化权限范围或客户结果指标。",
+          "researchUnresolved": "尚未公开：护栏测试的具体范围、独立验证方式和通过门槛；首批客户/产品及上线时间；代理可执行的操作、人工复核和权限限制；以及对错误率、欺诈损失、客户体验或成本节省的量化目标。",
+          "ref": "R9"
+        },
+        {
+          "id": "research-233-2-https://www.bloomberg.com/news/articles/2026-08-04/nab-tests-ai-agents-in-plan-to-deploy-tech-to-banking-customers-2-https://www.nab.com.au/content/dam/nab/documents/reports/corporate/2025-full-year-results-investor-presentation.pdf",
+          "sourceId": 233,
+          "sourceName": "National Australia Bank",
+          "sourcePublisher": "National Australia Bank",
+          "sourceKind": "IR",
+          "title": "NAB 2025 Full Year Results Investor Presentation",
+          "url": "https://www.nab.com.au/content/dam/nab/documents/reports/corporate/2025-full-year-results-investor-presentation.pdf",
+          "publishedAt": "2026-08-04T01:15:00.000Z",
+          "summary": "提供此前基准：FY25时NAB将Agentic AI定位为“AI tomorrow”，仍聚焦安全、可扩展的云基础设施、现代数据平台、AI教育及透明和可审计的风险治理；当时超过100个AI项目在管线或生产中，超过15,000名员工借AI减少例行工作。",
+          "fetchedAt": "2026-08-04T02:20:37.239Z",
+          "researchedFrom": "N8",
+          "researchRole": "Comparison",
+          "researchClaim": "NAB已从把Agentic AI列为“明日”重点的准备阶段，推进到拥有单一、可扩展的agentic platform来支持获批用例；但面向银行客户的部署仍取决于尚未披露结果的安全与运营护栏测试。",
+          "researchComparisons": "截至FY25，NAB将Agentic AI描述为未来价值加速方向，重点仍是云端基础设施、现代数据平台、AI素养及可审计的风险治理；当时超过100个AI项目处于管线或生产阶段，超过15,000名员工在减少例行工作时间。截至1H26，NAB披露其agentic platform已可在单一可扩展平台上支持agentic用例，约25,000名员工使用获批AI工具减少例行工作，较FY25增加约10,000人；但公司没有公布该平台向客户开放的日期、测试通过标准、自动化权限范围或客户结果指标。",
+          "researchUnresolved": "尚未公开：护栏测试的具体范围、独立验证方式和通过门槛；首批客户/产品及上线时间；代理可执行的操作、人工复核和权限限制；以及对错误率、欺诈损失、客户体验或成本节省的量化目标。",
+          "ref": "R10"
+        },
+        {
+          "id": "research-233-2-https://www.bloomberg.com/news/articles/2026-08-04/nab-tests-ai-agents-in-plan-to-deploy-tech-to-banking-customers-3-https://www.apra.gov.au/news-and-publications/apra-letter-industry-artificial-intelligence-ai",
+          "sourceId": 233,
+          "sourceName": "Australian Prudential Regulation Authority",
+          "sourcePublisher": "Australian Prudential Regulation Authority",
+          "sourceKind": "Regulator",
+          "title": "APRA Letter to Industry on Artificial Intelligence (AI)",
+          "url": "https://www.apra.gov.au/news-and-publications/apra-letter-industry-artificial-intelligence-ai",
+          "publishedAt": "2026-04-30T00:00:00.000Z",
+          "summary": "构成最强监管反例：APRA称其对大型受监管机构的调研发现，AI采用速度已超过治理、风险管理、保证和运营韧性的成熟度；并点名提示注入、数据泄露、不安全集成和自主代理滥用等攻击路径，要求关键业务依赖AI时具备可信的后备流程、特权访问控制、渗透测试和对agentic工作流的控制。",
+          "fetchedAt": "2026-08-04T02:20:37.239Z",
+          "researchedFrom": "N8",
+          "researchRole": "Counterevidence",
+          "researchClaim": "NAB已从把Agentic AI列为“明日”重点的准备阶段，推进到拥有单一、可扩展的agentic platform来支持获批用例；但面向银行客户的部署仍取决于尚未披露结果的安全与运营护栏测试。",
+          "researchComparisons": "截至FY25，NAB将Agentic AI描述为未来价值加速方向，重点仍是云端基础设施、现代数据平台、AI素养及可审计的风险治理；当时超过100个AI项目处于管线或生产阶段，超过15,000名员工在减少例行工作时间。截至1H26，NAB披露其agentic platform已可在单一可扩展平台上支持agentic用例，约25,000名员工使用获批AI工具减少例行工作，较FY25增加约10,000人；但公司没有公布该平台向客户开放的日期、测试通过标准、自动化权限范围或客户结果指标。",
+          "researchUnresolved": "尚未公开：护栏测试的具体范围、独立验证方式和通过门槛；首批客户/产品及上线时间；代理可执行的操作、人工复核和权限限制；以及对错误率、欺诈损失、客户体验或成本节省的量化目标。",
+          "ref": "R11"
+        },
+        {
+          "id": "research-233-2-https://www.bloomberg.com/news/articles/2026-08-04/nab-tests-ai-agents-in-plan-to-deploy-tech-to-banking-customers-4-https://www.cyber.gov.au/about-us/view-all-content/news/new-joint-guidance-provides-mitigations-for-cautious-adoption-of-agentic-ai",
+          "sourceId": 233,
+          "sourceName": "Australian Cyber Security Centre",
+          "sourcePublisher": "Australian Cyber Security Centre",
+          "sourceKind": "Regulator",
+          "title": "New joint guidance provides mitigations for careful adoption of agentic AI services",
+          "url": "https://www.cyber.gov.au/about-us/view-all-content/news/new-joint-guidance-provides-mitigations-for-cautious-adoption-of-agentic-ai",
+          "publishedAt": "2026-05-01T00:00:00.000Z",
+          "summary": "提供适用的部署基准：澳大利亚网络安全中心与国际伙伴建议agentic AI应渐进部署、限于低风险任务，并实施严格权限控制、持续监控、强身份管理和人工监督；这表明“开始测试护栏”不等同于可安全大规模面向客户自主运行。",
+          "fetchedAt": "2026-08-04T02:20:37.239Z",
+          "researchedFrom": "N8",
+          "researchRole": "Counterevidence",
+          "researchClaim": "NAB已从把Agentic AI列为“明日”重点的准备阶段，推进到拥有单一、可扩展的agentic platform来支持获批用例；但面向银行客户的部署仍取决于尚未披露结果的安全与运营护栏测试。",
+          "researchComparisons": "截至FY25，NAB将Agentic AI描述为未来价值加速方向，重点仍是云端基础设施、现代数据平台、AI素养及可审计的风险治理；当时超过100个AI项目处于管线或生产阶段，超过15,000名员工在减少例行工作时间。截至1H26，NAB披露其agentic platform已可在单一可扩展平台上支持agentic用例，约25,000名员工使用获批AI工具减少例行工作，较FY25增加约10,000人；但公司没有公布该平台向客户开放的日期、测试通过标准、自动化权限范围或客户结果指标。",
+          "researchUnresolved": "尚未公开：护栏测试的具体范围、独立验证方式和通过门槛；首批客户/产品及上线时间；代理可执行的操作、人工复核和权限限制；以及对错误率、欺诈损失、客户体验或成本节省的量化目标。",
+          "ref": "R12"
+        }
+      ],
+      "feedBatchAt": "2026-08-04T02:20:37.239Z"
+    },
     {
       "id": 58,
       "editorialBucket": "dynamic",
@@ -399,7 +655,8 @@
         "Blog",
         "Research",
         "Repository",
-        "Official"
+        "Official",
+        "Newsletter"
       ],
       "sourceNames": [
         "OpenAI Blog",
@@ -407,9 +664,10 @@
         "Leiden Declaration working group",
         "Simon Willison",
         "The Information",
-        "Eliezer Yudkowsky"
+        "Eliezer Yudkowsky",
+        "Zvi Mowshowitz"
       ],
-      "sourceCount": 6,
+      "sourceCount": 7,
       "age": "9 小时前",
       "score": 88,
       "tone": "green",
@@ -661,6 +919,32 @@
           "ref": "N8",
           "role": "背景",
           "takeaway": "Eliezer Yudkowsky将Astra完成十项开放数学问题视为模型数学能力快速上升的信号，但未提供独立验证。"
+        },
+        {
+          "id": "157-0-https://thezvi.substack.com/p/openais-unreleased-model-astra-solves",
+          "sourceId": 157,
+          "sourceName": "Zvi Mowshowitz",
+          "sourcePublisher": "Zvi Mowshowitz",
+          "sourceKind": "Newsletter",
+          "title": "OpenAI's Unreleased Model Astra Solves Ten Major Open Mathematics Problems",
+          "url": "https://thezvi.substack.com/p/openais-unreleased-model-astra-solves",
+          "publishedAt": "2026-08-03T19:04:55.000Z",
+          "summary": "Math is hard.",
+          "fetchedAt": "2026-08-04T02:20:37.239Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-03T22:06:16.111Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 7.261733055555555,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N4",
+          "role": "佐证",
+          "takeaway": "Zvi Mowshowitz聚焦OpenAI未发布模型Astra完成十项开放数学问题的主张。"
         }
       ],
       "references": [
@@ -887,10 +1171,150 @@
           },
           "deferredResearch": false,
           "ref": "N8"
+        },
+        {
+          "id": "157-0-https://thezvi.substack.com/p/openais-unreleased-model-astra-solves",
+          "sourceId": 157,
+          "sourceName": "Zvi Mowshowitz",
+          "sourcePublisher": "Zvi Mowshowitz",
+          "sourceKind": "Newsletter",
+          "title": "OpenAI's Unreleased Model Astra Solves Ten Major Open Mathematics Problems",
+          "url": "https://thezvi.substack.com/p/openais-unreleased-model-astra-solves",
+          "publishedAt": "2026-08-03T19:04:55.000Z",
+          "summary": "Math is hard.",
+          "fetchedAt": "2026-08-04T02:20:37.239Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-03T22:06:16.111Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 7.261733055555555,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N4"
         }
       ],
       "feedBatchAt": "2026-08-03T22:06:16.111Z",
       "updates": [
+        {
+          "addedAt": "2026-08-03T19:04:55.000Z",
+          "title": "Astra十项结果补齐Lean验证材料",
+          "summary": "OpenAI公开十项Astra结果对应的Lean 4文件和独立检查入口。公司称这些结果的求解成本按Sol API费率约为2,000美元；数学界仍主张重大结论接受独立验证与同行评审。",
+          "evidence": [
+            {
+              "id": "157-0-https://thezvi.substack.com/p/openais-unreleased-model-astra-solves",
+              "sourceId": 157,
+              "sourceName": "Zvi Mowshowitz",
+              "sourcePublisher": "Zvi Mowshowitz",
+              "sourceKind": "Newsletter",
+              "title": "OpenAI's Unreleased Model Astra Solves Ten Major Open Mathematics Problems",
+              "url": "https://thezvi.substack.com/p/openais-unreleased-model-astra-solves",
+              "publishedAt": "2026-08-03T19:04:55.000Z",
+              "summary": "Math is hard.",
+              "fetchedAt": "2026-08-04T02:20:37.239Z",
+              "accessMethod": "public-feed",
+              "publicContentPolicy": "headline-source-link-only",
+              "firstSeenAt": "2026-08-03T22:06:16.111Z",
+              "freshness": {
+                "eligible": true,
+                "lane": "explore",
+                "reason": "fresh",
+                "ageHours": 7.261733055555555,
+                "maxAgeHours": 168
+              },
+              "deferredResearch": false,
+              "ref": "N4",
+              "role": "佐证",
+              "takeaway": "Zvi Mowshowitz聚焦OpenAI未发布模型Astra完成十项开放数学问题的主张。"
+            },
+            {
+              "id": "research-157-0-https://thezvi.substack.com/p/openais-unreleased-model-astra-solves-1-https://openai.com/index/ten-advances-in-mathematics/",
+              "sourceId": 157,
+              "sourceName": "OpenAI",
+              "sourcePublisher": "OpenAI",
+              "sourceKind": "Official",
+              "title": "Ten advances in mathematics and theoretical computer science",
+              "url": "https://openai.com/index/ten-advances-in-mathematics/",
+              "publishedAt": "2026-08-01T00:00:00.000Z",
+              "summary": "发布方列出10项结果，称其由内部版本Astra取得；称寻找解答所需token按Sol API费率约为2,000美元，论文由人类使用同一模型整理，之后以Lean证书形式化。",
+              "fetchedAt": "2026-08-04T02:20:37.239Z",
+              "researchedFrom": "N4",
+              "researchRole": "Primary",
+              "researchClaim": "OpenAI于2026年8月1日公布，内部、尚未发布的下一代模型Astra在数学与理论计算机科学中产出10项声称解决或实质推进长期开放问题的结果；OpenAI称这些论证由模型生成、人类使用同一模型整理成稿，并已形式化为Lean证书。",
+              "researchComparisons": "当前口径是10项跨高维几何、编码理论、群论、量子复杂性、格密码与极值组合学的研究结果，OpenAI估算寻找解答所需token按Sol API费率约为2,000美元，但这不是Astra训练、失败尝试或人工整理的总成本。可比的此前状态是OpenAI在2026年2月的First Proof测试中，对10道研究级题目仅称至少5个证明尝试“很可能正确”、其余仍在审查；其最初认为第2题可能正确，后根据官方评语与社区分析改判为错误。此次仓库公开了10份Lean 4形式化文件，并提供用Comparator独立检查的说明，但形式化验证的范围不等同于外部数学界对原创性、重要性、既有文献优先权和人类可理解性的同行评审。",
+              "researchUnresolved": "10项结果截至2026年8月4日的独立领域专家复核、同行评审与发表状态；每项形式化证明与论文中自然语言命题及前提的逐一对应；Astra相对Sol或其他模型的受控成功率、失败率和完整推理/开发成本；各结果是否已有未被识别的先前证明或部分结果。",
+              "ref": "R1",
+              "role": "最新进展",
+              "takeaway": "OpenAI列出十项由内部版本Astra取得的数学和理论计算机科学结果，并称按Sol API费率估算求解成本约为2,000美元。"
+            },
+            {
+              "id": "research-157-0-https://thezvi.substack.com/p/openais-unreleased-model-astra-solves-2-https://github.com/openai/ten-proofs",
+              "sourceId": 157,
+              "sourceName": "OpenAI",
+              "sourcePublisher": "OpenAI",
+              "sourceKind": "Repository",
+              "title": "GitHub - openai/ten-proofs: Lean certificates accompanying proofs in mathematics and theoretical computer science",
+              "url": "https://github.com/openai/ten-proofs",
+              "publishedAt": "2026-08-03T19:04:55.000Z",
+              "summary": "公开仓库包含10个对应结果的Lean 4形式化文件、构建说明及通过Comparator进行独立证明检查的入口，提供了可复现的机器验证材料，而不只是公告中的结果摘要。",
+              "fetchedAt": "2026-08-04T02:20:37.239Z",
+              "researchedFrom": "N4",
+              "researchRole": "Comparison",
+              "researchClaim": "OpenAI于2026年8月1日公布，内部、尚未发布的下一代模型Astra在数学与理论计算机科学中产出10项声称解决或实质推进长期开放问题的结果；OpenAI称这些论证由模型生成、人类使用同一模型整理成稿，并已形式化为Lean证书。",
+              "researchComparisons": "当前口径是10项跨高维几何、编码理论、群论、量子复杂性、格密码与极值组合学的研究结果，OpenAI估算寻找解答所需token按Sol API费率约为2,000美元，但这不是Astra训练、失败尝试或人工整理的总成本。可比的此前状态是OpenAI在2026年2月的First Proof测试中，对10道研究级题目仅称至少5个证明尝试“很可能正确”、其余仍在审查；其最初认为第2题可能正确，后根据官方评语与社区分析改判为错误。此次仓库公开了10份Lean 4形式化文件，并提供用Comparator独立检查的说明，但形式化验证的范围不等同于外部数学界对原创性、重要性、既有文献优先权和人类可理解性的同行评审。",
+              "researchUnresolved": "10项结果截至2026年8月4日的独立领域专家复核、同行评审与发表状态；每项形式化证明与论文中自然语言命题及前提的逐一对应；Astra相对Sol或其他模型的受控成功率、失败率和完整推理/开发成本；各结果是否已有未被识别的先前证明或部分结果。",
+              "ref": "R2",
+              "role": "最新进展",
+              "takeaway": "OpenAI公开包含十项结果对应Lean 4文件、构建说明和Comparator独立检查入口的仓库。"
+            },
+            {
+              "id": "research-157-0-https://thezvi.substack.com/p/openais-unreleased-model-astra-solves-3-https://openai.com/index/first-proof-submissions/",
+              "sourceId": 157,
+              "sourceName": "OpenAI",
+              "sourcePublisher": "OpenAI",
+              "sourceKind": "Official",
+              "title": "Our First Proof submissions",
+              "url": "https://openai.com/index/first-proof-submissions/",
+              "publishedAt": "2026-02-20T00:00:00.000Z",
+              "summary": "提供此前可比基准：OpenAI对10道First Proof研究级题目当时只认为至少5个证明尝试很可能正确，另有若干仍在审查；公司还承认最初判断第2题可能正确，后改判为错误，并称该测试流程不够受控。",
+              "fetchedAt": "2026-08-04T02:20:37.239Z",
+              "researchedFrom": "N4",
+              "researchRole": "Counterevidence",
+              "researchClaim": "OpenAI于2026年8月1日公布，内部、尚未发布的下一代模型Astra在数学与理论计算机科学中产出10项声称解决或实质推进长期开放问题的结果；OpenAI称这些论证由模型生成、人类使用同一模型整理成稿，并已形式化为Lean证书。",
+              "researchComparisons": "当前口径是10项跨高维几何、编码理论、群论、量子复杂性、格密码与极值组合学的研究结果，OpenAI估算寻找解答所需token按Sol API费率约为2,000美元，但这不是Astra训练、失败尝试或人工整理的总成本。可比的此前状态是OpenAI在2026年2月的First Proof测试中，对10道研究级题目仅称至少5个证明尝试“很可能正确”、其余仍在审查；其最初认为第2题可能正确，后根据官方评语与社区分析改判为错误。此次仓库公开了10份Lean 4形式化文件，并提供用Comparator独立检查的说明，但形式化验证的范围不等同于外部数学界对原创性、重要性、既有文献优先权和人类可理解性的同行评审。",
+              "researchUnresolved": "10项结果截至2026年8月4日的独立领域专家复核、同行评审与发表状态；每项形式化证明与论文中自然语言命题及前提的逐一对应；Astra相对Sol或其他模型的受控成功率、失败率和完整推理/开发成本；各结果是否已有未被识别的先前证明或部分结果。",
+              "ref": "R3",
+              "role": "背景",
+              "takeaway": "OpenAI此前的First Proof提交中，至少五个证明尝试被认为很可能正确，但公司也曾修正过一项初始判断。"
+            },
+            {
+              "id": "research-157-0-https://thezvi.substack.com/p/openais-unreleased-model-astra-solves-4-https://leidendeclaration.ai/",
+              "sourceId": 157,
+              "sourceName": "Leiden Declaration working group",
+              "sourcePublisher": "Leiden Declaration working group",
+              "sourceKind": "Research",
+              "title": "Leiden Declaration on Artificial Intelligence and Mathematics",
+              "url": "https://leidendeclaration.ai/",
+              "publishedAt": "2026-06-02T00:00:00.000Z",
+              "summary": "获International Mathematical Union认可的数学界声明指出，自动化系统可产生难以辨别的貌似可信但不可靠论证；即使有形式化，计算机编码与人类表述之间的翻译仍是难点，并主张重大结果应接受独立验证与同行评审。",
+              "fetchedAt": "2026-08-04T02:20:37.239Z",
+              "researchedFrom": "N4",
+              "researchRole": "Counterevidence",
+              "researchClaim": "OpenAI于2026年8月1日公布，内部、尚未发布的下一代模型Astra在数学与理论计算机科学中产出10项声称解决或实质推进长期开放问题的结果；OpenAI称这些论证由模型生成、人类使用同一模型整理成稿，并已形式化为Lean证书。",
+              "researchComparisons": "当前口径是10项跨高维几何、编码理论、群论、量子复杂性、格密码与极值组合学的研究结果，OpenAI估算寻找解答所需token按Sol API费率约为2,000美元，但这不是Astra训练、失败尝试或人工整理的总成本。可比的此前状态是OpenAI在2026年2月的First Proof测试中，对10道研究级题目仅称至少5个证明尝试“很可能正确”、其余仍在审查；其最初认为第2题可能正确，后根据官方评语与社区分析改判为错误。此次仓库公开了10份Lean 4形式化文件，并提供用Comparator独立检查的说明，但形式化验证的范围不等同于外部数学界对原创性、重要性、既有文献优先权和人类可理解性的同行评审。",
+              "researchUnresolved": "10项结果截至2026年8月4日的独立领域专家复核、同行评审与发表状态；每项形式化证明与论文中自然语言命题及前提的逐一对应；Astra相对Sol或其他模型的受控成功率、失败率和完整推理/开发成本；各结果是否已有未被识别的先前证明或部分结果。",
+              "ref": "R4",
+              "role": "反例",
+              "takeaway": "获国际数学联盟认可的声明指出，形式化与人类表述之间的转换仍有难点，重大结果应接受独立验证和同行评审。"
+            }
+          ],
+          "changeType": "corroboration",
+          "thesisImpact": "新材料强化Astra的能力展示并补充可复现的Lean形式化文件；同时，数学界声明说明形式化验证仍不能替代独立审查。",
+          "revisionRequired": false
+        },
         {
           "addedAt": "2026-08-03T19:10:37.000Z",
           "title": "Astra十项结果开放形式化核验",
@@ -18059,6 +18483,57 @@
       "editorNote": "今日信息环境由智能体安全事件、AI coding 工具链分化、open-weight 模型竞争与算力下沉共同主导。",
       "signals": [
         {
+          "category": "Agents",
+          "eyebrow": "趋势变化",
+          "title": "NAB把代理AI推进至客户部署前测试",
+          "summary": "NAB正测试代理AI平台的安全和运营护栏，以准备向银行客户部署；其获批AI工具覆盖员工数已从15,000增至约25,000。",
+          "why": "受监管银行的代理AI竞争，正在从内部试点数量转向能否用统一治理与可审计控制支撑客户场景。",
+          "impact": "若测试转为受控上线，银行采购重点或更偏向权限、监督、回退与多云数据治理，而非单纯模型能力。",
+          "shiftFrom": "以内部AI项目和员工工具为主",
+          "shiftTo": "验证客户部署的代理护栏",
+          "crossValidation": "Bloomberg报道NAB即将测试客户部署护栏；NAB业绩材料显示平台与员工采用规模升级。APRA和澳大利亚网络安全中心则提供监管要求与部署约束。",
+          "article": {
+            "lead": "National Australia Bank正把代理AI从员工效率工具推进到面向客户部署前的控制验证阶段。这一变化并不等同于代理已大规模服务客户，但它表明受监管银行的关键问题正从“是否采用AI”转向“能否证明代理在权限、运营和故障场景下可被控制”。",
+            "sections": [
+              {
+                "heading": "从内部项目走向部署准备",
+                "body": "NAB在FY25仍将Agentic AI描述为未来方向，当时有超过100个AI项目处于管线或生产阶段，逾15,000名员工借AI减少例行工作。截至1H26，NAB称其agentic platform已在单一可扩展平台上支持代理用例，使用获批AI工具的员工约增至25,000人。Bloomberg进一步报道称，该行计划很快测试平台的安全与运营护栏，为向银行客户更广泛部署做准备。"
+              },
+              {
+                "heading": "护栏成为代理扩张的运行机制",
+                "body": "NAB将代理平台连接到现代数据平台、多云基础设施以及负责政策、控制、监督和绩效的管理层，意味着其并非将代理视为独立聊天工具。客户场景中的代理需要访问数据、调用系统并在业务流程内行动，因此统一身份、权限边界、审计记录和人工接管能力，决定了模型输出能否转化为可运营服务。员工覆盖规模上升，也使这些控制从试验要求变成持续运行要求。"
+              },
+              {
+                "heading": "银行采购或转向可验证控制",
+                "body": "如果NAB的测试进入受控客户上线，代理AI的竞争可能更看重治理组件能否嵌入既有银行系统，而非仅展示任务完成率。最强的反面证据来自APRA：其调研发现大型受监管机构的AI采用速度已超过治理、风险管理、保证和运营韧性的成熟度，并要求关键依赖AI的业务具备后备流程、特权访问控制及对代理工作流的测试。"
+              }
+            ],
+            "outlook": "值得观察的下一步包括：NAB是否公布首批客户代理用例、适用业务范围和人工监督方式；其护栏测试是否披露权限控制、异常升级或审计指标；以及员工AI覆盖扩大后，是否同步报告可量化的运营效率、风险事件或客户服务结果。这些证据将检验平台是否已从部署准备进入可复制运营。"
+          },
+          "evidence": [
+            {
+              "role": "主张",
+              "takeaway": "Bloomberg报道称NAB将测试代理AI平台的安全和运营护栏，以准备向银行客户更广泛部署。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "NAB 1H26材料称其agentic platform由现代数据平台、多云基础设施及治理控制支撑，约25,000名员工使用获批AI工具。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "NAB FY25材料将Agentic AI定位为未来方向，当时逾100个AI项目在管线或生产中，逾15,000名员工使用AI。"
+            },
+            {
+              "role": "反例",
+              "takeaway": "APRA称受监管机构的AI采用速度快于治理成熟度，并要求对关键业务AI依赖设置回退、访问控制、测试和代理工作流控制。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "澳大利亚网络安全中心与国际伙伴建议代理AI渐进部署于低风险任务，并实施严格权限、持续监控、强身份管理和人工监督。"
+            }
+          ]
+        },
+        {
           "category": "投资",
           "eyebrow": "资本信号",
           "title": "Palantir增速再升并上调全年指引",
@@ -18193,9 +18668,43 @@
             {
               "role": "背景",
               "takeaway": "Eliezer Yudkowsky将Astra完成十项开放数学问题视为模型数学能力快速上升的信号，但未提供独立验证。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "Zvi Mowshowitz聚焦OpenAI未发布模型Astra完成十项开放数学问题的主张。"
             }
           ],
           "updates": [
+            {
+              "addedAt": "2026-08-03T19:04:55.000Z",
+              "title": "Astra十项结果补齐Lean验证材料",
+              "summary": "OpenAI公开十项Astra结果对应的Lean 4文件和独立检查入口。公司称这些结果的求解成本按Sol API费率约为2,000美元；数学界仍主张重大结论接受独立验证与同行评审。",
+              "evidence": [
+                {
+                  "role": "佐证",
+                  "takeaway": "Zvi Mowshowitz聚焦OpenAI未发布模型Astra完成十项开放数学问题的主张。"
+                },
+                {
+                  "role": "最新进展",
+                  "takeaway": "OpenAI列出十项由内部版本Astra取得的数学和理论计算机科学结果，并称按Sol API费率估算求解成本约为2,000美元。"
+                },
+                {
+                  "role": "最新进展",
+                  "takeaway": "OpenAI公开包含十项结果对应Lean 4文件、构建说明和Comparator独立检查入口的仓库。"
+                },
+                {
+                  "role": "背景",
+                  "takeaway": "OpenAI此前的First Proof提交中，至少五个证明尝试被认为很可能正确，但公司也曾修正过一项初始判断。"
+                },
+                {
+                  "role": "反例",
+                  "takeaway": "获国际数学联盟认可的声明指出，形式化与人类表述之间的转换仍有难点，重大结果应接受独立验证和同行评审。"
+                }
+              ],
+              "changeType": "corroboration",
+              "thesisImpact": "新材料强化Astra的能力展示并补充可复现的Lean形式化文件；同时，数学界声明说明形式化验证仍不能替代独立审查。",
+              "revisionRequired": false
+            },
             {
               "addedAt": "2026-08-03T19:10:37.000Z",
               "title": "Astra十项结果开放形式化核验",
@@ -23958,6 +24467,57 @@
       "editorNote": "Today’s information environment is being shaped by agent security incidents, a split in coding-agent toolchains, open-model competition, and compute moving closer to the edge.",
       "signals": [
         {
+          "category": "Agents",
+          "eyebrow": "Trend Shift",
+          "title": "NAB Moves Agentic AI Toward Customer Deployment Tests",
+          "summary": "NAB is testing security and operational guardrails for agentic AI before deploying it to banking customers; employees using approved AI tools have risen from 15,000 to about 25,000.",
+          "why": "For regulated banks, agentic AI competition is shifting from the number of internal pilots to whether unified, auditable controls can support customer-facing use.",
+          "impact": "If testing becomes controlled deployment, bank procurement may place more weight on permissions, supervision, fallback procedures and data governance than on model capability alone.",
+          "shiftFrom": "Internal AI projects and employee tools",
+          "shiftTo": "Testing guardrails for customer deployment",
+          "crossValidation": "Bloomberg reports that NAB will test guardrails for customer deployment, while NAB filings show an expanded platform and employee adoption. APRA and the Australian Cyber Security Centre frame the regulatory constraints.",
+          "article": {
+            "lead": "National Australia Bank is moving agentic AI from employee productivity tools toward a stage of control validation before customer deployment. This does not mean agents are already serving customers at scale, but it suggests that the central question for regulated banks is shifting from whether to adopt AI to whether agents can be shown to remain controllable across permission, operational and failure scenarios.",
+            "sections": [
+              {
+                "heading": "From internal projects to deployment preparation",
+                "body": "In FY25, NAB still described agentic AI as an AI-of-tomorrow priority. It had more than 100 AI projects in production or the pipeline, and more than 15,000 employees using AI to reduce routine work. By 1H26, NAB said its agentic platform supported use cases on a single scalable platform, while approved AI tools reached about 25,000 employees. Bloomberg reported that the bank will soon test security and operational guardrails in preparation for broader customer deployment."
+              },
+              {
+                "heading": "Guardrails become the operating mechanism",
+                "body": "NAB links its agentic platform to a modern data platform, multicloud infrastructure and management structures responsible for policy, controls, oversight and performance. That design treats agents as participants in operating workflows rather than standalone chat interfaces. Customer-facing agents may access data, invoke systems and take actions, making identity, permissions, audit trails and human takeover capabilities central to turning model output into an operable service. Wider employee use also makes those controls an ongoing operational requirement."
+              },
+              {
+                "heading": "Bank buying criteria may shift to verifiable controls",
+                "body": "If NAB’s testing advances to controlled customer deployment, agentic AI competition may increasingly depend on whether governance components can fit existing bank systems, rather than task-completion demonstrations alone. The strongest countercase comes from APRA, which found that AI adoption at major regulated institutions was advancing faster than governance, risk management, assurance and operational resilience. It calls for fallback processes, privileged-access controls, testing and controls for agentic workflows where AI is business-critical."
+              }
+            ],
+            "outlook": "Watch for NAB to identify its first customer-facing agent use cases, their permitted business scope and human-supervision model; to disclose how guardrail testing handles permissions, escalations and auditability; and to report measurable operational, risk or customer-service outcomes as employee adoption expands. Those observations would show whether the platform has moved from deployment preparation to repeatable operations."
+          },
+          "evidence": [
+            {
+              "role": "Claim",
+              "takeaway": "Bloomberg reports that NAB plans to test security and operational guardrails for an agentic AI platform before broader deployment to banking customers."
+            },
+            {
+              "role": "Support",
+              "takeaway": "NAB’s 1H26 presentation describes an agentic platform backed by modern data, multicloud infrastructure and governance, with about 25,000 employees using approve"
+            },
+            {
+              "role": "Context",
+              "takeaway": "NAB’s FY25 presentation described agentic AI as a future priority, with more than 100 AI projects and more than 15,000 employees using AI."
+            },
+            {
+              "role": "Counterpoint",
+              "takeaway": "APRA says AI adoption has outpaced governance maturity at large regulated institutions and specifies controls needed for agentic workflows."
+            },
+            {
+              "role": "Support",
+              "takeaway": "Australian cyber guidance recommends gradual, low-risk agentic deployments with strict access control, monitoring, strong identity management and human oversigh"
+            }
+          ]
+        },
+        {
           "category": "Investment",
           "eyebrow": "Capital Signal",
           "title": "Palantir Accelerates Again and Raises Its Full-Year Outlook",
@@ -24092,9 +24652,43 @@
             {
               "role": "Context",
               "takeaway": "Eliezer Yudkowsky interprets Astra's work on ten open mathematics problems as evidence of rapidly advancing mathematical capability, without adding independent validation."
+            },
+            {
+              "role": "Support",
+              "takeaway": "Zvi Mowshowitz highlights the claim that OpenAI’s unreleased Astra model solved ten open mathematics problems."
             }
           ],
           "updates": [
+            {
+              "addedAt": "2026-08-03T19:04:55.000Z",
+              "title": "Astra’s Ten Results Gain Lean Verification Materials",
+              "summary": "OpenAI has released Lean 4 files and independent-checking access for ten Astra results. It estimates solving costs at about $2,000 at Sol API rates, while mathematics researchers continue to call for independent verification and peer review.",
+              "evidence": [
+                {
+                  "role": "Support",
+                  "takeaway": "Zvi Mowshowitz highlights the claim that OpenAI’s unreleased Astra model solved ten open mathematics problems."
+                },
+                {
+                  "role": "Update",
+                  "takeaway": "OpenAI lists ten mathematics and theoretical computer science results attributed to an internal Astra version and estimates solving cost at roughly $2,000 at Sol API rates."
+                },
+                {
+                  "role": "Update",
+                  "takeaway": "OpenAI released a repository with Lean 4 files, build instructions and Comparator-based checking access for all ten results."
+                },
+                {
+                  "role": "Context",
+                  "takeaway": "In earlier First Proof submissions, OpenAI judged at least five attempts likely correct but later revised one initial assessment."
+                },
+                {
+                  "role": "Counterpoint",
+                  "takeaway": "The Leiden Declaration says translation between formal code and human mathematical claims remains difficult and major results require independent verification and peer review."
+                }
+              ],
+              "changeType": "corroboration",
+              "thesisImpact": "新材料强化Astra的能力展示并补充可复现的Lean形式化文件；同时，数学界声明说明形式化验证仍不能替代独立审查。",
+              "revisionRequired": false
+            },
             {
               "addedAt": "2026-08-03T19:10:37.000Z",
               "title": "Astra's Ten Results Open for Formal Verification",
@@ -29857,12 +30451,12 @@
     "en": "gpt-5.6-sol"
   },
   "incremental": {
-    "lastAddedAt": "2026-08-03T22:13:56.530Z",
-    "lastScanAt": "2026-08-03T22:06:16.111Z",
+    "lastAddedAt": "2026-08-04T02:25:54.198Z",
+    "lastScanAt": "2026-08-04T02:20:37.239Z",
     "lastAddedCount": 1,
     "lastUpdatedCount": 1,
-    "totalAppended": 50,
-    "totalUpdated": 38
+    "totalAppended": 51,
+    "totalUpdated": 39
   },
   "exploreDepth": {
     "minimum": 50,
