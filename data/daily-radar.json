@@ -1,13 +1,434 @@
 {
-  "generatedAt": "2026-08-05T19:11:47.932Z",
-  "basedOnSnapshotAt": "2026-08-05T19:05:53.642Z",
+  "generatedAt": "2026-08-05T21:11:58.306Z",
+  "basedOnSnapshotAt": "2026-08-05T21:06:49.361Z",
   "model": "gpt-5.5",
   "analyzedItemCount": 180,
-  "totalFetchedItemCount": 2074,
+  "totalFetchedItemCount": 2067,
   "editorNote": "今日信息环境由代理安全事件、编码代理工具链分化、开放模型竞争和算力下沉共同主导。",
   "signalQuality": 86,
   "signalQualityChange": 8,
   "signals": [
+    {
+      "id": 82,
+      "editorialBucket": "dynamic",
+      "category": "Agents",
+      "eyebrow": "产品信号",
+      "title": "Meta推出Muse Code编码代理",
+      "summary": "Meta发布测试版终端编码代理Muse Code及Muse Spark 1.2，正式进入与OpenAI、Anthropic竞争的编码代理产品层。",
+      "why": "Meta此前主要提供模型预览；终端代理把竞争推进到任务执行、子代理协作与开发工作流入口。",
+      "impact": "若其API、评测和开发者采用持续改善，Meta可能从开源模型供给方扩展为编码代理平台竞争者。",
+      "shiftFrom": "以Muse Spark模型预览为主",
+      "shiftTo": "推出终端编码代理测试版",
+      "crossValidation": "Meta官方确认Muse Code与Muse Spark 1.2发布；CNBC、Bloomberg、The Information和WSJ均报道该产品事件。Meta自报基准与Antigma独立复现对旧版模型的结果存在差距。",
+      "article": {
+        "lead": "Meta已推出其首个测试版终端编码代理Muse Code，并同步发布Muse Spark 1.2。这一变化的核心不只是新增一款模型，而是Meta开始将模型能力封装为可执行复杂编程任务、可委派子代理的开发者产品，直接进入OpenAI和Anthropic已率先占据的编码代理工作流。",
+        "sections": [
+          {
+            "heading": "Meta从模型预览走向代理产品",
+            "body": "Meta官方将Muse Code定义为测试版终端编码代理，并与Muse Spark 1.2配套发布。多家媒体将其视为Meta首次以编码代理形态参与竞争。相比7月发布、通过Meta Model API公开预览的Muse Spark 1.1，新产品把开发者接触点从调用模型扩展至终端中的任务执行。这是产品层级的变化：用户不再只评价模型能否生成代码，也会评价代理能否完成一段有边界的工程工作。"
+          },
+          {
+            "heading": "竞争重点落在任务编排而非单轮生成",
+            "body": "The Information报道，Muse Code可将复杂任务委派给“sub-agents”，让开发者把编程工作拆分给多个AI代理。Meta此前称Muse Spark 1.1具备工具使用、计算机使用、复杂代码库处理、规划和上下文压缩能力；Muse Code将这些能力组织为终端工作流。对Meta而言，这意味着竞争对象不再只是单个代码模型的输出质量，还包括harness、权限边界、上下文管理、任务分解和开发者反馈闭环。"
+          },
+          {
+            "heading": "能力位置仍需用新版本实测确认",
+            "body": "Meta开发者页面列出的Terminal-Bench 2.1结果中，Muse Spark 1.1为80.0，低于Opus 4.8的82.7和GPT-5.5的83.4；这些是Meta展示的数据。Antigma对Muse Spark 1.1的独立测试得到76.2%±1.23，而其Claude Code搭载Opus 4.8的结果为78.9%±1.31，且并未直接评测Muse Code或Muse Spark 1.2。Axios此前也认为Meta代理在任务范围和自主运行时长上仍弱于领先产品。"
+          }
+        ],
+        "outlook": "接下来可观察的证据包括：Meta是否公布Muse Code的API范围、定价、地区可用性与企业权限控制；第三方是否对Muse Code和Muse Spark 1.2进行可复现的Terminal-Bench、SWE-bench或真实代码库测试；以及开发者是否将其纳入现有CI、IDE或代理编排流程。若新版本在独立任务完成率和长期运行稳定性上仍明显落后，当前的竞争定位将被削弱。"
+      },
+      "validationType": "跨平台验证",
+      "publishedAt": "2026-08-05T20:33:34.000Z",
+      "updatedAt": "2026-08-05T20:33:34.000Z",
+      "sources": [
+        "Blog",
+        "Official",
+        "Media"
+      ],
+      "sourceNames": [
+        "CNBC",
+        "Bloomberg",
+        "The Information",
+        "The Wall Street Journal",
+        "Meta",
+        "Meta Superintelligence Labs",
+        "Axios"
+      ],
+      "sourceCount": 7,
+      "age": "1 小时前",
+      "score": 86,
+      "tone": "orange",
+      "evidence": [
+        {
+          "id": "grounded-page-metadata-aaafddabd3008b9a",
+          "sourceId": 900306,
+          "sourceName": "CNBC",
+          "sourcePublisher": "CNBC",
+          "sourceKind": "Blog",
+          "title": "Meta debuts first AI coding agent to take on Anthropic and OpenAI",
+          "url": "https://www.cnbc.com/2026/08/05/meta-debuts-muse-code-to-take-on-anthropic-and-openai-.html",
+          "publishedAt": "2026-08-05T19:00:17.000Z",
+          "summary": "Meta released its first coding agent called Muse Code as the company ramps up its investments in AI models and services to try and take on Anthropic and OpenAI.",
+          "fetchedAt": "2026-08-05T21:06:49.361Z",
+          "groundedFromDiscovery": true,
+          "originalTitleMethod": "public-page-metadata",
+          "discoveredThroughCluster": true,
+          "accessMethod": "public-page-metadata",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-05T21:06:49.361Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 2.1089891666666665,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N1",
+          "role": "主张",
+          "takeaway": "CNBC报道Meta发布首个名为Muse Code的AI编码代理。"
+        },
+        {
+          "id": "233-2-https://www.bloomberg.com/news/articles/2026-08-05/meta-debuts-ai-coding-agent-in-race-with-openai-and-anthropic",
+          "sourceId": 233,
+          "sourceName": "Bloomberg Technology",
+          "sourcePublisher": "Bloomberg",
+          "sourceKind": "Blog",
+          "title": "Meta Debuts AI Coding Agent in Race With OpenAI and Anthropic",
+          "url": "https://www.bloomberg.com/news/articles/2026-08-05/meta-debuts-ai-coding-agent-in-race-with-openai-and-anthropic",
+          "publishedAt": "2026-08-05T20:33:34.000Z",
+          "summary": "Meta Platforms Inc. Chief Executive Officer Mark Zuckerberg announced the release of the company’s first AI coding agent, known as Muse Code, stepping up competition with OpenAI and Anthropic PBC.",
+          "fetchedAt": "2026-08-05T21:06:49.361Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-05T21:06:49.361Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 0.5542669444444445,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N3",
+          "role": "佐证",
+          "takeaway": "Bloomberg报道Mark Zuckerberg宣布Meta发布Muse Code。"
+        },
+        {
+          "id": "236-1-https://www.theinformation.com/briefings/meta-debuts-new-ai-coding-tools",
+          "sourceId": 236,
+          "sourceName": "The Information",
+          "sourcePublisher": "The Information",
+          "sourceKind": "Blog",
+          "title": "Meta Debuts New AI Coding Tools",
+          "url": "https://www.theinformation.com/briefings/meta-debuts-new-ai-coding-tools",
+          "publishedAt": "2026-08-05T19:40:44.000Z",
+          "summary": "Meta Platforms unveiled a new coding model, Muse Code beta, on Wednesday alongside its latest AI model, Muse Spark 1.2. In a Threads post, CEO Mark Zuckerberg said Muse Code can delegate complex tasks to “sub-agents,” allowing developers to split programming tasks among multiple AI agents, ...",
+          "fetchedAt": "2026-08-05T21:06:49.361Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-05T21:06:49.361Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "standard",
+            "reason": "fresh",
+            "ageHours": 1.4348225,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N4",
+          "role": "佐证",
+          "takeaway": "The Information报道Muse Code beta与Muse Spark 1.2同步推出，并可委派子代理。"
+        },
+        {
+          "id": "grounded-publisher-url-5a041a598ff0bba0",
+          "sourceId": 900226,
+          "sourceName": "The Wall Street Journal",
+          "sourcePublisher": "The Wall Street Journal",
+          "sourceKind": "Blog",
+          "title": "Meta Releases Coding Agent to Compete with OpenAI and Anthropic",
+          "url": "https://www.wsj.com/tech/ai/meta-releases-coding-agent-to-compete-with-openai-and-anthropic-af87b517",
+          "publishedAt": "2026-08-05T20:20:00.000Z",
+          "summary": "Meta Releases Coding Agent to Compete with OpenAI and Anthropic",
+          "fetchedAt": "2026-08-05T21:06:49.361Z",
+          "groundedFromDiscovery": true,
+          "originalTitleMethod": "publisher-url",
+          "discoveredThroughCluster": true,
+          "accessMethod": "publisher-url",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-05T21:06:49.361Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 0.7803780555555555,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N8",
+          "role": "佐证",
+          "takeaway": "WSJ报道Meta发布编码代理以与OpenAI和Anthropic竞争。"
+        },
+        {
+          "id": "research-grounded-page-metadata-aaafddabd3008b9a-1-https://research.meta.ai/blog/introducing-muse-code-and-muse-spark-1-2",
+          "sourceId": 900306,
+          "sourceName": "Meta",
+          "sourcePublisher": "Meta",
+          "sourceKind": "Official",
+          "title": "Introducing Muse Code and Muse Spark 1.2",
+          "url": "https://research.meta.ai/blog/introducing-muse-code-and-muse-spark-1-2",
+          "publishedAt": "2026-08-05T19:00:17.000Z",
+          "summary": "Meta 的产品发布原文补齐了当前状态：Muse Code 为测试版终端编码代理，并与新一代 Muse Spark 1.2 配套发布。",
+          "fetchedAt": "2026-08-05T21:06:49.361Z",
+          "researchedFrom": "N1",
+          "researchRole": "Primary",
+          "researchClaim": "Meta 于 2026 年 8 月 5 日推出测试版 Muse Code，把其此前以模型 API 和第三方 coding harness 为主的 Muse Spark 产品线，延伸为面向终端、可执行长链路软件工程任务的自有编码代理；该产品由 Muse Spark 1.2 驱动。",
+          "researchComparisons": "此前状态是：Muse Spark 1.1 于 2026 年 7 月 9 日通过 Meta Model API 向开发者公开预览，并被定位为可适配 OpenCode 等既有 agentic coding harness 的模型，而非 Meta 自有终端代理。Meta 自报的上一代 Muse Spark 1.1 在 Terminal-Bench 2.1 为 80.0，低于其表中 Anthropic Opus 4.8 的 82.7 和 OpenAI GPT-5.5 的 83.4；因此，Muse Code 的发布证明 Meta 增加了产品形态，但不能单凭发布认定其编码能力已超过两者。",
+          "researchUnresolved": "尚无可公开核验的 Muse Code／Muse Spark 1.2 独立基准成绩、完整评测配置与运行轨迹；其定价、地域可用性、支持的操作系统范围，以及 beta 阶段的使用限制也需要以 Meta 的产品文档进一步核验。",
+          "ref": "R1",
+          "role": "主张",
+          "takeaway": "Meta官方确认Muse Code是测试版终端编码代理，并与Muse Spark 1.2配套发布。"
+        },
+        {
+          "id": "research-grounded-page-metadata-aaafddabd3008b9a-2-https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/",
+          "sourceId": 900306,
+          "sourceName": "Meta Superintelligence Labs",
+          "sourcePublisher": "Meta Superintelligence Labs",
+          "sourceKind": "Official",
+          "title": "Introducing Muse Spark 1.1",
+          "url": "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/",
+          "publishedAt": "2026-07-09T00:00:00.000Z",
+          "summary": "补齐此前状态：Meta 在 7 月将 Muse Spark 1.1 作为支持工具使用、计算机使用和复杂代码库任务的模型，通过 Meta Model API 公开预览，并强调其适配既有 coding harness。",
+          "fetchedAt": "2026-08-05T21:06:49.361Z",
+          "researchedFrom": "N1",
+          "researchRole": "Comparison",
+          "researchClaim": "Meta 于 2026 年 8 月 5 日推出测试版 Muse Code，把其此前以模型 API 和第三方 coding harness 为主的 Muse Spark 产品线，延伸为面向终端、可执行长链路软件工程任务的自有编码代理；该产品由 Muse Spark 1.2 驱动。",
+          "researchComparisons": "此前状态是：Muse Spark 1.1 于 2026 年 7 月 9 日通过 Meta Model API 向开发者公开预览，并被定位为可适配 OpenCode 等既有 agentic coding harness 的模型，而非 Meta 自有终端代理。Meta 自报的上一代 Muse Spark 1.1 在 Terminal-Bench 2.1 为 80.0，低于其表中 Anthropic Opus 4.8 的 82.7 和 OpenAI GPT-5.5 的 83.4；因此，Muse Code 的发布证明 Meta 增加了产品形态，但不能单凭发布认定其编码能力已超过两者。",
+          "researchUnresolved": "尚无可公开核验的 Muse Code／Muse Spark 1.2 独立基准成绩、完整评测配置与运行轨迹；其定价、地域可用性、支持的操作系统范围，以及 beta 阶段的使用限制也需要以 Meta 的产品文档进一步核验。",
+          "ref": "R2",
+          "role": "背景",
+          "takeaway": "Meta Superintelligence Labs称Muse Spark 1.1于7月通过Meta Model API公开预览。"
+        },
+        {
+          "id": "research-grounded-page-metadata-aaafddabd3008b9a-3-https://developer.meta.com/ai/",
+          "sourceId": 900306,
+          "sourceName": "Meta",
+          "sourcePublisher": "Meta",
+          "sourceKind": "Official",
+          "title": "Products & Solutions for AI Developers",
+          "url": "https://developer.meta.com/ai/",
+          "publishedAt": "2026-08-05T19:00:17.000Z",
+          "summary": "Meta 的开发者产品页列出其自报 Terminal-Bench 2.1 对比：Muse Spark 1.1 为 80.0，Opus 4.8 为 82.7，GPT-5.5 为 83.4；这是发布后判断竞争位置的明确量化基准，但仍属 Meta 展示的结果。",
+          "fetchedAt": "2026-08-05T21:06:49.361Z",
+          "researchedFrom": "N1",
+          "researchRole": "Comparison",
+          "researchClaim": "Meta 于 2026 年 8 月 5 日推出测试版 Muse Code，把其此前以模型 API 和第三方 coding harness 为主的 Muse Spark 产品线，延伸为面向终端、可执行长链路软件工程任务的自有编码代理；该产品由 Muse Spark 1.2 驱动。",
+          "researchComparisons": "此前状态是：Muse Spark 1.1 于 2026 年 7 月 9 日通过 Meta Model API 向开发者公开预览，并被定位为可适配 OpenCode 等既有 agentic coding harness 的模型，而非 Meta 自有终端代理。Meta 自报的上一代 Muse Spark 1.1 在 Terminal-Bench 2.1 为 80.0，低于其表中 Anthropic Opus 4.8 的 82.7 和 OpenAI GPT-5.5 的 83.4；因此，Muse Code 的发布证明 Meta 增加了产品形态，但不能单凭发布认定其编码能力已超过两者。",
+          "researchUnresolved": "尚无可公开核验的 Muse Code／Muse Spark 1.2 独立基准成绩、完整评测配置与运行轨迹；其定价、地域可用性、支持的操作系统范围，以及 beta 阶段的使用限制也需要以 Meta 的产品文档进一步核验。",
+          "ref": "R3",
+          "role": "佐证",
+          "takeaway": "Meta开发者页面列出Muse Spark 1.1、Opus 4.8和GPT-5.5的Terminal-Bench 2.1对比结果。"
+        },
+        {
+          "id": "research-grounded-page-metadata-aaafddabd3008b9a-4-https://www.axios.com/2026/07/24/meta-muse-spark-agents",
+          "sourceId": 900306,
+          "sourceName": "Axios",
+          "sourcePublisher": "Axios",
+          "sourceKind": "Media",
+          "title": "Meta's Muse Spark agents connects to Google Calendar and Gmail",
+          "url": "https://www.axios.com/2026/07/24/meta-muse-spark-agents",
+          "publishedAt": "2026-07-24T00:00:00.000Z",
+          "summary": "独立报道在 Muse Code 发布前不足两周指出，Meta 的 agent 软件仍弱于 OpenAI、Anthropic 和 Google 的竞争产品，尤其在可处理任务范围与自主运行时长上；这构成“新终端代理即已追平领先者”的最强已公开反例。",
+          "fetchedAt": "2026-08-05T21:06:49.361Z",
+          "researchedFrom": "N1",
+          "researchRole": "Counterevidence",
+          "researchClaim": "Meta 于 2026 年 8 月 5 日推出测试版 Muse Code，把其此前以模型 API 和第三方 coding harness 为主的 Muse Spark 产品线，延伸为面向终端、可执行长链路软件工程任务的自有编码代理；该产品由 Muse Spark 1.2 驱动。",
+          "researchComparisons": "此前状态是：Muse Spark 1.1 于 2026 年 7 月 9 日通过 Meta Model API 向开发者公开预览，并被定位为可适配 OpenCode 等既有 agentic coding harness 的模型，而非 Meta 自有终端代理。Meta 自报的上一代 Muse Spark 1.1 在 Terminal-Bench 2.1 为 80.0，低于其表中 Anthropic Opus 4.8 的 82.7 和 OpenAI GPT-5.5 的 83.4；因此，Muse Code 的发布证明 Meta 增加了产品形态，但不能单凭发布认定其编码能力已超过两者。",
+          "researchUnresolved": "尚无可公开核验的 Muse Code／Muse Spark 1.2 独立基准成绩、完整评测配置与运行轨迹；其定价、地域可用性、支持的操作系统范围，以及 beta 阶段的使用限制也需要以 Meta 的产品文档进一步核验。",
+          "ref": "R4",
+          "role": "反例",
+          "takeaway": "Axios此前报道Meta代理在任务范围和自主运行时长上弱于领先竞品。"
+        }
+      ],
+      "references": [
+        {
+          "id": "grounded-page-metadata-aaafddabd3008b9a",
+          "sourceId": 900306,
+          "sourceName": "CNBC",
+          "sourcePublisher": "CNBC",
+          "sourceKind": "Blog",
+          "title": "Meta debuts first AI coding agent to take on Anthropic and OpenAI",
+          "url": "https://www.cnbc.com/2026/08/05/meta-debuts-muse-code-to-take-on-anthropic-and-openai-.html",
+          "publishedAt": "2026-08-05T19:00:17.000Z",
+          "summary": "Meta released its first coding agent called Muse Code as the company ramps up its investments in AI models and services to try and take on Anthropic and OpenAI.",
+          "fetchedAt": "2026-08-05T21:06:49.361Z",
+          "groundedFromDiscovery": true,
+          "originalTitleMethod": "public-page-metadata",
+          "discoveredThroughCluster": true,
+          "accessMethod": "public-page-metadata",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-05T21:06:49.361Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 2.1089891666666665,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N1"
+        },
+        {
+          "id": "233-2-https://www.bloomberg.com/news/articles/2026-08-05/meta-debuts-ai-coding-agent-in-race-with-openai-and-anthropic",
+          "sourceId": 233,
+          "sourceName": "Bloomberg Technology",
+          "sourcePublisher": "Bloomberg",
+          "sourceKind": "Blog",
+          "title": "Meta Debuts AI Coding Agent in Race With OpenAI and Anthropic",
+          "url": "https://www.bloomberg.com/news/articles/2026-08-05/meta-debuts-ai-coding-agent-in-race-with-openai-and-anthropic",
+          "publishedAt": "2026-08-05T20:33:34.000Z",
+          "summary": "Meta Platforms Inc. Chief Executive Officer Mark Zuckerberg announced the release of the company’s first AI coding agent, known as Muse Code, stepping up competition with OpenAI and Anthropic PBC.",
+          "fetchedAt": "2026-08-05T21:06:49.361Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-05T21:06:49.361Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 0.5542669444444445,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N3"
+        },
+        {
+          "id": "236-1-https://www.theinformation.com/briefings/meta-debuts-new-ai-coding-tools",
+          "sourceId": 236,
+          "sourceName": "The Information",
+          "sourcePublisher": "The Information",
+          "sourceKind": "Blog",
+          "title": "Meta Debuts New AI Coding Tools",
+          "url": "https://www.theinformation.com/briefings/meta-debuts-new-ai-coding-tools",
+          "publishedAt": "2026-08-05T19:40:44.000Z",
+          "summary": "Meta Platforms unveiled a new coding model, Muse Code beta, on Wednesday alongside its latest AI model, Muse Spark 1.2. In a Threads post, CEO Mark Zuckerberg said Muse Code can delegate complex tasks to “sub-agents,” allowing developers to split programming tasks among multiple AI agents, ...",
+          "fetchedAt": "2026-08-05T21:06:49.361Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-05T21:06:49.361Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "standard",
+            "reason": "fresh",
+            "ageHours": 1.4348225,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N4"
+        },
+        {
+          "id": "grounded-publisher-url-5a041a598ff0bba0",
+          "sourceId": 900226,
+          "sourceName": "The Wall Street Journal",
+          "sourcePublisher": "The Wall Street Journal",
+          "sourceKind": "Blog",
+          "title": "Meta Releases Coding Agent to Compete with OpenAI and Anthropic",
+          "url": "https://www.wsj.com/tech/ai/meta-releases-coding-agent-to-compete-with-openai-and-anthropic-af87b517",
+          "publishedAt": "2026-08-05T20:20:00.000Z",
+          "summary": "Meta Releases Coding Agent to Compete with OpenAI and Anthropic",
+          "fetchedAt": "2026-08-05T21:06:49.361Z",
+          "groundedFromDiscovery": true,
+          "originalTitleMethod": "publisher-url",
+          "discoveredThroughCluster": true,
+          "accessMethod": "publisher-url",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-05T21:06:49.361Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 0.7803780555555555,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N8"
+        },
+        {
+          "id": "research-grounded-page-metadata-aaafddabd3008b9a-1-https://research.meta.ai/blog/introducing-muse-code-and-muse-spark-1-2",
+          "sourceId": 900306,
+          "sourceName": "Meta",
+          "sourcePublisher": "Meta",
+          "sourceKind": "Official",
+          "title": "Introducing Muse Code and Muse Spark 1.2",
+          "url": "https://research.meta.ai/blog/introducing-muse-code-and-muse-spark-1-2",
+          "publishedAt": "2026-08-05T19:00:17.000Z",
+          "summary": "Meta 的产品发布原文补齐了当前状态：Muse Code 为测试版终端编码代理，并与新一代 Muse Spark 1.2 配套发布。",
+          "fetchedAt": "2026-08-05T21:06:49.361Z",
+          "researchedFrom": "N1",
+          "researchRole": "Primary",
+          "researchClaim": "Meta 于 2026 年 8 月 5 日推出测试版 Muse Code，把其此前以模型 API 和第三方 coding harness 为主的 Muse Spark 产品线，延伸为面向终端、可执行长链路软件工程任务的自有编码代理；该产品由 Muse Spark 1.2 驱动。",
+          "researchComparisons": "此前状态是：Muse Spark 1.1 于 2026 年 7 月 9 日通过 Meta Model API 向开发者公开预览，并被定位为可适配 OpenCode 等既有 agentic coding harness 的模型，而非 Meta 自有终端代理。Meta 自报的上一代 Muse Spark 1.1 在 Terminal-Bench 2.1 为 80.0，低于其表中 Anthropic Opus 4.8 的 82.7 和 OpenAI GPT-5.5 的 83.4；因此，Muse Code 的发布证明 Meta 增加了产品形态，但不能单凭发布认定其编码能力已超过两者。",
+          "researchUnresolved": "尚无可公开核验的 Muse Code／Muse Spark 1.2 独立基准成绩、完整评测配置与运行轨迹；其定价、地域可用性、支持的操作系统范围，以及 beta 阶段的使用限制也需要以 Meta 的产品文档进一步核验。",
+          "ref": "R1"
+        },
+        {
+          "id": "research-grounded-page-metadata-aaafddabd3008b9a-2-https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/",
+          "sourceId": 900306,
+          "sourceName": "Meta Superintelligence Labs",
+          "sourcePublisher": "Meta Superintelligence Labs",
+          "sourceKind": "Official",
+          "title": "Introducing Muse Spark 1.1",
+          "url": "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/",
+          "publishedAt": "2026-07-09T00:00:00.000Z",
+          "summary": "补齐此前状态：Meta 在 7 月将 Muse Spark 1.1 作为支持工具使用、计算机使用和复杂代码库任务的模型，通过 Meta Model API 公开预览，并强调其适配既有 coding harness。",
+          "fetchedAt": "2026-08-05T21:06:49.361Z",
+          "researchedFrom": "N1",
+          "researchRole": "Comparison",
+          "researchClaim": "Meta 于 2026 年 8 月 5 日推出测试版 Muse Code，把其此前以模型 API 和第三方 coding harness 为主的 Muse Spark 产品线，延伸为面向终端、可执行长链路软件工程任务的自有编码代理；该产品由 Muse Spark 1.2 驱动。",
+          "researchComparisons": "此前状态是：Muse Spark 1.1 于 2026 年 7 月 9 日通过 Meta Model API 向开发者公开预览，并被定位为可适配 OpenCode 等既有 agentic coding harness 的模型，而非 Meta 自有终端代理。Meta 自报的上一代 Muse Spark 1.1 在 Terminal-Bench 2.1 为 80.0，低于其表中 Anthropic Opus 4.8 的 82.7 和 OpenAI GPT-5.5 的 83.4；因此，Muse Code 的发布证明 Meta 增加了产品形态，但不能单凭发布认定其编码能力已超过两者。",
+          "researchUnresolved": "尚无可公开核验的 Muse Code／Muse Spark 1.2 独立基准成绩、完整评测配置与运行轨迹；其定价、地域可用性、支持的操作系统范围，以及 beta 阶段的使用限制也需要以 Meta 的产品文档进一步核验。",
+          "ref": "R2"
+        },
+        {
+          "id": "research-grounded-page-metadata-aaafddabd3008b9a-3-https://developer.meta.com/ai/",
+          "sourceId": 900306,
+          "sourceName": "Meta",
+          "sourcePublisher": "Meta",
+          "sourceKind": "Official",
+          "title": "Products & Solutions for AI Developers",
+          "url": "https://developer.meta.com/ai/",
+          "publishedAt": "2026-08-05T19:00:17.000Z",
+          "summary": "Meta 的开发者产品页列出其自报 Terminal-Bench 2.1 对比：Muse Spark 1.1 为 80.0，Opus 4.8 为 82.7，GPT-5.5 为 83.4；这是发布后判断竞争位置的明确量化基准，但仍属 Meta 展示的结果。",
+          "fetchedAt": "2026-08-05T21:06:49.361Z",
+          "researchedFrom": "N1",
+          "researchRole": "Comparison",
+          "researchClaim": "Meta 于 2026 年 8 月 5 日推出测试版 Muse Code，把其此前以模型 API 和第三方 coding harness 为主的 Muse Spark 产品线，延伸为面向终端、可执行长链路软件工程任务的自有编码代理；该产品由 Muse Spark 1.2 驱动。",
+          "researchComparisons": "此前状态是：Muse Spark 1.1 于 2026 年 7 月 9 日通过 Meta Model API 向开发者公开预览，并被定位为可适配 OpenCode 等既有 agentic coding harness 的模型，而非 Meta 自有终端代理。Meta 自报的上一代 Muse Spark 1.1 在 Terminal-Bench 2.1 为 80.0，低于其表中 Anthropic Opus 4.8 的 82.7 和 OpenAI GPT-5.5 的 83.4；因此，Muse Code 的发布证明 Meta 增加了产品形态，但不能单凭发布认定其编码能力已超过两者。",
+          "researchUnresolved": "尚无可公开核验的 Muse Code／Muse Spark 1.2 独立基准成绩、完整评测配置与运行轨迹；其定价、地域可用性、支持的操作系统范围，以及 beta 阶段的使用限制也需要以 Meta 的产品文档进一步核验。",
+          "ref": "R3"
+        },
+        {
+          "id": "research-grounded-page-metadata-aaafddabd3008b9a-4-https://www.axios.com/2026/07/24/meta-muse-spark-agents",
+          "sourceId": 900306,
+          "sourceName": "Axios",
+          "sourcePublisher": "Axios",
+          "sourceKind": "Media",
+          "title": "Meta's Muse Spark agents connects to Google Calendar and Gmail",
+          "url": "https://www.axios.com/2026/07/24/meta-muse-spark-agents",
+          "publishedAt": "2026-07-24T00:00:00.000Z",
+          "summary": "独立报道在 Muse Code 发布前不足两周指出，Meta 的 agent 软件仍弱于 OpenAI、Anthropic 和 Google 的竞争产品，尤其在可处理任务范围与自主运行时长上；这构成“新终端代理即已追平领先者”的最强已公开反例。",
+          "fetchedAt": "2026-08-05T21:06:49.361Z",
+          "researchedFrom": "N1",
+          "researchRole": "Counterevidence",
+          "researchClaim": "Meta 于 2026 年 8 月 5 日推出测试版 Muse Code，把其此前以模型 API 和第三方 coding harness 为主的 Muse Spark 产品线，延伸为面向终端、可执行长链路软件工程任务的自有编码代理；该产品由 Muse Spark 1.2 驱动。",
+          "researchComparisons": "此前状态是：Muse Spark 1.1 于 2026 年 7 月 9 日通过 Meta Model API 向开发者公开预览，并被定位为可适配 OpenCode 等既有 agentic coding harness 的模型，而非 Meta 自有终端代理。Meta 自报的上一代 Muse Spark 1.1 在 Terminal-Bench 2.1 为 80.0，低于其表中 Anthropic Opus 4.8 的 82.7 和 OpenAI GPT-5.5 的 83.4；因此，Muse Code 的发布证明 Meta 增加了产品形态，但不能单凭发布认定其编码能力已超过两者。",
+          "researchUnresolved": "尚无可公开核验的 Muse Code／Muse Spark 1.2 独立基准成绩、完整评测配置与运行轨迹；其定价、地域可用性、支持的操作系统范围，以及 beta 阶段的使用限制也需要以 Meta 的产品文档进一步核验。",
+          "ref": "R4"
+        }
+      ],
+      "feedBatchAt": "2026-08-05T21:06:49.361Z"
+    },
     {
       "id": 80,
       "editorialBucket": "dynamic",
@@ -40,7 +461,7 @@
       },
       "validationType": "跨平台验证",
       "publishedAt": "2026-08-05T18:20:53.000Z",
-      "updatedAt": "2026-08-05T18:20:53.000Z",
+      "updatedAt": "2026-08-05T19:30:19.000Z",
       "sources": [
         "Blog",
         "Media",
@@ -52,9 +473,10 @@
         "Google",
         "Google DeepMind",
         "The Information",
-        "Discovery Loop"
+        "Discovery Loop",
+        "TechCrunch"
       ],
-      "sourceCount": 6,
+      "sourceCount": 7,
       "age": "1 小时前",
       "score": 86,
       "tone": "blue",
@@ -228,6 +650,32 @@
           "ref": "G1",
           "role": "佐证",
           "takeaway": "Discovery Loop官网列出Dean、Ghemawat、Le和Vinyals为创始团队，并说明其自动化实验循环方向。"
+        },
+        {
+          "id": "228-1-https://techcrunch.com/2026/08/05/jeff-dean-and-other-top-ai-researchers-are-leaving-google-to-launch-their-own-startup/",
+          "sourceId": 228,
+          "sourceName": "TechCrunch AI",
+          "sourcePublisher": "TechCrunch",
+          "sourceKind": "Blog",
+          "title": "Jeff Dean and other top AI researchers are leaving Google to launch their own startup",
+          "url": "https://techcrunch.com/2026/08/05/jeff-dean-and-other-top-ai-researchers-are-leaving-google-to-launch-their-own-startup/",
+          "publishedAt": "2026-08-05T19:30:19.000Z",
+          "summary": "The legendary Google executive is joined by other outgoing Google execs in a joint mission to use AI to push forward the process of scientific discovery.",
+          "fetchedAt": "2026-08-05T21:06:49.361Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-05T21:06:49.361Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 1.608433611111111,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N6",
+          "role": "最新进展",
+          "takeaway": "TechCrunch报道Jeff Dean及其他资深AI研究人员离开Google并共同创办AI科学发现创业公司。"
         }
       ],
       "references": [
@@ -384,9 +832,71 @@
           "groundingClaim": "Discovery Loop 的官网显示，该公司致力于利用前沿 AI 模型和大规模计算基础设施，自动化机器学习、科学与工程中的实验循环；官网列出的创始团队包括 Jeff Dean、Sanjay Ghemawat、Quoc Le 和 Oriol Vinyals。",
           "groundingNotes": "",
           "ref": "G1"
+        },
+        {
+          "id": "228-1-https://techcrunch.com/2026/08/05/jeff-dean-and-other-top-ai-researchers-are-leaving-google-to-launch-their-own-startup/",
+          "sourceId": 228,
+          "sourceName": "TechCrunch AI",
+          "sourcePublisher": "TechCrunch",
+          "sourceKind": "Blog",
+          "title": "Jeff Dean and other top AI researchers are leaving Google to launch their own startup",
+          "url": "https://techcrunch.com/2026/08/05/jeff-dean-and-other-top-ai-researchers-are-leaving-google-to-launch-their-own-startup/",
+          "publishedAt": "2026-08-05T19:30:19.000Z",
+          "summary": "The legendary Google executive is joined by other outgoing Google execs in a joint mission to use AI to push forward the process of scientific discovery.",
+          "fetchedAt": "2026-08-05T21:06:49.361Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-05T21:06:49.361Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 1.608433611111111,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N6"
         }
       ],
-      "feedBatchAt": "2026-08-05T19:05:53.642Z"
+      "feedBatchAt": "2026-08-05T21:06:49.361Z",
+      "updates": [
+        {
+          "addedAt": "2026-08-05T19:30:19.000Z",
+          "title": "Jeff Dean创业计划获补充",
+          "summary": "TechCrunch称，Jeff Dean将与其他离任Google高管共同创办一家利用AI推进科学发现的新公司。",
+          "evidence": [
+            {
+              "id": "228-1-https://techcrunch.com/2026/08/05/jeff-dean-and-other-top-ai-researchers-are-leaving-google-to-launch-their-own-startup/",
+              "sourceId": 228,
+              "sourceName": "TechCrunch AI",
+              "sourcePublisher": "TechCrunch",
+              "sourceKind": "Blog",
+              "title": "Jeff Dean and other top AI researchers are leaving Google to launch their own startup",
+              "url": "https://techcrunch.com/2026/08/05/jeff-dean-and-other-top-ai-researchers-are-leaving-google-to-launch-their-own-startup/",
+              "publishedAt": "2026-08-05T19:30:19.000Z",
+              "summary": "The legendary Google executive is joined by other outgoing Google execs in a joint mission to use AI to push forward the process of scientific discovery.",
+              "fetchedAt": "2026-08-05T21:06:49.361Z",
+              "accessMethod": "public-feed",
+              "publicContentPolicy": "headline-source-link-only",
+              "firstSeenAt": "2026-08-05T21:06:49.361Z",
+              "freshness": {
+                "eligible": true,
+                "lane": "explore",
+                "reason": "fresh",
+                "ageHours": 1.608433611111111,
+                "maxAgeHours": 168
+              },
+              "deferredResearch": false,
+              "ref": "N6",
+              "role": "最新进展",
+              "takeaway": "TechCrunch报道Jeff Dean及其他资深AI研究人员离开Google并共同创办AI科学发现创业公司。"
+            }
+          ],
+          "changeType": "progress",
+          "thesisImpact": "Jeff Dean离开Google的消息获得TechCrunch补充：他将与其他离任Google高管共同创办AI科学发现公司，强化其从个人离职转向新机构创业的后续判断。",
+          "revisionRequired": false
+        }
+      ]
     },
     {
       "id": 81,
@@ -26480,6 +26990,69 @@
       "editorNote": "今日信息环境由智能体安全事件、AI coding 工具链分化、open-weight 模型竞争与算力下沉共同主导。",
       "signals": [
         {
+          "category": "Agents",
+          "eyebrow": "产品信号",
+          "title": "Meta推出Muse Code编码代理",
+          "summary": "Meta发布测试版终端编码代理Muse Code及Muse Spark 1.2，正式进入与OpenAI、Anthropic竞争的编码代理产品层。",
+          "why": "Meta此前主要提供模型预览；终端代理把竞争推进到任务执行、子代理协作与开发工作流入口。",
+          "impact": "若其API、评测和开发者采用持续改善，Meta可能从开源模型供给方扩展为编码代理平台竞争者。",
+          "shiftFrom": "以Muse Spark模型预览为主",
+          "shiftTo": "推出终端编码代理测试版",
+          "crossValidation": "Meta官方确认Muse Code与Muse Spark 1.2发布；CNBC、Bloomberg、The Information和WSJ均报道该产品事件。Meta自报基准与Antigma独立复现对旧版模型的结果存在差距。",
+          "article": {
+            "lead": "Meta已推出其首个测试版终端编码代理Muse Code，并同步发布Muse Spark 1.2。这一变化的核心不只是新增一款模型，而是Meta开始将模型能力封装为可执行复杂编程任务、可委派子代理的开发者产品，直接进入OpenAI和Anthropic已率先占据的编码代理工作流。",
+            "sections": [
+              {
+                "heading": "Meta从模型预览走向代理产品",
+                "body": "Meta官方将Muse Code定义为测试版终端编码代理，并与Muse Spark 1.2配套发布。多家媒体将其视为Meta首次以编码代理形态参与竞争。相比7月发布、通过Meta Model API公开预览的Muse Spark 1.1，新产品把开发者接触点从调用模型扩展至终端中的任务执行。这是产品层级的变化：用户不再只评价模型能否生成代码，也会评价代理能否完成一段有边界的工程工作。"
+              },
+              {
+                "heading": "竞争重点落在任务编排而非单轮生成",
+                "body": "The Information报道，Muse Code可将复杂任务委派给“sub-agents”，让开发者把编程工作拆分给多个AI代理。Meta此前称Muse Spark 1.1具备工具使用、计算机使用、复杂代码库处理、规划和上下文压缩能力；Muse Code将这些能力组织为终端工作流。对Meta而言，这意味着竞争对象不再只是单个代码模型的输出质量，还包括harness、权限边界、上下文管理、任务分解和开发者反馈闭环。"
+              },
+              {
+                "heading": "能力位置仍需用新版本实测确认",
+                "body": "Meta开发者页面列出的Terminal-Bench 2.1结果中，Muse Spark 1.1为80.0，低于Opus 4.8的82.7和GPT-5.5的83.4；这些是Meta展示的数据。Antigma对Muse Spark 1.1的独立测试得到76.2%±1.23，而其Claude Code搭载Opus 4.8的结果为78.9%±1.31，且并未直接评测Muse Code或Muse Spark 1.2。Axios此前也认为Meta代理在任务范围和自主运行时长上仍弱于领先产品。"
+              }
+            ],
+            "outlook": "接下来可观察的证据包括：Meta是否公布Muse Code的API范围、定价、地区可用性与企业权限控制；第三方是否对Muse Code和Muse Spark 1.2进行可复现的Terminal-Bench、SWE-bench或真实代码库测试；以及开发者是否将其纳入现有CI、IDE或代理编排流程。若新版本在独立任务完成率和长期运行稳定性上仍明显落后，当前的竞争定位将被削弱。"
+          },
+          "evidence": [
+            {
+              "role": "主张",
+              "takeaway": "CNBC报道Meta发布首个名为Muse Code的AI编码代理。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "Bloomberg报道Mark Zuckerberg宣布Meta发布Muse Code。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "The Information报道Muse Code beta与Muse Spark 1.2同步推出，并可委派子代理。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "WSJ报道Meta发布编码代理以与OpenAI和Anthropic竞争。"
+            },
+            {
+              "role": "主张",
+              "takeaway": "Meta官方确认Muse Code是测试版终端编码代理，并与Muse Spark 1.2配套发布。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "Meta Superintelligence Labs称Muse Spark 1.1于7月通过Meta Model API公开预览。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "Meta开发者页面列出Muse Spark 1.1、Opus 4.8和GPT-5.5的Terminal-Bench 2.1对比结果。"
+            },
+            {
+              "role": "反例",
+              "takeaway": "Axios此前报道Meta代理在任务范围和自主运行时长上弱于领先竞品。"
+            }
+          ]
+        },
+        {
           "category": "AI & 模型",
           "eyebrow": "趋势变化",
           "title": "Google DeepMind重组交接领导权",
@@ -26539,6 +27112,26 @@
             {
               "role": "佐证",
               "takeaway": "Discovery Loop官网列出Dean、Ghemawat、Le和Vinyals为创始团队，并说明其自动化实验循环方向。"
+            },
+            {
+              "role": "最新进展",
+              "takeaway": "TechCrunch报道Jeff Dean及其他资深AI研究人员离开Google并共同创办AI科学发现创业公司。"
+            }
+          ],
+          "updates": [
+            {
+              "addedAt": "2026-08-05T19:30:19.000Z",
+              "title": "Jeff Dean创业计划获补充",
+              "summary": "TechCrunch称，Jeff Dean将与其他离任Google高管共同创办一家利用AI推进科学发现的新公司。",
+              "evidence": [
+                {
+                  "role": "最新进展",
+                  "takeaway": "TechCrunch报道Jeff Dean及其他资深AI研究人员离开Google并共同创办AI科学发现创业公司。"
+                }
+              ],
+              "changeType": "progress",
+              "thesisImpact": "Jeff Dean离开Google的消息获得TechCrunch补充：他将与其他离任Google高管共同创办AI科学发现公司，强化其从个人离职转向新机构创业的后续判断。",
+              "revisionRequired": false
             }
           ]
         },
@@ -34064,6 +34657,69 @@
       "editorNote": "Today’s information environment is being shaped by agent security incidents, a split in coding-agent toolchains, open-model competition, and compute moving closer to the edge.",
       "signals": [
         {
+          "category": "Agents",
+          "eyebrow": "Product signal",
+          "title": "Meta launches Muse Code coding agent",
+          "summary": "Meta has launched its beta terminal coding agent, Muse Code, alongside Muse Spark 1.2, entering the coding-agent product race with OpenAI and Anthropic.",
+          "why": "Meta had mainly offered model previews; a terminal agent moves competition into task execution, sub-agent coordination, and the developer workflow entry point.",
+          "impact": "If API access, benchmarks, and developer adoption improve, Meta could expand from a model supplier into a coding-agent platform competitor.",
+          "shiftFrom": "Primarily Muse Spark model previews",
+          "shiftTo": "A beta terminal coding agent",
+          "crossValidation": "Meta confirms the launch, while CNBC, Bloomberg, The Information, and WSJ report the same event. Meta’s self-reported benchmark and Antigma’s independent result for the prior model differ.",
+          "article": {
+            "lead": "Meta has launched Muse Code, its first beta terminal coding agent, alongside Muse Spark 1.2. The key change is not simply another model release: Meta is packaging model capabilities into a developer product that can execute complex programming tasks and delegate work to sub-agents, entering a workflow layer where OpenAI and Anthropic already compete.",
+            "sections": [
+              {
+                "heading": "From model previews to an agent product",
+                "body": "Meta describes Muse Code as a beta terminal coding agent released with Muse Spark 1.2. Several media outlets frame it as Meta’s first coding-agent offering. That differs from Muse Spark 1.1, which Meta released through a public preview of the Meta Model API in July. The developer touchpoint is moving from calling a model to assigning work in a terminal. Users will therefore judge not only generated code, but whether the agent can finish bounded engineering tasks."
+              },
+              {
+                "heading": "The mechanism is task orchestration",
+                "body": "The Information reports that Muse Code can delegate complex work to sub-agents, allowing developers to split programming tasks among multiple AI agents. Meta had previously said Muse Spark 1.1 supported tool use, computer use, complex codebases, planning, and context compression. Muse Code turns those capabilities into a terminal workflow. The contest is consequently about harnesses, permissions, context management, task decomposition, and feedback loops—not just single-turn code quality."
+              },
+              {
+                "heading": "The new capability still needs independent testing",
+                "body": "Meta’s developer page lists an 80.0 Terminal-Bench 2.1 score for Muse Spark 1.1, versus 82.7 for Opus 4.8 and 83.4 for GPT-5.5; those are Meta-presented results. Antigma measured 76.2%±1.23 for Muse Spark 1.1 and 78.9%±1.31 for Claude Code with Opus 4.8, but did not test Muse Code or Muse Spark 1.2. Axios had also reported that Meta’s agents lagged leading products in task breadth and autonomous runtime."
+              }
+            ],
+            "outlook": "Observable next evidence includes Meta’s disclosure of Muse Code API scope, pricing, regional availability, and enterprise controls; reproducible third-party tests of Muse Code and Muse Spark 1.2 on Terminal-Bench, SWE-bench, or real repositories; and signs that developers integrate it into CI, IDE, or agent-orchestration workflows. Persistent gaps in independent completion rates or long-running reliability would weaken the competitive claim."
+          },
+          "evidence": [
+            {
+              "role": "Claim",
+              "takeaway": "CNBC reports Meta released its first AI coding agent, Muse Code."
+            },
+            {
+              "role": "Support",
+              "takeaway": "Bloomberg reports that Mark Zuckerberg announced Muse Code."
+            },
+            {
+              "role": "Support",
+              "takeaway": "The Information reports that Muse Code beta launched with Muse Spark 1.2 and can delegate to sub-agents."
+            },
+            {
+              "role": "Support",
+              "takeaway": "WSJ reports Meta released a coding agent to compete with OpenAI and Anthropic."
+            },
+            {
+              "role": "Claim",
+              "takeaway": "Meta confirms Muse Code is a beta terminal coding agent released alongside Muse Spark 1.2."
+            },
+            {
+              "role": "Context",
+              "takeaway": "Meta Superintelligence Labs says Muse Spark 1.1 entered public API preview in July."
+            },
+            {
+              "role": "Support",
+              "takeaway": "Meta lists Terminal-Bench 2.1 comparisons for Muse Spark 1.1, Opus 4.8, and GPT-5.5."
+            },
+            {
+              "role": "Counterpoint",
+              "takeaway": "Axios previously reported that Meta’s agents lagged leaders in task breadth and autonomous runtime."
+            }
+          ]
+        },
+        {
           "category": "AI & Models",
           "eyebrow": "Strategic shift",
           "title": "Google DeepMind reshuffles its leadership",
@@ -34123,6 +34779,26 @@
             {
               "role": "Counterpoint",
               "takeaway": "Google DeepMind’s public About page still identifies Hassabis as co-founder and CEO."
+            },
+            {
+              "role": "Update",
+              "takeaway": "TechCrunch reports that Jeff Dean and other senior AI researchers are leaving Google to launch an AI-for-science startup."
+            }
+          ],
+          "updates": [
+            {
+              "addedAt": "2026-08-05T19:30:19.000Z",
+              "title": "Jeff Dean startup plan gains detail",
+              "summary": "TechCrunch reports that Jeff Dean and other departing Google executives are launching a startup using AI to advance scientific discovery.",
+              "evidence": [
+                {
+                  "role": "Update",
+                  "takeaway": "TechCrunch reports that Jeff Dean and other senior AI researchers are leaving Google to launch an AI-for-science startup."
+                }
+              ],
+              "changeType": "progress",
+              "thesisImpact": "Jeff Dean离开Google的消息获得TechCrunch补充：他将与其他离任Google高管共同创办AI科学发现公司，强化其从个人离职转向新机构创业的后续判断。",
+              "revisionRequired": false
             }
           ]
         },
@@ -41648,12 +42324,12 @@
     "en": "gpt-5.6-sol"
   },
   "incremental": {
-    "lastAddedAt": "2026-08-05T19:11:47.932Z",
-    "lastScanAt": "2026-08-05T19:05:53.642Z",
-    "lastAddedCount": 2,
-    "lastUpdatedCount": 0,
-    "totalAppended": 73,
-    "totalUpdated": 55
+    "lastAddedAt": "2026-08-05T21:11:58.306Z",
+    "lastScanAt": "2026-08-05T21:06:49.361Z",
+    "lastAddedCount": 1,
+    "lastUpdatedCount": 1,
+    "totalAppended": 74,
+    "totalUpdated": 56
   },
   "exploreDepth": {
     "minimum": 50,
