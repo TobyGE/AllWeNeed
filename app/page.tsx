@@ -10,6 +10,12 @@ import {
   trackAnalyticsEvent,
   trackPageView,
 } from "./analytics";
+import {
+  permanentArticleById,
+  permanentArticleFromPathname,
+  permanentArticlePath,
+  type PermanentArticleKind,
+} from "./article-routes";
 import { ArticleView } from "./article-view";
 import {
   FontSizeControl,
@@ -171,6 +177,11 @@ type LiveStreamItem = {
 
 type RadarView = "live" | "brief" | "explore" | "conversations";
 type AppSection = "radar" | "sources";
+type ArticleKind =
+  | PermanentArticleKind
+  | "company"
+  | "conversation"
+  | null;
 
 type SiteSection = RadarView | "sources";
 
@@ -216,6 +227,11 @@ function routeFromPathname(pathname: string): {
 
 function pathForView(view: RadarView) {
   return sectionPath(view);
+}
+
+function isRootFeedPath(pathname: string) {
+  const normalized = pathname.replace(/\/+$/, "");
+  return normalized === "" || normalized === "/intelligence";
 }
 
 const signals = dailyRadar.signals as Signal[];
@@ -309,6 +325,7 @@ export default function Home() {
   const [section, setSection] = useState<AppSection>(initialRoute.section);
   const [notice, setNotice] = useState("");
   const [articleId, setArticleId] = useState<string | null>(null);
+  const [articleKind, setArticleKind] = useState<ArticleKind>(null);
   const [routeReady, setRouteReady] = useState(false);
   const [heatNow, setHeatNow] = useState(dailyRadar.generatedAt);
   const [isMobileLayout, setIsMobileLayout] = useState(false);
@@ -318,6 +335,13 @@ export default function Home() {
 
   useEffect(() => {
     try {
+      const permanentRoute = permanentArticleFromPathname(
+        window.location.pathname,
+      );
+      if (permanentRoute) {
+        setLocale(permanentRoute.locale);
+        return;
+      }
       const storedLocale = window.localStorage.getItem("all-we-need-locale");
       if (storedLocale === "zh" || storedLocale === "en") {
         setLocale(storedLocale);
@@ -361,10 +385,14 @@ export default function Home() {
           ? locale === "zh"
             ? "探索 — All We Need"
             : "Explore — All We Need"
-          : view === "live"
-            ? locale === "zh"
-              ? "动态 — All We Need"
-              : "Live — All We Need"
+        : view === "live"
+            ? isRootFeedPath(window.location.pathname)
+              ? locale === "zh"
+                ? "All We Need — AI 科技情报"
+                : "All We Need — AI & Tech Intelligence"
+              : locale === "zh"
+                ? "动态 — All We Need"
+                : "Live — All We Need"
           : view === "conversations"
             ? locale === "zh"
               ? "播客 — All We Need"
@@ -437,12 +465,58 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
+    if (!localePreferenceReady) return;
     const readLocation = () => {
-      const route = routeFromPathname(window.location.pathname);
+      const permanentRoute = permanentArticleFromPathname(
+        window.location.pathname,
+      );
+      const route = permanentRoute
+        ? {
+            view:
+              permanentRoute.kind === "focus"
+                ? ("brief" as RadarView)
+                : ("explore" as RadarView),
+            section: "radar" as AppSection,
+          }
+        : routeFromPathname(window.location.pathname);
       const value = new URLSearchParams(window.location.search).get("article");
       setView(route.view);
       setSection(route.section);
-      setArticleId(value || null);
+      if (permanentRoute) {
+        setArticleId(permanentRoute.id);
+        setArticleKind(permanentRoute.kind);
+        setLocale(permanentRoute.locale);
+      } else if (value) {
+        const preferredKind =
+          route.view === "brief"
+            ? "focus"
+            : route.view === "explore"
+              ? "explore"
+              : null;
+        const permanent =
+          (preferredKind && permanentArticleById(preferredKind, value)) ||
+          permanentArticleById("explore", value) ||
+          permanentArticleById("focus", value);
+        if (permanent) {
+          const nextPath = permanentArticlePath(
+            permanent.kind,
+            value,
+            locale,
+            window.location.pathname,
+          );
+          if (nextPath) {
+            window.history.replaceState({}, "", nextPath);
+          }
+          setArticleId(value);
+          setArticleKind(permanent.kind);
+        } else {
+          setArticleId(value);
+          setArticleKind(null);
+        }
+      } else {
+        setArticleId(null);
+        setArticleKind(null);
+      }
       setActiveCategory("全部");
       setQuery("");
       setRouteReady(true);
@@ -450,7 +524,7 @@ export default function Home() {
     readLocation();
     window.addEventListener("popstate", readLocation);
     return () => window.removeEventListener("popstate", readLocation);
-  }, []);
+  }, [locale, localePreferenceReady]);
 
   const localizedSignals = useMemo(
     () =>
@@ -806,16 +880,24 @@ export default function Home() {
     if (!routeReady) return;
 
     const exploreArticle = localizedExploreSignals.find(
-      (signal) => signal.id === articleId,
+      (signal) =>
+        (articleKind === null || articleKind === "explore") &&
+        signal.id === articleId,
     );
     const companyArticle = localizedCompanySignals.find(
-      (signal) => signal.id === articleId,
+      (signal) =>
+        (articleKind === null || articleKind === "company") &&
+        signal.id === articleId,
     );
     const conversationArticle = localizedConversations.find(
-      (item) => item.id === articleId,
+      (item) =>
+        (articleKind === null || articleKind === "conversation") &&
+        item.id === articleId,
     );
     const dynamicArticle = localizedSignals.find(
-      (signal) => String(signal.id) === articleId,
+      (signal) =>
+        (articleKind === null || articleKind === "focus") &&
+        String(signal.id) === articleId,
     );
     const activeArticle =
       conversationArticle ?? exploreArticle ?? companyArticle ?? dynamicArticle;
@@ -862,6 +944,7 @@ export default function Home() {
       });
     }
   }, [
+    articleKind,
     articleId,
     locale,
     routeReady,
@@ -1048,25 +1131,82 @@ export default function Home() {
     });
   }
 
-  function openArticle(id: number | string) {
+  function openArticle(
+    id: number | string,
+    kind: Exclude<ArticleKind, null> | null = null,
+  ) {
     const normalizedId = String(id);
+    const permanentPath =
+      (kind === "focus" || kind === "explore") &&
+      permanentArticlePath(
+        kind,
+        normalizedId,
+        locale,
+        window.location.pathname,
+      );
     const url = new URL(window.location.href);
-    url.searchParams.set("article", normalizedId);
-    window.history.pushState({}, "", url);
+    if (permanentPath) {
+      window.history.pushState({}, "", permanentPath);
+    } else {
+      url.searchParams.set("article", normalizedId);
+      window.history.pushState({}, "", url);
+    }
     setArticleId(normalizedId);
+    setArticleKind(kind);
     window.scrollTo({ top: 0, behavior: "instant" });
+  }
+
+  function articleHref(
+    id: number | string,
+    kind: Exclude<ArticleKind, null>,
+  ) {
+    return (
+      ((kind === "focus" || kind === "explore") &&
+        permanentArticlePath(
+          kind,
+          id,
+          locale,
+          window.location.pathname,
+        )) ||
+      `?article=${id}`
+    );
   }
 
   function closeArticle() {
-    const url = new URL(window.location.href);
-    url.searchParams.delete("article");
-    window.history.replaceState({}, "", url);
+    const returnView =
+      articleKind === "explore"
+        ? "explore"
+        : articleKind === "conversation"
+          ? "conversations"
+          : "brief";
+    window.history.replaceState({}, "", sectionPath(returnView));
     setArticleId(null);
+    setArticleKind(null);
     window.scrollTo({ top: 0, behavior: "instant" });
   }
 
+  function changeArticleLocale(nextLocale: "zh" | "en") {
+    if (
+      articleId &&
+      (articleKind === "focus" || articleKind === "explore")
+    ) {
+      const nextPath = permanentArticlePath(
+        articleKind,
+        articleId,
+        nextLocale,
+        window.location.pathname,
+      );
+      if (nextPath) {
+        window.history.replaceState({}, "", nextPath);
+      }
+    }
+    setLocale(nextLocale);
+  }
+
   const activeConversationArticle = localizedConversations.find(
-    (item) => item.id === articleId,
+    (item) =>
+      (articleKind === null || articleKind === "conversation") &&
+      item.id === articleId,
   );
   if (activeConversationArticle) {
     return (
@@ -1103,7 +1243,7 @@ export default function Home() {
         generatedAt={conversations.generatedAt}
         kind="conversation"
         fontSize={fontSize}
-        onLocaleChange={setLocale}
+        onLocaleChange={changeArticleLocale}
         onFontSizeChange={changeFontSize}
         onBack={closeArticle}
       />
@@ -1111,7 +1251,9 @@ export default function Home() {
   }
 
   const activeExploreArticle = localizedExploreSignals.find(
-    (signal) => signal.id === articleId,
+    (signal) =>
+      (articleKind === null || articleKind === "explore") &&
+      signal.id === articleId,
   );
   if (activeExploreArticle) {
     return (
@@ -1137,14 +1279,16 @@ export default function Home() {
         generatedAt={dailyRadar.generatedAt}
         kind="explore"
         fontSize={fontSize}
-        onLocaleChange={setLocale}
+        onLocaleChange={changeArticleLocale}
         onFontSizeChange={changeFontSize}
         onBack={closeArticle}
       />
     );
   }
   const activeCompanyArticle = localizedCompanySignals.find(
-    (signal) => signal.id === articleId,
+    (signal) =>
+      (articleKind === null || articleKind === "company") &&
+      signal.id === articleId,
   );
   if (activeCompanyArticle) {
     return (
@@ -1178,14 +1322,16 @@ export default function Home() {
         generatedAt={dailyRadar.generatedAt}
         kind="company"
         fontSize={fontSize}
-        onLocaleChange={setLocale}
+        onLocaleChange={changeArticleLocale}
         onFontSizeChange={changeFontSize}
         onBack={closeArticle}
       />
     );
   }
   const activeArticle = localizedSignals.find(
-    (signal) => String(signal.id) === articleId,
+    (signal) =>
+      (articleKind === null || articleKind === "focus") &&
+      String(signal.id) === articleId,
   );
   if (activeArticle) {
     return (
@@ -1194,7 +1340,7 @@ export default function Home() {
         locale={locale}
         generatedAt={dailyRadar.generatedAt}
         fontSize={fontSize}
-        onLocaleChange={setLocale}
+        onLocaleChange={changeArticleLocale}
         onFontSizeChange={changeFontSize}
         onBack={closeArticle}
       />
@@ -1323,7 +1469,7 @@ export default function Home() {
           summary={trafficSummary as TrafficSummary}
         />
 
-        <div className="coverage-card">
+        <div className="coverage-card" data-nosnippet>
           <div className="coverage-top">
             <span>{t("真实采集", "LIVE INGEST")}</span>
             <span className="live-dot">{t("已运行", "Running")}</span>
@@ -1845,11 +1991,11 @@ export default function Home() {
                           </span>
                         </div>
                         <a
-                          href={`?article=${signal.id}`}
+                          href={articleHref(signal.id, "focus")}
                           className="signal-title"
                           onClick={(event) => {
                             event.preventDefault();
-                            openArticle(signal.id);
+                            openArticle(signal.id, "focus");
                           }}
                         >
                           <span>{signal.title}</span>
@@ -1972,10 +2118,10 @@ export default function Home() {
 
                         <h3>
                           <a
-                            href={`?article=${signal.id}`}
+                            href={articleHref(signal.id, "explore")}
                             onClick={(event) => {
                               event.preventDefault();
-                              openArticle(signal.id);
+                              openArticle(signal.id, "explore");
                             }}
                           >
                             <span>{signal.title}</span>
@@ -2054,10 +2200,10 @@ export default function Home() {
 
                         <h3>
                           <a
-                            href={`?article=${item.id}`}
+                            href={articleHref(item.id, "conversation")}
                             onClick={(event) => {
                               event.preventDefault();
-                              openArticle(item.id);
+                              openArticle(item.id, "conversation");
                             }}
                           >
                             <span>{item.title}</span>
@@ -2072,10 +2218,10 @@ export default function Home() {
 
                         <footer className="conversation-card-actions">
                           <a
-                            href={`?article=${item.id}`}
+                            href={articleHref(item.id, "conversation")}
                             onClick={(event) => {
                               event.preventDefault();
-                              openArticle(item.id);
+                              openArticle(item.id, "conversation");
                             }}
                           >
                             {t("阅读精读", "Read notes")}
@@ -2179,10 +2325,10 @@ export default function Home() {
                         <div>
                           <strong>
                             <a
-                              href={`?article=${signal.id}`}
+                              href={articleHref(signal.id, "explore")}
                               onClick={(event) => {
                                 event.preventDefault();
-                                openArticle(signal.id);
+                                openArticle(signal.id, "explore");
                               }}
                             >
                               {signal.title}
@@ -2198,7 +2344,7 @@ export default function Home() {
                         </div>
                         <button
                           type="button"
-                          onClick={() => openArticle(signal.id)}
+                          onClick={() => openArticle(signal.id, "explore")}
                         >
                           {t("阅读", "Read")}
                         </button>
@@ -2236,7 +2382,9 @@ export default function Home() {
                 <button
                   className="thesis-action"
                   type="button"
-                  onClick={() => openArticle(leadCompanySignal.id)}
+                  onClick={() =>
+                    openArticle(leadCompanySignal.id, "company")
+                  }
                 >
                   {t("查看完整公司判断", "Open the full company read")}
                   <span>→</span>
@@ -2301,10 +2449,10 @@ export default function Home() {
 
                     <h4>
                       <a
-                        href={`?article=${item.id}`}
+                        href={articleHref(item.id, "company")}
                         onClick={(event) => {
                           event.preventDefault();
-                          openArticle(item.id);
+                          openArticle(item.id, "company");
                         }}
                       >
                         <span>{item.headline}</span>

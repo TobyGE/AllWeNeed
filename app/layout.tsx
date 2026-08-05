@@ -13,9 +13,38 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const title = "All We Need — AI, Tech & Investment Intelligence";
+const title = "All We Need — AI & Tech Intelligence";
 const description =
-  "Discover, verify, and explain the AI, technology, and investment signals that matter across original public sources.";
+  "Independent AI and technology intelligence: real-time updates, cross-validated analysis, and links to original public sources.";
+const siteStructuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://allweneed.info/#website",
+      url: "https://allweneed.info/",
+      name: "All We Need",
+      alternateName: "AllWeNeed",
+      description,
+      inLanguage: ["en", "zh-CN"],
+      publisher: {
+        "@id": "https://allweneed.info/#organization",
+      },
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://allweneed.info/#organization",
+      name: "All We Need",
+      url: "https://allweneed.info/",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://allweneed.info/apple-touch-icon.png",
+        width: 180,
+        height: 180,
+      },
+    },
+  ],
+};
 const gaMeasurementId = "G-8R17J8CJ1W";
 const analyticsBootstrap = `
 (() => {
@@ -70,6 +99,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     metadataBase,
+    applicationName: "All We Need",
     title,
     description,
     alternates: {
@@ -87,7 +117,7 @@ export async function generateMetadata(): Promise<Metadata> {
       },
     },
     icons: {
-      icon: [{ url: "/favicon.png", type: "image/png", sizes: "64x64" }],
+      icon: [{ url: "/favicon-48.png", type: "image/png", sizes: "48x48" }],
       apple: [
         {
           url: "/apple-touch-icon.png",
@@ -98,6 +128,7 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     openGraph: {
       type: "website",
+      siteName: "All We Need",
       title,
       description,
       images: [
@@ -126,6 +157,15 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(siteStructuredData).replaceAll(
+              "<",
+              "\\u003c",
+            ),
+          }}
+        />
         <script dangerouslySetInnerHTML={{ __html: restoreFontSize }} />
         <script
           async

@@ -1,17 +1,58 @@
 import react from "@vitejs/plugin-react";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { dirname, resolve } from "node:path";
 import { fileURLToPath, URL } from "node:url";
 import { defineConfig } from "vite";
+import {
+  applyArticleMetadata,
+  buildArticleCatalog,
+} from "./scripts/article-pages.mjs";
 
 const staticRoot = fileURLToPath(new URL("./static", import.meta.url));
 const staticBase = process.env.ALL_WE_NEED_STATIC_BASE ?? "/";
+const projectRoot = fileURLToPath(new URL(".", import.meta.url));
+const outDir = fileURLToPath(new URL("./static-dist", import.meta.url));
+
+function permanentArticlePages() {
+  return {
+    name: "permanent-article-pages",
+    apply: "build",
+    async closeBundle() {
+      const [radar, existingCatalog] = await Promise.all([
+        readFile(resolve(projectRoot, "data/daily-radar.json"), "utf8").then(
+          JSON.parse,
+        ),
+        readFile(resolve(projectRoot, "data/article-routes.json"), "utf8").then(
+          JSON.parse,
+        ),
+      ]);
+      const catalog = buildArticleCatalog(radar, existingCatalog);
+      const templates = {
+        focus: await readFile(resolve(outDir, "focus/index.html"), "utf8"),
+        explore: await readFile(resolve(outDir, "explore/index.html"), "utf8"),
+      };
+      for (const article of catalog.articles) {
+        for (const locale of ["en", "zh"] as const) {
+          const path = locale === "zh" ? article.zhPath : article.path;
+          const outputPath = resolve(outDir, `.${path}`, "index.html");
+          await mkdir(dirname(outputPath), { recursive: true });
+          await writeFile(
+            outputPath,
+            applyArticleMetadata(templates[article.kind], article, locale),
+          );
+        }
+      }
+    },
+  };
+}
 
 export default defineConfig({
   root: staticRoot,
   base: staticBase,
   publicDir: fileURLToPath(new URL("./public", import.meta.url)),
-  plugins: [react()],
+  plugins: [react(), permanentArticlePages()],
   build: {
-    outDir: fileURLToPath(new URL("./static-dist", import.meta.url)),
+    outDir,
     emptyOutDir: true,
     rollupOptions: {
       input: {

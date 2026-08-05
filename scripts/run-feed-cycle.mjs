@@ -13,9 +13,6 @@ import { assertLiveLocalizationComplete } from "./localize-live-feed.mjs";
 import { assertApprovedModelUsage } from "./model-routing.mjs";
 
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-const defaultHomepageRepo =
-  process.env.RADAR_HOMEPAGE_REPO ??
-  "/Users/yingqiang/yingqiangge.github.io";
 const lockPath = resolve(projectRoot, "tmp/feed-cycle.lock");
 const reportPath = resolve(projectRoot, "tmp/feed-cycle-report.json");
 const radarPath = resolve(projectRoot, "data/daily-radar.json");
@@ -24,9 +21,9 @@ const liveReportPath = resolve(projectRoot, "tmp/live-publish-report.json");
 const staticDistPath = resolve(projectRoot, "static-dist");
 const publishedUrl = "https://allweneed.info/";
 const primaryVerificationUrl = "http://allweneed.info/";
-const legacyPublishedUrl = "https://yingqiangge.github.io/intelligence/";
 const staleLockMs = 3 * 60 * 60 * 1000;
 const generatedDataFiles = [
+  "data/article-routes.json",
   "data/daily-radar.json",
   "data/feed-snapshot.json",
   "data/traffic-summary.json",
@@ -36,6 +33,8 @@ const generatedDataFiles = [
   "data/control-center.json",
   "data/source-candidates.json",
   "data/discovered-sources.json",
+  "public/sitemap.xml",
+  "public/news-sitemap.xml",
 ];
 
 function argumentValue(name) {
@@ -132,7 +131,6 @@ export function assertOnlyExpectedChanges(status, allowedPrefixes, label) {
 
 export function shouldAutoResume({
   radarStatus,
-  homepageStatus,
   result,
 }) {
   if (!radarStatus || !result) return false;
@@ -141,7 +139,6 @@ export function shouldAutoResume({
   ) {
     return false;
   }
-  if (!onlyExpectedChanges(homepageStatus, ["intelligence"])) return false;
   return publicationDecision(result);
 }
 
@@ -332,7 +329,6 @@ function push(repo, branch) {
 }
 
 async function publishLiveOnly({
-  homepageRepo,
   startedAt,
   reuseSnapshot,
 }) {
@@ -402,12 +398,6 @@ async function publishLiveOnly({
     ["data/live-feed.json", "data/traffic-summary.json"],
     "All We Need live repository",
   );
-  assertOnlyExpectedChanges(
-    gitStatus(homepageRepo),
-    ["intelligence"],
-    "Homepage live repository",
-  );
-
   runCommand("npm", ["run", "refresh:traffic"], { cwd: projectRoot });
   assertOnlyExpectedChanges(
     gitStatus(projectRoot),
@@ -429,22 +419,7 @@ async function publishLiveOnly({
     ],
     { cwd: projectRoot },
   );
-  runCommand("npm", ["run", "build:static:legacy"], { cwd: projectRoot });
-  runCommand(
-    "rsync",
-    [
-      "-a",
-      "--delete",
-      `${staticDistPath}/`,
-      `${resolve(homepageRepo, "intelligence")}/`,
-    ],
-    { cwd: projectRoot },
-  );
-  assertOnlyExpectedChanges(
-    gitStatus(homepageRepo),
-    ["intelligence"],
-    "Homepage live repository",
-  );
+  runCommand("npm", ["run", "build:static"], { cwd: projectRoot });
 
   const stamp = new Date(scannedSnapshot.generatedAt)
     .toISOString()
@@ -455,13 +430,7 @@ async function publishLiveOnly({
     ["data/live-feed.json", "data/traffic-summary.json"],
     `Update live wire ${stamp}`,
   );
-  const homepageCommit = commit(
-    homepageRepo,
-    ["intelligence"],
-    `Publish live wire ${stamp}`,
-  );
   push(projectRoot, "main");
-  push(homepageRepo, "master");
 
   const staticIndex = await readFile(
     resolve(staticDistPath, "index.html"),
@@ -471,23 +440,12 @@ async function publishLiveOnly({
   if (!expectedAssets.length) {
     throw new Error("Static live build did not expose any versioned assets");
   }
-  const rootAssets = expectedAssets.map((asset) =>
-    asset.replace(/^\/intelligence/, ""),
+  const primaryPages = await verifyPages(
+    expectedAssets,
+    radarCommit,
+    new URL("/live/", primaryVerificationUrl).toString(),
+    primaryVerificationUrl,
   );
-  const [primaryPages, legacyPages] = await Promise.all([
-    verifyPages(
-      rootAssets,
-      radarCommit,
-      new URL("/live/", primaryVerificationUrl).toString(),
-      primaryVerificationUrl,
-    ),
-    verifyPages(
-      expectedAssets,
-      homepageCommit,
-      new URL("live/", legacyPublishedUrl).toString(),
-      legacyPublishedUrl,
-    ),
-  ]);
   const liveFeed = await readJson(resolve(projectRoot, "data/live-feed.json"));
   const report = {
     status: "live_published",
@@ -499,11 +457,9 @@ async function publishLiveOnly({
     localizationModel: liveFeed.localizationModel ?? null,
     localizedAt: liveFeed.localizedAt ?? null,
     radarCommit,
-    homepageCommit,
     publishedUrl: "https://allweneed.info/live/",
     pages: {
       primary: primaryPages,
-      legacy: legacyPages,
     },
   };
   await mkdir(dirname(liveReportPath), { recursive: true });
@@ -562,7 +518,6 @@ async function main() {
   const skipRemoteCheck = process.argv.includes("--skip-remote-check");
   const reuseSnapshot = process.argv.includes("--reuse-snapshot");
   const requestedLanes = argumentValue("lanes");
-  const homepageRepo = resolve(argumentValue("homepage") ?? defaultHomepageRepo);
   const startedAt = new Date().toISOString();
   let recoveredBatch = null;
   if (
@@ -581,7 +536,6 @@ async function main() {
     if (
       shouldAutoResume({
         radarStatus: gitStatus(projectRoot),
-        homepageStatus: gitStatus(homepageRepo),
         result: pendingResult,
       })
     ) {
@@ -591,7 +545,6 @@ async function main() {
       const resumeArgs = [
         invokedPath,
         "--resume",
-        `--homepage=${homepageRepo}`,
       ];
       if (skipRemoteCheck) resumeArgs.push("--skip-remote-check");
       runCommand(process.execPath, resumeArgs, { cwd: projectRoot });
@@ -600,7 +553,6 @@ async function main() {
         status: recoveryReport.status,
         scannedAt: recoveryReport.scannedAt,
         radarCommit: recoveryReport.radarCommit,
-        homepageCommit: recoveryReport.homepageCommit,
       };
     }
   }
@@ -609,21 +561,14 @@ async function main() {
 
   try {
     assertBranch(projectRoot, "main", "Radar repository");
-    assertBranch(homepageRepo, "master", "Homepage repository");
     if (liveOnly) {
       assertOnlyExpectedChanges(
         gitStatus(projectRoot),
         ["data/live-feed.json", "data/traffic-summary.json"],
         "All We Need live repository",
       );
-      assertOnlyExpectedChanges(
-        gitStatus(homepageRepo),
-        ["intelligence"],
-        "Homepage live repository",
-      );
     } else if (!resume) {
       assertClean(projectRoot, "Radar repository");
-      assertClean(homepageRepo, "Homepage repository");
     } else {
       const radarStatus = gitStatus(projectRoot);
       if (!radarStatus) {
@@ -634,19 +579,12 @@ async function main() {
         generatedDataFiles,
         "Radar repository",
       );
-      assertOnlyExpectedChanges(
-        gitStatus(homepageRepo),
-        ["intelligence"],
-        "Homepage repository",
-      );
     }
     if (!dryRun && !skipRemoteCheck) {
       assertSyncedWithRemote(projectRoot, "main", "Radar repository");
-      assertSyncedWithRemote(homepageRepo, "master", "Homepage repository");
     }
     if (liveOnly) {
       await publishLiveOnly({
-        homepageRepo,
         startedAt,
         reuseSnapshot,
       });
@@ -697,7 +635,6 @@ async function main() {
     }
     if (dryRun || !shouldPublish) {
       assertClean(projectRoot, "Radar repository after no-op scan");
-      assertClean(homepageRepo, "Homepage repository after no-op scan");
       const report = {
         status: dryRun ? "dry_run" : "no_changes",
         startedAt,
@@ -725,22 +662,7 @@ async function main() {
     );
 
     runCommand("npm", ["test"], { cwd: projectRoot });
-    runCommand("npm", ["run", "build:static:legacy"], { cwd: projectRoot });
-    runCommand(
-      "rsync",
-      [
-        "-a",
-        "--delete",
-        `${staticDistPath}/`,
-        `${resolve(homepageRepo, "intelligence")}/`,
-      ],
-      { cwd: projectRoot },
-    );
-    assertOnlyExpectedChanges(
-      gitStatus(homepageRepo),
-      ["intelligence"],
-      "Homepage repository",
-    );
+    runCommand("npm", ["run", "build:static"], { cwd: projectRoot });
 
     const stamp = new Date(result.scannedAt ?? Date.now())
       .toISOString()
@@ -751,14 +673,7 @@ async function main() {
       generatedDataFiles,
       `Update Radar feed ${stamp}`,
     );
-    const homepageCommit = commit(
-      homepageRepo,
-      ["intelligence"],
-      `Publish Radar feed ${stamp}`,
-    );
-
     push(projectRoot, "main");
-    push(homepageRepo, "master");
 
     const staticIndex = await readFile(
       resolve(staticDistPath, "index.html"),
@@ -768,29 +683,23 @@ async function main() {
     if (!expectedAssets.length) {
       throw new Error("Static build did not expose any versioned assets");
     }
-    const rootAssets = expectedAssets.map((asset) =>
-      asset.replace(/^\/intelligence/, ""),
-    );
-    const [primaryPages, legacyPages] = await Promise.all([
-      verifyPages(rootAssets, radarCommit, primaryVerificationUrl).then(
-        (verification) => ({
-          ...verification,
-          url: publishedUrl,
-          verificationUrl: primaryVerificationUrl,
-        }),
-      ),
-      verifyPages(expectedAssets, homepageCommit, legacyPublishedUrl),
-    ]);
-    const pages = { primary: primaryPages, legacy: legacyPages };
+    const primaryPages = await verifyPages(
+      expectedAssets,
+      radarCommit,
+      primaryVerificationUrl,
+    ).then((verification) => ({
+      ...verification,
+      url: publishedUrl,
+      verificationUrl: primaryVerificationUrl,
+    }));
+    const pages = { primary: primaryPages };
     assertClean(projectRoot, "Radar repository after publish");
-    assertClean(homepageRepo, "Homepage repository after publish");
 
     const report = {
       status: resume ? "resumed_and_published" : "published",
       startedAt,
       finishedAt: new Date().toISOString(),
       radarCommit,
-      homepageCommit,
       publishedUrl,
       pages,
       ...(recoveredBatch ? { recoveredBatch } : {}),

@@ -140,7 +140,7 @@ test("publishes only when a new story, update, or conversation exists", () => {
   );
 });
 
-test("limits publication changes to generated Radar and homepage assets", () => {
+test("limits publication changes to generated Radar assets", () => {
   assert.doesNotThrow(() =>
     assertOnlyExpectedChanges(
       " M data/daily-radar.json\n M data/feed-snapshot.json\n M data/conversations.json",
@@ -159,13 +159,6 @@ test("limits publication changes to generated Radar and homepage assets", () => 
       "Radar",
     ),
   );
-  assert.doesNotThrow(() =>
-    assertOnlyExpectedChanges(
-      " D intelligence/assets/old.js\n?? intelligence/assets/new.js",
-      ["intelligence"],
-      "Homepage",
-    ),
-  );
   assert.throws(
     () =>
       assertOnlyExpectedChanges(
@@ -180,7 +173,7 @@ test("limits publication changes to generated Radar and homepage assets", () => 
 test("extracts the exact versioned assets required for Pages verification", () => {
   assert.deepEqual(
     parseAssetPaths(
-      '<link href="/intelligence/assets/index-a.css"><script src="./assets/index-b.js"></script>',
+      '<link href="/assets/index-a.css"><script src="./assets/index-b.js"></script>',
     ),
     ["assets/index-a.css", "assets/index-b.js"],
   );
@@ -196,8 +189,6 @@ test("auto-resumes only a fully analyzed generated batch", () => {
     shouldAutoResume({
       radarStatus:
         " M data/feed-snapshot.json\n M data/conversations.json",
-      homepageStatus:
-        " D intelligence/assets/old.js\n?? intelligence/assets/new.js",
       result: {
         publishRequired: true,
         feedStoryCount: 0,
@@ -211,7 +202,6 @@ test("auto-resumes only a fully analyzed generated batch", () => {
     shouldAutoResume({
       radarStatus:
         " M app/page.tsx\n M data/daily-radar.json\n M data/feed-snapshot.json",
-      homepageStatus: "",
       result,
     }),
     false,
@@ -220,7 +210,6 @@ test("auto-resumes only a fully analyzed generated batch", () => {
     shouldAutoResume({
       radarStatus:
         " M data/daily-radar.json\n M data/feed-snapshot.json",
-      homepageStatus: "",
       result: {
         publishRequired: false,
         feedStoryCount: 0,

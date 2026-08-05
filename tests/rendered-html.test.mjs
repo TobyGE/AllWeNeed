@@ -54,7 +54,7 @@ test("server-renders the All We Need product shell", async () => {
   );
   assert.match(
     html,
-    /<title>All We Need — AI, Tech &amp; Investment Intelligence<\/title>/i,
+    /<title>All We Need — AI &amp; Tech Intelligence<\/title>/i,
   );
   assert.match(
     html,
@@ -204,7 +204,10 @@ test("removes all disposable starter preview code", async () => {
   assert.match(page, /conversation-page-bridge-cta/);
   assert.match(styles, /prefers-reduced-motion/);
   assert.match(layout, /lang="en"/);
-  assert.match(layout, /favicon\.png/);
+  assert.match(layout, /favicon-48\.png/);
+  assert.match(layout, /"@type": "WebSite"/);
+  assert.match(layout, /siteName: "All We Need"/);
+  assert.match(page, /className="coverage-card" data-nosnippet/);
   assert.match(layout, /apple-touch-icon\.png/);
   for (const staticEntry of [
     homeEntry,
@@ -212,12 +215,13 @@ test("removes all disposable starter preview code", async () => {
     conversationsEntry,
     sourcesEntry,
   ]) {
-    assert.match(staticEntry, /rel="icon"[\s\S]*href="\/favicon\.png"/);
+    assert.match(staticEntry, /rel="icon"[\s\S]*href="\/favicon-48\.png"/);
     assert.match(
       staticEntry,
       /rel="apple-touch-icon"[\s\S]*href="\/apple-touch-icon\.png"/,
     );
   }
+  await access(new URL("public/favicon-48.png", templateRoot));
   await access(new URL("public/favicon.png", templateRoot));
   await access(new URL("public/apple-touch-icon.png", templateRoot));
   await access(new URL("public/robots.txt", templateRoot));
@@ -656,7 +660,10 @@ test("removes all disposable starter preview code", async () => {
   assert.match(page, /localePreferenceReady/);
   assert.match(page, /selectAdaptiveFeedItems/);
   assert.doesNotMatch(page, /all-we-need-read-history-v1/);
-  assert.match(page, /href=\{`\?article=\$\{signal\.id\}`\}/);
+  assert.match(page, /href=\{articleHref\(signal\.id, "focus"\)\}/);
+  assert.match(page, /href=\{articleHref\(signal\.id, "explore"\)\}/);
+  assert.match(page, /permanentArticleFromPathname/);
+  assert.match(page, /permanentArticlePath/);
   assert.match(page, /activeExploreArticle/);
   assert.match(page, /meetsExploreEditorialFloor\(signal\)/);
   assert.match(page, /kind="explore"/);
