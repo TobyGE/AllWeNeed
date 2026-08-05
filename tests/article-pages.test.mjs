@@ -13,15 +13,17 @@ import {
 const root = new URL("../", import.meta.url);
 
 async function fixture() {
-  const [radar, routes, focusTemplate] = await Promise.all([
+  const [radar, routes, focusTemplate, exploreTemplate] = await Promise.all([
     readFile(new URL("data/daily-radar.json", root), "utf8").then(JSON.parse),
     readFile(new URL("data/article-routes.json", root), "utf8").then(JSON.parse),
     readFile(new URL("static/focus/index.html", root), "utf8"),
+    readFile(new URL("static/explore/index.html", root), "utf8"),
   ]);
   return {
     radar,
     routes,
     focusTemplate,
+    exploreTemplate,
     catalog: buildArticleCatalog(radar, routes),
   };
 }
@@ -95,7 +97,7 @@ test("sitemaps include permanent bilingual pages and limit News sitemap to 48 ho
 });
 
 test("static article HTML exposes unique metadata, structured data, body copy and sources", async () => {
-  const { catalog, focusTemplate } = await fixture();
+  const { catalog, focusTemplate, exploreTemplate } = await fixture();
   const article = catalog.articles.find(
     (candidate) =>
       candidate.kind === "focus" && candidate.locales.en.evidence.length > 0,
@@ -117,4 +119,22 @@ test("static article HTML exposes unique metadata, structured data, body copy an
   assert.match(html, /<h1>/);
   assert.match(html, /<h2>Sources<\/h2>/);
   assert.match(html, /rel="noopener noreferrer"/);
+
+  const explore = catalog.articles.find(
+    (candidate) => candidate.kind === "explore",
+  );
+  assert.ok(explore);
+  const exploreHtml = applyArticleMetadata(
+    exploreTemplate,
+    explore,
+    "en",
+  );
+  assert.match(
+    exploreHtml,
+    new RegExp(`rel="canonical" href="https://allweneed.info${explore.path.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}"`),
+  );
+  assert.doesNotMatch(
+    exploreHtml,
+    /rel="canonical" href="https:\/\/allweneed\.info\/explore\/"/,
+  );
 });

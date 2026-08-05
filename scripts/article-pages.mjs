@@ -465,7 +465,7 @@ export function applyArticleMetadata(template, article, locale) {
       `<meta property="og:description" content="${escapeHtml(copy.description)}" />`,
     )
     .replace(
-      /<link rel="canonical" href="[^"]*" \/>/,
+      /<link\s+rel="canonical"\s+href="[^"]*"\s*\/>/,
       `<link rel="canonical" href="${canonical}" />`,
     )
     .replace(
