@@ -15,6 +15,7 @@ const defaultFeedPath = resolve(projectRoot, "data/live-feed.json");
 const authPath = resolve(homedir(), ".codex/auth.json");
 const endpoint = "https://chatgpt.com/backend-api/codex/responses";
 export const liveModelCooldownMinutes = globalModelCooldownMinutes;
+export const liveDeduplicationVersion = 1;
 
 function argumentValue(name, fallback) {
   const prefix = `--${name}=`;
@@ -25,16 +26,18 @@ function argumentValue(name, fallback) {
 }
 
 function buildPrompt(items) {
-  return `Translate these already-selected items for All We Need's six-hour Live feed.
+  return `Deduplicate and translate these items for All We Need's six-hour Live feed.
 
 Rules:
-- Every input item has already passed deterministic source, freshness, scope, and deduplication checks. Do not make an editorial include/exclude decision.
-- Preserve every id and array order. Return every input exactly once.
-- Never rewrite the English title or URL.
-- Translate the complete source title into natural Simplified Chinese without adding, removing, or interpreting facts.
+- Every input item has already passed deterministic source, freshness, and scope checks.
+- Treat reports as duplicates only when they describe the same underlying real-world event. The same company, person, product category, or topic is not enough.
+- For each duplicate event, retain the official original source when present. Otherwise retain the most direct and informative report. Do not exclude anything because of importance, quality, or taste.
+- Account for every input id exactly once: either in items, or in duplicates with duplicateOf pointing to a retained id.
+- Keep retained items in their original input order. Never rewrite their English title or URL.
+- Translate every retained complete source title into natural Simplified Chinese without adding, removing, or interpreting facts.
 - Lead with the news subject or claim. Never mechanically begin a Chinese title with an unfamiliar surname plus “说” or “称” (for example, “朱说，…”). When an English title ends with a brief attribution and the input does not identify that person, preserve that it is a claim with neutral wording such as “被指” instead of inventing an identity or turning the opinion into fact.
 - Return JSON only in this exact shape:
-{"items":[{"id":"unchanged id","titleZh":"忠实的中文标题"}]}
+{"items":[{"id":"retained id","titleZh":"忠实的中文标题"}],"duplicates":[{"id":"duplicate id","duplicateOf":"retained id"}]}
 
 Input:
 ${JSON.stringify(
@@ -93,7 +96,7 @@ async function callSubscriptionModel({
         model,
         task: "live",
         fallbackInstructions:
-          "Translate every supplied Live source title losslessly into Simplified Chinese, preserve every id and array order, make no editorial decision, and return only valid JSON.",
+          "Group only reports of the same real-world event, retain the most direct source, translate every retained title losslessly into Simplified Chinese, account for every id as retained or duplicate, and return only valid JSON.",
       }),
       input: [
         {
@@ -156,19 +159,25 @@ function parseJsonOutput(text) {
 }
 
 export function mergeLiveTitleTranslations(items, result) {
-  if (!Array.isArray(result?.items) || result.items.length !== items.length) {
-    throw new Error("Live title localization returned the wrong item count.");
+  if (
+    !Array.isArray(result?.items) ||
+    !Array.isArray(result?.duplicates)
+  ) {
+    throw new Error("Live localization returned an invalid result shape.");
   }
+  const inputById = new Map(items.map((item) => [item.id, item]));
+  const retainedIds = new Set();
   const translatedById = new Map();
-  for (const [index, source] of items.entries()) {
-    const translated = result.items[index];
+  for (const translated of result.items) {
+    const source = inputById.get(translated?.id);
     if (
-      translated?.id !== source.id ||
+      !source ||
+      retainedIds.has(source.id) ||
       typeof translated.titleZh !== "string" ||
       !translated.titleZh.trim()
     ) {
       throw new Error(
-        `Live title localization does not match item ${source.id}.`,
+        `Live localization does not match retained item ${translated?.id}.`,
       );
     }
     if (
@@ -195,12 +204,83 @@ export function mergeLiveTitleTranslations(items, result) {
         `Live title localization dropped a material attribution for ${source.id}.`,
       );
     }
+    retainedIds.add(source.id);
     translatedById.set(source.id, translated.titleZh.trim());
   }
-  return items.map((item) => ({
-    ...item,
-    titleZh: translatedById.get(item.id),
+  const duplicateRelations = [];
+  const accountedIds = new Set(retainedIds);
+  for (const duplicate of result.duplicates) {
+    if (
+      !inputById.has(duplicate?.id) ||
+      accountedIds.has(duplicate.id) ||
+      !retainedIds.has(duplicate?.duplicateOf) ||
+      duplicate.id === duplicate.duplicateOf
+    ) {
+      throw new Error(
+        `Live localization has an invalid duplicate relation for ${duplicate?.id}.`,
+      );
+    }
+    accountedIds.add(duplicate.id);
+    duplicateRelations.push({
+      keptId: duplicate.duplicateOf,
+      duplicateIds: [duplicate.id],
+    });
+  }
+  if (accountedIds.size !== items.length) {
+    throw new Error("Live localization did not account for every input item.");
+  }
+  const minimumRetained = Math.min(5, items.length);
+  if (retainedIds.size < minimumRetained) {
+    throw new Error(
+      `Live localization retained only ${retainedIds.size} item(s); expected at least ${minimumRetained}.`,
+    );
+  }
+
+  return {
+    items: items
+      .filter((item) => retainedIds.has(item.id))
+      .map((item) => ({
+        ...item,
+        titleZh: translatedById.get(item.id),
+      })),
+    duplicateClusters: normalizeDuplicateClusters(duplicateRelations),
+  };
+}
+
+export function normalizeDuplicateClusters(clusters) {
+  const duplicateOf = new Map();
+  for (const cluster of clusters ?? []) {
+    if (!cluster?.keptId) continue;
+    for (const duplicateId of cluster.duplicateIds ?? []) {
+      if (duplicateId && duplicateId !== cluster.keptId) {
+        duplicateOf.set(duplicateId, cluster.keptId);
+      }
+    }
+  }
+  function finalKeptId(id) {
+    const visited = new Set();
+    let current = id;
+    while (duplicateOf.has(current) && !visited.has(current)) {
+      visited.add(current);
+      current = duplicateOf.get(current);
+    }
+    return visited.has(current) ? id : current;
+  }
+  const grouped = new Map();
+  for (const duplicateId of duplicateOf.keys()) {
+    const keptId = finalKeptId(duplicateId);
+    if (keptId === duplicateId) continue;
+    if (!grouped.has(keptId)) grouped.set(keptId, []);
+    grouped.get(keptId).push(duplicateId);
+  }
+  return [...grouped.entries()].map(([keptId, duplicateIds]) => ({
+    keptId,
+    duplicateIds,
   }));
+}
+
+export function liveDeduplicationInputSignature(items) {
+  return (items ?? []).map((item) => item.id).join("\n");
 }
 
 export function isLiveLocalizationCoolingDown(feed, now = Date.now()) {
@@ -227,6 +307,14 @@ export function assertLiveLocalizationComplete(feed) {
     throw new Error(
       `Live localization is incomplete: ${missing.length} untranslated item(s).`,
     );
+  }
+  if (
+    feed.deduplicationVersion !== liveDeduplicationVersion ||
+    feed.deduplicationPending ||
+    feed.deduplicationInputSignature !==
+      liveDeduplicationInputSignature(feed.items)
+  ) {
+    throw new Error("Live event deduplication is incomplete.");
   }
 }
 
@@ -265,7 +353,11 @@ async function main() {
   const missing = (feed.items ?? []).filter(
     (item) => !item.titleZh?.trim(),
   );
-  if (!missing.length) {
+  const currentSignature = liveDeduplicationInputSignature(feed.items);
+  const requiresDeduplication =
+    feed.deduplicationVersion !== liveDeduplicationVersion ||
+    feed.deduplicationInputSignature !== currentSignature;
+  if (!missing.length && !requiresDeduplication) {
     if (feed.pendingItemCount || removedLegacyState) {
       feed.pendingItemCount = 0;
       await writeFile(
@@ -282,6 +374,7 @@ async function main() {
 
   if (shouldDeferLiveLocalization(feed, { required })) {
     feed.pendingItemCount = missing.length;
+    feed.deduplicationPending = requiresDeduplication;
     await writeFile(
       feedPath,
       `${JSON.stringify(feed, null, 2)}\n`,
@@ -298,6 +391,7 @@ async function main() {
     auth = await loadSubscriptionAuth();
   } catch (error) {
     feed.pendingItemCount = missing.length;
+    feed.deduplicationPending = requiresDeduplication;
     await writeFile(
       feedPath,
       `${JSON.stringify(feed, null, 2)}\n`,
@@ -311,38 +405,41 @@ async function main() {
     if (required) throw error;
     return;
   }
-  const prompt = buildPrompt(missing);
+  const prompt = buildPrompt(feed.items ?? []);
   let lastError;
   for (const model of [...new Set(modelRoutes.live)]) {
     try {
       console.log(
-        `Translating ${missing.length} new Live items with ${model}...`,
+        `Deduplicating and translating ${feed.items.length} Live items with ${model}...`,
       );
       const localizedAt = new Date().toISOString();
-      const translated = mergeLiveTitleTranslations(
-        missing,
+      const localized = mergeLiveTitleTranslations(
+        feed.items,
         parseJsonOutput(
           await callSubscriptionModel({ model, prompt, ...auth }),
         ),
       );
-      const translatedById = new Map(
-        translated.map((item) => [item.id, item.titleZh]),
-      );
-      feed.items = feed.items.map((item) =>
-        translatedById.has(item.id)
-          ? { ...item, titleZh: translatedById.get(item.id) }
-          : item,
-      );
+      feed.items = localized.items;
+      feed.duplicateClusters = normalizeDuplicateClusters([
+        ...(feed.duplicateClusters ?? []),
+        ...localized.duplicateClusters,
+      ]);
+      feed.deduplicationVersion = liveDeduplicationVersion;
+      feed.deduplicationInputSignature =
+        liveDeduplicationInputSignature(feed.items);
+      feed.deduplicationPending = false;
       feed.localizationModel = model;
       feed.localizedAt = localizedAt;
-      feed.pendingItemCount = 0;
+      feed.pendingItemCount = feed.items.filter(
+        (item) => !item.titleZh?.trim(),
+      ).length;
       await writeFile(
         feedPath,
         `${JSON.stringify(feed, null, 2)}\n`,
         "utf8",
       );
       console.log(
-        `Live localization translated ${translated.length} items and kept all ${feed.items.length} deterministic selections public.`,
+        `Live localization retained ${feed.items.length} unique events and removed ${localized.duplicateClusters.reduce((count, cluster) => count + cluster.duplicateIds.length, 0)} duplicate report(s).`,
       );
       return;
     } catch (error) {
@@ -355,6 +452,7 @@ async function main() {
     }
   }
   feed.pendingItemCount = missing.length;
+  feed.deduplicationPending = requiresDeduplication;
   await writeFile(
     feedPath,
     `${JSON.stringify(feed, null, 2)}\n`,

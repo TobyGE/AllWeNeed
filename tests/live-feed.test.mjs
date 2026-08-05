@@ -7,8 +7,11 @@ import {
 import {
   assertLiveLocalizationComplete,
   isLiveLocalizationCoolingDown,
+  liveDeduplicationInputSignature,
+  liveDeduplicationVersion,
   liveModelCooldownMinutes,
   mergeLiveTitleTranslations,
+  normalizeDuplicateClusters,
   shouldDeferLiveLocalization,
 } from "../scripts/localize-live-feed.mjs";
 
@@ -340,13 +343,20 @@ test("merges cached Chinese titles without changing the original headline", () =
         titleZh: "OpenAI 发布新的 Agent 模型 API",
       },
     ],
+    duplicates: [],
   });
 
-  assert.equal(localized[0].title, "OpenAI launches a new agent model API");
-  assert.equal(localized[0].titleZh, "OpenAI 发布新的 Agent 模型 API");
+  assert.equal(
+    localized.items[0].title,
+    "OpenAI launches a new agent model API",
+  );
+  assert.equal(
+    localized.items[0].titleZh,
+    "OpenAI 发布新的 Agent 模型 API",
+  );
 });
 
-test("Live localization preserves every deterministic selection", () => {
+test("Live localization preserves every distinct deterministic selection", () => {
   const items = [
     item(),
     item({
@@ -369,15 +379,19 @@ test("Live localization preserves every deterministic selection", () => {
           titleZh: "美国开放权重 AI 生态竞赛",
         },
       ],
+      duplicates: [],
     },
   );
 
-  assert.equal(localized.length, 2);
-  assert.equal(localized[0].title, items[0].title);
-  assert.equal(localized[0].url, items[0].url);
-  assert.equal(localized[1].title, items[1].title);
-  assert.equal(localized[1].url, items[1].url);
-  assert.equal(localized[1].titleZh, "美国开放权重 AI 生态竞赛");
+  assert.equal(localized.items.length, 2);
+  assert.equal(localized.items[0].title, items[0].title);
+  assert.equal(localized.items[0].url, items[0].url);
+  assert.equal(localized.items[1].title, items[1].title);
+  assert.equal(localized.items[1].url, items[1].url);
+  assert.equal(
+    localized.items[1].titleZh,
+    "美国开放权重 AI 生态竞赛",
+  );
 });
 
 test("Live localization requires exact ids and complete translations", () => {
@@ -392,9 +406,10 @@ test("Live localization requires exact ids and complete translations", () => {
               titleZh: "翻译",
             },
           ],
+          duplicates: [],
         },
       ),
-    /does not match item/,
+    /does not match retained item/,
   );
   assert.throws(
     () =>
@@ -407,9 +422,10 @@ test("Live localization requires exact ids and complete translations", () => {
               titleZh: "",
             },
           ],
+          duplicates: [],
         },
       ),
-    /does not match item/,
+    /does not match retained item/,
   );
 });
 
@@ -427,6 +443,7 @@ test("Live localization rejects dangling surname attribution in Chinese", () => 
             titleZh: "朱说，SpaceX有点“身份危机”",
           },
         ],
+        duplicates: [],
       }),
     /dangling surname attribution/,
   );
@@ -434,11 +451,12 @@ test("Live localization rejects dangling surname attribution in Chinese", () => 
     mergeLiveTitleTranslations([source], {
       items: [
         {
-            id: source.id,
-            titleZh: "SpaceX被指正面临一场“身份危机”",
-          },
-        ],
-      })[0].titleZh,
+          id: source.id,
+          titleZh: "SpaceX被指正面临一场“身份危机”",
+        },
+      ],
+      duplicates: [],
+    }).items[0].titleZh,
     "SpaceX被指正面临一场“身份危机”",
   );
   assert.throws(
@@ -450,8 +468,104 @@ test("Live localization rejects dangling surname attribution in Chinese", () => 
             titleZh: "SpaceX正经历一场“身份危机”",
           },
         ],
+        duplicates: [],
       }),
     /dropped a material attribution/,
+  );
+});
+
+test("Luna may remove same-event reports while preserving distinct Meta news", () => {
+  const items = [
+    item({
+      id: "meta-wsj",
+      sourceName: "The Wall Street Journal",
+      title: "Meta Releases Coding Agent to Compete with OpenAI",
+      url: "https://wsj.com/meta-code-agent",
+    }),
+    item({
+      id: "meta-techcrunch",
+      sourceName: "TechCrunch",
+      title: "Meta launches Muse Code for large code bases",
+      url: "https://techcrunch.com/meta-muse-code",
+    }),
+    item({
+      id: "meta-engadget",
+      sourceName: "Engadget",
+      title: "Meta introduces Muse Code, its take on a coding agent",
+      url: "https://engadget.com/meta-muse-code",
+    }),
+    item({
+      id: "meta-security",
+      sourceName: "The Information",
+      title: "A Meta AI model hacked another company during testing",
+      url: "https://theinformation.com/meta-security-test",
+    }),
+    item({
+      id: "salesforce",
+      sourceName: "The Information",
+      title: "Salesforce engineering chief steps down",
+      url: "https://theinformation.com/salesforce-chief",
+    }),
+    item({
+      id: "quantum",
+      sourceName: "Bloomberg",
+      title: "PsiQuantum CEO discusses quantum computing progress",
+      url: "https://bloomberg.com/psiquantum",
+    }),
+    item({
+      id: "spyware",
+      sourceName: "Bloomberg",
+      title: "A spyware tool operates in 13 countries",
+      url: "https://bloomberg.com/spyware",
+    }),
+  ];
+  const localized = mergeLiveTitleTranslations(items, {
+    items: [
+      { id: "spyware", titleZh: "一款间谍软件在13个国家运行" },
+      {
+        id: "meta-security",
+        titleZh: "Meta人工智能模型被指在测试中入侵另一家公司",
+      },
+      { id: "meta-wsj", titleZh: "Meta发布Muse Code编程代理" },
+      { id: "quantum", titleZh: "PsiQuantum首席执行官谈量子计算进展" },
+      { id: "salesforce", titleZh: "Salesforce工程负责人离任" },
+    ],
+    duplicates: [
+      { id: "meta-techcrunch", duplicateOf: "meta-wsj" },
+      { id: "meta-engadget", duplicateOf: "meta-wsj" },
+    ],
+  });
+
+  assert.deepEqual(
+    localized.items.map((entry) => entry.id),
+    [
+      "meta-wsj",
+      "meta-security",
+      "salesforce",
+      "quantum",
+      "spyware",
+    ],
+  );
+  assert.deepEqual(localized.duplicateClusters, [
+    {
+      keptId: "meta-wsj",
+      duplicateIds: ["meta-techcrunch", "meta-engadget"],
+    },
+  ]);
+});
+
+test("nested duplicate clusters resolve to the final retained report", () => {
+  assert.deepEqual(
+    normalizeDuplicateClusters([
+      { keptId: "older", duplicateIds: ["old-duplicate"] },
+      { keptId: "new-official", duplicateIds: ["older"] },
+    ]),
+    [
+      {
+        keptId: "new-official",
+        duplicateIds: ["old-duplicate", "older"],
+      },
+    ],
   );
 });
 
@@ -519,10 +633,17 @@ test("required Live publication rejects untranslated titles", () => {
       }),
     /localization is incomplete/,
   );
-  assert.doesNotThrow(() =>
+  assert.doesNotThrow(() => {
+    const items = [
+      item({ titleZh: "OpenAI 发布新的 Agent 模型 API" }),
+    ];
     assertLiveLocalizationComplete({
-      items: [item({ titleZh: "OpenAI 发布新的 Agent 模型 API" })],
+      items,
       pendingItemCount: 0,
-    }),
-  );
+      deduplicationVersion: liveDeduplicationVersion,
+      deduplicationInputSignature:
+        liveDeduplicationInputSignature(items),
+      deduplicationPending: false,
+    });
+  });
 });

@@ -83,17 +83,20 @@ fields. Preserve established English technical terms in Chinese where they are
 clearer. Treat this as a lossless transformation, not a new analysis.
 `.trim(),
   live: `
-Act as All We Need's lossless Live title translator. Every supplied item has
-already passed deterministic source, freshness, scope, and deduplication
-checks. Do not make an editorial include or exclude decision. Do not rewrite
-the English source title or URL. Provide a natural, lossless Simplified Chinese
-translation of every source title without adding, removing, or interpreting
-facts. Lead with the news subject or claim. Never mechanically begin with an
-unfamiliar surname plus “说” or “称”. If an English title ends with a brief
-surname attribution and the input does not identify that person, preserve that
-the statement is a claim with neutral wording such as “被指”; do not invent an
-identity or turn an opinion into fact. Preserve every supplied id and array
-order exactly once.
+Act as All We Need's Live event deduplicator and lossless title translator.
+Every supplied item has already passed deterministic source, freshness, and
+scope checks. Group only reports about the same underlying real-world event;
+the same company, person, product category, or topic is not enough. Keep the
+official original source when available, otherwise the most direct and
+informative report. Do not exclude an item for importance, quality, or taste.
+Account for every supplied id exactly once as either retained or a duplicate
+of one retained id. Preserve retained English titles, URLs, and input order.
+Translate every retained title naturally into Simplified Chinese without
+adding, removing, or interpreting facts. Lead with the news subject or claim.
+Never mechanically begin with an unfamiliar surname plus “说” or “称”. If an
+English title ends with a brief surname attribution and the input does not
+identify that person, preserve that the statement is a claim with neutral
+wording such as “被指”; do not invent an identity or turn an opinion into fact.
 `.trim(),
 });
 
@@ -156,16 +159,17 @@ human-facing prose. Do not analyze, summarize, merge, expand, or omit content.
 Keep established English technical terms in Chinese when clearer.
 `.trim(),
   live: `
-Act as a lossless Live title translator. Every supplied item has already passed
-deterministic source, freshness, scope, and deduplication checks. Do not make an
-editorial include or exclude decision. Preserve the English source title and
-URL. Translate every title naturally into Simplified Chinese without adding,
-removing, or interpreting facts. Lead with the news subject or claim. Never
-mechanically begin with an unfamiliar surname plus “说” or “称”. If an English
-title ends with a brief surname attribution and the input does not identify
-that person, preserve that the statement is a claim with neutral wording such
-as “被指”; do not invent an identity or turn an opinion into fact. Preserve
-every id and array order exactly once.
+Deduplicate the Live list by underlying event, then translate the retained
+titles losslessly. Treat items as duplicates only when they report the same
+real-world event; sharing a company or topic is insufficient. Prefer an
+official original source, then the most direct and informative report. Never
+exclude for importance or taste. Account for every id exactly once as retained
+or as a duplicate of one retained id. Preserve retained English titles, URLs,
+and order. Translate retained titles naturally into Simplified Chinese without
+adding, removing, or interpreting facts. Lead with the news subject or claim.
+Never mechanically begin with an unfamiliar surname plus “说” or “称”. Preserve
+brief attributions with neutral wording such as “被指” when the speaker is not
+identified; do not invent an identity or turn an opinion into fact.
 `.trim(),
 });
 

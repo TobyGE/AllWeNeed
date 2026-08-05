@@ -302,6 +302,41 @@ async function main() {
       liveFeed.localizationModel = previousLiveFeed.localizationModel;
       liveFeed.localizedAt = previousLiveFeed.localizedAt;
     }
+    const candidateIds = new Set(liveFeed.items.map((item) => item.id));
+    const duplicateClusters = (
+      previousLiveFeed.duplicateClusters ?? []
+    )
+      .map((cluster) => ({
+        keptId: cluster.keptId,
+        duplicateIds: (cluster.duplicateIds ?? []).filter((id) =>
+          candidateIds.has(id),
+        ),
+      }))
+      .filter(
+        (cluster) =>
+          candidateIds.has(cluster.keptId) ||
+          cluster.duplicateIds.length,
+      );
+    const duplicateIds = new Set(
+      duplicateClusters
+        .filter((cluster) => candidateIds.has(cluster.keptId))
+        .flatMap((cluster) => cluster.duplicateIds),
+    );
+    liveFeed.items = liveFeed.items.filter(
+      (item) => !duplicateIds.has(item.id),
+    );
+    if (duplicateClusters.length) {
+      liveFeed.duplicateClusters = duplicateClusters;
+    }
+    for (const key of [
+      "deduplicationVersion",
+      "deduplicationInputSignature",
+      "deduplicationPending",
+    ]) {
+      if (key in previousLiveFeed) {
+        liveFeed[key] = previousLiveFeed[key];
+      }
+    }
     liveFeed.pendingItemCount = liveFeed.items.filter(
       (item) => !item.titleZh,
     ).length;

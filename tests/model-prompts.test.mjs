@@ -35,11 +35,9 @@ test("gives Terra and Luna lean task-specific instructions", () => {
     task: "live",
     fallbackInstructions: "FULL SOL INSTRUCTIONS",
   });
-  assert.match(live, /lossless Live title translator/);
-  assert.match(
-    live,
-    /Do not make an\s+editorial include or exclude decision/,
-  );
+  assert.match(live, /Deduplicate the Live list by underlying event/);
+  assert.match(live, /sharing a company or topic is insufficient/);
+  assert.match(live, /Account for every id exactly once/);
   assert.doesNotMatch(live, /FULL SOL INSTRUCTIONS/);
 });
 
