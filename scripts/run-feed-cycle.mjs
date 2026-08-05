@@ -28,6 +28,7 @@ const staleLockMs = 3 * 60 * 60 * 1000;
 const generatedDataFiles = [
   "data/daily-radar.json",
   "data/feed-snapshot.json",
+  "data/traffic-summary.json",
   "data/conversations.json",
   "data/event-graph.json",
   "data/model-quality.json",
@@ -392,13 +393,20 @@ async function publishLiveOnly({
 
   assertOnlyExpectedChanges(
     radarStatus,
-    ["data/live-feed.json"],
+    ["data/live-feed.json", "data/traffic-summary.json"],
     "All We Need live repository",
   );
   assertOnlyExpectedChanges(
     gitStatus(homepageRepo),
     ["intelligence"],
     "Homepage live repository",
+  );
+
+  runCommand("npm", ["run", "refresh:traffic"], { cwd: projectRoot });
+  assertOnlyExpectedChanges(
+    gitStatus(projectRoot),
+    ["data/live-feed.json", "data/traffic-summary.json"],
+    "All We Need live repository",
   );
 
   // rendered-html.test.mjs exercises dist/server/index.js. A production
@@ -438,7 +446,7 @@ async function publishLiveOnly({
     .slice(0, 16);
   const radarCommit = commit(
     projectRoot,
-    ["data/live-feed.json"],
+    ["data/live-feed.json", "data/traffic-summary.json"],
     `Update live wire ${stamp}`,
   );
   const homepageCommit = commit(
@@ -599,7 +607,7 @@ async function main() {
     if (liveOnly) {
       assertOnlyExpectedChanges(
         gitStatus(projectRoot),
-        ["data/live-feed.json"],
+        ["data/live-feed.json", "data/traffic-summary.json"],
         "All We Need live repository",
       );
       assertOnlyExpectedChanges(
@@ -697,6 +705,7 @@ async function main() {
 
     const after = await readJson(radarPath);
     assertExistingArticlesPreserved(before, after);
+    runCommand("npm", ["run", "refresh:traffic"], { cwd: projectRoot });
     runCommand(
       process.execPath,
       [resolve(projectRoot, "scripts/build-operational-data.mjs")],

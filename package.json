@@ -18,6 +18,7 @@
     "plan:feed": "node scripts/plan-feed-update.mjs --snapshot=tmp/feed-snapshot.json",
     "build:live-feed": "node scripts/build-live-feed.mjs",
     "localize:live": "node scripts/localize-live-feed.mjs",
+    "refresh:traffic": "node scripts/refresh-traffic-summary.mjs",
     "cycle:smart": "node scripts/run-smart-feed.mjs",
     "scout:sources": "node scripts/source-scout.mjs",
     "scout:sources:scheduled": "node scripts/source-scout.mjs --scheduled --defer-merge",

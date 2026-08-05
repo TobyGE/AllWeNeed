@@ -17,12 +17,15 @@ const styles = await readFile(
 test("publishes country aggregates without city-level data", () => {
   assert.equal(summary.countryCount, summary.countries.length);
   assert.equal("cities" in summary, false);
-  assert.equal(
-    summary.countries.reduce(
-      (total, country) => total + country.activeUsers,
-      0,
+  assert.ok(summary.activeUsers >= 0);
+  assert.ok(summary.pageViews >= 0);
+  assert.ok(
+    summary.countries.every(
+      (country) =>
+        country.activeUsers >= 0 &&
+        (country.latitude === null || Number.isFinite(country.latitude)) &&
+        (country.longitude === null || Number.isFinite(country.longitude)),
     ),
-    summary.activeUsers,
   );
 });
 

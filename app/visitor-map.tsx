@@ -1,8 +1,8 @@
 type VisitorCountry = {
   nameZh: string;
   nameEn: string;
-  latitude: number;
-  longitude: number;
+  latitude: number | null;
+  longitude: number | null;
   activeUsers: number;
 };
 
@@ -79,6 +79,9 @@ export function VisitorMap({
           <path d="M50 0v86M100 0v86M150 0v86" />
         </g>
         {summary.countries.map((country) => {
+          if (country.latitude === null || country.longitude === null) {
+            return null;
+          }
           const point = projectPoint(country.latitude, country.longitude);
           const radius = 2.6 + (country.activeUsers / maxVisitors) * 2.2;
           return (
