@@ -2,69 +2,90 @@ function modelChain(...models) {
   return Object.freeze(
     models.filter(
       (model, index, values) =>
-        model && values.indexOf(model) === index,
+        model &&
+        approvedProductionModels.has(model) &&
+        values.indexOf(model) === index,
     ),
   );
 }
 
+export const approvedProductionModels = new Set([
+  "gpt-5.6-terra",
+  "gpt-5.6-luna",
+  "gpt-5.6-sol",
+]);
+
 export const modelRoutes = Object.freeze({
   fullAnalysis: modelChain(
-    process.env.SIGNAL_RADAR_ANALYSIS_MODEL?.trim(),
     "gpt-5.6-terra",
+    "gpt-5.6-luna",
     "gpt-5.6-sol",
-    "gpt-5.5",
   ),
   standardWriting: modelChain(
-    process.env.SIGNAL_RADAR_WRITING_MODEL?.trim(),
     "gpt-5.6-terra",
     "gpt-5.6-luna",
-    process.env.SIGNAL_RADAR_MODEL?.trim(),
     "gpt-5.6-sol",
-    "gpt-5.5",
   ),
   criticalWriting: modelChain(
-    process.env.SIGNAL_RADAR_CRITICAL_MODEL?.trim(),
     "gpt-5.6-terra",
-    "gpt-5.6-sol",
     "gpt-5.6-luna",
-    "gpt-5.5",
+    "gpt-5.6-sol",
   ),
   grounding: modelChain(
-    process.env.SIGNAL_RADAR_GROUNDING_MODEL?.trim(),
     "gpt-5.6-luna",
     "gpt-5.6-terra",
     "gpt-5.6-sol",
-    "gpt-5.5",
   ),
   research: modelChain(
-    process.env.SIGNAL_RADAR_RESEARCH_MODEL?.trim(),
     "gpt-5.6-terra",
     "gpt-5.6-luna",
     "gpt-5.6-sol",
-    "gpt-5.5",
   ),
   sourceDiscovery: modelChain(
-    process.env.SIGNAL_RADAR_SOURCE_SCOUT_MODEL?.trim(),
     "gpt-5.6-terra",
     "gpt-5.6-luna",
     "gpt-5.6-sol",
-    "gpt-5.5",
   ),
   localization: modelChain(
-    process.env.SIGNAL_RADAR_LOCALIZATION_MODEL?.trim(),
     "gpt-5.6-luna",
     "gpt-5.6-terra",
     "gpt-5.6-sol",
-    "gpt-5.5",
   ),
   live: modelChain(
-    process.env.SIGNAL_RADAR_LIVE_MODEL?.trim(),
     "gpt-5.6-luna",
     "gpt-5.6-terra",
     "gpt-5.6-sol",
-    "gpt-5.5",
   ),
 });
+
+export function assertApprovedProductionModel(model, label = "model") {
+  if (!approvedProductionModels.has(model)) {
+    throw new Error(`${label} is not an approved production model: ${model}`);
+  }
+  return model;
+}
+
+export function assertApprovedModelUsage(result) {
+  const fields = [
+    "model",
+    "conversationModel",
+    "groundingModel",
+    "editorialResearchModel",
+    "localizationModel",
+  ];
+  for (const field of fields) {
+    const value = result?.[field];
+    if (!value) continue;
+    const models = String(value).match(/\bgpt-[\w.-]+\b/gu) ?? [];
+    if (!models.length) {
+      throw new Error(`${field} does not identify a production model: ${value}`);
+    }
+    for (const model of models) {
+      assertApprovedProductionModel(model, field);
+    }
+  }
+  return true;
+}
 
 export function writingModelsForItems(items, laneForItem) {
   return items.some((item) => laneForItem(item) === "fast")

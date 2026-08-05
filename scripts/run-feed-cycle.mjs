@@ -10,6 +10,7 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { assertSnapshotHealth } from "./append-feed-updates.mjs";
 import { assertLiveLocalizationComplete } from "./localize-live-feed.mjs";
+import { assertApprovedModelUsage } from "./model-routing.mjs";
 
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const defaultHomepageRepo =
@@ -365,6 +366,11 @@ async function publishLiveOnly({
   assertLiveLocalizationComplete(
     await readJson(resolve(projectRoot, "data/live-feed.json")),
   );
+  assertApprovedModelUsage({
+    localizationModel: (
+      await readJson(resolve(projectRoot, "data/live-feed.json"))
+    ).localizationModel,
+  });
 
   const radarStatus = gitStatus(projectRoot);
   if (!radarStatus) {
@@ -683,6 +689,7 @@ async function main() {
       }
     }
     const result = await readJson(resultPath);
+    assertApprovedModelUsage(result);
     const shouldPublish = publicationDecision(result);
 
     if (resume && !shouldPublish) {

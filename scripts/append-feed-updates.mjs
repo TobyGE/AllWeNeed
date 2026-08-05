@@ -8,6 +8,7 @@ import {
   updateLaneNames,
 } from "./update-policy.mjs";
 import {
+  assertApprovedProductionModel,
   modelRoutes,
   writingModelsForItems,
 } from "./model-routing.mjs";
@@ -1004,6 +1005,7 @@ export async function callSubscriptionModelDetailed({
   reasoningEffort = "medium",
   timeoutMs = 240_000,
 }) {
+  assertApprovedProductionModel(model, "subscription model");
   const startedAt = Date.now();
   const requestBody = {
     model,
@@ -1469,7 +1471,7 @@ export function normalizeFeedCoverageRefs(raw, candidates) {
   };
 }
 
-export function assertEditorialArticleQuality(article, label) {
+export function editorialArticleQualityIssues(article) {
   const text = [
     article?.lead,
     ...(article?.sections ?? []).flatMap((section) => [
@@ -1487,12 +1489,22 @@ export function assertEditorialArticleQuality(article, label) {
     /single-source hypothesis/iu,
     /without.{0,40}consensus.{0,40}(?:cannot|can't|do not|won't)/iu,
   ];
-  if (processNarrationPatterns.some((pattern) => pattern.test(text))) {
+  return processNarrationPatterns.some((pattern) => pattern.test(text))
+    ? ["research_process_narration"]
+    : [];
+}
+
+export function assertEditorialArticleQuality(article, label) {
+  if (editorialArticleQualityIssues(article).length) {
     throw new Error(`${label} article narrates a research limitation`);
   }
 }
 
-function hydrateArticle(article, label) {
+export function hydrateArticle(
+  article,
+  label,
+  { softQuality = false, qualityWarnings = [] } = {},
+) {
   if (
     !article ||
     !cleanText(article.lead) ||
@@ -1514,7 +1526,12 @@ function hydrateArticle(article, label) {
     }),
     outlook: cleanText(article.outlook).slice(0, 600),
   };
-  assertEditorialArticleQuality(hydrated, label);
+  const issues = editorialArticleQualityIssues(hydrated);
+  if (issues.length && softQuality) {
+    qualityWarnings.push(...issues.map((issue) => ({ label, issue })));
+  } else {
+    assertEditorialArticleQuality(hydrated, label);
+  }
   return hydrated;
 }
 
@@ -1554,6 +1571,8 @@ export function hydrateConversationItems({
   candidates,
   conversations,
   generatedAt,
+  softQuality = false,
+  qualityWarnings = [],
 }) {
   const itemMap = new Map(candidates.map((item) => [item.ref, item]));
   const existingUrls = new Set(
@@ -1617,10 +1636,12 @@ export function hydrateConversationItems({
         articleZh: hydrateArticle(
           entry.articleZh,
           `conversation ${entry.ref} zh`,
+          { softQuality, qualityWarnings },
         ),
         articleEn: hydrateArticle(
           entry.articleEn,
           `conversation ${entry.ref} en`,
+          { softQuality, qualityWarnings },
         ),
       },
     ];
@@ -1876,6 +1897,8 @@ export function hydrateFeedStories({
   candidates,
   radar,
   generatedAt,
+  softQuality = false,
+  qualityWarnings = [],
 }) {
   const events = Array.isArray(raw?.feedStories)
     ? [...raw.feedStories]
@@ -1983,7 +2006,10 @@ export function hydrateFeedStories({
       shiftFrom: cleanText(event.signal.shiftFrom).slice(0, 160),
       shiftTo: cleanText(event.signal.shiftTo).slice(0, 160),
       crossValidation: cleanText(event.signal.crossValidation).slice(0, 600),
-      article: hydrateArticle(event.signal.article, `signal ${id}`),
+      article: hydrateArticle(event.signal.article, `signal ${id}`, {
+        softQuality,
+        qualityWarnings,
+      }),
       validationType: metadata.validationType,
       publishedAt: newest ?? generatedAt,
       updatedAt: newest ?? generatedAt,
@@ -2029,7 +2055,10 @@ export function hydrateFeedStories({
       shiftFrom: cleanText(translation.shiftFrom),
       shiftTo: cleanText(translation.shiftTo),
       crossValidation: cleanText(translation.crossValidation),
-      article: hydrateArticle(translation.article, `translation ${id}`),
+      article: hydrateArticle(translation.article, `translation ${id}`, {
+        softQuality,
+        qualityWarnings,
+      }),
       evidence: evidence.map((_, evidenceIndex) => ({
         role:
           cleanText(translation.evidence?.[evidenceIndex]?.role) || "Support",
@@ -2551,6 +2580,7 @@ async function main() {
     ignoredItemCount: 0,
   };
   let model = null;
+  let editorialQualityWarnings = [];
   let primaryEditorialRaw = null;
   let primaryEditorialCall = null;
   let shadowEvaluation = {
@@ -2558,6 +2588,7 @@ async function main() {
     completedAt: scannedSnapshot.generatedAt,
   };
   let conversationModel = null;
+  let conversationQualityWarnings = [];
   let hydratedConversations = [];
   let conversationCoverage = { included: 0, ignored: 0 };
   let grounding = { candidates: [], model: null, attempted: 0 };
@@ -2603,55 +2634,71 @@ async function main() {
           item.freshness?.lane ??
           candidateUpdateLane(item, Date.parse(scannedSnapshot.generatedAt)),
       )) {
-        try {
-          const call = await callSubscriptionModelDetailed({
-            model: candidateModel,
-            prompt,
-            ...auth,
-            instructions: modelTaskInstructions({
+        const maxAttempts = candidateModel === "gpt-5.6-luna" ? 2 : 1;
+        for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+          try {
+            const correction =
+              attempt > 1
+                ? `\n\nCORRECTION RETRY: The previous Luna response failed validation: ${
+                    lastError instanceof Error
+                      ? lastError.message
+                      : String(lastError)
+                  }. Preserve the editorial decisions, fix only the schema, missing refs, or incomplete required fields, and return one complete valid JSON object.`
+                : "";
+            const call = await callSubscriptionModelDetailed({
               model: candidateModel,
-              task: "editorial",
-              fallbackInstructions:
-                `${editorialSkillInstructions}\n\nClassify every new source item exactly once. Publish only qualified dynamic events or substantive Explore theses; archive weak items. Write a centered source-backed article and return only valid JSON.`,
-            }),
-            reasoningEffort: modelReasoningEffort({
-              model: candidateModel,
-              task: "editorial",
-              fallbackEffort: "high",
-            }),
-          });
-          const raw = applyEditorialPublicationBar(
-            normalizeFeedCoverageRefs(
-              parseJsonOutput(call.output),
+              prompt: `${prompt}${correction}`,
+              ...auth,
+              instructions: modelTaskInstructions({
+                model: candidateModel,
+                task: "editorial",
+                fallbackInstructions:
+                  `${editorialSkillInstructions}\n\nClassify every new source item exactly once. Publish only qualified dynamic events or substantive Explore theses; archive weak items. Write a centered source-backed article and return only valid JSON.`,
+              }),
+              reasoningEffort: modelReasoningEffort({
+                model: candidateModel,
+                task: "editorial",
+                fallbackEffort: "high",
+              }),
+            });
+            const raw = applyEditorialPublicationBar(
+              normalizeFeedCoverageRefs(
+                parseJsonOutput(call.output),
+                candidates,
+              ),
               candidates,
-            ),
-            candidates,
-          );
-          coverage = validateFeedCoverage(raw, candidates);
-          hydratedStories = hydrateFeedStories({
-            raw,
-            candidates,
-            radar,
-            generatedAt: scannedSnapshot.generatedAt,
-          });
-          hydratedUpdates = hydrateExistingUpdates({
-            raw,
-            candidates,
-            radar,
-            generatedAt: scannedSnapshot.generatedAt,
-          });
-          model = candidateModel;
-          primaryEditorialRaw = raw;
-          primaryEditorialCall = call;
-          break;
-        } catch (error) {
-          lastError = error;
-          console.warn(
-            `${candidateModel} incremental analysis failed: ${
-              error instanceof Error ? error.message : error
-            }`,
-          );
+            );
+            coverage = validateFeedCoverage(raw, candidates);
+            const attemptQualityWarnings = [];
+            hydratedStories = hydrateFeedStories({
+              raw,
+              candidates,
+              radar,
+              generatedAt: scannedSnapshot.generatedAt,
+              softQuality: candidateModel === "gpt-5.6-luna",
+              qualityWarnings: attemptQualityWarnings,
+            });
+            hydratedUpdates = hydrateExistingUpdates({
+              raw,
+              candidates,
+              radar,
+              generatedAt: scannedSnapshot.generatedAt,
+            });
+            model = candidateModel;
+            editorialQualityWarnings = attemptQualityWarnings;
+            primaryEditorialRaw = raw;
+            primaryEditorialCall = call;
+            break;
+          } catch (error) {
+            lastError = error;
+            console.warn(
+              `${candidateModel} incremental analysis attempt ${attempt}/${maxAttempts} failed: ${
+                error instanceof Error ? error.message : error
+              }`,
+            );
+          }
         }
+        if (model !== null) break;
       }
       if (model === null) {
         throw lastError ?? new Error("Incremental analysis failed");
@@ -2727,44 +2774,60 @@ async function main() {
     });
     let lastError;
     for (const candidateModel of preferredModels) {
-      try {
-        const output = await callSubscriptionModel({
-          model: candidateModel,
-          prompt,
-          ...auth,
-          instructions: modelTaskInstructions({
+      const maxAttempts = candidateModel === "gpt-5.6-luna" ? 2 : 1;
+      for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+        try {
+          const correction =
+            attempt > 1
+              ? `\n\nCORRECTION RETRY: The previous Luna response failed validation: ${
+                  lastError instanceof Error
+                    ? lastError.message
+                    : String(lastError)
+                }. Keep the same editorial decisions and correct only the JSON schema, coverage, or missing required fields.`
+              : "";
+          const output = await callSubscriptionModel({
             model: candidateModel,
-            task: "conversation",
-            fallbackInstructions:
-              `${editorialSkillInstructions}\n\nCurate every supplied long-form conversation exactly once. Preserve attribution, write a centered bilingual briefing, and return only valid JSON.`,
-          }),
-          reasoningEffort: modelReasoningEffort({
-            model: candidateModel,
-            task: "conversation",
-            fallbackEffort: "high",
-          }),
-        });
-        const raw = parseJsonOutput(output);
-        conversationCoverage = validateConversationCoverage(
-          raw,
-          conversationCandidates,
-        );
-        hydratedConversations = hydrateConversationItems({
-          raw,
-          candidates: conversationCandidates,
-          conversations,
-          generatedAt: scannedSnapshot.generatedAt,
-        });
-        conversationModel = candidateModel;
-        break;
-      } catch (error) {
-        lastError = error;
-        console.warn(
-          `${candidateModel} conversation analysis failed: ${
-            error instanceof Error ? error.message : error
-          }`,
-        );
+            prompt: `${prompt}${correction}`,
+            ...auth,
+            instructions: modelTaskInstructions({
+              model: candidateModel,
+              task: "conversation",
+              fallbackInstructions:
+                `${editorialSkillInstructions}\n\nCurate every supplied long-form conversation exactly once. Preserve attribution, write a centered bilingual briefing, and return only valid JSON.`,
+            }),
+            reasoningEffort: modelReasoningEffort({
+              model: candidateModel,
+              task: "conversation",
+              fallbackEffort: "high",
+            }),
+          });
+          const raw = parseJsonOutput(output);
+          conversationCoverage = validateConversationCoverage(
+            raw,
+            conversationCandidates,
+          );
+          const attemptQualityWarnings = [];
+          hydratedConversations = hydrateConversationItems({
+            raw,
+            candidates: conversationCandidates,
+            conversations,
+            generatedAt: scannedSnapshot.generatedAt,
+            softQuality: candidateModel === "gpt-5.6-luna",
+            qualityWarnings: attemptQualityWarnings,
+          });
+          conversationModel = candidateModel;
+          conversationQualityWarnings = attemptQualityWarnings;
+          break;
+        } catch (error) {
+          lastError = error;
+          console.warn(
+            `${candidateModel} conversation analysis attempt ${attempt}/${maxAttempts} failed: ${
+              error instanceof Error ? error.message : error
+            }`,
+          );
+        }
       }
+      if (conversationModel !== null) break;
     }
     if (conversationModel === null) {
       throw lastError ?? new Error("Conversation analysis failed");
@@ -2825,8 +2888,10 @@ async function main() {
   const result = {
     ...baseResult,
     model,
+    editorialQualityWarnings,
     shadowEvaluation,
     conversationModel,
+    conversationQualityWarnings,
     groundingModel: grounding.model,
     groundingAttemptedCount: grounding.attempted,
     groundedEvidenceCount: grounding.candidates.length,

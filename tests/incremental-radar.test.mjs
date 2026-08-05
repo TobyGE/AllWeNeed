@@ -9,6 +9,7 @@ import {
   assertSnapshotHealth,
   createBaselineState,
   hydrateEditorialResearchCandidates,
+  hydrateArticle,
   hydrateConversationItems,
   hydrateGroundingCandidates,
   hydrateExistingUpdates,
@@ -1771,6 +1772,34 @@ test("rejects research-process disclaimers from article copy", () => {
       "test",
     ),
   );
+});
+
+test("Luna fallback keeps structurally complete copy and reports style warnings", () => {
+  const warnings = [];
+  const hydrated = hydrateArticle(
+    {
+      lead: "Meta公布季度业绩。",
+      sections: [
+        {
+          heading: "结果",
+          body: "由于没有引入分析师一致预期，这里不作beat或miss判断。",
+        },
+        { heading: "机制", body: "基础设施投入继续上升。" },
+        { heading: "影响", body: "利润结构因此发生变化。" },
+      ],
+      outlook: "关注下一季指引。",
+    },
+    "luna fallback",
+    { softQuality: true, qualityWarnings: warnings },
+  );
+
+  assert.equal(hydrated.sections.length, 3);
+  assert.deepEqual(warnings, [
+    {
+      label: "luna fallback",
+      issue: "research_process_narration",
+    },
+  ]);
 });
 
 test("appends new evidence and progress to an existing story without rewriting it", () => {
