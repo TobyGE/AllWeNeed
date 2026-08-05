@@ -1,7 +1,17 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
-import { trafficSummaryFromReport } from "../scripts/refresh-traffic-summary.mjs";
+import {
+  trafficDateRange,
+  trafficSummaryFromReport,
+} from "../scripts/refresh-traffic-summary.mjs";
+
+test("includes today's visits in the public 30-day summary", () => {
+  assert.deepEqual(trafficDateRange, {
+    startDate: "30daysAgo",
+    endDate: "today",
+  });
+});
 
 test("converts GA4 country rows and grand totals into the public summary", () => {
   const summary = trafficSummaryFromReport(

@@ -6,6 +6,10 @@ import { fileURLToPath } from "node:url";
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const outputPath = resolve(projectRoot, "data/traffic-summary.json");
 const propertyId = process.env.GA4_PROPERTY_ID ?? "548148776";
+export const trafficDateRange = {
+  startDate: "30daysAgo",
+  endDate: "today",
+};
 
 const countryCentroids = {
   AU: [-25.2744, 133.7751],
@@ -149,7 +153,7 @@ export async function refreshTrafficSummary({
         "content-type": "application/json",
       },
       body: JSON.stringify({
-        dateRanges: [{ startDate: "30daysAgo", endDate: "yesterday" }],
+        dateRanges: [trafficDateRange],
         dimensions: [{ name: "countryId" }, { name: "country" }],
         metrics: [{ name: "screenPageViews" }, { name: "activeUsers" }],
         metricAggregations: ["TOTAL"],
