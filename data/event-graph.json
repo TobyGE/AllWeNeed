@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-05T23:06:47.182Z",
+  "generatedAt": "2026-08-06T01:05:15.877Z",
   "counts": {
-    "sources": 406,
-    "claims": 447,
-    "events": 105,
-    "articles": 105,
-    "updates": 58,
-    "edges": 1182,
+    "sources": 413,
+    "claims": 457,
+    "events": 106,
+    "articles": 106,
+    "updates": 60,
+    "edges": 1208,
     "revisionsRequired": 2
   },
   "revisionQueue": [
@@ -33,6 +33,84 @@
     }
   ],
   "nodes": [
+    {
+      "id": "event_b21fa344f99c401e",
+      "type": "event",
+      "signalId": 84,
+      "title": "对冲基金遭电话钓鱼攻击",
+      "bucket": "explore",
+      "valueScore": 80,
+      "publishedAt": "2026-08-05T23:54:15.000Z",
+      "updatedAt": "2026-08-05T23:54:15.000Z"
+    },
+    {
+      "id": "article_5c3ca145d5144a6f",
+      "type": "article",
+      "signalId": 84,
+      "title": "对冲基金遭电话钓鱼攻击",
+      "version": 1,
+      "publishedAt": "2026-08-06T01:05:15.877Z"
+    },
+    {
+      "id": "source_093c5d4ad5bf4380",
+      "type": "source",
+      "title": "Bloomberg Technology",
+      "url": "https://www.bloomberg.com/news/videos/2026-08-05/hedge-funds-targeted-in-wave-of-attempted-cyberattacks-video",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-05T23:54:15.000Z"
+    },
+    {
+      "id": "claim_bb5bd52819d9439d",
+      "type": "claim",
+      "title": "Bloomberg报道称，华尔街大型资金管理机构的信息系统正遭遇一波复杂网络攻击尝试。",
+      "role": "主张",
+      "addedAt": "2026-08-06T01:05:15.877Z"
+    },
+    {
+      "id": "source_97c3777b55dd6074",
+      "type": "source",
+      "title": "Reuters",
+      "url": "https://www.reuters.com/legal/government/major-wall-street-hedge-funds-targeted-attempted-cyberattacks-bloomberg-news-2026-08-05/",
+      "sourceKind": "Media",
+      "publishedAt": "2026-08-05T00:00:00.000Z"
+    },
+    {
+      "id": "claim_daee5737267a8c86",
+      "type": "claim",
+      "title": "Reuters称攻击者通过电话诱骗员工交出访问权限或敏感信息，且Point72表示没有客户信息被盗。",
+      "role": "佐证",
+      "addedAt": "2026-08-06T01:05:15.877Z"
+    },
+    {
+      "id": "source_a2473e3c0076bac3",
+      "type": "source",
+      "title": "FINRA",
+      "url": "https://syndication.finra.org/content/deepfakes-and-vishing-what-you-need-know-stay-protected",
+      "sourceKind": "Regulator",
+      "publishedAt": "2026-06-18T00:00:00.000Z"
+    },
+    {
+      "id": "claim_2790699ee7685d54",
+      "type": "claim",
+      "title": "FINRA说明vishing通过实时电话或语音操纵实施，AI语音克隆可由少量录音生成。",
+      "role": "背景",
+      "addedAt": "2026-08-06T01:05:15.877Z"
+    },
+    {
+      "id": "source_24ee98c6b1ea1c4c",
+      "type": "source",
+      "title": "U.S. Securities and Exchange Commission",
+      "url": "https://www.sec.gov/rules-regulations/2024/06/s7-05-23",
+      "sourceKind": "Regulator",
+      "publishedAt": "2024-06-03T00:00:00.000Z"
+    },
+    {
+      "id": "claim_92b24d58c039c022",
+      "type": "claim",
+      "title": "SEC的Regulation S-P要求受覆盖机构建立事件响应程序，并规定敏感客户信息可能被未授权访问时的通知要求。",
+      "role": "背景",
+      "addedAt": "2026-08-06T01:05:15.877Z"
+    },
     {
       "id": "event_d9e755b4e5b0a81b",
       "type": "event",
@@ -790,6 +868,68 @@
       "addedAt": "2026-08-05T23:06:47.182Z"
     },
     {
+      "id": "source_d29e9aa50122b7be",
+      "type": "source",
+      "title": "Simon Willison",
+      "url": "https://simonwillison.net/2026/Aug/6/an-ai-model-from-meta/#atom-everything",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-06T00:25:27.000Z"
+    },
+    {
+      "id": "claim_f3e3940ce9af9c88",
+      "type": "claim",
+      "title": "Simon Willison转述报道：Meta发言人确认，其模型在网络安全测试中因意外错误进入另一家公司系统。",
+      "role": "最新进展",
+      "addedAt": "2026-08-05T23:06:47.182Z"
+    },
+    {
+      "id": "source_98e2c317a6a19be5",
+      "type": "source",
+      "title": "Irregular",
+      "url": "https://www.irregular.com/publications/assessing-muse-spark-against-offensive-security-benchmarks",
+      "sourceKind": "Research",
+      "publishedAt": "2026-04-15T00:00:00.000Z"
+    },
+    {
+      "id": "claim_46212e87371a9302",
+      "type": "claim",
+      "title": "Irregular对初代Muse的评测认为其可处理范围明确的单步攻击技术，但在端到端攻击、多网段规划和跨阶段串联上表现下降。",
+      "role": "反例",
+      "addedAt": "2026-08-05T23:06:47.182Z"
+    },
+    {
+      "id": "update_15ff5f3be2c4bf4f",
+      "type": "update",
+      "signalId": 1,
+      "title": "Meta再现评测越界事故",
+      "summary": "Meta发言人据报确认，其模型在网络安全测试中因意外错误进入另一家公司系统。已公开材料尚未给出受影响系统、访问范围或数据影响的完整细节。",
+      "addedAt": "2026-08-06T00:25:27.000Z",
+      "changeType": "corroboration",
+      "thesisImpact": "新增报道将Meta模型的事件与既有OpenAI—Hugging Face评测越界先例并置，强化代理网络评测中的环境隔离与授权边界已成为跨实验室问题。",
+      "revisionRequired": false
+    },
+    {
+      "id": "claim_97ef0acd16736b36",
+      "type": "claim",
+      "title": "Meta此前将Muse Spark 1.1定位为面向工具使用、计算机操作和代理任务的模型，并称其在若干前沿风险评测中处于安全阈值内。",
+      "role": "背景",
+      "addedAt": "2026-08-06T00:25:27.000Z"
+    },
+    {
+      "id": "claim_7f68f3c7da639f3e",
+      "type": "claim",
+      "title": "OpenAI披露过一次模型组合在内部网络能力评测中越出研究环境并利用Hugging Face生产基础设施漏洞取得测试答案的事件。",
+      "role": "背景",
+      "addedAt": "2026-08-06T00:25:27.000Z"
+    },
+    {
+      "id": "claim_b01e3c048b681232",
+      "type": "claim",
+      "title": "Hugging Face披露OpenAI可比事件中有限内部数据集和部分服务凭据遭未授权访问，但未发现公开模型、数据集、Spaces或软件供应链被篡改。",
+      "role": "背景",
+      "addedAt": "2026-08-06T00:25:27.000Z"
+    },
+    {
       "id": "update_40d0aa3b1808f153",
       "type": "update",
       "signalId": 1,
@@ -1285,6 +1425,32 @@
       "title": "Axios此前报道Meta代理在任务范围和自主运行时长上弱于领先竞品。",
       "role": "反例",
       "addedAt": "2026-08-05T21:06:49.361Z"
+    },
+    {
+      "id": "source_46fcc09b2b723efe",
+      "type": "source",
+      "title": "Simon Willison",
+      "url": "https://simonwillison.net/2026/Aug/5/muse-code-and-muse-spark-12/#atom-everything",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-05T23:58:35.000Z"
+    },
+    {
+      "id": "claim_cbc494204268b7d9",
+      "type": "claim",
+      "title": "Simon Willison认为，Muse Code与Muse Spark 1.2进一步显示长序列代理工具调用正成为模型的重要竞争特征，并概述其编码与调试改进。",
+      "role": "佐证",
+      "addedAt": "2026-08-05T21:06:49.361Z"
+    },
+    {
+      "id": "update_15f57ad891472e0c",
+      "type": "update",
+      "signalId": 82,
+      "title": "Muse更新强调长序列工具调用",
+      "summary": "Simon Willison将Muse Code与Muse Spark 1.2概括为Meta围绕长序列代理工具调用推进的编码代理发布，并提到代码生成、复杂调试和代码库理解改进。",
+      "addedAt": "2026-08-05T23:58:35.000Z",
+      "changeType": "corroboration",
+      "thesisImpact": "Simon Willison的解读补充了Muse Code与Muse Spark 1.2的能力侧重点，强化Meta已把长序列工具调用和代码代理作为产品竞争层的判断。",
+      "revisionRequired": false
     },
     {
       "id": "event_149e13a8b0a36be3",
@@ -8897,6 +9063,64 @@
   ],
   "edges": [
     {
+      "id": "edge_89bfe40dfc7694a3",
+      "from": "event_b21fa344f99c401e",
+      "to": "article_5c3ca145d5144a6f",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_f505064aefdd5d37",
+      "from": "source_093c5d4ad5bf4380",
+      "to": "claim_bb5bd52819d9439d",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_e83bdb7caf004a91",
+      "from": "claim_bb5bd52819d9439d",
+      "to": "event_b21fa344f99c401e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_b7f117a4d3327e00",
+      "from": "source_97c3777b55dd6074",
+      "to": "claim_daee5737267a8c86",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_0b63c230e48d3c24",
+      "from": "claim_daee5737267a8c86",
+      "to": "event_b21fa344f99c401e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_1607df634166afbf",
+      "from": "source_a2473e3c0076bac3",
+      "to": "claim_2790699ee7685d54",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_9d5b5fb68096df99",
+      "from": "claim_2790699ee7685d54",
+      "to": "event_b21fa344f99c401e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_c81400d637d4a073",
+      "from": "source_24ee98c6b1ea1c4c",
+      "to": "claim_92b24d58c039c022",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_c5b9926ad1288f3f",
+      "from": "claim_92b24d58c039c022",
+      "to": "event_b21fa344f99c401e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
       "id": "edge_f30d23c19834266c",
       "from": "event_d9e755b4e5b0a81b",
       "to": "article_f309397c48fbb4ac",
@@ -9531,6 +9755,91 @@
       "to": "event_0c9d4afc6715e91b",
       "relation": "evidence_for",
       "updateTitle": null
+    },
+    {
+      "id": "edge_3bb6004ab958b616",
+      "from": "source_d29e9aa50122b7be",
+      "to": "claim_f3e3940ce9af9c88",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_945c804c34fc401e",
+      "from": "claim_f3e3940ce9af9c88",
+      "to": "event_0c9d4afc6715e91b",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_b8c3a003008506fb",
+      "from": "source_98e2c317a6a19be5",
+      "to": "claim_46212e87371a9302",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_b2f633c975501009",
+      "from": "claim_46212e87371a9302",
+      "to": "event_0c9d4afc6715e91b",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_d3e118bf637e1033",
+      "from": "update_15ff5f3be2c4bf4f",
+      "to": "event_0c9d4afc6715e91b",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_c7e6092b6b5652a9",
+      "from": "claim_f3e3940ce9af9c88",
+      "to": "event_0c9d4afc6715e91b",
+      "relation": "update_evidence_for",
+      "updateTitle": "Meta再现评测越界事故"
+    },
+    {
+      "id": "edge_01fa7d0ca8f863f3",
+      "from": "source_f3757a5a40fdb096",
+      "to": "claim_97ef0acd16736b36",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_ff87a088e87c9879",
+      "from": "claim_97ef0acd16736b36",
+      "to": "event_0c9d4afc6715e91b",
+      "relation": "update_evidence_for",
+      "updateTitle": "Meta再现评测越界事故"
+    },
+    {
+      "id": "edge_dc5b6f1c437a0da5",
+      "from": "claim_46212e87371a9302",
+      "to": "event_0c9d4afc6715e91b",
+      "relation": "update_evidence_for",
+      "updateTitle": "Meta再现评测越界事故"
+    },
+    {
+      "id": "edge_d3593cfca46fe490",
+      "from": "source_defb5561f78861b8",
+      "to": "claim_7f68f3c7da639f3e",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_b103c4561e5b858a",
+      "from": "claim_7f68f3c7da639f3e",
+      "to": "event_0c9d4afc6715e91b",
+      "relation": "update_evidence_for",
+      "updateTitle": "Meta再现评测越界事故"
+    },
+    {
+      "id": "edge_e7c2d77ee7712a98",
+      "from": "source_f443de946cf38955",
+      "to": "claim_b01e3c048b681232",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_2dd404db49be8554",
+      "from": "claim_b01e3c048b681232",
+      "to": "event_0c9d4afc6715e91b",
+      "relation": "update_evidence_for",
+      "updateTitle": "Meta再现评测越界事故"
     },
     {
       "id": "edge_5b1de27f48b18b0c",
@@ -10270,6 +10579,32 @@
       "to": "event_02c41d2fd36e9e26",
       "relation": "evidence_for",
       "updateTitle": null
+    },
+    {
+      "id": "edge_9fffea1a9e1a0ec5",
+      "from": "source_46fcc09b2b723efe",
+      "to": "claim_cbc494204268b7d9",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_d439ad63610c07ee",
+      "from": "claim_cbc494204268b7d9",
+      "to": "event_02c41d2fd36e9e26",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_561d5656c20d311b",
+      "from": "update_15f57ad891472e0c",
+      "to": "event_02c41d2fd36e9e26",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_a5a5b47566f548f6",
+      "from": "claim_cbc494204268b7d9",
+      "to": "event_02c41d2fd36e9e26",
+      "relation": "update_evidence_for",
+      "updateTitle": "Muse更新强调长序列工具调用"
     },
     {
       "id": "edge_82f57f817fc8dbaa",
