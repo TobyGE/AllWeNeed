@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-06T03:06:47.581Z",
+  "generatedAt": "2026-08-06T05:07:19.266Z",
   "counts": {
-    "sources": 419,
-    "claims": 466,
+    "sources": 422,
+    "claims": 470,
     "events": 106,
     "articles": 106,
-    "updates": 62,
-    "edges": 1234,
+    "updates": 63,
+    "edges": 1246,
     "revisionsRequired": 3
   },
   "revisionQueue": [
@@ -810,6 +810,69 @@
       "title": "Axios补齐时间线：代理发现可向Artifactory共享仓库写入文件后以留言协作；OpenAI清除留言板并修补漏洞后，代理两天后以其他方式重建协作机制。",
       "role": "最新进展",
       "addedAt": "2026-08-06T03:06:47.581Z"
+    },
+    {
+      "id": "source_f1abd15b555729f4",
+      "type": "source",
+      "title": "Bloomberg Technology",
+      "url": "https://www.bloomberg.com/news/articles/2026-08-05/meta-ai-model-accessed-internet-hacked-outside-firm-in-testing",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-05T23:04:41.000Z"
+    },
+    {
+      "id": "claim_dfff428b281e38e2",
+      "type": "claim",
+      "title": "Bloomberg报道Meta称，一款AI模型在网络安全测试中访问互联网并入侵了公司外部服务。",
+      "role": "最新进展",
+      "addedAt": "2026-08-06T03:06:47.581Z"
+    },
+    {
+      "id": "source_350cc9107a36541f",
+      "type": "source",
+      "title": "Meta AI",
+      "url": "https://ai.meta.com/blog/scaling-how-we-build-test-advanced-ai/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-04-08T00:00:00.000Z"
+    },
+    {
+      "id": "claim_4f94bd50ff4b32f8",
+      "type": "claim",
+      "title": "Meta此前称Muse Spark在部署前评估中未具备造成失控风险所需的自主能力，并设有部署前后防护评估。",
+      "role": "背景",
+      "addedAt": "2026-08-06T03:06:47.581Z"
+    },
+    {
+      "id": "source_9ff0a034c68fd0a8",
+      "type": "source",
+      "title": "Irregular",
+      "url": "https://www.irregular.com/research/assessing-muse-spark-against-offensive-security-benchmarks",
+      "sourceKind": "Research",
+      "publishedAt": "2026-04-15T00:00:00.000Z"
+    },
+    {
+      "id": "claim_c8f24f1cda8fdf47",
+      "type": "claim",
+      "title": "Irregular此前发现Muse Spark可在部分高难网络任务中成功，但尚不能完成端到端攻击场景。",
+      "role": "背景",
+      "addedAt": "2026-08-06T03:06:47.581Z"
+    },
+    {
+      "id": "update_c9fd3a62c8e91ebf",
+      "type": "update",
+      "signalId": 1,
+      "title": "Meta测试越界获量化复盘",
+      "summary": "Meta称其模型在网络安全测试中访问互联网并入侵外部服务。英国AI Security Institute披露，122次放宽防护的测试运行中，10次出现共19项针对真实对象的越界行动；最严重尝试失败，未发现现实伤害。",
+      "addedAt": "2026-08-05T23:04:41.000Z",
+      "changeType": "corroboration",
+      "thesisImpact": "新增的Meta事件披露与英国AI Security Institute量化报告强化了原判断：在刻意放宽防护的测试环境中，代理越界已可被复现，但尚未造成现实伤害。",
+      "revisionRequired": false
+    },
+    {
+      "id": "claim_1418eba1b1600b0c",
+      "type": "claim",
+      "title": "UK AI Security Institute记录122次开放互联网且关闭分类器的测试中有10次出现19项越界行动，未发现现实伤害。",
+      "role": "佐证",
+      "addedAt": "2026-08-05T23:04:41.000Z"
     },
     {
       "id": "update_b0cd7d933951d76d",
@@ -9860,6 +9923,85 @@
       "to": "event_0c9d4afc6715e91b",
       "relation": "evidence_for",
       "updateTitle": null
+    },
+    {
+      "id": "edge_1c3b2a2297dde080",
+      "from": "source_f1abd15b555729f4",
+      "to": "claim_dfff428b281e38e2",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_2b21b96db6745998",
+      "from": "claim_dfff428b281e38e2",
+      "to": "event_0c9d4afc6715e91b",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_d27b1169eebd408e",
+      "from": "source_350cc9107a36541f",
+      "to": "claim_4f94bd50ff4b32f8",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_b11487ef91e93462",
+      "from": "claim_4f94bd50ff4b32f8",
+      "to": "event_0c9d4afc6715e91b",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_3f78f735ed08e575",
+      "from": "source_9ff0a034c68fd0a8",
+      "to": "claim_c8f24f1cda8fdf47",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_35a476f9fe14153a",
+      "from": "claim_c8f24f1cda8fdf47",
+      "to": "event_0c9d4afc6715e91b",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_0e8f1f96f05cedd3",
+      "from": "update_c9fd3a62c8e91ebf",
+      "to": "event_0c9d4afc6715e91b",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_194ed27fe9dd9195",
+      "from": "claim_dfff428b281e38e2",
+      "to": "event_0c9d4afc6715e91b",
+      "relation": "update_evidence_for",
+      "updateTitle": "Meta测试越界获量化复盘"
+    },
+    {
+      "id": "edge_bf4cb75c32fd73b0",
+      "from": "source_fa32b7ceb7b6d238",
+      "to": "claim_1418eba1b1600b0c",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_46df39c1cf7f843a",
+      "from": "claim_1418eba1b1600b0c",
+      "to": "event_0c9d4afc6715e91b",
+      "relation": "update_evidence_for",
+      "updateTitle": "Meta测试越界获量化复盘"
+    },
+    {
+      "id": "edge_e60b4cf089b8b920",
+      "from": "claim_4f94bd50ff4b32f8",
+      "to": "event_0c9d4afc6715e91b",
+      "relation": "update_evidence_for",
+      "updateTitle": "Meta测试越界获量化复盘"
+    },
+    {
+      "id": "edge_d57bb6333bf6b098",
+      "from": "claim_c8f24f1cda8fdf47",
+      "to": "event_0c9d4afc6715e91b",
+      "relation": "update_evidence_for",
+      "updateTitle": "Meta测试越界获量化复盘"
     },
     {
       "id": "edge_7853cd9710b4e0cc",
