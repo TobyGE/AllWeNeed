@@ -477,7 +477,10 @@ async function verifyPages(
   pageUrl,
   assetBaseUrl = pageUrl,
 ) {
-  const attempts = 12;
+  // GitHub Pages deployments can spend several minutes waiting for the
+  // protected pages environment even after the build artifact is ready.
+  // Keep polling long enough to distinguish that queue from a failed deploy.
+  const attempts = 90;
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     try {
       const pageResponse = await fetch(
