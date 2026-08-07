@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-06T21:05:56.874Z",
+  "generatedAt": "2026-08-07T03:05:24.592Z",
   "counts": {
-    "sources": 436,
-    "claims": 486,
-    "events": 108,
-    "articles": 108,
+    "sources": 437,
+    "claims": 487,
+    "events": 109,
+    "articles": 109,
     "updates": 65,
-    "edges": 1286,
+    "edges": 1289,
     "revisionsRequired": 3
   },
   "revisionQueue": [
@@ -43,6 +43,39 @@
     }
   ],
   "nodes": [
+    {
+      "id": "event_f7e6c6f8c0b2b22e",
+      "type": "event",
+      "signalId": 87,
+      "title": "SpaceX与Tesla启动Terafab建厂",
+      "bucket": "dynamic",
+      "valueScore": 88,
+      "publishedAt": "2026-08-06T00:00:00.000Z",
+      "updatedAt": "2026-08-06T00:00:00.000Z"
+    },
+    {
+      "id": "article_a6ced55ae5d0f594",
+      "type": "article",
+      "signalId": 87,
+      "title": "SpaceX与Tesla启动Terafab建厂",
+      "version": 1,
+      "publishedAt": "2026-08-07T03:05:24.592Z"
+    },
+    {
+      "id": "source_b9a6cc95e1c41979",
+      "type": "source",
+      "title": "SpaceX Updates",
+      "url": "https://www.spacex.com/updates/terafab",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-06T00:00:00.000Z"
+    },
+    {
+      "id": "claim_28b05825865508a1",
+      "type": "claim",
+      "title": "SpaceX宣布Terafab将建于得州Grimes County，定位为整合逻辑、存储和先进封装的先进半导体工厂；Tesla此前已为研究fab破土。",
+      "role": "主张",
+      "addedAt": "2026-08-07T03:05:24.592Z"
+    },
     {
       "id": "event_e2048da259f85912",
       "type": "event",
@@ -9550,6 +9583,25 @@
     }
   ],
   "edges": [
+    {
+      "id": "edge_49699af120cbe25b",
+      "from": "event_f7e6c6f8c0b2b22e",
+      "to": "article_a6ced55ae5d0f594",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_3e7dae50d2b55476",
+      "from": "source_b9a6cc95e1c41979",
+      "to": "claim_28b05825865508a1",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_4deef4e64f846b1c",
+      "from": "claim_28b05825865508a1",
+      "to": "event_f7e6c6f8c0b2b22e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
     {
       "id": "edge_564e885a7abb351f",
       "from": "event_e2048da259f85912",
