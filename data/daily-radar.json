@@ -1,13 +1,327 @@
 {
-  "generatedAt": "2026-08-07T09:12:02.224Z",
-  "basedOnSnapshotAt": "2026-08-07T09:07:09.122Z",
+  "generatedAt": "2026-08-07T15:12:10.808Z",
+  "basedOnSnapshotAt": "2026-08-07T15:06:36.091Z",
   "model": "gpt-5.5",
   "analyzedItemCount": 180,
-  "totalFetchedItemCount": 2082,
+  "totalFetchedItemCount": 2079,
   "editorNote": "今日信息环境由代理安全事件、编码代理工具链分化、开放模型竞争和算力下沉共同主导。",
   "signalQuality": 86,
   "signalQualityChange": 8,
   "signals": [
+    {
+      "id": 89,
+      "editorialBucket": "dynamic",
+      "category": "科技",
+      "eyebrow": "风险预警",
+      "title": "中国启动对Palo Alto产品审查",
+      "summary": "中国网信部门据报已对 Palo Alto Networks 在华销售的产品启动网络安全审查，监管风险从既有认证状态进入正式审查程序。",
+      "why": "审查可能影响关键基础设施客户采购安全产品的节奏，并为跨境网络安全供应链增加新的合规变量。",
+      "impact": "若审查扩大范围或形成处置决定，海外安全厂商在中国的产品准入、续约和渠道交付可能承压。",
+      "shiftFrom": "部分产品曾获网络安全认证",
+      "shiftTo": "产品进入网络安全审查程序",
+      "crossValidation": "The Information 报道网信部门已启动审查；网信办文件确认网络安全设备可被纳入审查范围，并记录了相关 Palo Alto Networks 防火墙此前的认证信息。",
+      "article": {
+        "lead": "中国网信部门据报已对 Palo Alto Networks 在中国销售的产品启动网络安全审查。这一变化不等同于产品已被禁用或存在已确认缺陷，但它将该公司在华部分安全产品从既有准入与认证背景，带入可能影响采购和供应链判断的正式监管程序。",
+        "sections": [
+          {
+            "heading": "审查成为新的准入状态",
+            "body": "The Information 报道称，中国网信部门周四启动了对 Palo Alto Networks 在华销售产品的网络安全审查。网信办现行《网络安全审查办法》规定，网络安全设备属于可被审查的网络产品和服务；关键信息基础设施运营者采购中，如可能影响国家安全，须接受相应审查。对企业客户而言，监管状态本身已成为采购决策中的新增变量。"
+          },
+          {
+            "heading": "既有认证不能替代审查判断",
+            "body": "网信办公开的会签说明列出派拓网络（上海）有限公司的 Palo Alto Networks Firewall PA-445、PA-460、PA-415、PA-450 和 PA-410，所列版本均为11.0.2，证书有效期为2023年11月24日至2025年11月24日。这些记录说明相关产品存在可核验的既有认证基准；但认证与网络安全审查服务于不同程序，前者不能自动决定后者的结果。"
+          },
+          {
+            "heading": "供应链风险将先传导至采购节奏",
+            "body": "审查机制的制度目标是保障关键信息基础设施供应链安全和维护国家安全，因此其直接作用点更可能是高敏感客户对产品、版本和供应安排的评估。最强的反面解释是，审查启动本身并不证明产品已被禁用、存在安全缺陷，或必然面临不利决定。即便如此，采购审批延长或替代方案评估仍可能成为在华业务的实际摩擦。"
+          }
+        ],
+        "outlook": "接下来可观察网信部门是否公布审查对象、适用客户范围、程序结论或整改要求，以及 Palo Alto Networks 是否披露在华订单、渠道或产品交付的变化。若出现正式限制、采购调整或更多安全厂商被纳入同类程序，将强化供应链准入收紧的判断；若审查迅速结束且无处置，将削弱其经营影响。"
+      },
+      "validationType": "跨平台验证",
+      "publishedAt": "2026-08-07T09:09:04.000Z",
+      "updatedAt": "2026-08-07T09:09:04.000Z",
+      "sources": [
+        "Blog",
+        "Regulator"
+      ],
+      "sourceNames": [
+        "The Information",
+        "中央网络安全和信息化委员会办公室"
+      ],
+      "sourceCount": 2,
+      "age": "6 小时前",
+      "score": 84,
+      "tone": "blue",
+      "evidence": [
+        {
+          "id": "236-4-https://www.theinformation.com/briefings/beijing-launches-cybersecurity-review-palo-alto-networks-products",
+          "sourceId": 236,
+          "sourceName": "The Information",
+          "sourcePublisher": "The Information",
+          "sourceKind": "Blog",
+          "title": "Beijing Launches Cybersecurity Review of Palo Alto Networks’ Products",
+          "url": "https://www.theinformation.com/briefings/beijing-launches-cybersecurity-review-palo-alto-networks-products",
+          "publishedAt": "2026-08-07T09:09:04.000Z",
+          "summary": "China’s top internet regulator said on Thursday it had launched a cybersecurity review of products sold in the country by U.S. security software firm Palo Alto Networks. The Cyberspace Administration of China said that the purpose of the review is to “ensure the secure and stable operation of ...",
+          "fetchedAt": "2026-08-07T15:06:36.091Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-07T15:06:36.091Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "standard",
+            "reason": "fresh",
+            "ageHours": 5.958914166666666,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N4",
+          "role": "主张",
+          "takeaway": "报道称中国网信部门已对 Palo Alto Networks 在中国销售的产品启动网络安全审查。"
+        },
+        {
+          "id": "research-236-4-https://www.theinformation.com/briefings/beijing-launches-cybersecurity-review-palo-alto-networks-products-1-https://www.cac.gov.cn/2022-01/04/c_1642894602182845.htm",
+          "sourceId": 236,
+          "sourceName": "中央网络安全和信息化委员会办公室",
+          "sourcePublisher": "中央网络安全和信息化委员会办公室",
+          "sourceKind": "Regulator",
+          "title": "网络安全审查办法",
+          "url": "https://www.cac.gov.cn/2022-01/04/c_1642894602182845.htm",
+          "publishedAt": "2022-01-04T00:55:00.000Z",
+          "summary": "提供现行法律基准：网络安全设备属于审查涵盖的网络产品和服务；关键信息基础设施运营者采购如影响或可能影响国家安全，须按办法接受网络安全审查。",
+          "fetchedAt": "2026-08-07T15:06:36.091Z",
+          "researchedFrom": "N4",
+          "researchRole": "Comparison",
+          "researchClaim": "若中国国家互联网信息办公室所述审查已启动，变化在于 Palo Alto Networks 在华销售的网络安全产品从此前可获中国安全认证的状态，转入以国家安全风险、供应链安全和数据安全为核心的正式网络安全审查；公开规则本身并不等同于禁售、认定存在漏洞或已作出不利结论。",
+          "researchComparisons": "此前状态：Palo Alto Networks Firewall 的 PA-445、PA-460、PA-415、PA-450 和 PA-410（版本 11.0.2）曾列入中国安全产品认证/检测清单，证书有效期为 2023年11月24日至2025年11月24日。现行基准：自2022年2月15日起施行的《网络安全审查办法》将网络安全设备明确列为审查范围；关键信息基础设施运营者采购的产品或服务如影响或可能影响国家安全，应接受审查。决定性区别是审查评估的是产品、服务、供应链及相关数据安全风险，而非单凭既往认证自动得出准入或禁用结论。",
+          "researchUnresolved": "未找到可公开核验的 CAC 原始公告、案件编号、受审查的具体产品型号、审查启动日期、适用客户类别、程序阶段、期限、临时限制或最终处置；也未找到 Palo Alto Networks 对该事件的公开回应。",
+          "ref": "R4",
+          "role": "背景",
+          "takeaway": "《网络安全审查办法》将网络安全设备纳入可审查的网络产品和服务范围。"
+        },
+        {
+          "id": "research-236-4-https://www.theinformation.com/briefings/beijing-launches-cybersecurity-review-palo-alto-networks-products-2-https://www.cac.gov.cn/rootimages/uploadimg/1707243869937922/1707243869937922.pdf",
+          "sourceId": 236,
+          "sourceName": "中央网络安全和信息化委员会办公室",
+          "sourcePublisher": "中央网络安全和信息化委员会办公室",
+          "sourceKind": "Regulator",
+          "title": "会签说明",
+          "url": "https://www.cac.gov.cn/rootimages/uploadimg/1707243869937922/1707243869937922.pdf",
+          "publishedAt": "2026-08-07T09:09:04.000Z",
+          "summary": "列出派拓网络（上海）有限公司的 Palo Alto Networks Firewall PA-445、PA-460、PA-415、PA-450 和 PA-410，版本均为11.0.2；相应证书有效期均为2023年11月24日至2025年11月24日，构成审查前产品曾获认证的可核验基准。",
+          "fetchedAt": "2026-08-07T15:06:36.091Z",
+          "researchedFrom": "N4",
+          "researchRole": "Comparison",
+          "researchClaim": "若中国国家互联网信息办公室所述审查已启动，变化在于 Palo Alto Networks 在华销售的网络安全产品从此前可获中国安全认证的状态，转入以国家安全风险、供应链安全和数据安全为核心的正式网络安全审查；公开规则本身并不等同于禁售、认定存在漏洞或已作出不利结论。",
+          "researchComparisons": "此前状态：Palo Alto Networks Firewall 的 PA-445、PA-460、PA-415、PA-450 和 PA-410（版本 11.0.2）曾列入中国安全产品认证/检测清单，证书有效期为 2023年11月24日至2025年11月24日。现行基准：自2022年2月15日起施行的《网络安全审查办法》将网络安全设备明确列为审查范围；关键信息基础设施运营者采购的产品或服务如影响或可能影响国家安全，应接受审查。决定性区别是审查评估的是产品、服务、供应链及相关数据安全风险，而非单凭既往认证自动得出准入或禁用结论。",
+          "researchUnresolved": "未找到可公开核验的 CAC 原始公告、案件编号、受审查的具体产品型号、审查启动日期、适用客户类别、程序阶段、期限、临时限制或最终处置；也未找到 Palo Alto Networks 对该事件的公开回应。",
+          "ref": "R5",
+          "role": "佐证",
+          "takeaway": "公开会签记录列出多款 Palo Alto Networks 防火墙及其历史认证有效期。"
+        },
+        {
+          "id": "research-236-4-https://www.theinformation.com/briefings/beijing-launches-cybersecurity-review-palo-alto-networks-products-3-https://www.cac.gov.cn/2022-01/04/c_1642894602144070.htm?module=inline&pgtype=article",
+          "sourceId": 236,
+          "sourceName": "中央网络安全和信息化委员会办公室",
+          "sourcePublisher": "中央网络安全和信息化委员会办公室",
+          "sourceKind": "Regulator",
+          "title": "国家互联网信息办公室等十三部门修订发布《网络安全审查办法》",
+          "url": "https://www.cac.gov.cn/2022-01/04/c_1642894602144070.htm?module=inline&pgtype=article",
+          "publishedAt": "2022-01-03T16:00:00.000Z",
+          "summary": "说明该制度旨在保障关键信息基础设施供应链安全和维护国家安全；结合办法文本，审查启动本身不能证明产品已被禁用、存在已确认安全缺陷或将必然收到不利决定。",
+          "fetchedAt": "2026-08-07T15:06:36.091Z",
+          "researchedFrom": "N4",
+          "researchRole": "Counterevidence",
+          "researchClaim": "若中国国家互联网信息办公室所述审查已启动，变化在于 Palo Alto Networks 在华销售的网络安全产品从此前可获中国安全认证的状态，转入以国家安全风险、供应链安全和数据安全为核心的正式网络安全审查；公开规则本身并不等同于禁售、认定存在漏洞或已作出不利结论。",
+          "researchComparisons": "此前状态：Palo Alto Networks Firewall 的 PA-445、PA-460、PA-415、PA-450 和 PA-410（版本 11.0.2）曾列入中国安全产品认证/检测清单，证书有效期为 2023年11月24日至2025年11月24日。现行基准：自2022年2月15日起施行的《网络安全审查办法》将网络安全设备明确列为审查范围；关键信息基础设施运营者采购的产品或服务如影响或可能影响国家安全，应接受审查。决定性区别是审查评估的是产品、服务、供应链及相关数据安全风险，而非单凭既往认证自动得出准入或禁用结论。",
+          "researchUnresolved": "未找到可公开核验的 CAC 原始公告、案件编号、受审查的具体产品型号、审查启动日期、适用客户类别、程序阶段、期限、临时限制或最终处置；也未找到 Palo Alto Networks 对该事件的公开回应。",
+          "ref": "R6",
+          "role": "反例",
+          "takeaway": "制度说明表明，审查启动不等于产品已被禁用、存在已确认缺陷或必然受到不利处置。"
+        }
+      ],
+      "references": [
+        {
+          "id": "236-4-https://www.theinformation.com/briefings/beijing-launches-cybersecurity-review-palo-alto-networks-products",
+          "sourceId": 236,
+          "sourceName": "The Information",
+          "sourcePublisher": "The Information",
+          "sourceKind": "Blog",
+          "title": "Beijing Launches Cybersecurity Review of Palo Alto Networks’ Products",
+          "url": "https://www.theinformation.com/briefings/beijing-launches-cybersecurity-review-palo-alto-networks-products",
+          "publishedAt": "2026-08-07T09:09:04.000Z",
+          "summary": "China’s top internet regulator said on Thursday it had launched a cybersecurity review of products sold in the country by U.S. security software firm Palo Alto Networks. The Cyberspace Administration of China said that the purpose of the review is to “ensure the secure and stable operation of ...",
+          "fetchedAt": "2026-08-07T15:06:36.091Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-07T15:06:36.091Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "standard",
+            "reason": "fresh",
+            "ageHours": 5.958914166666666,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N4"
+        },
+        {
+          "id": "research-236-4-https://www.theinformation.com/briefings/beijing-launches-cybersecurity-review-palo-alto-networks-products-1-https://www.cac.gov.cn/2022-01/04/c_1642894602182845.htm",
+          "sourceId": 236,
+          "sourceName": "中央网络安全和信息化委员会办公室",
+          "sourcePublisher": "中央网络安全和信息化委员会办公室",
+          "sourceKind": "Regulator",
+          "title": "网络安全审查办法",
+          "url": "https://www.cac.gov.cn/2022-01/04/c_1642894602182845.htm",
+          "publishedAt": "2022-01-04T00:55:00.000Z",
+          "summary": "提供现行法律基准：网络安全设备属于审查涵盖的网络产品和服务；关键信息基础设施运营者采购如影响或可能影响国家安全，须按办法接受网络安全审查。",
+          "fetchedAt": "2026-08-07T15:06:36.091Z",
+          "researchedFrom": "N4",
+          "researchRole": "Comparison",
+          "researchClaim": "若中国国家互联网信息办公室所述审查已启动，变化在于 Palo Alto Networks 在华销售的网络安全产品从此前可获中国安全认证的状态，转入以国家安全风险、供应链安全和数据安全为核心的正式网络安全审查；公开规则本身并不等同于禁售、认定存在漏洞或已作出不利结论。",
+          "researchComparisons": "此前状态：Palo Alto Networks Firewall 的 PA-445、PA-460、PA-415、PA-450 和 PA-410（版本 11.0.2）曾列入中国安全产品认证/检测清单，证书有效期为 2023年11月24日至2025年11月24日。现行基准：自2022年2月15日起施行的《网络安全审查办法》将网络安全设备明确列为审查范围；关键信息基础设施运营者采购的产品或服务如影响或可能影响国家安全，应接受审查。决定性区别是审查评估的是产品、服务、供应链及相关数据安全风险，而非单凭既往认证自动得出准入或禁用结论。",
+          "researchUnresolved": "未找到可公开核验的 CAC 原始公告、案件编号、受审查的具体产品型号、审查启动日期、适用客户类别、程序阶段、期限、临时限制或最终处置；也未找到 Palo Alto Networks 对该事件的公开回应。",
+          "ref": "R4"
+        },
+        {
+          "id": "research-236-4-https://www.theinformation.com/briefings/beijing-launches-cybersecurity-review-palo-alto-networks-products-2-https://www.cac.gov.cn/rootimages/uploadimg/1707243869937922/1707243869937922.pdf",
+          "sourceId": 236,
+          "sourceName": "中央网络安全和信息化委员会办公室",
+          "sourcePublisher": "中央网络安全和信息化委员会办公室",
+          "sourceKind": "Regulator",
+          "title": "会签说明",
+          "url": "https://www.cac.gov.cn/rootimages/uploadimg/1707243869937922/1707243869937922.pdf",
+          "publishedAt": "2026-08-07T09:09:04.000Z",
+          "summary": "列出派拓网络（上海）有限公司的 Palo Alto Networks Firewall PA-445、PA-460、PA-415、PA-450 和 PA-410，版本均为11.0.2；相应证书有效期均为2023年11月24日至2025年11月24日，构成审查前产品曾获认证的可核验基准。",
+          "fetchedAt": "2026-08-07T15:06:36.091Z",
+          "researchedFrom": "N4",
+          "researchRole": "Comparison",
+          "researchClaim": "若中国国家互联网信息办公室所述审查已启动，变化在于 Palo Alto Networks 在华销售的网络安全产品从此前可获中国安全认证的状态，转入以国家安全风险、供应链安全和数据安全为核心的正式网络安全审查；公开规则本身并不等同于禁售、认定存在漏洞或已作出不利结论。",
+          "researchComparisons": "此前状态：Palo Alto Networks Firewall 的 PA-445、PA-460、PA-415、PA-450 和 PA-410（版本 11.0.2）曾列入中国安全产品认证/检测清单，证书有效期为 2023年11月24日至2025年11月24日。现行基准：自2022年2月15日起施行的《网络安全审查办法》将网络安全设备明确列为审查范围；关键信息基础设施运营者采购的产品或服务如影响或可能影响国家安全，应接受审查。决定性区别是审查评估的是产品、服务、供应链及相关数据安全风险，而非单凭既往认证自动得出准入或禁用结论。",
+          "researchUnresolved": "未找到可公开核验的 CAC 原始公告、案件编号、受审查的具体产品型号、审查启动日期、适用客户类别、程序阶段、期限、临时限制或最终处置；也未找到 Palo Alto Networks 对该事件的公开回应。",
+          "ref": "R5"
+        },
+        {
+          "id": "research-236-4-https://www.theinformation.com/briefings/beijing-launches-cybersecurity-review-palo-alto-networks-products-3-https://www.cac.gov.cn/2022-01/04/c_1642894602144070.htm?module=inline&pgtype=article",
+          "sourceId": 236,
+          "sourceName": "中央网络安全和信息化委员会办公室",
+          "sourcePublisher": "中央网络安全和信息化委员会办公室",
+          "sourceKind": "Regulator",
+          "title": "国家互联网信息办公室等十三部门修订发布《网络安全审查办法》",
+          "url": "https://www.cac.gov.cn/2022-01/04/c_1642894602144070.htm?module=inline&pgtype=article",
+          "publishedAt": "2022-01-03T16:00:00.000Z",
+          "summary": "说明该制度旨在保障关键信息基础设施供应链安全和维护国家安全；结合办法文本，审查启动本身不能证明产品已被禁用、存在已确认安全缺陷或将必然收到不利决定。",
+          "fetchedAt": "2026-08-07T15:06:36.091Z",
+          "researchedFrom": "N4",
+          "researchRole": "Counterevidence",
+          "researchClaim": "若中国国家互联网信息办公室所述审查已启动，变化在于 Palo Alto Networks 在华销售的网络安全产品从此前可获中国安全认证的状态，转入以国家安全风险、供应链安全和数据安全为核心的正式网络安全审查；公开规则本身并不等同于禁售、认定存在漏洞或已作出不利结论。",
+          "researchComparisons": "此前状态：Palo Alto Networks Firewall 的 PA-445、PA-460、PA-415、PA-450 和 PA-410（版本 11.0.2）曾列入中国安全产品认证/检测清单，证书有效期为 2023年11月24日至2025年11月24日。现行基准：自2022年2月15日起施行的《网络安全审查办法》将网络安全设备明确列为审查范围；关键信息基础设施运营者采购的产品或服务如影响或可能影响国家安全，应接受审查。决定性区别是审查评估的是产品、服务、供应链及相关数据安全风险，而非单凭既往认证自动得出准入或禁用结论。",
+          "researchUnresolved": "未找到可公开核验的 CAC 原始公告、案件编号、受审查的具体产品型号、审查启动日期、适用客户类别、程序阶段、期限、临时限制或最终处置；也未找到 Palo Alto Networks 对该事件的公开回应。",
+          "ref": "R6"
+        }
+      ],
+      "feedBatchAt": "2026-08-07T15:06:36.091Z"
+    },
+    {
+      "id": 90,
+      "editorialBucket": "dynamic",
+      "category": "算力",
+      "eyebrow": "资本信号",
+      "title": "SK hynix投381亿美元建两座存储厂",
+      "summary": "SK hynix 宣布将在韩国投资381亿美元建设两座新的 DRAM 和 NAND 工厂，增加其面向存储芯片的长期产能押注。",
+      "why": "DRAM 与 NAND 是AI服务器和数据中心供应链的关键部件，头部厂商的大额扩产承诺会影响未来供给预期。",
+      "impact": "该投资若按计划落地，可能缓解部分存储供给约束，但也将提高行业对AI需求持续性的资本依赖。",
+      "shiftFrom": "现有存储制造产能布局",
+      "shiftTo": "新增两座DRAM与NAND工厂承诺",
+      "crossValidation": "Engadget 报道 SK hynix 已宣布381亿美元投资，并明确资金用于韩国两座新的 DRAM 和 NAND 设施；本次为单一来源信号。",
+      "article": {
+        "lead": "SK hynix 宣布将投资381亿美元，在韩国建设两座新的 DRAM 和 NAND 芯片设施。这是存储产业一次明确的长期资本开支状态变化：头部供应商正以新工厂而非短期调价来回应未来需求预期，AI服务器的存储供给也因此获得新的扩张信号。",
+        "sections": [
+          {
+            "heading": "两座新厂把需求判断转为资本承诺",
+            "body": "Engadget 报道，SK hynix 已宣布投入381亿美元，在韩国建设两座新的存储芯片设施，覆盖 DRAM 和 NAND。相较于季度出货或价格波动，新建工厂意味着更长周期的制造资源配置。该决定并未只是表达对AI市场的乐观判断，而是把资本、厂房与未来产能锁定在存储产品线上，构成可观察的供应侧状态变化。"
+          },
+          {
+            "heading": "存储扩产的机制指向算力供应链",
+            "body": "DRAM 直接关系服务器内存配置，NAND 则服务于数据存储与更广泛的基础设施部署。SK hynix 同时扩展两类产品的设施，意味着其资本计划覆盖计算与存储两端，而不是单押一个细分品类。编辑上可合理推断，若需求预期兑现，这类产能建设将使AI基础设施的瓶颈讨论从GPU延伸至内存、存储及其制造节奏。"
+          },
+          {
+            "heading": "结果取决于建设交付与产品结构",
+            "body": "对云厂商和服务器供应链而言，新增产能承诺可能改善中长期采购预期，并强化存储作为AI资本开支受益环节的地位。最强的反面解释是，公告目前只确认投资额、地点和两座设施，尚不足以判断投产时间、具体制程、产品组合或最终供给增量。因此，资本承诺的产业意义已成立，但对价格和份额的影响仍需后续交付验证。"
+          }
+        ],
+        "outlook": "下一步应关注 SK hynix 披露的开工、投产节点、DRAM 与 NAND 的产能配置和客户需求信号，以及韩国设备采购和供应链订单的同步变化。若建设进度、设备订单和面向AI服务器的存储出货同时上升，将强化扩产正在转化为供给能力的判断；若项目延期或配置缩减，则会削弱这一信号。"
+      },
+      "validationType": "单一来源",
+      "publishedAt": "2026-08-07T12:42:43.000Z",
+      "updatedAt": "2026-08-07T12:42:43.000Z",
+      "sources": [
+        "Blog"
+      ],
+      "sourceNames": [
+        "Engadget"
+      ],
+      "sourceCount": 1,
+      "age": "2 小时前",
+      "score": 83,
+      "tone": "green",
+      "evidence": [
+        {
+          "id": "235-1-https://www.engadget.com/2232279/sk-hynix-pledges-38-billion-to-build-dram-nand-factories/",
+          "sourceId": 235,
+          "sourceName": "Engadget",
+          "sourcePublisher": "Engadget",
+          "sourceKind": "Blog",
+          "title": "SK Hynix pledges $38 billion to build two new DRAM and NAND factories",
+          "url": "https://www.engadget.com/2232279/sk-hynix-pledges-38-billion-to-build-dram-nand-factories/",
+          "publishedAt": "2026-08-07T12:42:43.000Z",
+          "summary": "SK Hynix has announced that it will invest $38.1 billion to build two new memory chip facilities in South Korea.",
+          "fetchedAt": "2026-08-07T15:06:36.091Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-07T15:06:36.091Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "standard",
+            "reason": "fresh",
+            "ageHours": 2.398080833333333,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N7",
+          "role": "主张",
+          "takeaway": "报道称 SK hynix 已宣布投资381亿美元，在韩国建设两座新的 DRAM 和 NAND 芯片设施。"
+        }
+      ],
+      "references": [
+        {
+          "id": "235-1-https://www.engadget.com/2232279/sk-hynix-pledges-38-billion-to-build-dram-nand-factories/",
+          "sourceId": 235,
+          "sourceName": "Engadget",
+          "sourcePublisher": "Engadget",
+          "sourceKind": "Blog",
+          "title": "SK Hynix pledges $38 billion to build two new DRAM and NAND factories",
+          "url": "https://www.engadget.com/2232279/sk-hynix-pledges-38-billion-to-build-dram-nand-factories/",
+          "publishedAt": "2026-08-07T12:42:43.000Z",
+          "summary": "SK Hynix has announced that it will invest $38.1 billion to build two new memory chip facilities in South Korea.",
+          "fetchedAt": "2026-08-07T15:06:36.091Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-07T15:06:36.091Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "standard",
+            "reason": "fresh",
+            "ageHours": 2.398080833333333,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N7"
+        }
+      ],
+      "feedBatchAt": "2026-08-07T15:06:36.091Z"
+    },
     {
       "id": 88,
       "editorialBucket": "dynamic",
@@ -30073,6 +30387,88 @@
       "editorNote": "今日信息环境由智能体安全事件、AI coding 工具链分化、open-weight 模型竞争与算力下沉共同主导。",
       "signals": [
         {
+          "category": "科技",
+          "eyebrow": "风险预警",
+          "title": "中国启动对Palo Alto产品审查",
+          "summary": "中国网信部门据报已对 Palo Alto Networks 在华销售的产品启动网络安全审查，监管风险从既有认证状态进入正式审查程序。",
+          "why": "审查可能影响关键基础设施客户采购安全产品的节奏，并为跨境网络安全供应链增加新的合规变量。",
+          "impact": "若审查扩大范围或形成处置决定，海外安全厂商在中国的产品准入、续约和渠道交付可能承压。",
+          "shiftFrom": "部分产品曾获网络安全认证",
+          "shiftTo": "产品进入网络安全审查程序",
+          "crossValidation": "The Information 报道网信部门已启动审查；网信办文件确认网络安全设备可被纳入审查范围，并记录了相关 Palo Alto Networks 防火墙此前的认证信息。",
+          "article": {
+            "lead": "中国网信部门据报已对 Palo Alto Networks 在中国销售的产品启动网络安全审查。这一变化不等同于产品已被禁用或存在已确认缺陷，但它将该公司在华部分安全产品从既有准入与认证背景，带入可能影响采购和供应链判断的正式监管程序。",
+            "sections": [
+              {
+                "heading": "审查成为新的准入状态",
+                "body": "The Information 报道称，中国网信部门周四启动了对 Palo Alto Networks 在华销售产品的网络安全审查。网信办现行《网络安全审查办法》规定，网络安全设备属于可被审查的网络产品和服务；关键信息基础设施运营者采购中，如可能影响国家安全，须接受相应审查。对企业客户而言，监管状态本身已成为采购决策中的新增变量。"
+              },
+              {
+                "heading": "既有认证不能替代审查判断",
+                "body": "网信办公开的会签说明列出派拓网络（上海）有限公司的 Palo Alto Networks Firewall PA-445、PA-460、PA-415、PA-450 和 PA-410，所列版本均为11.0.2，证书有效期为2023年11月24日至2025年11月24日。这些记录说明相关产品存在可核验的既有认证基准；但认证与网络安全审查服务于不同程序，前者不能自动决定后者的结果。"
+              },
+              {
+                "heading": "供应链风险将先传导至采购节奏",
+                "body": "审查机制的制度目标是保障关键信息基础设施供应链安全和维护国家安全，因此其直接作用点更可能是高敏感客户对产品、版本和供应安排的评估。最强的反面解释是，审查启动本身并不证明产品已被禁用、存在安全缺陷，或必然面临不利决定。即便如此，采购审批延长或替代方案评估仍可能成为在华业务的实际摩擦。"
+              }
+            ],
+            "outlook": "接下来可观察网信部门是否公布审查对象、适用客户范围、程序结论或整改要求，以及 Palo Alto Networks 是否披露在华订单、渠道或产品交付的变化。若出现正式限制、采购调整或更多安全厂商被纳入同类程序，将强化供应链准入收紧的判断；若审查迅速结束且无处置，将削弱其经营影响。"
+          },
+          "evidence": [
+            {
+              "role": "主张",
+              "takeaway": "报道称中国网信部门已对 Palo Alto Networks 在中国销售的产品启动网络安全审查。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "《网络安全审查办法》将网络安全设备纳入可审查的网络产品和服务范围。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "公开会签记录列出多款 Palo Alto Networks 防火墙及其历史认证有效期。"
+            },
+            {
+              "role": "反例",
+              "takeaway": "制度说明表明，审查启动不等于产品已被禁用、存在已确认缺陷或必然受到不利处置。"
+            }
+          ]
+        },
+        {
+          "category": "算力",
+          "eyebrow": "资本信号",
+          "title": "SK hynix投381亿美元建两座存储厂",
+          "summary": "SK hynix 宣布将在韩国投资381亿美元建设两座新的 DRAM 和 NAND 工厂，增加其面向存储芯片的长期产能押注。",
+          "why": "DRAM 与 NAND 是AI服务器和数据中心供应链的关键部件，头部厂商的大额扩产承诺会影响未来供给预期。",
+          "impact": "该投资若按计划落地，可能缓解部分存储供给约束，但也将提高行业对AI需求持续性的资本依赖。",
+          "shiftFrom": "现有存储制造产能布局",
+          "shiftTo": "新增两座DRAM与NAND工厂承诺",
+          "crossValidation": "Engadget 报道 SK hynix 已宣布381亿美元投资，并明确资金用于韩国两座新的 DRAM 和 NAND 设施；本次为单一来源信号。",
+          "article": {
+            "lead": "SK hynix 宣布将投资381亿美元，在韩国建设两座新的 DRAM 和 NAND 芯片设施。这是存储产业一次明确的长期资本开支状态变化：头部供应商正以新工厂而非短期调价来回应未来需求预期，AI服务器的存储供给也因此获得新的扩张信号。",
+            "sections": [
+              {
+                "heading": "两座新厂把需求判断转为资本承诺",
+                "body": "Engadget 报道，SK hynix 已宣布投入381亿美元，在韩国建设两座新的存储芯片设施，覆盖 DRAM 和 NAND。相较于季度出货或价格波动，新建工厂意味着更长周期的制造资源配置。该决定并未只是表达对AI市场的乐观判断，而是把资本、厂房与未来产能锁定在存储产品线上，构成可观察的供应侧状态变化。"
+              },
+              {
+                "heading": "存储扩产的机制指向算力供应链",
+                "body": "DRAM 直接关系服务器内存配置，NAND 则服务于数据存储与更广泛的基础设施部署。SK hynix 同时扩展两类产品的设施，意味着其资本计划覆盖计算与存储两端，而不是单押一个细分品类。编辑上可合理推断，若需求预期兑现，这类产能建设将使AI基础设施的瓶颈讨论从GPU延伸至内存、存储及其制造节奏。"
+              },
+              {
+                "heading": "结果取决于建设交付与产品结构",
+                "body": "对云厂商和服务器供应链而言，新增产能承诺可能改善中长期采购预期，并强化存储作为AI资本开支受益环节的地位。最强的反面解释是，公告目前只确认投资额、地点和两座设施，尚不足以判断投产时间、具体制程、产品组合或最终供给增量。因此，资本承诺的产业意义已成立，但对价格和份额的影响仍需后续交付验证。"
+              }
+            ],
+            "outlook": "下一步应关注 SK hynix 披露的开工、投产节点、DRAM 与 NAND 的产能配置和客户需求信号，以及韩国设备采购和供应链订单的同步变化。若建设进度、设备订单和面向AI服务器的存储出货同时上升，将强化扩产正在转化为供给能力的判断；若项目延期或配置缩减，则会削弱这一信号。"
+          },
+          "evidence": [
+            {
+              "role": "主张",
+              "takeaway": "报道称 SK hynix 已宣布投资381亿美元，在韩国建设两座新的 DRAM 和 NAND 芯片设施。"
+            }
+          ]
+        },
+        {
           "category": "AI & 模型",
           "eyebrow": "产品信号",
           "title": "ByteDance Seed发布SeedRealtime",
@@ -38329,6 +38725,88 @@
     "en": {
       "editorNote": "Today’s information environment is being shaped by agent security incidents, a split in coding-agent toolchains, open-model competition, and compute moving closer to the edge.",
       "signals": [
+        {
+          "category": "Technology",
+          "eyebrow": "Risk Alert",
+          "title": "China Opens Review of Palo Alto Products",
+          "summary": "China has reportedly opened a cybersecurity review of Palo Alto Networks products sold in the country, moving the regulatory status beyond prior certification into a formal review process.",
+          "why": "The review could affect procurement timing for security products among critical-infrastructure customers and add a compliance variable to cross-border cybersecurity supply chains.",
+          "impact": "If the review broadens or leads to a disposition, overseas security vendors could face pressure on product access, renewals, and channel delivery in China.",
+          "shiftFrom": "Some products had prior certification",
+          "shiftTo": "Products entered cybersecurity review",
+          "crossValidation": "The Information reported that the regulator opened the review. CAC materials confirm that cybersecurity equipment can be reviewed and document prior certification records for relevant Palo Alto Networks firewalls.",
+          "article": {
+            "lead": "China’s internet regulator has reportedly opened a cybersecurity review of products sold in China by Palo Alto Networks. This does not mean the products have been banned or that flaws have been confirmed, but it moves some of the company’s security offerings from a prior certification backdrop into a formal regulatory process that may affect procurement and supply-chain decisions.",
+            "sections": [
+              {
+                "heading": "A review creates a new access status",
+                "body": "The Information reported that the Cyberspace Administration of China opened a cybersecurity review of Palo Alto Networks products sold in China. China’s Cybersecurity Review Measures state that cybersecurity equipment is among the network products and services subject to review, and that purchases by critical information infrastructure operators must undergo review when they may affect national security. The regulatory status itself is now an added procurement variable."
+              },
+              {
+                "heading": "Prior certification does not settle a review",
+                "body": "A CAC countersignature record lists Palo Alto Networks Firewall PA-445, PA-460, PA-415, PA-450, and PA-410 products sold by Palo Alto Networks (Shanghai) Co., Ltd., all at version 11.0.2, with certificates valid from November 24, 2023 to November 24, 2025. Those records establish a verifiable certification baseline, but certification and cybersecurity review are separate procedures and one does not automatically determine the other."
+              },
+              {
+                "heading": "The first transmission channel is procurement timing",
+                "body": "The review regime is designed to protect critical-infrastructure supply-chain security and national security, so its immediate effect is more likely to be on how sensitive customers assess products, versions, and supply arrangements. The strongest countercase is that opening a review does not establish a ban, a confirmed vulnerability, or an adverse outcome. Even so, longer approvals and evaluation of alternatives could become practical friction for China operations."
+              }
+            ],
+            "outlook": "Watch for official disclosure of the products, customer scope, review outcome, or remediation requirements, and for Palo Alto Networks disclosures about China orders, channels, or delivery. Formal restrictions, procurement changes, or similar reviews of additional security vendors would strengthen the case for tighter supply-chain access. A rapid review with no disposition would weaken the expected operating impact."
+          },
+          "evidence": [
+            {
+              "role": "Claim",
+              "takeaway": "Reported that China’s internet regulator opened a cybersecurity review of Palo Alto Networks products sold in the country."
+            },
+            {
+              "role": "Context",
+              "takeaway": "The Cybersecurity Review Measures include cybersecurity equipment among reviewable network products and services."
+            },
+            {
+              "role": "Support",
+              "takeaway": "Public countersignature records list several Palo Alto Networks firewall products and their historical certification periods."
+            },
+            {
+              "role": "Counterpoint",
+              "takeaway": "The regulatory framework indicates that opening a review does not itself prove a ban, a confirmed flaw, or an adverse outcome."
+            }
+          ]
+        },
+        {
+          "category": "Compute",
+          "eyebrow": "Capital Signal",
+          "title": "SK hynix Pledges $38.1B for Two Memory Plants",
+          "summary": "SK hynix has announced a $38.1 billion investment in two new DRAM and NAND facilities in South Korea, expanding its long-term manufacturing bet on memory chips.",
+          "why": "DRAM and NAND are key components in AI servers and data-center supply chains, so major capacity commitments from leading vendors shape future supply expectations.",
+          "impact": "If executed as planned, the investment could ease some memory-supply constraints while increasing the industry’s capital dependence on sustained AI demand.",
+          "shiftFrom": "Existing memory manufacturing footprint",
+          "shiftTo": "Commitment for two new DRAM and NAND plants",
+          "crossValidation": "Engadget reported that SK hynix announced a $38.1 billion investment for two new DRAM and NAND facilities in South Korea. This is a single-source signal.",
+          "article": {
+            "lead": "SK hynix has announced a $38.1 billion investment to build two new DRAM and NAND chip facilities in South Korea. This is a clear long-cycle capital-expenditure shift: a leading supplier is responding to future demand expectations with new plants rather than short-term pricing moves, creating a new expansion signal for AI-server memory supply.",
+            "sections": [
+              {
+                "heading": "Two plants turn a demand view into capital commitment",
+                "body": "Engadget reported that SK hynix announced a $38.1 billion investment in two new memory-chip facilities in South Korea spanning DRAM and NAND. Unlike quarterly shipment or price movements, new plants commit manufacturing resources over a longer cycle. The move does more than express optimism about AI markets: it commits capital, physical facilities, and future capacity to memory production, creating an observable supply-side change."
+              },
+              {
+                "heading": "The mechanism runs through the compute supply chain",
+                "body": "DRAM is central to server-memory configurations, while NAND supports data storage and broader infrastructure deployment. By expanding facilities for both categories, SK hynix is directing its capital plan toward both computing and storage rather than one narrow segment. If demand expectations materialize, the expansion suggests that AI-infrastructure bottlenecks may increasingly extend beyond GPUs to memory, storage, and manufacturing cadence."
+              },
+              {
+                "heading": "The consequence depends on delivery and mix",
+                "body": "For cloud providers and server supply chains, a new capacity commitment can improve longer-term procurement expectations and reinforce memory as a beneficiary of AI capital spending. The strongest countercase is that the announcement confirms only the investment amount, location, and two facilities; it does not establish commissioning dates, process technologies, product mix, or final supply additions. The commitment matters now, while price and share effects still require delivery evidence."
+              }
+            ],
+            "outlook": "Watch for SK hynix disclosures on construction starts, production milestones, DRAM and NAND capacity allocation, and customer-demand signals, along with Korean equipment orders and supply-chain bookings. Simultaneous progress in construction, equipment orders, and AI-server memory shipments would strengthen the case that the commitment is becoming supply capacity. Delays or reduced configurations would weaken it."
+          },
+          "evidence": [
+            {
+              "role": "Claim",
+              "takeaway": "Reported that SK hynix announced a $38.1 billion investment to build two new DRAM and NAND facilities in South Korea."
+            }
+          ]
+        },
         {
           "category": "AI & Models",
           "eyebrow": "Product signal",
@@ -46587,11 +47065,11 @@
     "en": "gpt-5.6-sol"
   },
   "incremental": {
-    "lastAddedAt": "2026-08-07T09:12:02.224Z",
-    "lastScanAt": "2026-08-07T09:07:09.122Z",
-    "lastAddedCount": 1,
+    "lastAddedAt": "2026-08-07T15:12:10.808Z",
+    "lastScanAt": "2026-08-07T15:06:36.091Z",
+    "lastAddedCount": 2,
     "lastUpdatedCount": 0,
-    "totalAppended": 80,
+    "totalAppended": 82,
     "totalUpdated": 65
   },
   "exploreDepth": {
