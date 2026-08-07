@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-07T03:05:24.592Z",
+  "generatedAt": "2026-08-07T09:07:09.122Z",
   "counts": {
-    "sources": 437,
-    "claims": 487,
-    "events": 109,
-    "articles": 109,
+    "sources": 441,
+    "claims": 491,
+    "events": 110,
+    "articles": 110,
     "updates": 65,
-    "edges": 1289,
+    "edges": 1298,
     "revisionsRequired": 3
   },
   "revisionQueue": [
@@ -43,6 +43,84 @@
     }
   ],
   "nodes": [
+    {
+      "id": "event_d26b9039afe63b50",
+      "type": "event",
+      "signalId": 88,
+      "title": "ByteDance Seed发布SeedRealtime",
+      "bucket": "dynamic",
+      "valueScore": 83,
+      "publishedAt": "2026-08-05T03:51:37.000Z",
+      "updatedAt": "2026-08-05T03:51:37.000Z"
+    },
+    {
+      "id": "article_1362b093e2558ce6",
+      "type": "article",
+      "signalId": 88,
+      "title": "ByteDance Seed发布SeedRealtime",
+      "version": 1,
+      "publishedAt": "2026-08-07T09:07:09.122Z"
+    },
+    {
+      "id": "source_4da3bbac986ea7e2",
+      "type": "source",
+      "title": "ByteDance Seed Blog",
+      "url": "https://seed.bytedance.com/blog/seedrealtime-audio-visual-full-duplex-llm-released-toward-omni-modal-natural-interaction",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-05T03:51:37.000Z"
+    },
+    {
+      "id": "claim_9d904756b2fe03d8",
+      "type": "claim",
+      "title": "ByteDance Seed宣布发布SeedRealtime Audio-Visual Full-Duplex LLM，并将其定位为迈向全模态自然交互。",
+      "role": "主张",
+      "addedAt": "2026-08-07T09:07:09.122Z"
+    },
+    {
+      "id": "source_11ae318b71577c39",
+      "type": "source",
+      "title": "ByteDance Seed",
+      "url": "https://seed.bytedance.com/en/blog/introducing-seed-full-duplex-speech-llm-attentive-listening-robust-interference-suppression-enabling-more-natural-interaction",
+      "sourceKind": "Official",
+      "publishedAt": "2026-04-09T00:00:00.000Z"
+    },
+    {
+      "id": "claim_770eed9dcfb0340b",
+      "type": "claim",
+      "title": "ByteDance Seed此前称，其音频原生全双工模型已在Doubao App全量部署，并披露了复杂场景下的交互改善。",
+      "role": "背景",
+      "addedAt": "2026-08-07T09:07:09.122Z"
+    },
+    {
+      "id": "source_55dd0ca1a0d52175",
+      "type": "source",
+      "title": "arXiv",
+      "url": "https://arxiv.org/abs/2503.04721",
+      "sourceKind": "Research",
+      "publishedAt": "2025-03-06T18:59:16.000Z"
+    },
+    {
+      "id": "claim_47d3b3dd9e484290",
+      "type": "claim",
+      "title": "Full-Duplex-Bench提供停顿、反馈、轮次交接和打断管理的可复现评估维度。",
+      "role": "佐证",
+      "addedAt": "2026-08-07T09:07:09.122Z"
+    },
+    {
+      "id": "source_286d2f2b0e3cc481",
+      "type": "source",
+      "title": "OpenReview",
+      "url": "https://openreview.net/forum?id=2Oj6fg0m1j",
+      "sourceKind": "Research",
+      "publishedAt": "2026-04-30T00:00:00.000Z"
+    },
+    {
+      "id": "claim_24c19831ad13cf90",
+      "type": "claim",
+      "title": "τ-Voice显示，全双工语音代理在真实、含噪和多口音任务中的端到端完成率仍受明显限制。",
+      "role": "反例",
+      "addedAt": "2026-08-07T09:07:09.122Z"
+    },
     {
       "id": "event_f7e6c6f8c0b2b22e",
       "type": "event",
@@ -9583,6 +9661,64 @@
     }
   ],
   "edges": [
+    {
+      "id": "edge_0f84d89d747dc7f7",
+      "from": "event_d26b9039afe63b50",
+      "to": "article_1362b093e2558ce6",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_c95a4d0fce9048e4",
+      "from": "source_4da3bbac986ea7e2",
+      "to": "claim_9d904756b2fe03d8",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_0766fe9571655acb",
+      "from": "claim_9d904756b2fe03d8",
+      "to": "event_d26b9039afe63b50",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_1acf8e0f8b413507",
+      "from": "source_11ae318b71577c39",
+      "to": "claim_770eed9dcfb0340b",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_239e03e35dd6f506",
+      "from": "claim_770eed9dcfb0340b",
+      "to": "event_d26b9039afe63b50",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_1649e9ced03454fe",
+      "from": "source_55dd0ca1a0d52175",
+      "to": "claim_47d3b3dd9e484290",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_6b0e00bb13434a60",
+      "from": "claim_47d3b3dd9e484290",
+      "to": "event_d26b9039afe63b50",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_8f5e96fcb0ad42be",
+      "from": "source_286d2f2b0e3cc481",
+      "to": "claim_24c19831ad13cf90",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_3f9bd51143132935",
+      "from": "claim_24c19831ad13cf90",
+      "to": "event_d26b9039afe63b50",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
     {
       "id": "edge_49699af120cbe25b",
       "from": "event_f7e6c6f8c0b2b22e",

@@ -1,13 +1,230 @@
 {
-  "generatedAt": "2026-08-07T03:10:10.559Z",
-  "basedOnSnapshotAt": "2026-08-07T03:05:24.592Z",
+  "generatedAt": "2026-08-07T09:12:02.224Z",
+  "basedOnSnapshotAt": "2026-08-07T09:07:09.122Z",
   "model": "gpt-5.5",
   "analyzedItemCount": 180,
-  "totalFetchedItemCount": 2184,
+  "totalFetchedItemCount": 2082,
   "editorNote": "今日信息环境由代理安全事件、编码代理工具链分化、开放模型竞争和算力下沉共同主导。",
   "signalQuality": 86,
   "signalQualityChange": 8,
   "signals": [
+    {
+      "id": 88,
+      "editorialBucket": "dynamic",
+      "category": "AI & 模型",
+      "eyebrow": "产品信号",
+      "title": "ByteDance Seed发布SeedRealtime",
+      "summary": "ByteDance Seed发布SeedRealtime Audio-Visual Full-Duplex LLM，把其全双工交互路线从音频原生模型进一步推进到音视频模型。",
+      "why": "前沿语音交互的竞争正从更快回答，延伸到同时处理视觉、听觉与轮次协作的实时体验。",
+      "impact": "若后续部署与外部评测成立，实时多模态交互可能成为助手、客服和具身系统的重要产品层。",
+      "shiftFrom": "已部署音频原生全双工模型",
+      "shiftTo": "新发布音视频全双工LLM",
+      "crossValidation": "新模型发布由ByteDance Seed官方页面直接确认。此前音频模型的部署与效果来自同一机构的官方披露；两项外部研究提供行业评测框架和能力边界，未独立验证SeedRealtime。",
+      "article": {
+        "lead": "ByteDance Seed已发布SeedRealtime Audio-Visual Full-Duplex LLM。这一变化的核心不只是增加视觉输入，而是把其已落地的音频全双工路线推进到音视频实时交互：模型被定位为朝向更自然的全模态对话发展，实时交互开始成为多模态模型产品化的一条独立能力轴。",
+        "sections": [
+          {
+            "heading": "从音频全双工走向音视频交互",
+            "body": "ByteDance Seed官方宣布发布SeedRealtime Audio-Visual Full-Duplex LLM，明确将产品定位于全模态自然交互。该机构此前披露，Seed Full-Duplex Speech LLM已在Doubao App全量部署，意味着其全双工路线并非停留在纯研究演示。新模型名称和发布方向显示，ByteDance Seed正把此前围绕语音听说同步展开的系统，推进至同时涉及音频与视觉信号的实时交互层。"
+          },
+          {
+            "heading": "全双工竞争解决的是交互节奏",
+            "body": "传统半双工助手通常按“用户说完、模型回答”运行；全双工系统则需要判断何时倾听、何时反馈、何时承受用户打断，并避免把环境声或短暂停顿误解为轮次结束。ByteDance Seed此前称，其音频原生模型在复杂场景中改善了打断与误响应问题。Full-Duplex-Bench则将这类能力拆为停顿处理、反馈语、平滑交接和打断管理，并以接管率、反馈时机偏差和响应延迟衡量。"
+          },
+          {
+            "heading": "多模态实时性将进入产品检验",
+            "body": "音视频全双工若能在实际部署中稳定工作，助手、客服及需要感知环境的系统或可把视觉上下文纳入连续对话，而非等待一次次指令提交。这会让竞争重点部分转向低延迟感知、轮次控制和交互可靠性。最强的反例来自τ-Voice：其评测中，全双工语音代理在真实任务及噪声、多口音条件下的完成率明显受限，说明更自然的交互节奏并不自动转化为可靠的端到端执行。"
+          }
+        ],
+        "outlook": "下一步可观察的证据包括：ByteDance Seed是否披露SeedRealtime的实际部署范围、延迟与复杂场景表现；是否提供与既有音频模型一致的量化指标；以及独立评测能否在打断、噪声、多口音和真实任务完成率上验证其改进。若这些指标未改善，音视频全双工的产品价值将被削弱。"
+      },
+      "validationType": "跨平台验证",
+      "publishedAt": "2026-08-05T03:51:37.000Z",
+      "updatedAt": "2026-08-05T03:51:37.000Z",
+      "sources": [
+        "Blog",
+        "Official",
+        "Research"
+      ],
+      "sourceNames": [
+        "ByteDance Seed",
+        "arXiv",
+        "OpenReview"
+      ],
+      "sourceCount": 3,
+      "age": "2 天前",
+      "score": 83,
+      "tone": "orange",
+      "evidence": [
+        {
+          "id": "214-https://seed.bytedance.com/blog/seedrealtime-audio-visual-full-duplex-llm-released-toward-omni-modal-natural-interaction",
+          "sourceId": 214,
+          "sourceName": "ByteDance Seed Blog",
+          "sourcePublisher": "ByteDance Seed",
+          "sourceKind": "Blog",
+          "title": "SeedRealtime Audio-Visual Full-Duplex LLM Released: Toward Omni-Modal Natural Interaction",
+          "url": "https://seed.bytedance.com/blog/seedrealtime-audio-visual-full-duplex-llm-released-toward-omni-modal-natural-interaction",
+          "publishedAt": "2026-08-05T03:51:37.000Z",
+          "summary": "SeedRealtime Audio-Visual Full-Duplex LLM Released: Toward Omni-Modal Natural Interaction",
+          "fetchedAt": "2026-08-07T09:07:09.122Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-06T14:05:51.352Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "fast",
+            "reason": "fresh",
+            "ageHours": 53.25892277777778,
+            "maxAgeHours": 72
+          },
+          "deferredResearch": false,
+          "ref": "N4",
+          "role": "主张",
+          "takeaway": "ByteDance Seed宣布发布SeedRealtime Audio-Visual Full-Duplex LLM，并将其定位为迈向全模态自然交互。"
+        },
+        {
+          "id": "research-214-https://seed.bytedance.com/blog/seedrealtime-audio-visual-full-duplex-llm-released-toward-omni-modal-natural-interaction-1-https://seed.bytedance.com/en/blog/introducing-seed-full-duplex-speech-llm-attentive-listening-robust-interference-suppression-enabling-more-natural-interaction",
+          "sourceId": 214,
+          "sourceName": "ByteDance Seed",
+          "sourcePublisher": "ByteDance Seed",
+          "sourceKind": "Official",
+          "title": "Introducing Seed Full-Duplex Speech LLM: Attentive Listening, Robust Interference Suppression, Enabling More Natural Interaction",
+          "url": "https://seed.bytedance.com/en/blog/introducing-seed-full-duplex-speech-llm-attentive-listening-robust-interference-suppression-enabling-more-natural-interaction",
+          "publishedAt": "2026-04-09T00:00:00.000Z",
+          "summary": "补齐此前状态：Seeduplex 是已在 Doubao App 全量部署的音频原生全双工模型；相对原半双工方案，端点延迟约减少 250ms、复杂场景 AI 打断率减少 40%、误响应和误打断率各减少一半，通话满意度绝对提高 8.34 个百分点。该文也承认其整体对话流畅性与人际对话仍存在明显差距。",
+          "fetchedAt": "2026-08-07T09:07:09.122Z",
+          "researchedFrom": "N4",
+          "researchRole": "Comparison",
+          "researchClaim": "ByteDance Seed 于 2026-08-05 宣布 SeedRealtime：在 2026 年 4 月已部署的 Seeduplex 原生全双工语音能力之上，新增将音频、视频和文本统一建模的连续交互；公司称其已全面上线，并在内部端到端人工评测中将相对级联系统的视听对话节奏问题减少约一半。",
+          "researchComparisons": "此前状态是 Seeduplex 于 2026-04-09 在 Doubao App 全量部署，聚焦音频全双工，相对 Doubao 既有半双工方案的端点延迟约低 250ms、复杂场景 AI 打断率低 40%、误响应和误打断率各低约一半，整体通话满意度绝对值提高 8.34 个百分点。SeedRealtime 的实质升级是加入持续视觉流和主动视觉提醒，而非首次实现全双工。对外可复现的比较基准应至少覆盖停顿处理、反馈语、轮次交接、用户打断和响应延迟；现有公开材料未披露 SeedRealtime 在 Full-Duplex-Bench 或同类第三方基准上的成绩。",
+          "researchUnresolved": "“全面上线”的具体产品入口、地区、用户范围、API 或模型权重可用性未说明；“减少约一半”的样本量、评测协议、级联系统构成、绝对错误率及统计显著性未公开；未找到 SeedRealtime 的技术报告、模型卡、延迟数值或第三方复现结果。",
+          "ref": "R1",
+          "role": "背景",
+          "takeaway": "ByteDance Seed此前称，其音频原生全双工模型已在Doubao App全量部署，并披露了复杂场景下的交互改善。"
+        },
+        {
+          "id": "research-214-https://seed.bytedance.com/blog/seedrealtime-audio-visual-full-duplex-llm-released-toward-omni-modal-natural-interaction-2-https://arxiv.org/abs/2503.04721",
+          "sourceId": 214,
+          "sourceName": "arXiv",
+          "sourcePublisher": "arXiv",
+          "sourceKind": "Research",
+          "title": "Full-Duplex-Bench: A Benchmark to Evaluate Full-duplex Spoken Dialogue Models on Turn-taking Capabilities",
+          "url": "https://arxiv.org/abs/2503.04721",
+          "publishedAt": "2025-03-06T18:59:16.000Z",
+          "summary": "提供可复现的行业比较框架：该基准以停顿处理、反馈语、平滑轮次交接和用户打断管理四项行为评估全双工语音模型，并采用接管率、反馈时机偏差和平均响应延迟等自动指标；因此可用于检验 SeedRealtime 内部“节奏问题减半”主张是否能跨系统比较。",
+          "fetchedAt": "2026-08-07T09:07:09.122Z",
+          "researchedFrom": "N4",
+          "researchRole": "Comparison",
+          "researchClaim": "ByteDance Seed 于 2026-08-05 宣布 SeedRealtime：在 2026 年 4 月已部署的 Seeduplex 原生全双工语音能力之上，新增将音频、视频和文本统一建模的连续交互；公司称其已全面上线，并在内部端到端人工评测中将相对级联系统的视听对话节奏问题减少约一半。",
+          "researchComparisons": "此前状态是 Seeduplex 于 2026-04-09 在 Doubao App 全量部署，聚焦音频全双工，相对 Doubao 既有半双工方案的端点延迟约低 250ms、复杂场景 AI 打断率低 40%、误响应和误打断率各低约一半，整体通话满意度绝对值提高 8.34 个百分点。SeedRealtime 的实质升级是加入持续视觉流和主动视觉提醒，而非首次实现全双工。对外可复现的比较基准应至少覆盖停顿处理、反馈语、轮次交接、用户打断和响应延迟；现有公开材料未披露 SeedRealtime 在 Full-Duplex-Bench 或同类第三方基准上的成绩。",
+          "researchUnresolved": "“全面上线”的具体产品入口、地区、用户范围、API 或模型权重可用性未说明；“减少约一半”的样本量、评测协议、级联系统构成、绝对错误率及统计显著性未公开；未找到 SeedRealtime 的技术报告、模型卡、延迟数值或第三方复现结果。",
+          "ref": "R2",
+          "role": "佐证",
+          "takeaway": "Full-Duplex-Bench提供停顿、反馈、轮次交接和打断管理的可复现评估维度。"
+        },
+        {
+          "id": "research-214-https://seed.bytedance.com/blog/seedrealtime-audio-visual-full-duplex-llm-released-toward-omni-modal-natural-interaction-3-https://openreview.net/forum?id=2Oj6fg0m1j",
+          "sourceId": 214,
+          "sourceName": "OpenReview",
+          "sourcePublisher": "OpenReview",
+          "sourceKind": "Research",
+          "title": "τ-Voice: Benchmarking Full-Duplex Voice Agents on Real-World Domains",
+          "url": "https://openreview.net/forum?id=2Oj6fg0m1j",
+          "publishedAt": "2026-04-30T00:00:00.000Z",
+          "summary": "提供最强的能力边界反证：在 278 个可验证的真实任务中，研究评测的全双工语音代理在干净条件下任务完成率为 31%至51%，在含噪声和多口音的现实条件下降至26%至38%，而 GPT-5 推理文本基线为85%；这表明更自然的实时交互并不等同于可靠的端到端任务完成。",
+          "fetchedAt": "2026-08-07T09:07:09.122Z",
+          "researchedFrom": "N4",
+          "researchRole": "Counterevidence",
+          "researchClaim": "ByteDance Seed 于 2026-08-05 宣布 SeedRealtime：在 2026 年 4 月已部署的 Seeduplex 原生全双工语音能力之上，新增将音频、视频和文本统一建模的连续交互；公司称其已全面上线，并在内部端到端人工评测中将相对级联系统的视听对话节奏问题减少约一半。",
+          "researchComparisons": "此前状态是 Seeduplex 于 2026-04-09 在 Doubao App 全量部署，聚焦音频全双工，相对 Doubao 既有半双工方案的端点延迟约低 250ms、复杂场景 AI 打断率低 40%、误响应和误打断率各低约一半，整体通话满意度绝对值提高 8.34 个百分点。SeedRealtime 的实质升级是加入持续视觉流和主动视觉提醒，而非首次实现全双工。对外可复现的比较基准应至少覆盖停顿处理、反馈语、轮次交接、用户打断和响应延迟；现有公开材料未披露 SeedRealtime 在 Full-Duplex-Bench 或同类第三方基准上的成绩。",
+          "researchUnresolved": "“全面上线”的具体产品入口、地区、用户范围、API 或模型权重可用性未说明；“减少约一半”的样本量、评测协议、级联系统构成、绝对错误率及统计显著性未公开；未找到 SeedRealtime 的技术报告、模型卡、延迟数值或第三方复现结果。",
+          "ref": "R3",
+          "role": "反例",
+          "takeaway": "τ-Voice显示，全双工语音代理在真实、含噪和多口音任务中的端到端完成率仍受明显限制。"
+        }
+      ],
+      "references": [
+        {
+          "id": "214-https://seed.bytedance.com/blog/seedrealtime-audio-visual-full-duplex-llm-released-toward-omni-modal-natural-interaction",
+          "sourceId": 214,
+          "sourceName": "ByteDance Seed Blog",
+          "sourcePublisher": "ByteDance Seed",
+          "sourceKind": "Blog",
+          "title": "SeedRealtime Audio-Visual Full-Duplex LLM Released: Toward Omni-Modal Natural Interaction",
+          "url": "https://seed.bytedance.com/blog/seedrealtime-audio-visual-full-duplex-llm-released-toward-omni-modal-natural-interaction",
+          "publishedAt": "2026-08-05T03:51:37.000Z",
+          "summary": "SeedRealtime Audio-Visual Full-Duplex LLM Released: Toward Omni-Modal Natural Interaction",
+          "fetchedAt": "2026-08-07T09:07:09.122Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-06T14:05:51.352Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "fast",
+            "reason": "fresh",
+            "ageHours": 53.25892277777778,
+            "maxAgeHours": 72
+          },
+          "deferredResearch": false,
+          "ref": "N4"
+        },
+        {
+          "id": "research-214-https://seed.bytedance.com/blog/seedrealtime-audio-visual-full-duplex-llm-released-toward-omni-modal-natural-interaction-1-https://seed.bytedance.com/en/blog/introducing-seed-full-duplex-speech-llm-attentive-listening-robust-interference-suppression-enabling-more-natural-interaction",
+          "sourceId": 214,
+          "sourceName": "ByteDance Seed",
+          "sourcePublisher": "ByteDance Seed",
+          "sourceKind": "Official",
+          "title": "Introducing Seed Full-Duplex Speech LLM: Attentive Listening, Robust Interference Suppression, Enabling More Natural Interaction",
+          "url": "https://seed.bytedance.com/en/blog/introducing-seed-full-duplex-speech-llm-attentive-listening-robust-interference-suppression-enabling-more-natural-interaction",
+          "publishedAt": "2026-04-09T00:00:00.000Z",
+          "summary": "补齐此前状态：Seeduplex 是已在 Doubao App 全量部署的音频原生全双工模型；相对原半双工方案，端点延迟约减少 250ms、复杂场景 AI 打断率减少 40%、误响应和误打断率各减少一半，通话满意度绝对提高 8.34 个百分点。该文也承认其整体对话流畅性与人际对话仍存在明显差距。",
+          "fetchedAt": "2026-08-07T09:07:09.122Z",
+          "researchedFrom": "N4",
+          "researchRole": "Comparison",
+          "researchClaim": "ByteDance Seed 于 2026-08-05 宣布 SeedRealtime：在 2026 年 4 月已部署的 Seeduplex 原生全双工语音能力之上，新增将音频、视频和文本统一建模的连续交互；公司称其已全面上线，并在内部端到端人工评测中将相对级联系统的视听对话节奏问题减少约一半。",
+          "researchComparisons": "此前状态是 Seeduplex 于 2026-04-09 在 Doubao App 全量部署，聚焦音频全双工，相对 Doubao 既有半双工方案的端点延迟约低 250ms、复杂场景 AI 打断率低 40%、误响应和误打断率各低约一半，整体通话满意度绝对值提高 8.34 个百分点。SeedRealtime 的实质升级是加入持续视觉流和主动视觉提醒，而非首次实现全双工。对外可复现的比较基准应至少覆盖停顿处理、反馈语、轮次交接、用户打断和响应延迟；现有公开材料未披露 SeedRealtime 在 Full-Duplex-Bench 或同类第三方基准上的成绩。",
+          "researchUnresolved": "“全面上线”的具体产品入口、地区、用户范围、API 或模型权重可用性未说明；“减少约一半”的样本量、评测协议、级联系统构成、绝对错误率及统计显著性未公开；未找到 SeedRealtime 的技术报告、模型卡、延迟数值或第三方复现结果。",
+          "ref": "R1"
+        },
+        {
+          "id": "research-214-https://seed.bytedance.com/blog/seedrealtime-audio-visual-full-duplex-llm-released-toward-omni-modal-natural-interaction-2-https://arxiv.org/abs/2503.04721",
+          "sourceId": 214,
+          "sourceName": "arXiv",
+          "sourcePublisher": "arXiv",
+          "sourceKind": "Research",
+          "title": "Full-Duplex-Bench: A Benchmark to Evaluate Full-duplex Spoken Dialogue Models on Turn-taking Capabilities",
+          "url": "https://arxiv.org/abs/2503.04721",
+          "publishedAt": "2025-03-06T18:59:16.000Z",
+          "summary": "提供可复现的行业比较框架：该基准以停顿处理、反馈语、平滑轮次交接和用户打断管理四项行为评估全双工语音模型，并采用接管率、反馈时机偏差和平均响应延迟等自动指标；因此可用于检验 SeedRealtime 内部“节奏问题减半”主张是否能跨系统比较。",
+          "fetchedAt": "2026-08-07T09:07:09.122Z",
+          "researchedFrom": "N4",
+          "researchRole": "Comparison",
+          "researchClaim": "ByteDance Seed 于 2026-08-05 宣布 SeedRealtime：在 2026 年 4 月已部署的 Seeduplex 原生全双工语音能力之上，新增将音频、视频和文本统一建模的连续交互；公司称其已全面上线，并在内部端到端人工评测中将相对级联系统的视听对话节奏问题减少约一半。",
+          "researchComparisons": "此前状态是 Seeduplex 于 2026-04-09 在 Doubao App 全量部署，聚焦音频全双工，相对 Doubao 既有半双工方案的端点延迟约低 250ms、复杂场景 AI 打断率低 40%、误响应和误打断率各低约一半，整体通话满意度绝对值提高 8.34 个百分点。SeedRealtime 的实质升级是加入持续视觉流和主动视觉提醒，而非首次实现全双工。对外可复现的比较基准应至少覆盖停顿处理、反馈语、轮次交接、用户打断和响应延迟；现有公开材料未披露 SeedRealtime 在 Full-Duplex-Bench 或同类第三方基准上的成绩。",
+          "researchUnresolved": "“全面上线”的具体产品入口、地区、用户范围、API 或模型权重可用性未说明；“减少约一半”的样本量、评测协议、级联系统构成、绝对错误率及统计显著性未公开；未找到 SeedRealtime 的技术报告、模型卡、延迟数值或第三方复现结果。",
+          "ref": "R2"
+        },
+        {
+          "id": "research-214-https://seed.bytedance.com/blog/seedrealtime-audio-visual-full-duplex-llm-released-toward-omni-modal-natural-interaction-3-https://openreview.net/forum?id=2Oj6fg0m1j",
+          "sourceId": 214,
+          "sourceName": "OpenReview",
+          "sourcePublisher": "OpenReview",
+          "sourceKind": "Research",
+          "title": "τ-Voice: Benchmarking Full-Duplex Voice Agents on Real-World Domains",
+          "url": "https://openreview.net/forum?id=2Oj6fg0m1j",
+          "publishedAt": "2026-04-30T00:00:00.000Z",
+          "summary": "提供最强的能力边界反证：在 278 个可验证的真实任务中，研究评测的全双工语音代理在干净条件下任务完成率为 31%至51%，在含噪声和多口音的现实条件下降至26%至38%，而 GPT-5 推理文本基线为85%；这表明更自然的实时交互并不等同于可靠的端到端任务完成。",
+          "fetchedAt": "2026-08-07T09:07:09.122Z",
+          "researchedFrom": "N4",
+          "researchRole": "Counterevidence",
+          "researchClaim": "ByteDance Seed 于 2026-08-05 宣布 SeedRealtime：在 2026 年 4 月已部署的 Seeduplex 原生全双工语音能力之上，新增将音频、视频和文本统一建模的连续交互；公司称其已全面上线，并在内部端到端人工评测中将相对级联系统的视听对话节奏问题减少约一半。",
+          "researchComparisons": "此前状态是 Seeduplex 于 2026-04-09 在 Doubao App 全量部署，聚焦音频全双工，相对 Doubao 既有半双工方案的端点延迟约低 250ms、复杂场景 AI 打断率低 40%、误响应和误打断率各低约一半，整体通话满意度绝对值提高 8.34 个百分点。SeedRealtime 的实质升级是加入持续视觉流和主动视觉提醒，而非首次实现全双工。对外可复现的比较基准应至少覆盖停顿处理、反馈语、轮次交接、用户打断和响应延迟；现有公开材料未披露 SeedRealtime 在 Full-Duplex-Bench 或同类第三方基准上的成绩。",
+          "researchUnresolved": "“全面上线”的具体产品入口、地区、用户范围、API 或模型权重可用性未说明；“减少约一半”的样本量、评测协议、级联系统构成、绝对错误率及统计显著性未公开；未找到 SeedRealtime 的技术报告、模型卡、延迟数值或第三方复现结果。",
+          "ref": "R3"
+        }
+      ],
+      "feedBatchAt": "2026-08-07T09:07:09.122Z"
+    },
     {
       "id": 87,
       "editorialBucket": "dynamic",
@@ -29856,6 +30073,53 @@
       "editorNote": "今日信息环境由智能体安全事件、AI coding 工具链分化、open-weight 模型竞争与算力下沉共同主导。",
       "signals": [
         {
+          "category": "AI & 模型",
+          "eyebrow": "产品信号",
+          "title": "ByteDance Seed发布SeedRealtime",
+          "summary": "ByteDance Seed发布SeedRealtime Audio-Visual Full-Duplex LLM，把其全双工交互路线从音频原生模型进一步推进到音视频模型。",
+          "why": "前沿语音交互的竞争正从更快回答，延伸到同时处理视觉、听觉与轮次协作的实时体验。",
+          "impact": "若后续部署与外部评测成立，实时多模态交互可能成为助手、客服和具身系统的重要产品层。",
+          "shiftFrom": "已部署音频原生全双工模型",
+          "shiftTo": "新发布音视频全双工LLM",
+          "crossValidation": "新模型发布由ByteDance Seed官方页面直接确认。此前音频模型的部署与效果来自同一机构的官方披露；两项外部研究提供行业评测框架和能力边界，未独立验证SeedRealtime。",
+          "article": {
+            "lead": "ByteDance Seed已发布SeedRealtime Audio-Visual Full-Duplex LLM。这一变化的核心不只是增加视觉输入，而是把其已落地的音频全双工路线推进到音视频实时交互：模型被定位为朝向更自然的全模态对话发展，实时交互开始成为多模态模型产品化的一条独立能力轴。",
+            "sections": [
+              {
+                "heading": "从音频全双工走向音视频交互",
+                "body": "ByteDance Seed官方宣布发布SeedRealtime Audio-Visual Full-Duplex LLM，明确将产品定位于全模态自然交互。该机构此前披露，Seed Full-Duplex Speech LLM已在Doubao App全量部署，意味着其全双工路线并非停留在纯研究演示。新模型名称和发布方向显示，ByteDance Seed正把此前围绕语音听说同步展开的系统，推进至同时涉及音频与视觉信号的实时交互层。"
+              },
+              {
+                "heading": "全双工竞争解决的是交互节奏",
+                "body": "传统半双工助手通常按“用户说完、模型回答”运行；全双工系统则需要判断何时倾听、何时反馈、何时承受用户打断，并避免把环境声或短暂停顿误解为轮次结束。ByteDance Seed此前称，其音频原生模型在复杂场景中改善了打断与误响应问题。Full-Duplex-Bench则将这类能力拆为停顿处理、反馈语、平滑交接和打断管理，并以接管率、反馈时机偏差和响应延迟衡量。"
+              },
+              {
+                "heading": "多模态实时性将进入产品检验",
+                "body": "音视频全双工若能在实际部署中稳定工作，助手、客服及需要感知环境的系统或可把视觉上下文纳入连续对话，而非等待一次次指令提交。这会让竞争重点部分转向低延迟感知、轮次控制和交互可靠性。最强的反例来自τ-Voice：其评测中，全双工语音代理在真实任务及噪声、多口音条件下的完成率明显受限，说明更自然的交互节奏并不自动转化为可靠的端到端执行。"
+              }
+            ],
+            "outlook": "下一步可观察的证据包括：ByteDance Seed是否披露SeedRealtime的实际部署范围、延迟与复杂场景表现；是否提供与既有音频模型一致的量化指标；以及独立评测能否在打断、噪声、多口音和真实任务完成率上验证其改进。若这些指标未改善，音视频全双工的产品价值将被削弱。"
+          },
+          "evidence": [
+            {
+              "role": "主张",
+              "takeaway": "ByteDance Seed宣布发布SeedRealtime Audio-Visual Full-Duplex LLM，并将其定位为迈向全模态自然交互。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "ByteDance Seed此前称，其音频原生全双工模型已在Doubao App全量部署，并披露了复杂场景下的交互改善。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "Full-Duplex-Bench提供停顿、反馈、轮次交接和打断管理的可复现评估维度。"
+            },
+            {
+              "role": "反例",
+              "takeaway": "τ-Voice显示，全双工语音代理在真实、含噪和多口音任务中的端到端完成率仍受明显限制。"
+            }
+          ]
+        },
+        {
           "category": "算力",
           "eyebrow": "最新进展",
           "title": "SpaceX与Tesla启动Terafab建厂",
@@ -38065,6 +38329,53 @@
     "en": {
       "editorNote": "Today’s information environment is being shaped by agent security incidents, a split in coding-agent toolchains, open-model competition, and compute moving closer to the edge.",
       "signals": [
+        {
+          "category": "AI & Models",
+          "eyebrow": "Product signal",
+          "title": "ByteDance Seed releases SeedRealtime",
+          "summary": "ByteDance Seed has released SeedRealtime Audio-Visual Full-Duplex LLM, extending its full-duplex interaction work from an audio-native model to an audio-visual model.",
+          "why": "Frontier voice interaction is moving beyond faster replies toward real-time coordination across vision, audio, and conversational turns.",
+          "impact": "If deployment and external evaluation support the release, real-time multimodal interaction could become a distinct product layer for assistants, customer service, and embodied systems.",
+          "shiftFrom": "A deployed audio-native full-duplex model",
+          "shiftTo": "A newly released audio-visual full-duplex LLM",
+          "crossValidation": "ByteDance Seed’s official page confirms the new-model release. Its earlier audio-model deployment comes from the same institution, while external research supplies evaluation frameworks and limits rather than independent validation of SeedRealtime.",
+          "article": {
+            "lead": "ByteDance Seed has released SeedRealtime Audio-Visual Full-Duplex LLM. The central change is not simply the addition of vision: it extends the company’s deployed audio full-duplex path into real-time audio-visual interaction, making live multimodal exchange a separate axis of model productization.",
+            "sections": [
+              {
+                "heading": "From audio full-duplex to audio-visual interaction",
+                "body": "ByteDance Seed officially announced SeedRealtime Audio-Visual Full-Duplex LLM and positioned it as a step toward omni-modal natural interaction. The company had previously said that its Seed Full-Duplex Speech LLM was fully deployed in the Doubao App, indicating that its full-duplex work was not limited to a research demonstration. The new model’s name and release direction suggest a move from synchronous speech interaction toward real-time systems that process both audio and visual signals."
+              },
+              {
+                "heading": "Full-duplex systems compete on conversational timing",
+                "body": "Conventional half-duplex assistants generally operate in a user-speaks-then-model-replies pattern. Full-duplex systems instead must decide when to listen, acknowledge, hand over the turn, and tolerate interruption without mistaking noise or pauses for the end of speech. ByteDance Seed previously reported better interruption and misresponse behavior for its audio-native model. Full-Duplex-Bench breaks these abilities into pause handling, backchannels, smooth turn transitions, and interruption management, with measures including takeover rate, feedback-timing deviation, and response latency."
+              },
+              {
+                "heading": "Real-time multimodality now faces product validation",
+                "body": "If audio-visual full-duplex interaction proves robust in deployment, assistants, customer-service tools, and systems that perceive their surroundings could incorporate visual context into a continuing exchange rather than wait for discrete prompts. Competition could therefore shift partly toward low-latency perception, turn control, and interaction reliability. The strongest counterpoint comes from τ-Voice: evaluated full-duplex voice agents still showed constrained end-to-end completion on real tasks, especially under noise and varied accents, indicating that more natural timing does not automatically produce reliable task execution."
+              }
+            ],
+            "outlook": "Observable next evidence includes whether ByteDance Seed discloses SeedRealtime’s deployment scope, latency, and performance in difficult settings; whether it publishes metrics comparable with its prior audio model; and whether independent evaluations confirm gains in interruption handling, noise, accents, and real-task completion. Failure to improve those measures would weaken the product significance of audio-visual full-duplex interaction."
+          },
+          "evidence": [
+            {
+              "role": "Claim",
+              "takeaway": "ByteDance Seed announced the release of SeedRealtime Audio-Visual Full-Duplex LLM and framed it as a move toward omni-modal natural interaction."
+            },
+            {
+              "role": "Context",
+              "takeaway": "ByteDance Seed previously said its audio-native full-duplex model was fully deployed in the Doubao App and reported interaction improvements in complex settings"
+            },
+            {
+              "role": "Support",
+              "takeaway": "Full-Duplex-Bench provides reproducible measures for pauses, feedback, turn handoffs, and interruption handling."
+            },
+            {
+              "role": "Counterpoint",
+              "takeaway": "τ-Voice found material limits in full-duplex voice agents’ end-to-end completion on real-world, noisy, and accented tasks."
+            }
+          ]
+        },
         {
           "category": "Compute",
           "eyebrow": "Latest development",
@@ -46276,11 +46587,11 @@
     "en": "gpt-5.6-sol"
   },
   "incremental": {
-    "lastAddedAt": "2026-08-07T03:10:10.559Z",
-    "lastScanAt": "2026-08-07T03:05:24.592Z",
+    "lastAddedAt": "2026-08-07T09:12:02.224Z",
+    "lastScanAt": "2026-08-07T09:07:09.122Z",
     "lastAddedCount": 1,
     "lastUpdatedCount": 0,
-    "totalAppended": 79,
+    "totalAppended": 80,
     "totalUpdated": 65
   },
   "exploreDepth": {
