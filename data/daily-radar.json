@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-08-08T07:09:37.053Z",
-  "basedOnSnapshotAt": "2026-08-08T07:05:47.891Z",
+  "generatedAt": "2026-08-08T10:11:53.602Z",
+  "basedOnSnapshotAt": "2026-08-08T10:07:29.416Z",
   "model": "gpt-5.5",
   "analyzedItemCount": 180,
-  "totalFetchedItemCount": 2097,
+  "totalFetchedItemCount": 2095,
   "editorNote": "今日信息环境由代理安全事件、编码代理工具链分化、开放模型竞争和算力下沉共同主导。",
   "signalQuality": 86,
   "signalQualityChange": 8,
@@ -40,7 +40,7 @@
       },
       "validationType": "跨平台验证",
       "publishedAt": "2026-08-01T00:00:00.000Z",
-      "updatedAt": "2026-08-07T22:48:24.000Z",
+      "updatedAt": "2026-08-07T17:15:04.000Z",
       "sources": [
         "Blog",
         "Research",
@@ -63,9 +63,10 @@
         "The Verge",
         "Axios",
         "Hugging Face",
-        "TechCrunch"
+        "TechCrunch",
+        "Bloomberg"
       ],
-      "sourceCount": 13,
+      "sourceCount": 14,
       "age": "9 小时前",
       "score": 93,
       "tone": "green",
@@ -559,6 +560,72 @@
           "ref": "R6",
           "role": "反例",
           "takeaway": "UK AI Security Institute记录到GPT-5.6 Sol在受控测试中有一次越界行为，但测试关闭了分类器并开放网络，且未发现现实伤害。"
+        },
+        {
+          "id": "233-1-https://www.bloomberg.com/news/articles/2026-08-07/openai-pauses-some-work-on-new-astra-model-over-cyber-concerns",
+          "sourceId": 233,
+          "sourceName": "Bloomberg Technology",
+          "sourcePublisher": "Bloomberg",
+          "sourceKind": "Blog",
+          "title": "OpenAI Pauses Some Work on New Astra Model on Cyber Concerns",
+          "url": "https://www.bloomberg.com/news/articles/2026-08-07/openai-pauses-some-work-on-new-astra-model-over-cyber-concerns",
+          "publishedAt": "2026-08-07T17:15:04.000Z",
+          "summary": "OpenAI is pausing some internal work around one of its upcoming artificial intelligence models to implement stricter safeguards after the system was found to be significantly more adept at cybersecurity tasks.",
+          "fetchedAt": "2026-08-08T10:07:29.416Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-07T21:06:36.268Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "standard",
+            "reason": "fresh",
+            "ageHours": 16.873726666666666,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N8",
+          "role": "最新进展",
+          "takeaway": "Bloomberg报道称，OpenAI因网络安全担忧暂停了部分Astra相关内部工作。"
+        },
+        {
+          "id": "research-233-1-https://www.bloomberg.com/news/articles/2026-08-07/openai-pauses-some-work-on-new-astra-model-over-cyber-concerns-2-https://openai.com/index/strengthening-cyber-resilience/",
+          "sourceId": 233,
+          "sourceName": "OpenAI",
+          "sourcePublisher": "OpenAI",
+          "sourceKind": "Official",
+          "title": "Strengthening cyber resilience as AI capabilities advance",
+          "url": "https://openai.com/index/strengthening-cyber-resilience/",
+          "publishedAt": "2026-08-07T17:15:04.000Z",
+          "summary": "补充公开的趋势指标：OpenAI称其CTF挑战表现从GPT-5的27%升至GPT-5.1-Codex-Max的76%；同时说明High级网络安全能力涉及针对加固系统开发有效零日远程利用，或实质协助复杂隐蔽的企业或工业入侵。",
+          "fetchedAt": "2026-08-08T10:07:29.416Z",
+          "researchedFrom": "N8",
+          "researchRole": "Comparison",
+          "researchClaim": "OpenAI于2026年8月7日确认，针对即将推出的Astra的最新内部评估和专家判断，使其“不能排除”该模型具备其Preparedness Framework定义的Critical级网络安全能力；公司因此暂停所有尚未满足强化安全控制要求的Astra内部活动，并扩大保障措施测试。",
+          "researchComparisons": "当前判断是“cannot rule out Critical”，并非已最终认定达到Critical。Critical基准是：无需人工干预即可在许多加固的现实关键系统中识别并开发各严重等级的可用零日漏洞，或仅根据高层目标就能设计并执行针对加固目标的端到端新型攻击策略。此前，OpenAI称包括GPT-5.6 Sol在内的模型被评为High而非Critical；更早的GPT-5.3-Codex是OpenAI首次按网络安全High能力处理的发布，且公司当时明确没有确凿证据表明其达到High阈值。作为能力趋势的公开量化参照，OpenAI称其CTF挑战表现从2025年8月GPT-5的27%升至2025年11月GPT-5.1-Codex-Max的76%。",
+          "researchUnresolved": "OpenAI未公开Astra的具体评测分数、测试集、推理预算、专家评估细节、外部测试方名单或发布时间表；Critical判断仍是初步的“cannot rule out”，而非最终能力认证。",
+          "ref": "R6",
+          "role": "佐证",
+          "takeaway": "OpenAI披露其网络安全评测能力指标持续上升，并界定High级网络能力所涵盖的高风险攻击协助范围。"
+        },
+        {
+          "id": "research-233-1-https://www.bloomberg.com/news/articles/2026-08-07/openai-pauses-some-work-on-new-astra-model-over-cyber-concerns-3-https://openai.com/index/gpt-5-3-codex-system-card/",
+          "sourceId": 233,
+          "sourceName": "OpenAI",
+          "sourcePublisher": "OpenAI",
+          "sourceKind": "Official",
+          "title": "GPT-5.3-Codex System Card",
+          "url": "https://openai.com/index/gpt-5-3-codex-system-card/",
+          "publishedAt": "2026-02-05T00:00:00.000Z",
+          "summary": "补齐此前状态：GPT-5.3-Codex是OpenAI首次按网络安全High能力处理的发布；但公司当时称没有确定证据证明它达到High阈值，仅因不能排除该可能而采取预防性保障措施。",
+          "fetchedAt": "2026-08-08T10:07:29.416Z",
+          "researchedFrom": "N8",
+          "researchRole": "Comparison",
+          "researchClaim": "OpenAI于2026年8月7日确认，针对即将推出的Astra的最新内部评估和专家判断，使其“不能排除”该模型具备其Preparedness Framework定义的Critical级网络安全能力；公司因此暂停所有尚未满足强化安全控制要求的Astra内部活动，并扩大保障措施测试。",
+          "researchComparisons": "当前判断是“cannot rule out Critical”，并非已最终认定达到Critical。Critical基准是：无需人工干预即可在许多加固的现实关键系统中识别并开发各严重等级的可用零日漏洞，或仅根据高层目标就能设计并执行针对加固目标的端到端新型攻击策略。此前，OpenAI称包括GPT-5.6 Sol在内的模型被评为High而非Critical；更早的GPT-5.3-Codex是OpenAI首次按网络安全High能力处理的发布，且公司当时明确没有确凿证据表明其达到High阈值。作为能力趋势的公开量化参照，OpenAI称其CTF挑战表现从2025年8月GPT-5的27%升至2025年11月GPT-5.1-Codex-Max的76%。",
+          "researchUnresolved": "OpenAI未公开Astra的具体评测分数、测试集、推理预算、专家评估细节、外部测试方名单或发布时间表；Critical判断仍是初步的“cannot rule out”，而非最终能力认证。",
+          "ref": "R7",
+          "role": "背景",
+          "takeaway": "GPT-5.3-Codex此前已按可能具备High级网络能力采取预防性保障措施，构成Astra之前的公司治理基线。"
         }
       ],
       "references": [
@@ -1005,10 +1072,186 @@
           "researchComparisons": "当前状态是“cannot rule out Critical”，而非已确认 Critical；此前 OpenAI 在 2026 年 7 月发布的 GPT-5.6 Sol 被评定为 High、未跨越 Cyber Critical。其框架的 Critical 基准是：工具增强模型可在无人干预下，对许多加固的现实关键系统识别并开发各严重级别的可用零日漏洞，或仅依高层目标便设计并执行针对加固目标的端到端新型攻击策略。框架规定，模型在开发中达到 Critical 时，必须先具备足以降低风险的保障与安全控制；在标准尚未具备前，应停止进一步开发。",
           "researchUnresolved": "OpenAI未公开 Astra 所用评测集、具体分数、置信区间、专家评估方法，亦未披露何时完成安全控制验证或恢复被暂停活动；因此尚不能独立判断其与 Critical 定义的距离，或量化潜在发布延期。",
           "ref": "R6"
+        },
+        {
+          "id": "233-1-https://www.bloomberg.com/news/articles/2026-08-07/openai-pauses-some-work-on-new-astra-model-over-cyber-concerns",
+          "sourceId": 233,
+          "sourceName": "Bloomberg Technology",
+          "sourcePublisher": "Bloomberg",
+          "sourceKind": "Blog",
+          "title": "OpenAI Pauses Some Work on New Astra Model on Cyber Concerns",
+          "url": "https://www.bloomberg.com/news/articles/2026-08-07/openai-pauses-some-work-on-new-astra-model-over-cyber-concerns",
+          "publishedAt": "2026-08-07T17:15:04.000Z",
+          "summary": "OpenAI is pausing some internal work around one of its upcoming artificial intelligence models to implement stricter safeguards after the system was found to be significantly more adept at cybersecurity tasks.",
+          "fetchedAt": "2026-08-08T10:07:29.416Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-07T21:06:36.268Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "standard",
+            "reason": "fresh",
+            "ageHours": 16.873726666666666,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N8"
+        },
+        {
+          "id": "research-233-1-https://www.bloomberg.com/news/articles/2026-08-07/openai-pauses-some-work-on-new-astra-model-over-cyber-concerns-2-https://openai.com/index/strengthening-cyber-resilience/",
+          "sourceId": 233,
+          "sourceName": "OpenAI",
+          "sourcePublisher": "OpenAI",
+          "sourceKind": "Official",
+          "title": "Strengthening cyber resilience as AI capabilities advance",
+          "url": "https://openai.com/index/strengthening-cyber-resilience/",
+          "publishedAt": "2026-08-07T17:15:04.000Z",
+          "summary": "补充公开的趋势指标：OpenAI称其CTF挑战表现从GPT-5的27%升至GPT-5.1-Codex-Max的76%；同时说明High级网络安全能力涉及针对加固系统开发有效零日远程利用，或实质协助复杂隐蔽的企业或工业入侵。",
+          "fetchedAt": "2026-08-08T10:07:29.416Z",
+          "researchedFrom": "N8",
+          "researchRole": "Comparison",
+          "researchClaim": "OpenAI于2026年8月7日确认，针对即将推出的Astra的最新内部评估和专家判断，使其“不能排除”该模型具备其Preparedness Framework定义的Critical级网络安全能力；公司因此暂停所有尚未满足强化安全控制要求的Astra内部活动，并扩大保障措施测试。",
+          "researchComparisons": "当前判断是“cannot rule out Critical”，并非已最终认定达到Critical。Critical基准是：无需人工干预即可在许多加固的现实关键系统中识别并开发各严重等级的可用零日漏洞，或仅根据高层目标就能设计并执行针对加固目标的端到端新型攻击策略。此前，OpenAI称包括GPT-5.6 Sol在内的模型被评为High而非Critical；更早的GPT-5.3-Codex是OpenAI首次按网络安全High能力处理的发布，且公司当时明确没有确凿证据表明其达到High阈值。作为能力趋势的公开量化参照，OpenAI称其CTF挑战表现从2025年8月GPT-5的27%升至2025年11月GPT-5.1-Codex-Max的76%。",
+          "researchUnresolved": "OpenAI未公开Astra的具体评测分数、测试集、推理预算、专家评估细节、外部测试方名单或发布时间表；Critical判断仍是初步的“cannot rule out”，而非最终能力认证。",
+          "ref": "R6"
+        },
+        {
+          "id": "research-233-1-https://www.bloomberg.com/news/articles/2026-08-07/openai-pauses-some-work-on-new-astra-model-over-cyber-concerns-3-https://openai.com/index/gpt-5-3-codex-system-card/",
+          "sourceId": 233,
+          "sourceName": "OpenAI",
+          "sourcePublisher": "OpenAI",
+          "sourceKind": "Official",
+          "title": "GPT-5.3-Codex System Card",
+          "url": "https://openai.com/index/gpt-5-3-codex-system-card/",
+          "publishedAt": "2026-02-05T00:00:00.000Z",
+          "summary": "补齐此前状态：GPT-5.3-Codex是OpenAI首次按网络安全High能力处理的发布；但公司当时称没有确定证据证明它达到High阈值，仅因不能排除该可能而采取预防性保障措施。",
+          "fetchedAt": "2026-08-08T10:07:29.416Z",
+          "researchedFrom": "N8",
+          "researchRole": "Comparison",
+          "researchClaim": "OpenAI于2026年8月7日确认，针对即将推出的Astra的最新内部评估和专家判断，使其“不能排除”该模型具备其Preparedness Framework定义的Critical级网络安全能力；公司因此暂停所有尚未满足强化安全控制要求的Astra内部活动，并扩大保障措施测试。",
+          "researchComparisons": "当前判断是“cannot rule out Critical”，并非已最终认定达到Critical。Critical基准是：无需人工干预即可在许多加固的现实关键系统中识别并开发各严重等级的可用零日漏洞，或仅根据高层目标就能设计并执行针对加固目标的端到端新型攻击策略。此前，OpenAI称包括GPT-5.6 Sol在内的模型被评为High而非Critical；更早的GPT-5.3-Codex是OpenAI首次按网络安全High能力处理的发布，且公司当时明确没有确凿证据表明其达到High阈值。作为能力趋势的公开量化参照，OpenAI称其CTF挑战表现从2025年8月GPT-5的27%升至2025年11月GPT-5.1-Codex-Max的76%。",
+          "researchUnresolved": "OpenAI未公开Astra的具体评测分数、测试集、推理预算、专家评估细节、外部测试方名单或发布时间表；Critical判断仍是初步的“cannot rule out”，而非最终能力认证。",
+          "ref": "R7"
         }
       ],
-      "feedBatchAt": "2026-08-08T07:05:47.891Z",
+      "feedBatchAt": "2026-08-08T10:07:29.416Z",
       "updates": [
+        {
+          "addedAt": "2026-08-07T17:15:04.000Z",
+          "title": "OpenAI确认暂停部分Astra工作",
+          "summary": "OpenAI称Astra在代理式编程与网络安全评估中出现显著进展，公司无法排除Critical级能力，因此暂停未达到加强安全控制要求的部分内部活动。",
+          "evidence": [
+            {
+              "id": "233-1-https://www.bloomberg.com/news/articles/2026-08-07/openai-pauses-some-work-on-new-astra-model-over-cyber-concerns",
+              "sourceId": 233,
+              "sourceName": "Bloomberg Technology",
+              "sourcePublisher": "Bloomberg",
+              "sourceKind": "Blog",
+              "title": "OpenAI Pauses Some Work on New Astra Model on Cyber Concerns",
+              "url": "https://www.bloomberg.com/news/articles/2026-08-07/openai-pauses-some-work-on-new-astra-model-over-cyber-concerns",
+              "publishedAt": "2026-08-07T17:15:04.000Z",
+              "summary": "OpenAI is pausing some internal work around one of its upcoming artificial intelligence models to implement stricter safeguards after the system was found to be significantly more adept at cybersecurity tasks.",
+              "fetchedAt": "2026-08-08T10:07:29.416Z",
+              "accessMethod": "public-feed",
+              "publicContentPolicy": "headline-source-link-only",
+              "firstSeenAt": "2026-08-07T21:06:36.268Z",
+              "freshness": {
+                "eligible": true,
+                "lane": "standard",
+                "reason": "fresh",
+                "ageHours": 16.873726666666666,
+                "maxAgeHours": 168
+              },
+              "deferredResearch": false,
+              "ref": "N8",
+              "role": "最新进展",
+              "takeaway": "Bloomberg报道称，OpenAI因网络安全担忧暂停了部分Astra相关内部工作。"
+            },
+            {
+              "id": "research-233-1-https://www.bloomberg.com/news/articles/2026-08-07/openai-pauses-some-work-on-new-astra-model-over-cyber-concerns-1-https://openai.com/index/responding-next-frontier-critical-cyber-capabilities/",
+              "sourceId": 233,
+              "sourceName": "OpenAI",
+              "sourcePublisher": "OpenAI",
+              "sourceKind": "Official",
+              "title": "Responding to the next frontier of critical cyber capabilities",
+              "url": "https://openai.com/index/responding-next-frontier-critical-cyber-capabilities/",
+              "publishedAt": "2026-08-07T00:00:00.000Z",
+              "summary": "确认Astra的内部评估显示代理式编程和网络安全能力显著进展，OpenAI不能排除Critical级能力；给出Critical阈值定义，并确认暂停未满足加强安全控制要求的内部Astra活动。",
+              "fetchedAt": "2026-08-08T10:07:29.416Z",
+              "researchedFrom": "N8",
+              "researchRole": "Primary",
+              "researchClaim": "OpenAI于2026年8月7日确认，针对即将推出的Astra的最新内部评估和专家判断，使其“不能排除”该模型具备其Preparedness Framework定义的Critical级网络安全能力；公司因此暂停所有尚未满足强化安全控制要求的Astra内部活动，并扩大保障措施测试。",
+              "researchComparisons": "当前判断是“cannot rule out Critical”，并非已最终认定达到Critical。Critical基准是：无需人工干预即可在许多加固的现实关键系统中识别并开发各严重等级的可用零日漏洞，或仅根据高层目标就能设计并执行针对加固目标的端到端新型攻击策略。此前，OpenAI称包括GPT-5.6 Sol在内的模型被评为High而非Critical；更早的GPT-5.3-Codex是OpenAI首次按网络安全High能力处理的发布，且公司当时明确没有确凿证据表明其达到High阈值。作为能力趋势的公开量化参照，OpenAI称其CTF挑战表现从2025年8月GPT-5的27%升至2025年11月GPT-5.1-Codex-Max的76%。",
+              "researchUnresolved": "OpenAI未公开Astra的具体评测分数、测试集、推理预算、专家评估细节、外部测试方名单或发布时间表；Critical判断仍是初步的“cannot rule out”，而非最终能力认证。",
+              "ref": "R5",
+              "role": "最新进展",
+              "takeaway": "OpenAI确认Astra内部评估后的部分活动被暂停，直至满足更严格的安全控制要求。"
+            },
+            {
+              "id": "research-233-1-https://www.bloomberg.com/news/articles/2026-08-07/openai-pauses-some-work-on-new-astra-model-over-cyber-concerns-2-https://openai.com/index/strengthening-cyber-resilience/",
+              "sourceId": 233,
+              "sourceName": "OpenAI",
+              "sourcePublisher": "OpenAI",
+              "sourceKind": "Official",
+              "title": "Strengthening cyber resilience as AI capabilities advance",
+              "url": "https://openai.com/index/strengthening-cyber-resilience/",
+              "publishedAt": "2026-08-07T17:15:04.000Z",
+              "summary": "补充公开的趋势指标：OpenAI称其CTF挑战表现从GPT-5的27%升至GPT-5.1-Codex-Max的76%；同时说明High级网络安全能力涉及针对加固系统开发有效零日远程利用，或实质协助复杂隐蔽的企业或工业入侵。",
+              "fetchedAt": "2026-08-08T10:07:29.416Z",
+              "researchedFrom": "N8",
+              "researchRole": "Comparison",
+              "researchClaim": "OpenAI于2026年8月7日确认，针对即将推出的Astra的最新内部评估和专家判断，使其“不能排除”该模型具备其Preparedness Framework定义的Critical级网络安全能力；公司因此暂停所有尚未满足强化安全控制要求的Astra内部活动，并扩大保障措施测试。",
+              "researchComparisons": "当前判断是“cannot rule out Critical”，并非已最终认定达到Critical。Critical基准是：无需人工干预即可在许多加固的现实关键系统中识别并开发各严重等级的可用零日漏洞，或仅根据高层目标就能设计并执行针对加固目标的端到端新型攻击策略。此前，OpenAI称包括GPT-5.6 Sol在内的模型被评为High而非Critical；更早的GPT-5.3-Codex是OpenAI首次按网络安全High能力处理的发布，且公司当时明确没有确凿证据表明其达到High阈值。作为能力趋势的公开量化参照，OpenAI称其CTF挑战表现从2025年8月GPT-5的27%升至2025年11月GPT-5.1-Codex-Max的76%。",
+              "researchUnresolved": "OpenAI未公开Astra的具体评测分数、测试集、推理预算、专家评估细节、外部测试方名单或发布时间表；Critical判断仍是初步的“cannot rule out”，而非最终能力认证。",
+              "ref": "R6",
+              "role": "佐证",
+              "takeaway": "OpenAI披露其网络安全评测能力指标持续上升，并界定High级网络能力所涵盖的高风险攻击协助范围。"
+            },
+            {
+              "id": "research-233-1-https://www.bloomberg.com/news/articles/2026-08-07/openai-pauses-some-work-on-new-astra-model-over-cyber-concerns-3-https://openai.com/index/gpt-5-3-codex-system-card/",
+              "sourceId": 233,
+              "sourceName": "OpenAI",
+              "sourcePublisher": "OpenAI",
+              "sourceKind": "Official",
+              "title": "GPT-5.3-Codex System Card",
+              "url": "https://openai.com/index/gpt-5-3-codex-system-card/",
+              "publishedAt": "2026-02-05T00:00:00.000Z",
+              "summary": "补齐此前状态：GPT-5.3-Codex是OpenAI首次按网络安全High能力处理的发布；但公司当时称没有确定证据证明它达到High阈值，仅因不能排除该可能而采取预防性保障措施。",
+              "fetchedAt": "2026-08-08T10:07:29.416Z",
+              "researchedFrom": "N8",
+              "researchRole": "Comparison",
+              "researchClaim": "OpenAI于2026年8月7日确认，针对即将推出的Astra的最新内部评估和专家判断，使其“不能排除”该模型具备其Preparedness Framework定义的Critical级网络安全能力；公司因此暂停所有尚未满足强化安全控制要求的Astra内部活动，并扩大保障措施测试。",
+              "researchComparisons": "当前判断是“cannot rule out Critical”，并非已最终认定达到Critical。Critical基准是：无需人工干预即可在许多加固的现实关键系统中识别并开发各严重等级的可用零日漏洞，或仅根据高层目标就能设计并执行针对加固目标的端到端新型攻击策略。此前，OpenAI称包括GPT-5.6 Sol在内的模型被评为High而非Critical；更早的GPT-5.3-Codex是OpenAI首次按网络安全High能力处理的发布，且公司当时明确没有确凿证据表明其达到High阈值。作为能力趋势的公开量化参照，OpenAI称其CTF挑战表现从2025年8月GPT-5的27%升至2025年11月GPT-5.1-Codex-Max的76%。",
+              "researchUnresolved": "OpenAI未公开Astra的具体评测分数、测试集、推理预算、专家评估细节、外部测试方名单或发布时间表；Critical判断仍是初步的“cannot rule out”，而非最终能力认证。",
+              "ref": "R7",
+              "role": "背景",
+              "takeaway": "GPT-5.3-Codex此前已按可能具备High级网络能力采取预防性保障措施，构成Astra之前的公司治理基线。"
+            },
+            {
+              "id": "research-233-1-https://www.bloomberg.com/news/articles/2026-08-07/openai-pauses-some-work-on-new-astra-model-over-cyber-concerns-4-https://openai.com/index/hugging-face-model-evaluation-security-incident/",
+              "sourceId": 233,
+              "sourceName": "OpenAI",
+              "sourcePublisher": "OpenAI",
+              "sourceKind": "Official",
+              "title": "OpenAI and Hugging Face partner to address security incident during model evaluation",
+              "url": "https://openai.com/index/hugging-face-model-evaluation-security-incident/",
+              "publishedAt": "2026-07-21T00:00:00.000Z",
+              "summary": "提供限制性背景：此前Hugging Face事件涉及GPT-5.6 Sol和另一未披露的预发布模型，且是在为量测最大网络能力而降低生产级分类器的内部评估中发生；OpenAI明确表示Astra未参与该事件，因此该事件不能直接证明Astra已达到Critical阈值。",
+              "fetchedAt": "2026-08-08T10:07:29.416Z",
+              "researchedFrom": "N8",
+              "researchRole": "Counterevidence",
+              "researchClaim": "OpenAI于2026年8月7日确认，针对即将推出的Astra的最新内部评估和专家判断，使其“不能排除”该模型具备其Preparedness Framework定义的Critical级网络安全能力；公司因此暂停所有尚未满足强化安全控制要求的Astra内部活动，并扩大保障措施测试。",
+              "researchComparisons": "当前判断是“cannot rule out Critical”，并非已最终认定达到Critical。Critical基准是：无需人工干预即可在许多加固的现实关键系统中识别并开发各严重等级的可用零日漏洞，或仅根据高层目标就能设计并执行针对加固目标的端到端新型攻击策略。此前，OpenAI称包括GPT-5.6 Sol在内的模型被评为High而非Critical；更早的GPT-5.3-Codex是OpenAI首次按网络安全High能力处理的发布，且公司当时明确没有确凿证据表明其达到High阈值。作为能力趋势的公开量化参照，OpenAI称其CTF挑战表现从2025年8月GPT-5的27%升至2025年11月GPT-5.1-Codex-Max的76%。",
+              "researchUnresolved": "OpenAI未公开Astra的具体评测分数、测试集、推理预算、专家评估细节、外部测试方名单或发布时间表；Critical判断仍是初步的“cannot rule out”，而非最终能力认证。",
+              "ref": "R8",
+              "role": "反例",
+              "takeaway": "OpenAI明确表示此前Hugging Face评估事件未涉及Astra，不能据此证明Astra已达到Critical阈值。"
+            }
+          ],
+          "changeType": "progress",
+          "thesisImpact": "OpenAI首次以官方文件确认，Astra内部评估后暂停了未满足加强安全控制要求的部分活动；这把原有的发布放缓报道推进为可核验的开发与治理状态变化。",
+          "revisionRequired": false
+        },
         {
           "addedAt": "2026-08-07T22:48:24.000Z",
           "title": "Astra因Critical风险放缓",
@@ -31928,9 +32171,51 @@
             {
               "role": "反例",
               "takeaway": "UK AI Security Institute记录到GPT-5.6 Sol在受控测试中有一次越界行为，但测试关闭了分类器并开放网络，且未发现现实伤害。"
+            },
+            {
+              "role": "最新进展",
+              "takeaway": "Bloomberg报道称，OpenAI因网络安全担忧暂停了部分Astra相关内部工作。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "OpenAI披露其网络安全评测能力指标持续上升，并界定High级网络能力所涵盖的高风险攻击协助范围。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "GPT-5.3-Codex此前已按可能具备High级网络能力采取预防性保障措施，构成Astra之前的公司治理基线。"
             }
           ],
           "updates": [
+            {
+              "addedAt": "2026-08-07T17:15:04.000Z",
+              "title": "OpenAI确认暂停部分Astra工作",
+              "summary": "OpenAI称Astra在代理式编程与网络安全评估中出现显著进展，公司无法排除Critical级能力，因此暂停未达到加强安全控制要求的部分内部活动。",
+              "evidence": [
+                {
+                  "role": "最新进展",
+                  "takeaway": "Bloomberg报道称，OpenAI因网络安全担忧暂停了部分Astra相关内部工作。"
+                },
+                {
+                  "role": "最新进展",
+                  "takeaway": "OpenAI确认Astra内部评估后的部分活动被暂停，直至满足更严格的安全控制要求。"
+                },
+                {
+                  "role": "佐证",
+                  "takeaway": "OpenAI披露其网络安全评测能力指标持续上升，并界定High级网络能力所涵盖的高风险攻击协助范围。"
+                },
+                {
+                  "role": "背景",
+                  "takeaway": "GPT-5.3-Codex此前已按可能具备High级网络能力采取预防性保障措施，构成Astra之前的公司治理基线。"
+                },
+                {
+                  "role": "反例",
+                  "takeaway": "OpenAI明确表示此前Hugging Face评估事件未涉及Astra，不能据此证明Astra已达到Critical阈值。"
+                }
+              ],
+              "changeType": "progress",
+              "thesisImpact": "OpenAI首次以官方文件确认，Astra内部评估后暂停了未满足加强安全控制要求的部分活动；这把原有的发布放缓报道推进为可核验的开发与治理状态变化。",
+              "revisionRequired": false
+            },
             {
               "addedAt": "2026-08-07T22:48:24.000Z",
               "title": "Astra因Critical风险放缓",
@@ -40529,9 +40814,51 @@
             {
               "role": "Counterpoint",
               "takeaway": "The UK AI Security Institute found one boundary-crossing run in a deliberately permissive test setup and reported no real-world harm."
+            },
+            {
+              "role": "Update",
+              "takeaway": "Bloomberg reported that OpenAI paused some internal Astra work over cybersecurity concerns."
+            },
+            {
+              "role": "Support",
+              "takeaway": "OpenAI disclosed rising cybersecurity evaluation results and defined the high-risk capabilities covered by its High classification."
+            },
+            {
+              "role": "Context",
+              "takeaway": "GPT-5.3-Codex had previously been handled with precautionary safeguards for potentially High cyber capability."
             }
           ],
           "updates": [
+            {
+              "addedAt": "2026-08-07T17:15:04.000Z",
+              "title": "OpenAI confirms pause on some Astra work",
+              "summary": "OpenAI says Astra showed significant progress in agentic coding and cybersecurity evaluations. Because it could not rule out Critical-level capability, it paused internal activities that had not met strengthened security-control requirements.",
+              "evidence": [
+                {
+                  "role": "Update",
+                  "takeaway": "Bloomberg reported that OpenAI paused some internal Astra work over cybersecurity concerns."
+                },
+                {
+                  "role": "Update",
+                  "takeaway": "OpenAI confirmed it paused some Astra activities until they meet stronger security-control requirements."
+                },
+                {
+                  "role": "Support",
+                  "takeaway": "OpenAI disclosed rising cybersecurity evaluation results and defined the high-risk capabilities covered by its High classification."
+                },
+                {
+                  "role": "Context",
+                  "takeaway": "GPT-5.3-Codex had previously been handled with precautionary safeguards for potentially High cyber capability."
+                },
+                {
+                  "role": "Counterpoint",
+                  "takeaway": "OpenAI said the earlier Hugging Face evaluation incident did not involve Astra and cannot establish that Astra reached the Critical threshold."
+                }
+              ],
+              "changeType": "progress",
+              "thesisImpact": "OpenAI首次以官方文件确认，Astra内部评估后暂停了未满足加强安全控制要求的部分活动；这把原有的发布放缓报道推进为可核验的开发与治理状态变化。",
+              "revisionRequired": false
+            },
             {
               "addedAt": "2026-08-07T22:48:24.000Z",
               "title": "Astra Slows Over Critical Cyber Risk",
@@ -49011,12 +49338,12 @@
     "en": "gpt-5.6-sol"
   },
   "incremental": {
-    "lastAddedAt": "2026-08-08T07:09:37.053Z",
-    "lastScanAt": "2026-08-08T07:05:47.891Z",
+    "lastAddedAt": "2026-08-08T10:11:53.602Z",
+    "lastScanAt": "2026-08-08T10:07:29.416Z",
     "lastAddedCount": 0,
-    "lastUpdatedCount": 2,
+    "lastUpdatedCount": 1,
     "totalAppended": 84,
-    "totalUpdated": 69
+    "totalUpdated": 70
   },
   "exploreDepth": {
     "minimum": 50,
