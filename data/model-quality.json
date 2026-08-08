@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-06T01:05:15.877Z",
+  "updatedAt": "2026-08-08T14:07:22.630Z",
   "records": [
     {
       "attempted": true,
@@ -1015,6 +1015,184 @@
             "ref": "R13",
             "primaryDisposition": "update:1",
             "shadowDisposition": "ignored",
+            "agreed": false
+          }
+        ]
+      }
+    },
+    {
+      "attempted": true,
+      "completedAt": "2026-08-08T14:07:22.630Z",
+      "primaryModel": "gpt-5.6-terra",
+      "shadowModel": "gpt-5.6-sol",
+      "primaryLatencyMs": 100896,
+      "primaryUsage": {
+        "input_tokens": 14898,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 5550,
+        "output_tokens_details": {
+          "reasoning_tokens": 1115
+        },
+        "total_tokens": 20448
+      },
+      "completed": true,
+      "shadowLatencyMs": 177812,
+      "shadowUsage": {
+        "input_tokens": 16632,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 9781,
+        "output_tokens_details": {
+          "reasoning_tokens": 4529
+        },
+        "total_tokens": 26413
+      },
+      "comparison": {
+        "candidateCount": 23,
+        "agreedCount": 19,
+        "agreementRate": 0.8260869565217391,
+        "details": [
+          {
+            "ref": "N1",
+            "primaryDisposition": "ignored",
+            "shadowDisposition": "ignored",
+            "agreed": true
+          },
+          {
+            "ref": "N2",
+            "primaryDisposition": "ignored",
+            "shadowDisposition": "ignored",
+            "agreed": true
+          },
+          {
+            "ref": "N3",
+            "primaryDisposition": "update:1",
+            "shadowDisposition": "update:1",
+            "agreed": true
+          },
+          {
+            "ref": "N4",
+            "primaryDisposition": "ignored",
+            "shadowDisposition": "ignored",
+            "agreed": true
+          },
+          {
+            "ref": "N5",
+            "primaryDisposition": "story:dynamic",
+            "shadowDisposition": "story:dynamic",
+            "agreed": true
+          },
+          {
+            "ref": "N6",
+            "primaryDisposition": "ignored",
+            "shadowDisposition": "ignored",
+            "agreed": true
+          },
+          {
+            "ref": "N7",
+            "primaryDisposition": "ignored",
+            "shadowDisposition": "story:explore",
+            "agreed": false
+          },
+          {
+            "ref": "N8",
+            "primaryDisposition": "story:dynamic",
+            "shadowDisposition": "ignored",
+            "agreed": false
+          },
+          {
+            "ref": "G1",
+            "primaryDisposition": "ignored",
+            "shadowDisposition": "ignored",
+            "agreed": true
+          },
+          {
+            "ref": "G2",
+            "primaryDisposition": "ignored",
+            "shadowDisposition": "ignored",
+            "agreed": true
+          },
+          {
+            "ref": "R1",
+            "primaryDisposition": "update:1",
+            "shadowDisposition": "update:1",
+            "agreed": true
+          },
+          {
+            "ref": "R2",
+            "primaryDisposition": "update:1",
+            "shadowDisposition": "update:1",
+            "agreed": true
+          },
+          {
+            "ref": "R3",
+            "primaryDisposition": "update:1",
+            "shadowDisposition": "update:1",
+            "agreed": true
+          },
+          {
+            "ref": "R4",
+            "primaryDisposition": "update:1",
+            "shadowDisposition": "update:1",
+            "agreed": true
+          },
+          {
+            "ref": "R5",
+            "primaryDisposition": "story:dynamic",
+            "shadowDisposition": "story:dynamic",
+            "agreed": true
+          },
+          {
+            "ref": "R6",
+            "primaryDisposition": "story:dynamic",
+            "shadowDisposition": "story:dynamic",
+            "agreed": true
+          },
+          {
+            "ref": "R7",
+            "primaryDisposition": "story:dynamic",
+            "shadowDisposition": "story:dynamic",
+            "agreed": true
+          },
+          {
+            "ref": "R8",
+            "primaryDisposition": "ignored",
+            "shadowDisposition": "ignored",
+            "agreed": true
+          },
+          {
+            "ref": "R9",
+            "primaryDisposition": "ignored",
+            "shadowDisposition": "ignored",
+            "agreed": true
+          },
+          {
+            "ref": "R10",
+            "primaryDisposition": "ignored",
+            "shadowDisposition": "ignored",
+            "agreed": true
+          },
+          {
+            "ref": "R11",
+            "primaryDisposition": "ignored",
+            "shadowDisposition": "ignored",
+            "agreed": true
+          },
+          {
+            "ref": "R12",
+            "primaryDisposition": "ignored",
+            "shadowDisposition": "story:explore",
+            "agreed": false
+          },
+          {
+            "ref": "R13",
+            "primaryDisposition": "ignored",
+            "shadowDisposition": "story:explore",
             "agreed": false
           }
         ]
