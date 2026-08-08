@@ -203,6 +203,20 @@ function incrementalRelevance(item, snapshotTime) {
   );
 }
 
+function qualifiesForNewSourceLookback(item, snapshotTime) {
+  if (!item.conversationSource) return false;
+  const lookbackHours = Math.min(
+    168,
+    Math.max(0, Number(item.initialLookbackHours ?? 0)),
+  );
+  if (!lookbackHours) return false;
+  const publishedAt = Date.parse(item.publishedAt ?? "");
+  return (
+    Number.isFinite(publishedAt) &&
+    publishedAt >= snapshotTime - lookbackHours * 60 * 60 * 1_000
+  );
+}
+
 export function auditIncrementalItems({
   scannedSnapshot,
   previousSnapshot,
@@ -241,19 +255,9 @@ export function auditIncrementalItems({
       const sourceInitialized = initializedSourceIds.has(
         String(item.sourceId),
       );
-      const publishedAt = Date.parse(item.publishedAt ?? "");
-      const initialLookbackMs =
-        Math.min(
-          168,
-          Math.max(0, Number(item.initialLookbackHours ?? 0)),
-        ) *
-        60 *
-        60 *
-        1_000;
       const recentEnough = sourceInitialized
         ? itemDiscoveryTime(item, snapshotTime) >= existingSourceCutoff
-        : Number.isFinite(publishedAt) &&
-          publishedAt >= windowStart - initialLookbackMs;
+        : qualifiesForNewSourceLookback(item, snapshotTime);
       const deferred = deferredKeys.has(itemProcessingKey(item));
       const changedVersion =
         Boolean(item.versionKey) &&
@@ -2392,17 +2396,15 @@ export function nextState({
     previousSnapshot.generatedAt ??
     scannedSnapshot.generatedAt;
   const windowStart = Date.parse(windowStartAt);
+  const snapshotTime = Date.parse(scannedSnapshot.generatedAt);
+  const shouldBaselineNewSourceItem = (item) =>
+    newlyInitializedSourceIds.has(String(item.sourceId)) &&
+    !qualifiesForNewSourceLookback(item, snapshotTime);
   const urls = new Set([
     ...(state?.processedUrls ?? previousSnapshot.items.map((item) => item.url)),
     ...candidates.map((item) => item.url),
     ...scannedSnapshot.items
-      .filter((item) => {
-        if (!newlyInitializedSourceIds.has(String(item.sourceId))) {
-          return false;
-        }
-        const publishedAt = Date.parse(item.publishedAt ?? "");
-        return !Number.isFinite(publishedAt) || publishedAt < windowStart;
-      })
+      .filter(shouldBaselineNewSourceItem)
       .map((item) => item.url),
   ]);
   const keys = new Set([
@@ -2411,13 +2413,7 @@ export function nextState({
       previousSnapshot.items.map(itemProcessingKey)),
     ...candidates.map(itemProcessingKey),
     ...scannedSnapshot.items
-      .filter((item) => {
-        if (!newlyInitializedSourceIds.has(String(item.sourceId))) {
-          return false;
-        }
-        const publishedAt = Date.parse(item.publishedAt ?? "");
-        return !Number.isFinite(publishedAt) || publishedAt < windowStart;
-      })
+      .filter(shouldBaselineNewSourceItem)
       .map(itemProcessingKey),
   ]);
   const processedCandidateKeys = new Set(candidates.map(itemProcessingKey));

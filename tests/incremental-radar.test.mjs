@@ -119,6 +119,14 @@ test("baselines a newly connected source instead of backfilling its history", ()
           sourceKind: "Blog",
           publishedAt: "2026-07-01T13:00:00.000Z",
         },
+        {
+          sourceId: 2,
+          url: "https://example.com/source-two/recent",
+          title: "Recent item from a newly connected source",
+          sourceName: "Source two",
+          sourceKind: "Blog",
+          publishedAt: "2026-07-29T13:30:00.000Z",
+        },
       ],
     },
     state: null,
@@ -126,6 +134,44 @@ test("baselines a newly connected source instead of backfilling its history", ()
 
   assert.equal(selected.length, 1);
   assert.equal(selected[0].url, "https://example.com/source-one/new");
+});
+
+test("marks every visible item from a newly connected regular source as baseline", () => {
+  const scannedSnapshot = {
+    generatedAt: "2026-07-29T14:00:00.000Z",
+    statuses: [
+      { sourceId: 1, status: "ok" },
+      { sourceId: 2, status: "ok" },
+    ],
+    items: [
+      {
+        sourceId: 2,
+        url: "https://example.com/source-two/recent",
+        title: "Recent item from a newly connected source",
+        sourceKind: "Blog",
+        publishedAt: "2026-07-29T13:30:00.000Z",
+      },
+    ],
+  };
+  const state = nextState({
+    state: {
+      lastScanAt: "2026-07-29T13:00:00.000Z",
+      windowStartAt: "2026-07-29T10:00:00.000Z",
+      initializedSourceIds: ["1"],
+      processedKeys: [],
+    },
+    previousSnapshot: {
+      generatedAt: "2026-07-29T13:00:00.000Z",
+      items: [{ sourceId: 1, url: "https://example.com/source-one/seen" }],
+    },
+    candidates: [],
+    scannedSnapshot,
+  });
+
+  assert.ok(
+    state.processedKeys.includes("https://example.com/source-two/recent"),
+  );
+  assert.ok(state.initializedSourceIds.includes("2"));
 });
 
 test("allows a bounded first-connect lookback for a new conversation source", () => {
