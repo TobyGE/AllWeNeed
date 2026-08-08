@@ -749,6 +749,19 @@ const curatedSourceCatalog: SourceItem[] = [
     feedLanguage: "en",
     feedTransport: "curl",
   },
+  {
+    id: 237,
+    name: "Reddit — AI & Core Tech",
+    publisher: "Reddit communities",
+    description: "仅供内部发现 AI 研究、开放模型、网络安全与硬件社区中的高关注线索；公开稿件必须另行 grounding 到原始来源。",
+    url: "https://www.reddit.com/r/MachineLearning+LocalLLaMA+artificial+netsec+hardware/top/?t=day",
+    feedUrl: "https://www.reddit.com/r/MachineLearning+LocalLLaMA+artificial+netsec+hardware/top/.rss?t=day&limit=50",
+    feedLanguage: "en",
+    feedTransport: "curl",
+    discoveryOnly: true,
+    discoveryLevel: "B",
+    publicContentPolicy: "exclude",
+  },
 ];
 
 const discoveredSourceCatalog: SourceItem[] = (

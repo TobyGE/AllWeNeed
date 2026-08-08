@@ -101,6 +101,13 @@ test("keeps aggregators private and removes Product Hunt from collection", () =>
     (source) => source.name === "Hacker News",
   );
   assert.equal(hackerNews.discoveryOnly, true);
+  const reddit = sourceCatalog.find(
+    (source) => source.name === "Reddit — AI & Core Tech",
+  );
+  assert.equal(reddit.discoveryOnly, true);
+  assert.equal(reddit.discoveryLevel, "B");
+  assert.equal(reddit.publicContentPolicy, "exclude");
+  assert.match(reddit.feedUrl, /\/top\/\.rss\?t=day&limit=50$/);
   assert.equal(
     sourceCatalog.some((source) => source.name === "Product Hunt"),
     false,
