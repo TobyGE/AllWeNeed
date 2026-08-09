@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-08T16:06:25.875Z",
+  "generatedAt": "2026-08-09T02:06:25.634Z",
   "counts": {
-    "sources": 478,
-    "claims": 548,
-    "events": 118,
-    "articles": 118,
+    "sources": 482,
+    "claims": 552,
+    "events": 119,
+    "articles": 119,
     "updates": 72,
-    "edges": 1445,
+    "edges": 1454,
     "revisionsRequired": 3
   },
   "revisionQueue": [
@@ -43,6 +43,84 @@
     }
   ],
   "nodes": [
+    {
+      "id": "event_8e9a4f3ba30e0d1f",
+      "type": "event",
+      "signalId": 97,
+      "title": "Harvey或以155亿美元估值再融资",
+      "bucket": "explore",
+      "valueScore": 82,
+      "publishedAt": "2026-08-07T16:54:36.000Z",
+      "updatedAt": "2026-08-07T16:54:36.000Z"
+    },
+    {
+      "id": "article_96258949b5767275",
+      "type": "article",
+      "signalId": 97,
+      "title": "Harvey或以155亿美元估值再融资",
+      "version": 1,
+      "publishedAt": "2026-08-09T02:06:25.634Z"
+    },
+    {
+      "id": "source_008269e431e09e15",
+      "type": "source",
+      "title": "The Information",
+      "url": "https://www.theinformation.com/articles/harvey-talks-raise-funding-15-5-billion-valuation",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-07T16:54:36.000Z"
+    },
+    {
+      "id": "claim_bdb9dd3353d5586b",
+      "type": "claim",
+      "title": "The Information称Harvey正洽谈至少5亿美元融资、投后估值155亿美元，并称其年化收入超过3.5亿美元。",
+      "role": "主张",
+      "addedAt": "2026-08-09T02:06:25.634Z"
+    },
+    {
+      "id": "source_e660aad2c35d7099",
+      "type": "source",
+      "title": "Harvey",
+      "url": "https://www.harvey.ai/blog/harvey-raises-growth-round-at-dollar11-billion-valuation-co-led-by-gic-and-sequoia",
+      "sourceKind": "Official",
+      "publishedAt": "2026-03-25T00:00:00.000Z"
+    },
+    {
+      "id": "claim_51bd2d013c43bd1c",
+      "type": "claim",
+      "title": "Harvey确认其2026年3月完成2亿美元增长轮融资、估值110亿美元，并称客户运行超过25,000个定制agents。",
+      "role": "背景",
+      "addedAt": "2026-08-09T02:06:25.634Z"
+    },
+    {
+      "id": "source_ddc26d814ab68a2b",
+      "type": "source",
+      "title": "Harvey",
+      "url": "https://www.harvey.ai/blog/harvey-announces-strategic-investment-from-goldman-sachs-and-jp-morgan",
+      "sourceKind": "Official",
+      "publishedAt": "2026-07-28T00:00:00.000Z"
+    },
+    {
+      "id": "claim_313c84ede5b05f04",
+      "type": "claim",
+      "title": "Harvey确认Goldman Sachs Alternatives Growth Equity与J.P. Morgan Growth Equity已完成投资，并称第一季度净新增ARR超过1亿美元。",
+      "role": "佐证",
+      "addedAt": "2026-08-09T02:06:25.634Z"
+    },
+    {
+      "id": "source_6a644fd0b868fcdf",
+      "type": "source",
+      "title": "Harvey",
+      "url": "https://www.harvey.ai/blog/harvey-raises-series-e",
+      "sourceKind": "Official",
+      "publishedAt": "2025-06-23T00:00:00.000Z"
+    },
+    {
+      "id": "claim_9d46f073d566c156",
+      "type": "claim",
+      "title": "Harvey确认其2025年6月完成3亿美元Series E，估值50亿美元。",
+      "role": "背景",
+      "addedAt": "2026-08-09T02:06:25.634Z"
+    },
     {
       "id": "event_55e06d60b248d169",
       "type": "event",
@@ -10577,6 +10655,64 @@
     }
   ],
   "edges": [
+    {
+      "id": "edge_b1765230e9ef6f18",
+      "from": "event_8e9a4f3ba30e0d1f",
+      "to": "article_96258949b5767275",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_1da1702e3874e2d7",
+      "from": "source_008269e431e09e15",
+      "to": "claim_bdb9dd3353d5586b",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_286a04c6a99c9369",
+      "from": "claim_bdb9dd3353d5586b",
+      "to": "event_8e9a4f3ba30e0d1f",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_4ac23363d1e65c2b",
+      "from": "source_e660aad2c35d7099",
+      "to": "claim_51bd2d013c43bd1c",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_f0b2785d954c8e75",
+      "from": "claim_51bd2d013c43bd1c",
+      "to": "event_8e9a4f3ba30e0d1f",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_3a1e446d0ff15629",
+      "from": "source_ddc26d814ab68a2b",
+      "to": "claim_313c84ede5b05f04",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_409dcb627228df98",
+      "from": "claim_313c84ede5b05f04",
+      "to": "event_8e9a4f3ba30e0d1f",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_945c90084bc454b2",
+      "from": "source_6a644fd0b868fcdf",
+      "to": "claim_9d46f073d566c156",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_0b9a5a627382cafd",
+      "from": "claim_9d46f073d566c156",
+      "to": "event_8e9a4f3ba30e0d1f",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
     {
       "id": "edge_85eb0b3ab32e3651",
       "from": "event_55e06d60b248d169",
