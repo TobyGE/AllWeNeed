@@ -295,6 +295,24 @@ test("removes all disposable starter preview code", async () => {
     sourceCatalog,
     /SAIR Foundation[\s\S]*UC7Ali6YE6lik1w8MS7Hr55Q/,
   );
+  for (const sourceName of [
+    "Lex Fridman Podcast",
+    "All-In Podcast",
+    "Lenny's Podcast",
+    "The Twenty Minute VC (20VC)",
+    "No Priors",
+    "Dwarkesh Podcast",
+    "Latent Space",
+    "Cognitive Revolution",
+    "Silicon Valley Vector 硅谷坐标",
+  ]) {
+    assert.equal(
+      configuredSources.find((source) => source.name === sourceName)
+        ?.conversationSource,
+      true,
+      `${sourceName} routes new episodes to Conversations`,
+    );
+  }
   assert.match(
     sourceCatalog,
     /Silicon Valley Vector 硅谷坐标[\s\S]*UCsiOlr6emY5OxXF848EYqGw/,

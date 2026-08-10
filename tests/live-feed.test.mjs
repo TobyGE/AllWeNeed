@@ -30,7 +30,7 @@ function snapshot(items) {
 function item(overrides = {}) {
   return {
     id: "item-1",
-    sourceId: 1,
+    sourceId: 131,
     sourceName: "OpenAI",
     sourcePublisher: "OpenAI",
     sourceKind: "Blog",
@@ -608,7 +608,7 @@ test("untranslated Live items remain public without model approval", () => {
       item(),
       item({
         id: "new-company-item",
-        sourceId: 2,
+        sourceId: 197,
         sourceName: "Anthropic",
         sourcePublisher: "Anthropic",
         title: "Anthropic launches a new Claude API",
