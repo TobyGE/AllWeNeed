@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-10T18:07:02.694Z",
+  "generatedAt": "2026-08-10T20:07:01.667Z",
   "counts": {
-    "sources": 527,
-    "claims": 611,
+    "sources": 533,
+    "claims": 621,
     "events": 130,
     "articles": 130,
-    "updates": 79,
-    "edges": 1614,
+    "updates": 81,
+    "edges": 1643,
     "revisionsRequired": 4
   },
   "revisionQueue": [
@@ -555,6 +555,68 @@
       "title": "Zuckerberg提出恢复发布部分开放模型、提供免费或可负担访问，并探索额外算力动态拍卖的商业构想。",
       "role": "最新进展",
       "addedAt": "2026-08-10T16:06:29.091Z"
+    },
+    {
+      "id": "source_f02543afafe95e4d",
+      "type": "source",
+      "title": "Bloomberg Technology",
+      "url": "https://www.bloomberg.com/news/videos/2026-08-10/meta-brings-powerful-ai-to-the-personal-computer-video",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-10T18:13:08.000Z"
+    },
+    {
+      "id": "claim_7b5ee236d0799794",
+      "type": "claim",
+      "title": "Bloomberg将Muse Glimmer描述为可在单张GPU个人电脑运行的可下载模型，并将其置于开放与闭源竞争背景中。",
+      "role": "佐证",
+      "addedAt": "2026-08-10T16:06:29.091Z"
+    },
+    {
+      "id": "source_1c853a17ee336162",
+      "type": "source",
+      "title": "Associated Press",
+      "url": "https://apnews.com/article/meta-ai-mark-zuckerberg-artificial-intelligence-df8a4e7d7825470d09e8090367457c2c",
+      "sourceKind": "Media",
+      "publishedAt": "2026-08-10T15:41:46.000Z"
+    },
+    {
+      "id": "claim_3520b0790ad6a071",
+      "type": "claim",
+      "title": "Associated Press确认Muse Glimmer采用宽松许可，并报道其发布伴随Zuckerberg对开放式AI的公开主张。",
+      "role": "佐证",
+      "addedAt": "2026-08-10T16:06:29.091Z"
+    },
+    {
+      "id": "update_73bcaca9d1f16d85",
+      "type": "update",
+      "signalId": 100,
+      "title": "Muse Glimmer获独立发布验证",
+      "summary": "Meta确认Muse Glimmer约300亿参数、量化后语言模型部分不足20GB，可在单张消费级GPU运行；权重已在Hugging Face公开，AP确认其采用宽松许可。",
+      "addedAt": "2026-08-10T18:13:08.000Z",
+      "changeType": "corroboration",
+      "thesisImpact": "Meta官方发布、Hugging Face权重分发和AP独立报道共同确认，Muse Glimmer不是仅限云端的演示，而是已以宽松许可进入可下载、单卡本地运行的开放权重分发模式。",
+      "revisionRequired": false
+    },
+    {
+      "id": "claim_bfb633b505ec89bd",
+      "type": "claim",
+      "title": "Meta将Muse Glimmer定位为本地agentic工作流开放权重模型，称其约300亿参数、4-bit量化后语言模型部分不足20GB。",
+      "role": "最新进展",
+      "addedAt": "2026-08-10T18:13:08.000Z"
+    },
+    {
+      "id": "claim_c6b23093791dd077",
+      "type": "claim",
+      "title": "Hugging Face模型集合提供Muse Glimmer权重和相关模型文件，证实其并非仅通过云端接口分发。",
+      "role": "佐证",
+      "addedAt": "2026-08-10T18:13:08.000Z"
+    },
+    {
+      "id": "claim_a2603b1de709b13c",
+      "type": "claim",
+      "title": "Meta此前的Muse Spark主要服务于Meta AI和meta.ai，并仅向选定用户提供私有API预览。",
+      "role": "背景",
+      "addedAt": "2026-08-10T18:13:08.000Z"
     },
     {
       "id": "update_ea9ef5285fa39f42",
@@ -6453,6 +6515,84 @@
       "addedAt": "2026-08-04T13:06:12.452Z"
     },
     {
+      "id": "source_8957b18e4c1f6624",
+      "type": "source",
+      "title": "Cloudflare Blog",
+      "url": "https://blog.cloudflare.com/agents-week-review-august-2026/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-10T18:34:10.000Z"
+    },
+    {
+      "id": "claim_df63154dfec5bbd6",
+      "type": "claim",
+      "title": "Cloudflare回顾Agents Week发布，涵盖Wallets、Radar及多项代理基础设施能力。",
+      "role": "最新进展",
+      "addedAt": "2026-08-04T13:06:12.452Z"
+    },
+    {
+      "id": "source_4a44ebc7a820b82d",
+      "type": "source",
+      "title": "Cloudflare",
+      "url": "https://blog.cloudflare.com/agents-week-in-review/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-04-20T00:00:00.000Z"
+    },
+    {
+      "id": "claim_30cbd3fe649a5e60",
+      "type": "claim",
+      "title": "官方汇总列出Sandboxes、Artifacts、Agent Memory、AI Search、Browser Run和Registrar API等能力及其定位。",
+      "role": "佐证",
+      "addedAt": "2026-08-04T13:06:12.452Z"
+    },
+    {
+      "id": "source_7a427443519b7f3c",
+      "type": "source",
+      "title": "Cloudflare",
+      "url": "https://blog.cloudflare.com/sandbox-ga/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-04-13T00:00:00.000Z"
+    },
+    {
+      "id": "claim_e18089d26d9a7967",
+      "type": "claim",
+      "title": "Cloudflare称Containers与Sandboxes已进入GA，并新增持久解释器、后台进程、预览URL和安全凭据注入等能力。",
+      "role": "佐证",
+      "addedAt": "2026-08-04T13:06:12.452Z"
+    },
+    {
+      "id": "claim_29bb1ac4ac53174d",
+      "type": "claim",
+      "title": "Browser Run由Browser Rendering更名而来，新增直接CDP端点、Live View、会话录制、人工介入和MCP客户端支持。",
+      "role": "佐证",
+      "addedAt": "2026-08-04T13:06:12.452Z"
+    },
+    {
+      "id": "source_4b82bfc529b418bb",
+      "type": "source",
+      "title": "Cloudflare",
+      "url": "https://blog.cloudflare.com/agent-readiness/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-04-17T00:00:00.000Z"
+    },
+    {
+      "id": "claim_0307353eff1414fd",
+      "type": "claim",
+      "title": "Cloudflare扫描20万个高访问域名发现，支持机器可读代理接入信号的网站仍很少，说明代理Web的供给侧尚未成熟。",
+      "role": "反例",
+      "addedAt": "2026-08-04T13:06:12.452Z"
+    },
+    {
+      "id": "update_6ecc2582937066c8",
+      "type": "update",
+      "signalId": 63,
+      "title": "Cloudflare补齐代理运行层范围",
+      "summary": "Cloudflare的Agents Week汇总显示，Agents、Wallets之外，Sandboxes已进入GA，Browser Run补齐直接CDP、会话录制和人工介入等代理执行能力。",
+      "addedAt": "2026-08-10T18:34:10.000Z",
+      "changeType": "corroboration",
+      "thesisImpact": "最新汇总与官方产品页补齐了Cloudflare代理平台的运行层范围、Sandboxes正式可用状态和Browser Run能力，强化其正把代理开发、执行与管理整合进同一基础设施层的判断。",
+      "revisionRequired": false
+    },
+    {
       "id": "event_2176d15e07149822",
       "type": "event",
       "signalId": 62,
@@ -12154,6 +12294,91 @@
       "to": "event_a3d43ebec4c1df9b",
       "relation": "evidence_for",
       "updateTitle": null
+    },
+    {
+      "id": "edge_6602774bb0a9eca9",
+      "from": "source_f02543afafe95e4d",
+      "to": "claim_7b5ee236d0799794",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_ef701fa2a00d9b67",
+      "from": "claim_7b5ee236d0799794",
+      "to": "event_a3d43ebec4c1df9b",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_fe53d7922509b5ed",
+      "from": "source_1c853a17ee336162",
+      "to": "claim_3520b0790ad6a071",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_64183b0e5f3d00ea",
+      "from": "claim_3520b0790ad6a071",
+      "to": "event_a3d43ebec4c1df9b",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_b0d28c2d12e8c18e",
+      "from": "update_73bcaca9d1f16d85",
+      "to": "event_a3d43ebec4c1df9b",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_177827f93d155a72",
+      "from": "claim_7b5ee236d0799794",
+      "to": "event_a3d43ebec4c1df9b",
+      "relation": "update_evidence_for",
+      "updateTitle": "Muse Glimmer获独立发布验证"
+    },
+    {
+      "id": "edge_509a904c236e4332",
+      "from": "source_7c4c5b27f76a0362",
+      "to": "claim_bfb633b505ec89bd",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_d8722063fe8cfa4f",
+      "from": "claim_bfb633b505ec89bd",
+      "to": "event_a3d43ebec4c1df9b",
+      "relation": "update_evidence_for",
+      "updateTitle": "Muse Glimmer获独立发布验证"
+    },
+    {
+      "id": "edge_79627015946f4d87",
+      "from": "source_6080001ec2338369",
+      "to": "claim_c6b23093791dd077",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_8e49dbe045b2e138",
+      "from": "claim_c6b23093791dd077",
+      "to": "event_a3d43ebec4c1df9b",
+      "relation": "update_evidence_for",
+      "updateTitle": "Muse Glimmer获独立发布验证"
+    },
+    {
+      "id": "edge_4c3ebbb8d7fdfdd1",
+      "from": "source_a8336fe361e14b12",
+      "to": "claim_a2603b1de709b13c",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_45fb28b7f75ef8e4",
+      "from": "claim_a2603b1de709b13c",
+      "to": "event_a3d43ebec4c1df9b",
+      "relation": "update_evidence_for",
+      "updateTitle": "Muse Glimmer获独立发布验证"
+    },
+    {
+      "id": "edge_eeb1edab7cfb56d0",
+      "from": "claim_3520b0790ad6a071",
+      "to": "event_a3d43ebec4c1df9b",
+      "relation": "update_evidence_for",
+      "updateTitle": "Muse Glimmer获独立发布验证"
     },
     {
       "id": "edge_e9cc4ae191d9e23c",
@@ -18041,6 +18266,112 @@
       "to": "event_406524798e5bfdb9",
       "relation": "evidence_for",
       "updateTitle": null
+    },
+    {
+      "id": "edge_e3ff4659c1f4f2f0",
+      "from": "source_8957b18e4c1f6624",
+      "to": "claim_df63154dfec5bbd6",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_bfa66d55657404a3",
+      "from": "claim_df63154dfec5bbd6",
+      "to": "event_406524798e5bfdb9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_130635f8e2e6b98c",
+      "from": "source_4a44ebc7a820b82d",
+      "to": "claim_30cbd3fe649a5e60",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_d4560b18de307790",
+      "from": "claim_30cbd3fe649a5e60",
+      "to": "event_406524798e5bfdb9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_83a940d8181de8e9",
+      "from": "source_7a427443519b7f3c",
+      "to": "claim_e18089d26d9a7967",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_4ebfd7c1b0dbed01",
+      "from": "claim_e18089d26d9a7967",
+      "to": "event_406524798e5bfdb9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_26e4cfb336db9630",
+      "from": "source_fcd241e8abf879ab",
+      "to": "claim_29bb1ac4ac53174d",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_0da4c975967c7512",
+      "from": "claim_29bb1ac4ac53174d",
+      "to": "event_406524798e5bfdb9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_138f092d6c376c8c",
+      "from": "source_4b82bfc529b418bb",
+      "to": "claim_0307353eff1414fd",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_7bdeb6e9384c2472",
+      "from": "claim_0307353eff1414fd",
+      "to": "event_406524798e5bfdb9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_32fc658e6ea93694",
+      "from": "update_6ecc2582937066c8",
+      "to": "event_406524798e5bfdb9",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_c86202e1bfff9448",
+      "from": "claim_df63154dfec5bbd6",
+      "to": "event_406524798e5bfdb9",
+      "relation": "update_evidence_for",
+      "updateTitle": "Cloudflare补齐代理运行层范围"
+    },
+    {
+      "id": "edge_ecd5de1652962e10",
+      "from": "claim_30cbd3fe649a5e60",
+      "to": "event_406524798e5bfdb9",
+      "relation": "update_evidence_for",
+      "updateTitle": "Cloudflare补齐代理运行层范围"
+    },
+    {
+      "id": "edge_e5dde10b127436cc",
+      "from": "claim_e18089d26d9a7967",
+      "to": "event_406524798e5bfdb9",
+      "relation": "update_evidence_for",
+      "updateTitle": "Cloudflare补齐代理运行层范围"
+    },
+    {
+      "id": "edge_e30bd003f8633ae5",
+      "from": "claim_29bb1ac4ac53174d",
+      "to": "event_406524798e5bfdb9",
+      "relation": "update_evidence_for",
+      "updateTitle": "Cloudflare补齐代理运行层范围"
+    },
+    {
+      "id": "edge_f24c10e1782616f5",
+      "from": "claim_0307353eff1414fd",
+      "to": "event_406524798e5bfdb9",
+      "relation": "update_evidence_for",
+      "updateTitle": "Cloudflare补齐代理运行层范围"
     },
     {
       "id": "edge_f96eab309c442b7a",

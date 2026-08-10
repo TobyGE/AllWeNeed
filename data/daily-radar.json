@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-08-10T18:14:26.428Z",
-  "basedOnSnapshotAt": "2026-08-10T18:07:02.694Z",
+  "generatedAt": "2026-08-10T20:12:15.101Z",
+  "basedOnSnapshotAt": "2026-08-10T20:07:01.667Z",
   "model": "gpt-5.5",
   "analyzedItemCount": 180,
-  "totalFetchedItemCount": 2342,
+  "totalFetchedItemCount": 2341,
   "editorNote": "今日信息环境由代理安全事件、编码代理工具链分化、开放模型竞争和算力下沉共同主导。",
   "signalQuality": 86,
   "signalQualityChange": 8,
@@ -916,7 +916,8 @@
         "Blog",
         "Official",
         "Repository",
-        "Research"
+        "Research",
+        "Media"
       ],
       "sourceNames": [
         "Bloomberg",
@@ -929,9 +930,10 @@
         "NVIDIA Corporation",
         "Meta Models",
         "Meta Llama",
-        "The Decoder"
+        "The Decoder",
+        "Associated Press"
       ],
-      "sourceCount": 11,
+      "sourceCount": 12,
       "age": "1 小时前",
       "score": 86,
       "tone": "orange",
@@ -1220,6 +1222,52 @@
           "ref": "R5",
           "role": "最新进展",
           "takeaway": "Zuckerberg提出恢复发布部分开放模型、提供免费或可负担访问，并探索额外算力动态拍卖的商业构想。"
+        },
+        {
+          "id": "233-5-https://www.bloomberg.com/news/videos/2026-08-10/meta-brings-powerful-ai-to-the-personal-computer-video",
+          "sourceId": 233,
+          "sourceName": "Bloomberg Technology",
+          "sourcePublisher": "Bloomberg",
+          "sourceKind": "Blog",
+          "title": "Meta Brings Powerful AI to the Personal Computer",
+          "url": "https://www.bloomberg.com/news/videos/2026-08-10/meta-brings-powerful-ai-to-the-personal-computer-video",
+          "publishedAt": "2026-08-10T18:13:08.000Z",
+          "summary": "Meta is escalating the debate over open versus closed AI with Muse Glimmer, a new downloadable model designed to run on a personal computer using a single GPU. The release, accompanied by a new essay from CEO Mark Zuckerberg, underscores Meta's push for more accessible and customizable AI as low-cost open models from China intensify pressure on rivals includ",
+          "fetchedAt": "2026-08-10T20:07:01.667Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-10T20:07:01.667Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 1.8982408333333334,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N2",
+          "role": "佐证",
+          "takeaway": "Bloomberg将Muse Glimmer描述为可在单张GPU个人电脑运行的可下载模型，并将其置于开放与闭源竞争背景中。"
+        },
+        {
+          "id": "research-233-5-https://www.bloomberg.com/news/videos/2026-08-10/meta-brings-powerful-ai-to-the-personal-computer-video-4-https://apnews.com/article/meta-ai-mark-zuckerberg-artificial-intelligence-df8a4e7d7825470d09e8090367457c2c",
+          "sourceId": 233,
+          "sourceName": "Associated Press",
+          "sourcePublisher": "Associated Press",
+          "sourceKind": "Media",
+          "title": "Zuckerberg manifesto calls for open-source AI as Meta releases new model",
+          "url": "https://apnews.com/article/meta-ai-mark-zuckerberg-artificial-intelligence-df8a4e7d7825470d09e8090367457c2c",
+          "publishedAt": "2026-08-10T15:41:46.000Z",
+          "summary": "提供独立验证与背景：AP 报道确认 Meta 为 Muse Glimmer 配置了宽松许可，并将该发布置于 Zuckerberg 关于开放式 AI 和避免少数实体控制先进 AI 的论述中。",
+          "fetchedAt": "2026-08-10T20:07:01.667Z",
+          "researchedFrom": "N2",
+          "researchRole": "Context",
+          "researchClaim": "Meta 已将策略从把 Muse 系列主要部署在 Meta AI 和受控 API 中，转向发布可下载、可在本地设备运行的 Muse Glimmer 开放权重模型；这使其“开放 AI”主张从产品访问扩展到模型权重分发。",
+          "researchComparisons": "此前，Muse Spark 于 2026 年 4 月作为 Meta AI 与 meta.ai 的底层模型发布，API 仅向选定用户私测；2026 年 7 月的 Muse Spark 1.1 才开始提供 Meta Model API 公测。当前的 Muse Glimmer 则为约 300 亿参数的本地 agentic 模型，Meta 表示通过约 4-bit 量化将语言模型压缩至不足 20GB，使单张消费级 GPU 可运行。决定性比较不是“是否有 AI 产品”，而是从托管访问/受控 API 转为可下载权重和本地推理。最强反例是，单 GPU 可运行依赖量化、推理栈和具体硬件配置，且截至发布日没有独立、可复现的第三方排行榜证据证明其在通用或编程任务上全面领先同尺寸开放模型。",
+          "researchUnresolved": "Meta 发布材料中的具体基准、量化配置、上下文长度及速度结果需要按测试硬件、精度、推理框架和任务集逐项核验；尚未找到由独立评测机构发布的 Muse Glimmer 对 Qwen、Gemma 等同尺寸模型的可复现比较。",
+          "ref": "R8",
+          "role": "佐证",
+          "takeaway": "Associated Press确认Muse Glimmer采用宽松许可，并报道其发布伴随Zuckerberg对开放式AI的公开主张。"
         }
       ],
       "references": [
@@ -1481,10 +1529,168 @@
           "researchComparisons": "实际规格为约 29.6B 参数、文本和图像输入、131,072+ 上下文；约 4-bit 的 K-Quant-17GB 版本面向 24GB VRAM，Meta 报告其在 15 个常用基准的平均准确率降幅为 1.0%。在 Meta 自测中，Muse Glimmer 的 MCP Atlas 为 75.5，高于 Gemma4-31B 的 54.2 和 Qwen3.6-27B 的 62.5；但在 SWE-Bench Verified 上为 76.0，低于 Qwen3.6-27B 的 77.2，在 TerminalBench 2.1 上为 51.7，亦低于 Qwen 的 60.7。此前的 Muse Spark 发布是面向 Meta AI 和 Meta AI app 的产品上线，并只开放给选定用户 private API preview，而非本次的 Apache 2.0 权重发布。",
           "researchUnresolved": "尚无独立第三方对 Meta 所列基准、量化后性能降幅及本地吞吐量的可复现实测；动态拍卖的上线时间、分配规则、价格和独立董事会的具体发布安全标准亦未公布。",
           "ref": "R5"
+        },
+        {
+          "id": "233-5-https://www.bloomberg.com/news/videos/2026-08-10/meta-brings-powerful-ai-to-the-personal-computer-video",
+          "sourceId": 233,
+          "sourceName": "Bloomberg Technology",
+          "sourcePublisher": "Bloomberg",
+          "sourceKind": "Blog",
+          "title": "Meta Brings Powerful AI to the Personal Computer",
+          "url": "https://www.bloomberg.com/news/videos/2026-08-10/meta-brings-powerful-ai-to-the-personal-computer-video",
+          "publishedAt": "2026-08-10T18:13:08.000Z",
+          "summary": "Meta is escalating the debate over open versus closed AI with Muse Glimmer, a new downloadable model designed to run on a personal computer using a single GPU. The release, accompanied by a new essay from CEO Mark Zuckerberg, underscores Meta's push for more accessible and customizable AI as low-cost open models from China intensify pressure on rivals includ",
+          "fetchedAt": "2026-08-10T20:07:01.667Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-10T20:07:01.667Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 1.8982408333333334,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N2"
+        },
+        {
+          "id": "research-233-5-https://www.bloomberg.com/news/videos/2026-08-10/meta-brings-powerful-ai-to-the-personal-computer-video-4-https://apnews.com/article/meta-ai-mark-zuckerberg-artificial-intelligence-df8a4e7d7825470d09e8090367457c2c",
+          "sourceId": 233,
+          "sourceName": "Associated Press",
+          "sourcePublisher": "Associated Press",
+          "sourceKind": "Media",
+          "title": "Zuckerberg manifesto calls for open-source AI as Meta releases new model",
+          "url": "https://apnews.com/article/meta-ai-mark-zuckerberg-artificial-intelligence-df8a4e7d7825470d09e8090367457c2c",
+          "publishedAt": "2026-08-10T15:41:46.000Z",
+          "summary": "提供独立验证与背景：AP 报道确认 Meta 为 Muse Glimmer 配置了宽松许可，并将该发布置于 Zuckerberg 关于开放式 AI 和避免少数实体控制先进 AI 的论述中。",
+          "fetchedAt": "2026-08-10T20:07:01.667Z",
+          "researchedFrom": "N2",
+          "researchRole": "Context",
+          "researchClaim": "Meta 已将策略从把 Muse 系列主要部署在 Meta AI 和受控 API 中，转向发布可下载、可在本地设备运行的 Muse Glimmer 开放权重模型；这使其“开放 AI”主张从产品访问扩展到模型权重分发。",
+          "researchComparisons": "此前，Muse Spark 于 2026 年 4 月作为 Meta AI 与 meta.ai 的底层模型发布，API 仅向选定用户私测；2026 年 7 月的 Muse Spark 1.1 才开始提供 Meta Model API 公测。当前的 Muse Glimmer 则为约 300 亿参数的本地 agentic 模型，Meta 表示通过约 4-bit 量化将语言模型压缩至不足 20GB，使单张消费级 GPU 可运行。决定性比较不是“是否有 AI 产品”，而是从托管访问/受控 API 转为可下载权重和本地推理。最强反例是，单 GPU 可运行依赖量化、推理栈和具体硬件配置，且截至发布日没有独立、可复现的第三方排行榜证据证明其在通用或编程任务上全面领先同尺寸开放模型。",
+          "researchUnresolved": "Meta 发布材料中的具体基准、量化配置、上下文长度及速度结果需要按测试硬件、精度、推理框架和任务集逐项核验；尚未找到由独立评测机构发布的 Muse Glimmer 对 Qwen、Gemma 等同尺寸模型的可复现比较。",
+          "ref": "R8"
         }
       ],
       "feedBatchAt": "2026-08-10T16:06:29.091Z",
       "updates": [
+        {
+          "addedAt": "2026-08-10T18:13:08.000Z",
+          "title": "Muse Glimmer获独立发布验证",
+          "summary": "Meta确认Muse Glimmer约300亿参数、量化后语言模型部分不足20GB，可在单张消费级GPU运行；权重已在Hugging Face公开，AP确认其采用宽松许可。",
+          "evidence": [
+            {
+              "id": "233-5-https://www.bloomberg.com/news/videos/2026-08-10/meta-brings-powerful-ai-to-the-personal-computer-video",
+              "sourceId": 233,
+              "sourceName": "Bloomberg Technology",
+              "sourcePublisher": "Bloomberg",
+              "sourceKind": "Blog",
+              "title": "Meta Brings Powerful AI to the Personal Computer",
+              "url": "https://www.bloomberg.com/news/videos/2026-08-10/meta-brings-powerful-ai-to-the-personal-computer-video",
+              "publishedAt": "2026-08-10T18:13:08.000Z",
+              "summary": "Meta is escalating the debate over open versus closed AI with Muse Glimmer, a new downloadable model designed to run on a personal computer using a single GPU. The release, accompanied by a new essay from CEO Mark Zuckerberg, underscores Meta's push for more accessible and customizable AI as low-cost open models from China intensify pressure on rivals includ",
+              "fetchedAt": "2026-08-10T20:07:01.667Z",
+              "accessMethod": "public-feed",
+              "publicContentPolicy": "headline-source-link-only",
+              "firstSeenAt": "2026-08-10T20:07:01.667Z",
+              "freshness": {
+                "eligible": true,
+                "lane": "explore",
+                "reason": "fresh",
+                "ageHours": 1.8982408333333334,
+                "maxAgeHours": 168
+              },
+              "deferredResearch": false,
+              "ref": "N2",
+              "role": "佐证",
+              "takeaway": "Bloomberg将Muse Glimmer描述为可在单张GPU个人电脑运行的可下载模型，并将其置于开放与闭源竞争背景中。"
+            },
+            {
+              "id": "research-233-5-https://www.bloomberg.com/news/videos/2026-08-10/meta-brings-powerful-ai-to-the-personal-computer-video-1-https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model",
+              "sourceId": 233,
+              "sourceName": "Meta AI Research",
+              "sourcePublisher": "Meta AI Research",
+              "sourceKind": "Official",
+              "title": "Introducing Muse Glimmer: An Open Agentic Model That Runs on Your Device",
+              "url": "https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model",
+              "publishedAt": "2026-08-10T00:00:00.000Z",
+              "summary": "补齐当前发布的核心事实：Muse Glimmer 是面向本地 agentic 工作流的约 300 亿参数开放权重模型；Meta 将其权重量化至约 4-bit，并称语言模型部分不足 20GB、可在单张消费级 GPU 上运行。",
+              "fetchedAt": "2026-08-10T20:07:01.667Z",
+              "researchedFrom": "N2",
+              "researchRole": "Primary",
+              "researchClaim": "Meta 已将策略从把 Muse 系列主要部署在 Meta AI 和受控 API 中，转向发布可下载、可在本地设备运行的 Muse Glimmer 开放权重模型；这使其“开放 AI”主张从产品访问扩展到模型权重分发。",
+              "researchComparisons": "此前，Muse Spark 于 2026 年 4 月作为 Meta AI 与 meta.ai 的底层模型发布，API 仅向选定用户私测；2026 年 7 月的 Muse Spark 1.1 才开始提供 Meta Model API 公测。当前的 Muse Glimmer 则为约 300 亿参数的本地 agentic 模型，Meta 表示通过约 4-bit 量化将语言模型压缩至不足 20GB，使单张消费级 GPU 可运行。决定性比较不是“是否有 AI 产品”，而是从托管访问/受控 API 转为可下载权重和本地推理。最强反例是，单 GPU 可运行依赖量化、推理栈和具体硬件配置，且截至发布日没有独立、可复现的第三方排行榜证据证明其在通用或编程任务上全面领先同尺寸开放模型。",
+              "researchUnresolved": "Meta 发布材料中的具体基准、量化配置、上下文长度及速度结果需要按测试硬件、精度、推理框架和任务集逐项核验；尚未找到由独立评测机构发布的 Muse Glimmer 对 Qwen、Gemma 等同尺寸模型的可复现比较。",
+              "ref": "R5",
+              "role": "最新进展",
+              "takeaway": "Meta将Muse Glimmer定位为本地agentic工作流开放权重模型，称其约300亿参数、4-bit量化后语言模型部分不足20GB。"
+            },
+            {
+              "id": "research-233-5-https://www.bloomberg.com/news/videos/2026-08-10/meta-brings-powerful-ai-to-the-personal-computer-video-2-https://huggingface.co/collections/meta-models/muse-glimmer",
+              "sourceId": 233,
+              "sourceName": "Hugging Face",
+              "sourcePublisher": "Hugging Face",
+              "sourceKind": "Repository",
+              "title": "Muse Glimmer",
+              "url": "https://huggingface.co/collections/meta-models/muse-glimmer",
+              "publishedAt": "2026-08-10T18:13:08.000Z",
+              "summary": "补齐可公开核验的分发事实：Meta 通过其在 Hugging Face 的模型集合提供 Muse Glimmer 权重和相关模型文件，而非只提供云端接口。",
+              "fetchedAt": "2026-08-10T20:07:01.667Z",
+              "researchedFrom": "N2",
+              "researchRole": "Primary",
+              "researchClaim": "Meta 已将策略从把 Muse 系列主要部署在 Meta AI 和受控 API 中，转向发布可下载、可在本地设备运行的 Muse Glimmer 开放权重模型；这使其“开放 AI”主张从产品访问扩展到模型权重分发。",
+              "researchComparisons": "此前，Muse Spark 于 2026 年 4 月作为 Meta AI 与 meta.ai 的底层模型发布，API 仅向选定用户私测；2026 年 7 月的 Muse Spark 1.1 才开始提供 Meta Model API 公测。当前的 Muse Glimmer 则为约 300 亿参数的本地 agentic 模型，Meta 表示通过约 4-bit 量化将语言模型压缩至不足 20GB，使单张消费级 GPU 可运行。决定性比较不是“是否有 AI 产品”，而是从托管访问/受控 API 转为可下载权重和本地推理。最强反例是，单 GPU 可运行依赖量化、推理栈和具体硬件配置，且截至发布日没有独立、可复现的第三方排行榜证据证明其在通用或编程任务上全面领先同尺寸开放模型。",
+              "researchUnresolved": "Meta 发布材料中的具体基准、量化配置、上下文长度及速度结果需要按测试硬件、精度、推理框架和任务集逐项核验；尚未找到由独立评测机构发布的 Muse Glimmer 对 Qwen、Gemma 等同尺寸模型的可复现比较。",
+              "ref": "R6",
+              "role": "佐证",
+              "takeaway": "Hugging Face模型集合提供Muse Glimmer权重和相关模型文件，证实其并非仅通过云端接口分发。"
+            },
+            {
+              "id": "research-233-5-https://www.bloomberg.com/news/videos/2026-08-10/meta-brings-powerful-ai-to-the-personal-computer-video-3-https://ai.meta.com/blog/introducing-muse-spark-msl/",
+              "sourceId": 233,
+              "sourceName": "Meta AI",
+              "sourcePublisher": "Meta AI",
+              "sourceKind": "Official",
+              "title": "Introducing Muse Spark: Scaling Towards Personal Superintelligence",
+              "url": "https://ai.meta.com/blog/introducing-muse-spark-msl/",
+              "publishedAt": "2026-04-08T00:00:00.000Z",
+              "summary": "补齐此前状态：Muse Spark 当时作为 Meta AI 和 meta.ai 的底层模型上线，Meta 仅向选定用户开放私有 API 预览，构成与当前可下载本地模型的访问模式对比。",
+              "fetchedAt": "2026-08-10T20:07:01.667Z",
+              "researchedFrom": "N2",
+              "researchRole": "Comparison",
+              "researchClaim": "Meta 已将策略从把 Muse 系列主要部署在 Meta AI 和受控 API 中，转向发布可下载、可在本地设备运行的 Muse Glimmer 开放权重模型；这使其“开放 AI”主张从产品访问扩展到模型权重分发。",
+              "researchComparisons": "此前，Muse Spark 于 2026 年 4 月作为 Meta AI 与 meta.ai 的底层模型发布，API 仅向选定用户私测；2026 年 7 月的 Muse Spark 1.1 才开始提供 Meta Model API 公测。当前的 Muse Glimmer 则为约 300 亿参数的本地 agentic 模型，Meta 表示通过约 4-bit 量化将语言模型压缩至不足 20GB，使单张消费级 GPU 可运行。决定性比较不是“是否有 AI 产品”，而是从托管访问/受控 API 转为可下载权重和本地推理。最强反例是，单 GPU 可运行依赖量化、推理栈和具体硬件配置，且截至发布日没有独立、可复现的第三方排行榜证据证明其在通用或编程任务上全面领先同尺寸开放模型。",
+              "researchUnresolved": "Meta 发布材料中的具体基准、量化配置、上下文长度及速度结果需要按测试硬件、精度、推理框架和任务集逐项核验；尚未找到由独立评测机构发布的 Muse Glimmer 对 Qwen、Gemma 等同尺寸模型的可复现比较。",
+              "ref": "R7",
+              "role": "背景",
+              "takeaway": "Meta此前的Muse Spark主要服务于Meta AI和meta.ai，并仅向选定用户提供私有API预览。"
+            },
+            {
+              "id": "research-233-5-https://www.bloomberg.com/news/videos/2026-08-10/meta-brings-powerful-ai-to-the-personal-computer-video-4-https://apnews.com/article/meta-ai-mark-zuckerberg-artificial-intelligence-df8a4e7d7825470d09e8090367457c2c",
+              "sourceId": 233,
+              "sourceName": "Associated Press",
+              "sourcePublisher": "Associated Press",
+              "sourceKind": "Media",
+              "title": "Zuckerberg manifesto calls for open-source AI as Meta releases new model",
+              "url": "https://apnews.com/article/meta-ai-mark-zuckerberg-artificial-intelligence-df8a4e7d7825470d09e8090367457c2c",
+              "publishedAt": "2026-08-10T15:41:46.000Z",
+              "summary": "提供独立验证与背景：AP 报道确认 Meta 为 Muse Glimmer 配置了宽松许可，并将该发布置于 Zuckerberg 关于开放式 AI 和避免少数实体控制先进 AI 的论述中。",
+              "fetchedAt": "2026-08-10T20:07:01.667Z",
+              "researchedFrom": "N2",
+              "researchRole": "Context",
+              "researchClaim": "Meta 已将策略从把 Muse 系列主要部署在 Meta AI 和受控 API 中，转向发布可下载、可在本地设备运行的 Muse Glimmer 开放权重模型；这使其“开放 AI”主张从产品访问扩展到模型权重分发。",
+              "researchComparisons": "此前，Muse Spark 于 2026 年 4 月作为 Meta AI 与 meta.ai 的底层模型发布，API 仅向选定用户私测；2026 年 7 月的 Muse Spark 1.1 才开始提供 Meta Model API 公测。当前的 Muse Glimmer 则为约 300 亿参数的本地 agentic 模型，Meta 表示通过约 4-bit 量化将语言模型压缩至不足 20GB，使单张消费级 GPU 可运行。决定性比较不是“是否有 AI 产品”，而是从托管访问/受控 API 转为可下载权重和本地推理。最强反例是，单 GPU 可运行依赖量化、推理栈和具体硬件配置，且截至发布日没有独立、可复现的第三方排行榜证据证明其在通用或编程任务上全面领先同尺寸开放模型。",
+              "researchUnresolved": "Meta 发布材料中的具体基准、量化配置、上下文长度及速度结果需要按测试硬件、精度、推理框架和任务集逐项核验；尚未找到由独立评测机构发布的 Muse Glimmer 对 Qwen、Gemma 等同尺寸模型的可复现比较。",
+              "ref": "R8",
+              "role": "佐证",
+              "takeaway": "Associated Press确认Muse Glimmer采用宽松许可，并报道其发布伴随Zuckerberg对开放式AI的公开主张。"
+            }
+          ],
+          "changeType": "corroboration",
+          "thesisImpact": "Meta官方发布、Hugging Face权重分发和AP独立报道共同确认，Muse Glimmer不是仅限云端的演示，而是已以宽松许可进入可下载、单卡本地运行的开放权重分发模式。",
+          "revisionRequired": false
+        },
         {
           "addedAt": "2026-08-10T13:50:19.000Z",
           "title": "Muse Glimmer补齐开放部署条件",
@@ -19608,16 +19814,18 @@
         ],
         "outlook": "接下来可观察的证据包括：Cloudflare是否披露Agents、生命周期工具或Wallets的可用范围、定价和客户部署；是否有第三方API、内容服务商或代理框架接入x402支付流程；以及开发者是否将代理会话管理与既有Cloudflare Workers、Workflows等产品联动。更多实际集成会强化平台化判断，若功能长期停留在发布层面则会削弱它。"
       },
-      "validationType": "单一来源",
+      "validationType": "跨平台验证",
       "publishedAt": "2026-08-04T13:00:00.000Z",
       "updatedAt": "2026-08-04T13:00:00.000Z",
       "sources": [
-        "Blog"
+        "Blog",
+        "Official"
       ],
       "sourceNames": [
-        "Cloudflare Blog"
+        "Cloudflare Blog",
+        "Cloudflare"
       ],
-      "sourceCount": 1,
+      "sourceCount": 2,
       "age": "刚刚",
       "score": 83,
       "tone": "green",
@@ -19699,6 +19907,112 @@
           "ref": "N3",
           "role": "佐证",
           "takeaway": "Cloudflare Wallets计划借助x402，为AI代理提供原生支付与可验证身份，以在安全护栏内购买API和内容。"
+        },
+        {
+          "id": "66-0-https://blog.cloudflare.com/agents-week-review-august-2026/",
+          "sourceId": 66,
+          "sourceName": "Cloudflare Blog",
+          "sourcePublisher": "Cloudflare Blog",
+          "sourceKind": "Blog",
+          "title": "Everything we launched during Agents Week",
+          "url": "https://blog.cloudflare.com/agents-week-review-august-2026/",
+          "publishedAt": "2026-08-10T18:34:10.000Z",
+          "summary": "Our latest Agents Week has come to a close. Here’s a recap of all the announcements we made, from Wallets to Radar.",
+          "fetchedAt": "2026-08-10T20:07:01.667Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-10T20:07:01.667Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 1.5476852777777779,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N1",
+          "role": "最新进展",
+          "takeaway": "Cloudflare回顾Agents Week发布，涵盖Wallets、Radar及多项代理基础设施能力。"
+        },
+        {
+          "id": "research-66-0-https://blog.cloudflare.com/agents-week-review-august-2026/-1-https://blog.cloudflare.com/agents-week-in-review/",
+          "sourceId": 66,
+          "sourceName": "Cloudflare",
+          "sourcePublisher": "Cloudflare",
+          "sourceKind": "Official",
+          "title": "Building the agentic cloud: everything we launched during Agents Week 2026",
+          "url": "https://blog.cloudflare.com/agents-week-in-review/",
+          "publishedAt": "2026-04-20T00:00:00.000Z",
+          "summary": "官方汇总确认 Agents Week 的发布范围，涵盖计算、安全、Agent Toolbox、从原型到生产及 Agentic Web；并明确 Sandboxes、Artifacts、Agent Memory、AI Search、Browser Run、Registrar API 等产品或能力的定位与发布状态。",
+          "fetchedAt": "2026-08-10T20:07:01.667Z",
+          "researchedFrom": "N1",
+          "researchRole": "Primary",
+          "researchClaim": "Cloudflare 的 Agents Week 将其原有 Workers、Containers、Browser Rendering、Access、AI Gateway 和开发者平台整合并扩展为“agentic cloud”产品栈；核心进展是 Sandboxes 与 Containers 进入 GA，同时发布或预览了面向代理的存储、运行时、安全、推理、记忆、搜索、浏览器和部署能力。",
+          "researchComparisons": "相较于此前以单项开发者工具为主的状态，Sandboxes 从约九个月前只能运行命令和访问文件系统的早期产品，升级为 GA 的持久隔离开发环境；标准套餐并发上限为 lite 15,000、basic 6,000、较大规格超过1,000，且计费改为仅对活跃 CPU 周期收费。Browser Rendering 更名为 Browser Run，浏览器并发上限增至120，为此前的4倍，并新增 CDP、Live View、会话录制和人工介入。作为外部采用基准，Cloudflare Radar 对20万高访问域名的扫描显示，78%有 robots.txt，但仅4%声明 AI 使用偏好、3.9%支持 Markdown 内容协商，MCP Server Cards 与 API Catalogs 合计不足15个站点；这说明产品发布所瞄准的 agent-ready Web 仍处早期。",
+          "researchUnresolved": "候选的时间戳为2026-08-10，但该汇总文章的 canonical 原文发布日期为2026-04-20；需在成稿前确认前者是采集时间、更新时点还是错误日期。多数发布为功能与可用性声明，公开材料未提供这些新产品的客户数、收入贡献、留存率或独立性能审计；部分能力仍为 preview、beta 或计划推出，不能等同于全面成熟和市场验证。",
+          "ref": "R1",
+          "role": "佐证",
+          "takeaway": "官方汇总列出Sandboxes、Artifacts、Agent Memory、AI Search、Browser Run和Registrar API等能力及其定位。"
+        },
+        {
+          "id": "research-66-0-https://blog.cloudflare.com/agents-week-review-august-2026/-2-https://blog.cloudflare.com/sandbox-ga/",
+          "sourceId": 66,
+          "sourceName": "Cloudflare",
+          "sourcePublisher": "Cloudflare",
+          "sourceKind": "Official",
+          "title": "Agents have their own computers with Sandboxes GA",
+          "url": "https://blog.cloudflare.com/sandbox-ga/",
+          "publishedAt": "2026-04-13T00:00:00.000Z",
+          "summary": "补齐 Sandboxes 的前后状态和量化基准：Containers 与 Sandboxes 进入 GA；此前早期版本仅支持命令和文件系统，而当前提供持久代码解释器、PTY、后台进程、预览 URL、文件监听及安全凭据注入。标准套餐并发上限为 lite 15,000、basic 6,000、较大实例逾1,000；示例中从备份恢复为2秒、重新启动并安装依赖为30秒。",
+          "fetchedAt": "2026-08-10T20:07:01.667Z",
+          "researchedFrom": "N1",
+          "researchRole": "Comparison",
+          "researchClaim": "Cloudflare 的 Agents Week 将其原有 Workers、Containers、Browser Rendering、Access、AI Gateway 和开发者平台整合并扩展为“agentic cloud”产品栈；核心进展是 Sandboxes 与 Containers 进入 GA，同时发布或预览了面向代理的存储、运行时、安全、推理、记忆、搜索、浏览器和部署能力。",
+          "researchComparisons": "相较于此前以单项开发者工具为主的状态，Sandboxes 从约九个月前只能运行命令和访问文件系统的早期产品，升级为 GA 的持久隔离开发环境；标准套餐并发上限为 lite 15,000、basic 6,000、较大规格超过1,000，且计费改为仅对活跃 CPU 周期收费。Browser Rendering 更名为 Browser Run，浏览器并发上限增至120，为此前的4倍，并新增 CDP、Live View、会话录制和人工介入。作为外部采用基准，Cloudflare Radar 对20万高访问域名的扫描显示，78%有 robots.txt，但仅4%声明 AI 使用偏好、3.9%支持 Markdown 内容协商，MCP Server Cards 与 API Catalogs 合计不足15个站点；这说明产品发布所瞄准的 agent-ready Web 仍处早期。",
+          "researchUnresolved": "候选的时间戳为2026-08-10，但该汇总文章的 canonical 原文发布日期为2026-04-20；需在成稿前确认前者是采集时间、更新时点还是错误日期。多数发布为功能与可用性声明，公开材料未提供这些新产品的客户数、收入贡献、留存率或独立性能审计；部分能力仍为 preview、beta 或计划推出，不能等同于全面成熟和市场验证。",
+          "ref": "R2",
+          "role": "佐证",
+          "takeaway": "Cloudflare称Containers与Sandboxes已进入GA，并新增持久解释器、后台进程、预览URL和安全凭据注入等能力。"
+        },
+        {
+          "id": "research-66-0-https://blog.cloudflare.com/agents-week-review-august-2026/-3-https://blog.cloudflare.com/browser-run-for-ai-agents/",
+          "sourceId": 66,
+          "sourceName": "Cloudflare",
+          "sourcePublisher": "Cloudflare",
+          "sourceKind": "Official",
+          "title": "Browser Run: give your agents a browser",
+          "url": "https://blog.cloudflare.com/browser-run-for-ai-agents/",
+          "publishedAt": "2026-04-15T00:00:00.000Z",
+          "summary": "明确 Browser Rendering 改名为 Browser Run，并给出可比较的发布指标：Quick Actions 为每秒10次请求、浏览器并发120，称为4倍提升；新增直接 CDP 端点、Live View、会话录制、人工介入和 MCP 客户端支持。",
+          "fetchedAt": "2026-08-10T20:07:01.667Z",
+          "researchedFrom": "N1",
+          "researchRole": "Comparison",
+          "researchClaim": "Cloudflare 的 Agents Week 将其原有 Workers、Containers、Browser Rendering、Access、AI Gateway 和开发者平台整合并扩展为“agentic cloud”产品栈；核心进展是 Sandboxes 与 Containers 进入 GA，同时发布或预览了面向代理的存储、运行时、安全、推理、记忆、搜索、浏览器和部署能力。",
+          "researchComparisons": "相较于此前以单项开发者工具为主的状态，Sandboxes 从约九个月前只能运行命令和访问文件系统的早期产品，升级为 GA 的持久隔离开发环境；标准套餐并发上限为 lite 15,000、basic 6,000、较大规格超过1,000，且计费改为仅对活跃 CPU 周期收费。Browser Rendering 更名为 Browser Run，浏览器并发上限增至120，为此前的4倍，并新增 CDP、Live View、会话录制和人工介入。作为外部采用基准，Cloudflare Radar 对20万高访问域名的扫描显示，78%有 robots.txt，但仅4%声明 AI 使用偏好、3.9%支持 Markdown 内容协商，MCP Server Cards 与 API Catalogs 合计不足15个站点；这说明产品发布所瞄准的 agent-ready Web 仍处早期。",
+          "researchUnresolved": "候选的时间戳为2026-08-10，但该汇总文章的 canonical 原文发布日期为2026-04-20；需在成稿前确认前者是采集时间、更新时点还是错误日期。多数发布为功能与可用性声明，公开材料未提供这些新产品的客户数、收入贡献、留存率或独立性能审计；部分能力仍为 preview、beta 或计划推出，不能等同于全面成熟和市场验证。",
+          "ref": "R3",
+          "role": "佐证",
+          "takeaway": "Browser Run由Browser Rendering更名而来，新增直接CDP端点、Live View、会话录制、人工介入和MCP客户端支持。"
+        },
+        {
+          "id": "research-66-0-https://blog.cloudflare.com/agents-week-review-august-2026/-4-https://blog.cloudflare.com/agent-readiness/",
+          "sourceId": 66,
+          "sourceName": "Cloudflare",
+          "sourcePublisher": "Cloudflare",
+          "sourceKind": "Official",
+          "title": "Introducing the Agent Readiness score. Is your site agent-ready?",
+          "url": "https://blog.cloudflare.com/agent-readiness/",
+          "publishedAt": "2026-04-17T00:00:00.000Z",
+          "summary": "提供对“agentic web 已成熟”的最强反例和采用基准：对20万高访问域名扫描后，78%拥有 robots.txt，但仅4%声明 AI 使用偏好、3.9%支持 Markdown 内容协商，MCP Server Cards 和 API Catalogs 合计少于15个站点；该报告也称其文档测试中 token 消耗低31%、答对速度快66%，但这是 Cloudflare 自行测试，非独立审计。",
+          "fetchedAt": "2026-08-10T20:07:01.667Z",
+          "researchedFrom": "N1",
+          "researchRole": "Counterevidence",
+          "researchClaim": "Cloudflare 的 Agents Week 将其原有 Workers、Containers、Browser Rendering、Access、AI Gateway 和开发者平台整合并扩展为“agentic cloud”产品栈；核心进展是 Sandboxes 与 Containers 进入 GA，同时发布或预览了面向代理的存储、运行时、安全、推理、记忆、搜索、浏览器和部署能力。",
+          "researchComparisons": "相较于此前以单项开发者工具为主的状态，Sandboxes 从约九个月前只能运行命令和访问文件系统的早期产品，升级为 GA 的持久隔离开发环境；标准套餐并发上限为 lite 15,000、basic 6,000、较大规格超过1,000，且计费改为仅对活跃 CPU 周期收费。Browser Rendering 更名为 Browser Run，浏览器并发上限增至120，为此前的4倍，并新增 CDP、Live View、会话录制和人工介入。作为外部采用基准，Cloudflare Radar 对20万高访问域名的扫描显示，78%有 robots.txt，但仅4%声明 AI 使用偏好、3.9%支持 Markdown 内容协商，MCP Server Cards 与 API Catalogs 合计不足15个站点；这说明产品发布所瞄准的 agent-ready Web 仍处早期。",
+          "researchUnresolved": "候选的时间戳为2026-08-10，但该汇总文章的 canonical 原文发布日期为2026-04-20；需在成稿前确认前者是采集时间、更新时点还是错误日期。多数发布为功能与可用性声明，公开材料未提供这些新产品的客户数、收入贡献、留存率或独立性能审计；部分能力仍为 preview、beta 或计划推出，不能等同于全面成熟和市场验证。",
+          "ref": "R4",
+          "role": "反例",
+          "takeaway": "Cloudflare扫描20万个高访问域名发现，支持机器可读代理接入信号的网站仍很少，说明代理Web的供给侧尚未成熟。"
         }
       ],
       "references": [
@@ -19773,9 +20087,223 @@
           },
           "deferredResearch": false,
           "ref": "N3"
+        },
+        {
+          "id": "66-0-https://blog.cloudflare.com/agents-week-review-august-2026/",
+          "sourceId": 66,
+          "sourceName": "Cloudflare Blog",
+          "sourcePublisher": "Cloudflare Blog",
+          "sourceKind": "Blog",
+          "title": "Everything we launched during Agents Week",
+          "url": "https://blog.cloudflare.com/agents-week-review-august-2026/",
+          "publishedAt": "2026-08-10T18:34:10.000Z",
+          "summary": "Our latest Agents Week has come to a close. Here’s a recap of all the announcements we made, from Wallets to Radar.",
+          "fetchedAt": "2026-08-10T20:07:01.667Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-10T20:07:01.667Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 1.5476852777777779,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N1"
+        },
+        {
+          "id": "research-66-0-https://blog.cloudflare.com/agents-week-review-august-2026/-1-https://blog.cloudflare.com/agents-week-in-review/",
+          "sourceId": 66,
+          "sourceName": "Cloudflare",
+          "sourcePublisher": "Cloudflare",
+          "sourceKind": "Official",
+          "title": "Building the agentic cloud: everything we launched during Agents Week 2026",
+          "url": "https://blog.cloudflare.com/agents-week-in-review/",
+          "publishedAt": "2026-04-20T00:00:00.000Z",
+          "summary": "官方汇总确认 Agents Week 的发布范围，涵盖计算、安全、Agent Toolbox、从原型到生产及 Agentic Web；并明确 Sandboxes、Artifacts、Agent Memory、AI Search、Browser Run、Registrar API 等产品或能力的定位与发布状态。",
+          "fetchedAt": "2026-08-10T20:07:01.667Z",
+          "researchedFrom": "N1",
+          "researchRole": "Primary",
+          "researchClaim": "Cloudflare 的 Agents Week 将其原有 Workers、Containers、Browser Rendering、Access、AI Gateway 和开发者平台整合并扩展为“agentic cloud”产品栈；核心进展是 Sandboxes 与 Containers 进入 GA，同时发布或预览了面向代理的存储、运行时、安全、推理、记忆、搜索、浏览器和部署能力。",
+          "researchComparisons": "相较于此前以单项开发者工具为主的状态，Sandboxes 从约九个月前只能运行命令和访问文件系统的早期产品，升级为 GA 的持久隔离开发环境；标准套餐并发上限为 lite 15,000、basic 6,000、较大规格超过1,000，且计费改为仅对活跃 CPU 周期收费。Browser Rendering 更名为 Browser Run，浏览器并发上限增至120，为此前的4倍，并新增 CDP、Live View、会话录制和人工介入。作为外部采用基准，Cloudflare Radar 对20万高访问域名的扫描显示，78%有 robots.txt，但仅4%声明 AI 使用偏好、3.9%支持 Markdown 内容协商，MCP Server Cards 与 API Catalogs 合计不足15个站点；这说明产品发布所瞄准的 agent-ready Web 仍处早期。",
+          "researchUnresolved": "候选的时间戳为2026-08-10，但该汇总文章的 canonical 原文发布日期为2026-04-20；需在成稿前确认前者是采集时间、更新时点还是错误日期。多数发布为功能与可用性声明，公开材料未提供这些新产品的客户数、收入贡献、留存率或独立性能审计；部分能力仍为 preview、beta 或计划推出，不能等同于全面成熟和市场验证。",
+          "ref": "R1"
+        },
+        {
+          "id": "research-66-0-https://blog.cloudflare.com/agents-week-review-august-2026/-2-https://blog.cloudflare.com/sandbox-ga/",
+          "sourceId": 66,
+          "sourceName": "Cloudflare",
+          "sourcePublisher": "Cloudflare",
+          "sourceKind": "Official",
+          "title": "Agents have their own computers with Sandboxes GA",
+          "url": "https://blog.cloudflare.com/sandbox-ga/",
+          "publishedAt": "2026-04-13T00:00:00.000Z",
+          "summary": "补齐 Sandboxes 的前后状态和量化基准：Containers 与 Sandboxes 进入 GA；此前早期版本仅支持命令和文件系统，而当前提供持久代码解释器、PTY、后台进程、预览 URL、文件监听及安全凭据注入。标准套餐并发上限为 lite 15,000、basic 6,000、较大实例逾1,000；示例中从备份恢复为2秒、重新启动并安装依赖为30秒。",
+          "fetchedAt": "2026-08-10T20:07:01.667Z",
+          "researchedFrom": "N1",
+          "researchRole": "Comparison",
+          "researchClaim": "Cloudflare 的 Agents Week 将其原有 Workers、Containers、Browser Rendering、Access、AI Gateway 和开发者平台整合并扩展为“agentic cloud”产品栈；核心进展是 Sandboxes 与 Containers 进入 GA，同时发布或预览了面向代理的存储、运行时、安全、推理、记忆、搜索、浏览器和部署能力。",
+          "researchComparisons": "相较于此前以单项开发者工具为主的状态，Sandboxes 从约九个月前只能运行命令和访问文件系统的早期产品，升级为 GA 的持久隔离开发环境；标准套餐并发上限为 lite 15,000、basic 6,000、较大规格超过1,000，且计费改为仅对活跃 CPU 周期收费。Browser Rendering 更名为 Browser Run，浏览器并发上限增至120，为此前的4倍，并新增 CDP、Live View、会话录制和人工介入。作为外部采用基准，Cloudflare Radar 对20万高访问域名的扫描显示，78%有 robots.txt，但仅4%声明 AI 使用偏好、3.9%支持 Markdown 内容协商，MCP Server Cards 与 API Catalogs 合计不足15个站点；这说明产品发布所瞄准的 agent-ready Web 仍处早期。",
+          "researchUnresolved": "候选的时间戳为2026-08-10，但该汇总文章的 canonical 原文发布日期为2026-04-20；需在成稿前确认前者是采集时间、更新时点还是错误日期。多数发布为功能与可用性声明，公开材料未提供这些新产品的客户数、收入贡献、留存率或独立性能审计；部分能力仍为 preview、beta 或计划推出，不能等同于全面成熟和市场验证。",
+          "ref": "R2"
+        },
+        {
+          "id": "research-66-0-https://blog.cloudflare.com/agents-week-review-august-2026/-3-https://blog.cloudflare.com/browser-run-for-ai-agents/",
+          "sourceId": 66,
+          "sourceName": "Cloudflare",
+          "sourcePublisher": "Cloudflare",
+          "sourceKind": "Official",
+          "title": "Browser Run: give your agents a browser",
+          "url": "https://blog.cloudflare.com/browser-run-for-ai-agents/",
+          "publishedAt": "2026-04-15T00:00:00.000Z",
+          "summary": "明确 Browser Rendering 改名为 Browser Run，并给出可比较的发布指标：Quick Actions 为每秒10次请求、浏览器并发120，称为4倍提升；新增直接 CDP 端点、Live View、会话录制、人工介入和 MCP 客户端支持。",
+          "fetchedAt": "2026-08-10T20:07:01.667Z",
+          "researchedFrom": "N1",
+          "researchRole": "Comparison",
+          "researchClaim": "Cloudflare 的 Agents Week 将其原有 Workers、Containers、Browser Rendering、Access、AI Gateway 和开发者平台整合并扩展为“agentic cloud”产品栈；核心进展是 Sandboxes 与 Containers 进入 GA，同时发布或预览了面向代理的存储、运行时、安全、推理、记忆、搜索、浏览器和部署能力。",
+          "researchComparisons": "相较于此前以单项开发者工具为主的状态，Sandboxes 从约九个月前只能运行命令和访问文件系统的早期产品，升级为 GA 的持久隔离开发环境；标准套餐并发上限为 lite 15,000、basic 6,000、较大规格超过1,000，且计费改为仅对活跃 CPU 周期收费。Browser Rendering 更名为 Browser Run，浏览器并发上限增至120，为此前的4倍，并新增 CDP、Live View、会话录制和人工介入。作为外部采用基准，Cloudflare Radar 对20万高访问域名的扫描显示，78%有 robots.txt，但仅4%声明 AI 使用偏好、3.9%支持 Markdown 内容协商，MCP Server Cards 与 API Catalogs 合计不足15个站点；这说明产品发布所瞄准的 agent-ready Web 仍处早期。",
+          "researchUnresolved": "候选的时间戳为2026-08-10，但该汇总文章的 canonical 原文发布日期为2026-04-20；需在成稿前确认前者是采集时间、更新时点还是错误日期。多数发布为功能与可用性声明，公开材料未提供这些新产品的客户数、收入贡献、留存率或独立性能审计；部分能力仍为 preview、beta 或计划推出，不能等同于全面成熟和市场验证。",
+          "ref": "R3"
+        },
+        {
+          "id": "research-66-0-https://blog.cloudflare.com/agents-week-review-august-2026/-4-https://blog.cloudflare.com/agent-readiness/",
+          "sourceId": 66,
+          "sourceName": "Cloudflare",
+          "sourcePublisher": "Cloudflare",
+          "sourceKind": "Official",
+          "title": "Introducing the Agent Readiness score. Is your site agent-ready?",
+          "url": "https://blog.cloudflare.com/agent-readiness/",
+          "publishedAt": "2026-04-17T00:00:00.000Z",
+          "summary": "提供对“agentic web 已成熟”的最强反例和采用基准：对20万高访问域名扫描后，78%拥有 robots.txt，但仅4%声明 AI 使用偏好、3.9%支持 Markdown 内容协商，MCP Server Cards 和 API Catalogs 合计少于15个站点；该报告也称其文档测试中 token 消耗低31%、答对速度快66%，但这是 Cloudflare 自行测试，非独立审计。",
+          "fetchedAt": "2026-08-10T20:07:01.667Z",
+          "researchedFrom": "N1",
+          "researchRole": "Counterevidence",
+          "researchClaim": "Cloudflare 的 Agents Week 将其原有 Workers、Containers、Browser Rendering、Access、AI Gateway 和开发者平台整合并扩展为“agentic cloud”产品栈；核心进展是 Sandboxes 与 Containers 进入 GA，同时发布或预览了面向代理的存储、运行时、安全、推理、记忆、搜索、浏览器和部署能力。",
+          "researchComparisons": "相较于此前以单项开发者工具为主的状态，Sandboxes 从约九个月前只能运行命令和访问文件系统的早期产品，升级为 GA 的持久隔离开发环境；标准套餐并发上限为 lite 15,000、basic 6,000、较大规格超过1,000，且计费改为仅对活跃 CPU 周期收费。Browser Rendering 更名为 Browser Run，浏览器并发上限增至120，为此前的4倍，并新增 CDP、Live View、会话录制和人工介入。作为外部采用基准，Cloudflare Radar 对20万高访问域名的扫描显示，78%有 robots.txt，但仅4%声明 AI 使用偏好、3.9%支持 Markdown 内容协商，MCP Server Cards 与 API Catalogs 合计不足15个站点；这说明产品发布所瞄准的 agent-ready Web 仍处早期。",
+          "researchUnresolved": "候选的时间戳为2026-08-10，但该汇总文章的 canonical 原文发布日期为2026-04-20；需在成稿前确认前者是采集时间、更新时点还是错误日期。多数发布为功能与可用性声明，公开材料未提供这些新产品的客户数、收入贡献、留存率或独立性能审计；部分能力仍为 preview、beta 或计划推出，不能等同于全面成熟和市场验证。",
+          "ref": "R4"
         }
       ],
-      "feedBatchAt": "2026-08-04T13:06:12.452Z"
+      "feedBatchAt": "2026-08-04T13:06:12.452Z",
+      "updates": [
+        {
+          "addedAt": "2026-08-10T18:34:10.000Z",
+          "title": "Cloudflare补齐代理运行层范围",
+          "summary": "Cloudflare的Agents Week汇总显示，Agents、Wallets之外，Sandboxes已进入GA，Browser Run补齐直接CDP、会话录制和人工介入等代理执行能力。",
+          "evidence": [
+            {
+              "id": "66-0-https://blog.cloudflare.com/agents-week-review-august-2026/",
+              "sourceId": 66,
+              "sourceName": "Cloudflare Blog",
+              "sourcePublisher": "Cloudflare Blog",
+              "sourceKind": "Blog",
+              "title": "Everything we launched during Agents Week",
+              "url": "https://blog.cloudflare.com/agents-week-review-august-2026/",
+              "publishedAt": "2026-08-10T18:34:10.000Z",
+              "summary": "Our latest Agents Week has come to a close. Here’s a recap of all the announcements we made, from Wallets to Radar.",
+              "fetchedAt": "2026-08-10T20:07:01.667Z",
+              "accessMethod": "public-feed",
+              "publicContentPolicy": "headline-source-link-only",
+              "firstSeenAt": "2026-08-10T20:07:01.667Z",
+              "freshness": {
+                "eligible": true,
+                "lane": "explore",
+                "reason": "fresh",
+                "ageHours": 1.5476852777777779,
+                "maxAgeHours": 168
+              },
+              "deferredResearch": false,
+              "ref": "N1",
+              "role": "最新进展",
+              "takeaway": "Cloudflare回顾Agents Week发布，涵盖Wallets、Radar及多项代理基础设施能力。"
+            },
+            {
+              "id": "research-66-0-https://blog.cloudflare.com/agents-week-review-august-2026/-1-https://blog.cloudflare.com/agents-week-in-review/",
+              "sourceId": 66,
+              "sourceName": "Cloudflare",
+              "sourcePublisher": "Cloudflare",
+              "sourceKind": "Official",
+              "title": "Building the agentic cloud: everything we launched during Agents Week 2026",
+              "url": "https://blog.cloudflare.com/agents-week-in-review/",
+              "publishedAt": "2026-04-20T00:00:00.000Z",
+              "summary": "官方汇总确认 Agents Week 的发布范围，涵盖计算、安全、Agent Toolbox、从原型到生产及 Agentic Web；并明确 Sandboxes、Artifacts、Agent Memory、AI Search、Browser Run、Registrar API 等产品或能力的定位与发布状态。",
+              "fetchedAt": "2026-08-10T20:07:01.667Z",
+              "researchedFrom": "N1",
+              "researchRole": "Primary",
+              "researchClaim": "Cloudflare 的 Agents Week 将其原有 Workers、Containers、Browser Rendering、Access、AI Gateway 和开发者平台整合并扩展为“agentic cloud”产品栈；核心进展是 Sandboxes 与 Containers 进入 GA，同时发布或预览了面向代理的存储、运行时、安全、推理、记忆、搜索、浏览器和部署能力。",
+              "researchComparisons": "相较于此前以单项开发者工具为主的状态，Sandboxes 从约九个月前只能运行命令和访问文件系统的早期产品，升级为 GA 的持久隔离开发环境；标准套餐并发上限为 lite 15,000、basic 6,000、较大规格超过1,000，且计费改为仅对活跃 CPU 周期收费。Browser Rendering 更名为 Browser Run，浏览器并发上限增至120，为此前的4倍，并新增 CDP、Live View、会话录制和人工介入。作为外部采用基准，Cloudflare Radar 对20万高访问域名的扫描显示，78%有 robots.txt，但仅4%声明 AI 使用偏好、3.9%支持 Markdown 内容协商，MCP Server Cards 与 API Catalogs 合计不足15个站点；这说明产品发布所瞄准的 agent-ready Web 仍处早期。",
+              "researchUnresolved": "候选的时间戳为2026-08-10，但该汇总文章的 canonical 原文发布日期为2026-04-20；需在成稿前确认前者是采集时间、更新时点还是错误日期。多数发布为功能与可用性声明，公开材料未提供这些新产品的客户数、收入贡献、留存率或独立性能审计；部分能力仍为 preview、beta 或计划推出，不能等同于全面成熟和市场验证。",
+              "ref": "R1",
+              "role": "佐证",
+              "takeaway": "官方汇总列出Sandboxes、Artifacts、Agent Memory、AI Search、Browser Run和Registrar API等能力及其定位。"
+            },
+            {
+              "id": "research-66-0-https://blog.cloudflare.com/agents-week-review-august-2026/-2-https://blog.cloudflare.com/sandbox-ga/",
+              "sourceId": 66,
+              "sourceName": "Cloudflare",
+              "sourcePublisher": "Cloudflare",
+              "sourceKind": "Official",
+              "title": "Agents have their own computers with Sandboxes GA",
+              "url": "https://blog.cloudflare.com/sandbox-ga/",
+              "publishedAt": "2026-04-13T00:00:00.000Z",
+              "summary": "补齐 Sandboxes 的前后状态和量化基准：Containers 与 Sandboxes 进入 GA；此前早期版本仅支持命令和文件系统，而当前提供持久代码解释器、PTY、后台进程、预览 URL、文件监听及安全凭据注入。标准套餐并发上限为 lite 15,000、basic 6,000、较大实例逾1,000；示例中从备份恢复为2秒、重新启动并安装依赖为30秒。",
+              "fetchedAt": "2026-08-10T20:07:01.667Z",
+              "researchedFrom": "N1",
+              "researchRole": "Comparison",
+              "researchClaim": "Cloudflare 的 Agents Week 将其原有 Workers、Containers、Browser Rendering、Access、AI Gateway 和开发者平台整合并扩展为“agentic cloud”产品栈；核心进展是 Sandboxes 与 Containers 进入 GA，同时发布或预览了面向代理的存储、运行时、安全、推理、记忆、搜索、浏览器和部署能力。",
+              "researchComparisons": "相较于此前以单项开发者工具为主的状态，Sandboxes 从约九个月前只能运行命令和访问文件系统的早期产品，升级为 GA 的持久隔离开发环境；标准套餐并发上限为 lite 15,000、basic 6,000、较大规格超过1,000，且计费改为仅对活跃 CPU 周期收费。Browser Rendering 更名为 Browser Run，浏览器并发上限增至120，为此前的4倍，并新增 CDP、Live View、会话录制和人工介入。作为外部采用基准，Cloudflare Radar 对20万高访问域名的扫描显示，78%有 robots.txt，但仅4%声明 AI 使用偏好、3.9%支持 Markdown 内容协商，MCP Server Cards 与 API Catalogs 合计不足15个站点；这说明产品发布所瞄准的 agent-ready Web 仍处早期。",
+              "researchUnresolved": "候选的时间戳为2026-08-10，但该汇总文章的 canonical 原文发布日期为2026-04-20；需在成稿前确认前者是采集时间、更新时点还是错误日期。多数发布为功能与可用性声明，公开材料未提供这些新产品的客户数、收入贡献、留存率或独立性能审计；部分能力仍为 preview、beta 或计划推出，不能等同于全面成熟和市场验证。",
+              "ref": "R2",
+              "role": "佐证",
+              "takeaway": "Cloudflare称Containers与Sandboxes已进入GA，并新增持久解释器、后台进程、预览URL和安全凭据注入等能力。"
+            },
+            {
+              "id": "research-66-0-https://blog.cloudflare.com/agents-week-review-august-2026/-3-https://blog.cloudflare.com/browser-run-for-ai-agents/",
+              "sourceId": 66,
+              "sourceName": "Cloudflare",
+              "sourcePublisher": "Cloudflare",
+              "sourceKind": "Official",
+              "title": "Browser Run: give your agents a browser",
+              "url": "https://blog.cloudflare.com/browser-run-for-ai-agents/",
+              "publishedAt": "2026-04-15T00:00:00.000Z",
+              "summary": "明确 Browser Rendering 改名为 Browser Run，并给出可比较的发布指标：Quick Actions 为每秒10次请求、浏览器并发120，称为4倍提升；新增直接 CDP 端点、Live View、会话录制、人工介入和 MCP 客户端支持。",
+              "fetchedAt": "2026-08-10T20:07:01.667Z",
+              "researchedFrom": "N1",
+              "researchRole": "Comparison",
+              "researchClaim": "Cloudflare 的 Agents Week 将其原有 Workers、Containers、Browser Rendering、Access、AI Gateway 和开发者平台整合并扩展为“agentic cloud”产品栈；核心进展是 Sandboxes 与 Containers 进入 GA，同时发布或预览了面向代理的存储、运行时、安全、推理、记忆、搜索、浏览器和部署能力。",
+              "researchComparisons": "相较于此前以单项开发者工具为主的状态，Sandboxes 从约九个月前只能运行命令和访问文件系统的早期产品，升级为 GA 的持久隔离开发环境；标准套餐并发上限为 lite 15,000、basic 6,000、较大规格超过1,000，且计费改为仅对活跃 CPU 周期收费。Browser Rendering 更名为 Browser Run，浏览器并发上限增至120，为此前的4倍，并新增 CDP、Live View、会话录制和人工介入。作为外部采用基准，Cloudflare Radar 对20万高访问域名的扫描显示，78%有 robots.txt，但仅4%声明 AI 使用偏好、3.9%支持 Markdown 内容协商，MCP Server Cards 与 API Catalogs 合计不足15个站点；这说明产品发布所瞄准的 agent-ready Web 仍处早期。",
+              "researchUnresolved": "候选的时间戳为2026-08-10，但该汇总文章的 canonical 原文发布日期为2026-04-20；需在成稿前确认前者是采集时间、更新时点还是错误日期。多数发布为功能与可用性声明，公开材料未提供这些新产品的客户数、收入贡献、留存率或独立性能审计；部分能力仍为 preview、beta 或计划推出，不能等同于全面成熟和市场验证。",
+              "ref": "R3",
+              "role": "佐证",
+              "takeaway": "Browser Run由Browser Rendering更名而来，新增直接CDP端点、Live View、会话录制、人工介入和MCP客户端支持。"
+            },
+            {
+              "id": "research-66-0-https://blog.cloudflare.com/agents-week-review-august-2026/-4-https://blog.cloudflare.com/agent-readiness/",
+              "sourceId": 66,
+              "sourceName": "Cloudflare",
+              "sourcePublisher": "Cloudflare",
+              "sourceKind": "Official",
+              "title": "Introducing the Agent Readiness score. Is your site agent-ready?",
+              "url": "https://blog.cloudflare.com/agent-readiness/",
+              "publishedAt": "2026-04-17T00:00:00.000Z",
+              "summary": "提供对“agentic web 已成熟”的最强反例和采用基准：对20万高访问域名扫描后，78%拥有 robots.txt，但仅4%声明 AI 使用偏好、3.9%支持 Markdown 内容协商，MCP Server Cards 和 API Catalogs 合计少于15个站点；该报告也称其文档测试中 token 消耗低31%、答对速度快66%，但这是 Cloudflare 自行测试，非独立审计。",
+              "fetchedAt": "2026-08-10T20:07:01.667Z",
+              "researchedFrom": "N1",
+              "researchRole": "Counterevidence",
+              "researchClaim": "Cloudflare 的 Agents Week 将其原有 Workers、Containers、Browser Rendering、Access、AI Gateway 和开发者平台整合并扩展为“agentic cloud”产品栈；核心进展是 Sandboxes 与 Containers 进入 GA，同时发布或预览了面向代理的存储、运行时、安全、推理、记忆、搜索、浏览器和部署能力。",
+              "researchComparisons": "相较于此前以单项开发者工具为主的状态，Sandboxes 从约九个月前只能运行命令和访问文件系统的早期产品，升级为 GA 的持久隔离开发环境；标准套餐并发上限为 lite 15,000、basic 6,000、较大规格超过1,000，且计费改为仅对活跃 CPU 周期收费。Browser Rendering 更名为 Browser Run，浏览器并发上限增至120，为此前的4倍，并新增 CDP、Live View、会话录制和人工介入。作为外部采用基准，Cloudflare Radar 对20万高访问域名的扫描显示，78%有 robots.txt，但仅4%声明 AI 使用偏好、3.9%支持 Markdown 内容协商，MCP Server Cards 与 API Catalogs 合计不足15个站点；这说明产品发布所瞄准的 agent-ready Web 仍处早期。",
+              "researchUnresolved": "候选的时间戳为2026-08-10，但该汇总文章的 canonical 原文发布日期为2026-04-20；需在成稿前确认前者是采集时间、更新时点还是错误日期。多数发布为功能与可用性声明，公开材料未提供这些新产品的客户数、收入贡献、留存率或独立性能审计；部分能力仍为 preview、beta 或计划推出，不能等同于全面成熟和市场验证。",
+              "ref": "R4",
+              "role": "反例",
+              "takeaway": "Cloudflare扫描20万个高访问域名发现，支持机器可读代理接入信号的网站仍很少，说明代理Web的供给侧尚未成熟。"
+            }
+          ],
+          "changeType": "corroboration",
+          "thesisImpact": "最新汇总与官方产品页补齐了Cloudflare代理平台的运行层范围、Sandboxes正式可用状态和Browser Run能力，强化其正把代理开发、执行与管理整合进同一基础设施层的判断。",
+          "revisionRequired": false
+        }
+      ]
     },
     {
       "id": 62,
@@ -36170,9 +36698,47 @@
             {
               "role": "最新进展",
               "takeaway": "Zuckerberg提出恢复发布部分开放模型、提供免费或可负担访问，并探索额外算力动态拍卖的商业构想。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "Bloomberg将Muse Glimmer描述为可在单张GPU个人电脑运行的可下载模型，并将其置于开放与闭源竞争背景中。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "Associated Press确认Muse Glimmer采用宽松许可，并报道其发布伴随Zuckerberg对开放式AI的公开主张。"
             }
           ],
           "updates": [
+            {
+              "addedAt": "2026-08-10T18:13:08.000Z",
+              "title": "Muse Glimmer获独立发布验证",
+              "summary": "Meta确认Muse Glimmer约300亿参数、量化后语言模型部分不足20GB，可在单张消费级GPU运行；权重已在Hugging Face公开，AP确认其采用宽松许可。",
+              "evidence": [
+                {
+                  "role": "佐证",
+                  "takeaway": "Bloomberg将Muse Glimmer描述为可在单张GPU个人电脑运行的可下载模型，并将其置于开放与闭源竞争背景中。"
+                },
+                {
+                  "role": "最新进展",
+                  "takeaway": "Meta将Muse Glimmer定位为本地agentic工作流开放权重模型，称其约300亿参数、4-bit量化后语言模型部分不足20GB。"
+                },
+                {
+                  "role": "佐证",
+                  "takeaway": "Hugging Face模型集合提供Muse Glimmer权重和相关模型文件，证实其并非仅通过云端接口分发。"
+                },
+                {
+                  "role": "背景",
+                  "takeaway": "Meta此前的Muse Spark主要服务于Meta AI和meta.ai，并仅向选定用户提供私有API预览。"
+                },
+                {
+                  "role": "佐证",
+                  "takeaway": "Associated Press确认Muse Glimmer采用宽松许可，并报道其发布伴随Zuckerberg对开放式AI的公开主张。"
+                }
+              ],
+              "changeType": "corroboration",
+              "thesisImpact": "Meta官方发布、Hugging Face权重分发和AP独立报道共同确认，Muse Glimmer不是仅限云端的演示，而是已以宽松许可进入可下载、单卡本地运行的开放权重分发模式。",
+              "revisionRequired": false
+            },
             {
               "addedAt": "2026-08-10T13:50:19.000Z",
               "title": "Muse Glimmer补齐开放部署条件",
@@ -39875,6 +40441,58 @@
             {
               "role": "佐证",
               "takeaway": "Cloudflare Wallets计划借助x402，为AI代理提供原生支付与可验证身份，以在安全护栏内购买API和内容。"
+            },
+            {
+              "role": "最新进展",
+              "takeaway": "Cloudflare回顾Agents Week发布，涵盖Wallets、Radar及多项代理基础设施能力。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "官方汇总列出Sandboxes、Artifacts、Agent Memory、AI Search、Browser Run和Registrar API等能力及其定位。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "Cloudflare称Containers与Sandboxes已进入GA，并新增持久解释器、后台进程、预览URL和安全凭据注入等能力。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "Browser Run由Browser Rendering更名而来，新增直接CDP端点、Live View、会话录制、人工介入和MCP客户端支持。"
+            },
+            {
+              "role": "反例",
+              "takeaway": "Cloudflare扫描20万个高访问域名发现，支持机器可读代理接入信号的网站仍很少，说明代理Web的供给侧尚未成熟。"
+            }
+          ],
+          "updates": [
+            {
+              "addedAt": "2026-08-10T18:34:10.000Z",
+              "title": "Cloudflare补齐代理运行层范围",
+              "summary": "Cloudflare的Agents Week汇总显示，Agents、Wallets之外，Sandboxes已进入GA，Browser Run补齐直接CDP、会话录制和人工介入等代理执行能力。",
+              "evidence": [
+                {
+                  "role": "最新进展",
+                  "takeaway": "Cloudflare回顾Agents Week发布，涵盖Wallets、Radar及多项代理基础设施能力。"
+                },
+                {
+                  "role": "佐证",
+                  "takeaway": "官方汇总列出Sandboxes、Artifacts、Agent Memory、AI Search、Browser Run和Registrar API等能力及其定位。"
+                },
+                {
+                  "role": "佐证",
+                  "takeaway": "Cloudflare称Containers与Sandboxes已进入GA，并新增持久解释器、后台进程、预览URL和安全凭据注入等能力。"
+                },
+                {
+                  "role": "佐证",
+                  "takeaway": "Browser Run由Browser Rendering更名而来，新增直接CDP端点、Live View、会话录制、人工介入和MCP客户端支持。"
+                },
+                {
+                  "role": "反例",
+                  "takeaway": "Cloudflare扫描20万个高访问域名发现，支持机器可读代理接入信号的网站仍很少，说明代理Web的供给侧尚未成熟。"
+                }
+              ],
+              "changeType": "corroboration",
+              "thesisImpact": "最新汇总与官方产品页补齐了Cloudflare代理平台的运行层范围、Sandboxes正式可用状态和Browser Run能力，强化其正把代理开发、执行与管理整合进同一基础设施层的判断。",
+              "revisionRequired": false
             }
           ]
         },
@@ -45592,9 +46210,47 @@
             {
               "role": "Update",
               "takeaway": "Zuckerberg outlined plans to resume releasing some open models and to explore auctions for additional compute."
+            },
+            {
+              "role": "Support",
+              "takeaway": "Bloomberg describes Muse Glimmer as a downloadable model designed to run on a single-GPU personal computer."
+            },
+            {
+              "role": "Support",
+              "takeaway": "Associated Press independently reports that Muse Glimmer carries a permissive license and accompanies Zuckerberg’s open-AI argument."
             }
           ],
           "updates": [
+            {
+              "addedAt": "2026-08-10T18:13:08.000Z",
+              "title": "Muse Glimmer’s local release gains independent confirmation",
+              "summary": "Meta says the roughly 30B-parameter Muse Glimmer can run on a single consumer GPU after quantization, with the language-model component under 20GB. Its weights are available on Hugging Face, and AP reports a permissive license.",
+              "evidence": [
+                {
+                  "role": "Support",
+                  "takeaway": "Bloomberg describes Muse Glimmer as a downloadable model designed to run on a single-GPU personal computer."
+                },
+                {
+                  "role": "Update",
+                  "takeaway": "Meta identifies Muse Glimmer as an open-weight model for local agentic workflows and says its quantized language-model component is under 20GB."
+                },
+                {
+                  "role": "Support",
+                  "takeaway": "Hugging Face hosts Muse Glimmer weights and related files, verifying a distribution path beyond a cloud-only interface."
+                },
+                {
+                  "role": "Context",
+                  "takeaway": "Meta’s earlier Muse Spark was deployed in Meta AI and meta.ai, with a private API preview limited to selected users."
+                },
+                {
+                  "role": "Support",
+                  "takeaway": "Associated Press independently reports that Muse Glimmer carries a permissive license and accompanies Zuckerberg’s open-AI argument."
+                }
+              ],
+              "changeType": "corroboration",
+              "thesisImpact": "Meta官方发布、Hugging Face权重分发和AP独立报道共同确认，Muse Glimmer不是仅限云端的演示，而是已以宽松许可进入可下载、单卡本地运行的开放权重分发模式。",
+              "revisionRequired": false
+            },
             {
               "addedAt": "2026-08-10T13:50:19.000Z",
               "title": "Muse Glimmer Adds Open Deployment Details",
@@ -49297,6 +49953,58 @@
             {
               "role": "Support",
               "takeaway": "Cloudflare Wallets is intended to provide native payments and verifiable identity for AI agents using x402, with safety guardrails for buying APIs and content."
+            },
+            {
+              "role": "Update",
+              "takeaway": "Cloudflare recapped its Agents Week announcements spanning Wallets, Radar, and agent infrastructure."
+            },
+            {
+              "role": "Support",
+              "takeaway": "The official roundup identifies Sandboxes, Artifacts, Agent Memory, AI Search, Browser Run, and Registrar API as parts of the offering."
+            },
+            {
+              "role": "Support",
+              "takeaway": "Cloudflare says Containers and Sandboxes reached general availability with persistent interpreters, background processes, preview URLs, and credential injection."
+            },
+            {
+              "role": "Support",
+              "takeaway": "Browser Run adds direct CDP endpoints, Live View, session recording, human intervention, and MCP client support."
+            },
+            {
+              "role": "Counterpoint",
+              "takeaway": "Cloudflare’s scan of high-traffic domains found limited machine-readable agent-access signals, indicating that the supply side of the agentic web remains immature."
+            }
+          ],
+          "updates": [
+            {
+              "addedAt": "2026-08-10T18:34:10.000Z",
+              "title": "Cloudflare fills out its agent runtime stack",
+              "summary": "Cloudflare’s Agents Week recap adds detail on an integrated agent stack: Sandboxes are generally available, while Browser Run adds direct CDP access, session recordings, and human intervention tools.",
+              "evidence": [
+                {
+                  "role": "Update",
+                  "takeaway": "Cloudflare recapped its Agents Week announcements spanning Wallets, Radar, and agent infrastructure."
+                },
+                {
+                  "role": "Support",
+                  "takeaway": "The official roundup identifies Sandboxes, Artifacts, Agent Memory, AI Search, Browser Run, and Registrar API as parts of the offering."
+                },
+                {
+                  "role": "Support",
+                  "takeaway": "Cloudflare says Containers and Sandboxes reached general availability with persistent interpreters, background processes, preview URLs, and credential injection."
+                },
+                {
+                  "role": "Support",
+                  "takeaway": "Browser Run adds direct CDP endpoints, Live View, session recording, human intervention, and MCP client support."
+                },
+                {
+                  "role": "Counterpoint",
+                  "takeaway": "Cloudflare’s scan of high-traffic domains found limited machine-readable agent-access signals, indicating that the supply side of the agentic web remains immature."
+                }
+              ],
+              "changeType": "corroboration",
+              "thesisImpact": "最新汇总与官方产品页补齐了Cloudflare代理平台的运行层范围、Sandboxes正式可用状态和Browser Run能力，强化其正把代理开发、执行与管理整合进同一基础设施层的判断。",
+              "revisionRequired": false
             }
           ]
         },
@@ -54759,12 +55467,12 @@
     "en": "gpt-5.6-sol"
   },
   "incremental": {
-    "lastAddedAt": "2026-08-10T18:14:26.428Z",
-    "lastScanAt": "2026-08-10T18:07:02.694Z",
+    "lastAddedAt": "2026-08-10T20:12:15.101Z",
+    "lastScanAt": "2026-08-10T20:07:01.667Z",
     "lastAddedCount": 0,
-    "lastUpdatedCount": 1,
+    "lastUpdatedCount": 2,
     "totalAppended": 93,
-    "totalUpdated": 79
+    "totalUpdated": 81
   },
   "exploreDepth": {
     "minimum": 50,
