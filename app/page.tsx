@@ -2137,16 +2137,26 @@ export default function Home() {
                     <div className="empty-state explore-empty">
                       <span>⌁</span>
                       <strong>
-                        {t(
-                          "这个方向暂时没有探索信号",
-                          "No Explore signals in this direction",
-                        )}
+                        {query.trim() || activeCategory !== "全部"
+                          ? t(
+                              "这个方向暂时没有探索信号",
+                              "No Explore signals in this direction",
+                            )
+                          : t(
+                              "本轮没有新的高置信探索",
+                              "No new high-confidence Explore thesis this cycle",
+                            )}
                       </strong>
                       <p>
-                        {t(
-                          "换一个主题或清除筛选。",
-                          "Try another topic or clear the filters.",
-                        )}
+                        {query.trim() || activeCategory !== "全部"
+                          ? t(
+                              "换一个主题或清除筛选。",
+                              "Try another topic or clear the filters.",
+                            )
+                          : t(
+                              "Explore 每 12 小时独立评估一次；没有达到证据与编辑门槛的内容不会用旧稿补位。",
+                              "Explore runs independently every 12 hours; older stories do not fill the page when no thesis clears the evidence and editorial bar.",
+                            )}
                       </p>
                       <button
                         type="button"

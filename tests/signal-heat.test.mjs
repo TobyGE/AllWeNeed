@@ -9,6 +9,7 @@ import {
   compareExploreEditorialValue,
   compareSignalHeat,
   DYNAMIC_FEED_MAX_EXPOSURE_HOURS,
+  EXPLORE_FEED_MAX_EXPOSURE_HOURS,
   EXPLORE_EDITORIAL_FLOOR,
   ADAPTIVE_FEED_POLICIES,
   exposureDecayPenalty,
@@ -330,11 +331,11 @@ test("conversations use a slower weekly exposure rhythm", () => {
   );
 });
 
-test("Explore leaves the main feed after 48 hours while conversations remain", () => {
+test("Explore leaves the page after 72 hours while conversations remain", () => {
   const now = "2026-07-10T12:00:00.000Z";
   const input = {
     valueScore: 92,
-    feedBatchAt: "2026-07-08T11:59:00.000Z",
+    feedBatchAt: "2026-07-07T11:59:00.000Z",
   };
 
   const explore = calculateSignalHeat(input, {
@@ -346,9 +347,49 @@ test("Explore leaves the main feed after 48 hours while conversations remain", (
     profile: "conversation",
   });
 
-  assert.ok(explore.ageHours > 48);
+  assert.equal(EXPLORE_FEED_MAX_EXPOSURE_HOURS, 72);
+  assert.ok(explore.ageHours > 72);
   assert.equal(explore.visible, false);
   assert.equal(conversation.visible, true);
+});
+
+test("Explore never pads the page with expired inventory", () => {
+  const fresh = {
+    id: "fresh-explore",
+    valueScore: 82,
+    heat: {
+      score: 70,
+      stage: "hot",
+      visible: true,
+      ageHours: 12,
+      halfLifeHours: 100,
+      lastActivityAt: "2026-07-10T00:00:00.000Z",
+    },
+  };
+  const expired = {
+    id: "expired-explore",
+    valueScore: 99,
+    heat: {
+      score: 80,
+      stage: "hot",
+      visible: false,
+      ageHours: 73,
+      halfLifeHours: 100,
+      lastActivityAt: "2026-07-07T11:00:00.000Z",
+    },
+  };
+
+  assert.deepEqual(
+    selectAdaptiveFeedItems([expired, fresh], "explore").map(
+      (item) => item.id,
+    ),
+    ["fresh-explore"],
+  );
+  assert.equal(ADAPTIVE_FEED_POLICIES.explore.minimumItems, 1);
+  assert.deepEqual(
+    ADAPTIVE_FEED_POLICIES.explore.exposureWindowsHours,
+    [72],
+  );
 });
 
 test("adaptive inventory backfills without lowering quality or outranking fresh items", () => {

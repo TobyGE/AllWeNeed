@@ -1,15 +1,15 @@
 const HOUR_MS = 60 * 60 * 1_000;
 export const EXPLORE_EDITORIAL_FLOOR = 80;
 export const DYNAMIC_FEED_MAX_EXPOSURE_HOURS = 48;
-export const EXPLORE_FEED_MAX_EXPOSURE_HOURS = 48;
+export const EXPLORE_FEED_MAX_EXPOSURE_HOURS = 72;
 export const ADAPTIVE_FEED_POLICIES = {
   dynamic: {
     minimumItems: 10,
     exposureWindowsHours: [48, 72, 96],
   },
   explore: {
-    minimumItems: 20,
-    exposureWindowsHours: [48, 96, 168],
+    minimumItems: 1,
+    exposureWindowsHours: [72],
   },
   conversation: {
     minimumItems: 12,

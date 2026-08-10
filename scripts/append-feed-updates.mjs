@@ -56,6 +56,8 @@ const maxConversationItems = Math.max(
   ),
 );
 const maxFeedStoriesPerRun = 24;
+const maxDynamicStoriesPerRun = 24;
+export const maxExploreStoriesPerRun = 3;
 const exploreEditorialFloor = 80;
 const requestedLanes = new Set(
   (argumentValue("lanes") ?? updateLaneNames.join(","))
@@ -361,7 +363,7 @@ function buildPrompt({ candidates, radar, scannedSnapshot }) {
   const compactItems = candidates
     .map(
       (item) =>
-        `${item.ref} | ${item.publishedAt ?? "unknown"} | ${item.sourceKind} | ${item.sourceName} | publisher=${item.sourcePublisher} | discoveryOnly=${Boolean(item.discoveryOnly)} | groundedFrom=${item.groundedFrom ?? "none"} | researchedFrom=${item.researchedFrom ?? "none"}\n` +
+        `${item.ref} | lane=${item.freshness?.lane ?? candidateUpdateLane(item, Date.parse(scannedSnapshot.generatedAt))} | ${item.publishedAt ?? "unknown"} | ${item.sourceKind} | ${item.sourceName} | publisher=${item.sourcePublisher} | discoveryOnly=${Boolean(item.discoveryOnly)} | groundedFrom=${item.groundedFrom ?? "none"} | researchedFrom=${item.researchedFrom ?? "none"}\n` +
         `标题: ${cleanText(item.title).slice(0, 240)}\n` +
         `摘要: ${cleanText(item.summary).slice(0, 500) || "无摘要"}`,
     )
@@ -402,7 +404,8 @@ function buildPrompt({ candidates, radar, scannedSnapshot }) {
 - 所有事实和数字必须来自 evidence；编辑判断必须使用审慎语气。
 - article 必须围绕一个 central claim。研究限制只能在确实影响某个具体事实时出现一次，不能把“未验证”“单一来源”或“缺少数据”写成文章主线。Explore 正文约 70–80% 用于建立 thesis 与机制，反证和证伪条件集中在一个段落。
 - 每条都要提供完整中文稿和英文稿，专有名词保持原文。
-- 本批最多 ${maxFeedStoriesPerRun} 篇；如果多个条目属于同一事件，应优先聚类而不是截断。
+- Dynamic 与 Explore 使用彼此独立的编辑席位。Dynamic 最多 ${maxDynamicStoriesPerRun} 篇；Explore 最多 ${maxExploreStoriesPerRun} 篇。Dynamic 不得挤占 Explore 席位，Explore 也不得为了凑数降低门槛。
+- Explore lane 每 12 小时独立到期。只要 requested lanes 中包含 explore，就必须单独评估 lane=explore 的候选，并在确有合格 thesis 时优先返回 1–${maxExploreStoriesPerRun} 篇；不得因为同批存在更明确的 Dynamic 事件而跳过 Explore 判断。
 
 现有新闻标题，用于避免把完全相同的内容重复成稿：
 ${existingTitles}
@@ -1904,19 +1907,7 @@ export function hydrateFeedStories({
   softQuality = false,
   qualityWarnings = [],
 }) {
-  const events = Array.isArray(raw?.feedStories)
-    ? [...raw.feedStories]
-        .sort(
-          (left, right) =>
-            (Number(right?.valueScore) ||
-              Number(right?.signal?.score) ||
-              0) -
-            (Number(left?.valueScore) ||
-              Number(left?.signal?.score) ||
-              0),
-        )
-        .slice(0, maxFeedStoriesPerRun)
-    : [];
+  const events = selectFeedStoriesForPublication(raw?.feedStories);
   const itemMap = new Map(candidates.map((item) => [item.ref, item]));
   const existingTitles = new Set(
     radar.signals.map((signal) => normalizeTitle(signal.title)),
@@ -2084,6 +2075,25 @@ export function hydrateFeedStories({
     existingTitles.add(titleKey);
   }
   return hydrated;
+}
+
+export function selectFeedStoriesForPublication(stories = []) {
+  const score = (story) =>
+    Number(story?.valueScore) || Number(story?.signal?.score) || 0;
+  const ranked = Array.isArray(stories)
+    ? [...stories].sort((left, right) => score(right) - score(left))
+    : [];
+  return [
+    ...ranked
+      .filter((story) => story?.bucket === "dynamic")
+      .slice(0, maxDynamicStoriesPerRun),
+    ...ranked
+      .filter((story) => story?.bucket === "explore")
+      .slice(0, maxExploreStoriesPerRun),
+    ...ranked.filter(
+      (story) => !["dynamic", "explore"].includes(story?.bucket),
+    ),
+  ].sort((left, right) => score(right) - score(left));
 }
 
 export function hydrateExistingUpdates({
@@ -2898,6 +2908,12 @@ async function main() {
     editorialResearchRequestCount: editorialResearch.attempts,
     editorialResearchEvidenceCount: editorialResearch.candidates.length,
     feedStoryCount: hydratedStories.length,
+    dynamicStoryCount: hydratedStories.filter(
+      (event) => event.signal.editorialBucket === "dynamic",
+    ).length,
+    exploreStoryCount: hydratedStories.filter(
+      (event) => event.signal.editorialBucket === "explore",
+    ).length,
     updatedStoryCount: hydratedUpdates.length,
     conversationCount: hydratedConversations.length,
     includedItemCount: coverage.storyItemCount,

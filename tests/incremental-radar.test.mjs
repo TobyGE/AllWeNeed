@@ -24,6 +24,7 @@ import {
   qualifiesExploreMateriality,
   qualifiesOfficialFrontierLabDynamic,
   selectEditorialResearchItems,
+  selectFeedStoriesForPublication,
   selectIncrementalItems,
   validateConversationCoverage,
   validateEditorialResearchCoverage,
@@ -816,6 +817,33 @@ test("keeps Explore as a scarce editorial layer with an 80-point hard floor", ()
       valueScore: 84,
     }),
     true,
+  );
+});
+
+test("reserves up to three Explore slots independently from Dynamic", () => {
+  const stories = [
+    ...Array.from({ length: 24 }, (_, index) => ({
+      bucket: "dynamic",
+      valueScore: 99 - index,
+      signal: { title: `Dynamic ${index}` },
+    })),
+    ...Array.from({ length: 5 }, (_, index) => ({
+      bucket: "explore",
+      valueScore: 90 - index,
+      signal: { title: `Explore ${index}` },
+    })),
+  ];
+
+  const selected = selectFeedStoriesForPublication(stories);
+  assert.equal(
+    selected.filter((story) => story.bucket === "dynamic").length,
+    24,
+  );
+  assert.deepEqual(
+    selected
+      .filter((story) => story.bucket === "explore")
+      .map((story) => story.signal.title),
+    ["Explore 0", "Explore 1", "Explore 2"],
   );
 });
 
