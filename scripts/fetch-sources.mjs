@@ -734,6 +734,7 @@ export function parseSitemapXml(xml, source, feedUrl) {
     .flatMap((block) => {
       const url = absoluteUrl(tagValue(block, ["loc"]), feedUrl);
       if (!url || !matchesConfiguredPath(url, source)) return [];
+      const modifiedAt = normalizeDate(tagValue(block, ["lastmod"]));
       return [
         {
           id: `${source.id}-${url}`,
@@ -743,7 +744,13 @@ export function parseSitemapXml(xml, source, feedUrl) {
           sourceKind: getSourceKind(source.url),
           title: titleFromUrl(url),
           url,
-          publishedAt: normalizeDate(tagValue(block, ["lastmod"])),
+          // A sitemap's <lastmod> is the page modification time, not its
+          // publication time. Treating it as publishedAt can make an old
+          // article look like breaking news whenever the publisher rebuilds
+          // or edits the page. Page enrichment is responsible for finding an
+          // explicit publication date.
+          publishedAt: null,
+          modifiedAt,
           summary: "",
           fetchedAt: checkedAt,
         },
@@ -751,8 +758,8 @@ export function parseSitemapXml(xml, source, feedUrl) {
     })
     .sort(
       (left, right) =>
-        Date.parse(right.publishedAt ?? "") -
-        Date.parse(left.publishedAt ?? ""),
+        Date.parse(right.modifiedAt ?? "") -
+        Date.parse(left.modifiedAt ?? ""),
     )
     .slice(0, itemsPerSource);
 }
@@ -986,7 +993,21 @@ export function extractFedReleaseSummary(html) {
   return contentBlocks.sort((left, right) => right.length - left.length)[0] ?? "";
 }
 
-function extractPageMetadata(html) {
+function embeddedJsonDate(html, names) {
+  for (const name of names) {
+    const escapedName = name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const match = html.match(
+      new RegExp(
+        `\\\\?["']${escapedName}\\\\?["']\\s*:\\s*\\\\?["']([^"'\\\\]+)`,
+        "i",
+      ),
+    );
+    if (match?.[1]) return match[1];
+  }
+  return "";
+}
+
+export function extractPageMetadata(html) {
   const metaTags = [...html.matchAll(/<meta\b[^>]*>/gi)].map(
     (match) => match[0],
   );
@@ -1007,8 +1028,13 @@ function extractPageMetadata(html) {
     meta.get("twitter:description") ??
     "";
   const jsonDate =
-    html.match(/["']datePublished["']\s*:\s*["']([^"']+)["']/i)?.[1] ??
-    html.match(/<time\b[^>]*\bdatetime=["']([^"']+)["']/i)?.[1] ??
+    embeddedJsonDate(html, [
+      "datePublished",
+      "publishedOn",
+      "publishedAt",
+      "publishDate",
+    ]) ||
+    html.match(/<time\b[^>]*\bdatetime=["']([^"']+)["']/i)?.[1] ||
     "";
   const publishedAt = normalizeDate(
     meta.get("article:published_time") ??
@@ -1019,6 +1045,12 @@ function extractPageMetadata(html) {
   return { title, summary, publishedAt };
 }
 
+export function shouldReuseHtmlListingCache(cached, source) {
+  if (!cached?.title || !cached?.summary) return false;
+  if (source.feedFormat !== "sitemap-xml") return true;
+  return cached.publishedAtSource === "page-metadata";
+}
+
 async function enrichHtmlListingItems(items, source) {
   const cachedByUrl = new Map(
     (previousItems.get(source.id) ?? []).map((item) => [item.url, item]),
@@ -1026,7 +1058,7 @@ async function enrichHtmlListingItems(items, source) {
   return Promise.all(
     items.map(async (item) => {
       const cached = cachedByUrl.get(item.url);
-      if (cached?.title && cached?.summary) {
+      if (shouldReuseHtmlListingCache(cached, source)) {
         return { ...cached, fetchedAt: checkedAt };
       }
       try {
@@ -1044,6 +1076,9 @@ async function enrichHtmlListingItems(items, source) {
             1_200,
           ),
           publishedAt: metadata.publishedAt ?? item.publishedAt,
+          ...(metadata.publishedAt
+            ? { publishedAtSource: "page-metadata" }
+            : {}),
         };
       } catch {
         return item;
