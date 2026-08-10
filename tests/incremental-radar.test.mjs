@@ -295,6 +295,53 @@ test("reserves a separate candidate lane for new conversations", () => {
   );
 });
 
+test("prioritizes six evidence-rich conversations over empty YouTube entries", () => {
+  const rich = Array.from({ length: 6 }, (_, index) => ({
+    sourceId: 300 + index,
+    url: `https://example.com/podcast/rich-${index}`,
+    title: `Evidence-rich conversation ${index}`,
+    summary: "Detailed public shownotes with guest attribution and a timeline. ".repeat(
+      8,
+    ),
+    sourceName: `Podcast ${index}`,
+    sourceKind: "Podcast",
+    conversationSource: true,
+    durationMinutes: 60,
+    publishedAt: "2026-07-31T13:30:00.000Z",
+    firstSeenAt: "2026-07-31T13:40:00.000Z",
+  }));
+  const empty = Array.from({ length: 2 }, (_, index) => ({
+    sourceId: 400 + index,
+    url: `https://youtube.com/watch?v=empty-${index}`,
+    title: `Newer empty video ${index}`,
+    summary: "",
+    sourceName: `Video ${index}`,
+    sourceKind: "YouTube",
+    conversationSource: true,
+    publishedAt: "2026-07-31T13:50:00.000Z",
+    firstSeenAt: "2026-07-31T13:55:00.000Z",
+  }));
+  const all = [...empty, ...rich];
+  const selected = selectIncrementalItems({
+    scannedSnapshot: {
+      generatedAt: "2026-07-31T14:00:00.000Z",
+      items: all,
+    },
+    previousSnapshot: {
+      generatedAt: "2026-07-31T13:00:00.000Z",
+      items: [],
+    },
+    state: {
+      lastScanAt: "2026-07-31T13:00:00.000Z",
+      windowStartAt: "2026-07-31T13:00:00.000Z",
+      initializedSourceIds: all.map((item) => String(item.sourceId)),
+      processedKeys: [],
+    },
+  });
+  assert.equal(selected.length, 6);
+  assert.equal(selected.every((item) => item.summary.length > 300), true);
+});
+
 test("accounts for every new conversation and hydrates a bilingual briefing", () => {
   const candidates = [
     {

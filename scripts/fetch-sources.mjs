@@ -418,6 +418,16 @@ function absoluteUrl(value, baseUrl) {
   }
 }
 
+function publicHttpUrl(value, baseUrl) {
+  const url = absoluteUrl(value, baseUrl);
+  if (!url) return null;
+  try {
+    return ["http:", "https:"].includes(new URL(url).protocol) ? url : null;
+  } catch {
+    return null;
+  }
+}
+
 function matchesConfiguredLanguage(title, source) {
   if (source.feedLanguage !== "en") return true;
   const letters = title.match(/\p{L}/gu) ?? [];
@@ -453,10 +463,15 @@ export function parseFeed(xml, source, feedUrl) {
 
   return blocks.flatMap((block, index) => {
     const title = cleanText(tagValue(block, ["title"]));
-    const rssLink = tagValue(block, ["link", "guid"]);
+    const rssLink = tagValue(block, ["link"]);
+    const guid = tagValue(block, ["guid"]);
     const atomLink =
       block.match(/<link[^>]+href=["']([^"']+)["'][^>]*>/i)?.[1] ?? "";
-    const url = absoluteUrl(atomLink || rssLink, feedUrl);
+    const enclosureLink =
+      block.match(/<enclosure[^>]+url=["']([^"']+)["'][^>]*>/i)?.[1] ?? "";
+    const url = [atomLink, rssLink, guid, enclosureLink]
+      .map((value) => publicHttpUrl(value, feedUrl))
+      .find(Boolean);
     if (
       !title ||
       !url ||
@@ -1124,6 +1139,114 @@ function extractYouTubeInitialData(html) {
     }
   }
   return null;
+}
+
+function extractAssignedJson(html, markers) {
+  for (const marker of markers) {
+    const assignmentStart = html.indexOf(marker);
+    if (assignmentStart < 0) continue;
+    const jsonStart = html.indexOf("{", assignmentStart + marker.length);
+    if (jsonStart < 0) continue;
+    let depth = 0;
+    let inString = false;
+    let escaped = false;
+    for (let index = jsonStart; index < html.length; index += 1) {
+      const character = html[index];
+      if (inString) {
+        if (escaped) escaped = false;
+        else if (character === "\\") escaped = true;
+        else if (character === '"') inString = false;
+        continue;
+      }
+      if (character === '"') {
+        inString = true;
+        continue;
+      }
+      if (character === "{") depth += 1;
+      if (character !== "}") continue;
+      depth -= 1;
+      if (depth !== 0) continue;
+      try {
+        return JSON.parse(html.slice(jsonStart, index + 1));
+      } catch {
+        break;
+      }
+    }
+  }
+  return null;
+}
+
+export function parseYouTubeWatchMetadata(html) {
+  const player = extractAssignedJson(html, [
+    "var ytInitialPlayerResponse = ",
+    "ytInitialPlayerResponse = ",
+    'window["ytInitialPlayerResponse"] = ',
+  ]);
+  const details = player?.videoDetails ?? {};
+  const microformat = player?.microformat?.playerMicroformatRenderer ?? {};
+  const pageMetadata = extractPageMetadata(html);
+  return {
+    summary: cleanText(details.shortDescription || pageMetadata.summary || ""),
+    durationMinutes: durationMinutes(details.lengthSeconds ?? ""),
+    publishedAt: normalizeDate(
+      microformat.publishDate ??
+        microformat.uploadDate ??
+        pageMetadata.publishedAt,
+    ),
+  };
+}
+
+async function enrichConversationYouTubeItems(items, source) {
+  if (!source.conversationSource) return items;
+  const cachedByUrl = new Map(
+    (previousItems.get(source.id) ?? []).map((item) => [item.url, item]),
+  );
+  const targets = items
+    .filter(
+      (item) =>
+        /(?:youtube\.com\/watch|youtu\.be\/)/i.test(item.url ?? "") &&
+        ((item.summary ?? "").length < 160 || !item.durationMinutes),
+    )
+    .slice(0, 6);
+  const enrichedByUrl = new Map(
+    await Promise.all(
+      targets.map(async (item) => {
+        const cached = cachedByUrl.get(item.url);
+        if ((cached?.summary ?? "").length >= 160) {
+          return [
+            item.url,
+            {
+              summary: cached.summary,
+              durationMinutes:
+                cached.durationMinutes ?? item.durationMinutes ?? null,
+              publishedAt: cached.publishedAt ?? item.publishedAt,
+            },
+          ];
+        }
+        try {
+          const page = await fetchText(item.url, 12_000);
+          return [item.url, parseYouTubeWatchMetadata(page.text)];
+        } catch {
+          return [item.url, null];
+        }
+      }),
+    ),
+  );
+  return items.map((item) => {
+    const metadata = enrichedByUrl.get(item.url);
+    if (!metadata) return item;
+    return {
+      ...item,
+      summary: (metadata.summary || item.summary || "").slice(
+        0,
+        source.feedSummaryLimit ?? 8_000,
+      ),
+      ...(metadata.durationMinutes
+        ? { durationMinutes: metadata.durationMinutes }
+        : {}),
+      publishedAt: metadata.publishedAt ?? item.publishedAt,
+    };
+  });
 }
 
 function parseYouTubePage(html, source) {
@@ -1891,13 +2014,16 @@ async function fetchFeedSource(source) {
             };
           }
           const configuredFormat = Boolean(source.feedFormat);
-          const items = await enrichOfficialFeedItems(
-            parseConfiguredFeed(
-              result.text,
+          const items = await enrichConversationYouTubeItems(
+            await enrichOfficialFeedItems(
+              parseConfiguredFeed(
+                result.text,
+                source,
+                result.finalUrl,
+              ),
+              kind,
               source,
-              result.finalUrl,
             ),
-            kind,
             source,
           );
           if (
@@ -1964,7 +2090,10 @@ async function fetchFeedSource(source) {
       kind === "YouTube" ? 25_000 : 10_000,
     );
     if (kind === "YouTube") {
-      const items = parseYouTubePage(homepage.text, source);
+      const items = await enrichConversationYouTubeItems(
+        parseYouTubePage(homepage.text, source),
+        source,
+      );
       if (items.length) {
         return {
           items,

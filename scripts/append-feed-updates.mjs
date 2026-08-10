@@ -52,7 +52,7 @@ const maxConversationItems = Math.max(
   1,
   Math.min(
     6,
-    Number(process.env.SIGNAL_RADAR_CONVERSATION_BATCH_SIZE ?? 3) || 3,
+    Number(process.env.SIGNAL_RADAR_CONVERSATION_BATCH_SIZE ?? 6) || 6,
   ),
 );
 const maxFeedStoriesPerRun = 24;
@@ -308,6 +308,15 @@ export function rankIncrementalItems(options) {
   return auditIncrementalItems(options).eligible;
 }
 
+export function conversationCandidateCompleteness(item) {
+  const summaryLength = cleanText(item?.summary ?? "").length;
+  return (
+    Math.min(summaryLength, 2_000) +
+    (Number(item?.durationMinutes) >= 20 ? 500 : 0) +
+    (item?.sourceKind === "Podcast" ? 200 : 0)
+  );
+}
+
 export function selectIncrementalItems({
   scannedSnapshot,
   previousSnapshot,
@@ -329,6 +338,13 @@ export function selectIncrementalItems({
       .slice(0, maxCandidateItems),
     ...ranked
       .filter((item) => item.conversationSource)
+      .sort(
+        (left, right) =>
+          conversationCandidateCompleteness(right) -
+            conversationCandidateCompleteness(left) ||
+          incrementalRelevance(right, snapshotTime) -
+            incrementalRelevance(left, snapshotTime),
+      )
       .slice(0, maxConversationItems),
   ].sort(
     (left, right) =>

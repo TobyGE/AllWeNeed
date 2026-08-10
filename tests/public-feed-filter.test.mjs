@@ -2,7 +2,10 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import { sourceCatalog } from "../app/source-catalog.ts";
-import { parseFeed } from "../scripts/fetch-sources.mjs";
+import {
+  parseFeed,
+  parseYouTubeWatchMetadata,
+} from "../scripts/fetch-sources.mjs";
 
 test("filters a company-wide RSS feed to configured AI paths", () => {
   const source = {
@@ -94,6 +97,86 @@ test("drops YouTube Shorts without hiding the following full episode", () => {
   );
   assert.equal(items.length, 1);
   assert.equal(items[0].title, "The complete interview");
+});
+
+test("extracts public descriptions and duration from a YouTube conversation page", () => {
+  const html = `
+    <html><head><meta name="description" content="Short fallback"></head>
+    <script>var ytInitialPlayerResponse = ${JSON.stringify({
+      videoDetails: {
+        shortDescription:
+          "A detailed public interview description with guests, topics, and a full timeline.",
+        lengthSeconds: "6386",
+      },
+      microformat: {
+        playerMicroformatRenderer: { publishDate: "2026-08-04" },
+      },
+    })};</script>
+  `;
+  const metadata = parseYouTubeWatchMetadata(html);
+  assert.match(metadata.summary, /detailed public interview description/);
+  assert.equal(metadata.durationMinutes, 106);
+  assert.equal(metadata.publishedAt, "2026-08-04T00:00:00.000Z");
+});
+
+test("falls back to a public enclosure when a podcast GUID is not a URL", () => {
+  const source = {
+    id: 224,
+    name: "The Diary Of A CEO",
+    url: "https://www.youtube.com/channel/UCGq-a57w-aPwyi3pW7XLiHw",
+    conversationSource: true,
+  };
+  const xml = `
+    <rss><channel><item>
+      <title>A complete interview</title>
+      <guid>flightcast:01K2EXAMPLE</guid>
+      <pubDate>Sat, 08 Aug 2026 10:00:00 +0000</pubDate>
+      <description>Full official shownotes and guest details.</description>
+      <itunes:duration>5400</itunes:duration>
+      <enclosure url="https://episode.flightcast.com/01K2EXAMPLE.mp3" type="audio/mpeg" />
+    </item></channel></rss>
+  `;
+
+  const items = parseFeed(xml, source, "https://rss2.flightcast.com/show");
+  assert.equal(items.length, 1);
+  assert.equal(
+    items[0].url,
+    "https://episode.flightcast.com/01K2EXAMPLE.mp3",
+  );
+  assert.equal(items[0].durationMinutes, 90);
+});
+
+test("core conversation sources prefer official podcast RSS with full shownotes", () => {
+  const expectedFeeds = new Map([
+    ["Lex Fridman Podcast", "https://lexfridman.com/feed/podcast/"],
+    ["Decoder", "https://feeds.megaphone.fm/recodedecode"],
+    [
+      "All-In Podcast",
+      "https://rss.libsyn.com/shows/254861/destinations/1928300.xml",
+    ],
+    ["Lenny's Podcast", "https://api.substack.com/feed/podcast/10845.rss"],
+    [
+      "This Week in Startups",
+      "https://rss.libsyn.com/shows/624860/destinations/5500155.xml",
+    ],
+    ["Acquired", "https://feeds.transistor.fm/acquired"],
+    [
+      "The Twenty Minute VC (20VC)",
+      "https://rss.libsyn.com/shows/61840/destinations/240976.xml",
+    ],
+    ["No Priors", "https://feeds.megaphone.fm/nopriors"],
+    ["Dwarkesh Podcast", "https://apple.dwarkesh-podcast.workers.dev/feed.rss"],
+    ["Latent Space", "https://api.substack.com/feed/podcast/1084089.rss"],
+    ["Cognitive Revolution", "https://feeds.megaphone.fm/RINTP3108857801"],
+    ["硅谷101播客", "https://feeds.fireside.fm/sv101/rss"],
+    ["The Diary Of A CEO", "https://rss2.flightcast.com/xmsftuzjjykcmqwolaqn6mdn"],
+  ]);
+  for (const [name, feedUrl] of expectedFeeds) {
+    const source = sourceCatalog.find((item) => item.name === name);
+    assert.equal(source?.feedUrl, feedUrl, `${name} uses its official RSS`);
+    assert.equal(source?.feedSummaryLimit, 8_000);
+    assert.equal(source?.conversationSource, true);
+  }
 });
 
 test("keeps aggregators private and removes Product Hunt from collection", () => {
