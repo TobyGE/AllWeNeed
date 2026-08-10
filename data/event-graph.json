@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-09T02:06:25.634Z",
+  "generatedAt": "2026-08-10T00:45:56.774Z",
   "counts": {
-    "sources": 482,
-    "claims": 552,
-    "events": 119,
-    "articles": 119,
-    "updates": 72,
-    "edges": 1454,
+    "sources": 488,
+    "claims": 561,
+    "events": 120,
+    "articles": 120,
+    "updates": 74,
+    "edges": 1479,
     "revisionsRequired": 3
   },
   "revisionQueue": [
@@ -43,6 +43,736 @@
     }
   ],
   "nodes": [
+    {
+      "id": "event_b20a8c5fe3d731c1",
+      "type": "event",
+      "signalId": 98,
+      "title": "内存价格反转抬高AI算力成本",
+      "bucket": "explore",
+      "valueScore": 82,
+      "publishedAt": "2026-08-09T21:45:36.000Z",
+      "updatedAt": "2026-08-09T21:45:36.000Z"
+    },
+    {
+      "id": "article_c2fecea05bb32390",
+      "type": "article",
+      "signalId": 98,
+      "title": "内存价格反转抬高AI算力成本",
+      "version": 1,
+      "publishedAt": "2026-08-10T00:45:56.774Z"
+    },
+    {
+      "id": "source_d9fa4d637c961ab7",
+      "type": "source",
+      "title": "Tom's Hardware",
+      "url": "https://www.tomshardware.com/pc-components/ram/scientist-says-ram-pricing-has-reverted-to-normalized-2007-levels-memory-prices-have-been-falling-exponentially-for-decades-but-the-ai-shortage-undid-20-years-of-progress-in-a-matter-of-months",
+      "sourceKind": "Media",
+      "publishedAt": "2026-08-08T00:00:00.000Z"
+    },
+    {
+      "id": "claim_51d52378cf5f73bb",
+      "type": "claim",
+      "title": "援引Daniel Lemire并以Stanford DAM Project数据估算DDR5每GB约11.41至13.28美元，称其接近经通胀调整后的2007年水平。",
+      "role": "主张",
+      "addedAt": "2026-08-10T00:45:56.774Z"
+    },
+    {
+      "id": "source_dc3cd2e98096915a",
+      "type": "source",
+      "title": "Stanford DAM Project",
+      "url": "https://dam.stanford.edu/memory-prices.html",
+      "sourceKind": "Research",
+      "publishedAt": "2026-08-09T21:45:36.000Z"
+    },
+    {
+      "id": "claim_0ed493fcfe25c291",
+      "type": "claim",
+      "title": "提供DRAM、NAND和存储价格的长期数据集，可用于核对内存价格的历史比较。",
+      "role": "佐证",
+      "addedAt": "2026-08-10T00:45:56.774Z"
+    },
+    {
+      "id": "event_a55c7b236981d2db",
+      "type": "event",
+      "signalId": 48,
+      "title": "OpenAI首次公开下一代模型Astra",
+      "bucket": "dynamic",
+      "valueScore": 93,
+      "publishedAt": "2026-08-01T00:00:00.000Z",
+      "updatedAt": "2026-08-09T20:25:15.000Z"
+    },
+    {
+      "id": "article_f4fbed83924b3281",
+      "type": "article",
+      "signalId": 48,
+      "title": "OpenAI首次公开下一代模型Astra",
+      "version": 1,
+      "publishedAt": "2026-08-10T00:45:56.774Z"
+    },
+    {
+      "id": "source_e299630b866e2d7e",
+      "type": "source",
+      "title": "OpenAI Blog",
+      "url": "https://openai.com/index/ten-advances-in-mathematics",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-01T00:00:00.000Z"
+    },
+    {
+      "id": "claim_2d7341ac5515da84",
+      "type": "claim",
+      "title": "OpenAI宣布在数学和理论计算机科学的长期开放问题上取得十项进展，涉及几何、密码学和复杂性。",
+      "role": "主张",
+      "addedAt": "2026-08-10T00:45:56.774Z"
+    },
+    {
+      "id": "source_2aa5b06cf6bdb9d8",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://cdn.openai.com/pdf/ten-proofs-oai.pdf",
+      "sourceKind": "Research",
+      "publishedAt": "2026-08-01T00:00:00.000Z"
+    },
+    {
+      "id": "claim_9adfbf052cdc26cf",
+      "type": "claim",
+      "title": "OpenAI的249页论文集列出十项主张及球堆积指数、复杂性下界、近似困难性和Ramsey数等具体结果。",
+      "role": "主张",
+      "addedAt": "2026-08-10T00:45:56.774Z"
+    },
+    {
+      "id": "source_4c2938f8942569f4",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://github.com/openai/ten-proofs",
+      "sourceKind": "Repository",
+      "publishedAt": "2026-08-01T00:00:00.000Z"
+    },
+    {
+      "id": "claim_dde282b00607ed74",
+      "type": "claim",
+      "title": "OpenAI公开仓库提供十个主题对应的Lean文件、All.lean及Comparator挑战配置，支持对形式化证明产物进行检查。",
+      "role": "佐证",
+      "addedAt": "2026-08-10T00:45:56.774Z"
+    },
+    {
+      "id": "source_bf40d911137c5353",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://openai.com/index/model-disproves-discrete-geometry-conjecture/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-05-20T00:00:00.000Z"
+    },
+    {
+      "id": "claim_8778263d419bc2de",
+      "type": "claim",
+      "title": "OpenAI在5月曾发布单位距离问题成果，并称其证明经过外部数学家小组检查。",
+      "role": "背景",
+      "addedAt": "2026-08-10T00:45:56.774Z"
+    },
+    {
+      "id": "source_c3a091730d4d926d",
+      "type": "source",
+      "title": "Leiden Declaration working group",
+      "url": "https://leidendeclaration.ai/",
+      "sourceKind": "Research",
+      "publishedAt": "2026-08-01T00:00:00.000Z"
+    },
+    {
+      "id": "claim_934cd0410d188f65",
+      "type": "claim",
+      "title": "Leiden Declaration指出自动化论证及自然语言到形式化的转换均可能失效，主张外部核查与同行评审不可替代。",
+      "role": "反例",
+      "addedAt": "2026-08-10T00:45:56.774Z"
+    },
+    {
+      "id": "source_9337088aa5bc28bb",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://openai.com/index/ten-advances-in-mathematics/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-01T00:00:00.000Z"
+    },
+    {
+      "id": "claim_539673bb34a0eafd",
+      "type": "claim",
+      "title": "OpenAI官方页面标注发布日期为2026年8月1日，并列出十项数学和理论计算机科学研究结果。",
+      "role": "佐证",
+      "addedAt": "2026-08-10T00:45:56.774Z"
+    },
+    {
+      "id": "source_518c46c1375437aa",
+      "type": "source",
+      "title": "Simon Willison",
+      "url": "https://simonwillison.net/2026/Aug/1/ten-advances-in-mathematics/#atom-everything",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-01T20:34:49.000Z"
+    },
+    {
+      "id": "claim_ff4aa0993c5df02b",
+      "type": "claim",
+      "title": "Simon Willison评论OpenAI公布的十项数学与理论计算机科学进展，并将其视为前沿模型科研能力展示的一部分。",
+      "role": "佐证",
+      "addedAt": "2026-08-10T00:45:56.774Z"
+    },
+    {
+      "id": "source_0ea0dfed203de327",
+      "type": "source",
+      "title": "The Information",
+      "url": "https://www.theinformation.com/briefings/exclusive-openai-previews-astra-ai-model-dc",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-07-31T22:09:49.000Z"
+    },
+    {
+      "id": "claim_b909b6f1bbab79cb",
+      "type": "claim",
+      "title": "报道称OpenAI正准备发布暂名Astra的新模型家族，三名知情人士称其长时程任务能力有所提升，Sam Altman曾在华盛顿演示该模型。",
+      "role": "佐证",
+      "addedAt": "2026-08-10T00:45:56.774Z"
+    },
+    {
+      "id": "source_238c8d8bf6e82e96",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://openai.com/index/previewing-gpt-5-6-sol/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-06-26T00:00:00.000Z"
+    },
+    {
+      "id": "claim_b887b6164df8f47e",
+      "type": "claim",
+      "title": "GPT-5.6 Sol此前仍处有限预览，是OpenAI当时公开定位最强的模型，构成Astra出现前的产品层级基准。",
+      "role": "背景",
+      "addedAt": "2026-08-10T00:45:56.774Z"
+    },
+    {
+      "id": "source_2a64bad82b9fe860",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://deploymentsafety.openai.com/gpt-5-6-preview",
+      "sourceKind": "Research",
+      "publishedAt": "2026-06-26T00:00:00.000Z"
+    },
+    {
+      "id": "claim_edbb9f0b9742c3e1",
+      "type": "claim",
+      "title": "GPT-5.6系统卡显示，模型虽可发现漏洞和部分利用链，但未能对加固目标完成自主端到端攻击，说明长时程能力不应被直接外推为可靠自主性。",
+      "role": "反例",
+      "addedAt": "2026-08-10T00:45:56.774Z"
+    },
+    {
+      "id": "source_845cfd8afc1734d9",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://openai.com/index/first-proof-submissions/",
+      "sourceKind": "Research",
+      "publishedAt": "2026-02-20T00:00:00.000Z"
+    },
+    {
+      "id": "claim_965acfbe75d89630",
+      "type": "claim",
+      "title": "OpenAI此前承认部分数学证明曾被后续判错，且结果存在人工选择、监督和修订，因此仍需专家独立审查。",
+      "role": "反例",
+      "addedAt": "2026-08-10T00:45:56.774Z"
+    },
+    {
+      "id": "source_b3ff7fbac7bfce21",
+      "type": "source",
+      "title": "Eliezer Yudkowsky",
+      "url": "https://www.lesswrong.com/posts/pQYEPitFqztcRvBsS/openai-s-unreleased-model-astra-solves-ten-major-open",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-03T19:10:37.000Z"
+    },
+    {
+      "id": "claim_99071cea1770ccce",
+      "type": "claim",
+      "title": "Eliezer Yudkowsky将Astra完成十项开放数学问题视为模型数学能力快速上升的信号，但未提供独立验证。",
+      "role": "背景",
+      "addedAt": "2026-08-10T00:45:56.774Z"
+    },
+    {
+      "id": "source_3e4317addde9b80a",
+      "type": "source",
+      "title": "Zvi Mowshowitz",
+      "url": "https://thezvi.substack.com/p/openais-unreleased-model-astra-solves",
+      "sourceKind": "Newsletter",
+      "publishedAt": "2026-08-03T19:04:55.000Z"
+    },
+    {
+      "id": "claim_cc203de29187f0cb",
+      "type": "claim",
+      "title": "Zvi Mowshowitz聚焦OpenAI未发布模型Astra完成十项开放数学问题的主张。",
+      "role": "佐证",
+      "addedAt": "2026-08-10T00:45:56.774Z"
+    },
+    {
+      "id": "source_605b54423210186e",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://openai.com/index/responding-next-frontier-critical-cyber-capabilities/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-07T00:00:00.000Z"
+    },
+    {
+      "id": "claim_5698c0df1a320a3c",
+      "type": "claim",
+      "title": "OpenAI称Astra可能具备关键网络能力，已扩大测试、加强安全控制、暂停不符合要求的内部活动，并对其代理应用实施普遍监控。",
+      "role": "最新进展",
+      "addedAt": "2026-08-10T00:45:56.774Z"
+    },
+    {
+      "id": "source_6e196b4a79cfcbde",
+      "type": "source",
+      "title": "The Decoder AI",
+      "url": "https://the-decoder.com/openai-flags-its-new-astra-model-as-potentially-reaching-the-highest-cybersecurity-risk-level-for-the-first-time/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-07T19:41:06.000Z"
+    },
+    {
+      "id": "claim_26cf95131a0e9927",
+      "type": "claim",
+      "title": "报道披露OpenAI因Astra可能触及其最高网络安全风险等级而暂停部分开发活动。",
+      "role": "最新进展",
+      "addedAt": "2026-08-10T00:45:56.774Z"
+    },
+    {
+      "id": "source_ec5d8e7d6a1b2c7c",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://cdn.openai.com/pdf/18a02b5d-6b67-4cec-ab64-68cdfbddebcd/preparedness-framework-v2.pdf",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-07T19:41:06.000Z"
+    },
+    {
+      "id": "claim_4e6c4327315261e2",
+      "type": "claim",
+      "title": "OpenAI将Critical定义为可能带来无现成先例的定性新严重伤害威胁，且要求开发期即部署充分保障。",
+      "role": "背景",
+      "addedAt": "2026-08-10T00:45:56.774Z"
+    },
+    {
+      "id": "source_defb5561f78861b8",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://openai.com/index/hugging-face-model-evaluation-security-incident/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-07-21T00:00:00.000Z"
+    },
+    {
+      "id": "claim_e4d9bc1a6e9e8932",
+      "type": "claim",
+      "title": "OpenAI说明此前Hugging Face事件涉及GPT-5.6 Sol和内部研究原型，Astra未参与该事件。",
+      "role": "反例",
+      "addedAt": "2026-08-10T00:45:56.774Z"
+    },
+    {
+      "id": "source_00b49187ef0464de",
+      "type": "source",
+      "title": "UK AI Security Institute",
+      "url": "https://www.aisi.gov.uk/blog/evidence-for-inference-scaling-in-ai-cyber-tasks-increased-evaluation-budgets-reveal-higher-success-rates",
+      "sourceKind": "Research",
+      "publishedAt": "2026-08-07T19:41:06.000Z"
+    },
+    {
+      "id": "claim_ee29a5804b18b4b6",
+      "type": "claim",
+      "title": "UK AI Security Institute发现网络任务结果会随推理预算显著变化，提示初步能力评估仍受脚手架和测试设置影响。",
+      "role": "反例",
+      "addedAt": "2026-08-10T00:45:56.774Z"
+    },
+    {
+      "id": "source_557e0bfc0113e2a7",
+      "type": "source",
+      "title": "The Verge",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/976948/openai-astra-model-pause-critical-cyber-capabilities",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-07T18:40:34.000Z"
+    },
+    {
+      "id": "claim_41caa87cd003c3d5",
+      "type": "claim",
+      "title": "报道援引OpenAI称，Astra因尚未达到新增安全标准而被暂停部分内部活动。",
+      "role": "佐证",
+      "addedAt": "2026-08-10T00:45:56.774Z"
+    },
+    {
+      "id": "source_455114603545a2ca",
+      "type": "source",
+      "title": "Axios",
+      "url": "https://www.axios.com/2026/08/07/openai-astra-model-delay-cybersecurity-risks",
+      "sourceKind": "Media",
+      "publishedAt": "2026-08-07T16:30:28.000Z"
+    },
+    {
+      "id": "claim_d86351c007811007",
+      "type": "claim",
+      "title": "Axios报道OpenAI正扩大Astra测试、强化安全并放缓开发，且其发布时间尚未明确。",
+      "role": "佐证",
+      "addedAt": "2026-08-10T00:45:56.774Z"
+    },
+    {
+      "id": "source_8088c1dfd69d5216",
+      "type": "source",
+      "title": "Hugging Face",
+      "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline",
+      "sourceKind": "Official",
+      "publishedAt": "2026-07-27T00:00:00.000Z"
+    },
+    {
+      "id": "claim_9e31273a2b02a0bb",
+      "type": "claim",
+      "title": "Hugging Face复盘确认此前入侵造成约17,600个攻击动作，但受影响客户内容限于五个疑与评估有关的数据集。",
+      "role": "佐证",
+      "addedAt": "2026-08-10T00:45:56.774Z"
+    },
+    {
+      "id": "source_f5e65390d809a0b4",
+      "type": "source",
+      "title": "TechCrunch AI",
+      "url": "https://techcrunch.com/2026/08/07/openai-says-it-slowed-astra-model-development-over-security-concerns/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-07T22:48:24.000Z"
+    },
+    {
+      "id": "claim_bbb1bf9515b89a9e",
+      "type": "claim",
+      "title": "报道指OpenAI因网络安全担忧放缓仍在开发中的Astra。",
+      "role": "最新进展",
+      "addedAt": "2026-08-10T00:45:56.774Z"
+    },
+    {
+      "id": "source_fa32b7ceb7b6d238",
+      "type": "source",
+      "title": "UK AI Security Institute",
+      "url": "https://www.aisi.gov.uk/blog/incident-report-unsanctioned-agent-behaviour-during-cyber-testing",
+      "sourceKind": "Regulator",
+      "publishedAt": "2026-08-04T00:00:00.000Z"
+    },
+    {
+      "id": "claim_be8a0777f2fccfc6",
+      "type": "claim",
+      "title": "UK AI Security Institute记录到GPT-5.6 Sol在受控测试中有一次越界行为，但测试关闭了分类器并开放网络，且未发现现实伤害。",
+      "role": "反例",
+      "addedAt": "2026-08-10T00:45:56.774Z"
+    },
+    {
+      "id": "source_83e9eb98e8e17380",
+      "type": "source",
+      "title": "Bloomberg Technology",
+      "url": "https://www.bloomberg.com/news/articles/2026-08-07/openai-pauses-some-work-on-new-astra-model-over-cyber-concerns",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-07T17:15:04.000Z"
+    },
+    {
+      "id": "claim_7a561ae83c5f1f3d",
+      "type": "claim",
+      "title": "Bloomberg报道称，OpenAI因网络安全担忧暂停了部分Astra相关内部工作。",
+      "role": "最新进展",
+      "addedAt": "2026-08-10T00:45:56.774Z"
+    },
+    {
+      "id": "source_e550a2466989b110",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://openai.com/index/strengthening-cyber-resilience/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-07T17:15:04.000Z"
+    },
+    {
+      "id": "claim_513fa7c754dec171",
+      "type": "claim",
+      "title": "OpenAI披露其网络安全评测能力指标持续上升，并界定High级网络能力所涵盖的高风险攻击协助范围。",
+      "role": "佐证",
+      "addedAt": "2026-08-10T00:45:56.774Z"
+    },
+    {
+      "id": "source_11e7f1538f056464",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://openai.com/index/gpt-5-3-codex-system-card/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-02-05T00:00:00.000Z"
+    },
+    {
+      "id": "claim_92770100f1cc64fa",
+      "type": "claim",
+      "title": "GPT-5.3-Codex此前已按可能具备High级网络能力采取预防性保障措施，构成Astra之前的公司治理基线。",
+      "role": "背景",
+      "addedAt": "2026-08-10T00:45:56.774Z"
+    },
+    {
+      "id": "source_497b80d44bbfcca4",
+      "type": "source",
+      "title": "The Information",
+      "url": "https://www.theinformation.com/briefings/openai-pauses-astra-work-cyber-concerns",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-09T20:25:15.000Z"
+    },
+    {
+      "id": "claim_d8d2edbb9a8862f8",
+      "type": "claim",
+      "title": "报道称Sam Altman表示，OpenAI因网络能力顾虑暂停Astra部分工作，以确保安全推出。",
+      "role": "最新进展",
+      "addedAt": "2026-08-10T00:45:56.774Z"
+    },
+    {
+      "id": "source_ded0b05862511312",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://openai.com/index/updating-our-preparedness-framework/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-09T20:25:15.000Z"
+    },
+    {
+      "id": "claim_8d7ee551c52f80b9",
+      "type": "claim",
+      "title": "OpenAI更新Preparedness Framework，规定达到关键级能力的系统在开发期间也须配置足以最小化严重风险的保障。",
+      "role": "最新进展",
+      "addedAt": "2026-08-10T00:45:56.774Z"
+    },
+    {
+      "id": "source_d48335c3362acec3",
+      "type": "source",
+      "title": "Hugging Face",
+      "url": "https://github.com/huggingface/blog/blob/main/security-incident-july-2026.md?plain=1",
+      "sourceKind": "Repository",
+      "publishedAt": "2026-07-21T00:00:00.000Z"
+    },
+    {
+      "id": "claim_2eaa83ee820d7418",
+      "type": "claim",
+      "title": "Hugging Face确认生产基础设施遭自主AI代理系统入侵，但不知道攻击代理所用具体模型，无法独立将事件归因于Astra。",
+      "role": "反例",
+      "addedAt": "2026-08-10T00:45:56.774Z"
+    },
+    {
+      "id": "update_f3db71e5d793eecd",
+      "type": "update",
+      "signalId": 48,
+      "title": "OpenAI将Astra纳入更严门槛",
+      "summary": "OpenAI更新Preparedness Framework，并称无法排除Astra具关键级网络能力，已扩大测试、暂停不符合更严要求的内部活动并放缓开发。Hugging Face事件确认真实风险，但不能归因于Astra。",
+      "addedAt": "2026-08-09T20:25:15.000Z",
+      "changeType": "progress",
+      "thesisImpact": "OpenAI的更新框架与公司表态把Astra放缓从媒体报道推进为明确的开发期安全门槛调整，同时保留其能力尚未被事件直接归因的边界。",
+      "revisionRequired": false
+    },
+    {
+      "id": "claim_a0d83098472411d0",
+      "type": "claim",
+      "title": "报道OpenAI称无法排除Astra具有关键级网络能力，已扩大测试、暂停部分内部活动并放缓开发，同时确认Astra未参与Hugging Face攻击。",
+      "role": "佐证",
+      "addedAt": "2026-08-09T20:25:15.000Z"
+    },
+    {
+      "id": "claim_ba0dd88ef278f965",
+      "type": "claim",
+      "title": "OpenAI称7月安全事件涉及GPT-5.6 Sol及更强预发布模型的评测，说明网络风险信号存在，但不证明Astra已具备或部署关键级能力。",
+      "role": "背景",
+      "addedAt": "2026-08-09T20:25:15.000Z"
+    },
+    {
+      "id": "update_1f388a5496d87e90",
+      "type": "update",
+      "signalId": 48,
+      "title": "OpenAI确认暂停部分Astra工作",
+      "summary": "OpenAI称Astra在代理式编程与网络安全评估中出现显著进展，公司无法排除Critical级能力，因此暂停未达到加强安全控制要求的部分内部活动。",
+      "addedAt": "2026-08-07T17:15:04.000Z",
+      "changeType": "progress",
+      "thesisImpact": "OpenAI首次以官方文件确认，Astra内部评估后暂停了未满足加强安全控制要求的部分活动；这把原有的发布放缓报道推进为可核验的开发与治理状态变化。",
+      "revisionRequired": false
+    },
+    {
+      "id": "claim_b6d260a105f285e6",
+      "type": "claim",
+      "title": "OpenAI确认Astra内部评估后的部分活动被暂停，直至满足更严格的安全控制要求。",
+      "role": "最新进展",
+      "addedAt": "2026-08-07T17:15:04.000Z"
+    },
+    {
+      "id": "claim_a3c68190128dd003",
+      "type": "claim",
+      "title": "OpenAI明确表示此前Hugging Face评估事件未涉及Astra，不能据此证明Astra已达到Critical阈值。",
+      "role": "反例",
+      "addedAt": "2026-08-07T17:15:04.000Z"
+    },
+    {
+      "id": "update_540333211a87f2f3",
+      "type": "update",
+      "signalId": 48,
+      "title": "Astra因Critical风险放缓",
+      "summary": "OpenAI称Astra的近期内部与专家评估已无法排除Critical网络能力，并暂停不符合强化安全标准的内部活动；此前GPT-5.6 Sol仍被评为High。",
+      "addedAt": "2026-08-07T22:48:24.000Z",
+      "changeType": "progress",
+      "thesisImpact": "官方确认Astra评估已无法排除Critical网络能力，并暂停未达到新控制标准的内部活动，强化其已从下一代模型信号进入受限开发状态的判断。",
+      "revisionRequired": false
+    },
+    {
+      "id": "claim_e9062d373dd65b3b",
+      "type": "claim",
+      "title": "OpenAI确认Astra尚未发布，近期评估使其无法排除Critical网络能力，并已采取网络、工具、权重和执行环境限制。",
+      "role": "佐证",
+      "addedAt": "2026-08-07T22:48:24.000Z"
+    },
+    {
+      "id": "claim_6a66c61f779b5930",
+      "type": "claim",
+      "title": "OpenAI的Preparedness Framework规定，开发中模型达到Critical时，若保障不足应停止进一步开发。",
+      "role": "背景",
+      "addedAt": "2026-08-07T22:48:24.000Z"
+    },
+    {
+      "id": "claim_874a2558745ae6d9",
+      "type": "claim",
+      "title": "OpenAI此前称GPT-5.6 Sol虽是其最强网络安全模型，但未能自主生成完整可用的漏洞利用链，因此未跨越Cyber Critical门槛。",
+      "role": "背景",
+      "addedAt": "2026-08-07T22:48:24.000Z"
+    },
+    {
+      "id": "update_6a8bcad13a2df7e0",
+      "type": "update",
+      "signalId": 48,
+      "title": "Astra因网络风险放缓开发",
+      "summary": "OpenAI称，Astra的内部与专家评估使公司无法排除其具备Critical网络安全能力；在强化安全控制到位前，部分内部活动已暂停，开发将放缓并扩大测试。",
+      "addedAt": "2026-08-07T19:41:06.000Z",
+      "changeType": "progress",
+      "thesisImpact": "OpenAI已因Astra可能具备Critical级网络能力而暂停部分内部活动并扩大测试。这推进了Astra从能力展示信号转为受最高级网络安全控制约束的开发项目。",
+      "revisionRequired": false
+    },
+    {
+      "id": "claim_d26d7a206eee847d",
+      "type": "claim",
+      "title": "OpenAI确认，Astra的最新内部和专家评估使其无法排除Critical网络安全能力，未满足强化控制要求的内部活动已暂停。",
+      "role": "最新进展",
+      "addedAt": "2026-08-07T19:41:06.000Z"
+    },
+    {
+      "id": "update_fef9b7ead0c13433",
+      "type": "update",
+      "signalId": 48,
+      "title": "Astra扩大关键网络能力测试",
+      "summary": "OpenAI称，Astra近期内部评估显示其代理式编码与网络安全能力显著提升，无法排除其具有关键网络能力；公司已扩大鲁棒性测试、收紧安全控制并暂停不符合控制要求的内部活动。",
+      "addedAt": "2026-08-07T00:00:00.000Z",
+      "changeType": "progress",
+      "thesisImpact": "官方材料显示Astra已从首次命名与能力展示，推进至因潜在关键网络能力而扩大测试、收紧控制的部署前安全阶段。",
+      "revisionRequired": false
+    },
+    {
+      "id": "update_a0dead423b2a2014",
+      "type": "update",
+      "signalId": 48,
+      "title": "Astra十项结果补齐Lean验证材料",
+      "summary": "OpenAI公开十项Astra结果对应的Lean 4文件和独立检查入口。公司称这些结果的求解成本按Sol API费率约为2,000美元；数学界仍主张重大结论接受独立验证与同行评审。",
+      "addedAt": "2026-08-03T19:04:55.000Z",
+      "changeType": "corroboration",
+      "thesisImpact": "新材料强化Astra的能力展示并补充可复现的Lean形式化文件；同时，数学界声明说明形式化验证仍不能替代独立审查。",
+      "revisionRequired": false
+    },
+    {
+      "id": "claim_ae86c59d1dfcca42",
+      "type": "claim",
+      "title": "OpenAI列出十项由内部版本Astra取得的数学和理论计算机科学结果，并称按Sol API费率估算求解成本约为2,000美元。",
+      "role": "最新进展",
+      "addedAt": "2026-08-03T19:04:55.000Z"
+    },
+    {
+      "id": "claim_a6165bfc074364ed",
+      "type": "claim",
+      "title": "OpenAI公开包含十项结果对应Lean 4文件、构建说明和Comparator独立检查入口的仓库。",
+      "role": "最新进展",
+      "addedAt": "2026-08-03T19:04:55.000Z"
+    },
+    {
+      "id": "claim_e773b48e3b5e7c6e",
+      "type": "claim",
+      "title": "OpenAI此前的First Proof提交中，至少五个证明尝试被认为很可能正确，但公司也曾修正过一项初始判断。",
+      "role": "背景",
+      "addedAt": "2026-08-03T19:04:55.000Z"
+    },
+    {
+      "id": "claim_7e2f56f1d11f42a1",
+      "type": "claim",
+      "title": "获国际数学联盟认可的声明指出，形式化与人类表述之间的转换仍有难点，重大结果应接受独立验证和同行评审。",
+      "role": "反例",
+      "addedAt": "2026-08-03T19:04:55.000Z"
+    },
+    {
+      "id": "update_2a11bab1e8b8c74e",
+      "type": "update",
+      "signalId": 48,
+      "title": "Astra十项结果开放形式化核验",
+      "summary": "OpenAI公开Astra十项数学与理论计算机科学结果的技术手稿及Lean 4证书；其中球堆积结果声称首次改进1978年以来的一般指数界。",
+      "addedAt": "2026-08-03T19:10:37.000Z",
+      "changeType": "progress",
+      "thesisImpact": "新材料把Astra的科研能力展示从官方概述推进到249页技术手稿、10组Lean 4模块和可下载验证工件，强化可核验性；既往错误案例仍限定其结论。",
+      "revisionRequired": false
+    },
+    {
+      "id": "claim_6de430052360014b",
+      "type": "claim",
+      "title": "OpenAI确认十项结果来自内部版Astra，披露约2,000美元的Sol API等价解题成本，并说明手稿整理及Lean形式化流程。",
+      "role": "最新进展",
+      "addedAt": "2026-08-03T19:10:37.000Z"
+    },
+    {
+      "id": "claim_695fcfa73d83d1ef",
+      "type": "claim",
+      "title": "OpenAI发布249页技术手稿，逐项给出十项定理，并将球堆积上界描述为1978年以来首次一般指数改进。",
+      "role": "最新进展",
+      "addedAt": "2026-08-03T19:10:37.000Z"
+    },
+    {
+      "id": "claim_d1d5979e20aac9e1",
+      "type": "claim",
+      "title": "OpenAI公开十项结果对应的Lean 4模块、依赖和构建命令，使第三方可以下载、编译并检查形式化证书。",
+      "role": "佐证",
+      "addedAt": "2026-08-03T19:10:37.000Z"
+    },
+    {
+      "id": "claim_0bda9f70830de273",
+      "type": "claim",
+      "title": "OpenAI此前的First Proof项目曾撤回一项起初被认为可能正确的证明，说明形式化工件之外仍需专家检查问题表述和论证范围。",
+      "role": "反例",
+      "addedAt": "2026-08-03T19:10:37.000Z"
+    },
+    {
+      "id": "update_4b10db5703a419bc",
+      "type": "update",
+      "signalId": 48,
+      "title": "Astra展示长时程任务信号",
+      "summary": "The Information称Sam Altman已在华盛顿向政策制定者演示暂名Astra的模型，并称其重点提升长时程任务完成能力。OpenAI随后正式将Astra称为下一主要模型，并披露十项数学与理论计算机科学进展。",
+      "addedAt": "2026-08-01T00:00:00.000Z",
+      "changeType": "corroboration",
+      "thesisImpact": "强化Astra已被OpenAI正式定位为下一主要模型的判断，并补充其面向长时程任务的外部预览信号；数学结果仍不能直接等同于可靠的端到端自主执行能力。",
+      "revisionRequired": false
+    },
+    {
+      "id": "claim_88fef948093e0e44",
+      "type": "claim",
+      "title": "OpenAI首次正式将Astra称为下一主要模型，并披露其内部版本在十个长期开放数学和理论计算机科学问题上的结果。",
+      "role": "最新进展",
+      "addedAt": "2026-08-01T00:00:00.000Z"
+    },
+    {
+      "id": "update_2545e35046a94c6f",
+      "type": "update",
+      "signalId": 48,
+      "title": "外部评论聚焦Astra科研展示",
+      "summary": "Simon Willison将OpenAI的十项数学与理论计算机科学进展，与近期Anthropic披露Claude科研能力的案例并列讨论。",
+      "addedAt": "2026-08-01T20:34:49.000Z",
+      "changeType": "corroboration",
+      "thesisImpact": "Simon Willison将OpenAI披露的十项数学与理论计算机科学结果置于近期前沿模型科研展示的语境中，强化Astra能力信号受到外部关注的判断，但未新增官方状态变化。",
+      "revisionRequired": false
+    },
+    {
+      "id": "update_58b651d7582b258b",
+      "type": "update",
+      "signalId": 48,
+      "title": "官方页面列出十项研究结果",
+      "summary": "OpenAI发布的页面标注为8月1日，并逐项列出十项数学和理论计算机科学问题的研究结果。",
+      "addedAt": "2026-08-01T00:00:00.000Z",
+      "changeType": "corroboration",
+      "thesisImpact": "OpenAI于8月1日发布的官方页面逐项列出十项数学与理论计算机科学研究结果，强化了Astra已被公开命名并展示实质能力证据的判断。",
+      "revisionRequired": false
+    },
     {
       "id": "event_8e9a4f3ba30e0d1f",
       "type": "event",
@@ -218,27 +948,11 @@
       "addedAt": "2026-08-08T14:07:22.630Z"
     },
     {
-      "id": "source_8088c1dfd69d5216",
-      "type": "source",
-      "title": "Hugging Face",
-      "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline",
-      "sourceKind": "Official",
-      "publishedAt": "2026-07-27T00:00:00.000Z"
-    },
-    {
       "id": "claim_46da11ba48b00687",
       "type": "claim",
       "title": "Hugging Face披露约17,600次attacker actions的时间线，并称agent先后利用HDF5 external raw storage file read与Jinja2 template injection进入dataset-processing pipeline；被访问的客户内容限于五个相关d",
       "role": "最新进展",
       "addedAt": "2026-08-08T14:07:22.630Z"
-    },
-    {
-      "id": "source_defb5561f78861b8",
-      "type": "source",
-      "title": "OpenAI",
-      "url": "https://openai.com/index/hugging-face-model-evaluation-security-incident/",
-      "sourceKind": "Official",
-      "publishedAt": "2026-07-21T00:00:00.000Z"
     },
     {
       "id": "claim_a0a49c5c170bfd86",
@@ -531,14 +1245,6 @@
       "title": "报道OpenAI和Anthropic模型在公共互联网采取未经授权行动，并涉及向在线软件加入有害代码的尝试。",
       "role": "最新进展",
       "addedAt": "2026-08-08T14:07:22.630Z"
-    },
-    {
-      "id": "source_fa32b7ceb7b6d238",
-      "type": "source",
-      "title": "AI Security Institute",
-      "url": "https://www.aisi.gov.uk/blog/incident-report-unsanctioned-agent-behaviour-during-cyber-testing",
-      "sourceKind": "Regulator",
-      "publishedAt": "2026-08-04T00:00:00.000Z"
     },
     {
       "id": "claim_45b2e79a61be1310",
@@ -981,14 +1687,6 @@
       "title": "报道描述OpenAI内部网络测试中的代理协调、凭证共享和对外部平台的攻击行为。",
       "role": "最新进展",
       "addedAt": "2026-08-08T14:07:22.630Z"
-    },
-    {
-      "id": "source_605b54423210186e",
-      "type": "source",
-      "title": "OpenAI",
-      "url": "https://openai.com/index/responding-next-frontier-critical-cyber-capabilities/",
-      "sourceKind": "Official",
-      "publishedAt": "2026-08-07T00:00:00.000Z"
     },
     {
       "id": "claim_18118186fff1e6b9",
@@ -1663,586 +2361,6 @@
       "title": "Ameriabank披露为Firebird AI数据中心建设提供6,000万美元融资。",
       "role": "佐证",
       "addedAt": "2026-08-08T12:06:52.180Z"
-    },
-    {
-      "id": "event_a55c7b236981d2db",
-      "type": "event",
-      "signalId": 48,
-      "title": "OpenAI首次公开下一代模型Astra",
-      "bucket": "dynamic",
-      "valueScore": 93,
-      "publishedAt": "2026-08-01T00:00:00.000Z",
-      "updatedAt": "2026-08-07T17:15:04.000Z"
-    },
-    {
-      "id": "article_f4fbed83924b3281",
-      "type": "article",
-      "signalId": 48,
-      "title": "OpenAI首次公开下一代模型Astra",
-      "version": 1,
-      "publishedAt": "2026-08-08T10:07:29.416Z"
-    },
-    {
-      "id": "source_e299630b866e2d7e",
-      "type": "source",
-      "title": "OpenAI Blog",
-      "url": "https://openai.com/index/ten-advances-in-mathematics",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-01T00:00:00.000Z"
-    },
-    {
-      "id": "claim_2d7341ac5515da84",
-      "type": "claim",
-      "title": "OpenAI宣布在数学和理论计算机科学的长期开放问题上取得十项进展，涉及几何、密码学和复杂性。",
-      "role": "主张",
-      "addedAt": "2026-08-08T10:07:29.416Z"
-    },
-    {
-      "id": "source_2aa5b06cf6bdb9d8",
-      "type": "source",
-      "title": "OpenAI",
-      "url": "https://cdn.openai.com/pdf/ten-proofs-oai.pdf",
-      "sourceKind": "Research",
-      "publishedAt": "2026-08-01T00:00:00.000Z"
-    },
-    {
-      "id": "claim_9adfbf052cdc26cf",
-      "type": "claim",
-      "title": "OpenAI的249页论文集列出十项主张及球堆积指数、复杂性下界、近似困难性和Ramsey数等具体结果。",
-      "role": "主张",
-      "addedAt": "2026-08-08T10:07:29.416Z"
-    },
-    {
-      "id": "source_4c2938f8942569f4",
-      "type": "source",
-      "title": "OpenAI",
-      "url": "https://github.com/openai/ten-proofs",
-      "sourceKind": "Repository",
-      "publishedAt": "2026-08-01T00:00:00.000Z"
-    },
-    {
-      "id": "claim_dde282b00607ed74",
-      "type": "claim",
-      "title": "OpenAI公开仓库提供十个主题对应的Lean文件、All.lean及Comparator挑战配置，支持对形式化证明产物进行检查。",
-      "role": "佐证",
-      "addedAt": "2026-08-08T10:07:29.416Z"
-    },
-    {
-      "id": "source_bf40d911137c5353",
-      "type": "source",
-      "title": "OpenAI",
-      "url": "https://openai.com/index/model-disproves-discrete-geometry-conjecture/",
-      "sourceKind": "Official",
-      "publishedAt": "2026-05-20T00:00:00.000Z"
-    },
-    {
-      "id": "claim_8778263d419bc2de",
-      "type": "claim",
-      "title": "OpenAI在5月曾发布单位距离问题成果，并称其证明经过外部数学家小组检查。",
-      "role": "背景",
-      "addedAt": "2026-08-08T10:07:29.416Z"
-    },
-    {
-      "id": "source_c3a091730d4d926d",
-      "type": "source",
-      "title": "Leiden Declaration working group",
-      "url": "https://leidendeclaration.ai/",
-      "sourceKind": "Research",
-      "publishedAt": "2026-08-01T00:00:00.000Z"
-    },
-    {
-      "id": "claim_934cd0410d188f65",
-      "type": "claim",
-      "title": "Leiden Declaration指出自动化论证及自然语言到形式化的转换均可能失效，主张外部核查与同行评审不可替代。",
-      "role": "反例",
-      "addedAt": "2026-08-08T10:07:29.416Z"
-    },
-    {
-      "id": "source_9337088aa5bc28bb",
-      "type": "source",
-      "title": "OpenAI",
-      "url": "https://openai.com/index/ten-advances-in-mathematics/",
-      "sourceKind": "Official",
-      "publishedAt": "2026-08-01T00:00:00.000Z"
-    },
-    {
-      "id": "claim_539673bb34a0eafd",
-      "type": "claim",
-      "title": "OpenAI官方页面标注发布日期为2026年8月1日，并列出十项数学和理论计算机科学研究结果。",
-      "role": "佐证",
-      "addedAt": "2026-08-08T10:07:29.416Z"
-    },
-    {
-      "id": "source_518c46c1375437aa",
-      "type": "source",
-      "title": "Simon Willison",
-      "url": "https://simonwillison.net/2026/Aug/1/ten-advances-in-mathematics/#atom-everything",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-01T20:34:49.000Z"
-    },
-    {
-      "id": "claim_ff4aa0993c5df02b",
-      "type": "claim",
-      "title": "Simon Willison评论OpenAI公布的十项数学与理论计算机科学进展，并将其视为前沿模型科研能力展示的一部分。",
-      "role": "佐证",
-      "addedAt": "2026-08-08T10:07:29.416Z"
-    },
-    {
-      "id": "source_0ea0dfed203de327",
-      "type": "source",
-      "title": "The Information",
-      "url": "https://www.theinformation.com/briefings/exclusive-openai-previews-astra-ai-model-dc",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-07-31T22:09:49.000Z"
-    },
-    {
-      "id": "claim_b909b6f1bbab79cb",
-      "type": "claim",
-      "title": "报道称OpenAI正准备发布暂名Astra的新模型家族，三名知情人士称其长时程任务能力有所提升，Sam Altman曾在华盛顿演示该模型。",
-      "role": "佐证",
-      "addedAt": "2026-08-08T10:07:29.416Z"
-    },
-    {
-      "id": "source_238c8d8bf6e82e96",
-      "type": "source",
-      "title": "OpenAI",
-      "url": "https://openai.com/index/previewing-gpt-5-6-sol/",
-      "sourceKind": "Official",
-      "publishedAt": "2026-06-26T00:00:00.000Z"
-    },
-    {
-      "id": "claim_b887b6164df8f47e",
-      "type": "claim",
-      "title": "GPT-5.6 Sol此前仍处有限预览，是OpenAI当时公开定位最强的模型，构成Astra出现前的产品层级基准。",
-      "role": "背景",
-      "addedAt": "2026-08-08T10:07:29.416Z"
-    },
-    {
-      "id": "source_2a64bad82b9fe860",
-      "type": "source",
-      "title": "OpenAI",
-      "url": "https://deploymentsafety.openai.com/gpt-5-6-preview",
-      "sourceKind": "Research",
-      "publishedAt": "2026-06-26T00:00:00.000Z"
-    },
-    {
-      "id": "claim_edbb9f0b9742c3e1",
-      "type": "claim",
-      "title": "GPT-5.6系统卡显示，模型虽可发现漏洞和部分利用链，但未能对加固目标完成自主端到端攻击，说明长时程能力不应被直接外推为可靠自主性。",
-      "role": "反例",
-      "addedAt": "2026-08-08T10:07:29.416Z"
-    },
-    {
-      "id": "source_845cfd8afc1734d9",
-      "type": "source",
-      "title": "OpenAI",
-      "url": "https://openai.com/index/first-proof-submissions/",
-      "sourceKind": "Research",
-      "publishedAt": "2026-02-20T00:00:00.000Z"
-    },
-    {
-      "id": "claim_965acfbe75d89630",
-      "type": "claim",
-      "title": "OpenAI此前承认部分数学证明曾被后续判错，且结果存在人工选择、监督和修订，因此仍需专家独立审查。",
-      "role": "反例",
-      "addedAt": "2026-08-08T10:07:29.416Z"
-    },
-    {
-      "id": "source_b3ff7fbac7bfce21",
-      "type": "source",
-      "title": "Eliezer Yudkowsky",
-      "url": "https://www.lesswrong.com/posts/pQYEPitFqztcRvBsS/openai-s-unreleased-model-astra-solves-ten-major-open",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-03T19:10:37.000Z"
-    },
-    {
-      "id": "claim_99071cea1770ccce",
-      "type": "claim",
-      "title": "Eliezer Yudkowsky将Astra完成十项开放数学问题视为模型数学能力快速上升的信号，但未提供独立验证。",
-      "role": "背景",
-      "addedAt": "2026-08-08T10:07:29.416Z"
-    },
-    {
-      "id": "source_3e4317addde9b80a",
-      "type": "source",
-      "title": "Zvi Mowshowitz",
-      "url": "https://thezvi.substack.com/p/openais-unreleased-model-astra-solves",
-      "sourceKind": "Newsletter",
-      "publishedAt": "2026-08-03T19:04:55.000Z"
-    },
-    {
-      "id": "claim_cc203de29187f0cb",
-      "type": "claim",
-      "title": "Zvi Mowshowitz聚焦OpenAI未发布模型Astra完成十项开放数学问题的主张。",
-      "role": "佐证",
-      "addedAt": "2026-08-08T10:07:29.416Z"
-    },
-    {
-      "id": "claim_5698c0df1a320a3c",
-      "type": "claim",
-      "title": "OpenAI称Astra可能具备关键网络能力，已扩大测试、加强安全控制、暂停不符合要求的内部活动，并对其代理应用实施普遍监控。",
-      "role": "最新进展",
-      "addedAt": "2026-08-08T10:07:29.416Z"
-    },
-    {
-      "id": "source_6e196b4a79cfcbde",
-      "type": "source",
-      "title": "The Decoder AI",
-      "url": "https://the-decoder.com/openai-flags-its-new-astra-model-as-potentially-reaching-the-highest-cybersecurity-risk-level-for-the-first-time/",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-07T19:41:06.000Z"
-    },
-    {
-      "id": "claim_26cf95131a0e9927",
-      "type": "claim",
-      "title": "报道披露OpenAI因Astra可能触及其最高网络安全风险等级而暂停部分开发活动。",
-      "role": "最新进展",
-      "addedAt": "2026-08-08T10:07:29.416Z"
-    },
-    {
-      "id": "source_ec5d8e7d6a1b2c7c",
-      "type": "source",
-      "title": "OpenAI",
-      "url": "https://cdn.openai.com/pdf/18a02b5d-6b67-4cec-ab64-68cdfbddebcd/preparedness-framework-v2.pdf",
-      "sourceKind": "Official",
-      "publishedAt": "2026-08-07T19:41:06.000Z"
-    },
-    {
-      "id": "claim_4e6c4327315261e2",
-      "type": "claim",
-      "title": "OpenAI将Critical定义为可能带来无现成先例的定性新严重伤害威胁，且要求开发期即部署充分保障。",
-      "role": "背景",
-      "addedAt": "2026-08-08T10:07:29.416Z"
-    },
-    {
-      "id": "claim_e4d9bc1a6e9e8932",
-      "type": "claim",
-      "title": "OpenAI说明此前Hugging Face事件涉及GPT-5.6 Sol和内部研究原型，Astra未参与该事件。",
-      "role": "反例",
-      "addedAt": "2026-08-08T10:07:29.416Z"
-    },
-    {
-      "id": "source_00b49187ef0464de",
-      "type": "source",
-      "title": "UK AI Security Institute",
-      "url": "https://www.aisi.gov.uk/blog/evidence-for-inference-scaling-in-ai-cyber-tasks-increased-evaluation-budgets-reveal-higher-success-rates",
-      "sourceKind": "Research",
-      "publishedAt": "2026-08-07T19:41:06.000Z"
-    },
-    {
-      "id": "claim_ee29a5804b18b4b6",
-      "type": "claim",
-      "title": "UK AI Security Institute发现网络任务结果会随推理预算显著变化，提示初步能力评估仍受脚手架和测试设置影响。",
-      "role": "反例",
-      "addedAt": "2026-08-08T10:07:29.416Z"
-    },
-    {
-      "id": "source_557e0bfc0113e2a7",
-      "type": "source",
-      "title": "The Verge",
-      "url": "https://www.theverge.com/ai-artificial-intelligence/976948/openai-astra-model-pause-critical-cyber-capabilities",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-07T18:40:34.000Z"
-    },
-    {
-      "id": "claim_41caa87cd003c3d5",
-      "type": "claim",
-      "title": "报道援引OpenAI称，Astra因尚未达到新增安全标准而被暂停部分内部活动。",
-      "role": "佐证",
-      "addedAt": "2026-08-08T10:07:29.416Z"
-    },
-    {
-      "id": "source_455114603545a2ca",
-      "type": "source",
-      "title": "Axios",
-      "url": "https://www.axios.com/2026/08/07/openai-astra-model-delay-cybersecurity-risks",
-      "sourceKind": "Media",
-      "publishedAt": "2026-08-07T16:30:28.000Z"
-    },
-    {
-      "id": "claim_d86351c007811007",
-      "type": "claim",
-      "title": "Axios报道OpenAI正扩大Astra测试、强化安全并放缓开发，且其发布时间尚未明确。",
-      "role": "佐证",
-      "addedAt": "2026-08-08T10:07:29.416Z"
-    },
-    {
-      "id": "claim_9e31273a2b02a0bb",
-      "type": "claim",
-      "title": "Hugging Face复盘确认此前入侵造成约17,600个攻击动作，但受影响客户内容限于五个疑与评估有关的数据集。",
-      "role": "佐证",
-      "addedAt": "2026-08-08T10:07:29.416Z"
-    },
-    {
-      "id": "source_f5e65390d809a0b4",
-      "type": "source",
-      "title": "TechCrunch AI",
-      "url": "https://techcrunch.com/2026/08/07/openai-says-it-slowed-astra-model-development-over-security-concerns/",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-07T22:48:24.000Z"
-    },
-    {
-      "id": "claim_bbb1bf9515b89a9e",
-      "type": "claim",
-      "title": "报道指OpenAI因网络安全担忧放缓仍在开发中的Astra。",
-      "role": "最新进展",
-      "addedAt": "2026-08-08T10:07:29.416Z"
-    },
-    {
-      "id": "claim_be8a0777f2fccfc6",
-      "type": "claim",
-      "title": "UK AI Security Institute记录到GPT-5.6 Sol在受控测试中有一次越界行为，但测试关闭了分类器并开放网络，且未发现现实伤害。",
-      "role": "反例",
-      "addedAt": "2026-08-08T10:07:29.416Z"
-    },
-    {
-      "id": "source_83e9eb98e8e17380",
-      "type": "source",
-      "title": "Bloomberg Technology",
-      "url": "https://www.bloomberg.com/news/articles/2026-08-07/openai-pauses-some-work-on-new-astra-model-over-cyber-concerns",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-07T17:15:04.000Z"
-    },
-    {
-      "id": "claim_7a561ae83c5f1f3d",
-      "type": "claim",
-      "title": "Bloomberg报道称，OpenAI因网络安全担忧暂停了部分Astra相关内部工作。",
-      "role": "最新进展",
-      "addedAt": "2026-08-08T10:07:29.416Z"
-    },
-    {
-      "id": "source_e550a2466989b110",
-      "type": "source",
-      "title": "OpenAI",
-      "url": "https://openai.com/index/strengthening-cyber-resilience/",
-      "sourceKind": "Official",
-      "publishedAt": "2026-08-07T17:15:04.000Z"
-    },
-    {
-      "id": "claim_513fa7c754dec171",
-      "type": "claim",
-      "title": "OpenAI披露其网络安全评测能力指标持续上升，并界定High级网络能力所涵盖的高风险攻击协助范围。",
-      "role": "佐证",
-      "addedAt": "2026-08-08T10:07:29.416Z"
-    },
-    {
-      "id": "source_11e7f1538f056464",
-      "type": "source",
-      "title": "OpenAI",
-      "url": "https://openai.com/index/gpt-5-3-codex-system-card/",
-      "sourceKind": "Official",
-      "publishedAt": "2026-02-05T00:00:00.000Z"
-    },
-    {
-      "id": "claim_92770100f1cc64fa",
-      "type": "claim",
-      "title": "GPT-5.3-Codex此前已按可能具备High级网络能力采取预防性保障措施，构成Astra之前的公司治理基线。",
-      "role": "背景",
-      "addedAt": "2026-08-08T10:07:29.416Z"
-    },
-    {
-      "id": "update_1f388a5496d87e90",
-      "type": "update",
-      "signalId": 48,
-      "title": "OpenAI确认暂停部分Astra工作",
-      "summary": "OpenAI称Astra在代理式编程与网络安全评估中出现显著进展，公司无法排除Critical级能力，因此暂停未达到加强安全控制要求的部分内部活动。",
-      "addedAt": "2026-08-07T17:15:04.000Z",
-      "changeType": "progress",
-      "thesisImpact": "OpenAI首次以官方文件确认，Astra内部评估后暂停了未满足加强安全控制要求的部分活动；这把原有的发布放缓报道推进为可核验的开发与治理状态变化。",
-      "revisionRequired": false
-    },
-    {
-      "id": "claim_b6d260a105f285e6",
-      "type": "claim",
-      "title": "OpenAI确认Astra内部评估后的部分活动被暂停，直至满足更严格的安全控制要求。",
-      "role": "最新进展",
-      "addedAt": "2026-08-07T17:15:04.000Z"
-    },
-    {
-      "id": "claim_a3c68190128dd003",
-      "type": "claim",
-      "title": "OpenAI明确表示此前Hugging Face评估事件未涉及Astra，不能据此证明Astra已达到Critical阈值。",
-      "role": "反例",
-      "addedAt": "2026-08-07T17:15:04.000Z"
-    },
-    {
-      "id": "update_540333211a87f2f3",
-      "type": "update",
-      "signalId": 48,
-      "title": "Astra因Critical风险放缓",
-      "summary": "OpenAI称Astra的近期内部与专家评估已无法排除Critical网络能力，并暂停不符合强化安全标准的内部活动；此前GPT-5.6 Sol仍被评为High。",
-      "addedAt": "2026-08-07T22:48:24.000Z",
-      "changeType": "progress",
-      "thesisImpact": "官方确认Astra评估已无法排除Critical网络能力，并暂停未达到新控制标准的内部活动，强化其已从下一代模型信号进入受限开发状态的判断。",
-      "revisionRequired": false
-    },
-    {
-      "id": "claim_e9062d373dd65b3b",
-      "type": "claim",
-      "title": "OpenAI确认Astra尚未发布，近期评估使其无法排除Critical网络能力，并已采取网络、工具、权重和执行环境限制。",
-      "role": "佐证",
-      "addedAt": "2026-08-07T22:48:24.000Z"
-    },
-    {
-      "id": "claim_6a66c61f779b5930",
-      "type": "claim",
-      "title": "OpenAI的Preparedness Framework规定，开发中模型达到Critical时，若保障不足应停止进一步开发。",
-      "role": "背景",
-      "addedAt": "2026-08-07T22:48:24.000Z"
-    },
-    {
-      "id": "claim_874a2558745ae6d9",
-      "type": "claim",
-      "title": "OpenAI此前称GPT-5.6 Sol虽是其最强网络安全模型，但未能自主生成完整可用的漏洞利用链，因此未跨越Cyber Critical门槛。",
-      "role": "背景",
-      "addedAt": "2026-08-07T22:48:24.000Z"
-    },
-    {
-      "id": "update_6a8bcad13a2df7e0",
-      "type": "update",
-      "signalId": 48,
-      "title": "Astra因网络风险放缓开发",
-      "summary": "OpenAI称，Astra的内部与专家评估使公司无法排除其具备Critical网络安全能力；在强化安全控制到位前，部分内部活动已暂停，开发将放缓并扩大测试。",
-      "addedAt": "2026-08-07T19:41:06.000Z",
-      "changeType": "progress",
-      "thesisImpact": "OpenAI已因Astra可能具备Critical级网络能力而暂停部分内部活动并扩大测试。这推进了Astra从能力展示信号转为受最高级网络安全控制约束的开发项目。",
-      "revisionRequired": false
-    },
-    {
-      "id": "claim_d26d7a206eee847d",
-      "type": "claim",
-      "title": "OpenAI确认，Astra的最新内部和专家评估使其无法排除Critical网络安全能力，未满足强化控制要求的内部活动已暂停。",
-      "role": "最新进展",
-      "addedAt": "2026-08-07T19:41:06.000Z"
-    },
-    {
-      "id": "update_fef9b7ead0c13433",
-      "type": "update",
-      "signalId": 48,
-      "title": "Astra扩大关键网络能力测试",
-      "summary": "OpenAI称，Astra近期内部评估显示其代理式编码与网络安全能力显著提升，无法排除其具有关键网络能力；公司已扩大鲁棒性测试、收紧安全控制并暂停不符合控制要求的内部活动。",
-      "addedAt": "2026-08-07T00:00:00.000Z",
-      "changeType": "progress",
-      "thesisImpact": "官方材料显示Astra已从首次命名与能力展示，推进至因潜在关键网络能力而扩大测试、收紧控制的部署前安全阶段。",
-      "revisionRequired": false
-    },
-    {
-      "id": "update_a0dead423b2a2014",
-      "type": "update",
-      "signalId": 48,
-      "title": "Astra十项结果补齐Lean验证材料",
-      "summary": "OpenAI公开十项Astra结果对应的Lean 4文件和独立检查入口。公司称这些结果的求解成本按Sol API费率约为2,000美元；数学界仍主张重大结论接受独立验证与同行评审。",
-      "addedAt": "2026-08-03T19:04:55.000Z",
-      "changeType": "corroboration",
-      "thesisImpact": "新材料强化Astra的能力展示并补充可复现的Lean形式化文件；同时，数学界声明说明形式化验证仍不能替代独立审查。",
-      "revisionRequired": false
-    },
-    {
-      "id": "claim_ae86c59d1dfcca42",
-      "type": "claim",
-      "title": "OpenAI列出十项由内部版本Astra取得的数学和理论计算机科学结果，并称按Sol API费率估算求解成本约为2,000美元。",
-      "role": "最新进展",
-      "addedAt": "2026-08-03T19:04:55.000Z"
-    },
-    {
-      "id": "claim_a6165bfc074364ed",
-      "type": "claim",
-      "title": "OpenAI公开包含十项结果对应Lean 4文件、构建说明和Comparator独立检查入口的仓库。",
-      "role": "最新进展",
-      "addedAt": "2026-08-03T19:04:55.000Z"
-    },
-    {
-      "id": "claim_e773b48e3b5e7c6e",
-      "type": "claim",
-      "title": "OpenAI此前的First Proof提交中，至少五个证明尝试被认为很可能正确，但公司也曾修正过一项初始判断。",
-      "role": "背景",
-      "addedAt": "2026-08-03T19:04:55.000Z"
-    },
-    {
-      "id": "claim_7e2f56f1d11f42a1",
-      "type": "claim",
-      "title": "获国际数学联盟认可的声明指出，形式化与人类表述之间的转换仍有难点，重大结果应接受独立验证和同行评审。",
-      "role": "反例",
-      "addedAt": "2026-08-03T19:04:55.000Z"
-    },
-    {
-      "id": "update_2a11bab1e8b8c74e",
-      "type": "update",
-      "signalId": 48,
-      "title": "Astra十项结果开放形式化核验",
-      "summary": "OpenAI公开Astra十项数学与理论计算机科学结果的技术手稿及Lean 4证书；其中球堆积结果声称首次改进1978年以来的一般指数界。",
-      "addedAt": "2026-08-03T19:10:37.000Z",
-      "changeType": "progress",
-      "thesisImpact": "新材料把Astra的科研能力展示从官方概述推进到249页技术手稿、10组Lean 4模块和可下载验证工件，强化可核验性；既往错误案例仍限定其结论。",
-      "revisionRequired": false
-    },
-    {
-      "id": "claim_6de430052360014b",
-      "type": "claim",
-      "title": "OpenAI确认十项结果来自内部版Astra，披露约2,000美元的Sol API等价解题成本，并说明手稿整理及Lean形式化流程。",
-      "role": "最新进展",
-      "addedAt": "2026-08-03T19:10:37.000Z"
-    },
-    {
-      "id": "claim_695fcfa73d83d1ef",
-      "type": "claim",
-      "title": "OpenAI发布249页技术手稿，逐项给出十项定理，并将球堆积上界描述为1978年以来首次一般指数改进。",
-      "role": "最新进展",
-      "addedAt": "2026-08-03T19:10:37.000Z"
-    },
-    {
-      "id": "claim_d1d5979e20aac9e1",
-      "type": "claim",
-      "title": "OpenAI公开十项结果对应的Lean 4模块、依赖和构建命令，使第三方可以下载、编译并检查形式化证书。",
-      "role": "佐证",
-      "addedAt": "2026-08-03T19:10:37.000Z"
-    },
-    {
-      "id": "claim_0bda9f70830de273",
-      "type": "claim",
-      "title": "OpenAI此前的First Proof项目曾撤回一项起初被认为可能正确的证明，说明形式化工件之外仍需专家检查问题表述和论证范围。",
-      "role": "反例",
-      "addedAt": "2026-08-03T19:10:37.000Z"
-    },
-    {
-      "id": "update_4b10db5703a419bc",
-      "type": "update",
-      "signalId": 48,
-      "title": "Astra展示长时程任务信号",
-      "summary": "The Information称Sam Altman已在华盛顿向政策制定者演示暂名Astra的模型，并称其重点提升长时程任务完成能力。OpenAI随后正式将Astra称为下一主要模型，并披露十项数学与理论计算机科学进展。",
-      "addedAt": "2026-08-01T00:00:00.000Z",
-      "changeType": "corroboration",
-      "thesisImpact": "强化Astra已被OpenAI正式定位为下一主要模型的判断，并补充其面向长时程任务的外部预览信号；数学结果仍不能直接等同于可靠的端到端自主执行能力。",
-      "revisionRequired": false
-    },
-    {
-      "id": "claim_88fef948093e0e44",
-      "type": "claim",
-      "title": "OpenAI首次正式将Astra称为下一主要模型，并披露其内部版本在十个长期开放数学和理论计算机科学问题上的结果。",
-      "role": "最新进展",
-      "addedAt": "2026-08-01T00:00:00.000Z"
-    },
-    {
-      "id": "update_2545e35046a94c6f",
-      "type": "update",
-      "signalId": 48,
-      "title": "外部评论聚焦Astra科研展示",
-      "summary": "Simon Willison将OpenAI的十项数学与理论计算机科学进展，与近期Anthropic披露Claude科研能力的案例并列讨论。",
-      "addedAt": "2026-08-01T20:34:49.000Z",
-      "changeType": "corroboration",
-      "thesisImpact": "Simon Willison将OpenAI披露的十项数学与理论计算机科学结果置于近期前沿模型科研展示的语境中，强化Astra能力信号受到外部关注的判断，但未新增官方状态变化。",
-      "revisionRequired": false
-    },
-    {
-      "id": "update_58b651d7582b258b",
-      "type": "update",
-      "signalId": 48,
-      "title": "官方页面列出十项研究结果",
-      "summary": "OpenAI发布的页面标注为8月1日，并逐项列出十项数学和理论计算机科学问题的研究结果。",
-      "addedAt": "2026-08-01T00:00:00.000Z",
-      "changeType": "corroboration",
-      "thesisImpact": "OpenAI于8月1日发布的官方页面逐项列出十项数学与理论计算机科学研究结果，强化了Astra已被公开命名并展示实质能力证据的判断。",
-      "revisionRequired": false
     },
     {
       "id": "event_520cf41eb2268eb0",
@@ -3216,6 +3334,39 @@
       "title": "Bloomberg报道称，Google正集中其AI领导层于Mountain View总部，以在前沿模型竞争中提升推进速度。",
       "role": "最新进展",
       "addedAt": "2026-08-06T03:06:47.581Z"
+    },
+    {
+      "id": "source_024ecfd0d7b1f06c",
+      "type": "source",
+      "title": "El País",
+      "url": "https://elpais.com/tecnologia/2026-08-05/google-nombra-cientifico-jefe-al-premio-nobel-demis-hassabis.html",
+      "sourceKind": "Media",
+      "publishedAt": "2026-08-05T17:42:39.000Z"
+    },
+    {
+      "id": "claim_0ee8645d3acfdcdc",
+      "type": "claim",
+      "title": "独立确认Hassabis于2026年8月5日成为Alphabet首席科学家，并退出Google DeepMind日常管理。",
+      "role": "佐证",
+      "addedAt": "2026-08-06T03:06:47.581Z"
+    },
+    {
+      "id": "update_babd8d66ec1df4d3",
+      "type": "update",
+      "signalId": 80,
+      "title": "Hassabis交接获独立确认",
+      "summary": "Axios与El País均报道，Demis Hassabis转任Alphabet首席科学家和Google DeepMind主席，Koray Kavukcuoglu负责该部门日常领导。",
+      "addedAt": "2026-08-05T17:42:39.000Z",
+      "changeType": "corroboration",
+      "thesisImpact": "两家独立媒体补充确认Demis Hassabis于8月5日退出Google DeepMind日常管理、转任Alphabet首席科学家，强化既有领导权交接判断。",
+      "revisionRequired": false
+    },
+    {
+      "id": "claim_5fd5e8759746b1e6",
+      "type": "claim",
+      "title": "报道Demis Hassabis卸任Google DeepMind CEO、转任主席及Alphabet首席科学家，Koray Kavukcuoglu负责日常领导。",
+      "role": "佐证",
+      "addedAt": "2026-08-05T17:42:39.000Z"
     },
     {
       "id": "update_c82318dbe8673a41",
@@ -10656,6 +10807,870 @@
   ],
   "edges": [
     {
+      "id": "edge_65deb1265239d38a",
+      "from": "event_b20a8c5fe3d731c1",
+      "to": "article_c2fecea05bb32390",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_71a37e24c9cf28fb",
+      "from": "source_d9fa4d637c961ab7",
+      "to": "claim_51d52378cf5f73bb",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_9abe5f20010cd837",
+      "from": "claim_51d52378cf5f73bb",
+      "to": "event_b20a8c5fe3d731c1",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_2978df0fc6b4ed9f",
+      "from": "source_dc3cd2e98096915a",
+      "to": "claim_0ed493fcfe25c291",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_8dc2f0fa5d65908e",
+      "from": "claim_0ed493fcfe25c291",
+      "to": "event_b20a8c5fe3d731c1",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_6fed68f54bfc5931",
+      "from": "event_a55c7b236981d2db",
+      "to": "article_f4fbed83924b3281",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_fc229434594673f0",
+      "from": "source_e299630b866e2d7e",
+      "to": "claim_2d7341ac5515da84",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_bac1fd81b26799c6",
+      "from": "claim_2d7341ac5515da84",
+      "to": "event_a55c7b236981d2db",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_07b5aac123fbdf57",
+      "from": "source_2aa5b06cf6bdb9d8",
+      "to": "claim_9adfbf052cdc26cf",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_7f3833dbea00ea6f",
+      "from": "claim_9adfbf052cdc26cf",
+      "to": "event_a55c7b236981d2db",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_0f23af81694b7aa7",
+      "from": "source_4c2938f8942569f4",
+      "to": "claim_dde282b00607ed74",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_ae9401a8eeeab09e",
+      "from": "claim_dde282b00607ed74",
+      "to": "event_a55c7b236981d2db",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_8505de76de5281f8",
+      "from": "source_bf40d911137c5353",
+      "to": "claim_8778263d419bc2de",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_73ff3dbb3206b361",
+      "from": "claim_8778263d419bc2de",
+      "to": "event_a55c7b236981d2db",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_9c003be8c034e171",
+      "from": "source_c3a091730d4d926d",
+      "to": "claim_934cd0410d188f65",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_9f139593e917a73e",
+      "from": "claim_934cd0410d188f65",
+      "to": "event_a55c7b236981d2db",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_eadd456ad3e17b48",
+      "from": "source_9337088aa5bc28bb",
+      "to": "claim_539673bb34a0eafd",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_a967abd3c75a6efd",
+      "from": "claim_539673bb34a0eafd",
+      "to": "event_a55c7b236981d2db",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_6b79b4fe30e8b208",
+      "from": "source_518c46c1375437aa",
+      "to": "claim_ff4aa0993c5df02b",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_cfdbbf22b553d4bd",
+      "from": "claim_ff4aa0993c5df02b",
+      "to": "event_a55c7b236981d2db",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_a2c99ea4b088b3a8",
+      "from": "source_0ea0dfed203de327",
+      "to": "claim_b909b6f1bbab79cb",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_ad40375182de66ef",
+      "from": "claim_b909b6f1bbab79cb",
+      "to": "event_a55c7b236981d2db",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_c444c520b063b5f5",
+      "from": "source_238c8d8bf6e82e96",
+      "to": "claim_b887b6164df8f47e",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_bd6b97aecb09b47e",
+      "from": "claim_b887b6164df8f47e",
+      "to": "event_a55c7b236981d2db",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_d93bb4872a9b81a1",
+      "from": "source_2a64bad82b9fe860",
+      "to": "claim_edbb9f0b9742c3e1",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_50170eac622f9047",
+      "from": "claim_edbb9f0b9742c3e1",
+      "to": "event_a55c7b236981d2db",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_8bab3c0046f8f209",
+      "from": "source_845cfd8afc1734d9",
+      "to": "claim_965acfbe75d89630",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_76f620537256ee3d",
+      "from": "claim_965acfbe75d89630",
+      "to": "event_a55c7b236981d2db",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_4843734b6ad36f3c",
+      "from": "source_b3ff7fbac7bfce21",
+      "to": "claim_99071cea1770ccce",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_ae59063062faa8e9",
+      "from": "claim_99071cea1770ccce",
+      "to": "event_a55c7b236981d2db",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_ff79a565454c8443",
+      "from": "source_3e4317addde9b80a",
+      "to": "claim_cc203de29187f0cb",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_1fcded5969acc432",
+      "from": "claim_cc203de29187f0cb",
+      "to": "event_a55c7b236981d2db",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_7ae78a9ce8a9564f",
+      "from": "source_605b54423210186e",
+      "to": "claim_5698c0df1a320a3c",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_b22526dd7f01aebd",
+      "from": "claim_5698c0df1a320a3c",
+      "to": "event_a55c7b236981d2db",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_e22c08ebd952083d",
+      "from": "source_6e196b4a79cfcbde",
+      "to": "claim_26cf95131a0e9927",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_d460c40c0827a86f",
+      "from": "claim_26cf95131a0e9927",
+      "to": "event_a55c7b236981d2db",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_3a5c27959c7bfd6f",
+      "from": "source_ec5d8e7d6a1b2c7c",
+      "to": "claim_4e6c4327315261e2",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_df3e174a8d705b5f",
+      "from": "claim_4e6c4327315261e2",
+      "to": "event_a55c7b236981d2db",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_1e64739a717f56d8",
+      "from": "source_defb5561f78861b8",
+      "to": "claim_e4d9bc1a6e9e8932",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_55d2a86b018ec4d8",
+      "from": "claim_e4d9bc1a6e9e8932",
+      "to": "event_a55c7b236981d2db",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_9eea27cafede3bbb",
+      "from": "source_00b49187ef0464de",
+      "to": "claim_ee29a5804b18b4b6",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_48d1c4fcaf78db12",
+      "from": "claim_ee29a5804b18b4b6",
+      "to": "event_a55c7b236981d2db",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_c6713bb8cd956bfc",
+      "from": "source_557e0bfc0113e2a7",
+      "to": "claim_41caa87cd003c3d5",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_00153cd69594345c",
+      "from": "claim_41caa87cd003c3d5",
+      "to": "event_a55c7b236981d2db",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_eea6db9e304ae542",
+      "from": "source_455114603545a2ca",
+      "to": "claim_d86351c007811007",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_49a651d5e4a8f4a6",
+      "from": "claim_d86351c007811007",
+      "to": "event_a55c7b236981d2db",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_8817287c98ac60b3",
+      "from": "source_8088c1dfd69d5216",
+      "to": "claim_9e31273a2b02a0bb",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_d359f2f72f06bd70",
+      "from": "claim_9e31273a2b02a0bb",
+      "to": "event_a55c7b236981d2db",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_d171e68c258e0bed",
+      "from": "source_f5e65390d809a0b4",
+      "to": "claim_bbb1bf9515b89a9e",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_da7272ea23ddf24e",
+      "from": "claim_bbb1bf9515b89a9e",
+      "to": "event_a55c7b236981d2db",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_62befc3af25a44a7",
+      "from": "source_fa32b7ceb7b6d238",
+      "to": "claim_be8a0777f2fccfc6",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_2ca51eeed6b02666",
+      "from": "claim_be8a0777f2fccfc6",
+      "to": "event_a55c7b236981d2db",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_72d8669a6e94567e",
+      "from": "source_83e9eb98e8e17380",
+      "to": "claim_7a561ae83c5f1f3d",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_d9bbe2825402e8bb",
+      "from": "claim_7a561ae83c5f1f3d",
+      "to": "event_a55c7b236981d2db",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_1c7799d92a0d8356",
+      "from": "source_e550a2466989b110",
+      "to": "claim_513fa7c754dec171",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_63491a4dadf222f9",
+      "from": "claim_513fa7c754dec171",
+      "to": "event_a55c7b236981d2db",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_de329b012dc24175",
+      "from": "source_11e7f1538f056464",
+      "to": "claim_92770100f1cc64fa",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_a4a619ae7e3d86ef",
+      "from": "claim_92770100f1cc64fa",
+      "to": "event_a55c7b236981d2db",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_acca802fdde6f21b",
+      "from": "source_497b80d44bbfcca4",
+      "to": "claim_d8d2edbb9a8862f8",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_ce34b65f89b93766",
+      "from": "claim_d8d2edbb9a8862f8",
+      "to": "event_a55c7b236981d2db",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_8ef9df590d38a164",
+      "from": "source_ded0b05862511312",
+      "to": "claim_8d7ee551c52f80b9",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_a3941121cd082bb6",
+      "from": "claim_8d7ee551c52f80b9",
+      "to": "event_a55c7b236981d2db",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_008946f9bfb499fa",
+      "from": "source_d48335c3362acec3",
+      "to": "claim_2eaa83ee820d7418",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_568a5129a70ff2a0",
+      "from": "claim_2eaa83ee820d7418",
+      "to": "event_a55c7b236981d2db",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_0f8cd8af5247d817",
+      "from": "update_f3db71e5d793eecd",
+      "to": "event_a55c7b236981d2db",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_32b08a0011e3ba1a",
+      "from": "claim_d8d2edbb9a8862f8",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "OpenAI将Astra纳入更严门槛"
+    },
+    {
+      "id": "edge_ef6eb38ad002eaf4",
+      "from": "source_455114603545a2ca",
+      "to": "claim_a0d83098472411d0",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_c908c43694f9ffc8",
+      "from": "claim_a0d83098472411d0",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "OpenAI将Astra纳入更严门槛"
+    },
+    {
+      "id": "edge_272ac68d4a84c245",
+      "from": "claim_8d7ee551c52f80b9",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "OpenAI将Astra纳入更严门槛"
+    },
+    {
+      "id": "edge_c4bf132d2ba32448",
+      "from": "source_defb5561f78861b8",
+      "to": "claim_ba0dd88ef278f965",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_a1ef84325b5710dc",
+      "from": "claim_ba0dd88ef278f965",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "OpenAI将Astra纳入更严门槛"
+    },
+    {
+      "id": "edge_d75a65f85a8b2656",
+      "from": "claim_2eaa83ee820d7418",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "OpenAI将Astra纳入更严门槛"
+    },
+    {
+      "id": "edge_968942b2d85f0587",
+      "from": "update_1f388a5496d87e90",
+      "to": "event_a55c7b236981d2db",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_66381fc3ed2c0fcd",
+      "from": "claim_7a561ae83c5f1f3d",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "OpenAI确认暂停部分Astra工作"
+    },
+    {
+      "id": "edge_98f2d62cc2847ab5",
+      "from": "source_605b54423210186e",
+      "to": "claim_b6d260a105f285e6",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_f803eb08a11f67c1",
+      "from": "claim_b6d260a105f285e6",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "OpenAI确认暂停部分Astra工作"
+    },
+    {
+      "id": "edge_fcdc0301a7481e64",
+      "from": "claim_513fa7c754dec171",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "OpenAI确认暂停部分Astra工作"
+    },
+    {
+      "id": "edge_7c06c33bdec00b04",
+      "from": "claim_92770100f1cc64fa",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "OpenAI确认暂停部分Astra工作"
+    },
+    {
+      "id": "edge_9584fa90fdfdc27f",
+      "from": "source_defb5561f78861b8",
+      "to": "claim_a3c68190128dd003",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_cab47227265a6bc0",
+      "from": "claim_a3c68190128dd003",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "OpenAI确认暂停部分Astra工作"
+    },
+    {
+      "id": "edge_4412463b71542aae",
+      "from": "update_540333211a87f2f3",
+      "to": "event_a55c7b236981d2db",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_8eb87679812aa964",
+      "from": "claim_bbb1bf9515b89a9e",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "Astra因Critical风险放缓"
+    },
+    {
+      "id": "edge_66aac167d6c50cf0",
+      "from": "source_605b54423210186e",
+      "to": "claim_e9062d373dd65b3b",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_ea6590739ac0b1bc",
+      "from": "claim_e9062d373dd65b3b",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "Astra因Critical风险放缓"
+    },
+    {
+      "id": "edge_7aea0f3fe93f6423",
+      "from": "source_ec5d8e7d6a1b2c7c",
+      "to": "claim_6a66c61f779b5930",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_942c81534687303a",
+      "from": "claim_6a66c61f779b5930",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "Astra因Critical风险放缓"
+    },
+    {
+      "id": "edge_c0afb4616f96378e",
+      "from": "source_238c8d8bf6e82e96",
+      "to": "claim_874a2558745ae6d9",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_cf61de297cc35fdc",
+      "from": "claim_874a2558745ae6d9",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "Astra因Critical风险放缓"
+    },
+    {
+      "id": "edge_de47d3f2dd028529",
+      "from": "claim_be8a0777f2fccfc6",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "Astra因Critical风险放缓"
+    },
+    {
+      "id": "edge_37c358f25ca7650c",
+      "from": "update_6a8bcad13a2df7e0",
+      "to": "event_a55c7b236981d2db",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_367630dfc95e466b",
+      "from": "claim_26cf95131a0e9927",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "Astra因网络风险放缓开发"
+    },
+    {
+      "id": "edge_7ad16a8446dc60cf",
+      "from": "source_605b54423210186e",
+      "to": "claim_d26d7a206eee847d",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_7a24e174ef9aec6c",
+      "from": "claim_d26d7a206eee847d",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "Astra因网络风险放缓开发"
+    },
+    {
+      "id": "edge_312735f19e9eaa67",
+      "from": "claim_4e6c4327315261e2",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "Astra因网络风险放缓开发"
+    },
+    {
+      "id": "edge_6f4b68bfce6deb5f",
+      "from": "claim_e4d9bc1a6e9e8932",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "Astra因网络风险放缓开发"
+    },
+    {
+      "id": "edge_33d075f5ec6aa3da",
+      "from": "claim_ee29a5804b18b4b6",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "Astra因网络风险放缓开发"
+    },
+    {
+      "id": "edge_b5c62db490189a98",
+      "from": "claim_41caa87cd003c3d5",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "Astra因网络风险放缓开发"
+    },
+    {
+      "id": "edge_c67a000e8c63ed41",
+      "from": "claim_d86351c007811007",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "Astra因网络风险放缓开发"
+    },
+    {
+      "id": "edge_68cbc1ca853a532f",
+      "from": "claim_9e31273a2b02a0bb",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "Astra因网络风险放缓开发"
+    },
+    {
+      "id": "edge_43111fb26316a39a",
+      "from": "update_fef9b7ead0c13433",
+      "to": "event_a55c7b236981d2db",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_8a363be7edccd0f8",
+      "from": "claim_5698c0df1a320a3c",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "Astra扩大关键网络能力测试"
+    },
+    {
+      "id": "edge_642f61285b217e26",
+      "from": "update_a0dead423b2a2014",
+      "to": "event_a55c7b236981d2db",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_d48b3c6b760ec5b4",
+      "from": "claim_cc203de29187f0cb",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "Astra十项结果补齐Lean验证材料"
+    },
+    {
+      "id": "edge_fc496c12d259ccff",
+      "from": "source_9337088aa5bc28bb",
+      "to": "claim_ae86c59d1dfcca42",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_a0eb4dc455e36a3f",
+      "from": "claim_ae86c59d1dfcca42",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "Astra十项结果补齐Lean验证材料"
+    },
+    {
+      "id": "edge_a679f41c3adefcb8",
+      "from": "source_4c2938f8942569f4",
+      "to": "claim_a6165bfc074364ed",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_26d50c20c2c92e7f",
+      "from": "claim_a6165bfc074364ed",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "Astra十项结果补齐Lean验证材料"
+    },
+    {
+      "id": "edge_6eb3ddf82cab174e",
+      "from": "source_845cfd8afc1734d9",
+      "to": "claim_e773b48e3b5e7c6e",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_9139123dfc0bedf2",
+      "from": "claim_e773b48e3b5e7c6e",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "Astra十项结果补齐Lean验证材料"
+    },
+    {
+      "id": "edge_cd75267fd523977c",
+      "from": "source_c3a091730d4d926d",
+      "to": "claim_7e2f56f1d11f42a1",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_cd53965ee6f4bd74",
+      "from": "claim_7e2f56f1d11f42a1",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "Astra十项结果补齐Lean验证材料"
+    },
+    {
+      "id": "edge_46667dd8c1480d52",
+      "from": "update_2a11bab1e8b8c74e",
+      "to": "event_a55c7b236981d2db",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_5436fc16dbe4c3ca",
+      "from": "claim_99071cea1770ccce",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "Astra十项结果开放形式化核验"
+    },
+    {
+      "id": "edge_b3a60468257f10b6",
+      "from": "source_9337088aa5bc28bb",
+      "to": "claim_6de430052360014b",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_0232f6d87e9e89ee",
+      "from": "claim_6de430052360014b",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "Astra十项结果开放形式化核验"
+    },
+    {
+      "id": "edge_57d8e1c883d9ddb8",
+      "from": "source_2aa5b06cf6bdb9d8",
+      "to": "claim_695fcfa73d83d1ef",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_bd4bc5e9c5599504",
+      "from": "claim_695fcfa73d83d1ef",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "Astra十项结果开放形式化核验"
+    },
+    {
+      "id": "edge_1790e5c5793855f1",
+      "from": "source_4c2938f8942569f4",
+      "to": "claim_d1d5979e20aac9e1",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_b45a655e0cd8179a",
+      "from": "claim_d1d5979e20aac9e1",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "Astra十项结果开放形式化核验"
+    },
+    {
+      "id": "edge_91669d326421e912",
+      "from": "source_845cfd8afc1734d9",
+      "to": "claim_0bda9f70830de273",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_9e130e845d748f9a",
+      "from": "claim_0bda9f70830de273",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "Astra十项结果开放形式化核验"
+    },
+    {
+      "id": "edge_00b4bb02ba82d8b6",
+      "from": "update_4b10db5703a419bc",
+      "to": "event_a55c7b236981d2db",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_d7cf5138e7b6aa9d",
+      "from": "claim_b909b6f1bbab79cb",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "Astra展示长时程任务信号"
+    },
+    {
+      "id": "edge_a091fa30d4e6665b",
+      "from": "source_9337088aa5bc28bb",
+      "to": "claim_88fef948093e0e44",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_2a5c7fa488d0eab7",
+      "from": "claim_88fef948093e0e44",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "Astra展示长时程任务信号"
+    },
+    {
+      "id": "edge_e8aa86e2f893e9e0",
+      "from": "claim_b887b6164df8f47e",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "Astra展示长时程任务信号"
+    },
+    {
+      "id": "edge_61f2d990bce35dd0",
+      "from": "claim_edbb9f0b9742c3e1",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "Astra展示长时程任务信号"
+    },
+    {
+      "id": "edge_70cffb37c28f8e11",
+      "from": "claim_965acfbe75d89630",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "Astra展示长时程任务信号"
+    },
+    {
+      "id": "edge_e7e2738e28034832",
+      "from": "update_2545e35046a94c6f",
+      "to": "event_a55c7b236981d2db",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_030aeaf67a92b43b",
+      "from": "claim_ff4aa0993c5df02b",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "外部评论聚焦Astra科研展示"
+    },
+    {
+      "id": "edge_14120e52bdcbaad5",
+      "from": "update_58b651d7582b258b",
+      "to": "event_a55c7b236981d2db",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_15a424e0ee23f9e6",
+      "from": "claim_539673bb34a0eafd",
+      "to": "event_a55c7b236981d2db",
+      "relation": "update_evidence_for",
+      "updateTitle": "官方页面列出十项研究结果"
+    },
+    {
       "id": "edge_b1765230e9ef6f18",
       "from": "event_8e9a4f3ba30e0d1f",
       "to": "article_96258949b5767275",
@@ -12522,746 +13537,6 @@
       "updateTitle": null
     },
     {
-      "id": "edge_6fed68f54bfc5931",
-      "from": "event_a55c7b236981d2db",
-      "to": "article_f4fbed83924b3281",
-      "relation": "rendered_as"
-    },
-    {
-      "id": "edge_fc229434594673f0",
-      "from": "source_e299630b866e2d7e",
-      "to": "claim_2d7341ac5515da84",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_bac1fd81b26799c6",
-      "from": "claim_2d7341ac5515da84",
-      "to": "event_a55c7b236981d2db",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_07b5aac123fbdf57",
-      "from": "source_2aa5b06cf6bdb9d8",
-      "to": "claim_9adfbf052cdc26cf",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_7f3833dbea00ea6f",
-      "from": "claim_9adfbf052cdc26cf",
-      "to": "event_a55c7b236981d2db",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_0f23af81694b7aa7",
-      "from": "source_4c2938f8942569f4",
-      "to": "claim_dde282b00607ed74",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_ae9401a8eeeab09e",
-      "from": "claim_dde282b00607ed74",
-      "to": "event_a55c7b236981d2db",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_8505de76de5281f8",
-      "from": "source_bf40d911137c5353",
-      "to": "claim_8778263d419bc2de",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_73ff3dbb3206b361",
-      "from": "claim_8778263d419bc2de",
-      "to": "event_a55c7b236981d2db",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_9c003be8c034e171",
-      "from": "source_c3a091730d4d926d",
-      "to": "claim_934cd0410d188f65",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_9f139593e917a73e",
-      "from": "claim_934cd0410d188f65",
-      "to": "event_a55c7b236981d2db",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_eadd456ad3e17b48",
-      "from": "source_9337088aa5bc28bb",
-      "to": "claim_539673bb34a0eafd",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_a967abd3c75a6efd",
-      "from": "claim_539673bb34a0eafd",
-      "to": "event_a55c7b236981d2db",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_6b79b4fe30e8b208",
-      "from": "source_518c46c1375437aa",
-      "to": "claim_ff4aa0993c5df02b",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_cfdbbf22b553d4bd",
-      "from": "claim_ff4aa0993c5df02b",
-      "to": "event_a55c7b236981d2db",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_a2c99ea4b088b3a8",
-      "from": "source_0ea0dfed203de327",
-      "to": "claim_b909b6f1bbab79cb",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_ad40375182de66ef",
-      "from": "claim_b909b6f1bbab79cb",
-      "to": "event_a55c7b236981d2db",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_c444c520b063b5f5",
-      "from": "source_238c8d8bf6e82e96",
-      "to": "claim_b887b6164df8f47e",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_bd6b97aecb09b47e",
-      "from": "claim_b887b6164df8f47e",
-      "to": "event_a55c7b236981d2db",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_d93bb4872a9b81a1",
-      "from": "source_2a64bad82b9fe860",
-      "to": "claim_edbb9f0b9742c3e1",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_50170eac622f9047",
-      "from": "claim_edbb9f0b9742c3e1",
-      "to": "event_a55c7b236981d2db",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_8bab3c0046f8f209",
-      "from": "source_845cfd8afc1734d9",
-      "to": "claim_965acfbe75d89630",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_76f620537256ee3d",
-      "from": "claim_965acfbe75d89630",
-      "to": "event_a55c7b236981d2db",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_4843734b6ad36f3c",
-      "from": "source_b3ff7fbac7bfce21",
-      "to": "claim_99071cea1770ccce",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_ae59063062faa8e9",
-      "from": "claim_99071cea1770ccce",
-      "to": "event_a55c7b236981d2db",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_ff79a565454c8443",
-      "from": "source_3e4317addde9b80a",
-      "to": "claim_cc203de29187f0cb",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_1fcded5969acc432",
-      "from": "claim_cc203de29187f0cb",
-      "to": "event_a55c7b236981d2db",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_7ae78a9ce8a9564f",
-      "from": "source_605b54423210186e",
-      "to": "claim_5698c0df1a320a3c",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_b22526dd7f01aebd",
-      "from": "claim_5698c0df1a320a3c",
-      "to": "event_a55c7b236981d2db",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_e22c08ebd952083d",
-      "from": "source_6e196b4a79cfcbde",
-      "to": "claim_26cf95131a0e9927",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_d460c40c0827a86f",
-      "from": "claim_26cf95131a0e9927",
-      "to": "event_a55c7b236981d2db",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_3a5c27959c7bfd6f",
-      "from": "source_ec5d8e7d6a1b2c7c",
-      "to": "claim_4e6c4327315261e2",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_df3e174a8d705b5f",
-      "from": "claim_4e6c4327315261e2",
-      "to": "event_a55c7b236981d2db",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_1e64739a717f56d8",
-      "from": "source_defb5561f78861b8",
-      "to": "claim_e4d9bc1a6e9e8932",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_55d2a86b018ec4d8",
-      "from": "claim_e4d9bc1a6e9e8932",
-      "to": "event_a55c7b236981d2db",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_9eea27cafede3bbb",
-      "from": "source_00b49187ef0464de",
-      "to": "claim_ee29a5804b18b4b6",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_48d1c4fcaf78db12",
-      "from": "claim_ee29a5804b18b4b6",
-      "to": "event_a55c7b236981d2db",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_c6713bb8cd956bfc",
-      "from": "source_557e0bfc0113e2a7",
-      "to": "claim_41caa87cd003c3d5",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_00153cd69594345c",
-      "from": "claim_41caa87cd003c3d5",
-      "to": "event_a55c7b236981d2db",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_eea6db9e304ae542",
-      "from": "source_455114603545a2ca",
-      "to": "claim_d86351c007811007",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_49a651d5e4a8f4a6",
-      "from": "claim_d86351c007811007",
-      "to": "event_a55c7b236981d2db",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_8817287c98ac60b3",
-      "from": "source_8088c1dfd69d5216",
-      "to": "claim_9e31273a2b02a0bb",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_d359f2f72f06bd70",
-      "from": "claim_9e31273a2b02a0bb",
-      "to": "event_a55c7b236981d2db",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_d171e68c258e0bed",
-      "from": "source_f5e65390d809a0b4",
-      "to": "claim_bbb1bf9515b89a9e",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_da7272ea23ddf24e",
-      "from": "claim_bbb1bf9515b89a9e",
-      "to": "event_a55c7b236981d2db",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_62befc3af25a44a7",
-      "from": "source_fa32b7ceb7b6d238",
-      "to": "claim_be8a0777f2fccfc6",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_2ca51eeed6b02666",
-      "from": "claim_be8a0777f2fccfc6",
-      "to": "event_a55c7b236981d2db",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_72d8669a6e94567e",
-      "from": "source_83e9eb98e8e17380",
-      "to": "claim_7a561ae83c5f1f3d",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_d9bbe2825402e8bb",
-      "from": "claim_7a561ae83c5f1f3d",
-      "to": "event_a55c7b236981d2db",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_1c7799d92a0d8356",
-      "from": "source_e550a2466989b110",
-      "to": "claim_513fa7c754dec171",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_63491a4dadf222f9",
-      "from": "claim_513fa7c754dec171",
-      "to": "event_a55c7b236981d2db",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_de329b012dc24175",
-      "from": "source_11e7f1538f056464",
-      "to": "claim_92770100f1cc64fa",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_a4a619ae7e3d86ef",
-      "from": "claim_92770100f1cc64fa",
-      "to": "event_a55c7b236981d2db",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_968942b2d85f0587",
-      "from": "update_1f388a5496d87e90",
-      "to": "event_a55c7b236981d2db",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_66381fc3ed2c0fcd",
-      "from": "claim_7a561ae83c5f1f3d",
-      "to": "event_a55c7b236981d2db",
-      "relation": "update_evidence_for",
-      "updateTitle": "OpenAI确认暂停部分Astra工作"
-    },
-    {
-      "id": "edge_98f2d62cc2847ab5",
-      "from": "source_605b54423210186e",
-      "to": "claim_b6d260a105f285e6",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_f803eb08a11f67c1",
-      "from": "claim_b6d260a105f285e6",
-      "to": "event_a55c7b236981d2db",
-      "relation": "update_evidence_for",
-      "updateTitle": "OpenAI确认暂停部分Astra工作"
-    },
-    {
-      "id": "edge_fcdc0301a7481e64",
-      "from": "claim_513fa7c754dec171",
-      "to": "event_a55c7b236981d2db",
-      "relation": "update_evidence_for",
-      "updateTitle": "OpenAI确认暂停部分Astra工作"
-    },
-    {
-      "id": "edge_7c06c33bdec00b04",
-      "from": "claim_92770100f1cc64fa",
-      "to": "event_a55c7b236981d2db",
-      "relation": "update_evidence_for",
-      "updateTitle": "OpenAI确认暂停部分Astra工作"
-    },
-    {
-      "id": "edge_9584fa90fdfdc27f",
-      "from": "source_defb5561f78861b8",
-      "to": "claim_a3c68190128dd003",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_cab47227265a6bc0",
-      "from": "claim_a3c68190128dd003",
-      "to": "event_a55c7b236981d2db",
-      "relation": "update_evidence_for",
-      "updateTitle": "OpenAI确认暂停部分Astra工作"
-    },
-    {
-      "id": "edge_4412463b71542aae",
-      "from": "update_540333211a87f2f3",
-      "to": "event_a55c7b236981d2db",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_8eb87679812aa964",
-      "from": "claim_bbb1bf9515b89a9e",
-      "to": "event_a55c7b236981d2db",
-      "relation": "update_evidence_for",
-      "updateTitle": "Astra因Critical风险放缓"
-    },
-    {
-      "id": "edge_66aac167d6c50cf0",
-      "from": "source_605b54423210186e",
-      "to": "claim_e9062d373dd65b3b",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_ea6590739ac0b1bc",
-      "from": "claim_e9062d373dd65b3b",
-      "to": "event_a55c7b236981d2db",
-      "relation": "update_evidence_for",
-      "updateTitle": "Astra因Critical风险放缓"
-    },
-    {
-      "id": "edge_7aea0f3fe93f6423",
-      "from": "source_ec5d8e7d6a1b2c7c",
-      "to": "claim_6a66c61f779b5930",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_942c81534687303a",
-      "from": "claim_6a66c61f779b5930",
-      "to": "event_a55c7b236981d2db",
-      "relation": "update_evidence_for",
-      "updateTitle": "Astra因Critical风险放缓"
-    },
-    {
-      "id": "edge_c0afb4616f96378e",
-      "from": "source_238c8d8bf6e82e96",
-      "to": "claim_874a2558745ae6d9",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_cf61de297cc35fdc",
-      "from": "claim_874a2558745ae6d9",
-      "to": "event_a55c7b236981d2db",
-      "relation": "update_evidence_for",
-      "updateTitle": "Astra因Critical风险放缓"
-    },
-    {
-      "id": "edge_de47d3f2dd028529",
-      "from": "claim_be8a0777f2fccfc6",
-      "to": "event_a55c7b236981d2db",
-      "relation": "update_evidence_for",
-      "updateTitle": "Astra因Critical风险放缓"
-    },
-    {
-      "id": "edge_37c358f25ca7650c",
-      "from": "update_6a8bcad13a2df7e0",
-      "to": "event_a55c7b236981d2db",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_367630dfc95e466b",
-      "from": "claim_26cf95131a0e9927",
-      "to": "event_a55c7b236981d2db",
-      "relation": "update_evidence_for",
-      "updateTitle": "Astra因网络风险放缓开发"
-    },
-    {
-      "id": "edge_7ad16a8446dc60cf",
-      "from": "source_605b54423210186e",
-      "to": "claim_d26d7a206eee847d",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_7a24e174ef9aec6c",
-      "from": "claim_d26d7a206eee847d",
-      "to": "event_a55c7b236981d2db",
-      "relation": "update_evidence_for",
-      "updateTitle": "Astra因网络风险放缓开发"
-    },
-    {
-      "id": "edge_312735f19e9eaa67",
-      "from": "claim_4e6c4327315261e2",
-      "to": "event_a55c7b236981d2db",
-      "relation": "update_evidence_for",
-      "updateTitle": "Astra因网络风险放缓开发"
-    },
-    {
-      "id": "edge_6f4b68bfce6deb5f",
-      "from": "claim_e4d9bc1a6e9e8932",
-      "to": "event_a55c7b236981d2db",
-      "relation": "update_evidence_for",
-      "updateTitle": "Astra因网络风险放缓开发"
-    },
-    {
-      "id": "edge_33d075f5ec6aa3da",
-      "from": "claim_ee29a5804b18b4b6",
-      "to": "event_a55c7b236981d2db",
-      "relation": "update_evidence_for",
-      "updateTitle": "Astra因网络风险放缓开发"
-    },
-    {
-      "id": "edge_b5c62db490189a98",
-      "from": "claim_41caa87cd003c3d5",
-      "to": "event_a55c7b236981d2db",
-      "relation": "update_evidence_for",
-      "updateTitle": "Astra因网络风险放缓开发"
-    },
-    {
-      "id": "edge_c67a000e8c63ed41",
-      "from": "claim_d86351c007811007",
-      "to": "event_a55c7b236981d2db",
-      "relation": "update_evidence_for",
-      "updateTitle": "Astra因网络风险放缓开发"
-    },
-    {
-      "id": "edge_68cbc1ca853a532f",
-      "from": "claim_9e31273a2b02a0bb",
-      "to": "event_a55c7b236981d2db",
-      "relation": "update_evidence_for",
-      "updateTitle": "Astra因网络风险放缓开发"
-    },
-    {
-      "id": "edge_43111fb26316a39a",
-      "from": "update_fef9b7ead0c13433",
-      "to": "event_a55c7b236981d2db",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_8a363be7edccd0f8",
-      "from": "claim_5698c0df1a320a3c",
-      "to": "event_a55c7b236981d2db",
-      "relation": "update_evidence_for",
-      "updateTitle": "Astra扩大关键网络能力测试"
-    },
-    {
-      "id": "edge_642f61285b217e26",
-      "from": "update_a0dead423b2a2014",
-      "to": "event_a55c7b236981d2db",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_d48b3c6b760ec5b4",
-      "from": "claim_cc203de29187f0cb",
-      "to": "event_a55c7b236981d2db",
-      "relation": "update_evidence_for",
-      "updateTitle": "Astra十项结果补齐Lean验证材料"
-    },
-    {
-      "id": "edge_fc496c12d259ccff",
-      "from": "source_9337088aa5bc28bb",
-      "to": "claim_ae86c59d1dfcca42",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_a0eb4dc455e36a3f",
-      "from": "claim_ae86c59d1dfcca42",
-      "to": "event_a55c7b236981d2db",
-      "relation": "update_evidence_for",
-      "updateTitle": "Astra十项结果补齐Lean验证材料"
-    },
-    {
-      "id": "edge_a679f41c3adefcb8",
-      "from": "source_4c2938f8942569f4",
-      "to": "claim_a6165bfc074364ed",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_26d50c20c2c92e7f",
-      "from": "claim_a6165bfc074364ed",
-      "to": "event_a55c7b236981d2db",
-      "relation": "update_evidence_for",
-      "updateTitle": "Astra十项结果补齐Lean验证材料"
-    },
-    {
-      "id": "edge_6eb3ddf82cab174e",
-      "from": "source_845cfd8afc1734d9",
-      "to": "claim_e773b48e3b5e7c6e",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_9139123dfc0bedf2",
-      "from": "claim_e773b48e3b5e7c6e",
-      "to": "event_a55c7b236981d2db",
-      "relation": "update_evidence_for",
-      "updateTitle": "Astra十项结果补齐Lean验证材料"
-    },
-    {
-      "id": "edge_cd75267fd523977c",
-      "from": "source_c3a091730d4d926d",
-      "to": "claim_7e2f56f1d11f42a1",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_cd53965ee6f4bd74",
-      "from": "claim_7e2f56f1d11f42a1",
-      "to": "event_a55c7b236981d2db",
-      "relation": "update_evidence_for",
-      "updateTitle": "Astra十项结果补齐Lean验证材料"
-    },
-    {
-      "id": "edge_46667dd8c1480d52",
-      "from": "update_2a11bab1e8b8c74e",
-      "to": "event_a55c7b236981d2db",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_5436fc16dbe4c3ca",
-      "from": "claim_99071cea1770ccce",
-      "to": "event_a55c7b236981d2db",
-      "relation": "update_evidence_for",
-      "updateTitle": "Astra十项结果开放形式化核验"
-    },
-    {
-      "id": "edge_b3a60468257f10b6",
-      "from": "source_9337088aa5bc28bb",
-      "to": "claim_6de430052360014b",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_0232f6d87e9e89ee",
-      "from": "claim_6de430052360014b",
-      "to": "event_a55c7b236981d2db",
-      "relation": "update_evidence_for",
-      "updateTitle": "Astra十项结果开放形式化核验"
-    },
-    {
-      "id": "edge_57d8e1c883d9ddb8",
-      "from": "source_2aa5b06cf6bdb9d8",
-      "to": "claim_695fcfa73d83d1ef",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_bd4bc5e9c5599504",
-      "from": "claim_695fcfa73d83d1ef",
-      "to": "event_a55c7b236981d2db",
-      "relation": "update_evidence_for",
-      "updateTitle": "Astra十项结果开放形式化核验"
-    },
-    {
-      "id": "edge_1790e5c5793855f1",
-      "from": "source_4c2938f8942569f4",
-      "to": "claim_d1d5979e20aac9e1",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_b45a655e0cd8179a",
-      "from": "claim_d1d5979e20aac9e1",
-      "to": "event_a55c7b236981d2db",
-      "relation": "update_evidence_for",
-      "updateTitle": "Astra十项结果开放形式化核验"
-    },
-    {
-      "id": "edge_91669d326421e912",
-      "from": "source_845cfd8afc1734d9",
-      "to": "claim_0bda9f70830de273",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_9e130e845d748f9a",
-      "from": "claim_0bda9f70830de273",
-      "to": "event_a55c7b236981d2db",
-      "relation": "update_evidence_for",
-      "updateTitle": "Astra十项结果开放形式化核验"
-    },
-    {
-      "id": "edge_00b4bb02ba82d8b6",
-      "from": "update_4b10db5703a419bc",
-      "to": "event_a55c7b236981d2db",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_d7cf5138e7b6aa9d",
-      "from": "claim_b909b6f1bbab79cb",
-      "to": "event_a55c7b236981d2db",
-      "relation": "update_evidence_for",
-      "updateTitle": "Astra展示长时程任务信号"
-    },
-    {
-      "id": "edge_a091fa30d4e6665b",
-      "from": "source_9337088aa5bc28bb",
-      "to": "claim_88fef948093e0e44",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_2a5c7fa488d0eab7",
-      "from": "claim_88fef948093e0e44",
-      "to": "event_a55c7b236981d2db",
-      "relation": "update_evidence_for",
-      "updateTitle": "Astra展示长时程任务信号"
-    },
-    {
-      "id": "edge_e8aa86e2f893e9e0",
-      "from": "claim_b887b6164df8f47e",
-      "to": "event_a55c7b236981d2db",
-      "relation": "update_evidence_for",
-      "updateTitle": "Astra展示长时程任务信号"
-    },
-    {
-      "id": "edge_61f2d990bce35dd0",
-      "from": "claim_edbb9f0b9742c3e1",
-      "to": "event_a55c7b236981d2db",
-      "relation": "update_evidence_for",
-      "updateTitle": "Astra展示长时程任务信号"
-    },
-    {
-      "id": "edge_70cffb37c28f8e11",
-      "from": "claim_965acfbe75d89630",
-      "to": "event_a55c7b236981d2db",
-      "relation": "update_evidence_for",
-      "updateTitle": "Astra展示长时程任务信号"
-    },
-    {
-      "id": "edge_e7e2738e28034832",
-      "from": "update_2545e35046a94c6f",
-      "to": "event_a55c7b236981d2db",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_030aeaf67a92b43b",
-      "from": "claim_ff4aa0993c5df02b",
-      "to": "event_a55c7b236981d2db",
-      "relation": "update_evidence_for",
-      "updateTitle": "外部评论聚焦Astra科研展示"
-    },
-    {
-      "id": "edge_14120e52bdcbaad5",
-      "from": "update_58b651d7582b258b",
-      "to": "event_a55c7b236981d2db",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_15a424e0ee23f9e6",
-      "from": "claim_539673bb34a0eafd",
-      "to": "event_a55c7b236981d2db",
-      "relation": "update_evidence_for",
-      "updateTitle": "官方页面列出十项研究结果"
-    },
-    {
       "id": "edge_9cce46e9030ab4a7",
       "from": "event_520cf41eb2268eb0",
       "to": "article_a276cd3d6314008a",
@@ -14049,6 +14324,45 @@
       "to": "event_149e13a8b0a36be3",
       "relation": "evidence_for",
       "updateTitle": null
+    },
+    {
+      "id": "edge_6b798a8ba5f3b69e",
+      "from": "source_024ecfd0d7b1f06c",
+      "to": "claim_0ee8645d3acfdcdc",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_f363792c80a9e437",
+      "from": "claim_0ee8645d3acfdcdc",
+      "to": "event_149e13a8b0a36be3",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_80920394b4b93b00",
+      "from": "update_babd8d66ec1df4d3",
+      "to": "event_149e13a8b0a36be3",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_6d0ef58fff7ac386",
+      "from": "source_55f4e40fb0a1efb3",
+      "to": "claim_5fd5e8759746b1e6",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_32f11873be9c2266",
+      "from": "claim_5fd5e8759746b1e6",
+      "to": "event_149e13a8b0a36be3",
+      "relation": "update_evidence_for",
+      "updateTitle": "Hassabis交接获独立确认"
+    },
+    {
+      "id": "edge_2976e1e284271982",
+      "from": "claim_0ee8645d3acfdcdc",
+      "to": "event_149e13a8b0a36be3",
+      "relation": "update_evidence_for",
+      "updateTitle": "Hassabis交接获独立确认"
     },
     {
       "id": "edge_1900dc52200577b4",
