@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-10T11:13:08.564Z",
-  "basedOnSnapshotAt": "2026-08-10T11:06:27.244Z",
+  "generatedAt": "2026-08-10T13:13:18.703Z",
+  "basedOnSnapshotAt": "2026-08-10T13:07:10.818Z",
   "model": "gpt-5.5",
   "analyzedItemCount": 180,
   "totalFetchedItemCount": 2339,
@@ -8,6 +8,492 @@
   "signalQuality": 86,
   "signalQualityChange": 8,
   "signals": [
+    {
+      "id": 100,
+      "editorialBucket": "dynamic",
+      "category": "AI & 模型",
+      "eyebrow": "产品信号",
+      "title": "Meta开放Muse Glimmer本地代理模型",
+      "summary": "Meta发布约300亿参数的Muse Glimmer开放权重模型，定位本地常驻代理工作流，量化后可适配24GB或32GB内存/显存设备。",
+      "why": "Meta把Muse路线从此前的私有预览API延伸到可下载、可定制的本地部署，改变了其模型分发方式。",
+      "impact": "本地代理的竞争或更集中于设备适配、工具调用可靠性和开发者生态，而不只是云端模型能力。",
+      "shiftFrom": "Muse Spark仅私有预览API",
+      "shiftTo": "Glimmer开放权重可本地部署",
+      "crossValidation": "Meta官方公告确认发布、许可和设备要求；官方Hugging Face仓库确认权重、上下文与分项评测；Meta旧公告提供此前私有预览API的可比状态。",
+      "article": {
+        "lead": "Meta已将Muse Glimmer作为面向本地代理工作流的开放权重模型发布。这一变化的核心不只是新增一款30B级模型，而是Meta把Muse产品线从此前主要经私有预览API提供底层能力，推进到开发者可下载、定制并在单机设备上运行的分发模式。",
+        "sections": [
+          {
+            "heading": "从受控访问转向可下载部署",
+            "body": "Meta称，Muse Glimmer于8月10日以Apache 2.0许可开放权重，模型规模约300亿参数，并针对持续运行的本地代理工作流优化。其官方模型仓库列示约29.6B参数及131,072以上上下文。相比之下，Meta在4月发布Muse Spark时称，底层技术仅计划通过私有预览API向选定合作伙伴提供。Glimmer因此构成Muse路线一次明确的分发范围扩大。"
+          },
+          {
+            "heading": "设备门槛决定其产品定位",
+            "body": "Meta表示，Muse Glimmer量化后的语言模型低于20GB，可适配24GB或32GB的内存或显存空间，并列出了M4 Max、M5 Max和RTX 5090上的速度测试。这使其定位不同于只在远端调用的通用模型：开发者可以把模型、工具连接和部分任务状态放在本地设备侧。对常驻代理而言，离线可用性、数据路径控制和调用延迟，可能与绝对参数规模同样重要。"
+          },
+          {
+            "heading": "代理评测优势尚未等于全面替代",
+            "body": "官方模型卡显示，Glimmer在MCP Atlas和SWE-Bench Pro等项目上相对Gemma4-31B及Qwen3.6-27B具有部分优势，但在OSWorld-Verified、TerminalBench 2.1和GPQA Diamond上落后于Qwen。这意味着此次发布更直接地提高了本地代理的可选供给，而非证明其已在所有代理场景领先。若开发者将其用于长期运行任务，工具执行稳定性与设备端运维仍将决定实际采用。"
+          }
+        ],
+        "outlook": "接下来可观察的证据包括：Meta是否公布Glimmer的后续微调版本、企业或开发工具是否将其作为默认本地代理底座，以及独立评测能否复现其在MCP Atlas和SWE-Bench Pro上的表现。若更多主流设备在可接受延迟下运行该模型，本地代理的部署边界将进一步扩大；若实际工具任务表现未能复现，开放权重的分发变化则未必转化为采用。"
+      },
+      "validationType": "跨平台验证",
+      "publishedAt": "2026-08-10T10:00:00.000Z",
+      "updatedAt": "2026-08-10T12:29:38.000Z",
+      "sources": [
+        "Blog",
+        "Official",
+        "Repository",
+        "Research"
+      ],
+      "sourceNames": [
+        "Bloomberg",
+        "Meta AI Research",
+        "Hugging Face / Meta Inc.",
+        "Meta",
+        "Engadget",
+        "Meta Inc.",
+        "Meta AI"
+      ],
+      "sourceCount": 7,
+      "age": "1 小时前",
+      "score": 86,
+      "tone": "orange",
+      "evidence": [
+        {
+          "id": "233-2-https://www.bloomberg.com/news/articles/2026-08-10/meta-releases-muse-glimmer-ai-model-people-can-run-on-their-laptop",
+          "sourceId": 233,
+          "sourceName": "Bloomberg Technology",
+          "sourcePublisher": "Bloomberg",
+          "sourceKind": "Blog",
+          "title": "Meta Releases Muse Glimmer AI Model People Can Run on Their Laptop",
+          "url": "https://www.bloomberg.com/news/articles/2026-08-10/meta-releases-muse-glimmer-ai-model-people-can-run-on-their-laptop",
+          "publishedAt": "2026-08-10T10:00:00.000Z",
+          "summary": "Meta Platforms Inc. introduced a new AI model that’s light enough to run on a single computer, allowing users to download and customize the technology.",
+          "fetchedAt": "2026-08-10T11:06:27.244Z",
+          "discoveredThroughCluster": true,
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-10T11:06:27.244Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 1.1075677777777777,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N2",
+          "role": "主张",
+          "takeaway": "Bloomberg报道Meta推出可在单台计算机运行、可下载和定制的Muse Glimmer。"
+        },
+        {
+          "id": "research-233-2-https://www.bloomberg.com/news/articles/2026-08-10/meta-releases-muse-glimmer-ai-model-people-can-run-on-their-laptop-1-https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model",
+          "sourceId": 233,
+          "sourceName": "Meta AI Research",
+          "sourcePublisher": "Meta AI Research",
+          "sourceKind": "Official",
+          "title": "Introducing Muse Glimmer: An Open Agentic Model That Runs on Your Device",
+          "url": "https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model",
+          "publishedAt": "2026-08-10T00:00:00.000Z",
+          "summary": "确认Muse Glimmer于8月10日开放权重、采用Apache 2.0、规模为300亿参数，并说明其针对本地代理优化；量化后语言模型低于20GB、适配24GB或32GB内存/显存空间，速度测试覆盖M4 Max、M5 Max和RTX 5090。",
+          "fetchedAt": "2026-08-10T11:06:27.244Z",
+          "researchedFrom": "N2",
+          "researchRole": "Primary",
+          "researchClaim": "Meta于2026年8月10日发布并以Apache 2.0许可证开放Muse Glimmer权重：这是一款约300亿参数、面向本地代理工作流的多模态模型；经约4比特量化后语言模型低于20GB，Meta称可在配备单张消费级GPU的Mac或PC上运行。",
+          "researchComparisons": "与2026年4月的Muse Spark相比，Meta当时仅计划向部分合作伙伴提供私有预览API；Muse Glimmer则可直接下载权重并在本地部署。按Meta随模型发布的对比，Glimmer在MCP Atlas为75.5，高于Gemma4-31B的54.2和Qwen3.6-27B的62.5；SWE-Bench Pro为51.2，高于36.9和50.2。其本地化基准使用K-Quant-17GB版本，目标硬件为24GB显存，Meta报告RTX 5090为233.4 tok/s、M4 Max为37.8 tok/s、M5 Max为50.2 tok/s（均启用DFlash）。",
+          "researchUnresolved": "性能比较和量化退化测试均由Meta发布，尚缺少独立复现。其“单台电脑”主张对应24GB或32GB内存/显存配置及M4 Max、M5 Max或RTX 5090等测试硬件，不能直接外推至普通笔记本电脑。Meta自己的表格也显示Glimmer并非在所有同尺寸基准领先：其OSWorld-Verified为65.9，低于Qwen3.6-27B的75.6；TerminalBench 2.1为51.7，低于60.7；GPQA Diamond为83.5，低于85.7。",
+          "ref": "R1",
+          "role": "主张",
+          "takeaway": "Meta官方确认Muse Glimmer于8月10日开放权重、采用Apache 2.0、规模为300亿参数，并适配本地代理及24GB或32GB设备空间。"
+        },
+        {
+          "id": "research-233-2-https://www.bloomberg.com/news/articles/2026-08-10/meta-releases-muse-glimmer-ai-model-people-can-run-on-their-laptop-2-https://huggingface.co/meta-models/Muse-Glimmer-30B",
+          "sourceId": 233,
+          "sourceName": "Hugging Face / Meta Inc.",
+          "sourcePublisher": "Hugging Face / Meta Inc.",
+          "sourceKind": "Repository",
+          "title": "meta-models/Muse-Glimmer-30B",
+          "url": "https://huggingface.co/meta-models/Muse-Glimmer-30B",
+          "publishedAt": "2026-08-10T10:00:00.000Z",
+          "summary": "可下载模型仓库确认Apache 2.0许可、约29.6B参数和131,072+上下文；其模型卡给出与Gemma4-31B、Qwen3.6-27B的逐项基准，既支持MCP Atlas和SWE-Bench Pro优势，也显示其在OSWorld-Verified、TerminalBench 2.1和GPQA Diamond落后于Qwen。",
+          "fetchedAt": "2026-08-10T11:06:27.244Z",
+          "researchedFrom": "N2",
+          "researchRole": "Counterevidence",
+          "researchClaim": "Meta于2026年8月10日发布并以Apache 2.0许可证开放Muse Glimmer权重：这是一款约300亿参数、面向本地代理工作流的多模态模型；经约4比特量化后语言模型低于20GB，Meta称可在配备单张消费级GPU的Mac或PC上运行。",
+          "researchComparisons": "与2026年4月的Muse Spark相比，Meta当时仅计划向部分合作伙伴提供私有预览API；Muse Glimmer则可直接下载权重并在本地部署。按Meta随模型发布的对比，Glimmer在MCP Atlas为75.5，高于Gemma4-31B的54.2和Qwen3.6-27B的62.5；SWE-Bench Pro为51.2，高于36.9和50.2。其本地化基准使用K-Quant-17GB版本，目标硬件为24GB显存，Meta报告RTX 5090为233.4 tok/s、M4 Max为37.8 tok/s、M5 Max为50.2 tok/s（均启用DFlash）。",
+          "researchUnresolved": "性能比较和量化退化测试均由Meta发布，尚缺少独立复现。其“单台电脑”主张对应24GB或32GB内存/显存配置及M4 Max、M5 Max或RTX 5090等测试硬件，不能直接外推至普通笔记本电脑。Meta自己的表格也显示Glimmer并非在所有同尺寸基准领先：其OSWorld-Verified为65.9，低于Qwen3.6-27B的75.6；TerminalBench 2.1为51.7，低于60.7；GPQA Diamond为83.5，低于85.7。",
+          "ref": "R2",
+          "role": "佐证",
+          "takeaway": "官方Hugging Face仓库确认约29.6B参数、131,072以上上下文、Apache 2.0许可及分项基准结果。"
+        },
+        {
+          "id": "research-233-2-https://www.bloomberg.com/news/articles/2026-08-10/meta-releases-muse-glimmer-ai-model-people-can-run-on-their-laptop-3-https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/",
+          "sourceId": 233,
+          "sourceName": "Meta",
+          "sourcePublisher": "Meta",
+          "sourceKind": "Official",
+          "title": "Introducing Muse Spark: MSL’s First Model, Purpose-Built to Prioritize People",
+          "url": "https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/",
+          "publishedAt": "2026-04-08T00:00:00.000Z",
+          "summary": "提供此前状态：Meta在4月推出Muse Spark时称其在Meta AI应用和网站运行，并只计划通过私有预览API向选定合作伙伴开放底层技术；该状态构成此次可下载开放权重本地模型的可比基准。",
+          "fetchedAt": "2026-08-10T11:06:27.244Z",
+          "researchedFrom": "N2",
+          "researchRole": "Comparison",
+          "researchClaim": "Meta于2026年8月10日发布并以Apache 2.0许可证开放Muse Glimmer权重：这是一款约300亿参数、面向本地代理工作流的多模态模型；经约4比特量化后语言模型低于20GB，Meta称可在配备单张消费级GPU的Mac或PC上运行。",
+          "researchComparisons": "与2026年4月的Muse Spark相比，Meta当时仅计划向部分合作伙伴提供私有预览API；Muse Glimmer则可直接下载权重并在本地部署。按Meta随模型发布的对比，Glimmer在MCP Atlas为75.5，高于Gemma4-31B的54.2和Qwen3.6-27B的62.5；SWE-Bench Pro为51.2，高于36.9和50.2。其本地化基准使用K-Quant-17GB版本，目标硬件为24GB显存，Meta报告RTX 5090为233.4 tok/s、M4 Max为37.8 tok/s、M5 Max为50.2 tok/s（均启用DFlash）。",
+          "researchUnresolved": "性能比较和量化退化测试均由Meta发布，尚缺少独立复现。其“单台电脑”主张对应24GB或32GB内存/显存配置及M4 Max、M5 Max或RTX 5090等测试硬件，不能直接外推至普通笔记本电脑。Meta自己的表格也显示Glimmer并非在所有同尺寸基准领先：其OSWorld-Verified为65.9，低于Qwen3.6-27B的75.6；TerminalBench 2.1为51.7，低于60.7；GPQA Diamond为83.5，低于85.7。",
+          "ref": "R3",
+          "role": "背景",
+          "takeaway": "Meta此前称Muse Spark运行于Meta AI应用和网站，底层技术仅计划向选定伙伴提供私有预览API。"
+        },
+        {
+          "id": "235-1-https://www.engadget.com/2233312/metas-open-source-muse-glimmer-model-can-run-on-a-single-computer/",
+          "sourceId": 235,
+          "sourceName": "Engadget",
+          "sourcePublisher": "Engadget",
+          "sourceKind": "Blog",
+          "title": "Meta's 'open source' Muse Glimmer model can run on a single computer",
+          "url": "https://www.engadget.com/2233312/metas-open-source-muse-glimmer-model-can-run-on-a-single-computer/",
+          "publishedAt": "2026-08-10T12:29:38.000Z",
+          "summary": "Meta has released a new slimmed down 'open source' AI model that's light enough to run on a single computer.",
+          "fetchedAt": "2026-08-10T13:07:10.818Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-10T13:07:10.818Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "standard",
+            "reason": "fresh",
+            "ageHours": 0.6257827777777778,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N3",
+          "role": "最新进展",
+          "takeaway": "Engadget报道Meta已发布可在单台计算机运行的Muse Glimmer开放模型。"
+        },
+        {
+          "id": "research-235-1-https://www.engadget.com/2233312/metas-open-source-muse-glimmer-model-can-run-on-a-single-computer/-1-https://huggingface.co/meta-models/Muse-Glimmer-30B-GGUF",
+          "sourceId": 235,
+          "sourceName": "Meta Inc.",
+          "sourcePublisher": "Meta Inc.",
+          "sourceKind": "Repository",
+          "title": "meta-models/Muse-Glimmer-30B-GGUF · Hugging Face",
+          "url": "https://huggingface.co/meta-models/Muse-Glimmer-30B-GGUF",
+          "publishedAt": "2026-08-10T12:29:38.000Z",
+          "summary": "Meta 托管的模型卡确认 Muse Glimmer 为约 296 亿参数、Apache 2.0 许可、可处理文本与图像输入的本地代理模型；披露 4-bit 权重低于 20GB、24GB/32GB 显存目标配置、RTX 5090 上投机解码 233.4 token/s（较基线 74.9 token/s 为 3.1 倍），以及与 Gemma4-31B、Qwen3.6-27B 的逐项基准比较。",
+          "fetchedAt": "2026-08-10T13:07:10.818Z",
+          "researchedFrom": "N3",
+          "researchRole": "Primary",
+          "researchClaim": "Meta 已将 Muse Glimmer 30B 以 Apache 2.0 许可发布为可本地运行的开放权重模型；其核心变化不只是模型变小，而是把此前主要通过 Meta AI 产品和受限 API 提供的 Muse 系列能力，延伸为可下载、量化并在消费级硬件上部署的代理模型。",
+          "researchComparisons": "当前版本约 296 亿参数、支持文本和图像输入，4-bit 量化后的语言模型低于 20GB；Meta 的目标配置为 24GB VRAM 的 17GB K-Quant 版本，称相对全精度在 15 项常用基准上的平均准确率降幅为 1.0%。在其披露的同尺寸开放权重比较中，Muse Glimmer 在 MCP Atlas 为 75.5，高于 Gemma4-31B 的 54.2 和 Qwen3.6-27B 的 62.5；SWE-Bench Pro 为 51.2，略高于 36.9 和 50.2。此前，Meta 于 2026 年 4 月发布的 Muse Spark 是面向 Meta AI app、meta.ai 和选定合作伙伴私有 API 预览的产品模型，而非此次这种可下载的公开权重发布。反例是 Muse Glimmer 并未在所有关键任务领先：OSWorld-Verified 为 65.9，低于 Qwen3.6-27B 的 75.6；SWE-Bench Verified 为 76.0，低于 Qwen 的 77.2；TerminalBench 2.1 为 51.7，低于 Qwen 的 60.7；GPQA Diamond 为 83.5，低于 Gemma4-31B 的 85.7。",
+          "researchUnresolved": "尚无独立第三方对其本地运行的峰值显存、长上下文性能、实际代理任务成功率及安全表现的可复现实测；Meta 的比较方法承认部分竞争对手成绩取自自报或其内部复现，并为每个模型选取较有利的结果。",
+          "ref": "R1",
+          "role": "佐证",
+          "takeaway": "Meta模型卡确认约296亿参数、Apache 2.0许可、文本和图像输入支持，以及4-bit权重、目标显存配置和RTX 5090吞吐数据。"
+        },
+        {
+          "id": "research-235-1-https://www.engadget.com/2233312/metas-open-source-muse-glimmer-model-can-run-on-a-single-computer/-2-https://ai.meta.com/blog/introducing-muse-spark-msl/",
+          "sourceId": 235,
+          "sourceName": "Meta AI",
+          "sourcePublisher": "Meta AI",
+          "sourceKind": "Official",
+          "title": "Introducing Muse Spark: Scaling Towards Personal Superintelligence",
+          "url": "https://ai.meta.com/blog/introducing-muse-spark-msl/",
+          "publishedAt": "2026-04-08T00:00:00.000Z",
+          "summary": "补足此前状态：Meta 将 Muse Spark 描述为 Muse 系列首个模型，当时可在 meta.ai 和 Meta AI app 使用，并计划仅向选定合作伙伴提供私有 API 预览，构成此次公开可下载权重发布的产品分发对照。",
+          "fetchedAt": "2026-08-10T13:07:10.818Z",
+          "researchedFrom": "N3",
+          "researchRole": "Comparison",
+          "researchClaim": "Meta 已将 Muse Glimmer 30B 以 Apache 2.0 许可发布为可本地运行的开放权重模型；其核心变化不只是模型变小，而是把此前主要通过 Meta AI 产品和受限 API 提供的 Muse 系列能力，延伸为可下载、量化并在消费级硬件上部署的代理模型。",
+          "researchComparisons": "当前版本约 296 亿参数、支持文本和图像输入，4-bit 量化后的语言模型低于 20GB；Meta 的目标配置为 24GB VRAM 的 17GB K-Quant 版本，称相对全精度在 15 项常用基准上的平均准确率降幅为 1.0%。在其披露的同尺寸开放权重比较中，Muse Glimmer 在 MCP Atlas 为 75.5，高于 Gemma4-31B 的 54.2 和 Qwen3.6-27B 的 62.5；SWE-Bench Pro 为 51.2，略高于 36.9 和 50.2。此前，Meta 于 2026 年 4 月发布的 Muse Spark 是面向 Meta AI app、meta.ai 和选定合作伙伴私有 API 预览的产品模型，而非此次这种可下载的公开权重发布。反例是 Muse Glimmer 并未在所有关键任务领先：OSWorld-Verified 为 65.9，低于 Qwen3.6-27B 的 75.6；SWE-Bench Verified 为 76.0，低于 Qwen 的 77.2；TerminalBench 2.1 为 51.7，低于 Qwen 的 60.7；GPQA Diamond 为 83.5，低于 Gemma4-31B 的 85.7。",
+          "researchUnresolved": "尚无独立第三方对其本地运行的峰值显存、长上下文性能、实际代理任务成功率及安全表现的可复现实测；Meta 的比较方法承认部分竞争对手成绩取自自报或其内部复现，并为每个模型选取较有利的结果。",
+          "ref": "R2",
+          "role": "背景",
+          "takeaway": "Meta此前将Muse Spark作为可通过meta.ai和Meta AI app使用的模型，并计划只向选定伙伴提供私有API预览。"
+        },
+        {
+          "id": "research-235-1-https://www.engadget.com/2233312/metas-open-source-muse-glimmer-model-can-run-on-a-single-computer/-3-https://research.meta.ai/static/muse-glimmer-methodology",
+          "sourceId": 235,
+          "sourceName": "Meta AI Research",
+          "sourcePublisher": "Meta AI Research",
+          "sourceKind": "Research",
+          "title": "Muse Glimmer Evaluation Methodology",
+          "url": "https://research.meta.ai/static/muse-glimmer-methodology",
+          "publishedAt": "2026-08-10T12:29:38.000Z",
+          "summary": "补足基准的可比性限制：Meta 表示对竞争模型会采用自报成绩或其内部复现中较有利的结果；多项代理评测依赖其内部运行、特定脚手架和提示设置，且该文件明确提示第三方模型在为其优化的环境中可能表现不同。",
+          "fetchedAt": "2026-08-10T13:07:10.818Z",
+          "researchedFrom": "N3",
+          "researchRole": "Counterevidence",
+          "researchClaim": "Meta 已将 Muse Glimmer 30B 以 Apache 2.0 许可发布为可本地运行的开放权重模型；其核心变化不只是模型变小，而是把此前主要通过 Meta AI 产品和受限 API 提供的 Muse 系列能力，延伸为可下载、量化并在消费级硬件上部署的代理模型。",
+          "researchComparisons": "当前版本约 296 亿参数、支持文本和图像输入，4-bit 量化后的语言模型低于 20GB；Meta 的目标配置为 24GB VRAM 的 17GB K-Quant 版本，称相对全精度在 15 项常用基准上的平均准确率降幅为 1.0%。在其披露的同尺寸开放权重比较中，Muse Glimmer 在 MCP Atlas 为 75.5，高于 Gemma4-31B 的 54.2 和 Qwen3.6-27B 的 62.5；SWE-Bench Pro 为 51.2，略高于 36.9 和 50.2。此前，Meta 于 2026 年 4 月发布的 Muse Spark 是面向 Meta AI app、meta.ai 和选定合作伙伴私有 API 预览的产品模型，而非此次这种可下载的公开权重发布。反例是 Muse Glimmer 并未在所有关键任务领先：OSWorld-Verified 为 65.9，低于 Qwen3.6-27B 的 75.6；SWE-Bench Verified 为 76.0，低于 Qwen 的 77.2；TerminalBench 2.1 为 51.7，低于 Qwen 的 60.7；GPQA Diamond 为 83.5，低于 Gemma4-31B 的 85.7。",
+          "researchUnresolved": "尚无独立第三方对其本地运行的峰值显存、长上下文性能、实际代理任务成功率及安全表现的可复现实测；Meta 的比较方法承认部分竞争对手成绩取自自报或其内部复现，并为每个模型选取较有利的结果。",
+          "ref": "R3",
+          "role": "反例",
+          "takeaway": "Meta说明竞品结果可能采用自报或内部复现中较有利的数值，部分代理评测依赖内部脚手架和提示设置。"
+        }
+      ],
+      "references": [
+        {
+          "id": "233-2-https://www.bloomberg.com/news/articles/2026-08-10/meta-releases-muse-glimmer-ai-model-people-can-run-on-their-laptop",
+          "sourceId": 233,
+          "sourceName": "Bloomberg Technology",
+          "sourcePublisher": "Bloomberg",
+          "sourceKind": "Blog",
+          "title": "Meta Releases Muse Glimmer AI Model People Can Run on Their Laptop",
+          "url": "https://www.bloomberg.com/news/articles/2026-08-10/meta-releases-muse-glimmer-ai-model-people-can-run-on-their-laptop",
+          "publishedAt": "2026-08-10T10:00:00.000Z",
+          "summary": "Meta Platforms Inc. introduced a new AI model that’s light enough to run on a single computer, allowing users to download and customize the technology.",
+          "fetchedAt": "2026-08-10T11:06:27.244Z",
+          "discoveredThroughCluster": true,
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-10T11:06:27.244Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 1.1075677777777777,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N2"
+        },
+        {
+          "id": "research-233-2-https://www.bloomberg.com/news/articles/2026-08-10/meta-releases-muse-glimmer-ai-model-people-can-run-on-their-laptop-1-https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model",
+          "sourceId": 233,
+          "sourceName": "Meta AI Research",
+          "sourcePublisher": "Meta AI Research",
+          "sourceKind": "Official",
+          "title": "Introducing Muse Glimmer: An Open Agentic Model That Runs on Your Device",
+          "url": "https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model",
+          "publishedAt": "2026-08-10T00:00:00.000Z",
+          "summary": "确认Muse Glimmer于8月10日开放权重、采用Apache 2.0、规模为300亿参数，并说明其针对本地代理优化；量化后语言模型低于20GB、适配24GB或32GB内存/显存空间，速度测试覆盖M4 Max、M5 Max和RTX 5090。",
+          "fetchedAt": "2026-08-10T11:06:27.244Z",
+          "researchedFrom": "N2",
+          "researchRole": "Primary",
+          "researchClaim": "Meta于2026年8月10日发布并以Apache 2.0许可证开放Muse Glimmer权重：这是一款约300亿参数、面向本地代理工作流的多模态模型；经约4比特量化后语言模型低于20GB，Meta称可在配备单张消费级GPU的Mac或PC上运行。",
+          "researchComparisons": "与2026年4月的Muse Spark相比，Meta当时仅计划向部分合作伙伴提供私有预览API；Muse Glimmer则可直接下载权重并在本地部署。按Meta随模型发布的对比，Glimmer在MCP Atlas为75.5，高于Gemma4-31B的54.2和Qwen3.6-27B的62.5；SWE-Bench Pro为51.2，高于36.9和50.2。其本地化基准使用K-Quant-17GB版本，目标硬件为24GB显存，Meta报告RTX 5090为233.4 tok/s、M4 Max为37.8 tok/s、M5 Max为50.2 tok/s（均启用DFlash）。",
+          "researchUnresolved": "性能比较和量化退化测试均由Meta发布，尚缺少独立复现。其“单台电脑”主张对应24GB或32GB内存/显存配置及M4 Max、M5 Max或RTX 5090等测试硬件，不能直接外推至普通笔记本电脑。Meta自己的表格也显示Glimmer并非在所有同尺寸基准领先：其OSWorld-Verified为65.9，低于Qwen3.6-27B的75.6；TerminalBench 2.1为51.7，低于60.7；GPQA Diamond为83.5，低于85.7。",
+          "ref": "R1"
+        },
+        {
+          "id": "research-233-2-https://www.bloomberg.com/news/articles/2026-08-10/meta-releases-muse-glimmer-ai-model-people-can-run-on-their-laptop-2-https://huggingface.co/meta-models/Muse-Glimmer-30B",
+          "sourceId": 233,
+          "sourceName": "Hugging Face / Meta Inc.",
+          "sourcePublisher": "Hugging Face / Meta Inc.",
+          "sourceKind": "Repository",
+          "title": "meta-models/Muse-Glimmer-30B",
+          "url": "https://huggingface.co/meta-models/Muse-Glimmer-30B",
+          "publishedAt": "2026-08-10T10:00:00.000Z",
+          "summary": "可下载模型仓库确认Apache 2.0许可、约29.6B参数和131,072+上下文；其模型卡给出与Gemma4-31B、Qwen3.6-27B的逐项基准，既支持MCP Atlas和SWE-Bench Pro优势，也显示其在OSWorld-Verified、TerminalBench 2.1和GPQA Diamond落后于Qwen。",
+          "fetchedAt": "2026-08-10T11:06:27.244Z",
+          "researchedFrom": "N2",
+          "researchRole": "Counterevidence",
+          "researchClaim": "Meta于2026年8月10日发布并以Apache 2.0许可证开放Muse Glimmer权重：这是一款约300亿参数、面向本地代理工作流的多模态模型；经约4比特量化后语言模型低于20GB，Meta称可在配备单张消费级GPU的Mac或PC上运行。",
+          "researchComparisons": "与2026年4月的Muse Spark相比，Meta当时仅计划向部分合作伙伴提供私有预览API；Muse Glimmer则可直接下载权重并在本地部署。按Meta随模型发布的对比，Glimmer在MCP Atlas为75.5，高于Gemma4-31B的54.2和Qwen3.6-27B的62.5；SWE-Bench Pro为51.2，高于36.9和50.2。其本地化基准使用K-Quant-17GB版本，目标硬件为24GB显存，Meta报告RTX 5090为233.4 tok/s、M4 Max为37.8 tok/s、M5 Max为50.2 tok/s（均启用DFlash）。",
+          "researchUnresolved": "性能比较和量化退化测试均由Meta发布，尚缺少独立复现。其“单台电脑”主张对应24GB或32GB内存/显存配置及M4 Max、M5 Max或RTX 5090等测试硬件，不能直接外推至普通笔记本电脑。Meta自己的表格也显示Glimmer并非在所有同尺寸基准领先：其OSWorld-Verified为65.9，低于Qwen3.6-27B的75.6；TerminalBench 2.1为51.7，低于60.7；GPQA Diamond为83.5，低于85.7。",
+          "ref": "R2"
+        },
+        {
+          "id": "research-233-2-https://www.bloomberg.com/news/articles/2026-08-10/meta-releases-muse-glimmer-ai-model-people-can-run-on-their-laptop-3-https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/",
+          "sourceId": 233,
+          "sourceName": "Meta",
+          "sourcePublisher": "Meta",
+          "sourceKind": "Official",
+          "title": "Introducing Muse Spark: MSL’s First Model, Purpose-Built to Prioritize People",
+          "url": "https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/",
+          "publishedAt": "2026-04-08T00:00:00.000Z",
+          "summary": "提供此前状态：Meta在4月推出Muse Spark时称其在Meta AI应用和网站运行，并只计划通过私有预览API向选定合作伙伴开放底层技术；该状态构成此次可下载开放权重本地模型的可比基准。",
+          "fetchedAt": "2026-08-10T11:06:27.244Z",
+          "researchedFrom": "N2",
+          "researchRole": "Comparison",
+          "researchClaim": "Meta于2026年8月10日发布并以Apache 2.0许可证开放Muse Glimmer权重：这是一款约300亿参数、面向本地代理工作流的多模态模型；经约4比特量化后语言模型低于20GB，Meta称可在配备单张消费级GPU的Mac或PC上运行。",
+          "researchComparisons": "与2026年4月的Muse Spark相比，Meta当时仅计划向部分合作伙伴提供私有预览API；Muse Glimmer则可直接下载权重并在本地部署。按Meta随模型发布的对比，Glimmer在MCP Atlas为75.5，高于Gemma4-31B的54.2和Qwen3.6-27B的62.5；SWE-Bench Pro为51.2，高于36.9和50.2。其本地化基准使用K-Quant-17GB版本，目标硬件为24GB显存，Meta报告RTX 5090为233.4 tok/s、M4 Max为37.8 tok/s、M5 Max为50.2 tok/s（均启用DFlash）。",
+          "researchUnresolved": "性能比较和量化退化测试均由Meta发布，尚缺少独立复现。其“单台电脑”主张对应24GB或32GB内存/显存配置及M4 Max、M5 Max或RTX 5090等测试硬件，不能直接外推至普通笔记本电脑。Meta自己的表格也显示Glimmer并非在所有同尺寸基准领先：其OSWorld-Verified为65.9，低于Qwen3.6-27B的75.6；TerminalBench 2.1为51.7，低于60.7；GPQA Diamond为83.5，低于85.7。",
+          "ref": "R3"
+        },
+        {
+          "id": "235-1-https://www.engadget.com/2233312/metas-open-source-muse-glimmer-model-can-run-on-a-single-computer/",
+          "sourceId": 235,
+          "sourceName": "Engadget",
+          "sourcePublisher": "Engadget",
+          "sourceKind": "Blog",
+          "title": "Meta's 'open source' Muse Glimmer model can run on a single computer",
+          "url": "https://www.engadget.com/2233312/metas-open-source-muse-glimmer-model-can-run-on-a-single-computer/",
+          "publishedAt": "2026-08-10T12:29:38.000Z",
+          "summary": "Meta has released a new slimmed down 'open source' AI model that's light enough to run on a single computer.",
+          "fetchedAt": "2026-08-10T13:07:10.818Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-10T13:07:10.818Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "standard",
+            "reason": "fresh",
+            "ageHours": 0.6257827777777778,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N3"
+        },
+        {
+          "id": "research-235-1-https://www.engadget.com/2233312/metas-open-source-muse-glimmer-model-can-run-on-a-single-computer/-1-https://huggingface.co/meta-models/Muse-Glimmer-30B-GGUF",
+          "sourceId": 235,
+          "sourceName": "Meta Inc.",
+          "sourcePublisher": "Meta Inc.",
+          "sourceKind": "Repository",
+          "title": "meta-models/Muse-Glimmer-30B-GGUF · Hugging Face",
+          "url": "https://huggingface.co/meta-models/Muse-Glimmer-30B-GGUF",
+          "publishedAt": "2026-08-10T12:29:38.000Z",
+          "summary": "Meta 托管的模型卡确认 Muse Glimmer 为约 296 亿参数、Apache 2.0 许可、可处理文本与图像输入的本地代理模型；披露 4-bit 权重低于 20GB、24GB/32GB 显存目标配置、RTX 5090 上投机解码 233.4 token/s（较基线 74.9 token/s 为 3.1 倍），以及与 Gemma4-31B、Qwen3.6-27B 的逐项基准比较。",
+          "fetchedAt": "2026-08-10T13:07:10.818Z",
+          "researchedFrom": "N3",
+          "researchRole": "Primary",
+          "researchClaim": "Meta 已将 Muse Glimmer 30B 以 Apache 2.0 许可发布为可本地运行的开放权重模型；其核心变化不只是模型变小，而是把此前主要通过 Meta AI 产品和受限 API 提供的 Muse 系列能力，延伸为可下载、量化并在消费级硬件上部署的代理模型。",
+          "researchComparisons": "当前版本约 296 亿参数、支持文本和图像输入，4-bit 量化后的语言模型低于 20GB；Meta 的目标配置为 24GB VRAM 的 17GB K-Quant 版本，称相对全精度在 15 项常用基准上的平均准确率降幅为 1.0%。在其披露的同尺寸开放权重比较中，Muse Glimmer 在 MCP Atlas 为 75.5，高于 Gemma4-31B 的 54.2 和 Qwen3.6-27B 的 62.5；SWE-Bench Pro 为 51.2，略高于 36.9 和 50.2。此前，Meta 于 2026 年 4 月发布的 Muse Spark 是面向 Meta AI app、meta.ai 和选定合作伙伴私有 API 预览的产品模型，而非此次这种可下载的公开权重发布。反例是 Muse Glimmer 并未在所有关键任务领先：OSWorld-Verified 为 65.9，低于 Qwen3.6-27B 的 75.6；SWE-Bench Verified 为 76.0，低于 Qwen 的 77.2；TerminalBench 2.1 为 51.7，低于 Qwen 的 60.7；GPQA Diamond 为 83.5，低于 Gemma4-31B 的 85.7。",
+          "researchUnresolved": "尚无独立第三方对其本地运行的峰值显存、长上下文性能、实际代理任务成功率及安全表现的可复现实测；Meta 的比较方法承认部分竞争对手成绩取自自报或其内部复现，并为每个模型选取较有利的结果。",
+          "ref": "R1"
+        },
+        {
+          "id": "research-235-1-https://www.engadget.com/2233312/metas-open-source-muse-glimmer-model-can-run-on-a-single-computer/-2-https://ai.meta.com/blog/introducing-muse-spark-msl/",
+          "sourceId": 235,
+          "sourceName": "Meta AI",
+          "sourcePublisher": "Meta AI",
+          "sourceKind": "Official",
+          "title": "Introducing Muse Spark: Scaling Towards Personal Superintelligence",
+          "url": "https://ai.meta.com/blog/introducing-muse-spark-msl/",
+          "publishedAt": "2026-04-08T00:00:00.000Z",
+          "summary": "补足此前状态：Meta 将 Muse Spark 描述为 Muse 系列首个模型，当时可在 meta.ai 和 Meta AI app 使用，并计划仅向选定合作伙伴提供私有 API 预览，构成此次公开可下载权重发布的产品分发对照。",
+          "fetchedAt": "2026-08-10T13:07:10.818Z",
+          "researchedFrom": "N3",
+          "researchRole": "Comparison",
+          "researchClaim": "Meta 已将 Muse Glimmer 30B 以 Apache 2.0 许可发布为可本地运行的开放权重模型；其核心变化不只是模型变小，而是把此前主要通过 Meta AI 产品和受限 API 提供的 Muse 系列能力，延伸为可下载、量化并在消费级硬件上部署的代理模型。",
+          "researchComparisons": "当前版本约 296 亿参数、支持文本和图像输入，4-bit 量化后的语言模型低于 20GB；Meta 的目标配置为 24GB VRAM 的 17GB K-Quant 版本，称相对全精度在 15 项常用基准上的平均准确率降幅为 1.0%。在其披露的同尺寸开放权重比较中，Muse Glimmer 在 MCP Atlas 为 75.5，高于 Gemma4-31B 的 54.2 和 Qwen3.6-27B 的 62.5；SWE-Bench Pro 为 51.2，略高于 36.9 和 50.2。此前，Meta 于 2026 年 4 月发布的 Muse Spark 是面向 Meta AI app、meta.ai 和选定合作伙伴私有 API 预览的产品模型，而非此次这种可下载的公开权重发布。反例是 Muse Glimmer 并未在所有关键任务领先：OSWorld-Verified 为 65.9，低于 Qwen3.6-27B 的 75.6；SWE-Bench Verified 为 76.0，低于 Qwen 的 77.2；TerminalBench 2.1 为 51.7，低于 Qwen 的 60.7；GPQA Diamond 为 83.5，低于 Gemma4-31B 的 85.7。",
+          "researchUnresolved": "尚无独立第三方对其本地运行的峰值显存、长上下文性能、实际代理任务成功率及安全表现的可复现实测；Meta 的比较方法承认部分竞争对手成绩取自自报或其内部复现，并为每个模型选取较有利的结果。",
+          "ref": "R2"
+        },
+        {
+          "id": "research-235-1-https://www.engadget.com/2233312/metas-open-source-muse-glimmer-model-can-run-on-a-single-computer/-3-https://research.meta.ai/static/muse-glimmer-methodology",
+          "sourceId": 235,
+          "sourceName": "Meta AI Research",
+          "sourcePublisher": "Meta AI Research",
+          "sourceKind": "Research",
+          "title": "Muse Glimmer Evaluation Methodology",
+          "url": "https://research.meta.ai/static/muse-glimmer-methodology",
+          "publishedAt": "2026-08-10T12:29:38.000Z",
+          "summary": "补足基准的可比性限制：Meta 表示对竞争模型会采用自报成绩或其内部复现中较有利的结果；多项代理评测依赖其内部运行、特定脚手架和提示设置，且该文件明确提示第三方模型在为其优化的环境中可能表现不同。",
+          "fetchedAt": "2026-08-10T13:07:10.818Z",
+          "researchedFrom": "N3",
+          "researchRole": "Counterevidence",
+          "researchClaim": "Meta 已将 Muse Glimmer 30B 以 Apache 2.0 许可发布为可本地运行的开放权重模型；其核心变化不只是模型变小，而是把此前主要通过 Meta AI 产品和受限 API 提供的 Muse 系列能力，延伸为可下载、量化并在消费级硬件上部署的代理模型。",
+          "researchComparisons": "当前版本约 296 亿参数、支持文本和图像输入，4-bit 量化后的语言模型低于 20GB；Meta 的目标配置为 24GB VRAM 的 17GB K-Quant 版本，称相对全精度在 15 项常用基准上的平均准确率降幅为 1.0%。在其披露的同尺寸开放权重比较中，Muse Glimmer 在 MCP Atlas 为 75.5，高于 Gemma4-31B 的 54.2 和 Qwen3.6-27B 的 62.5；SWE-Bench Pro 为 51.2，略高于 36.9 和 50.2。此前，Meta 于 2026 年 4 月发布的 Muse Spark 是面向 Meta AI app、meta.ai 和选定合作伙伴私有 API 预览的产品模型，而非此次这种可下载的公开权重发布。反例是 Muse Glimmer 并未在所有关键任务领先：OSWorld-Verified 为 65.9，低于 Qwen3.6-27B 的 75.6；SWE-Bench Verified 为 76.0，低于 Qwen 的 77.2；TerminalBench 2.1 为 51.7，低于 Qwen 的 60.7；GPQA Diamond 为 83.5，低于 Gemma4-31B 的 85.7。",
+          "researchUnresolved": "尚无独立第三方对其本地运行的峰值显存、长上下文性能、实际代理任务成功率及安全表现的可复现实测；Meta 的比较方法承认部分竞争对手成绩取自自报或其内部复现，并为每个模型选取较有利的结果。",
+          "ref": "R3"
+        }
+      ],
+      "feedBatchAt": "2026-08-10T13:07:10.818Z",
+      "updates": [
+        {
+          "addedAt": "2026-08-10T12:29:38.000Z",
+          "title": "Muse Glimmer补齐本地部署指标",
+          "summary": "Meta模型卡披露，Muse Glimmer约296亿参数，4-bit权重低于20GB，目标配置为24GB或32GB显存；在RTX 5090上采用投机解码时，其披露吞吐为233.4 token/s。",
+          "evidence": [
+            {
+              "id": "235-1-https://www.engadget.com/2233312/metas-open-source-muse-glimmer-model-can-run-on-a-single-computer/",
+              "sourceId": 235,
+              "sourceName": "Engadget",
+              "sourcePublisher": "Engadget",
+              "sourceKind": "Blog",
+              "title": "Meta's 'open source' Muse Glimmer model can run on a single computer",
+              "url": "https://www.engadget.com/2233312/metas-open-source-muse-glimmer-model-can-run-on-a-single-computer/",
+              "publishedAt": "2026-08-10T12:29:38.000Z",
+              "summary": "Meta has released a new slimmed down 'open source' AI model that's light enough to run on a single computer.",
+              "fetchedAt": "2026-08-10T13:07:10.818Z",
+              "accessMethod": "public-feed",
+              "publicContentPolicy": "headline-source-link-only",
+              "firstSeenAt": "2026-08-10T13:07:10.818Z",
+              "freshness": {
+                "eligible": true,
+                "lane": "standard",
+                "reason": "fresh",
+                "ageHours": 0.6257827777777778,
+                "maxAgeHours": 168
+              },
+              "deferredResearch": false,
+              "ref": "N3",
+              "role": "最新进展",
+              "takeaway": "Engadget报道Meta已发布可在单台计算机运行的Muse Glimmer开放模型。"
+            },
+            {
+              "id": "research-235-1-https://www.engadget.com/2233312/metas-open-source-muse-glimmer-model-can-run-on-a-single-computer/-1-https://huggingface.co/meta-models/Muse-Glimmer-30B-GGUF",
+              "sourceId": 235,
+              "sourceName": "Meta Inc.",
+              "sourcePublisher": "Meta Inc.",
+              "sourceKind": "Repository",
+              "title": "meta-models/Muse-Glimmer-30B-GGUF · Hugging Face",
+              "url": "https://huggingface.co/meta-models/Muse-Glimmer-30B-GGUF",
+              "publishedAt": "2026-08-10T12:29:38.000Z",
+              "summary": "Meta 托管的模型卡确认 Muse Glimmer 为约 296 亿参数、Apache 2.0 许可、可处理文本与图像输入的本地代理模型；披露 4-bit 权重低于 20GB、24GB/32GB 显存目标配置、RTX 5090 上投机解码 233.4 token/s（较基线 74.9 token/s 为 3.1 倍），以及与 Gemma4-31B、Qwen3.6-27B 的逐项基准比较。",
+              "fetchedAt": "2026-08-10T13:07:10.818Z",
+              "researchedFrom": "N3",
+              "researchRole": "Primary",
+              "researchClaim": "Meta 已将 Muse Glimmer 30B 以 Apache 2.0 许可发布为可本地运行的开放权重模型；其核心变化不只是模型变小，而是把此前主要通过 Meta AI 产品和受限 API 提供的 Muse 系列能力，延伸为可下载、量化并在消费级硬件上部署的代理模型。",
+              "researchComparisons": "当前版本约 296 亿参数、支持文本和图像输入，4-bit 量化后的语言模型低于 20GB；Meta 的目标配置为 24GB VRAM 的 17GB K-Quant 版本，称相对全精度在 15 项常用基准上的平均准确率降幅为 1.0%。在其披露的同尺寸开放权重比较中，Muse Glimmer 在 MCP Atlas 为 75.5，高于 Gemma4-31B 的 54.2 和 Qwen3.6-27B 的 62.5；SWE-Bench Pro 为 51.2，略高于 36.9 和 50.2。此前，Meta 于 2026 年 4 月发布的 Muse Spark 是面向 Meta AI app、meta.ai 和选定合作伙伴私有 API 预览的产品模型，而非此次这种可下载的公开权重发布。反例是 Muse Glimmer 并未在所有关键任务领先：OSWorld-Verified 为 65.9，低于 Qwen3.6-27B 的 75.6；SWE-Bench Verified 为 76.0，低于 Qwen 的 77.2；TerminalBench 2.1 为 51.7，低于 Qwen 的 60.7；GPQA Diamond 为 83.5，低于 Gemma4-31B 的 85.7。",
+              "researchUnresolved": "尚无独立第三方对其本地运行的峰值显存、长上下文性能、实际代理任务成功率及安全表现的可复现实测；Meta 的比较方法承认部分竞争对手成绩取自自报或其内部复现，并为每个模型选取较有利的结果。",
+              "ref": "R1",
+              "role": "佐证",
+              "takeaway": "Meta模型卡确认约296亿参数、Apache 2.0许可、文本和图像输入支持，以及4-bit权重、目标显存配置和RTX 5090吞吐数据。"
+            },
+            {
+              "id": "research-235-1-https://www.engadget.com/2233312/metas-open-source-muse-glimmer-model-can-run-on-a-single-computer/-2-https://ai.meta.com/blog/introducing-muse-spark-msl/",
+              "sourceId": 235,
+              "sourceName": "Meta AI",
+              "sourcePublisher": "Meta AI",
+              "sourceKind": "Official",
+              "title": "Introducing Muse Spark: Scaling Towards Personal Superintelligence",
+              "url": "https://ai.meta.com/blog/introducing-muse-spark-msl/",
+              "publishedAt": "2026-04-08T00:00:00.000Z",
+              "summary": "补足此前状态：Meta 将 Muse Spark 描述为 Muse 系列首个模型，当时可在 meta.ai 和 Meta AI app 使用，并计划仅向选定合作伙伴提供私有 API 预览，构成此次公开可下载权重发布的产品分发对照。",
+              "fetchedAt": "2026-08-10T13:07:10.818Z",
+              "researchedFrom": "N3",
+              "researchRole": "Comparison",
+              "researchClaim": "Meta 已将 Muse Glimmer 30B 以 Apache 2.0 许可发布为可本地运行的开放权重模型；其核心变化不只是模型变小，而是把此前主要通过 Meta AI 产品和受限 API 提供的 Muse 系列能力，延伸为可下载、量化并在消费级硬件上部署的代理模型。",
+              "researchComparisons": "当前版本约 296 亿参数、支持文本和图像输入，4-bit 量化后的语言模型低于 20GB；Meta 的目标配置为 24GB VRAM 的 17GB K-Quant 版本，称相对全精度在 15 项常用基准上的平均准确率降幅为 1.0%。在其披露的同尺寸开放权重比较中，Muse Glimmer 在 MCP Atlas 为 75.5，高于 Gemma4-31B 的 54.2 和 Qwen3.6-27B 的 62.5；SWE-Bench Pro 为 51.2，略高于 36.9 和 50.2。此前，Meta 于 2026 年 4 月发布的 Muse Spark 是面向 Meta AI app、meta.ai 和选定合作伙伴私有 API 预览的产品模型，而非此次这种可下载的公开权重发布。反例是 Muse Glimmer 并未在所有关键任务领先：OSWorld-Verified 为 65.9，低于 Qwen3.6-27B 的 75.6；SWE-Bench Verified 为 76.0，低于 Qwen 的 77.2；TerminalBench 2.1 为 51.7，低于 Qwen 的 60.7；GPQA Diamond 为 83.5，低于 Gemma4-31B 的 85.7。",
+              "researchUnresolved": "尚无独立第三方对其本地运行的峰值显存、长上下文性能、实际代理任务成功率及安全表现的可复现实测；Meta 的比较方法承认部分竞争对手成绩取自自报或其内部复现，并为每个模型选取较有利的结果。",
+              "ref": "R2",
+              "role": "背景",
+              "takeaway": "Meta此前将Muse Spark作为可通过meta.ai和Meta AI app使用的模型，并计划只向选定伙伴提供私有API预览。"
+            },
+            {
+              "id": "research-235-1-https://www.engadget.com/2233312/metas-open-source-muse-glimmer-model-can-run-on-a-single-computer/-3-https://research.meta.ai/static/muse-glimmer-methodology",
+              "sourceId": 235,
+              "sourceName": "Meta AI Research",
+              "sourcePublisher": "Meta AI Research",
+              "sourceKind": "Research",
+              "title": "Muse Glimmer Evaluation Methodology",
+              "url": "https://research.meta.ai/static/muse-glimmer-methodology",
+              "publishedAt": "2026-08-10T12:29:38.000Z",
+              "summary": "补足基准的可比性限制：Meta 表示对竞争模型会采用自报成绩或其内部复现中较有利的结果；多项代理评测依赖其内部运行、特定脚手架和提示设置，且该文件明确提示第三方模型在为其优化的环境中可能表现不同。",
+              "fetchedAt": "2026-08-10T13:07:10.818Z",
+              "researchedFrom": "N3",
+              "researchRole": "Counterevidence",
+              "researchClaim": "Meta 已将 Muse Glimmer 30B 以 Apache 2.0 许可发布为可本地运行的开放权重模型；其核心变化不只是模型变小，而是把此前主要通过 Meta AI 产品和受限 API 提供的 Muse 系列能力，延伸为可下载、量化并在消费级硬件上部署的代理模型。",
+              "researchComparisons": "当前版本约 296 亿参数、支持文本和图像输入，4-bit 量化后的语言模型低于 20GB；Meta 的目标配置为 24GB VRAM 的 17GB K-Quant 版本，称相对全精度在 15 项常用基准上的平均准确率降幅为 1.0%。在其披露的同尺寸开放权重比较中，Muse Glimmer 在 MCP Atlas 为 75.5，高于 Gemma4-31B 的 54.2 和 Qwen3.6-27B 的 62.5；SWE-Bench Pro 为 51.2，略高于 36.9 和 50.2。此前，Meta 于 2026 年 4 月发布的 Muse Spark 是面向 Meta AI app、meta.ai 和选定合作伙伴私有 API 预览的产品模型，而非此次这种可下载的公开权重发布。反例是 Muse Glimmer 并未在所有关键任务领先：OSWorld-Verified 为 65.9，低于 Qwen3.6-27B 的 75.6；SWE-Bench Verified 为 76.0，低于 Qwen 的 77.2；TerminalBench 2.1 为 51.7，低于 Qwen 的 60.7；GPQA Diamond 为 83.5，低于 Gemma4-31B 的 85.7。",
+              "researchUnresolved": "尚无独立第三方对其本地运行的峰值显存、长上下文性能、实际代理任务成功率及安全表现的可复现实测；Meta 的比较方法承认部分竞争对手成绩取自自报或其内部复现，并为每个模型选取较有利的结果。",
+              "ref": "R3",
+              "role": "反例",
+              "takeaway": "Meta说明竞品结果可能采用自报或内部复现中较有利的数值，部分代理评测依赖内部脚手架和提示设置。"
+            }
+          ],
+          "changeType": "progress",
+          "thesisImpact": "新模型卡补齐了Muse Glimmer的量化部署门槛、推理吞吐和与同级模型的比较；同时，Meta披露的评测设置限制了这些性能数字的外推。",
+          "revisionRequired": false
+        }
+      ]
+    },
     {
       "id": 99,
       "editorialBucket": "dynamic",
@@ -259,226 +745,6 @@
           "researchComparisons": "当月营收高于2026年6月的新台币4,426.80亿元，也高于2025年7月的新台币3,231.66亿元。此前2Q26实际美元营收为402亿美元，位于公司390亿至402亿美元指引上限；公司最新3Q26营收指引为446亿至458亿美元、毛利率65%至67%、营业利润率56%至58%，相较2Q26实际的67.7%毛利率和60.3%营业利润率意味着利润率可能回落。Visible Alpha的3Q营收共识为454亿美元，处于公司指引区间内。",
           "researchUnresolved": "月度营收未经审计，且该披露不提供产品、制程、客户、出货量或价格拆分；2nm初期爬坡、较高资本开支及其对利润率和自由现金流的实际影响仍须等待3Q26业绩验证。",
           "ref": "R7"
-        }
-      ],
-      "feedBatchAt": "2026-08-10T11:06:27.244Z"
-    },
-    {
-      "id": 100,
-      "editorialBucket": "dynamic",
-      "category": "AI & 模型",
-      "eyebrow": "产品信号",
-      "title": "Meta开放Muse Glimmer本地代理模型",
-      "summary": "Meta发布约300亿参数的Muse Glimmer开放权重模型，定位本地常驻代理工作流，量化后可适配24GB或32GB内存/显存设备。",
-      "why": "Meta把Muse路线从此前的私有预览API延伸到可下载、可定制的本地部署，改变了其模型分发方式。",
-      "impact": "本地代理的竞争或更集中于设备适配、工具调用可靠性和开发者生态，而不只是云端模型能力。",
-      "shiftFrom": "Muse Spark仅私有预览API",
-      "shiftTo": "Glimmer开放权重可本地部署",
-      "crossValidation": "Meta官方公告确认发布、许可和设备要求；官方Hugging Face仓库确认权重、上下文与分项评测；Meta旧公告提供此前私有预览API的可比状态。",
-      "article": {
-        "lead": "Meta已将Muse Glimmer作为面向本地代理工作流的开放权重模型发布。这一变化的核心不只是新增一款30B级模型，而是Meta把Muse产品线从此前主要经私有预览API提供底层能力，推进到开发者可下载、定制并在单机设备上运行的分发模式。",
-        "sections": [
-          {
-            "heading": "从受控访问转向可下载部署",
-            "body": "Meta称，Muse Glimmer于8月10日以Apache 2.0许可开放权重，模型规模约300亿参数，并针对持续运行的本地代理工作流优化。其官方模型仓库列示约29.6B参数及131,072以上上下文。相比之下，Meta在4月发布Muse Spark时称，底层技术仅计划通过私有预览API向选定合作伙伴提供。Glimmer因此构成Muse路线一次明确的分发范围扩大。"
-          },
-          {
-            "heading": "设备门槛决定其产品定位",
-            "body": "Meta表示，Muse Glimmer量化后的语言模型低于20GB，可适配24GB或32GB的内存或显存空间，并列出了M4 Max、M5 Max和RTX 5090上的速度测试。这使其定位不同于只在远端调用的通用模型：开发者可以把模型、工具连接和部分任务状态放在本地设备侧。对常驻代理而言，离线可用性、数据路径控制和调用延迟，可能与绝对参数规模同样重要。"
-          },
-          {
-            "heading": "代理评测优势尚未等于全面替代",
-            "body": "官方模型卡显示，Glimmer在MCP Atlas和SWE-Bench Pro等项目上相对Gemma4-31B及Qwen3.6-27B具有部分优势，但在OSWorld-Verified、TerminalBench 2.1和GPQA Diamond上落后于Qwen。这意味着此次发布更直接地提高了本地代理的可选供给，而非证明其已在所有代理场景领先。若开发者将其用于长期运行任务，工具执行稳定性与设备端运维仍将决定实际采用。"
-          }
-        ],
-        "outlook": "接下来可观察的证据包括：Meta是否公布Glimmer的后续微调版本、企业或开发工具是否将其作为默认本地代理底座，以及独立评测能否复现其在MCP Atlas和SWE-Bench Pro上的表现。若更多主流设备在可接受延迟下运行该模型，本地代理的部署边界将进一步扩大；若实际工具任务表现未能复现，开放权重的分发变化则未必转化为采用。"
-      },
-      "validationType": "跨平台验证",
-      "publishedAt": "2026-08-10T10:00:00.000Z",
-      "updatedAt": "2026-08-10T10:00:00.000Z",
-      "sources": [
-        "Blog",
-        "Official",
-        "Repository"
-      ],
-      "sourceNames": [
-        "Bloomberg",
-        "Meta AI Research",
-        "Hugging Face / Meta Inc.",
-        "Meta"
-      ],
-      "sourceCount": 4,
-      "age": "1 小时前",
-      "score": 86,
-      "tone": "orange",
-      "evidence": [
-        {
-          "id": "233-2-https://www.bloomberg.com/news/articles/2026-08-10/meta-releases-muse-glimmer-ai-model-people-can-run-on-their-laptop",
-          "sourceId": 233,
-          "sourceName": "Bloomberg Technology",
-          "sourcePublisher": "Bloomberg",
-          "sourceKind": "Blog",
-          "title": "Meta Releases Muse Glimmer AI Model People Can Run on Their Laptop",
-          "url": "https://www.bloomberg.com/news/articles/2026-08-10/meta-releases-muse-glimmer-ai-model-people-can-run-on-their-laptop",
-          "publishedAt": "2026-08-10T10:00:00.000Z",
-          "summary": "Meta Platforms Inc. introduced a new AI model that’s light enough to run on a single computer, allowing users to download and customize the technology.",
-          "fetchedAt": "2026-08-10T11:06:27.244Z",
-          "discoveredThroughCluster": true,
-          "accessMethod": "public-feed",
-          "publicContentPolicy": "headline-source-link-only",
-          "firstSeenAt": "2026-08-10T11:06:27.244Z",
-          "freshness": {
-            "eligible": true,
-            "lane": "explore",
-            "reason": "fresh",
-            "ageHours": 1.1075677777777777,
-            "maxAgeHours": 168
-          },
-          "deferredResearch": false,
-          "ref": "N2",
-          "role": "主张",
-          "takeaway": "Bloomberg报道Meta推出可在单台计算机运行、可下载和定制的Muse Glimmer。"
-        },
-        {
-          "id": "research-233-2-https://www.bloomberg.com/news/articles/2026-08-10/meta-releases-muse-glimmer-ai-model-people-can-run-on-their-laptop-1-https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model",
-          "sourceId": 233,
-          "sourceName": "Meta AI Research",
-          "sourcePublisher": "Meta AI Research",
-          "sourceKind": "Official",
-          "title": "Introducing Muse Glimmer: An Open Agentic Model That Runs on Your Device",
-          "url": "https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model",
-          "publishedAt": "2026-08-10T00:00:00.000Z",
-          "summary": "确认Muse Glimmer于8月10日开放权重、采用Apache 2.0、规模为300亿参数，并说明其针对本地代理优化；量化后语言模型低于20GB、适配24GB或32GB内存/显存空间，速度测试覆盖M4 Max、M5 Max和RTX 5090。",
-          "fetchedAt": "2026-08-10T11:06:27.244Z",
-          "researchedFrom": "N2",
-          "researchRole": "Primary",
-          "researchClaim": "Meta于2026年8月10日发布并以Apache 2.0许可证开放Muse Glimmer权重：这是一款约300亿参数、面向本地代理工作流的多模态模型；经约4比特量化后语言模型低于20GB，Meta称可在配备单张消费级GPU的Mac或PC上运行。",
-          "researchComparisons": "与2026年4月的Muse Spark相比，Meta当时仅计划向部分合作伙伴提供私有预览API；Muse Glimmer则可直接下载权重并在本地部署。按Meta随模型发布的对比，Glimmer在MCP Atlas为75.5，高于Gemma4-31B的54.2和Qwen3.6-27B的62.5；SWE-Bench Pro为51.2，高于36.9和50.2。其本地化基准使用K-Quant-17GB版本，目标硬件为24GB显存，Meta报告RTX 5090为233.4 tok/s、M4 Max为37.8 tok/s、M5 Max为50.2 tok/s（均启用DFlash）。",
-          "researchUnresolved": "性能比较和量化退化测试均由Meta发布，尚缺少独立复现。其“单台电脑”主张对应24GB或32GB内存/显存配置及M4 Max、M5 Max或RTX 5090等测试硬件，不能直接外推至普通笔记本电脑。Meta自己的表格也显示Glimmer并非在所有同尺寸基准领先：其OSWorld-Verified为65.9，低于Qwen3.6-27B的75.6；TerminalBench 2.1为51.7，低于60.7；GPQA Diamond为83.5，低于85.7。",
-          "ref": "R1",
-          "role": "主张",
-          "takeaway": "Meta官方确认Muse Glimmer于8月10日开放权重、采用Apache 2.0、规模为300亿参数，并适配本地代理及24GB或32GB设备空间。"
-        },
-        {
-          "id": "research-233-2-https://www.bloomberg.com/news/articles/2026-08-10/meta-releases-muse-glimmer-ai-model-people-can-run-on-their-laptop-2-https://huggingface.co/meta-models/Muse-Glimmer-30B",
-          "sourceId": 233,
-          "sourceName": "Hugging Face / Meta Inc.",
-          "sourcePublisher": "Hugging Face / Meta Inc.",
-          "sourceKind": "Repository",
-          "title": "meta-models/Muse-Glimmer-30B",
-          "url": "https://huggingface.co/meta-models/Muse-Glimmer-30B",
-          "publishedAt": "2026-08-10T10:00:00.000Z",
-          "summary": "可下载模型仓库确认Apache 2.0许可、约29.6B参数和131,072+上下文；其模型卡给出与Gemma4-31B、Qwen3.6-27B的逐项基准，既支持MCP Atlas和SWE-Bench Pro优势，也显示其在OSWorld-Verified、TerminalBench 2.1和GPQA Diamond落后于Qwen。",
-          "fetchedAt": "2026-08-10T11:06:27.244Z",
-          "researchedFrom": "N2",
-          "researchRole": "Counterevidence",
-          "researchClaim": "Meta于2026年8月10日发布并以Apache 2.0许可证开放Muse Glimmer权重：这是一款约300亿参数、面向本地代理工作流的多模态模型；经约4比特量化后语言模型低于20GB，Meta称可在配备单张消费级GPU的Mac或PC上运行。",
-          "researchComparisons": "与2026年4月的Muse Spark相比，Meta当时仅计划向部分合作伙伴提供私有预览API；Muse Glimmer则可直接下载权重并在本地部署。按Meta随模型发布的对比，Glimmer在MCP Atlas为75.5，高于Gemma4-31B的54.2和Qwen3.6-27B的62.5；SWE-Bench Pro为51.2，高于36.9和50.2。其本地化基准使用K-Quant-17GB版本，目标硬件为24GB显存，Meta报告RTX 5090为233.4 tok/s、M4 Max为37.8 tok/s、M5 Max为50.2 tok/s（均启用DFlash）。",
-          "researchUnresolved": "性能比较和量化退化测试均由Meta发布，尚缺少独立复现。其“单台电脑”主张对应24GB或32GB内存/显存配置及M4 Max、M5 Max或RTX 5090等测试硬件，不能直接外推至普通笔记本电脑。Meta自己的表格也显示Glimmer并非在所有同尺寸基准领先：其OSWorld-Verified为65.9，低于Qwen3.6-27B的75.6；TerminalBench 2.1为51.7，低于60.7；GPQA Diamond为83.5，低于85.7。",
-          "ref": "R2",
-          "role": "佐证",
-          "takeaway": "官方Hugging Face仓库确认约29.6B参数、131,072以上上下文、Apache 2.0许可及分项基准结果。"
-        },
-        {
-          "id": "research-233-2-https://www.bloomberg.com/news/articles/2026-08-10/meta-releases-muse-glimmer-ai-model-people-can-run-on-their-laptop-3-https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/",
-          "sourceId": 233,
-          "sourceName": "Meta",
-          "sourcePublisher": "Meta",
-          "sourceKind": "Official",
-          "title": "Introducing Muse Spark: MSL’s First Model, Purpose-Built to Prioritize People",
-          "url": "https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/",
-          "publishedAt": "2026-04-08T00:00:00.000Z",
-          "summary": "提供此前状态：Meta在4月推出Muse Spark时称其在Meta AI应用和网站运行，并只计划通过私有预览API向选定合作伙伴开放底层技术；该状态构成此次可下载开放权重本地模型的可比基准。",
-          "fetchedAt": "2026-08-10T11:06:27.244Z",
-          "researchedFrom": "N2",
-          "researchRole": "Comparison",
-          "researchClaim": "Meta于2026年8月10日发布并以Apache 2.0许可证开放Muse Glimmer权重：这是一款约300亿参数、面向本地代理工作流的多模态模型；经约4比特量化后语言模型低于20GB，Meta称可在配备单张消费级GPU的Mac或PC上运行。",
-          "researchComparisons": "与2026年4月的Muse Spark相比，Meta当时仅计划向部分合作伙伴提供私有预览API；Muse Glimmer则可直接下载权重并在本地部署。按Meta随模型发布的对比，Glimmer在MCP Atlas为75.5，高于Gemma4-31B的54.2和Qwen3.6-27B的62.5；SWE-Bench Pro为51.2，高于36.9和50.2。其本地化基准使用K-Quant-17GB版本，目标硬件为24GB显存，Meta报告RTX 5090为233.4 tok/s、M4 Max为37.8 tok/s、M5 Max为50.2 tok/s（均启用DFlash）。",
-          "researchUnresolved": "性能比较和量化退化测试均由Meta发布，尚缺少独立复现。其“单台电脑”主张对应24GB或32GB内存/显存配置及M4 Max、M5 Max或RTX 5090等测试硬件，不能直接外推至普通笔记本电脑。Meta自己的表格也显示Glimmer并非在所有同尺寸基准领先：其OSWorld-Verified为65.9，低于Qwen3.6-27B的75.6；TerminalBench 2.1为51.7，低于60.7；GPQA Diamond为83.5，低于85.7。",
-          "ref": "R3",
-          "role": "背景",
-          "takeaway": "Meta此前称Muse Spark运行于Meta AI应用和网站，底层技术仅计划向选定伙伴提供私有预览API。"
-        }
-      ],
-      "references": [
-        {
-          "id": "233-2-https://www.bloomberg.com/news/articles/2026-08-10/meta-releases-muse-glimmer-ai-model-people-can-run-on-their-laptop",
-          "sourceId": 233,
-          "sourceName": "Bloomberg Technology",
-          "sourcePublisher": "Bloomberg",
-          "sourceKind": "Blog",
-          "title": "Meta Releases Muse Glimmer AI Model People Can Run on Their Laptop",
-          "url": "https://www.bloomberg.com/news/articles/2026-08-10/meta-releases-muse-glimmer-ai-model-people-can-run-on-their-laptop",
-          "publishedAt": "2026-08-10T10:00:00.000Z",
-          "summary": "Meta Platforms Inc. introduced a new AI model that’s light enough to run on a single computer, allowing users to download and customize the technology.",
-          "fetchedAt": "2026-08-10T11:06:27.244Z",
-          "discoveredThroughCluster": true,
-          "accessMethod": "public-feed",
-          "publicContentPolicy": "headline-source-link-only",
-          "firstSeenAt": "2026-08-10T11:06:27.244Z",
-          "freshness": {
-            "eligible": true,
-            "lane": "explore",
-            "reason": "fresh",
-            "ageHours": 1.1075677777777777,
-            "maxAgeHours": 168
-          },
-          "deferredResearch": false,
-          "ref": "N2"
-        },
-        {
-          "id": "research-233-2-https://www.bloomberg.com/news/articles/2026-08-10/meta-releases-muse-glimmer-ai-model-people-can-run-on-their-laptop-1-https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model",
-          "sourceId": 233,
-          "sourceName": "Meta AI Research",
-          "sourcePublisher": "Meta AI Research",
-          "sourceKind": "Official",
-          "title": "Introducing Muse Glimmer: An Open Agentic Model That Runs on Your Device",
-          "url": "https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model",
-          "publishedAt": "2026-08-10T00:00:00.000Z",
-          "summary": "确认Muse Glimmer于8月10日开放权重、采用Apache 2.0、规模为300亿参数，并说明其针对本地代理优化；量化后语言模型低于20GB、适配24GB或32GB内存/显存空间，速度测试覆盖M4 Max、M5 Max和RTX 5090。",
-          "fetchedAt": "2026-08-10T11:06:27.244Z",
-          "researchedFrom": "N2",
-          "researchRole": "Primary",
-          "researchClaim": "Meta于2026年8月10日发布并以Apache 2.0许可证开放Muse Glimmer权重：这是一款约300亿参数、面向本地代理工作流的多模态模型；经约4比特量化后语言模型低于20GB，Meta称可在配备单张消费级GPU的Mac或PC上运行。",
-          "researchComparisons": "与2026年4月的Muse Spark相比，Meta当时仅计划向部分合作伙伴提供私有预览API；Muse Glimmer则可直接下载权重并在本地部署。按Meta随模型发布的对比，Glimmer在MCP Atlas为75.5，高于Gemma4-31B的54.2和Qwen3.6-27B的62.5；SWE-Bench Pro为51.2，高于36.9和50.2。其本地化基准使用K-Quant-17GB版本，目标硬件为24GB显存，Meta报告RTX 5090为233.4 tok/s、M4 Max为37.8 tok/s、M5 Max为50.2 tok/s（均启用DFlash）。",
-          "researchUnresolved": "性能比较和量化退化测试均由Meta发布，尚缺少独立复现。其“单台电脑”主张对应24GB或32GB内存/显存配置及M4 Max、M5 Max或RTX 5090等测试硬件，不能直接外推至普通笔记本电脑。Meta自己的表格也显示Glimmer并非在所有同尺寸基准领先：其OSWorld-Verified为65.9，低于Qwen3.6-27B的75.6；TerminalBench 2.1为51.7，低于60.7；GPQA Diamond为83.5，低于85.7。",
-          "ref": "R1"
-        },
-        {
-          "id": "research-233-2-https://www.bloomberg.com/news/articles/2026-08-10/meta-releases-muse-glimmer-ai-model-people-can-run-on-their-laptop-2-https://huggingface.co/meta-models/Muse-Glimmer-30B",
-          "sourceId": 233,
-          "sourceName": "Hugging Face / Meta Inc.",
-          "sourcePublisher": "Hugging Face / Meta Inc.",
-          "sourceKind": "Repository",
-          "title": "meta-models/Muse-Glimmer-30B",
-          "url": "https://huggingface.co/meta-models/Muse-Glimmer-30B",
-          "publishedAt": "2026-08-10T10:00:00.000Z",
-          "summary": "可下载模型仓库确认Apache 2.0许可、约29.6B参数和131,072+上下文；其模型卡给出与Gemma4-31B、Qwen3.6-27B的逐项基准，既支持MCP Atlas和SWE-Bench Pro优势，也显示其在OSWorld-Verified、TerminalBench 2.1和GPQA Diamond落后于Qwen。",
-          "fetchedAt": "2026-08-10T11:06:27.244Z",
-          "researchedFrom": "N2",
-          "researchRole": "Counterevidence",
-          "researchClaim": "Meta于2026年8月10日发布并以Apache 2.0许可证开放Muse Glimmer权重：这是一款约300亿参数、面向本地代理工作流的多模态模型；经约4比特量化后语言模型低于20GB，Meta称可在配备单张消费级GPU的Mac或PC上运行。",
-          "researchComparisons": "与2026年4月的Muse Spark相比，Meta当时仅计划向部分合作伙伴提供私有预览API；Muse Glimmer则可直接下载权重并在本地部署。按Meta随模型发布的对比，Glimmer在MCP Atlas为75.5，高于Gemma4-31B的54.2和Qwen3.6-27B的62.5；SWE-Bench Pro为51.2，高于36.9和50.2。其本地化基准使用K-Quant-17GB版本，目标硬件为24GB显存，Meta报告RTX 5090为233.4 tok/s、M4 Max为37.8 tok/s、M5 Max为50.2 tok/s（均启用DFlash）。",
-          "researchUnresolved": "性能比较和量化退化测试均由Meta发布，尚缺少独立复现。其“单台电脑”主张对应24GB或32GB内存/显存配置及M4 Max、M5 Max或RTX 5090等测试硬件，不能直接外推至普通笔记本电脑。Meta自己的表格也显示Glimmer并非在所有同尺寸基准领先：其OSWorld-Verified为65.9，低于Qwen3.6-27B的75.6；TerminalBench 2.1为51.7，低于60.7；GPQA Diamond为83.5，低于85.7。",
-          "ref": "R2"
-        },
-        {
-          "id": "research-233-2-https://www.bloomberg.com/news/articles/2026-08-10/meta-releases-muse-glimmer-ai-model-people-can-run-on-their-laptop-3-https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/",
-          "sourceId": 233,
-          "sourceName": "Meta",
-          "sourcePublisher": "Meta",
-          "sourceKind": "Official",
-          "title": "Introducing Muse Spark: MSL’s First Model, Purpose-Built to Prioritize People",
-          "url": "https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/",
-          "publishedAt": "2026-04-08T00:00:00.000Z",
-          "summary": "提供此前状态：Meta在4月推出Muse Spark时称其在Meta AI应用和网站运行，并只计划通过私有预览API向选定合作伙伴开放底层技术；该状态构成此次可下载开放权重本地模型的可比基准。",
-          "fetchedAt": "2026-08-10T11:06:27.244Z",
-          "researchedFrom": "N2",
-          "researchRole": "Comparison",
-          "researchClaim": "Meta于2026年8月10日发布并以Apache 2.0许可证开放Muse Glimmer权重：这是一款约300亿参数、面向本地代理工作流的多模态模型；经约4比特量化后语言模型低于20GB，Meta称可在配备单张消费级GPU的Mac或PC上运行。",
-          "researchComparisons": "与2026年4月的Muse Spark相比，Meta当时仅计划向部分合作伙伴提供私有预览API；Muse Glimmer则可直接下载权重并在本地部署。按Meta随模型发布的对比，Glimmer在MCP Atlas为75.5，高于Gemma4-31B的54.2和Qwen3.6-27B的62.5；SWE-Bench Pro为51.2，高于36.9和50.2。其本地化基准使用K-Quant-17GB版本，目标硬件为24GB显存，Meta报告RTX 5090为233.4 tok/s、M4 Max为37.8 tok/s、M5 Max为50.2 tok/s（均启用DFlash）。",
-          "researchUnresolved": "性能比较和量化退化测试均由Meta发布，尚缺少独立复现。其“单台电脑”主张对应24GB或32GB内存/显存配置及M4 Max、M5 Max或RTX 5090等测试硬件，不能直接外推至普通笔记本电脑。Meta自己的表格也显示Glimmer并非在所有同尺寸基准领先：其OSWorld-Verified为65.9，低于Qwen3.6-27B的75.6；TerminalBench 2.1为51.7，低于60.7；GPQA Diamond为83.5，低于85.7。",
-          "ref": "R3"
         }
       ],
       "feedBatchAt": "2026-08-10T11:06:27.244Z"
@@ -34713,6 +34979,97 @@
       "editorNote": "今日信息环境由智能体安全事件、AI coding 工具链分化、open-weight 模型竞争与算力下沉共同主导。",
       "signals": [
         {
+          "category": "AI & 模型",
+          "eyebrow": "产品信号",
+          "title": "Meta开放Muse Glimmer本地代理模型",
+          "summary": "Meta发布约300亿参数的Muse Glimmer开放权重模型，定位本地常驻代理工作流，量化后可适配24GB或32GB内存/显存设备。",
+          "why": "Meta把Muse路线从此前的私有预览API延伸到可下载、可定制的本地部署，改变了其模型分发方式。",
+          "impact": "本地代理的竞争或更集中于设备适配、工具调用可靠性和开发者生态，而不只是云端模型能力。",
+          "shiftFrom": "Muse Spark仅私有预览API",
+          "shiftTo": "Glimmer开放权重可本地部署",
+          "crossValidation": "Meta官方公告确认发布、许可和设备要求；官方Hugging Face仓库确认权重、上下文与分项评测；Meta旧公告提供此前私有预览API的可比状态。",
+          "article": {
+            "lead": "Meta已将Muse Glimmer作为面向本地代理工作流的开放权重模型发布。这一变化的核心不只是新增一款30B级模型，而是Meta把Muse产品线从此前主要经私有预览API提供底层能力，推进到开发者可下载、定制并在单机设备上运行的分发模式。",
+            "sections": [
+              {
+                "heading": "从受控访问转向可下载部署",
+                "body": "Meta称，Muse Glimmer于8月10日以Apache 2.0许可开放权重，模型规模约300亿参数，并针对持续运行的本地代理工作流优化。其官方模型仓库列示约29.6B参数及131,072以上上下文。相比之下，Meta在4月发布Muse Spark时称，底层技术仅计划通过私有预览API向选定合作伙伴提供。Glimmer因此构成Muse路线一次明确的分发范围扩大。"
+              },
+              {
+                "heading": "设备门槛决定其产品定位",
+                "body": "Meta表示，Muse Glimmer量化后的语言模型低于20GB，可适配24GB或32GB的内存或显存空间，并列出了M4 Max、M5 Max和RTX 5090上的速度测试。这使其定位不同于只在远端调用的通用模型：开发者可以把模型、工具连接和部分任务状态放在本地设备侧。对常驻代理而言，离线可用性、数据路径控制和调用延迟，可能与绝对参数规模同样重要。"
+              },
+              {
+                "heading": "代理评测优势尚未等于全面替代",
+                "body": "官方模型卡显示，Glimmer在MCP Atlas和SWE-Bench Pro等项目上相对Gemma4-31B及Qwen3.6-27B具有部分优势，但在OSWorld-Verified、TerminalBench 2.1和GPQA Diamond上落后于Qwen。这意味着此次发布更直接地提高了本地代理的可选供给，而非证明其已在所有代理场景领先。若开发者将其用于长期运行任务，工具执行稳定性与设备端运维仍将决定实际采用。"
+              }
+            ],
+            "outlook": "接下来可观察的证据包括：Meta是否公布Glimmer的后续微调版本、企业或开发工具是否将其作为默认本地代理底座，以及独立评测能否复现其在MCP Atlas和SWE-Bench Pro上的表现。若更多主流设备在可接受延迟下运行该模型，本地代理的部署边界将进一步扩大；若实际工具任务表现未能复现，开放权重的分发变化则未必转化为采用。"
+          },
+          "evidence": [
+            {
+              "role": "主张",
+              "takeaway": "Bloomberg报道Meta推出可在单台计算机运行、可下载和定制的Muse Glimmer。"
+            },
+            {
+              "role": "主张",
+              "takeaway": "Meta官方确认Muse Glimmer于8月10日开放权重、采用Apache 2.0、规模为300亿参数，并适配本地代理及24GB或32GB设备空间。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "官方Hugging Face仓库确认约29.6B参数、131,072以上上下文、Apache 2.0许可及分项基准结果。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "Meta此前称Muse Spark运行于Meta AI应用和网站，底层技术仅计划向选定伙伴提供私有预览API。"
+            },
+            {
+              "role": "最新进展",
+              "takeaway": "Engadget报道Meta已发布可在单台计算机运行的Muse Glimmer开放模型。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "Meta模型卡确认约296亿参数、Apache 2.0许可、文本和图像输入支持，以及4-bit权重、目标显存配置和RTX 5090吞吐数据。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "Meta此前将Muse Spark作为可通过meta.ai和Meta AI app使用的模型，并计划只向选定伙伴提供私有API预览。"
+            },
+            {
+              "role": "反例",
+              "takeaway": "Meta说明竞品结果可能采用自报或内部复现中较有利的数值，部分代理评测依赖内部脚手架和提示设置。"
+            }
+          ],
+          "updates": [
+            {
+              "addedAt": "2026-08-10T12:29:38.000Z",
+              "title": "Muse Glimmer补齐本地部署指标",
+              "summary": "Meta模型卡披露，Muse Glimmer约296亿参数，4-bit权重低于20GB，目标配置为24GB或32GB显存；在RTX 5090上采用投机解码时，其披露吞吐为233.4 token/s。",
+              "evidence": [
+                {
+                  "role": "最新进展",
+                  "takeaway": "Engadget报道Meta已发布可在单台计算机运行的Muse Glimmer开放模型。"
+                },
+                {
+                  "role": "佐证",
+                  "takeaway": "Meta模型卡确认约296亿参数、Apache 2.0许可、文本和图像输入支持，以及4-bit权重、目标显存配置和RTX 5090吞吐数据。"
+                },
+                {
+                  "role": "背景",
+                  "takeaway": "Meta此前将Muse Spark作为可通过meta.ai和Meta AI app使用的模型，并计划只向选定伙伴提供私有API预览。"
+                },
+                {
+                  "role": "反例",
+                  "takeaway": "Meta说明竞品结果可能采用自报或内部复现中较有利的数值，部分代理评测依赖内部脚手架和提示设置。"
+                }
+              ],
+              "changeType": "progress",
+              "thesisImpact": "新模型卡补齐了Muse Glimmer的量化部署门槛、推理吞吐和与同级模型的比较；同时，Meta披露的评测设置限制了这些性能数字的外推。",
+              "revisionRequired": false
+            }
+          ]
+        },
+        {
           "category": "算力",
           "eyebrow": "最新进展",
           "title": "TSMC七月营收同比增44.7%",
@@ -34760,53 +35117,6 @@
             {
               "role": "反例",
               "takeaway": "Visible Alpha数据显示分析师上调收入预期，但因资本开支上调和2nm收入较低而下调自由现金流预期。"
-            }
-          ]
-        },
-        {
-          "category": "AI & 模型",
-          "eyebrow": "产品信号",
-          "title": "Meta开放Muse Glimmer本地代理模型",
-          "summary": "Meta发布约300亿参数的Muse Glimmer开放权重模型，定位本地常驻代理工作流，量化后可适配24GB或32GB内存/显存设备。",
-          "why": "Meta把Muse路线从此前的私有预览API延伸到可下载、可定制的本地部署，改变了其模型分发方式。",
-          "impact": "本地代理的竞争或更集中于设备适配、工具调用可靠性和开发者生态，而不只是云端模型能力。",
-          "shiftFrom": "Muse Spark仅私有预览API",
-          "shiftTo": "Glimmer开放权重可本地部署",
-          "crossValidation": "Meta官方公告确认发布、许可和设备要求；官方Hugging Face仓库确认权重、上下文与分项评测；Meta旧公告提供此前私有预览API的可比状态。",
-          "article": {
-            "lead": "Meta已将Muse Glimmer作为面向本地代理工作流的开放权重模型发布。这一变化的核心不只是新增一款30B级模型，而是Meta把Muse产品线从此前主要经私有预览API提供底层能力，推进到开发者可下载、定制并在单机设备上运行的分发模式。",
-            "sections": [
-              {
-                "heading": "从受控访问转向可下载部署",
-                "body": "Meta称，Muse Glimmer于8月10日以Apache 2.0许可开放权重，模型规模约300亿参数，并针对持续运行的本地代理工作流优化。其官方模型仓库列示约29.6B参数及131,072以上上下文。相比之下，Meta在4月发布Muse Spark时称，底层技术仅计划通过私有预览API向选定合作伙伴提供。Glimmer因此构成Muse路线一次明确的分发范围扩大。"
-              },
-              {
-                "heading": "设备门槛决定其产品定位",
-                "body": "Meta表示，Muse Glimmer量化后的语言模型低于20GB，可适配24GB或32GB的内存或显存空间，并列出了M4 Max、M5 Max和RTX 5090上的速度测试。这使其定位不同于只在远端调用的通用模型：开发者可以把模型、工具连接和部分任务状态放在本地设备侧。对常驻代理而言，离线可用性、数据路径控制和调用延迟，可能与绝对参数规模同样重要。"
-              },
-              {
-                "heading": "代理评测优势尚未等于全面替代",
-                "body": "官方模型卡显示，Glimmer在MCP Atlas和SWE-Bench Pro等项目上相对Gemma4-31B及Qwen3.6-27B具有部分优势，但在OSWorld-Verified、TerminalBench 2.1和GPQA Diamond上落后于Qwen。这意味着此次发布更直接地提高了本地代理的可选供给，而非证明其已在所有代理场景领先。若开发者将其用于长期运行任务，工具执行稳定性与设备端运维仍将决定实际采用。"
-              }
-            ],
-            "outlook": "接下来可观察的证据包括：Meta是否公布Glimmer的后续微调版本、企业或开发工具是否将其作为默认本地代理底座，以及独立评测能否复现其在MCP Atlas和SWE-Bench Pro上的表现。若更多主流设备在可接受延迟下运行该模型，本地代理的部署边界将进一步扩大；若实际工具任务表现未能复现，开放权重的分发变化则未必转化为采用。"
-          },
-          "evidence": [
-            {
-              "role": "主张",
-              "takeaway": "Bloomberg报道Meta推出可在单台计算机运行、可下载和定制的Muse Glimmer。"
-            },
-            {
-              "role": "主张",
-              "takeaway": "Meta官方确认Muse Glimmer于8月10日开放权重、采用Apache 2.0、规模为300亿参数，并适配本地代理及24GB或32GB设备空间。"
-            },
-            {
-              "role": "佐证",
-              "takeaway": "官方Hugging Face仓库确认约29.6B参数、131,072以上上下文、Apache 2.0许可及分项基准结果。"
-            },
-            {
-              "role": "背景",
-              "takeaway": "Meta此前称Muse Spark运行于Meta AI应用和网站，底层技术仅计划向选定伙伴提供私有预览API。"
             }
           ]
         },
@@ -43932,6 +44242,97 @@
       "editorNote": "Today’s information environment is being shaped by agent security incidents, a split in coding-agent toolchains, open-model competition, and compute moving closer to the edge.",
       "signals": [
         {
+          "category": "AI & Models",
+          "eyebrow": "Product Signal",
+          "title": "Meta Opens Muse Glimmer for Local Agents",
+          "summary": "Meta released the roughly 30B-parameter Muse Glimmer as open weights for local agent workflows, with a quantized model designed to fit systems with 24GB or 32GB of memory or VRAM.",
+          "why": "Meta has extended the Muse line from a private-preview API model toward downloadable, customizable local deployment.",
+          "impact": "Competition in local agents may increasingly turn on device fit, tool-use reliability and developer ecosystems rather than cloud-model capability alone.",
+          "shiftFrom": "Muse Spark used private-preview API access",
+          "shiftTo": "Glimmer is open-weight and locally deployable",
+          "crossValidation": "Meta's announcement confirms release terms and hardware targets; its Hugging Face repository confirms weights and evaluations; Meta's prior announcement establishes the earlier access model.",
+          "article": {
+            "lead": "Meta has released Muse Glimmer as an open-weight model for local agent workflows. The important change is not simply another 30B-class model: Meta has moved the Muse line from underlying technology primarily offered through a private-preview API toward a distribution model developers can download, customize and run on their own devices.",
+            "sections": [
+              {
+                "heading": "A move from controlled access to downloadable deployment",
+                "body": "Meta says Muse Glimmer was released on August 10 under Apache 2.0, at roughly 30 billion parameters, and optimized for always-on local agent workflows. Its official model repository lists about 29.6B parameters and context beyond 131,072 tokens. This differs from Meta's April positioning for Muse Spark, whose underlying technology was planned for selected partners through a private-preview API. Glimmer therefore marks a concrete expansion in how the Muse line is distributed."
+              },
+              {
+                "heading": "The hardware target defines the product position",
+                "body": "Meta says the quantized language model is below 20GB and can fit systems with 24GB or 32GB of memory or VRAM, while publishing speed tests for M4 Max, M5 Max and RTX 5090 hardware. That positioning differs from a model used only through remote inference: developers can place the model, tool connections and some task state on the device side. For persistent agents, offline availability, data-path control and latency may matter as much as raw parameter count."
+              },
+              {
+                "heading": "Agent benchmarks do not yet establish universal replacement",
+                "body": "The official model card reports relative strengths on MCP Atlas and SWE-Bench Pro against Gemma4-31B and Qwen3.6-27B, while showing weaker results than Qwen on OSWorld-Verified, TerminalBench 2.1 and GPQA Diamond. The release therefore more directly expands the supply of local-agent options than proves leadership in every agent setting. For sustained deployments, tool-execution stability and device-side operations will still shape real adoption."
+              }
+            ],
+            "outlook": "Observable next evidence includes whether Meta releases follow-on fine-tunes, whether enterprise or developer tools adopt Glimmer as a default local-agent base, and whether independent evaluations reproduce its MCP Atlas and SWE-Bench Pro results. Broader operation on mainstream hardware at acceptable latency would strengthen the case for wider local-agent deployment; failure to reproduce task performance would limit the practical effect of the distribution change."
+          },
+          "evidence": [
+            {
+              "role": "Claim",
+              "takeaway": "Bloomberg reports that Meta introduced Muse Glimmer as a downloadable and customizable model that can run on a single computer."
+            },
+            {
+              "role": "Claim",
+              "takeaway": "Meta confirms the August 10 open-weight release, Apache 2.0 license, roughly 30B scale and local hardware targets."
+            },
+            {
+              "role": "Support",
+              "takeaway": "The official repository confirms parameter count, long context, license and benchmark breakdowns."
+            },
+            {
+              "role": "Context",
+              "takeaway": "Meta previously described Muse Spark's underlying technology as planned for selected partners through a private-preview API."
+            },
+            {
+              "role": "Update",
+              "takeaway": "Engadget reports that Meta released Muse Glimmer as an open model that can run on a single computer."
+            },
+            {
+              "role": "Support",
+              "takeaway": "Meta’s model card details the parameter count, Apache 2.0 license, multimodal inputs, memory targets, and reported RTX 5090 throughput."
+            },
+            {
+              "role": "Context",
+              "takeaway": "Meta previously described Muse Spark as available through meta.ai and the Meta AI app, with private API previews planned only for selected partners."
+            },
+            {
+              "role": "Counterpoint",
+              "takeaway": "Meta notes that competitor figures may use favorable self-reported or internal reproductions, while some agent evaluations rely on internal harnesses and prompts."
+            }
+          ],
+          "updates": [
+            {
+              "addedAt": "2026-08-10T12:29:38.000Z",
+              "title": "Muse Glimmer adds local deployment metrics",
+              "summary": "Meta’s model card specifies that Muse Glimmer has about 29.6 billion parameters, with 4-bit weights below 20GB and target configurations of 24GB or 32GB of VRAM. Meta reports 233.4 tokens per second on an RTX 5090 with speculative decoding.",
+              "evidence": [
+                {
+                  "role": "Update",
+                  "takeaway": "Engadget reports that Meta released Muse Glimmer as an open model that can run on a single computer."
+                },
+                {
+                  "role": "Support",
+                  "takeaway": "Meta’s model card details the parameter count, Apache 2.0 license, multimodal inputs, memory targets, and reported RTX 5090 throughput."
+                },
+                {
+                  "role": "Context",
+                  "takeaway": "Meta previously described Muse Spark as available through meta.ai and the Meta AI app, with private API previews planned only for selected partners."
+                },
+                {
+                  "role": "Counterpoint",
+                  "takeaway": "Meta notes that competitor figures may use favorable self-reported or internal reproductions, while some agent evaluations rely on internal harnesses and prompts."
+                }
+              ],
+              "changeType": "progress",
+              "thesisImpact": "新模型卡补齐了Muse Glimmer的量化部署门槛、推理吞吐和与同级模型的比较；同时，Meta披露的评测设置限制了这些性能数字的外推。",
+              "revisionRequired": false
+            }
+          ]
+        },
+        {
           "category": "Compute",
           "eyebrow": "Latest Development",
           "title": "TSMC July Revenue Rose 44.7% Year on Year",
@@ -43979,53 +44380,6 @@
             {
               "role": "Counterpoint",
               "takeaway": "Visible Alpha data show higher revenue expectations alongside lower free-cash-flow expectations after increased capex and weaker-than-expected 2nm revenue."
-            }
-          ]
-        },
-        {
-          "category": "AI & Models",
-          "eyebrow": "Product Signal",
-          "title": "Meta Opens Muse Glimmer for Local Agents",
-          "summary": "Meta released the roughly 30B-parameter Muse Glimmer as open weights for local agent workflows, with a quantized model designed to fit systems with 24GB or 32GB of memory or VRAM.",
-          "why": "Meta has extended the Muse line from a private-preview API model toward downloadable, customizable local deployment.",
-          "impact": "Competition in local agents may increasingly turn on device fit, tool-use reliability and developer ecosystems rather than cloud-model capability alone.",
-          "shiftFrom": "Muse Spark used private-preview API access",
-          "shiftTo": "Glimmer is open-weight and locally deployable",
-          "crossValidation": "Meta's announcement confirms release terms and hardware targets; its Hugging Face repository confirms weights and evaluations; Meta's prior announcement establishes the earlier access model.",
-          "article": {
-            "lead": "Meta has released Muse Glimmer as an open-weight model for local agent workflows. The important change is not simply another 30B-class model: Meta has moved the Muse line from underlying technology primarily offered through a private-preview API toward a distribution model developers can download, customize and run on their own devices.",
-            "sections": [
-              {
-                "heading": "A move from controlled access to downloadable deployment",
-                "body": "Meta says Muse Glimmer was released on August 10 under Apache 2.0, at roughly 30 billion parameters, and optimized for always-on local agent workflows. Its official model repository lists about 29.6B parameters and context beyond 131,072 tokens. This differs from Meta's April positioning for Muse Spark, whose underlying technology was planned for selected partners through a private-preview API. Glimmer therefore marks a concrete expansion in how the Muse line is distributed."
-              },
-              {
-                "heading": "The hardware target defines the product position",
-                "body": "Meta says the quantized language model is below 20GB and can fit systems with 24GB or 32GB of memory or VRAM, while publishing speed tests for M4 Max, M5 Max and RTX 5090 hardware. That positioning differs from a model used only through remote inference: developers can place the model, tool connections and some task state on the device side. For persistent agents, offline availability, data-path control and latency may matter as much as raw parameter count."
-              },
-              {
-                "heading": "Agent benchmarks do not yet establish universal replacement",
-                "body": "The official model card reports relative strengths on MCP Atlas and SWE-Bench Pro against Gemma4-31B and Qwen3.6-27B, while showing weaker results than Qwen on OSWorld-Verified, TerminalBench 2.1 and GPQA Diamond. The release therefore more directly expands the supply of local-agent options than proves leadership in every agent setting. For sustained deployments, tool-execution stability and device-side operations will still shape real adoption."
-              }
-            ],
-            "outlook": "Observable next evidence includes whether Meta releases follow-on fine-tunes, whether enterprise or developer tools adopt Glimmer as a default local-agent base, and whether independent evaluations reproduce its MCP Atlas and SWE-Bench Pro results. Broader operation on mainstream hardware at acceptable latency would strengthen the case for wider local-agent deployment; failure to reproduce task performance would limit the practical effect of the distribution change."
-          },
-          "evidence": [
-            {
-              "role": "Claim",
-              "takeaway": "Bloomberg reports that Meta introduced Muse Glimmer as a downloadable and customizable model that can run on a single computer."
-            },
-            {
-              "role": "Claim",
-              "takeaway": "Meta confirms the August 10 open-weight release, Apache 2.0 license, roughly 30B scale and local hardware targets."
-            },
-            {
-              "role": "Support",
-              "takeaway": "The official repository confirms parameter count, long context, license and benchmark breakdowns."
-            },
-            {
-              "role": "Context",
-              "takeaway": "Meta previously described Muse Spark's underlying technology as planned for selected partners through a private-preview API."
             }
           ]
         },
@@ -53151,12 +53505,12 @@
     "en": "gpt-5.6-sol"
   },
   "incremental": {
-    "lastAddedAt": "2026-08-10T11:13:08.564Z",
-    "lastScanAt": "2026-08-10T11:06:27.244Z",
-    "lastAddedCount": 2,
+    "lastAddedAt": "2026-08-10T13:13:18.703Z",
+    "lastScanAt": "2026-08-10T13:07:10.818Z",
+    "lastAddedCount": 0,
     "lastUpdatedCount": 1,
     "totalAppended": 92,
-    "totalUpdated": 76
+    "totalUpdated": 77
   },
   "exploreDepth": {
     "minimum": 50,
