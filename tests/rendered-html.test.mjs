@@ -119,6 +119,7 @@ test("removes all disposable starter preview code", async () => {
     analyzeScript,
     liveFeedScript,
     smartFeedScript,
+    feedCycleScript,
     staticConfig,
     homeEntry,
     liveEntry,
@@ -147,6 +148,7 @@ test("removes all disposable starter preview code", async () => {
     readFile(new URL("../scripts/analyze-radar.mjs", import.meta.url), "utf8"),
     readFile(new URL("../scripts/build-live-feed.mjs", import.meta.url), "utf8"),
     readFile(new URL("../scripts/run-smart-feed.mjs", import.meta.url), "utf8"),
+    readFile(new URL("../scripts/run-feed-cycle.mjs", import.meta.url), "utf8"),
     readFile(new URL("../vite.static.config.ts", import.meta.url), "utf8"),
     readFile(new URL("../static/index.html", import.meta.url), "utf8"),
     readFile(new URL("../static/live/index.html", import.meta.url), "utf8"),
@@ -256,7 +258,7 @@ test("removes all disposable starter preview code", async () => {
   assert.ok(snapshotData.successfulSources >= 120);
   assert.ok(snapshotData.items.length > 1000);
   assert.equal(liveFeedData.windowHours, 6);
-  assert.ok(liveFeedData.items.length > 0);
+  assert.ok(Array.isArray(liveFeedData.items));
   assert.ok(
     liveFeedData.items.every(
       (item) =>
@@ -276,6 +278,11 @@ test("removes all disposable starter preview code", async () => {
   assert.match(liveFeedScript, /directSourceLimit = 3/);
   assert.match(liveFeedScript, /discoveredThroughCluster/);
   assert.match(smartFeedScript, /"cycle:live"/);
+  assert.match(feedCycleScript, /status: "live_skipped_empty"/);
+  assert.ok(
+    feedCycleScript.indexOf('status: "live_skipped_empty"') <
+      feedCycleScript.indexOf('scripts\/localize-live-feed\.mjs'),
+  );
   assert.equal(
     snapshotData.statuses.filter(
       (status) => status.kind === "YouTube" && status.status === "error",

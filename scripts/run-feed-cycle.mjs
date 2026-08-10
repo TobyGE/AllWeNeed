@@ -9,6 +9,7 @@ import {
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { assertSnapshotHealth } from "./append-feed-updates.mjs";
+import { buildLiveFeed } from "./build-live-feed.mjs";
 import { assertLiveLocalizationComplete } from "./localize-live-feed.mjs";
 import { assertApprovedModelUsage } from "./model-routing.mjs";
 
@@ -342,6 +343,31 @@ async function publishLiveOnly({
   );
   if (reuseSnapshot) assertReusableSnapshot(scannedSnapshot);
   assertSnapshotHealth(scannedSnapshot, previousSnapshot);
+
+  const liveCandidate = buildLiveFeed(scannedSnapshot);
+  if (liveCandidate.items.length === 0) {
+    const retainedLiveFeed = await readJson(
+      resolve(projectRoot, "data/live-feed.json"),
+    );
+    const report = {
+      status: "live_skipped_empty",
+      startedAt,
+      finishedAt: new Date().toISOString(),
+      scannedAt: scannedSnapshot.generatedAt,
+      candidateItemCount: 0,
+      retainedItemCount: retainedLiveFeed.items?.length ?? 0,
+      retainedGeneratedAt: retainedLiveFeed.generatedAt ?? null,
+      reason: "No eligible items in the six-hour Live window; retained the previous published Live feed.",
+    };
+    await mkdir(dirname(liveReportPath), { recursive: true });
+    await writeFile(
+      liveReportPath,
+      `${JSON.stringify(report, null, 2)}\n`,
+      "utf8",
+    );
+    console.log(JSON.stringify(report, null, 2));
+    return;
+  }
 
   runCommand(
     process.execPath,
