@@ -67,6 +67,14 @@ test("connects the corrected public Google and NVIDIA feeds", () => {
     nvidiaNewsroom.feedUrl,
     "https://nvidianews.nvidia.com/releases.xml",
   );
+
+  const paulGraham = sourceCatalog.find(
+    (source) => source.name === "Paul Graham",
+  );
+  assert.equal(
+    paulGraham.feedUrl,
+    "http://www.aaronsw.com/2002/feeds/pgessays.rss",
+  );
 });
 
 test("drops YouTube Shorts without hiding the following full episode", () => {
@@ -170,6 +178,28 @@ test("core conversation sources prefer official podcast RSS with full shownotes"
     ["Cognitive Revolution", "https://feeds.megaphone.fm/RINTP3108857801"],
     ["硅谷101播客", "https://feeds.fireside.fm/sv101/rss"],
     ["The Diary Of A CEO", "https://rss2.flightcast.com/xmsftuzjjykcmqwolaqn6mdn"],
+    ["AI + a16z", "https://feeds.simplecast.com/Hb_IuXOo"],
+    ["ChinaTalk Podcast", "https://feeds.megaphone.fm/CHTAL4990341033"],
+    ["Hard Fork", "https://feeds.simplecast.com/6HKOhNgS"],
+    ["Possible", "https://feeds.megaphone.fm/possible"],
+    [
+      "Eye On A.I.",
+      "https://rss.libsyn.com/shows/123267/destinations/727317.xml",
+    ],
+    [
+      "The MAD Podcast with Matt Turck",
+      "https://anchor.fm/s/f2ee4948/podcast/rss",
+    ],
+    ["Training Data", "https://feeds.megaphone.fm/trainingdata"],
+    ["The TWIML AI Podcast", "https://feeds.megaphone.fm/MLN2155636147"],
+    [
+      "Practical AI",
+      "https://feeds.transistor.fm/practical-ai-machine-learning-data-science-llm",
+    ],
+    ["十字路口Crossing", "https://feed.xyzfm.space/68fyjknth9hj"],
+    ["晚点聊 LateTalk", "https://feeds.fireside.fm/latetalk/rss"],
+    ["开始连接 LinkStart", "https://feed.xyzfm.space/q9a6lueucj6a"],
+    ["乱翻书", "https://feed.xyzfm.space/yxuruh3f9mc4"],
   ]);
   for (const [name, feedUrl] of expectedFeeds) {
     const source = sourceCatalog.find((item) => item.name === name);
@@ -177,6 +207,17 @@ test("core conversation sources prefer official podcast RSS with full shownotes"
     assert.equal(source?.feedSummaryLimit, 8_000);
     assert.equal(source?.conversationSource, true);
   }
+  const conversations = sourceCatalog.filter((item) => item.conversationSource);
+  assert.equal(conversations.length, 31);
+  assert.equal(conversations.filter((item) => item.feedUrl).length, 28);
+  assert.deepEqual(
+    conversations.filter((item) => !item.feedUrl).map((item) => item.name),
+    [
+      "SAIR Foundation",
+      "Silicon Valley Vector 硅谷坐标",
+      "Predictive History",
+    ],
+  );
 });
 
 test("keeps aggregators private and removes Product Hunt from collection", () => {

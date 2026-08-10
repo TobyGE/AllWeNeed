@@ -342,6 +342,46 @@ test("prioritizes six evidence-rich conversations over empty YouTube entries", (
   assert.equal(selected.every((item) => item.summary.length > 300), true);
 });
 
+test("conversation batches prefer different publishers before taking repeats", () => {
+  const generatedAt = "2026-08-10T04:00:00.000Z";
+  const repeated = Array.from({ length: 6 }, (_, index) => ({
+    sourceId: 1,
+    sourceName: "Daily Interview Network",
+    sourceKind: "Podcast",
+    conversationSource: true,
+    title: `Daily interview ${index + 1}`,
+    url: `https://example.com/daily/${index + 1}`,
+    summary: "A".repeat(1_900),
+    durationMinutes: 60,
+    publishedAt: generatedAt,
+  }));
+  const diverse = Array.from({ length: 5 }, (_, index) => ({
+    sourceId: index + 2,
+    sourceName: `Independent Podcast ${index + 1}`,
+    sourceKind: "Podcast",
+    conversationSource: true,
+    title: `Independent interview ${index + 1}`,
+    url: `https://example.com/independent/${index + 1}`,
+    summary: "B".repeat(1_200),
+    durationMinutes: 45,
+    publishedAt: generatedAt,
+  }));
+  const selected = selectIncrementalItems({
+    scannedSnapshot: { generatedAt, items: [...repeated, ...diverse] },
+    previousSnapshot: { generatedAt, items: [] },
+    state: {
+      lastScanAt: "2026-08-10T03:00:00.000Z",
+      windowStartAt: "2026-08-10T03:00:00.000Z",
+      initializedSourceIds: ["1", "2", "3", "4", "5", "6"],
+      processedKeys: [],
+    },
+    lanes: ["conversation"],
+  });
+
+  assert.equal(selected.length, 6);
+  assert.equal(new Set(selected.map((item) => item.sourceId)).size, 6);
+});
+
 test("accounts for every new conversation and hydrates a bilingual briefing", () => {
   const candidates = [
     {

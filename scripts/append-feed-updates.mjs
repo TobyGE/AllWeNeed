@@ -317,6 +317,37 @@ export function conversationCandidateCompleteness(item) {
   );
 }
 
+export function selectDiverseConversationCandidates(
+  items,
+  snapshotTime,
+  limit = maxConversationItems,
+) {
+  const ranked = [...items].sort(
+    (left, right) =>
+      conversationCandidateCompleteness(right) -
+        conversationCandidateCompleteness(left) ||
+      incrementalRelevance(right, snapshotTime) -
+        incrementalRelevance(left, snapshotTime),
+  );
+  const selected = [];
+  const selectedUrls = new Set();
+  const selectedSources = new Set();
+  for (const item of ranked) {
+    const sourceIdentity = item.sourceId ?? item.sourceName;
+    if (selectedSources.has(sourceIdentity)) continue;
+    selected.push(item);
+    selectedUrls.add(item.url);
+    selectedSources.add(sourceIdentity);
+    if (selected.length >= limit) return selected;
+  }
+  for (const item of ranked) {
+    if (selectedUrls.has(item.url)) continue;
+    selected.push(item);
+    if (selected.length >= limit) break;
+  }
+  return selected;
+}
+
 export function selectIncrementalItems({
   scannedSnapshot,
   previousSnapshot,
@@ -336,16 +367,11 @@ export function selectIncrementalItems({
     ...ranked
       .filter((item) => !item.conversationSource)
       .slice(0, maxCandidateItems),
-    ...ranked
-      .filter((item) => item.conversationSource)
-      .sort(
-        (left, right) =>
-          conversationCandidateCompleteness(right) -
-            conversationCandidateCompleteness(left) ||
-          incrementalRelevance(right, snapshotTime) -
-            incrementalRelevance(left, snapshotTime),
-      )
-      .slice(0, maxConversationItems),
+    ...selectDiverseConversationCandidates(
+      ranked.filter((item) => item.conversationSource),
+      snapshotTime,
+      maxConversationItems,
+    ),
   ].sort(
     (left, right) =>
       incrementalRelevance(right, snapshotTime) -
