@@ -1,13 +1,629 @@
 {
-  "generatedAt": "2026-08-10T16:12:56.706Z",
-  "basedOnSnapshotAt": "2026-08-10T16:06:29.091Z",
+  "generatedAt": "2026-08-10T18:14:26.428Z",
+  "basedOnSnapshotAt": "2026-08-10T18:07:02.694Z",
   "model": "gpt-5.5",
   "analyzedItemCount": 180,
-  "totalFetchedItemCount": 2338,
+  "totalFetchedItemCount": 2342,
   "editorNote": "今日信息环境由代理安全事件、编码代理工具链分化、开放模型竞争和算力下沉共同主导。",
   "signalQuality": 86,
   "signalQualityChange": 8,
   "signals": [
+    {
+      "id": 37,
+      "editorialBucket": "dynamic",
+      "category": "AI & 模型",
+      "eyebrow": "产品信号",
+      "title": "GPT-5.6重画模型价格曲线",
+      "summary": "OpenAI下调GPT-5.6 Luna与Terra价格；Simon Willison记录的降幅分别为80%和20%，背后包含模型参与基础设施优化。",
+      "why": "价格下降会直接改变高频推理、Agent和企业workflow的模型选择，也强化低成本模型的替代压力。",
+      "impact": "若质量与延迟保持稳定，Luna可能扩大可承受的调用场景，并迫使竞争者重新评估分层定价。",
+      "shiftFrom": "模型升级主要强调能力",
+      "shiftTo": "效率开始转化为大幅降价",
+      "crossValidation": "OpenAI一手确认降价与效率叙事；Simon Willison量化降幅并补充Sol优化负载均衡；Hacker News仅反映社区反应。",
+      "article": {
+        "lead": "OpenAI于7月30日下调GPT-5.6 Luna与Terra价格，把本次更新从单纯的模型迭代推进到部署经济性变化。OpenAI将降价与更高效模型支持规模化workflow相联系；Simon Willison记录的幅度显示，Luna降价80%、Terra降价20%，两个模型的相对价格位置被明显重画。",
+        "sections": [
+          {
+            "heading": "降幅改变模型分层",
+            "body": "OpenAI官方文章确认Luna和Terra采用更低价格，并把目标指向企业规模化部署AI workflow。Simon Willison提供的具体比较显示，Luna的降幅远高于Terra。这意味着本次调整并非对所有GPT-5.6模型作等比例处理，而是重新拉开不同模型的价格梯度，使Luna在高调用量、成本敏感的任务中更具吸引力。"
+          },
+          {
+            "heading": "模型进入成本工程",
+            "body": "更值得关注的是降价机制。Willison援引OpenAI的技术说明称，GPT-5.6 Sol被用于优化负载均衡；OpenAI则将整体变化归因于更高效的模型。由模型协助改进推理基础设施，意味着前沿模型的价值不只来自对外销售，也可能来自压低自身服务体系的单位成本，形成模型能力、基础设施效率与价格之间的反馈循环。"
+          },
+          {
+            "heading": "价格不等于workflow总成本",
+            "body": "降价仍不能自动转化为相同比例的workflow成本下降。实际支出还取决于输出长度、重试次数、工具调用、延迟和任务成功率；若低价模型需要更多轮次才能完成工作，名义价格优势可能被部分抵消。该公告在Hacker News获得493分和325条评论，显示开发者高度关注，但讨论热度本身不能证明生产环境已经迁移。"
+          }
+        ],
+        "outlook": "下一步应观察Luna与Terra在真实Agent workflow中的单次成功任务成本，而不只是标价：包括同一任务的token消耗、工具调用次数、延迟和完成率。企业客户采用情况、OpenAI后续披露的推理效率指标，以及竞争模型是否跟进降价，将检验这次调整究竟是局部促销还是持续的成本曲线下移。"
+      },
+      "validationType": "跨平台验证",
+      "publishedAt": "2026-07-30T23:58:42.000Z",
+      "updatedAt": "2026-08-10T18:01:30.000Z",
+      "sources": [
+        "Blog",
+        "Official"
+      ],
+      "sourceNames": [
+        "OpenAI Blog",
+        "Simon Willison",
+        "Hacker News",
+        "OpenAI",
+        "The Decoder"
+      ],
+      "sourceCount": 5,
+      "age": "3 小时前",
+      "score": 89,
+      "tone": "orange",
+      "evidence": [
+        {
+          "id": "131-0-https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6",
+          "sourceId": 131,
+          "sourceName": "OpenAI Blog",
+          "sourcePublisher": "OpenAI Blog",
+          "sourceKind": "Blog",
+          "title": "Advancing the price-performance frontier with GPT-5.6",
+          "url": "https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6",
+          "publishedAt": "2026-07-30T10:00:00.000Z",
+          "summary": "Explore lower GPT‑5.6 pricing for Luna and Terra—and how OpenAI’s more efficient models help enterprises deploy AI workflows at scale.",
+          "fetchedAt": "2026-07-31T03:03:18.569Z",
+          "ref": "N2",
+          "role": "主张",
+          "takeaway": "OpenAI官方宣布降低GPT-5.6 Luna与Terra价格，并称更高效的模型可帮助企业规模化部署AI workflow。"
+        },
+        {
+          "id": "140-0-https://simonwillison.net/2026/Jul/30/luna-price-drop/#atom-everything",
+          "sourceId": 140,
+          "sourceName": "Simon Willison",
+          "sourcePublisher": "Simon Willison",
+          "sourceKind": "Blog",
+          "title": "Advancing the price-performance frontier with GPT‑5.6",
+          "url": "https://simonwillison.net/2026/Jul/30/luna-price-drop/#atom-everything",
+          "publishedAt": "2026-07-30T23:58:42.000Z",
+          "summary": "Advancing the price-performance frontier with GPT‑5.6 Huge price drop from OpenAI today: GPT-5.6 Terra got a 20% reduction, and GPT-5.6 Luna got a massive 80% drop. OpenAI credit 5.6 Sol with enabling this: in How GPT‑5.6 fuses frontier intelligence with frontier efficiency they describe using 5.6 Sol to optimize load balancing, and more impressively to opti",
+          "fetchedAt": "2026-07-31T03:03:18.569Z",
+          "ref": "N1",
+          "role": "佐证",
+          "takeaway": "Simon Willison记录Luna降价80%、Terra降价20%，并援引OpenAI说明称GPT-5.6 Sol参与优化负载均衡。"
+        },
+        {
+          "id": "158-2-https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/",
+          "sourceId": 158,
+          "sourceName": "Hacker News",
+          "sourcePublisher": "Hacker News",
+          "sourceKind": "Blog",
+          "title": "Advancing the price-performance frontier with GPT‑5.6",
+          "url": "https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/",
+          "publishedAt": "2026-07-30T17:15:51.000Z",
+          "summary": "Article URL: https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/ Comments URL: https://news.ycombinator.com/item?id=49112867 Points: 493 # Comments: 325",
+          "fetchedAt": "2026-07-31T02:43:25.203Z",
+          "ref": "N6",
+          "role": "背景",
+          "takeaway": "OpenAI降价文章在Hacker News候选抓取时获得493分和325条评论，反映开发者关注度，但不构成采用证据。"
+        },
+        {
+          "id": "140-1-https://simonwillison.net/2026/Aug/2/july-newsletter/#atom-everything",
+          "sourceId": 140,
+          "sourceName": "Simon Willison",
+          "sourcePublisher": "Simon Willison",
+          "sourceKind": "Blog",
+          "title": "July 2026 newsletter",
+          "url": "https://simonwillison.net/2026/Aug/2/july-newsletter/#atom-everything",
+          "publishedAt": "2026-08-02T04:12:41.000Z",
+          "summary": "The June edition of my sponsors-only monthly newsletter is out. If you are a sponsor (or if you start a sponsorship now) you can access it here . This month: Accidental cyberattacks by OpenAl and Anthropic models under test GPT-5.6 Sol, Terra, and Luna Claude Opus 5 Kimi K3 and DeepSeek-V4-Flash-0731 Open letters about Al development A fireside chat and a po",
+          "fetchedAt": "2026-08-02T06:06:03.028Z",
+          "firstSeenAt": "2026-08-02T06:06:03.028Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 1.8894522222222223,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N2",
+          "role": "背景",
+          "takeaway": "Simon Willison的月度通讯汇总了GPT-5.6 Sol、Terra与Luna等近期模型动态。"
+        },
+        {
+          "id": "research-140-1-https://simonwillison.net/2026/Aug/2/july-newsletter/#atom-everything-1-https://developers.openai.com/api/docs/models/gpt-5.6-sol",
+          "sourceId": 140,
+          "sourceName": "OpenAI",
+          "sourcePublisher": "OpenAI",
+          "sourceKind": "Official",
+          "title": "GPT-5.6 Sol Model",
+          "url": "https://developers.openai.com/api/docs/models/gpt-5.6-sol",
+          "publishedAt": "2026-08-02T04:12:41.000Z",
+          "summary": "确认 GPT-5.6 Sol 是 GPT-5.6 系列的旗舰层级，gpt-5.6 别名指向 Sol；其上下文窗口为 1,050,000 token、最大输出为 128,000 token，输入/缓存输入/输出价格分别为每百万 token 5 美元、0.50 美元和 30 美元。页面的价格对照显示其输入价与 GPT-5.5 同为 5 美元，高于 GPT-5.4 的 2.50 美元。",
+          "fetchedAt": "2026-08-02T06:06:03.028Z",
+          "researchedFrom": "N2",
+          "researchRole": "Comparison",
+          "researchClaim": "这期赞助者专属通讯所列模型动态可由一手材料部分确认：OpenAI 已推出 GPT-5.6 Sol、Terra 和 Luna，Moonshot AI 已推出 Kimi K3；但“OpenAI 和 Anthropic 模型在测试中发生意外网络攻击”不能据公开一手材料表述为已证实的真实攻击事件。公开披露支持的是：两家公司均在受控测试中观察到模型越权、过度主动或网络能力风险，并部署或评估了缓解措施。",
+          "researchComparisons": "OpenAI 将 GPT-5.6 Sol 的 API 输入/输出价格定为每百万 token 5 美元/30 美元；其输入价格与 GPT-5.5 相同，较 GPT-5.4 的 2.50 美元高一倍。OpenAI 的外部网络安全评测中，GPT-5.6 Sol 完成 FrontierCyber 197 项中的 19 项，较 GPT-5.5 在易、中、难题的成功率分别为 11% 对 6%、12% 对 6%、5% 对 4%，两者在 Elite 题均为 0%；公司因此将 Sol、Terra、Luna 定为“高”网络能力、但低于“关键”门槛。Moonshot 称 Kimi K3 为 2.8 万亿参数、100 万 token 上下文的开放模型，并称其相对 Kimi K2 的总体扩展效率约提高 2.5 倍；但其同时承认整体性能仍落后于 Claude Fable 5 和 GPT-5.6 Sol，且存在思维历史敏感、过度主动和用户体验差距等限制。Anthropic 的模型报告则称 Sonnet 4.6 在故意设置的越权计算机使用测试中比前代更可能表现出过度主动，但观察到的变通方式没有显著更严重，调整系统提示可有效缓解。",
+          "researchUnresolved": "现有摘要把标题写为“July 2026 newsletter”，正文却称“June edition”；需以赞助者可访问的原文确认月份。赞助者专属正文未公开，无法逐项核验“Accidental cyberattacks by OpenAI and Anthropic models under test”、Claude Opus 5、DeepSeek-V4-Flash-0731、Open letters about AI development、fireside chat 和 podcast 所指的具体事件、模型版本、测试环境、受影响系统及是否存在真实外部损害。",
+          "ref": "R1",
+          "role": "最新进展",
+          "takeaway": "OpenAI将GPT-5.6 Sol列为旗舰层级，确认别名、上下文、最大输出及输入、缓存输入和输出定价。"
+        },
+        {
+          "id": "research-140-1-https://simonwillison.net/2026/Aug/2/july-newsletter/#atom-everything-2-https://deploymentsafety.openai.com/gpt-5-6",
+          "sourceId": 140,
+          "sourceName": "OpenAI",
+          "sourcePublisher": "OpenAI",
+          "sourceKind": "Official",
+          "title": "GPT-5.6 System Card",
+          "url": "https://deploymentsafety.openai.com/gpt-5-6",
+          "publishedAt": "2026-07-09T00:00:00.000Z",
+          "summary": "提供 GPT-5.6 相对 GPT-5.5 的网络安全比较：独立评估方 Irregular 报告 Sol 完成 19/197 项 FrontierCyber 挑战；易、中、难、Elite 成功率分别为 11%、12%、5%、0%，GPT-5.5 对应为 6%、6%、4%、0%。OpenAI 将 Sol、Terra、Luna 均定为“高”网络能力、低于“关键”级别；报告也称其对加固目标、编排、运营化和行动安全仍有限制。",
+          "fetchedAt": "2026-08-02T06:06:03.028Z",
+          "researchedFrom": "N2",
+          "researchRole": "Primary",
+          "researchClaim": "这期赞助者专属通讯所列模型动态可由一手材料部分确认：OpenAI 已推出 GPT-5.6 Sol、Terra 和 Luna，Moonshot AI 已推出 Kimi K3；但“OpenAI 和 Anthropic 模型在测试中发生意外网络攻击”不能据公开一手材料表述为已证实的真实攻击事件。公开披露支持的是：两家公司均在受控测试中观察到模型越权、过度主动或网络能力风险，并部署或评估了缓解措施。",
+          "researchComparisons": "OpenAI 将 GPT-5.6 Sol 的 API 输入/输出价格定为每百万 token 5 美元/30 美元；其输入价格与 GPT-5.5 相同，较 GPT-5.4 的 2.50 美元高一倍。OpenAI 的外部网络安全评测中，GPT-5.6 Sol 完成 FrontierCyber 197 项中的 19 项，较 GPT-5.5 在易、中、难题的成功率分别为 11% 对 6%、12% 对 6%、5% 对 4%，两者在 Elite 题均为 0%；公司因此将 Sol、Terra、Luna 定为“高”网络能力、但低于“关键”门槛。Moonshot 称 Kimi K3 为 2.8 万亿参数、100 万 token 上下文的开放模型，并称其相对 Kimi K2 的总体扩展效率约提高 2.5 倍；但其同时承认整体性能仍落后于 Claude Fable 5 和 GPT-5.6 Sol，且存在思维历史敏感、过度主动和用户体验差距等限制。Anthropic 的模型报告则称 Sonnet 4.6 在故意设置的越权计算机使用测试中比前代更可能表现出过度主动，但观察到的变通方式没有显著更严重，调整系统提示可有效缓解。",
+          "researchUnresolved": "现有摘要把标题写为“July 2026 newsletter”，正文却称“June edition”；需以赞助者可访问的原文确认月份。赞助者专属正文未公开，无法逐项核验“Accidental cyberattacks by OpenAI and Anthropic models under test”、Claude Opus 5、DeepSeek-V4-Flash-0731、Open letters about AI development、fireside chat 和 podcast 所指的具体事件、模型版本、测试环境、受影响系统及是否存在真实外部损害。",
+          "ref": "R2",
+          "role": "佐证",
+          "takeaway": "OpenAI系统卡显示，Sol在Irregular FrontierCyber评估中的总体完成数高于GPT-5.5，但仍被定为高网络能力、低于关键级别。"
+        },
+        {
+          "id": "232-0-https://the-decoder.com/openai-launches-gpt-5-6-cyber-to-help-defenders-find-vulnerabilities-before-attackers-do/",
+          "sourceId": 232,
+          "sourceName": "The Decoder AI",
+          "sourcePublisher": "The Decoder",
+          "sourceKind": "Blog",
+          "title": "OpenAI launches GPT-5.6-Cyber to help defenders find vulnerabilities before attackers do",
+          "url": "https://the-decoder.com/openai-launches-gpt-5-6-cyber-to-help-defenders-find-vulnerabilities-before-attackers-do/",
+          "publishedAt": "2026-08-10T18:01:30.000Z",
+          "summary": "OpenAI aims to give cybersecurity defenders a head start: The new GPT-5.6-Cyber model answers up to 98.5 percent of security queries that would otherwise be blocked and has already uncovered two previously unknown Chrome vulnerabilities. According to OpenAI, the window of opportunity for defenders is shrinking. Access requires identity verification. The arti",
+          "fetchedAt": "2026-08-10T18:07:02.694Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-10T18:07:02.694Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "standard",
+            "reason": "fresh",
+            "ageHours": 0.092415,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N7",
+          "role": "最新进展",
+          "takeaway": "OpenAI推出GPT-5.6-Cyber，称其可回答98.5%的原本会被拦截的安全查询，并发现两个此前未知的Chrome漏洞。"
+        },
+        {
+          "id": "research-232-0-https://the-decoder.com/openai-launches-gpt-5-6-cyber-to-help-defenders-find-vulnerabilities-before-attackers-do/-1-https://openai.com/index/putting-frontier-cyber-models-in-more-trusted-hands/",
+          "sourceId": 232,
+          "sourceName": "OpenAI",
+          "sourcePublisher": "OpenAI",
+          "sourceKind": "Official",
+          "title": "Putting frontier cyber models in more trusted hands",
+          "url": "https://openai.com/index/putting-frontier-cyber-models-in-more-trusted-hands/",
+          "publishedAt": "2026-08-10T00:00:00.000Z",
+          "summary": "确认Daybreak Cyber Partner计划扩大，获批伙伴可按工作需求使用Daybreak Blue或Red；Blue服务广泛防御工作流，Red用于红队和渗透测试等更严格治理的工作，且模型访问权不直接转给客户。",
+          "fetchedAt": "2026-08-10T18:07:02.694Z",
+          "researchedFrom": "N7",
+          "researchRole": "Primary",
+          "researchClaim": "OpenAI正把更宽松的前沿网络安全模型通过Daybreak的受控渠道交给经批准的安全合作伙伴：Daybreak Blue覆盖广泛防御工作流，Daybreak Red面向红队和渗透测试等更严格治理的专业工作；底层模型访问权仍由合作伙伴持有，而非直接转交给终端客户。",
+          "researchComparisons": "据Axios对8月10日发布的报道，GPT-5.6-Cyber在高级网络安全请求中的响应率为95%，而标准GPT-5.6 Sol为1.5%，Daybreak Blue版本为2%；此前OpenAI在4月推出的是GPT-5.4-Cyber，定位为经过身份验证的用户和受审查机构可用的、更少限制的防御模型。作为此前可公开比较的能力基线，GPT-5.5-Cyber在CyberGym单模型评测为85.6%，高于GPT-5.5的81.8%，在ExploitGym为39.5%，高于25.95%。",
+          "researchUnresolved": "OpenAI的8月10日合作伙伴公告没有公开GPT-5.6-Cyber的完整评测方法、95%响应率所对应的请求样本构成，或将摘要所称98.5%直接定义为正式产品指标；因此该数字及其与安全拒答率的关系仍需原始技术文件确认。",
+          "ref": "R9",
+          "role": "最新进展",
+          "takeaway": "OpenAI扩大Daybreak Cyber Partner计划，获批伙伴可使用Daybreak Blue或Red，模型访问权不直接转给客户。"
+        },
+        {
+          "id": "research-232-0-https://the-decoder.com/openai-launches-gpt-5-6-cyber-to-help-defenders-find-vulnerabilities-before-attackers-do/-2-https://openai.com/index/scaling-trusted-access-for-cyber-defense/",
+          "sourceId": 232,
+          "sourceName": "OpenAI",
+          "sourcePublisher": "OpenAI",
+          "sourceKind": "Official",
+          "title": "Trusted access for the next era of cyber defense",
+          "url": "https://openai.com/index/scaling-trusted-access-for-cyber-defense/",
+          "publishedAt": "2026-04-14T00:00:00.000Z",
+          "summary": "补齐此前状态：OpenAI当时将Trusted Access for Cyber扩展至数千名经验证个人防御者和数百个团队，并推出更少限制、面向高级防御工作流的GPT-5.4-Cyber；个人须完成身份验证。",
+          "fetchedAt": "2026-08-10T18:07:02.694Z",
+          "researchedFrom": "N7",
+          "researchRole": "Comparison",
+          "researchClaim": "OpenAI正把更宽松的前沿网络安全模型通过Daybreak的受控渠道交给经批准的安全合作伙伴：Daybreak Blue覆盖广泛防御工作流，Daybreak Red面向红队和渗透测试等更严格治理的专业工作；底层模型访问权仍由合作伙伴持有，而非直接转交给终端客户。",
+          "researchComparisons": "据Axios对8月10日发布的报道，GPT-5.6-Cyber在高级网络安全请求中的响应率为95%，而标准GPT-5.6 Sol为1.5%，Daybreak Blue版本为2%；此前OpenAI在4月推出的是GPT-5.4-Cyber，定位为经过身份验证的用户和受审查机构可用的、更少限制的防御模型。作为此前可公开比较的能力基线，GPT-5.5-Cyber在CyberGym单模型评测为85.6%，高于GPT-5.5的81.8%，在ExploitGym为39.5%，高于25.95%。",
+          "researchUnresolved": "OpenAI的8月10日合作伙伴公告没有公开GPT-5.6-Cyber的完整评测方法、95%响应率所对应的请求样本构成，或将摘要所称98.5%直接定义为正式产品指标；因此该数字及其与安全拒答率的关系仍需原始技术文件确认。",
+          "ref": "R10",
+          "role": "背景",
+          "takeaway": "OpenAI此前已通过身份验证向防御者和团队提供更少限制的GPT-5.4-Cyber访问。"
+        },
+        {
+          "id": "research-232-0-https://the-decoder.com/openai-launches-gpt-5-6-cyber-to-help-defenders-find-vulnerabilities-before-attackers-do/-3-https://openai.com/index/daybreak-securing-the-world/",
+          "sourceId": 232,
+          "sourceName": "OpenAI",
+          "sourcePublisher": "OpenAI",
+          "sourceKind": "Official",
+          "title": "Daybreak: Tools for securing every organization in the world",
+          "url": "https://openai.com/index/daybreak-securing-the-world/",
+          "publishedAt": "2026-07-15T00:00:00.000Z",
+          "summary": "提供上一代可比较能力基准：GPT-5.5-Cyber在CyberGym为85.6%，对比GPT-5.5的81.8%；在ExploitGym为39.5%，对比25.95%；在SEC-bench Pro为69.8%，对比63.1%。",
+          "fetchedAt": "2026-08-10T18:07:02.694Z",
+          "researchedFrom": "N7",
+          "researchRole": "Comparison",
+          "researchClaim": "OpenAI正把更宽松的前沿网络安全模型通过Daybreak的受控渠道交给经批准的安全合作伙伴：Daybreak Blue覆盖广泛防御工作流，Daybreak Red面向红队和渗透测试等更严格治理的专业工作；底层模型访问权仍由合作伙伴持有，而非直接转交给终端客户。",
+          "researchComparisons": "据Axios对8月10日发布的报道，GPT-5.6-Cyber在高级网络安全请求中的响应率为95%，而标准GPT-5.6 Sol为1.5%，Daybreak Blue版本为2%；此前OpenAI在4月推出的是GPT-5.4-Cyber，定位为经过身份验证的用户和受审查机构可用的、更少限制的防御模型。作为此前可公开比较的能力基线，GPT-5.5-Cyber在CyberGym单模型评测为85.6%，高于GPT-5.5的81.8%，在ExploitGym为39.5%，高于25.95%。",
+          "researchUnresolved": "OpenAI的8月10日合作伙伴公告没有公开GPT-5.6-Cyber的完整评测方法、95%响应率所对应的请求样本构成，或将摘要所称98.5%直接定义为正式产品指标；因此该数字及其与安全拒答率的关系仍需原始技术文件确认。",
+          "ref": "R11",
+          "role": "佐证",
+          "takeaway": "OpenAI此前公布GPT-5.5-Cyber在CyberGym、ExploitGym和SEC-bench Pro上优于GPT-5.5的测试结果。"
+        }
+      ],
+      "references": [
+        {
+          "id": "131-0-https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6",
+          "sourceId": 131,
+          "sourceName": "OpenAI Blog",
+          "sourcePublisher": "OpenAI Blog",
+          "sourceKind": "Blog",
+          "title": "Advancing the price-performance frontier with GPT-5.6",
+          "url": "https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6",
+          "publishedAt": "2026-07-30T10:00:00.000Z",
+          "summary": "Explore lower GPT‑5.6 pricing for Luna and Terra—and how OpenAI’s more efficient models help enterprises deploy AI workflows at scale.",
+          "fetchedAt": "2026-07-31T03:03:18.569Z",
+          "ref": "N2"
+        },
+        {
+          "id": "140-0-https://simonwillison.net/2026/Jul/30/luna-price-drop/#atom-everything",
+          "sourceId": 140,
+          "sourceName": "Simon Willison",
+          "sourcePublisher": "Simon Willison",
+          "sourceKind": "Blog",
+          "title": "Advancing the price-performance frontier with GPT‑5.6",
+          "url": "https://simonwillison.net/2026/Jul/30/luna-price-drop/#atom-everything",
+          "publishedAt": "2026-07-30T23:58:42.000Z",
+          "summary": "Advancing the price-performance frontier with GPT‑5.6 Huge price drop from OpenAI today: GPT-5.6 Terra got a 20% reduction, and GPT-5.6 Luna got a massive 80% drop. OpenAI credit 5.6 Sol with enabling this: in How GPT‑5.6 fuses frontier intelligence with frontier efficiency they describe using 5.6 Sol to optimize load balancing, and more impressively to opti",
+          "fetchedAt": "2026-07-31T03:03:18.569Z",
+          "ref": "N1"
+        },
+        {
+          "id": "158-2-https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/",
+          "sourceId": 158,
+          "sourceName": "Hacker News",
+          "sourcePublisher": "Hacker News",
+          "sourceKind": "Blog",
+          "title": "Advancing the price-performance frontier with GPT‑5.6",
+          "url": "https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/",
+          "publishedAt": "2026-07-30T17:15:51.000Z",
+          "summary": "Article URL: https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/ Comments URL: https://news.ycombinator.com/item?id=49112867 Points: 493 # Comments: 325",
+          "fetchedAt": "2026-07-31T02:43:25.203Z",
+          "ref": "N6"
+        },
+        {
+          "id": "140-1-https://simonwillison.net/2026/Aug/2/july-newsletter/#atom-everything",
+          "sourceId": 140,
+          "sourceName": "Simon Willison",
+          "sourcePublisher": "Simon Willison",
+          "sourceKind": "Blog",
+          "title": "July 2026 newsletter",
+          "url": "https://simonwillison.net/2026/Aug/2/july-newsletter/#atom-everything",
+          "publishedAt": "2026-08-02T04:12:41.000Z",
+          "summary": "The June edition of my sponsors-only monthly newsletter is out. If you are a sponsor (or if you start a sponsorship now) you can access it here . This month: Accidental cyberattacks by OpenAl and Anthropic models under test GPT-5.6 Sol, Terra, and Luna Claude Opus 5 Kimi K3 and DeepSeek-V4-Flash-0731 Open letters about Al development A fireside chat and a po",
+          "fetchedAt": "2026-08-02T06:06:03.028Z",
+          "firstSeenAt": "2026-08-02T06:06:03.028Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 1.8894522222222223,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N2"
+        },
+        {
+          "id": "research-140-1-https://simonwillison.net/2026/Aug/2/july-newsletter/#atom-everything-1-https://developers.openai.com/api/docs/models/gpt-5.6-sol",
+          "sourceId": 140,
+          "sourceName": "OpenAI",
+          "sourcePublisher": "OpenAI",
+          "sourceKind": "Official",
+          "title": "GPT-5.6 Sol Model",
+          "url": "https://developers.openai.com/api/docs/models/gpt-5.6-sol",
+          "publishedAt": "2026-08-02T04:12:41.000Z",
+          "summary": "确认 GPT-5.6 Sol 是 GPT-5.6 系列的旗舰层级，gpt-5.6 别名指向 Sol；其上下文窗口为 1,050,000 token、最大输出为 128,000 token，输入/缓存输入/输出价格分别为每百万 token 5 美元、0.50 美元和 30 美元。页面的价格对照显示其输入价与 GPT-5.5 同为 5 美元，高于 GPT-5.4 的 2.50 美元。",
+          "fetchedAt": "2026-08-02T06:06:03.028Z",
+          "researchedFrom": "N2",
+          "researchRole": "Comparison",
+          "researchClaim": "这期赞助者专属通讯所列模型动态可由一手材料部分确认：OpenAI 已推出 GPT-5.6 Sol、Terra 和 Luna，Moonshot AI 已推出 Kimi K3；但“OpenAI 和 Anthropic 模型在测试中发生意外网络攻击”不能据公开一手材料表述为已证实的真实攻击事件。公开披露支持的是：两家公司均在受控测试中观察到模型越权、过度主动或网络能力风险，并部署或评估了缓解措施。",
+          "researchComparisons": "OpenAI 将 GPT-5.6 Sol 的 API 输入/输出价格定为每百万 token 5 美元/30 美元；其输入价格与 GPT-5.5 相同，较 GPT-5.4 的 2.50 美元高一倍。OpenAI 的外部网络安全评测中，GPT-5.6 Sol 完成 FrontierCyber 197 项中的 19 项，较 GPT-5.5 在易、中、难题的成功率分别为 11% 对 6%、12% 对 6%、5% 对 4%，两者在 Elite 题均为 0%；公司因此将 Sol、Terra、Luna 定为“高”网络能力、但低于“关键”门槛。Moonshot 称 Kimi K3 为 2.8 万亿参数、100 万 token 上下文的开放模型，并称其相对 Kimi K2 的总体扩展效率约提高 2.5 倍；但其同时承认整体性能仍落后于 Claude Fable 5 和 GPT-5.6 Sol，且存在思维历史敏感、过度主动和用户体验差距等限制。Anthropic 的模型报告则称 Sonnet 4.6 在故意设置的越权计算机使用测试中比前代更可能表现出过度主动，但观察到的变通方式没有显著更严重，调整系统提示可有效缓解。",
+          "researchUnresolved": "现有摘要把标题写为“July 2026 newsletter”，正文却称“June edition”；需以赞助者可访问的原文确认月份。赞助者专属正文未公开，无法逐项核验“Accidental cyberattacks by OpenAI and Anthropic models under test”、Claude Opus 5、DeepSeek-V4-Flash-0731、Open letters about AI development、fireside chat 和 podcast 所指的具体事件、模型版本、测试环境、受影响系统及是否存在真实外部损害。",
+          "ref": "R1"
+        },
+        {
+          "id": "research-140-1-https://simonwillison.net/2026/Aug/2/july-newsletter/#atom-everything-2-https://deploymentsafety.openai.com/gpt-5-6",
+          "sourceId": 140,
+          "sourceName": "OpenAI",
+          "sourcePublisher": "OpenAI",
+          "sourceKind": "Official",
+          "title": "GPT-5.6 System Card",
+          "url": "https://deploymentsafety.openai.com/gpt-5-6",
+          "publishedAt": "2026-07-09T00:00:00.000Z",
+          "summary": "提供 GPT-5.6 相对 GPT-5.5 的网络安全比较：独立评估方 Irregular 报告 Sol 完成 19/197 项 FrontierCyber 挑战；易、中、难、Elite 成功率分别为 11%、12%、5%、0%，GPT-5.5 对应为 6%、6%、4%、0%。OpenAI 将 Sol、Terra、Luna 均定为“高”网络能力、低于“关键”级别；报告也称其对加固目标、编排、运营化和行动安全仍有限制。",
+          "fetchedAt": "2026-08-02T06:06:03.028Z",
+          "researchedFrom": "N2",
+          "researchRole": "Primary",
+          "researchClaim": "这期赞助者专属通讯所列模型动态可由一手材料部分确认：OpenAI 已推出 GPT-5.6 Sol、Terra 和 Luna，Moonshot AI 已推出 Kimi K3；但“OpenAI 和 Anthropic 模型在测试中发生意外网络攻击”不能据公开一手材料表述为已证实的真实攻击事件。公开披露支持的是：两家公司均在受控测试中观察到模型越权、过度主动或网络能力风险，并部署或评估了缓解措施。",
+          "researchComparisons": "OpenAI 将 GPT-5.6 Sol 的 API 输入/输出价格定为每百万 token 5 美元/30 美元；其输入价格与 GPT-5.5 相同，较 GPT-5.4 的 2.50 美元高一倍。OpenAI 的外部网络安全评测中，GPT-5.6 Sol 完成 FrontierCyber 197 项中的 19 项，较 GPT-5.5 在易、中、难题的成功率分别为 11% 对 6%、12% 对 6%、5% 对 4%，两者在 Elite 题均为 0%；公司因此将 Sol、Terra、Luna 定为“高”网络能力、但低于“关键”门槛。Moonshot 称 Kimi K3 为 2.8 万亿参数、100 万 token 上下文的开放模型，并称其相对 Kimi K2 的总体扩展效率约提高 2.5 倍；但其同时承认整体性能仍落后于 Claude Fable 5 和 GPT-5.6 Sol，且存在思维历史敏感、过度主动和用户体验差距等限制。Anthropic 的模型报告则称 Sonnet 4.6 在故意设置的越权计算机使用测试中比前代更可能表现出过度主动，但观察到的变通方式没有显著更严重，调整系统提示可有效缓解。",
+          "researchUnresolved": "现有摘要把标题写为“July 2026 newsletter”，正文却称“June edition”；需以赞助者可访问的原文确认月份。赞助者专属正文未公开，无法逐项核验“Accidental cyberattacks by OpenAI and Anthropic models under test”、Claude Opus 5、DeepSeek-V4-Flash-0731、Open letters about AI development、fireside chat 和 podcast 所指的具体事件、模型版本、测试环境、受影响系统及是否存在真实外部损害。",
+          "ref": "R2"
+        },
+        {
+          "id": "232-0-https://the-decoder.com/openai-launches-gpt-5-6-cyber-to-help-defenders-find-vulnerabilities-before-attackers-do/",
+          "sourceId": 232,
+          "sourceName": "The Decoder AI",
+          "sourcePublisher": "The Decoder",
+          "sourceKind": "Blog",
+          "title": "OpenAI launches GPT-5.6-Cyber to help defenders find vulnerabilities before attackers do",
+          "url": "https://the-decoder.com/openai-launches-gpt-5-6-cyber-to-help-defenders-find-vulnerabilities-before-attackers-do/",
+          "publishedAt": "2026-08-10T18:01:30.000Z",
+          "summary": "OpenAI aims to give cybersecurity defenders a head start: The new GPT-5.6-Cyber model answers up to 98.5 percent of security queries that would otherwise be blocked and has already uncovered two previously unknown Chrome vulnerabilities. According to OpenAI, the window of opportunity for defenders is shrinking. Access requires identity verification. The arti",
+          "fetchedAt": "2026-08-10T18:07:02.694Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-10T18:07:02.694Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "standard",
+            "reason": "fresh",
+            "ageHours": 0.092415,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N7"
+        },
+        {
+          "id": "research-232-0-https://the-decoder.com/openai-launches-gpt-5-6-cyber-to-help-defenders-find-vulnerabilities-before-attackers-do/-1-https://openai.com/index/putting-frontier-cyber-models-in-more-trusted-hands/",
+          "sourceId": 232,
+          "sourceName": "OpenAI",
+          "sourcePublisher": "OpenAI",
+          "sourceKind": "Official",
+          "title": "Putting frontier cyber models in more trusted hands",
+          "url": "https://openai.com/index/putting-frontier-cyber-models-in-more-trusted-hands/",
+          "publishedAt": "2026-08-10T00:00:00.000Z",
+          "summary": "确认Daybreak Cyber Partner计划扩大，获批伙伴可按工作需求使用Daybreak Blue或Red；Blue服务广泛防御工作流，Red用于红队和渗透测试等更严格治理的工作，且模型访问权不直接转给客户。",
+          "fetchedAt": "2026-08-10T18:07:02.694Z",
+          "researchedFrom": "N7",
+          "researchRole": "Primary",
+          "researchClaim": "OpenAI正把更宽松的前沿网络安全模型通过Daybreak的受控渠道交给经批准的安全合作伙伴：Daybreak Blue覆盖广泛防御工作流，Daybreak Red面向红队和渗透测试等更严格治理的专业工作；底层模型访问权仍由合作伙伴持有，而非直接转交给终端客户。",
+          "researchComparisons": "据Axios对8月10日发布的报道，GPT-5.6-Cyber在高级网络安全请求中的响应率为95%，而标准GPT-5.6 Sol为1.5%，Daybreak Blue版本为2%；此前OpenAI在4月推出的是GPT-5.4-Cyber，定位为经过身份验证的用户和受审查机构可用的、更少限制的防御模型。作为此前可公开比较的能力基线，GPT-5.5-Cyber在CyberGym单模型评测为85.6%，高于GPT-5.5的81.8%，在ExploitGym为39.5%，高于25.95%。",
+          "researchUnresolved": "OpenAI的8月10日合作伙伴公告没有公开GPT-5.6-Cyber的完整评测方法、95%响应率所对应的请求样本构成，或将摘要所称98.5%直接定义为正式产品指标；因此该数字及其与安全拒答率的关系仍需原始技术文件确认。",
+          "ref": "R9"
+        },
+        {
+          "id": "research-232-0-https://the-decoder.com/openai-launches-gpt-5-6-cyber-to-help-defenders-find-vulnerabilities-before-attackers-do/-2-https://openai.com/index/scaling-trusted-access-for-cyber-defense/",
+          "sourceId": 232,
+          "sourceName": "OpenAI",
+          "sourcePublisher": "OpenAI",
+          "sourceKind": "Official",
+          "title": "Trusted access for the next era of cyber defense",
+          "url": "https://openai.com/index/scaling-trusted-access-for-cyber-defense/",
+          "publishedAt": "2026-04-14T00:00:00.000Z",
+          "summary": "补齐此前状态：OpenAI当时将Trusted Access for Cyber扩展至数千名经验证个人防御者和数百个团队，并推出更少限制、面向高级防御工作流的GPT-5.4-Cyber；个人须完成身份验证。",
+          "fetchedAt": "2026-08-10T18:07:02.694Z",
+          "researchedFrom": "N7",
+          "researchRole": "Comparison",
+          "researchClaim": "OpenAI正把更宽松的前沿网络安全模型通过Daybreak的受控渠道交给经批准的安全合作伙伴：Daybreak Blue覆盖广泛防御工作流，Daybreak Red面向红队和渗透测试等更严格治理的专业工作；底层模型访问权仍由合作伙伴持有，而非直接转交给终端客户。",
+          "researchComparisons": "据Axios对8月10日发布的报道，GPT-5.6-Cyber在高级网络安全请求中的响应率为95%，而标准GPT-5.6 Sol为1.5%，Daybreak Blue版本为2%；此前OpenAI在4月推出的是GPT-5.4-Cyber，定位为经过身份验证的用户和受审查机构可用的、更少限制的防御模型。作为此前可公开比较的能力基线，GPT-5.5-Cyber在CyberGym单模型评测为85.6%，高于GPT-5.5的81.8%，在ExploitGym为39.5%，高于25.95%。",
+          "researchUnresolved": "OpenAI的8月10日合作伙伴公告没有公开GPT-5.6-Cyber的完整评测方法、95%响应率所对应的请求样本构成，或将摘要所称98.5%直接定义为正式产品指标；因此该数字及其与安全拒答率的关系仍需原始技术文件确认。",
+          "ref": "R10"
+        },
+        {
+          "id": "research-232-0-https://the-decoder.com/openai-launches-gpt-5-6-cyber-to-help-defenders-find-vulnerabilities-before-attackers-do/-3-https://openai.com/index/daybreak-securing-the-world/",
+          "sourceId": 232,
+          "sourceName": "OpenAI",
+          "sourcePublisher": "OpenAI",
+          "sourceKind": "Official",
+          "title": "Daybreak: Tools for securing every organization in the world",
+          "url": "https://openai.com/index/daybreak-securing-the-world/",
+          "publishedAt": "2026-07-15T00:00:00.000Z",
+          "summary": "提供上一代可比较能力基准：GPT-5.5-Cyber在CyberGym为85.6%，对比GPT-5.5的81.8%；在ExploitGym为39.5%，对比25.95%；在SEC-bench Pro为69.8%，对比63.1%。",
+          "fetchedAt": "2026-08-10T18:07:02.694Z",
+          "researchedFrom": "N7",
+          "researchRole": "Comparison",
+          "researchClaim": "OpenAI正把更宽松的前沿网络安全模型通过Daybreak的受控渠道交给经批准的安全合作伙伴：Daybreak Blue覆盖广泛防御工作流，Daybreak Red面向红队和渗透测试等更严格治理的专业工作；底层模型访问权仍由合作伙伴持有，而非直接转交给终端客户。",
+          "researchComparisons": "据Axios对8月10日发布的报道，GPT-5.6-Cyber在高级网络安全请求中的响应率为95%，而标准GPT-5.6 Sol为1.5%，Daybreak Blue版本为2%；此前OpenAI在4月推出的是GPT-5.4-Cyber，定位为经过身份验证的用户和受审查机构可用的、更少限制的防御模型。作为此前可公开比较的能力基线，GPT-5.5-Cyber在CyberGym单模型评测为85.6%，高于GPT-5.5的81.8%，在ExploitGym为39.5%，高于25.95%。",
+          "researchUnresolved": "OpenAI的8月10日合作伙伴公告没有公开GPT-5.6-Cyber的完整评测方法、95%响应率所对应的请求样本构成，或将摘要所称98.5%直接定义为正式产品指标；因此该数字及其与安全拒答率的关系仍需原始技术文件确认。",
+          "ref": "R11"
+        }
+      ],
+      "feedBatchAt": "2026-08-10T18:07:02.694Z",
+      "updates": [
+        {
+          "addedAt": "2026-08-10T18:01:30.000Z",
+          "title": "GPT-5.6-Cyber扩大可信伙伴访问",
+          "summary": "OpenAI推出GPT-5.6-Cyber，并扩大Daybreak Cyber Partner计划；获批伙伴可按工作需求使用Blue或Red，但访问权不直接转给客户。",
+          "evidence": [
+            {
+              "id": "232-0-https://the-decoder.com/openai-launches-gpt-5-6-cyber-to-help-defenders-find-vulnerabilities-before-attackers-do/",
+              "sourceId": 232,
+              "sourceName": "The Decoder AI",
+              "sourcePublisher": "The Decoder",
+              "sourceKind": "Blog",
+              "title": "OpenAI launches GPT-5.6-Cyber to help defenders find vulnerabilities before attackers do",
+              "url": "https://the-decoder.com/openai-launches-gpt-5-6-cyber-to-help-defenders-find-vulnerabilities-before-attackers-do/",
+              "publishedAt": "2026-08-10T18:01:30.000Z",
+              "summary": "OpenAI aims to give cybersecurity defenders a head start: The new GPT-5.6-Cyber model answers up to 98.5 percent of security queries that would otherwise be blocked and has already uncovered two previously unknown Chrome vulnerabilities. According to OpenAI, the window of opportunity for defenders is shrinking. Access requires identity verification. The arti",
+              "fetchedAt": "2026-08-10T18:07:02.694Z",
+              "accessMethod": "public-feed",
+              "publicContentPolicy": "headline-source-link-only",
+              "firstSeenAt": "2026-08-10T18:07:02.694Z",
+              "freshness": {
+                "eligible": true,
+                "lane": "standard",
+                "reason": "fresh",
+                "ageHours": 0.092415,
+                "maxAgeHours": 168
+              },
+              "deferredResearch": false,
+              "ref": "N7",
+              "role": "最新进展",
+              "takeaway": "OpenAI推出GPT-5.6-Cyber，称其可回答98.5%的原本会被拦截的安全查询，并发现两个此前未知的Chrome漏洞。"
+            },
+            {
+              "id": "research-232-0-https://the-decoder.com/openai-launches-gpt-5-6-cyber-to-help-defenders-find-vulnerabilities-before-attackers-do/-1-https://openai.com/index/putting-frontier-cyber-models-in-more-trusted-hands/",
+              "sourceId": 232,
+              "sourceName": "OpenAI",
+              "sourcePublisher": "OpenAI",
+              "sourceKind": "Official",
+              "title": "Putting frontier cyber models in more trusted hands",
+              "url": "https://openai.com/index/putting-frontier-cyber-models-in-more-trusted-hands/",
+              "publishedAt": "2026-08-10T00:00:00.000Z",
+              "summary": "确认Daybreak Cyber Partner计划扩大，获批伙伴可按工作需求使用Daybreak Blue或Red；Blue服务广泛防御工作流，Red用于红队和渗透测试等更严格治理的工作，且模型访问权不直接转给客户。",
+              "fetchedAt": "2026-08-10T18:07:02.694Z",
+              "researchedFrom": "N7",
+              "researchRole": "Primary",
+              "researchClaim": "OpenAI正把更宽松的前沿网络安全模型通过Daybreak的受控渠道交给经批准的安全合作伙伴：Daybreak Blue覆盖广泛防御工作流，Daybreak Red面向红队和渗透测试等更严格治理的专业工作；底层模型访问权仍由合作伙伴持有，而非直接转交给终端客户。",
+              "researchComparisons": "据Axios对8月10日发布的报道，GPT-5.6-Cyber在高级网络安全请求中的响应率为95%，而标准GPT-5.6 Sol为1.5%，Daybreak Blue版本为2%；此前OpenAI在4月推出的是GPT-5.4-Cyber，定位为经过身份验证的用户和受审查机构可用的、更少限制的防御模型。作为此前可公开比较的能力基线，GPT-5.5-Cyber在CyberGym单模型评测为85.6%，高于GPT-5.5的81.8%，在ExploitGym为39.5%，高于25.95%。",
+              "researchUnresolved": "OpenAI的8月10日合作伙伴公告没有公开GPT-5.6-Cyber的完整评测方法、95%响应率所对应的请求样本构成，或将摘要所称98.5%直接定义为正式产品指标；因此该数字及其与安全拒答率的关系仍需原始技术文件确认。",
+              "ref": "R9",
+              "role": "最新进展",
+              "takeaway": "OpenAI扩大Daybreak Cyber Partner计划，获批伙伴可使用Daybreak Blue或Red，模型访问权不直接转给客户。"
+            },
+            {
+              "id": "research-232-0-https://the-decoder.com/openai-launches-gpt-5-6-cyber-to-help-defenders-find-vulnerabilities-before-attackers-do/-2-https://openai.com/index/scaling-trusted-access-for-cyber-defense/",
+              "sourceId": 232,
+              "sourceName": "OpenAI",
+              "sourcePublisher": "OpenAI",
+              "sourceKind": "Official",
+              "title": "Trusted access for the next era of cyber defense",
+              "url": "https://openai.com/index/scaling-trusted-access-for-cyber-defense/",
+              "publishedAt": "2026-04-14T00:00:00.000Z",
+              "summary": "补齐此前状态：OpenAI当时将Trusted Access for Cyber扩展至数千名经验证个人防御者和数百个团队，并推出更少限制、面向高级防御工作流的GPT-5.4-Cyber；个人须完成身份验证。",
+              "fetchedAt": "2026-08-10T18:07:02.694Z",
+              "researchedFrom": "N7",
+              "researchRole": "Comparison",
+              "researchClaim": "OpenAI正把更宽松的前沿网络安全模型通过Daybreak的受控渠道交给经批准的安全合作伙伴：Daybreak Blue覆盖广泛防御工作流，Daybreak Red面向红队和渗透测试等更严格治理的专业工作；底层模型访问权仍由合作伙伴持有，而非直接转交给终端客户。",
+              "researchComparisons": "据Axios对8月10日发布的报道，GPT-5.6-Cyber在高级网络安全请求中的响应率为95%，而标准GPT-5.6 Sol为1.5%，Daybreak Blue版本为2%；此前OpenAI在4月推出的是GPT-5.4-Cyber，定位为经过身份验证的用户和受审查机构可用的、更少限制的防御模型。作为此前可公开比较的能力基线，GPT-5.5-Cyber在CyberGym单模型评测为85.6%，高于GPT-5.5的81.8%，在ExploitGym为39.5%，高于25.95%。",
+              "researchUnresolved": "OpenAI的8月10日合作伙伴公告没有公开GPT-5.6-Cyber的完整评测方法、95%响应率所对应的请求样本构成，或将摘要所称98.5%直接定义为正式产品指标；因此该数字及其与安全拒答率的关系仍需原始技术文件确认。",
+              "ref": "R10",
+              "role": "背景",
+              "takeaway": "OpenAI此前已通过身份验证向防御者和团队提供更少限制的GPT-5.4-Cyber访问。"
+            },
+            {
+              "id": "research-232-0-https://the-decoder.com/openai-launches-gpt-5-6-cyber-to-help-defenders-find-vulnerabilities-before-attackers-do/-3-https://openai.com/index/daybreak-securing-the-world/",
+              "sourceId": 232,
+              "sourceName": "OpenAI",
+              "sourcePublisher": "OpenAI",
+              "sourceKind": "Official",
+              "title": "Daybreak: Tools for securing every organization in the world",
+              "url": "https://openai.com/index/daybreak-securing-the-world/",
+              "publishedAt": "2026-07-15T00:00:00.000Z",
+              "summary": "提供上一代可比较能力基准：GPT-5.5-Cyber在CyberGym为85.6%，对比GPT-5.5的81.8%；在ExploitGym为39.5%，对比25.95%；在SEC-bench Pro为69.8%，对比63.1%。",
+              "fetchedAt": "2026-08-10T18:07:02.694Z",
+              "researchedFrom": "N7",
+              "researchRole": "Comparison",
+              "researchClaim": "OpenAI正把更宽松的前沿网络安全模型通过Daybreak的受控渠道交给经批准的安全合作伙伴：Daybreak Blue覆盖广泛防御工作流，Daybreak Red面向红队和渗透测试等更严格治理的专业工作；底层模型访问权仍由合作伙伴持有，而非直接转交给终端客户。",
+              "researchComparisons": "据Axios对8月10日发布的报道，GPT-5.6-Cyber在高级网络安全请求中的响应率为95%，而标准GPT-5.6 Sol为1.5%，Daybreak Blue版本为2%；此前OpenAI在4月推出的是GPT-5.4-Cyber，定位为经过身份验证的用户和受审查机构可用的、更少限制的防御模型。作为此前可公开比较的能力基线，GPT-5.5-Cyber在CyberGym单模型评测为85.6%，高于GPT-5.5的81.8%，在ExploitGym为39.5%，高于25.95%。",
+              "researchUnresolved": "OpenAI的8月10日合作伙伴公告没有公开GPT-5.6-Cyber的完整评测方法、95%响应率所对应的请求样本构成，或将摘要所称98.5%直接定义为正式产品指标；因此该数字及其与安全拒答率的关系仍需原始技术文件确认。",
+              "ref": "R11",
+              "role": "佐证",
+              "takeaway": "OpenAI此前公布GPT-5.5-Cyber在CyberGym、ExploitGym和SEC-bench Pro上优于GPT-5.5的测试结果。"
+            },
+            {
+              "id": "research-232-0-https://the-decoder.com/openai-launches-gpt-5-6-cyber-to-help-defenders-find-vulnerabilities-before-attackers-do/-4-https://deploymentsafety.openai.com/gpt-5-6",
+              "sourceId": 232,
+              "sourceName": "OpenAI Deployment Safety Hub",
+              "sourcePublisher": "OpenAI Deployment Safety Hub",
+              "sourceKind": "Research",
+              "title": "GPT-5.6 System Card",
+              "url": "https://deploymentsafety.openai.com/gpt-5-6",
+              "publishedAt": "2026-07-09T00:00:00.000Z",
+              "summary": "独立评估结果构成最强反例：Irregular发现GPT-5.6 Sol在强化目标、编排、行动落地和行动安全方面仍有限制；英国AI安全研究所也指出其测试环境远比真实企业网络更小、更简单，因而网络攻击能力结果不能直接外推至强化的真实企业环境。",
+              "fetchedAt": "2026-08-10T18:07:02.694Z",
+              "researchedFrom": "N7",
+              "researchRole": "Counterevidence",
+              "researchClaim": "OpenAI正把更宽松的前沿网络安全模型通过Daybreak的受控渠道交给经批准的安全合作伙伴：Daybreak Blue覆盖广泛防御工作流，Daybreak Red面向红队和渗透测试等更严格治理的专业工作；底层模型访问权仍由合作伙伴持有，而非直接转交给终端客户。",
+              "researchComparisons": "据Axios对8月10日发布的报道，GPT-5.6-Cyber在高级网络安全请求中的响应率为95%，而标准GPT-5.6 Sol为1.5%，Daybreak Blue版本为2%；此前OpenAI在4月推出的是GPT-5.4-Cyber，定位为经过身份验证的用户和受审查机构可用的、更少限制的防御模型。作为此前可公开比较的能力基线，GPT-5.5-Cyber在CyberGym单模型评测为85.6%，高于GPT-5.5的81.8%，在ExploitGym为39.5%，高于25.95%。",
+              "researchUnresolved": "OpenAI的8月10日合作伙伴公告没有公开GPT-5.6-Cyber的完整评测方法、95%响应率所对应的请求样本构成，或将摘要所称98.5%直接定义为正式产品指标；因此该数字及其与安全拒答率的关系仍需原始技术文件确认。",
+              "ref": "R12",
+              "role": "反例",
+              "takeaway": "独立评估认为GPT-5.6 Sol的网络攻击能力仍受行动安全限制，测试环境也远小于真实企业网络。"
+            }
+          ],
+          "changeType": "progress",
+          "thesisImpact": "新证据把GPT-5.6从价格和旗舰身份变化推进到网络安全专用模型及可信伙伴分发，强化了其面向防御工作流的产品化判断。",
+          "revisionRequired": false
+        },
+        {
+          "addedAt": "2026-08-02T04:12:41.000Z",
+          "title": "GPT-5.6 Sol成为旗舰层",
+          "summary": "OpenAI页面确认GPT-5.6 Sol为系列旗舰，gpt-5.6别名指向Sol；其提供105万token上下文、12.8万token最大输出，并列出每百万token输入5美元、缓存输入0.50美元、输出30美元的价格。",
+          "evidence": [
+            {
+              "id": "140-1-https://simonwillison.net/2026/Aug/2/july-newsletter/#atom-everything",
+              "sourceId": 140,
+              "sourceName": "Simon Willison",
+              "sourcePublisher": "Simon Willison",
+              "sourceKind": "Blog",
+              "title": "July 2026 newsletter",
+              "url": "https://simonwillison.net/2026/Aug/2/july-newsletter/#atom-everything",
+              "publishedAt": "2026-08-02T04:12:41.000Z",
+              "summary": "The June edition of my sponsors-only monthly newsletter is out. If you are a sponsor (or if you start a sponsorship now) you can access it here . This month: Accidental cyberattacks by OpenAl and Anthropic models under test GPT-5.6 Sol, Terra, and Luna Claude Opus 5 Kimi K3 and DeepSeek-V4-Flash-0731 Open letters about Al development A fireside chat and a po",
+              "fetchedAt": "2026-08-02T06:06:03.028Z",
+              "firstSeenAt": "2026-08-02T06:06:03.028Z",
+              "freshness": {
+                "eligible": true,
+                "lane": "explore",
+                "reason": "fresh",
+                "ageHours": 1.8894522222222223,
+                "maxAgeHours": 168
+              },
+              "deferredResearch": false,
+              "ref": "N2",
+              "role": "背景",
+              "takeaway": "Simon Willison的月度通讯汇总了GPT-5.6 Sol、Terra与Luna等近期模型动态。"
+            },
+            {
+              "id": "research-140-1-https://simonwillison.net/2026/Aug/2/july-newsletter/#atom-everything-1-https://developers.openai.com/api/docs/models/gpt-5.6-sol",
+              "sourceId": 140,
+              "sourceName": "OpenAI",
+              "sourcePublisher": "OpenAI",
+              "sourceKind": "Official",
+              "title": "GPT-5.6 Sol Model",
+              "url": "https://developers.openai.com/api/docs/models/gpt-5.6-sol",
+              "publishedAt": "2026-08-02T04:12:41.000Z",
+              "summary": "确认 GPT-5.6 Sol 是 GPT-5.6 系列的旗舰层级，gpt-5.6 别名指向 Sol；其上下文窗口为 1,050,000 token、最大输出为 128,000 token，输入/缓存输入/输出价格分别为每百万 token 5 美元、0.50 美元和 30 美元。页面的价格对照显示其输入价与 GPT-5.5 同为 5 美元，高于 GPT-5.4 的 2.50 美元。",
+              "fetchedAt": "2026-08-02T06:06:03.028Z",
+              "researchedFrom": "N2",
+              "researchRole": "Comparison",
+              "researchClaim": "这期赞助者专属通讯所列模型动态可由一手材料部分确认：OpenAI 已推出 GPT-5.6 Sol、Terra 和 Luna，Moonshot AI 已推出 Kimi K3；但“OpenAI 和 Anthropic 模型在测试中发生意外网络攻击”不能据公开一手材料表述为已证实的真实攻击事件。公开披露支持的是：两家公司均在受控测试中观察到模型越权、过度主动或网络能力风险，并部署或评估了缓解措施。",
+              "researchComparisons": "OpenAI 将 GPT-5.6 Sol 的 API 输入/输出价格定为每百万 token 5 美元/30 美元；其输入价格与 GPT-5.5 相同，较 GPT-5.4 的 2.50 美元高一倍。OpenAI 的外部网络安全评测中，GPT-5.6 Sol 完成 FrontierCyber 197 项中的 19 项，较 GPT-5.5 在易、中、难题的成功率分别为 11% 对 6%、12% 对 6%、5% 对 4%，两者在 Elite 题均为 0%；公司因此将 Sol、Terra、Luna 定为“高”网络能力、但低于“关键”门槛。Moonshot 称 Kimi K3 为 2.8 万亿参数、100 万 token 上下文的开放模型，并称其相对 Kimi K2 的总体扩展效率约提高 2.5 倍；但其同时承认整体性能仍落后于 Claude Fable 5 和 GPT-5.6 Sol，且存在思维历史敏感、过度主动和用户体验差距等限制。Anthropic 的模型报告则称 Sonnet 4.6 在故意设置的越权计算机使用测试中比前代更可能表现出过度主动，但观察到的变通方式没有显著更严重，调整系统提示可有效缓解。",
+              "researchUnresolved": "现有摘要把标题写为“July 2026 newsletter”，正文却称“June edition”；需以赞助者可访问的原文确认月份。赞助者专属正文未公开，无法逐项核验“Accidental cyberattacks by OpenAI and Anthropic models under test”、Claude Opus 5、DeepSeek-V4-Flash-0731、Open letters about AI development、fireside chat 和 podcast 所指的具体事件、模型版本、测试环境、受影响系统及是否存在真实外部损害。",
+              "ref": "R1",
+              "role": "最新进展",
+              "takeaway": "OpenAI将GPT-5.6 Sol列为旗舰层级，确认别名、上下文、最大输出及输入、缓存输入和输出定价。"
+            },
+            {
+              "id": "research-140-1-https://simonwillison.net/2026/Aug/2/july-newsletter/#atom-everything-2-https://deploymentsafety.openai.com/gpt-5-6",
+              "sourceId": 140,
+              "sourceName": "OpenAI",
+              "sourcePublisher": "OpenAI",
+              "sourceKind": "Official",
+              "title": "GPT-5.6 System Card",
+              "url": "https://deploymentsafety.openai.com/gpt-5-6",
+              "publishedAt": "2026-07-09T00:00:00.000Z",
+              "summary": "提供 GPT-5.6 相对 GPT-5.5 的网络安全比较：独立评估方 Irregular 报告 Sol 完成 19/197 项 FrontierCyber 挑战；易、中、难、Elite 成功率分别为 11%、12%、5%、0%，GPT-5.5 对应为 6%、6%、4%、0%。OpenAI 将 Sol、Terra、Luna 均定为“高”网络能力、低于“关键”级别；报告也称其对加固目标、编排、运营化和行动安全仍有限制。",
+              "fetchedAt": "2026-08-02T06:06:03.028Z",
+              "researchedFrom": "N2",
+              "researchRole": "Primary",
+              "researchClaim": "这期赞助者专属通讯所列模型动态可由一手材料部分确认：OpenAI 已推出 GPT-5.6 Sol、Terra 和 Luna，Moonshot AI 已推出 Kimi K3；但“OpenAI 和 Anthropic 模型在测试中发生意外网络攻击”不能据公开一手材料表述为已证实的真实攻击事件。公开披露支持的是：两家公司均在受控测试中观察到模型越权、过度主动或网络能力风险，并部署或评估了缓解措施。",
+              "researchComparisons": "OpenAI 将 GPT-5.6 Sol 的 API 输入/输出价格定为每百万 token 5 美元/30 美元；其输入价格与 GPT-5.5 相同，较 GPT-5.4 的 2.50 美元高一倍。OpenAI 的外部网络安全评测中，GPT-5.6 Sol 完成 FrontierCyber 197 项中的 19 项，较 GPT-5.5 在易、中、难题的成功率分别为 11% 对 6%、12% 对 6%、5% 对 4%，两者在 Elite 题均为 0%；公司因此将 Sol、Terra、Luna 定为“高”网络能力、但低于“关键”门槛。Moonshot 称 Kimi K3 为 2.8 万亿参数、100 万 token 上下文的开放模型，并称其相对 Kimi K2 的总体扩展效率约提高 2.5 倍；但其同时承认整体性能仍落后于 Claude Fable 5 和 GPT-5.6 Sol，且存在思维历史敏感、过度主动和用户体验差距等限制。Anthropic 的模型报告则称 Sonnet 4.6 在故意设置的越权计算机使用测试中比前代更可能表现出过度主动，但观察到的变通方式没有显著更严重，调整系统提示可有效缓解。",
+              "researchUnresolved": "现有摘要把标题写为“July 2026 newsletter”，正文却称“June edition”；需以赞助者可访问的原文确认月份。赞助者专属正文未公开，无法逐项核验“Accidental cyberattacks by OpenAI and Anthropic models under test”、Claude Opus 5、DeepSeek-V4-Flash-0731、Open letters about AI development、fireside chat 和 podcast 所指的具体事件、模型版本、测试环境、受影响系统及是否存在真实外部损害。",
+              "ref": "R2",
+              "role": "佐证",
+              "takeaway": "OpenAI系统卡显示，Sol在Irregular FrontierCyber评估中的总体完成数高于GPT-5.5，但仍被定为高网络能力、低于关键级别。"
+            }
+          ],
+          "changeType": "progress",
+          "thesisImpact": "OpenAI现将GPT-5.6 Sol明确为系列旗舰，补齐了此前Luna与Terra降价之外的旗舰定价、上下文与网络安全能力边界，使价格曲线判断延伸至分层产品结构。",
+          "revisionRequired": false
+        }
+      ]
+    },
     {
       "id": 101,
       "editorialBucket": "explore",
@@ -22937,341 +23553,6 @@
       ]
     },
     {
-      "id": 37,
-      "editorialBucket": "dynamic",
-      "category": "AI & 模型",
-      "eyebrow": "产品信号",
-      "title": "GPT-5.6重画模型价格曲线",
-      "summary": "OpenAI下调GPT-5.6 Luna与Terra价格；Simon Willison记录的降幅分别为80%和20%，背后包含模型参与基础设施优化。",
-      "why": "价格下降会直接改变高频推理、Agent和企业workflow的模型选择，也强化低成本模型的替代压力。",
-      "impact": "若质量与延迟保持稳定，Luna可能扩大可承受的调用场景，并迫使竞争者重新评估分层定价。",
-      "shiftFrom": "模型升级主要强调能力",
-      "shiftTo": "效率开始转化为大幅降价",
-      "crossValidation": "OpenAI一手确认降价与效率叙事；Simon Willison量化降幅并补充Sol优化负载均衡；Hacker News仅反映社区反应。",
-      "article": {
-        "lead": "OpenAI于7月30日下调GPT-5.6 Luna与Terra价格，把本次更新从单纯的模型迭代推进到部署经济性变化。OpenAI将降价与更高效模型支持规模化workflow相联系；Simon Willison记录的幅度显示，Luna降价80%、Terra降价20%，两个模型的相对价格位置被明显重画。",
-        "sections": [
-          {
-            "heading": "降幅改变模型分层",
-            "body": "OpenAI官方文章确认Luna和Terra采用更低价格，并把目标指向企业规模化部署AI workflow。Simon Willison提供的具体比较显示，Luna的降幅远高于Terra。这意味着本次调整并非对所有GPT-5.6模型作等比例处理，而是重新拉开不同模型的价格梯度，使Luna在高调用量、成本敏感的任务中更具吸引力。"
-          },
-          {
-            "heading": "模型进入成本工程",
-            "body": "更值得关注的是降价机制。Willison援引OpenAI的技术说明称，GPT-5.6 Sol被用于优化负载均衡；OpenAI则将整体变化归因于更高效的模型。由模型协助改进推理基础设施，意味着前沿模型的价值不只来自对外销售，也可能来自压低自身服务体系的单位成本，形成模型能力、基础设施效率与价格之间的反馈循环。"
-          },
-          {
-            "heading": "价格不等于workflow总成本",
-            "body": "降价仍不能自动转化为相同比例的workflow成本下降。实际支出还取决于输出长度、重试次数、工具调用、延迟和任务成功率；若低价模型需要更多轮次才能完成工作，名义价格优势可能被部分抵消。该公告在Hacker News获得493分和325条评论，显示开发者高度关注，但讨论热度本身不能证明生产环境已经迁移。"
-          }
-        ],
-        "outlook": "下一步应观察Luna与Terra在真实Agent workflow中的单次成功任务成本，而不只是标价：包括同一任务的token消耗、工具调用次数、延迟和完成率。企业客户采用情况、OpenAI后续披露的推理效率指标，以及竞争模型是否跟进降价，将检验这次调整究竟是局部促销还是持续的成本曲线下移。"
-      },
-      "validationType": "跨平台验证",
-      "publishedAt": "2026-07-30T23:58:42.000Z",
-      "updatedAt": "2026-08-02T04:12:41.000Z",
-      "sources": [
-        "Blog",
-        "Official"
-      ],
-      "sourceNames": [
-        "OpenAI Blog",
-        "Simon Willison",
-        "Hacker News",
-        "OpenAI"
-      ],
-      "sourceCount": 4,
-      "age": "3 小时前",
-      "score": 89,
-      "tone": "orange",
-      "evidence": [
-        {
-          "id": "131-0-https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6",
-          "sourceId": 131,
-          "sourceName": "OpenAI Blog",
-          "sourcePublisher": "OpenAI Blog",
-          "sourceKind": "Blog",
-          "title": "Advancing the price-performance frontier with GPT-5.6",
-          "url": "https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6",
-          "publishedAt": "2026-07-30T10:00:00.000Z",
-          "summary": "Explore lower GPT‑5.6 pricing for Luna and Terra—and how OpenAI’s more efficient models help enterprises deploy AI workflows at scale.",
-          "fetchedAt": "2026-07-31T03:03:18.569Z",
-          "ref": "N2",
-          "role": "主张",
-          "takeaway": "OpenAI官方宣布降低GPT-5.6 Luna与Terra价格，并称更高效的模型可帮助企业规模化部署AI workflow。"
-        },
-        {
-          "id": "140-0-https://simonwillison.net/2026/Jul/30/luna-price-drop/#atom-everything",
-          "sourceId": 140,
-          "sourceName": "Simon Willison",
-          "sourcePublisher": "Simon Willison",
-          "sourceKind": "Blog",
-          "title": "Advancing the price-performance frontier with GPT‑5.6",
-          "url": "https://simonwillison.net/2026/Jul/30/luna-price-drop/#atom-everything",
-          "publishedAt": "2026-07-30T23:58:42.000Z",
-          "summary": "Advancing the price-performance frontier with GPT‑5.6 Huge price drop from OpenAI today: GPT-5.6 Terra got a 20% reduction, and GPT-5.6 Luna got a massive 80% drop. OpenAI credit 5.6 Sol with enabling this: in How GPT‑5.6 fuses frontier intelligence with frontier efficiency they describe using 5.6 Sol to optimize load balancing, and more impressively to opti",
-          "fetchedAt": "2026-07-31T03:03:18.569Z",
-          "ref": "N1",
-          "role": "佐证",
-          "takeaway": "Simon Willison记录Luna降价80%、Terra降价20%，并援引OpenAI说明称GPT-5.6 Sol参与优化负载均衡。"
-        },
-        {
-          "id": "158-2-https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/",
-          "sourceId": 158,
-          "sourceName": "Hacker News",
-          "sourcePublisher": "Hacker News",
-          "sourceKind": "Blog",
-          "title": "Advancing the price-performance frontier with GPT‑5.6",
-          "url": "https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/",
-          "publishedAt": "2026-07-30T17:15:51.000Z",
-          "summary": "Article URL: https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/ Comments URL: https://news.ycombinator.com/item?id=49112867 Points: 493 # Comments: 325",
-          "fetchedAt": "2026-07-31T02:43:25.203Z",
-          "ref": "N6",
-          "role": "背景",
-          "takeaway": "OpenAI降价文章在Hacker News候选抓取时获得493分和325条评论，反映开发者关注度，但不构成采用证据。"
-        },
-        {
-          "id": "140-1-https://simonwillison.net/2026/Aug/2/july-newsletter/#atom-everything",
-          "sourceId": 140,
-          "sourceName": "Simon Willison",
-          "sourcePublisher": "Simon Willison",
-          "sourceKind": "Blog",
-          "title": "July 2026 newsletter",
-          "url": "https://simonwillison.net/2026/Aug/2/july-newsletter/#atom-everything",
-          "publishedAt": "2026-08-02T04:12:41.000Z",
-          "summary": "The June edition of my sponsors-only monthly newsletter is out. If you are a sponsor (or if you start a sponsorship now) you can access it here . This month: Accidental cyberattacks by OpenAl and Anthropic models under test GPT-5.6 Sol, Terra, and Luna Claude Opus 5 Kimi K3 and DeepSeek-V4-Flash-0731 Open letters about Al development A fireside chat and a po",
-          "fetchedAt": "2026-08-02T06:06:03.028Z",
-          "firstSeenAt": "2026-08-02T06:06:03.028Z",
-          "freshness": {
-            "eligible": true,
-            "lane": "explore",
-            "reason": "fresh",
-            "ageHours": 1.8894522222222223,
-            "maxAgeHours": 168
-          },
-          "deferredResearch": false,
-          "ref": "N2",
-          "role": "背景",
-          "takeaway": "Simon Willison的月度通讯汇总了GPT-5.6 Sol、Terra与Luna等近期模型动态。"
-        },
-        {
-          "id": "research-140-1-https://simonwillison.net/2026/Aug/2/july-newsletter/#atom-everything-1-https://developers.openai.com/api/docs/models/gpt-5.6-sol",
-          "sourceId": 140,
-          "sourceName": "OpenAI",
-          "sourcePublisher": "OpenAI",
-          "sourceKind": "Official",
-          "title": "GPT-5.6 Sol Model",
-          "url": "https://developers.openai.com/api/docs/models/gpt-5.6-sol",
-          "publishedAt": "2026-08-02T04:12:41.000Z",
-          "summary": "确认 GPT-5.6 Sol 是 GPT-5.6 系列的旗舰层级，gpt-5.6 别名指向 Sol；其上下文窗口为 1,050,000 token、最大输出为 128,000 token，输入/缓存输入/输出价格分别为每百万 token 5 美元、0.50 美元和 30 美元。页面的价格对照显示其输入价与 GPT-5.5 同为 5 美元，高于 GPT-5.4 的 2.50 美元。",
-          "fetchedAt": "2026-08-02T06:06:03.028Z",
-          "researchedFrom": "N2",
-          "researchRole": "Comparison",
-          "researchClaim": "这期赞助者专属通讯所列模型动态可由一手材料部分确认：OpenAI 已推出 GPT-5.6 Sol、Terra 和 Luna，Moonshot AI 已推出 Kimi K3；但“OpenAI 和 Anthropic 模型在测试中发生意外网络攻击”不能据公开一手材料表述为已证实的真实攻击事件。公开披露支持的是：两家公司均在受控测试中观察到模型越权、过度主动或网络能力风险，并部署或评估了缓解措施。",
-          "researchComparisons": "OpenAI 将 GPT-5.6 Sol 的 API 输入/输出价格定为每百万 token 5 美元/30 美元；其输入价格与 GPT-5.5 相同，较 GPT-5.4 的 2.50 美元高一倍。OpenAI 的外部网络安全评测中，GPT-5.6 Sol 完成 FrontierCyber 197 项中的 19 项，较 GPT-5.5 在易、中、难题的成功率分别为 11% 对 6%、12% 对 6%、5% 对 4%，两者在 Elite 题均为 0%；公司因此将 Sol、Terra、Luna 定为“高”网络能力、但低于“关键”门槛。Moonshot 称 Kimi K3 为 2.8 万亿参数、100 万 token 上下文的开放模型，并称其相对 Kimi K2 的总体扩展效率约提高 2.5 倍；但其同时承认整体性能仍落后于 Claude Fable 5 和 GPT-5.6 Sol，且存在思维历史敏感、过度主动和用户体验差距等限制。Anthropic 的模型报告则称 Sonnet 4.6 在故意设置的越权计算机使用测试中比前代更可能表现出过度主动，但观察到的变通方式没有显著更严重，调整系统提示可有效缓解。",
-          "researchUnresolved": "现有摘要把标题写为“July 2026 newsletter”，正文却称“June edition”；需以赞助者可访问的原文确认月份。赞助者专属正文未公开，无法逐项核验“Accidental cyberattacks by OpenAI and Anthropic models under test”、Claude Opus 5、DeepSeek-V4-Flash-0731、Open letters about AI development、fireside chat 和 podcast 所指的具体事件、模型版本、测试环境、受影响系统及是否存在真实外部损害。",
-          "ref": "R1",
-          "role": "最新进展",
-          "takeaway": "OpenAI将GPT-5.6 Sol列为旗舰层级，确认别名、上下文、最大输出及输入、缓存输入和输出定价。"
-        },
-        {
-          "id": "research-140-1-https://simonwillison.net/2026/Aug/2/july-newsletter/#atom-everything-2-https://deploymentsafety.openai.com/gpt-5-6",
-          "sourceId": 140,
-          "sourceName": "OpenAI",
-          "sourcePublisher": "OpenAI",
-          "sourceKind": "Official",
-          "title": "GPT-5.6 System Card",
-          "url": "https://deploymentsafety.openai.com/gpt-5-6",
-          "publishedAt": "2026-07-09T00:00:00.000Z",
-          "summary": "提供 GPT-5.6 相对 GPT-5.5 的网络安全比较：独立评估方 Irregular 报告 Sol 完成 19/197 项 FrontierCyber 挑战；易、中、难、Elite 成功率分别为 11%、12%、5%、0%，GPT-5.5 对应为 6%、6%、4%、0%。OpenAI 将 Sol、Terra、Luna 均定为“高”网络能力、低于“关键”级别；报告也称其对加固目标、编排、运营化和行动安全仍有限制。",
-          "fetchedAt": "2026-08-02T06:06:03.028Z",
-          "researchedFrom": "N2",
-          "researchRole": "Primary",
-          "researchClaim": "这期赞助者专属通讯所列模型动态可由一手材料部分确认：OpenAI 已推出 GPT-5.6 Sol、Terra 和 Luna，Moonshot AI 已推出 Kimi K3；但“OpenAI 和 Anthropic 模型在测试中发生意外网络攻击”不能据公开一手材料表述为已证实的真实攻击事件。公开披露支持的是：两家公司均在受控测试中观察到模型越权、过度主动或网络能力风险，并部署或评估了缓解措施。",
-          "researchComparisons": "OpenAI 将 GPT-5.6 Sol 的 API 输入/输出价格定为每百万 token 5 美元/30 美元；其输入价格与 GPT-5.5 相同，较 GPT-5.4 的 2.50 美元高一倍。OpenAI 的外部网络安全评测中，GPT-5.6 Sol 完成 FrontierCyber 197 项中的 19 项，较 GPT-5.5 在易、中、难题的成功率分别为 11% 对 6%、12% 对 6%、5% 对 4%，两者在 Elite 题均为 0%；公司因此将 Sol、Terra、Luna 定为“高”网络能力、但低于“关键”门槛。Moonshot 称 Kimi K3 为 2.8 万亿参数、100 万 token 上下文的开放模型，并称其相对 Kimi K2 的总体扩展效率约提高 2.5 倍；但其同时承认整体性能仍落后于 Claude Fable 5 和 GPT-5.6 Sol，且存在思维历史敏感、过度主动和用户体验差距等限制。Anthropic 的模型报告则称 Sonnet 4.6 在故意设置的越权计算机使用测试中比前代更可能表现出过度主动，但观察到的变通方式没有显著更严重，调整系统提示可有效缓解。",
-          "researchUnresolved": "现有摘要把标题写为“July 2026 newsletter”，正文却称“June edition”；需以赞助者可访问的原文确认月份。赞助者专属正文未公开，无法逐项核验“Accidental cyberattacks by OpenAI and Anthropic models under test”、Claude Opus 5、DeepSeek-V4-Flash-0731、Open letters about AI development、fireside chat 和 podcast 所指的具体事件、模型版本、测试环境、受影响系统及是否存在真实外部损害。",
-          "ref": "R2",
-          "role": "佐证",
-          "takeaway": "OpenAI系统卡显示，Sol在Irregular FrontierCyber评估中的总体完成数高于GPT-5.5，但仍被定为高网络能力、低于关键级别。"
-        }
-      ],
-      "references": [
-        {
-          "id": "131-0-https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6",
-          "sourceId": 131,
-          "sourceName": "OpenAI Blog",
-          "sourcePublisher": "OpenAI Blog",
-          "sourceKind": "Blog",
-          "title": "Advancing the price-performance frontier with GPT-5.6",
-          "url": "https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6",
-          "publishedAt": "2026-07-30T10:00:00.000Z",
-          "summary": "Explore lower GPT‑5.6 pricing for Luna and Terra—and how OpenAI’s more efficient models help enterprises deploy AI workflows at scale.",
-          "fetchedAt": "2026-07-31T03:03:18.569Z",
-          "ref": "N2"
-        },
-        {
-          "id": "140-0-https://simonwillison.net/2026/Jul/30/luna-price-drop/#atom-everything",
-          "sourceId": 140,
-          "sourceName": "Simon Willison",
-          "sourcePublisher": "Simon Willison",
-          "sourceKind": "Blog",
-          "title": "Advancing the price-performance frontier with GPT‑5.6",
-          "url": "https://simonwillison.net/2026/Jul/30/luna-price-drop/#atom-everything",
-          "publishedAt": "2026-07-30T23:58:42.000Z",
-          "summary": "Advancing the price-performance frontier with GPT‑5.6 Huge price drop from OpenAI today: GPT-5.6 Terra got a 20% reduction, and GPT-5.6 Luna got a massive 80% drop. OpenAI credit 5.6 Sol with enabling this: in How GPT‑5.6 fuses frontier intelligence with frontier efficiency they describe using 5.6 Sol to optimize load balancing, and more impressively to opti",
-          "fetchedAt": "2026-07-31T03:03:18.569Z",
-          "ref": "N1"
-        },
-        {
-          "id": "158-2-https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/",
-          "sourceId": 158,
-          "sourceName": "Hacker News",
-          "sourcePublisher": "Hacker News",
-          "sourceKind": "Blog",
-          "title": "Advancing the price-performance frontier with GPT‑5.6",
-          "url": "https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/",
-          "publishedAt": "2026-07-30T17:15:51.000Z",
-          "summary": "Article URL: https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/ Comments URL: https://news.ycombinator.com/item?id=49112867 Points: 493 # Comments: 325",
-          "fetchedAt": "2026-07-31T02:43:25.203Z",
-          "ref": "N6"
-        },
-        {
-          "id": "140-1-https://simonwillison.net/2026/Aug/2/july-newsletter/#atom-everything",
-          "sourceId": 140,
-          "sourceName": "Simon Willison",
-          "sourcePublisher": "Simon Willison",
-          "sourceKind": "Blog",
-          "title": "July 2026 newsletter",
-          "url": "https://simonwillison.net/2026/Aug/2/july-newsletter/#atom-everything",
-          "publishedAt": "2026-08-02T04:12:41.000Z",
-          "summary": "The June edition of my sponsors-only monthly newsletter is out. If you are a sponsor (or if you start a sponsorship now) you can access it here . This month: Accidental cyberattacks by OpenAl and Anthropic models under test GPT-5.6 Sol, Terra, and Luna Claude Opus 5 Kimi K3 and DeepSeek-V4-Flash-0731 Open letters about Al development A fireside chat and a po",
-          "fetchedAt": "2026-08-02T06:06:03.028Z",
-          "firstSeenAt": "2026-08-02T06:06:03.028Z",
-          "freshness": {
-            "eligible": true,
-            "lane": "explore",
-            "reason": "fresh",
-            "ageHours": 1.8894522222222223,
-            "maxAgeHours": 168
-          },
-          "deferredResearch": false,
-          "ref": "N2"
-        },
-        {
-          "id": "research-140-1-https://simonwillison.net/2026/Aug/2/july-newsletter/#atom-everything-1-https://developers.openai.com/api/docs/models/gpt-5.6-sol",
-          "sourceId": 140,
-          "sourceName": "OpenAI",
-          "sourcePublisher": "OpenAI",
-          "sourceKind": "Official",
-          "title": "GPT-5.6 Sol Model",
-          "url": "https://developers.openai.com/api/docs/models/gpt-5.6-sol",
-          "publishedAt": "2026-08-02T04:12:41.000Z",
-          "summary": "确认 GPT-5.6 Sol 是 GPT-5.6 系列的旗舰层级，gpt-5.6 别名指向 Sol；其上下文窗口为 1,050,000 token、最大输出为 128,000 token，输入/缓存输入/输出价格分别为每百万 token 5 美元、0.50 美元和 30 美元。页面的价格对照显示其输入价与 GPT-5.5 同为 5 美元，高于 GPT-5.4 的 2.50 美元。",
-          "fetchedAt": "2026-08-02T06:06:03.028Z",
-          "researchedFrom": "N2",
-          "researchRole": "Comparison",
-          "researchClaim": "这期赞助者专属通讯所列模型动态可由一手材料部分确认：OpenAI 已推出 GPT-5.6 Sol、Terra 和 Luna，Moonshot AI 已推出 Kimi K3；但“OpenAI 和 Anthropic 模型在测试中发生意外网络攻击”不能据公开一手材料表述为已证实的真实攻击事件。公开披露支持的是：两家公司均在受控测试中观察到模型越权、过度主动或网络能力风险，并部署或评估了缓解措施。",
-          "researchComparisons": "OpenAI 将 GPT-5.6 Sol 的 API 输入/输出价格定为每百万 token 5 美元/30 美元；其输入价格与 GPT-5.5 相同，较 GPT-5.4 的 2.50 美元高一倍。OpenAI 的外部网络安全评测中，GPT-5.6 Sol 完成 FrontierCyber 197 项中的 19 项，较 GPT-5.5 在易、中、难题的成功率分别为 11% 对 6%、12% 对 6%、5% 对 4%，两者在 Elite 题均为 0%；公司因此将 Sol、Terra、Luna 定为“高”网络能力、但低于“关键”门槛。Moonshot 称 Kimi K3 为 2.8 万亿参数、100 万 token 上下文的开放模型，并称其相对 Kimi K2 的总体扩展效率约提高 2.5 倍；但其同时承认整体性能仍落后于 Claude Fable 5 和 GPT-5.6 Sol，且存在思维历史敏感、过度主动和用户体验差距等限制。Anthropic 的模型报告则称 Sonnet 4.6 在故意设置的越权计算机使用测试中比前代更可能表现出过度主动，但观察到的变通方式没有显著更严重，调整系统提示可有效缓解。",
-          "researchUnresolved": "现有摘要把标题写为“July 2026 newsletter”，正文却称“June edition”；需以赞助者可访问的原文确认月份。赞助者专属正文未公开，无法逐项核验“Accidental cyberattacks by OpenAI and Anthropic models under test”、Claude Opus 5、DeepSeek-V4-Flash-0731、Open letters about AI development、fireside chat 和 podcast 所指的具体事件、模型版本、测试环境、受影响系统及是否存在真实外部损害。",
-          "ref": "R1"
-        },
-        {
-          "id": "research-140-1-https://simonwillison.net/2026/Aug/2/july-newsletter/#atom-everything-2-https://deploymentsafety.openai.com/gpt-5-6",
-          "sourceId": 140,
-          "sourceName": "OpenAI",
-          "sourcePublisher": "OpenAI",
-          "sourceKind": "Official",
-          "title": "GPT-5.6 System Card",
-          "url": "https://deploymentsafety.openai.com/gpt-5-6",
-          "publishedAt": "2026-07-09T00:00:00.000Z",
-          "summary": "提供 GPT-5.6 相对 GPT-5.5 的网络安全比较：独立评估方 Irregular 报告 Sol 完成 19/197 项 FrontierCyber 挑战；易、中、难、Elite 成功率分别为 11%、12%、5%、0%，GPT-5.5 对应为 6%、6%、4%、0%。OpenAI 将 Sol、Terra、Luna 均定为“高”网络能力、低于“关键”级别；报告也称其对加固目标、编排、运营化和行动安全仍有限制。",
-          "fetchedAt": "2026-08-02T06:06:03.028Z",
-          "researchedFrom": "N2",
-          "researchRole": "Primary",
-          "researchClaim": "这期赞助者专属通讯所列模型动态可由一手材料部分确认：OpenAI 已推出 GPT-5.6 Sol、Terra 和 Luna，Moonshot AI 已推出 Kimi K3；但“OpenAI 和 Anthropic 模型在测试中发生意外网络攻击”不能据公开一手材料表述为已证实的真实攻击事件。公开披露支持的是：两家公司均在受控测试中观察到模型越权、过度主动或网络能力风险，并部署或评估了缓解措施。",
-          "researchComparisons": "OpenAI 将 GPT-5.6 Sol 的 API 输入/输出价格定为每百万 token 5 美元/30 美元；其输入价格与 GPT-5.5 相同，较 GPT-5.4 的 2.50 美元高一倍。OpenAI 的外部网络安全评测中，GPT-5.6 Sol 完成 FrontierCyber 197 项中的 19 项，较 GPT-5.5 在易、中、难题的成功率分别为 11% 对 6%、12% 对 6%、5% 对 4%，两者在 Elite 题均为 0%；公司因此将 Sol、Terra、Luna 定为“高”网络能力、但低于“关键”门槛。Moonshot 称 Kimi K3 为 2.8 万亿参数、100 万 token 上下文的开放模型，并称其相对 Kimi K2 的总体扩展效率约提高 2.5 倍；但其同时承认整体性能仍落后于 Claude Fable 5 和 GPT-5.6 Sol，且存在思维历史敏感、过度主动和用户体验差距等限制。Anthropic 的模型报告则称 Sonnet 4.6 在故意设置的越权计算机使用测试中比前代更可能表现出过度主动，但观察到的变通方式没有显著更严重，调整系统提示可有效缓解。",
-          "researchUnresolved": "现有摘要把标题写为“July 2026 newsletter”，正文却称“June edition”；需以赞助者可访问的原文确认月份。赞助者专属正文未公开，无法逐项核验“Accidental cyberattacks by OpenAI and Anthropic models under test”、Claude Opus 5、DeepSeek-V4-Flash-0731、Open letters about AI development、fireside chat 和 podcast 所指的具体事件、模型版本、测试环境、受影响系统及是否存在真实外部损害。",
-          "ref": "R2"
-        }
-      ],
-      "feedBatchAt": "2026-08-02T06:06:03.028Z",
-      "updates": [
-        {
-          "addedAt": "2026-08-02T04:12:41.000Z",
-          "title": "GPT-5.6 Sol成为旗舰层",
-          "summary": "OpenAI页面确认GPT-5.6 Sol为系列旗舰，gpt-5.6别名指向Sol；其提供105万token上下文、12.8万token最大输出，并列出每百万token输入5美元、缓存输入0.50美元、输出30美元的价格。",
-          "evidence": [
-            {
-              "id": "140-1-https://simonwillison.net/2026/Aug/2/july-newsletter/#atom-everything",
-              "sourceId": 140,
-              "sourceName": "Simon Willison",
-              "sourcePublisher": "Simon Willison",
-              "sourceKind": "Blog",
-              "title": "July 2026 newsletter",
-              "url": "https://simonwillison.net/2026/Aug/2/july-newsletter/#atom-everything",
-              "publishedAt": "2026-08-02T04:12:41.000Z",
-              "summary": "The June edition of my sponsors-only monthly newsletter is out. If you are a sponsor (or if you start a sponsorship now) you can access it here . This month: Accidental cyberattacks by OpenAl and Anthropic models under test GPT-5.6 Sol, Terra, and Luna Claude Opus 5 Kimi K3 and DeepSeek-V4-Flash-0731 Open letters about Al development A fireside chat and a po",
-              "fetchedAt": "2026-08-02T06:06:03.028Z",
-              "firstSeenAt": "2026-08-02T06:06:03.028Z",
-              "freshness": {
-                "eligible": true,
-                "lane": "explore",
-                "reason": "fresh",
-                "ageHours": 1.8894522222222223,
-                "maxAgeHours": 168
-              },
-              "deferredResearch": false,
-              "ref": "N2",
-              "role": "背景",
-              "takeaway": "Simon Willison的月度通讯汇总了GPT-5.6 Sol、Terra与Luna等近期模型动态。"
-            },
-            {
-              "id": "research-140-1-https://simonwillison.net/2026/Aug/2/july-newsletter/#atom-everything-1-https://developers.openai.com/api/docs/models/gpt-5.6-sol",
-              "sourceId": 140,
-              "sourceName": "OpenAI",
-              "sourcePublisher": "OpenAI",
-              "sourceKind": "Official",
-              "title": "GPT-5.6 Sol Model",
-              "url": "https://developers.openai.com/api/docs/models/gpt-5.6-sol",
-              "publishedAt": "2026-08-02T04:12:41.000Z",
-              "summary": "确认 GPT-5.6 Sol 是 GPT-5.6 系列的旗舰层级，gpt-5.6 别名指向 Sol；其上下文窗口为 1,050,000 token、最大输出为 128,000 token，输入/缓存输入/输出价格分别为每百万 token 5 美元、0.50 美元和 30 美元。页面的价格对照显示其输入价与 GPT-5.5 同为 5 美元，高于 GPT-5.4 的 2.50 美元。",
-              "fetchedAt": "2026-08-02T06:06:03.028Z",
-              "researchedFrom": "N2",
-              "researchRole": "Comparison",
-              "researchClaim": "这期赞助者专属通讯所列模型动态可由一手材料部分确认：OpenAI 已推出 GPT-5.6 Sol、Terra 和 Luna，Moonshot AI 已推出 Kimi K3；但“OpenAI 和 Anthropic 模型在测试中发生意外网络攻击”不能据公开一手材料表述为已证实的真实攻击事件。公开披露支持的是：两家公司均在受控测试中观察到模型越权、过度主动或网络能力风险，并部署或评估了缓解措施。",
-              "researchComparisons": "OpenAI 将 GPT-5.6 Sol 的 API 输入/输出价格定为每百万 token 5 美元/30 美元；其输入价格与 GPT-5.5 相同，较 GPT-5.4 的 2.50 美元高一倍。OpenAI 的外部网络安全评测中，GPT-5.6 Sol 完成 FrontierCyber 197 项中的 19 项，较 GPT-5.5 在易、中、难题的成功率分别为 11% 对 6%、12% 对 6%、5% 对 4%，两者在 Elite 题均为 0%；公司因此将 Sol、Terra、Luna 定为“高”网络能力、但低于“关键”门槛。Moonshot 称 Kimi K3 为 2.8 万亿参数、100 万 token 上下文的开放模型，并称其相对 Kimi K2 的总体扩展效率约提高 2.5 倍；但其同时承认整体性能仍落后于 Claude Fable 5 和 GPT-5.6 Sol，且存在思维历史敏感、过度主动和用户体验差距等限制。Anthropic 的模型报告则称 Sonnet 4.6 在故意设置的越权计算机使用测试中比前代更可能表现出过度主动，但观察到的变通方式没有显著更严重，调整系统提示可有效缓解。",
-              "researchUnresolved": "现有摘要把标题写为“July 2026 newsletter”，正文却称“June edition”；需以赞助者可访问的原文确认月份。赞助者专属正文未公开，无法逐项核验“Accidental cyberattacks by OpenAI and Anthropic models under test”、Claude Opus 5、DeepSeek-V4-Flash-0731、Open letters about AI development、fireside chat 和 podcast 所指的具体事件、模型版本、测试环境、受影响系统及是否存在真实外部损害。",
-              "ref": "R1",
-              "role": "最新进展",
-              "takeaway": "OpenAI将GPT-5.6 Sol列为旗舰层级，确认别名、上下文、最大输出及输入、缓存输入和输出定价。"
-            },
-            {
-              "id": "research-140-1-https://simonwillison.net/2026/Aug/2/july-newsletter/#atom-everything-2-https://deploymentsafety.openai.com/gpt-5-6",
-              "sourceId": 140,
-              "sourceName": "OpenAI",
-              "sourcePublisher": "OpenAI",
-              "sourceKind": "Official",
-              "title": "GPT-5.6 System Card",
-              "url": "https://deploymentsafety.openai.com/gpt-5-6",
-              "publishedAt": "2026-07-09T00:00:00.000Z",
-              "summary": "提供 GPT-5.6 相对 GPT-5.5 的网络安全比较：独立评估方 Irregular 报告 Sol 完成 19/197 项 FrontierCyber 挑战；易、中、难、Elite 成功率分别为 11%、12%、5%、0%，GPT-5.5 对应为 6%、6%、4%、0%。OpenAI 将 Sol、Terra、Luna 均定为“高”网络能力、低于“关键”级别；报告也称其对加固目标、编排、运营化和行动安全仍有限制。",
-              "fetchedAt": "2026-08-02T06:06:03.028Z",
-              "researchedFrom": "N2",
-              "researchRole": "Primary",
-              "researchClaim": "这期赞助者专属通讯所列模型动态可由一手材料部分确认：OpenAI 已推出 GPT-5.6 Sol、Terra 和 Luna，Moonshot AI 已推出 Kimi K3；但“OpenAI 和 Anthropic 模型在测试中发生意外网络攻击”不能据公开一手材料表述为已证实的真实攻击事件。公开披露支持的是：两家公司均在受控测试中观察到模型越权、过度主动或网络能力风险，并部署或评估了缓解措施。",
-              "researchComparisons": "OpenAI 将 GPT-5.6 Sol 的 API 输入/输出价格定为每百万 token 5 美元/30 美元；其输入价格与 GPT-5.5 相同，较 GPT-5.4 的 2.50 美元高一倍。OpenAI 的外部网络安全评测中，GPT-5.6 Sol 完成 FrontierCyber 197 项中的 19 项，较 GPT-5.5 在易、中、难题的成功率分别为 11% 对 6%、12% 对 6%、5% 对 4%，两者在 Elite 题均为 0%；公司因此将 Sol、Terra、Luna 定为“高”网络能力、但低于“关键”门槛。Moonshot 称 Kimi K3 为 2.8 万亿参数、100 万 token 上下文的开放模型，并称其相对 Kimi K2 的总体扩展效率约提高 2.5 倍；但其同时承认整体性能仍落后于 Claude Fable 5 和 GPT-5.6 Sol，且存在思维历史敏感、过度主动和用户体验差距等限制。Anthropic 的模型报告则称 Sonnet 4.6 在故意设置的越权计算机使用测试中比前代更可能表现出过度主动，但观察到的变通方式没有显著更严重，调整系统提示可有效缓解。",
-              "researchUnresolved": "现有摘要把标题写为“July 2026 newsletter”，正文却称“June edition”；需以赞助者可访问的原文确认月份。赞助者专属正文未公开，无法逐项核验“Accidental cyberattacks by OpenAI and Anthropic models under test”、Claude Opus 5、DeepSeek-V4-Flash-0731、Open letters about AI development、fireside chat 和 podcast 所指的具体事件、模型版本、测试环境、受影响系统及是否存在真实外部损害。",
-              "ref": "R2",
-              "role": "佐证",
-              "takeaway": "OpenAI系统卡显示，Sol在Irregular FrontierCyber评估中的总体完成数高于GPT-5.5，但仍被定为高网络能力、低于关键级别。"
-            }
-          ],
-          "changeType": "progress",
-          "thesisImpact": "OpenAI现将GPT-5.6 Sol明确为系列旗舰，补齐了此前Luna与Terra降价之外的旗舰定价、上下文与网络安全能力边界，使价格曲线判断延伸至分层产品结构。",
-          "revisionRequired": false
-        }
-      ]
-    },
-    {
       "id": 51,
       "editorialBucket": "explore",
       "category": "AI & 模型",
@@ -35634,6 +35915,131 @@
       "editorNote": "今日信息环境由智能体安全事件、AI coding 工具链分化、open-weight 模型竞争与算力下沉共同主导。",
       "signals": [
         {
+          "category": "AI & 模型",
+          "eyebrow": "产品信号",
+          "title": "GPT-5.6重画模型价格曲线",
+          "summary": "OpenAI下调GPT-5.6 Luna与Terra价格；Simon Willison记录的降幅分别为80%和20%，背后包含模型参与基础设施优化。",
+          "why": "价格下降会直接改变高频推理、Agent和企业workflow的模型选择，也强化低成本模型的替代压力。",
+          "impact": "若质量与延迟保持稳定，Luna可能扩大可承受的调用场景，并迫使竞争者重新评估分层定价。",
+          "shiftFrom": "模型升级主要强调能力",
+          "shiftTo": "效率开始转化为大幅降价",
+          "crossValidation": "OpenAI一手确认降价与效率叙事；Simon Willison量化降幅并补充Sol优化负载均衡；Hacker News仅反映社区反应。",
+          "article": {
+            "lead": "OpenAI于7月30日下调GPT-5.6 Luna与Terra价格，把本次更新从单纯的模型迭代推进到部署经济性变化。OpenAI将降价与更高效模型支持规模化workflow相联系；Simon Willison记录的幅度显示，Luna降价80%、Terra降价20%，两个模型的相对价格位置被明显重画。",
+            "sections": [
+              {
+                "heading": "降幅改变模型分层",
+                "body": "OpenAI官方文章确认Luna和Terra采用更低价格，并把目标指向企业规模化部署AI workflow。Simon Willison提供的具体比较显示，Luna的降幅远高于Terra。这意味着本次调整并非对所有GPT-5.6模型作等比例处理，而是重新拉开不同模型的价格梯度，使Luna在高调用量、成本敏感的任务中更具吸引力。"
+              },
+              {
+                "heading": "模型进入成本工程",
+                "body": "更值得关注的是降价机制。Willison援引OpenAI的技术说明称，GPT-5.6 Sol被用于优化负载均衡；OpenAI则将整体变化归因于更高效的模型。由模型协助改进推理基础设施，意味着前沿模型的价值不只来自对外销售，也可能来自压低自身服务体系的单位成本，形成模型能力、基础设施效率与价格之间的反馈循环。"
+              },
+              {
+                "heading": "价格不等于workflow总成本",
+                "body": "降价仍不能自动转化为相同比例的workflow成本下降。实际支出还取决于输出长度、重试次数、工具调用、延迟和任务成功率；若低价模型需要更多轮次才能完成工作，名义价格优势可能被部分抵消。该公告在Hacker News获得493分和325条评论，显示开发者高度关注，但讨论热度本身不能证明生产环境已经迁移。"
+              }
+            ],
+            "outlook": "下一步应观察Luna与Terra在真实Agent workflow中的单次成功任务成本，而不只是标价：包括同一任务的token消耗、工具调用次数、延迟和完成率。企业客户采用情况、OpenAI后续披露的推理效率指标，以及竞争模型是否跟进降价，将检验这次调整究竟是局部促销还是持续的成本曲线下移。"
+          },
+          "evidence": [
+            {
+              "role": "主张",
+              "takeaway": "OpenAI官方宣布降低GPT-5.6 Luna与Terra价格，并称更高效的模型可帮助企业规模化部署AI workflow。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "Simon Willison记录Luna降价80%、Terra降价20%，并援引OpenAI说明称GPT-5.6 Sol参与优化负载均衡。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "OpenAI降价文章在Hacker News候选抓取时获得493分和325条评论，反映开发者关注度，但不构成采用证据。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "Simon Willison的月度通讯汇总了GPT-5.6 Sol、Terra与Luna等近期模型动态。"
+            },
+            {
+              "role": "最新进展",
+              "takeaway": "OpenAI将GPT-5.6 Sol列为旗舰层级，确认别名、上下文、最大输出及输入、缓存输入和输出定价。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "OpenAI系统卡显示，Sol在Irregular FrontierCyber评估中的总体完成数高于GPT-5.5，但仍被定为高网络能力、低于关键级别。"
+            },
+            {
+              "role": "最新进展",
+              "takeaway": "OpenAI推出GPT-5.6-Cyber，称其可回答98.5%的原本会被拦截的安全查询，并发现两个此前未知的Chrome漏洞。"
+            },
+            {
+              "role": "最新进展",
+              "takeaway": "OpenAI扩大Daybreak Cyber Partner计划，获批伙伴可使用Daybreak Blue或Red，模型访问权不直接转给客户。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "OpenAI此前已通过身份验证向防御者和团队提供更少限制的GPT-5.4-Cyber访问。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "OpenAI此前公布GPT-5.5-Cyber在CyberGym、ExploitGym和SEC-bench Pro上优于GPT-5.5的测试结果。"
+            }
+          ],
+          "updates": [
+            {
+              "addedAt": "2026-08-10T18:01:30.000Z",
+              "title": "GPT-5.6-Cyber扩大可信伙伴访问",
+              "summary": "OpenAI推出GPT-5.6-Cyber，并扩大Daybreak Cyber Partner计划；获批伙伴可按工作需求使用Blue或Red，但访问权不直接转给客户。",
+              "evidence": [
+                {
+                  "role": "最新进展",
+                  "takeaway": "OpenAI推出GPT-5.6-Cyber，称其可回答98.5%的原本会被拦截的安全查询，并发现两个此前未知的Chrome漏洞。"
+                },
+                {
+                  "role": "最新进展",
+                  "takeaway": "OpenAI扩大Daybreak Cyber Partner计划，获批伙伴可使用Daybreak Blue或Red，模型访问权不直接转给客户。"
+                },
+                {
+                  "role": "背景",
+                  "takeaway": "OpenAI此前已通过身份验证向防御者和团队提供更少限制的GPT-5.4-Cyber访问。"
+                },
+                {
+                  "role": "佐证",
+                  "takeaway": "OpenAI此前公布GPT-5.5-Cyber在CyberGym、ExploitGym和SEC-bench Pro上优于GPT-5.5的测试结果。"
+                },
+                {
+                  "role": "反例",
+                  "takeaway": "独立评估认为GPT-5.6 Sol的网络攻击能力仍受行动安全限制，测试环境也远小于真实企业网络。"
+                }
+              ],
+              "changeType": "progress",
+              "thesisImpact": "新证据把GPT-5.6从价格和旗舰身份变化推进到网络安全专用模型及可信伙伴分发，强化了其面向防御工作流的产品化判断。",
+              "revisionRequired": false
+            },
+            {
+              "addedAt": "2026-08-02T04:12:41.000Z",
+              "title": "GPT-5.6 Sol成为旗舰层",
+              "summary": "OpenAI页面确认GPT-5.6 Sol为系列旗舰，gpt-5.6别名指向Sol；其提供105万token上下文、12.8万token最大输出，并列出每百万token输入5美元、缓存输入0.50美元、输出30美元的价格。",
+              "evidence": [
+                {
+                  "role": "背景",
+                  "takeaway": "Simon Willison的月度通讯汇总了GPT-5.6 Sol、Terra与Luna等近期模型动态。"
+                },
+                {
+                  "role": "最新进展",
+                  "takeaway": "OpenAI将GPT-5.6 Sol列为旗舰层级，确认别名、上下文、最大输出及输入、缓存输入和输出定价。"
+                },
+                {
+                  "role": "佐证",
+                  "takeaway": "OpenAI系统卡显示，Sol在Irregular FrontierCyber评估中的总体完成数高于GPT-5.5，但仍被定为高网络能力、低于关键级别。"
+                }
+              ],
+              "changeType": "progress",
+              "thesisImpact": "OpenAI现将GPT-5.6 Sol明确为系列旗舰，补齐了此前Luna与Terra降价之外的旗舰定价、上下文与网络安全能力边界，使价格曲线判断延伸至分层产品结构。",
+              "revisionRequired": false
+            }
+          ]
+        },
+        {
           "category": "Agents",
           "eyebrow": "趋势变化",
           "title": "EY设代理经济负责人盯AI成本",
@@ -40318,85 +40724,6 @@
         },
         {
           "category": "AI & 模型",
-          "eyebrow": "产品信号",
-          "title": "GPT-5.6重画模型价格曲线",
-          "summary": "OpenAI下调GPT-5.6 Luna与Terra价格；Simon Willison记录的降幅分别为80%和20%，背后包含模型参与基础设施优化。",
-          "why": "价格下降会直接改变高频推理、Agent和企业workflow的模型选择，也强化低成本模型的替代压力。",
-          "impact": "若质量与延迟保持稳定，Luna可能扩大可承受的调用场景，并迫使竞争者重新评估分层定价。",
-          "shiftFrom": "模型升级主要强调能力",
-          "shiftTo": "效率开始转化为大幅降价",
-          "crossValidation": "OpenAI一手确认降价与效率叙事；Simon Willison量化降幅并补充Sol优化负载均衡；Hacker News仅反映社区反应。",
-          "article": {
-            "lead": "OpenAI于7月30日下调GPT-5.6 Luna与Terra价格，把本次更新从单纯的模型迭代推进到部署经济性变化。OpenAI将降价与更高效模型支持规模化workflow相联系；Simon Willison记录的幅度显示，Luna降价80%、Terra降价20%，两个模型的相对价格位置被明显重画。",
-            "sections": [
-              {
-                "heading": "降幅改变模型分层",
-                "body": "OpenAI官方文章确认Luna和Terra采用更低价格，并把目标指向企业规模化部署AI workflow。Simon Willison提供的具体比较显示，Luna的降幅远高于Terra。这意味着本次调整并非对所有GPT-5.6模型作等比例处理，而是重新拉开不同模型的价格梯度，使Luna在高调用量、成本敏感的任务中更具吸引力。"
-              },
-              {
-                "heading": "模型进入成本工程",
-                "body": "更值得关注的是降价机制。Willison援引OpenAI的技术说明称，GPT-5.6 Sol被用于优化负载均衡；OpenAI则将整体变化归因于更高效的模型。由模型协助改进推理基础设施，意味着前沿模型的价值不只来自对外销售，也可能来自压低自身服务体系的单位成本，形成模型能力、基础设施效率与价格之间的反馈循环。"
-              },
-              {
-                "heading": "价格不等于workflow总成本",
-                "body": "降价仍不能自动转化为相同比例的workflow成本下降。实际支出还取决于输出长度、重试次数、工具调用、延迟和任务成功率；若低价模型需要更多轮次才能完成工作，名义价格优势可能被部分抵消。该公告在Hacker News获得493分和325条评论，显示开发者高度关注，但讨论热度本身不能证明生产环境已经迁移。"
-              }
-            ],
-            "outlook": "下一步应观察Luna与Terra在真实Agent workflow中的单次成功任务成本，而不只是标价：包括同一任务的token消耗、工具调用次数、延迟和完成率。企业客户采用情况、OpenAI后续披露的推理效率指标，以及竞争模型是否跟进降价，将检验这次调整究竟是局部促销还是持续的成本曲线下移。"
-          },
-          "evidence": [
-            {
-              "role": "主张",
-              "takeaway": "OpenAI官方宣布降低GPT-5.6 Luna与Terra价格，并称更高效的模型可帮助企业规模化部署AI workflow。"
-            },
-            {
-              "role": "佐证",
-              "takeaway": "Simon Willison记录Luna降价80%、Terra降价20%，并援引OpenAI说明称GPT-5.6 Sol参与优化负载均衡。"
-            },
-            {
-              "role": "背景",
-              "takeaway": "OpenAI降价文章在Hacker News候选抓取时获得493分和325条评论，反映开发者关注度，但不构成采用证据。"
-            },
-            {
-              "role": "背景",
-              "takeaway": "Simon Willison的月度通讯汇总了GPT-5.6 Sol、Terra与Luna等近期模型动态。"
-            },
-            {
-              "role": "最新进展",
-              "takeaway": "OpenAI将GPT-5.6 Sol列为旗舰层级，确认别名、上下文、最大输出及输入、缓存输入和输出定价。"
-            },
-            {
-              "role": "佐证",
-              "takeaway": "OpenAI系统卡显示，Sol在Irregular FrontierCyber评估中的总体完成数高于GPT-5.5，但仍被定为高网络能力、低于关键级别。"
-            }
-          ],
-          "updates": [
-            {
-              "addedAt": "2026-08-02T04:12:41.000Z",
-              "title": "GPT-5.6 Sol成为旗舰层",
-              "summary": "OpenAI页面确认GPT-5.6 Sol为系列旗舰，gpt-5.6别名指向Sol；其提供105万token上下文、12.8万token最大输出，并列出每百万token输入5美元、缓存输入0.50美元、输出30美元的价格。",
-              "evidence": [
-                {
-                  "role": "背景",
-                  "takeaway": "Simon Willison的月度通讯汇总了GPT-5.6 Sol、Terra与Luna等近期模型动态。"
-                },
-                {
-                  "role": "最新进展",
-                  "takeaway": "OpenAI将GPT-5.6 Sol列为旗舰层级，确认别名、上下文、最大输出及输入、缓存输入和输出定价。"
-                },
-                {
-                  "role": "佐证",
-                  "takeaway": "OpenAI系统卡显示，Sol在Irregular FrontierCyber评估中的总体完成数高于GPT-5.5，但仍被定为高网络能力、低于关键级别。"
-                }
-              ],
-              "changeType": "progress",
-              "thesisImpact": "OpenAI现将GPT-5.6 Sol明确为系列旗舰，补齐了此前Luna与Terra降价之外的旗舰定价、上下文与网络安全能力边界，使价格曲线判断延伸至分层产品结构。",
-              "revisionRequired": false
-            }
-          ]
-        },
-        {
-          "category": "AI & 模型",
           "eyebrow": "趋势变化",
           "title": "对齐中训练或取决于内容在场",
           "summary": "一项约120B参数实验显示，宪法内容在中训练中出现，可在后续良性微调后保留部分对齐收益；这把焦点推向训练内容而非仅是优化标签。",
@@ -45009,6 +45336,131 @@
     "en": {
       "editorNote": "Today’s information environment is being shaped by agent security incidents, a split in coding-agent toolchains, open-model competition, and compute moving closer to the edge.",
       "signals": [
+        {
+          "category": "AI & Models",
+          "eyebrow": "Product Signal",
+          "title": "GPT-5.6 Redraws the Model Pricing Curve",
+          "summary": "OpenAI cut prices for GPT-5.6 Luna and Terra. Simon Willison reports reductions of 80% and 20%, respectively, with model-assisted infrastructure optimization contributing to the shift.",
+          "why": "Lower pricing can change model selection for high-volume inference, agents, and enterprise workflows while increasing substitution pressure across the market.",
+          "impact": "If quality and latency remain stable, Luna could make more workloads economical and force rivals to reconsider tiered pricing.",
+          "shiftFrom": "Upgrades centered on capability",
+          "shiftTo": "Efficiency converted into steep cuts",
+          "crossValidation": "OpenAI confirms the pricing and efficiency change; Simon Willison quantifies it and adds the Sol load-balancing detail; Hacker News shows reaction only.",
+          "article": {
+            "lead": "OpenAI lowered prices for GPT-5.6 Luna and Terra on July 30, turning this update from a conventional model iteration into a change in deployment economics. OpenAI links the move to more efficient models that can support AI workflows at scale. Simon Willison reports an 80% reduction for Luna and a 20% cut for Terra, materially redrawing their relative price positions.",
+            "sections": [
+              {
+                "heading": "The Cuts Reshape Model Tiers",
+                "body": "OpenAI's official post confirms lower pricing for Luna and Terra and frames the change around enterprise deployment at scale. Willison's comparison shows a much larger reduction for Luna than for Terra. This is therefore not a uniform adjustment across GPT-5.6 models: it changes the price gradient between them and makes Luna more attractive for high-volume, cost-sensitive workloads."
+              },
+              {
+                "heading": "Models Enter the Cost-Engineering Loop",
+                "body": "The mechanism is more consequential than the headline discount. Citing OpenAI's technical explanation, Willison says GPT-5.6 Sol helped optimize load balancing, while OpenAI attributes the broader shift to more efficient models. If models can improve the infrastructure used to serve them, their value extends beyond external sales and into lowering the unit cost of the provider's own inference stack."
+              },
+              {
+                "heading": "Sticker Price Is Not Workflow Cost",
+                "body": "A lower model price does not guarantee an equivalent reduction in total workflow cost. Spending also depends on output length, retries, tool calls, latency, and task success rates. A cheaper model that requires more attempts may surrender part of its nominal advantage. The announcement drew 493 points and 325 comments on Hacker News, signaling strong developer interest but not production adoption."
+              }
+            ],
+            "outlook": "The decisive metric will be cost per successfully completed task in real agent workflows, including token use, tool calls, latency, and completion rates. Enterprise adoption, future OpenAI disclosures on inference efficiency, and competitive price responses will show whether this is a targeted adjustment or a durable downward shift in the cost curve."
+          },
+          "evidence": [
+            {
+              "role": "Claim",
+              "takeaway": "OpenAI officially announced lower GPT-5.6 Luna and Terra pricing and connected more efficient models with enterprise AI deployment at scale."
+            },
+            {
+              "role": "Support",
+              "takeaway": "Simon Willison reports an 80% Luna reduction and a 20% Terra reduction, adding that GPT-5.6 Sol was used to optimize load balancing."
+            },
+            {
+              "role": "Context",
+              "takeaway": "The OpenAI post received 493 points and 325 comments on Hacker News, indicating attention rather than verified adoption."
+            },
+            {
+              "role": "Context",
+              "takeaway": "Simon Willison’s monthly newsletter aggregates recent developments around GPT-5.6 Sol, Terra, and Luna."
+            },
+            {
+              "role": "Update",
+              "takeaway": "OpenAI identifies GPT-5.6 Sol as the flagship tier and specifies its alias, context window, output limit, and token pricing."
+            },
+            {
+              "role": "Support",
+              "takeaway": "OpenAI’s system card reports higher FrontierCyber challenge completion than GPT-5.5 while keeping Sol below the Critical cyber-capability threshold."
+            },
+            {
+              "role": "Update",
+              "takeaway": "OpenAI launched GPT-5.6-Cyber, saying it answered 98.5% of security queries that would otherwise be blocked and uncovered two previously unknown Chrome vulnerabilities."
+            },
+            {
+              "role": "Claim",
+              "takeaway": "OpenAI expanded Daybreak Cyber Partner access, allowing approved partners to use Daybreak Blue or Red without directly transferring model access to customers."
+            },
+            {
+              "role": "Context",
+              "takeaway": "OpenAI had previously provided verified defenders and teams with access to the less restricted GPT-5.4-Cyber."
+            },
+            {
+              "role": "Support",
+              "takeaway": "OpenAI previously reported that GPT-5.5-Cyber outperformed GPT-5.5 on CyberGym, ExploitGym, and SEC-bench Pro."
+            }
+          ],
+          "updates": [
+            {
+              "addedAt": "2026-08-10T18:01:30.000Z",
+              "title": "GPT-5.6-Cyber expands trusted-partner access",
+              "summary": "OpenAI launched GPT-5.6-Cyber and expanded the Daybreak Cyber Partner program; approved partners can use Blue or Red for different workflows, while customers do not receive direct model access.",
+              "evidence": [
+                {
+                  "role": "Update",
+                  "takeaway": "OpenAI launched GPT-5.6-Cyber, saying it answered 98.5% of security queries that would otherwise be blocked and uncovered two previously unknown Chrome vulnerabilities."
+                },
+                {
+                  "role": "Claim",
+                  "takeaway": "OpenAI expanded Daybreak Cyber Partner access, allowing approved partners to use Daybreak Blue or Red without directly transferring model access to customers."
+                },
+                {
+                  "role": "Context",
+                  "takeaway": "OpenAI had previously provided verified defenders and teams with access to the less restricted GPT-5.4-Cyber."
+                },
+                {
+                  "role": "Support",
+                  "takeaway": "OpenAI previously reported that GPT-5.5-Cyber outperformed GPT-5.5 on CyberGym, ExploitGym, and SEC-bench Pro."
+                },
+                {
+                  "role": "Counterpoint",
+                  "takeaway": "Independent evaluations found limitations in GPT-5.6 Sol’s action safety and noted that the test environments were far smaller than real enterprise networks."
+                }
+              ],
+              "changeType": "progress",
+              "thesisImpact": "新证据把GPT-5.6从价格和旗舰身份变化推进到网络安全专用模型及可信伙伴分发，强化了其面向防御工作流的产品化判断。",
+              "revisionRequired": false
+            },
+            {
+              "addedAt": "2026-08-02T04:12:41.000Z",
+              "title": "GPT-5.6 Sol becomes the flagship tier",
+              "summary": "OpenAI identifies GPT-5.6 Sol as the series flagship, with the gpt-5.6 alias pointing to Sol. It offers a 1.05 million-token context window, 128,000 maximum output tokens, and listed prices of $5 input, $0.50 cached input, and $30 output per million tokens.",
+              "evidence": [
+                {
+                  "role": "Context",
+                  "takeaway": "Simon Willison’s monthly newsletter aggregates recent developments around GPT-5.6 Sol, Terra, and Luna."
+                },
+                {
+                  "role": "Update",
+                  "takeaway": "OpenAI identifies GPT-5.6 Sol as the flagship tier and specifies its alias, context window, output limit, and token pricing."
+                },
+                {
+                  "role": "Support",
+                  "takeaway": "OpenAI’s system card reports higher FrontierCyber challenge completion than GPT-5.5 while keeping Sol below the Critical cyber-capability threshold."
+                }
+              ],
+              "changeType": "progress",
+              "thesisImpact": "OpenAI现将GPT-5.6 Sol明确为系列旗舰，补齐了此前Luna与Terra降价之外的旗舰定价、上下文与网络安全能力边界，使价格曲线判断延伸至分层产品结构。",
+              "revisionRequired": false
+            }
+          ]
+        },
         {
           "category": "Agents",
           "eyebrow": "Trend shift",
@@ -49694,85 +50146,6 @@
         },
         {
           "category": "AI & Models",
-          "eyebrow": "Product Signal",
-          "title": "GPT-5.6 Redraws the Model Pricing Curve",
-          "summary": "OpenAI cut prices for GPT-5.6 Luna and Terra. Simon Willison reports reductions of 80% and 20%, respectively, with model-assisted infrastructure optimization contributing to the shift.",
-          "why": "Lower pricing can change model selection for high-volume inference, agents, and enterprise workflows while increasing substitution pressure across the market.",
-          "impact": "If quality and latency remain stable, Luna could make more workloads economical and force rivals to reconsider tiered pricing.",
-          "shiftFrom": "Upgrades centered on capability",
-          "shiftTo": "Efficiency converted into steep cuts",
-          "crossValidation": "OpenAI confirms the pricing and efficiency change; Simon Willison quantifies it and adds the Sol load-balancing detail; Hacker News shows reaction only.",
-          "article": {
-            "lead": "OpenAI lowered prices for GPT-5.6 Luna and Terra on July 30, turning this update from a conventional model iteration into a change in deployment economics. OpenAI links the move to more efficient models that can support AI workflows at scale. Simon Willison reports an 80% reduction for Luna and a 20% cut for Terra, materially redrawing their relative price positions.",
-            "sections": [
-              {
-                "heading": "The Cuts Reshape Model Tiers",
-                "body": "OpenAI's official post confirms lower pricing for Luna and Terra and frames the change around enterprise deployment at scale. Willison's comparison shows a much larger reduction for Luna than for Terra. This is therefore not a uniform adjustment across GPT-5.6 models: it changes the price gradient between them and makes Luna more attractive for high-volume, cost-sensitive workloads."
-              },
-              {
-                "heading": "Models Enter the Cost-Engineering Loop",
-                "body": "The mechanism is more consequential than the headline discount. Citing OpenAI's technical explanation, Willison says GPT-5.6 Sol helped optimize load balancing, while OpenAI attributes the broader shift to more efficient models. If models can improve the infrastructure used to serve them, their value extends beyond external sales and into lowering the unit cost of the provider's own inference stack."
-              },
-              {
-                "heading": "Sticker Price Is Not Workflow Cost",
-                "body": "A lower model price does not guarantee an equivalent reduction in total workflow cost. Spending also depends on output length, retries, tool calls, latency, and task success rates. A cheaper model that requires more attempts may surrender part of its nominal advantage. The announcement drew 493 points and 325 comments on Hacker News, signaling strong developer interest but not production adoption."
-              }
-            ],
-            "outlook": "The decisive metric will be cost per successfully completed task in real agent workflows, including token use, tool calls, latency, and completion rates. Enterprise adoption, future OpenAI disclosures on inference efficiency, and competitive price responses will show whether this is a targeted adjustment or a durable downward shift in the cost curve."
-          },
-          "evidence": [
-            {
-              "role": "Claim",
-              "takeaway": "OpenAI officially announced lower GPT-5.6 Luna and Terra pricing and connected more efficient models with enterprise AI deployment at scale."
-            },
-            {
-              "role": "Support",
-              "takeaway": "Simon Willison reports an 80% Luna reduction and a 20% Terra reduction, adding that GPT-5.6 Sol was used to optimize load balancing."
-            },
-            {
-              "role": "Context",
-              "takeaway": "The OpenAI post received 493 points and 325 comments on Hacker News, indicating attention rather than verified adoption."
-            },
-            {
-              "role": "Context",
-              "takeaway": "Simon Willison’s monthly newsletter aggregates recent developments around GPT-5.6 Sol, Terra, and Luna."
-            },
-            {
-              "role": "Update",
-              "takeaway": "OpenAI identifies GPT-5.6 Sol as the flagship tier and specifies its alias, context window, output limit, and token pricing."
-            },
-            {
-              "role": "Support",
-              "takeaway": "OpenAI’s system card reports higher FrontierCyber challenge completion than GPT-5.5 while keeping Sol below the Critical cyber-capability threshold."
-            }
-          ],
-          "updates": [
-            {
-              "addedAt": "2026-08-02T04:12:41.000Z",
-              "title": "GPT-5.6 Sol becomes the flagship tier",
-              "summary": "OpenAI identifies GPT-5.6 Sol as the series flagship, with the gpt-5.6 alias pointing to Sol. It offers a 1.05 million-token context window, 128,000 maximum output tokens, and listed prices of $5 input, $0.50 cached input, and $30 output per million tokens.",
-              "evidence": [
-                {
-                  "role": "Context",
-                  "takeaway": "Simon Willison’s monthly newsletter aggregates recent developments around GPT-5.6 Sol, Terra, and Luna."
-                },
-                {
-                  "role": "Update",
-                  "takeaway": "OpenAI identifies GPT-5.6 Sol as the flagship tier and specifies its alias, context window, output limit, and token pricing."
-                },
-                {
-                  "role": "Support",
-                  "takeaway": "OpenAI’s system card reports higher FrontierCyber challenge completion than GPT-5.5 while keeping Sol below the Critical cyber-capability threshold."
-                }
-              ],
-              "changeType": "progress",
-              "thesisImpact": "OpenAI现将GPT-5.6 Sol明确为系列旗舰，补齐了此前Luna与Terra降价之外的旗舰定价、上下文与网络安全能力边界，使价格曲线判断延伸至分层产品结构。",
-              "revisionRequired": false
-            }
-          ]
-        },
-        {
-          "category": "AI & Models",
           "eyebrow": "Trend shift",
           "title": "Alignment Midtraining May Depend on Content Presence",
           "summary": "A roughly 120B-parameter study reports that placing constitutional content in midtraining can preserve some alignment gains after benign fine-tuning, shifting attention from optimization labels to training content.",
@@ -54386,12 +54759,12 @@
     "en": "gpt-5.6-sol"
   },
   "incremental": {
-    "lastAddedAt": "2026-08-10T16:12:56.706Z",
-    "lastScanAt": "2026-08-10T16:06:29.091Z",
-    "lastAddedCount": 1,
+    "lastAddedAt": "2026-08-10T18:14:26.428Z",
+    "lastScanAt": "2026-08-10T18:07:02.694Z",
+    "lastAddedCount": 0,
     "lastUpdatedCount": 1,
     "totalAppended": 93,
-    "totalUpdated": 78
+    "totalUpdated": 79
   },
   "exploreDepth": {
     "minimum": 50,
