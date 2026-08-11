@@ -1,13 +1,485 @@
 {
-  "generatedAt": "2026-08-11T17:13:58.848Z",
-  "basedOnSnapshotAt": "2026-08-11T17:07:04.707Z",
+  "generatedAt": "2026-08-11T19:12:19.323Z",
+  "basedOnSnapshotAt": "2026-08-11T19:06:07.432Z",
   "model": "gpt-5.5",
   "analyzedItemCount": 180,
-  "totalFetchedItemCount": 2335,
+  "totalFetchedItemCount": 2336,
   "editorNote": "今日信息环境由代理安全事件、编码代理工具链分化、开放模型竞争和算力下沉共同主导。",
   "signalQuality": 86,
   "signalQualityChange": 8,
   "signals": [
+    {
+      "id": 107,
+      "editorialBucket": "dynamic",
+      "category": "Agents",
+      "eyebrow": "产品信号",
+      "title": "SpaceXAI推出Grok Bot代理产品",
+      "summary": "SpaceXAI与Cursor推出Grok Bot，向部分付费用户开放持久化云电脑代理，可登录工作账户并跨应用完成任务。",
+      "why": "产品把模型能力、浏览器会话、文件和登录状态组合为可执行工作环境，竞争点延伸至代理运行环境。",
+      "impact": "若使用范围扩大，企业采购或更重视共享状态、审批流程与凭据隔离，而非单独比较模型能力。",
+      "shiftFrom": "模型主要作为独立对话或编码工具",
+      "shiftTo": "代理获得持久化云电脑执行层",
+      "crossValidation": "The Information披露产品发布与联合开发；SpaceXAI官方文档说明工作流、开放范围和安全边界，Cursor独立确认联合训练的Grok 4.5及其基准。",
+      "article": {
+        "lead": "SpaceXAI已发布AI代理产品Grok Bot，并与Cursor共同推进其开发。官方文档显示，Bot可在持久化云电脑中登录应用和网站、跨工具完成工作，并保存演示过的流程为例程。当前产品仅向SuperGrok Heavy、Cursor Ultra和Cursor Teams Premium用户开放，意味着代理竞争正从模型调用进一步进入可长期运行的工作环境。",
+        "sections": [
+          {
+            "heading": "代理从回答问题转向接管工作环境",
+            "body": "Grok Bot的核心变化不只是提供新的聊天入口，而是给代理配置可持续保留的云端执行环境。SpaceXAI文档称，Bot可登录工作账户、使用应用和网站，并把跨多个工具完成的任务保存为例程。多个Bot还可以共享上下文、文件、浏览器会话和登录状态。这使代理能够继承先前任务的操作条件，而不必在每次对话中重新建立环境。"
+          },
+          {
+            "heading": "Cursor合作把开发交互带入产品路径",
+            "body": "Cursor确认，Grok 4.5由其与SpaceXAI联合训练，训练数据包含数万亿token的Cursor开发者与代理交互。Cursor列出的Terminal-Bench 2.1结果中，Grok 4.5得分83.3%，接近GPT-5.5的83.4%和Fable 5的84.3%。这一比较不能单独证明Grok Bot的端到端表现，但说明其产品路径并非只是在通用模型外加一个浏览器壳，而是试图利用开发任务交互训练与代理运行环境结合。"
+          },
+          {
+            "heading": "共享状态也把安全边界推向流程治理",
+            "body": "持久化执行环境的价值，来自状态不被频繁清空；相应地，状态隔离成为产品能否进入企业场景的关键。SpaceXAI明确提示，所有Bot共享同一云电脑，文件、浏览器会话和命令行凭据可在用户的Bot之间访问，不能将不同Bot视为安全边界。其自动审查由模型驱动，不能取代最小权限和明确审批；删除Bot也不会清除共享电脑中的文件或浏览器会话。最强的反例因此是：若企业无法把共享状态拆分为可审计的权限域，便利性可能反而限制部署范围。"
+          }
+        ],
+        "outlook": "下一步可观察Grok Bot是否扩大至更多订阅层级、加入Linux支持或推出企业管理控制台；这些变化将检验其是否从早期付费试用走向更广泛分发。更关键的证据将是其是否提供Bot间隔离、凭据作用域、会话清理和可导出审批日志等控制项；若长期仍以单一共享电脑为默认设计，其企业可用范围将受到限制。"
+      },
+      "validationType": "跨平台验证",
+      "publishedAt": "2026-08-11T17:53:57.000Z",
+      "updatedAt": "2026-08-11T17:53:57.000Z",
+      "sources": [
+        "Blog",
+        "Official"
+      ],
+      "sourceNames": [
+        "The Information",
+        "SpaceXAI Docs",
+        "Cursor"
+      ],
+      "sourceCount": 3,
+      "age": "1 小时前",
+      "score": 85,
+      "tone": "blue",
+      "evidence": [
+        {
+          "id": "236-2-https://www.theinformation.com/briefings/spacexai-announces-ai-agents-product-grok-bot",
+          "sourceId": 236,
+          "sourceName": "The Information",
+          "sourcePublisher": "The Information",
+          "sourceKind": "Blog",
+          "title": "SpaceXAI Announces AI Agents Product ‘Grok Bot’",
+          "url": "https://www.theinformation.com/briefings/spacexai-announces-ai-agents-product-grok-bot",
+          "publishedAt": "2026-08-11T17:53:57.000Z",
+          "summary": "SpaceXAI announced it had released an AI agents product called “Grok Bot” on Tuesday.&nbsp; The product was jointly developed by SpaceXAI and Cursor as a part of their larger partnership for AI development, according to people familiar with the project. The agents can sign into work accounts and ...",
+          "fetchedAt": "2026-08-11T19:06:07.432Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-11T19:06:07.432Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "standard",
+            "reason": "fresh",
+            "ageHours": 1.2028977777777778,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N3",
+          "role": "主张",
+          "takeaway": "报道披露SpaceXAI发布Grok Bot，并称产品由SpaceXAI与Cursor联合开发。"
+        },
+        {
+          "id": "research-236-2-https://www.theinformation.com/briefings/spacexai-announces-ai-agents-product-grok-bot-1-https://docs.x.ai/grok-bot/overview",
+          "sourceId": 236,
+          "sourceName": "SpaceXAI Docs",
+          "sourcePublisher": "SpaceXAI Docs",
+          "sourceKind": "Official",
+          "title": "Grok Bot",
+          "url": "https://docs.x.ai/grok-bot/overview",
+          "publishedAt": "2026-08-11T17:53:57.000Z",
+          "summary": "官方产品文档确认 Bot 可在持久化云电脑上登录并使用应用和网站、跨多个工具完成端到端工作；多个 Bot 可共享上下文、文件、浏览器会话和登录状态，并可把演示过的工作流保存为例程。",
+          "fetchedAt": "2026-08-11T19:06:07.432Z",
+          "researchedFrom": "N3",
+          "researchRole": "Primary",
+          "researchClaim": "Grok Bot 已于2026年8月11日上线，产品把 Grok 从可连接外部工具的聊天助手扩展为可在持久化云端电脑上登录网站和应用、跨工具执行任务、在多个 Bot 间交接上下文并保留会话状态的“AI teammate”；其使用 Cursor 账户和数据设置，且面向指定高阶订阅计划开放。",
+          "researchComparisons": "此前的 Grok 已可在对话中通过 OAuth 连接 Gmail、Google Drive、Outlook、Teams、Salesforce 等数据源；Grok Bot 的新增能力是每个用户拥有一台由所有 Bot 共用的持久化云 VM，含浏览器、文件系统和终端，并可通过计算机使用处理没有 API 的应用。可公开核验的准入基准为 SuperGrok Heavy、Cursor Ultra 或 Cursor Teams Premium，需 macOS、Windows 或 iOS，暂不提供 Linux 桌面版，并且要求云端数据存储、不能使用 Legacy Privacy Mode。此次产品建立在双方此前的联合模型合作之上：Cursor 称 Grok 4.5 由双方共同训练，且其公布的 Terminal-Bench 2.1 成绩为83.3%，略低于 GPT-5.5 的83.4%和 Fable 5 的84.3%；这是一项模型/编码代理基准，并非 Grok Bot 在真实企业工作流中的完成率或可靠性指标。",
+          "researchUnresolved": "未披露独立验证的任务成功率、错误率、时延、企业客户数量、定价增量、区域可用性、数据保留期限或针对共享云电脑架构的第三方安全审计结果；发布材料也未量化与此前 Grok 连接器模式相比的生产率提升。",
+          "ref": "R1",
+          "role": "佐证",
+          "takeaway": "官方文档说明Bot使用持久化云电脑、跨工具执行任务、共享状态并保存例程。"
+        },
+        {
+          "id": "research-236-2-https://www.theinformation.com/briefings/spacexai-announces-ai-agents-product-grok-bot-2-https://docs.x.ai/grok-bot/get-started",
+          "sourceId": 236,
+          "sourceName": "SpaceXAI Docs",
+          "sourcePublisher": "SpaceXAI Docs",
+          "sourceKind": "Official",
+          "title": "Get started",
+          "url": "https://docs.x.ai/grok-bot/get-started",
+          "publishedAt": "2026-08-11T17:53:57.000Z",
+          "summary": "补齐上线范围和此前状态的可比条件：Grok Bot 仅向 SuperGrok Heavy、Cursor Ultra 与 Cursor Teams Premium 开放，需使用 Cursor 账户，支持 macOS、Windows 和 iOS，不支持 Linux 桌面端，并要求云端数据存储而非 Legacy Privacy Mode。",
+          "fetchedAt": "2026-08-11T19:06:07.432Z",
+          "researchedFrom": "N3",
+          "researchRole": "Comparison",
+          "researchClaim": "Grok Bot 已于2026年8月11日上线，产品把 Grok 从可连接外部工具的聊天助手扩展为可在持久化云端电脑上登录网站和应用、跨工具执行任务、在多个 Bot 间交接上下文并保留会话状态的“AI teammate”；其使用 Cursor 账户和数据设置，且面向指定高阶订阅计划开放。",
+          "researchComparisons": "此前的 Grok 已可在对话中通过 OAuth 连接 Gmail、Google Drive、Outlook、Teams、Salesforce 等数据源；Grok Bot 的新增能力是每个用户拥有一台由所有 Bot 共用的持久化云 VM，含浏览器、文件系统和终端，并可通过计算机使用处理没有 API 的应用。可公开核验的准入基准为 SuperGrok Heavy、Cursor Ultra 或 Cursor Teams Premium，需 macOS、Windows 或 iOS，暂不提供 Linux 桌面版，并且要求云端数据存储、不能使用 Legacy Privacy Mode。此次产品建立在双方此前的联合模型合作之上：Cursor 称 Grok 4.5 由双方共同训练，且其公布的 Terminal-Bench 2.1 成绩为83.3%，略低于 GPT-5.5 的83.4%和 Fable 5 的84.3%；这是一项模型/编码代理基准，并非 Grok Bot 在真实企业工作流中的完成率或可靠性指标。",
+          "researchUnresolved": "未披露独立验证的任务成功率、错误率、时延、企业客户数量、定价增量、区域可用性、数据保留期限或针对共享云电脑架构的第三方安全审计结果；发布材料也未量化与此前 Grok 连接器模式相比的生产率提升。",
+          "ref": "R2",
+          "role": "佐证",
+          "takeaway": "官方入门文档列明产品仅向指定付费计划开放，支持macOS、Windows和iOS，并要求云端数据存储。"
+        },
+        {
+          "id": "research-236-2-https://www.theinformation.com/briefings/spacexai-announces-ai-agents-product-grok-bot-3-https://cursor.com/grok",
+          "sourceId": 236,
+          "sourceName": "Cursor",
+          "sourcePublisher": "Cursor",
+          "sourceKind": "Official",
+          "title": "Grok",
+          "url": "https://cursor.com/grok",
+          "publishedAt": "2026-08-11T17:53:57.000Z",
+          "summary": "Cursor 独立确认 Grok 4.5 是与 SpaceXAI 联合训练的模型，训练使用了数万亿 token 的 Cursor 开发者—代理交互数据；同时给出比较基准：Terminal-Bench 2.1 中 Grok 4.5 为83.3%，GPT-5.5为83.4%，Fable 5为84.3%。",
+          "fetchedAt": "2026-08-11T19:06:07.432Z",
+          "researchedFrom": "N3",
+          "researchRole": "Context",
+          "researchClaim": "Grok Bot 已于2026年8月11日上线，产品把 Grok 从可连接外部工具的聊天助手扩展为可在持久化云端电脑上登录网站和应用、跨工具执行任务、在多个 Bot 间交接上下文并保留会话状态的“AI teammate”；其使用 Cursor 账户和数据设置，且面向指定高阶订阅计划开放。",
+          "researchComparisons": "此前的 Grok 已可在对话中通过 OAuth 连接 Gmail、Google Drive、Outlook、Teams、Salesforce 等数据源；Grok Bot 的新增能力是每个用户拥有一台由所有 Bot 共用的持久化云 VM，含浏览器、文件系统和终端，并可通过计算机使用处理没有 API 的应用。可公开核验的准入基准为 SuperGrok Heavy、Cursor Ultra 或 Cursor Teams Premium，需 macOS、Windows 或 iOS，暂不提供 Linux 桌面版，并且要求云端数据存储、不能使用 Legacy Privacy Mode。此次产品建立在双方此前的联合模型合作之上：Cursor 称 Grok 4.5 由双方共同训练，且其公布的 Terminal-Bench 2.1 成绩为83.3%，略低于 GPT-5.5 的83.4%和 Fable 5 的84.3%；这是一项模型/编码代理基准，并非 Grok Bot 在真实企业工作流中的完成率或可靠性指标。",
+          "researchUnresolved": "未披露独立验证的任务成功率、错误率、时延、企业客户数量、定价增量、区域可用性、数据保留期限或针对共享云电脑架构的第三方安全审计结果；发布材料也未量化与此前 Grok 连接器模式相比的生产率提升。",
+          "ref": "R3",
+          "role": "佐证",
+          "takeaway": "Cursor确认Grok 4.5联合训练，并公布其与GPT-5.5、Fable 5的Terminal-Bench 2.1比较。"
+        },
+        {
+          "id": "research-236-2-https://www.theinformation.com/briefings/spacexai-announces-ai-agents-product-grok-bot-4-https://docs.x.ai/grok-bot/approvals-security-and-privacy",
+          "sourceId": 236,
+          "sourceName": "SpaceXAI Docs",
+          "sourcePublisher": "SpaceXAI Docs",
+          "sourceKind": "Official",
+          "title": "Approvals, security, and privacy",
+          "url": "https://docs.x.ai/grok-bot/approvals-security-and-privacy",
+          "publishedAt": "2026-08-11T17:53:57.000Z",
+          "summary": "官方安全文档构成最强限制条件：所有 Bot 共用同一云电脑，文件、浏览器会话和命令行凭据可在用户的 Bot 之间访问，不能把不同 Bot 当作安全边界；自动审查为模型驱动且不能替代最小权限与明确审批，删除 Bot 也不会删除共享电脑中的文件或浏览器会话。",
+          "fetchedAt": "2026-08-11T19:06:07.432Z",
+          "researchedFrom": "N3",
+          "researchRole": "Counterevidence",
+          "researchClaim": "Grok Bot 已于2026年8月11日上线，产品把 Grok 从可连接外部工具的聊天助手扩展为可在持久化云端电脑上登录网站和应用、跨工具执行任务、在多个 Bot 间交接上下文并保留会话状态的“AI teammate”；其使用 Cursor 账户和数据设置，且面向指定高阶订阅计划开放。",
+          "researchComparisons": "此前的 Grok 已可在对话中通过 OAuth 连接 Gmail、Google Drive、Outlook、Teams、Salesforce 等数据源；Grok Bot 的新增能力是每个用户拥有一台由所有 Bot 共用的持久化云 VM，含浏览器、文件系统和终端，并可通过计算机使用处理没有 API 的应用。可公开核验的准入基准为 SuperGrok Heavy、Cursor Ultra 或 Cursor Teams Premium，需 macOS、Windows 或 iOS，暂不提供 Linux 桌面版，并且要求云端数据存储、不能使用 Legacy Privacy Mode。此次产品建立在双方此前的联合模型合作之上：Cursor 称 Grok 4.5 由双方共同训练，且其公布的 Terminal-Bench 2.1 成绩为83.3%，略低于 GPT-5.5 的83.4%和 Fable 5 的84.3%；这是一项模型/编码代理基准，并非 Grok Bot 在真实企业工作流中的完成率或可靠性指标。",
+          "researchUnresolved": "未披露独立验证的任务成功率、错误率、时延、企业客户数量、定价增量、区域可用性、数据保留期限或针对共享云电脑架构的第三方安全审计结果；发布材料也未量化与此前 Grok 连接器模式相比的生产率提升。",
+          "ref": "R4",
+          "role": "反例",
+          "takeaway": "官方安全文档称Bot共享云电脑与部分状态，模型驱动审查不能替代最小权限和明确审批。"
+        }
+      ],
+      "references": [
+        {
+          "id": "236-2-https://www.theinformation.com/briefings/spacexai-announces-ai-agents-product-grok-bot",
+          "sourceId": 236,
+          "sourceName": "The Information",
+          "sourcePublisher": "The Information",
+          "sourceKind": "Blog",
+          "title": "SpaceXAI Announces AI Agents Product ‘Grok Bot’",
+          "url": "https://www.theinformation.com/briefings/spacexai-announces-ai-agents-product-grok-bot",
+          "publishedAt": "2026-08-11T17:53:57.000Z",
+          "summary": "SpaceXAI announced it had released an AI agents product called “Grok Bot” on Tuesday.&nbsp; The product was jointly developed by SpaceXAI and Cursor as a part of their larger partnership for AI development, according to people familiar with the project. The agents can sign into work accounts and ...",
+          "fetchedAt": "2026-08-11T19:06:07.432Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-11T19:06:07.432Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "standard",
+            "reason": "fresh",
+            "ageHours": 1.2028977777777778,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N3"
+        },
+        {
+          "id": "research-236-2-https://www.theinformation.com/briefings/spacexai-announces-ai-agents-product-grok-bot-1-https://docs.x.ai/grok-bot/overview",
+          "sourceId": 236,
+          "sourceName": "SpaceXAI Docs",
+          "sourcePublisher": "SpaceXAI Docs",
+          "sourceKind": "Official",
+          "title": "Grok Bot",
+          "url": "https://docs.x.ai/grok-bot/overview",
+          "publishedAt": "2026-08-11T17:53:57.000Z",
+          "summary": "官方产品文档确认 Bot 可在持久化云电脑上登录并使用应用和网站、跨多个工具完成端到端工作；多个 Bot 可共享上下文、文件、浏览器会话和登录状态，并可把演示过的工作流保存为例程。",
+          "fetchedAt": "2026-08-11T19:06:07.432Z",
+          "researchedFrom": "N3",
+          "researchRole": "Primary",
+          "researchClaim": "Grok Bot 已于2026年8月11日上线，产品把 Grok 从可连接外部工具的聊天助手扩展为可在持久化云端电脑上登录网站和应用、跨工具执行任务、在多个 Bot 间交接上下文并保留会话状态的“AI teammate”；其使用 Cursor 账户和数据设置，且面向指定高阶订阅计划开放。",
+          "researchComparisons": "此前的 Grok 已可在对话中通过 OAuth 连接 Gmail、Google Drive、Outlook、Teams、Salesforce 等数据源；Grok Bot 的新增能力是每个用户拥有一台由所有 Bot 共用的持久化云 VM，含浏览器、文件系统和终端，并可通过计算机使用处理没有 API 的应用。可公开核验的准入基准为 SuperGrok Heavy、Cursor Ultra 或 Cursor Teams Premium，需 macOS、Windows 或 iOS，暂不提供 Linux 桌面版，并且要求云端数据存储、不能使用 Legacy Privacy Mode。此次产品建立在双方此前的联合模型合作之上：Cursor 称 Grok 4.5 由双方共同训练，且其公布的 Terminal-Bench 2.1 成绩为83.3%，略低于 GPT-5.5 的83.4%和 Fable 5 的84.3%；这是一项模型/编码代理基准，并非 Grok Bot 在真实企业工作流中的完成率或可靠性指标。",
+          "researchUnresolved": "未披露独立验证的任务成功率、错误率、时延、企业客户数量、定价增量、区域可用性、数据保留期限或针对共享云电脑架构的第三方安全审计结果；发布材料也未量化与此前 Grok 连接器模式相比的生产率提升。",
+          "ref": "R1"
+        },
+        {
+          "id": "research-236-2-https://www.theinformation.com/briefings/spacexai-announces-ai-agents-product-grok-bot-2-https://docs.x.ai/grok-bot/get-started",
+          "sourceId": 236,
+          "sourceName": "SpaceXAI Docs",
+          "sourcePublisher": "SpaceXAI Docs",
+          "sourceKind": "Official",
+          "title": "Get started",
+          "url": "https://docs.x.ai/grok-bot/get-started",
+          "publishedAt": "2026-08-11T17:53:57.000Z",
+          "summary": "补齐上线范围和此前状态的可比条件：Grok Bot 仅向 SuperGrok Heavy、Cursor Ultra 与 Cursor Teams Premium 开放，需使用 Cursor 账户，支持 macOS、Windows 和 iOS，不支持 Linux 桌面端，并要求云端数据存储而非 Legacy Privacy Mode。",
+          "fetchedAt": "2026-08-11T19:06:07.432Z",
+          "researchedFrom": "N3",
+          "researchRole": "Comparison",
+          "researchClaim": "Grok Bot 已于2026年8月11日上线，产品把 Grok 从可连接外部工具的聊天助手扩展为可在持久化云端电脑上登录网站和应用、跨工具执行任务、在多个 Bot 间交接上下文并保留会话状态的“AI teammate”；其使用 Cursor 账户和数据设置，且面向指定高阶订阅计划开放。",
+          "researchComparisons": "此前的 Grok 已可在对话中通过 OAuth 连接 Gmail、Google Drive、Outlook、Teams、Salesforce 等数据源；Grok Bot 的新增能力是每个用户拥有一台由所有 Bot 共用的持久化云 VM，含浏览器、文件系统和终端，并可通过计算机使用处理没有 API 的应用。可公开核验的准入基准为 SuperGrok Heavy、Cursor Ultra 或 Cursor Teams Premium，需 macOS、Windows 或 iOS，暂不提供 Linux 桌面版，并且要求云端数据存储、不能使用 Legacy Privacy Mode。此次产品建立在双方此前的联合模型合作之上：Cursor 称 Grok 4.5 由双方共同训练，且其公布的 Terminal-Bench 2.1 成绩为83.3%，略低于 GPT-5.5 的83.4%和 Fable 5 的84.3%；这是一项模型/编码代理基准，并非 Grok Bot 在真实企业工作流中的完成率或可靠性指标。",
+          "researchUnresolved": "未披露独立验证的任务成功率、错误率、时延、企业客户数量、定价增量、区域可用性、数据保留期限或针对共享云电脑架构的第三方安全审计结果；发布材料也未量化与此前 Grok 连接器模式相比的生产率提升。",
+          "ref": "R2"
+        },
+        {
+          "id": "research-236-2-https://www.theinformation.com/briefings/spacexai-announces-ai-agents-product-grok-bot-3-https://cursor.com/grok",
+          "sourceId": 236,
+          "sourceName": "Cursor",
+          "sourcePublisher": "Cursor",
+          "sourceKind": "Official",
+          "title": "Grok",
+          "url": "https://cursor.com/grok",
+          "publishedAt": "2026-08-11T17:53:57.000Z",
+          "summary": "Cursor 独立确认 Grok 4.5 是与 SpaceXAI 联合训练的模型，训练使用了数万亿 token 的 Cursor 开发者—代理交互数据；同时给出比较基准：Terminal-Bench 2.1 中 Grok 4.5 为83.3%，GPT-5.5为83.4%，Fable 5为84.3%。",
+          "fetchedAt": "2026-08-11T19:06:07.432Z",
+          "researchedFrom": "N3",
+          "researchRole": "Context",
+          "researchClaim": "Grok Bot 已于2026年8月11日上线，产品把 Grok 从可连接外部工具的聊天助手扩展为可在持久化云端电脑上登录网站和应用、跨工具执行任务、在多个 Bot 间交接上下文并保留会话状态的“AI teammate”；其使用 Cursor 账户和数据设置，且面向指定高阶订阅计划开放。",
+          "researchComparisons": "此前的 Grok 已可在对话中通过 OAuth 连接 Gmail、Google Drive、Outlook、Teams、Salesforce 等数据源；Grok Bot 的新增能力是每个用户拥有一台由所有 Bot 共用的持久化云 VM，含浏览器、文件系统和终端，并可通过计算机使用处理没有 API 的应用。可公开核验的准入基准为 SuperGrok Heavy、Cursor Ultra 或 Cursor Teams Premium，需 macOS、Windows 或 iOS，暂不提供 Linux 桌面版，并且要求云端数据存储、不能使用 Legacy Privacy Mode。此次产品建立在双方此前的联合模型合作之上：Cursor 称 Grok 4.5 由双方共同训练，且其公布的 Terminal-Bench 2.1 成绩为83.3%，略低于 GPT-5.5 的83.4%和 Fable 5 的84.3%；这是一项模型/编码代理基准，并非 Grok Bot 在真实企业工作流中的完成率或可靠性指标。",
+          "researchUnresolved": "未披露独立验证的任务成功率、错误率、时延、企业客户数量、定价增量、区域可用性、数据保留期限或针对共享云电脑架构的第三方安全审计结果；发布材料也未量化与此前 Grok 连接器模式相比的生产率提升。",
+          "ref": "R3"
+        },
+        {
+          "id": "research-236-2-https://www.theinformation.com/briefings/spacexai-announces-ai-agents-product-grok-bot-4-https://docs.x.ai/grok-bot/approvals-security-and-privacy",
+          "sourceId": 236,
+          "sourceName": "SpaceXAI Docs",
+          "sourcePublisher": "SpaceXAI Docs",
+          "sourceKind": "Official",
+          "title": "Approvals, security, and privacy",
+          "url": "https://docs.x.ai/grok-bot/approvals-security-and-privacy",
+          "publishedAt": "2026-08-11T17:53:57.000Z",
+          "summary": "官方安全文档构成最强限制条件：所有 Bot 共用同一云电脑，文件、浏览器会话和命令行凭据可在用户的 Bot 之间访问，不能把不同 Bot 当作安全边界；自动审查为模型驱动且不能替代最小权限与明确审批，删除 Bot 也不会删除共享电脑中的文件或浏览器会话。",
+          "fetchedAt": "2026-08-11T19:06:07.432Z",
+          "researchedFrom": "N3",
+          "researchRole": "Counterevidence",
+          "researchClaim": "Grok Bot 已于2026年8月11日上线，产品把 Grok 从可连接外部工具的聊天助手扩展为可在持久化云端电脑上登录网站和应用、跨工具执行任务、在多个 Bot 间交接上下文并保留会话状态的“AI teammate”；其使用 Cursor 账户和数据设置，且面向指定高阶订阅计划开放。",
+          "researchComparisons": "此前的 Grok 已可在对话中通过 OAuth 连接 Gmail、Google Drive、Outlook、Teams、Salesforce 等数据源；Grok Bot 的新增能力是每个用户拥有一台由所有 Bot 共用的持久化云 VM，含浏览器、文件系统和终端，并可通过计算机使用处理没有 API 的应用。可公开核验的准入基准为 SuperGrok Heavy、Cursor Ultra 或 Cursor Teams Premium，需 macOS、Windows 或 iOS，暂不提供 Linux 桌面版，并且要求云端数据存储、不能使用 Legacy Privacy Mode。此次产品建立在双方此前的联合模型合作之上：Cursor 称 Grok 4.5 由双方共同训练，且其公布的 Terminal-Bench 2.1 成绩为83.3%，略低于 GPT-5.5 的83.4%和 Fable 5 的84.3%；这是一项模型/编码代理基准，并非 Grok Bot 在真实企业工作流中的完成率或可靠性指标。",
+          "researchUnresolved": "未披露独立验证的任务成功率、错误率、时延、企业客户数量、定价增量、区域可用性、数据保留期限或针对共享云电脑架构的第三方安全审计结果；发布材料也未量化与此前 Grok 连接器模式相比的生产率提升。",
+          "ref": "R4"
+        }
+      ],
+      "feedBatchAt": "2026-08-11T19:06:07.432Z"
+    },
+    {
+      "id": 108,
+      "editorialBucket": "dynamic",
+      "category": "科技",
+      "eyebrow": "风险预警",
+      "title": "推理上下文回传变成密钥治理面",
+      "summary": "研究称，专有模型API的加密推理块可跨会话、用户和模型迁移，并在公开代码库中发现凭据痕迹；OpenAI与Google文档均要求在多步调用中回传此类状态。",
+      "why": "推理状态正从不可见内部过程变为应用需保存和转发的数据对象，密钥与隐私治理边界随之扩大。",
+      "impact": "开发团队或需将推理块按敏感会话数据处理，审查日志、仓库、代理记忆和跨模型转发链路。",
+      "shiftFrom": "推理内容被视为模型内部状态",
+      "shiftTo": "推理状态成为应用层可传播对象",
+      "crossValidation": "arXiv研究提出跨平台提取与公开泄漏计数；OpenAI和Google官方文档分别确认加密推理内容及thought signatures需在后续请求中回传。",
+      "article": {
+        "lead": "一项新研究认为，专有LLM API中的加密推理块可能并非只属于单次模型计算：研究者称其可跨会话、用户和模型迁移，并在公开代码库的推理块中发现个人信息与凭据痕迹。OpenAI和Google的官方文档均显示，开发者在多步交互中需要保留并回传相关加密状态。这意味着推理上下文正成为应用数据治理的一部分。",
+        "sections": [
+          {
+            "heading": "变化在于推理状态进入应用链路",
+            "body": "研究者分析专有LLM API的推理块后称，这些加密内容可在不同会话、用户和模型之间保持兼容，从而可能被提取和转移。其对315,320个公开代码库中的推理块扫描发现367个个人信息痕迹及182项凭据。研究结果若经更多验证，关键含义不在于模型是否公开完整思维链，而在于开发者保存、提交、转发的加密状态可能已经构成独立的数据暴露面。"
+          },
+          {
+            "heading": "官方接口设计解释了传播机制",
+            "body": "OpenAI的Responses API文档将reasoning.encrypted_content定义为推理项的加密内容，并要求手动管理上下文的客户端在后续请求中携带推理项。Google对Gemini Generate Content API的说明也称，thought signatures是用于保留多步交互推理上下文的加密内部表示，通常应在后续会话历史中原样回传。两种设计的共同点是，应用为了维持任务连续性，需要把模型生成的状态纳入自身数据流。"
+          },
+          {
+            "heading": "安全责任可能从提示词扩展到状态生命周期",
+            "body": "当代理、日志系统、代码仓库或跨模型编排层保存这些状态时，治理对象就不再仅是用户输入、工具输出和API密钥。更审慎的推论是，企业可能需要将推理块视为具有会话敏感性的工件：限制其进入版本控制系统，设置存储期限，隔离不同用户与任务的转发路径，并把其纳入秘密扫描。最强反例是，该研究尚未显示大规模在野利用，也未证明所有实现都能以相同方式被提取，因此风险范围仍取决于供应商实现和独立复现。"
+          }
+        ],
+        "outlook": "能够强化这一判断的新证据包括：模型供应商确认受影响实现、发布修复或轮换机制，第三方在不同API与客户端上独立复现，或企业安全工具开始将推理块纳入秘密扫描。若供应商证明推理块在用户、会话或模型间受到不可绕过的绑定，且独立测试无法复现跨域迁移，该判断将被明显削弱。"
+      },
+      "validationType": "跨平台验证",
+      "publishedAt": "2026-08-11T17:38:49.000Z",
+      "updatedAt": "2026-08-11T17:38:49.000Z",
+      "sources": [
+        "Blog",
+        "Research",
+        "Official"
+      ],
+      "sourceNames": [
+        "The Decoder",
+        "arXiv",
+        "OpenAI",
+        "Google AI for Developers"
+      ],
+      "sourceCount": 4,
+      "age": "1 小时前",
+      "score": 83,
+      "tone": "green",
+      "evidence": [
+        {
+          "id": "232-1-https://the-decoder.com/but-marinade-and-leaked-passwords-are-what-researchers-found-in-chatgpts-hidden-reasoning/",
+          "sourceId": 232,
+          "sourceName": "The Decoder AI",
+          "sourcePublisher": "The Decoder",
+          "sourceKind": "Blog",
+          "title": "\"But marinade\" and leaked passwords are what researchers found in ChatGPT's hidden reasoning",
+          "url": "https://the-decoder.com/but-marinade-and-leaked-passwords-are-what-researchers-found-in-chatgpts-hidden-reasoning/",
+          "publishedAt": "2026-08-11T17:38:49.000Z",
+          "summary": "Security researchers found a vulnerability in the APIs of OpenAI, Anthropic, and Google that lets them extract encrypted reasoning traces and move them between models. A scan of public sessions turned up dozens of passwords and API keys. The traces also show that the reasoning summaries users see often hide what the models are actually doing. The article \"Bu",
+          "fetchedAt": "2026-08-11T19:06:07.432Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-11T19:06:07.432Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 1.45512,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N6",
+          "role": "主张",
+          "takeaway": "报道概述研究者发现的加密推理块提取风险及公开会话中的密码和API密钥痕迹。"
+        },
+        {
+          "id": "research-232-1-https://the-decoder.com/but-marinade-and-leaked-passwords-are-what-researchers-found-in-chatgpts-hidden-reasoning/-1-https://arxiv.org/abs/2608.09867",
+          "sourceId": 232,
+          "sourceName": "arXiv",
+          "sourcePublisher": "arXiv",
+          "sourceKind": "Research",
+          "title": "Stealing Reasoning Traces from Proprietary LLM APIs",
+          "url": "https://arxiv.org/abs/2608.09867",
+          "publishedAt": "2026-08-10T17:24:50.000Z",
+          "summary": "补齐研究的直接主张、攻击机制和量化结果：跨会话/用户/模型的加密推理块兼容性，以及从315,320个公开代码库推理块中发现367个PII痕迹和182项凭证。",
+          "fetchedAt": "2026-08-11T19:06:07.432Z",
+          "researchedFrom": "N6",
+          "researchRole": "Primary",
+          "researchClaim": "一篇于2026年8月10日发布的研究论文报告称，OpenAI、Anthropic和Google的客户端持有加密推理块在同一提供商生态内可跨用户、会话和模型互换；研究者称可借由较弱模型将其解密并输出，从而绕过隐藏推理链的保护。",
+          "researchComparisons": "此前，OpenAI与Google的官方API文档将这些字段描述为用于在后续轮次保留推理上下文、需由客户端原样回传的加密内容或思维签名；论文的决定性基准是其对315,320个从公共代码库抓取的推理块解码后，报告发现367个PII痕迹和182项凭证。最强反例/范围限定是：该论文描述的是客户端回传设计与公开会话日志暴露相结合的攻击路径，并不等同于证明三家供应商的内部系统、账户数据库或全部私有会话遭到入侵。",
+          "researchUnresolved": "截至2026年8月11日，未找到三家供应商针对该论文的公开技术回应、受影响模型/版本清单、补丁状态或独立复现实验；论文虽称已负责任披露，但未在摘要中给出各供应商的修复结果。",
+          "ref": "R5",
+          "role": "佐证",
+          "takeaway": "研究论文称推理块可跨会话、用户和模型兼容，并在315,320个公开代码库中发现367个PII痕迹和182项凭据。"
+        },
+        {
+          "id": "research-232-1-https://the-decoder.com/but-marinade-and-leaked-passwords-are-what-researchers-found-in-chatgpts-hidden-reasoning/-2-https://platform.openai.com/docs/api-reference/responses-streaming/response/output_item?lang=node.js",
+          "sourceId": 232,
+          "sourceName": "OpenAI",
+          "sourcePublisher": "OpenAI",
+          "sourceKind": "Official",
+          "title": "Streaming events | OpenAI API Reference",
+          "url": "https://platform.openai.com/docs/api-reference/responses-streaming/response/output_item?lang=node.js",
+          "publishedAt": "2026-08-11T17:38:49.000Z",
+          "summary": "补齐OpenAI此前公开设计：Responses API可返回reasoning.encrypted_content，官方要求在手动管理上下文时将推理项纳入后续请求；文档将其定义为推理项的加密内容。",
+          "fetchedAt": "2026-08-11T19:06:07.432Z",
+          "researchedFrom": "N6",
+          "researchRole": "Comparison",
+          "researchClaim": "一篇于2026年8月10日发布的研究论文报告称，OpenAI、Anthropic和Google的客户端持有加密推理块在同一提供商生态内可跨用户、会话和模型互换；研究者称可借由较弱模型将其解密并输出，从而绕过隐藏推理链的保护。",
+          "researchComparisons": "此前，OpenAI与Google的官方API文档将这些字段描述为用于在后续轮次保留推理上下文、需由客户端原样回传的加密内容或思维签名；论文的决定性基准是其对315,320个从公共代码库抓取的推理块解码后，报告发现367个PII痕迹和182项凭证。最强反例/范围限定是：该论文描述的是客户端回传设计与公开会话日志暴露相结合的攻击路径，并不等同于证明三家供应商的内部系统、账户数据库或全部私有会话遭到入侵。",
+          "researchUnresolved": "截至2026年8月11日，未找到三家供应商针对该论文的公开技术回应、受影响模型/版本清单、补丁状态或独立复现实验；论文虽称已负责任披露，但未在摘要中给出各供应商的修复结果。",
+          "ref": "R6",
+          "role": "佐证",
+          "takeaway": "OpenAI文档说明Responses API提供reasoning.encrypted_content，并要求手动上下文管理时回传推理项。"
+        },
+        {
+          "id": "research-232-1-https://the-decoder.com/but-marinade-and-leaked-passwords-are-what-researchers-found-in-chatgpts-hidden-reasoning/-3-https://ai.google.dev/gemini-api/docs/generate-content/thought-signatures",
+          "sourceId": 232,
+          "sourceName": "Google AI for Developers",
+          "sourcePublisher": "Google AI for Developers",
+          "sourceKind": "Official",
+          "title": "Thought Signatures | Gemini Generate Content API (Legacy)",
+          "url": "https://ai.google.dev/gemini-api/docs/generate-content/thought-signatures",
+          "publishedAt": "2026-08-11T17:38:49.000Z",
+          "summary": "补齐Google此前公开设计：thought signatures是用于多步交互保留推理上下文的加密内部思维表示，官方通常要求客户端在后续会话历史中原样回传。",
+          "fetchedAt": "2026-08-11T19:06:07.432Z",
+          "researchedFrom": "N6",
+          "researchRole": "Comparison",
+          "researchClaim": "一篇于2026年8月10日发布的研究论文报告称，OpenAI、Anthropic和Google的客户端持有加密推理块在同一提供商生态内可跨用户、会话和模型互换；研究者称可借由较弱模型将其解密并输出，从而绕过隐藏推理链的保护。",
+          "researchComparisons": "此前，OpenAI与Google的官方API文档将这些字段描述为用于在后续轮次保留推理上下文、需由客户端原样回传的加密内容或思维签名；论文的决定性基准是其对315,320个从公共代码库抓取的推理块解码后，报告发现367个PII痕迹和182项凭证。最强反例/范围限定是：该论文描述的是客户端回传设计与公开会话日志暴露相结合的攻击路径，并不等同于证明三家供应商的内部系统、账户数据库或全部私有会话遭到入侵。",
+          "researchUnresolved": "截至2026年8月11日，未找到三家供应商针对该论文的公开技术回应、受影响模型/版本清单、补丁状态或独立复现实验；论文虽称已负责任披露，但未在摘要中给出各供应商的修复结果。",
+          "ref": "R7",
+          "role": "佐证",
+          "takeaway": "Google文档说明thought signatures用于保留多步推理上下文，通常需在后续历史中原样回传。"
+        }
+      ],
+      "references": [
+        {
+          "id": "232-1-https://the-decoder.com/but-marinade-and-leaked-passwords-are-what-researchers-found-in-chatgpts-hidden-reasoning/",
+          "sourceId": 232,
+          "sourceName": "The Decoder AI",
+          "sourcePublisher": "The Decoder",
+          "sourceKind": "Blog",
+          "title": "\"But marinade\" and leaked passwords are what researchers found in ChatGPT's hidden reasoning",
+          "url": "https://the-decoder.com/but-marinade-and-leaked-passwords-are-what-researchers-found-in-chatgpts-hidden-reasoning/",
+          "publishedAt": "2026-08-11T17:38:49.000Z",
+          "summary": "Security researchers found a vulnerability in the APIs of OpenAI, Anthropic, and Google that lets them extract encrypted reasoning traces and move them between models. A scan of public sessions turned up dozens of passwords and API keys. The traces also show that the reasoning summaries users see often hide what the models are actually doing. The article \"Bu",
+          "fetchedAt": "2026-08-11T19:06:07.432Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-11T19:06:07.432Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 1.45512,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N6"
+        },
+        {
+          "id": "research-232-1-https://the-decoder.com/but-marinade-and-leaked-passwords-are-what-researchers-found-in-chatgpts-hidden-reasoning/-1-https://arxiv.org/abs/2608.09867",
+          "sourceId": 232,
+          "sourceName": "arXiv",
+          "sourcePublisher": "arXiv",
+          "sourceKind": "Research",
+          "title": "Stealing Reasoning Traces from Proprietary LLM APIs",
+          "url": "https://arxiv.org/abs/2608.09867",
+          "publishedAt": "2026-08-10T17:24:50.000Z",
+          "summary": "补齐研究的直接主张、攻击机制和量化结果：跨会话/用户/模型的加密推理块兼容性，以及从315,320个公开代码库推理块中发现367个PII痕迹和182项凭证。",
+          "fetchedAt": "2026-08-11T19:06:07.432Z",
+          "researchedFrom": "N6",
+          "researchRole": "Primary",
+          "researchClaim": "一篇于2026年8月10日发布的研究论文报告称，OpenAI、Anthropic和Google的客户端持有加密推理块在同一提供商生态内可跨用户、会话和模型互换；研究者称可借由较弱模型将其解密并输出，从而绕过隐藏推理链的保护。",
+          "researchComparisons": "此前，OpenAI与Google的官方API文档将这些字段描述为用于在后续轮次保留推理上下文、需由客户端原样回传的加密内容或思维签名；论文的决定性基准是其对315,320个从公共代码库抓取的推理块解码后，报告发现367个PII痕迹和182项凭证。最强反例/范围限定是：该论文描述的是客户端回传设计与公开会话日志暴露相结合的攻击路径，并不等同于证明三家供应商的内部系统、账户数据库或全部私有会话遭到入侵。",
+          "researchUnresolved": "截至2026年8月11日，未找到三家供应商针对该论文的公开技术回应、受影响模型/版本清单、补丁状态或独立复现实验；论文虽称已负责任披露，但未在摘要中给出各供应商的修复结果。",
+          "ref": "R5"
+        },
+        {
+          "id": "research-232-1-https://the-decoder.com/but-marinade-and-leaked-passwords-are-what-researchers-found-in-chatgpts-hidden-reasoning/-2-https://platform.openai.com/docs/api-reference/responses-streaming/response/output_item?lang=node.js",
+          "sourceId": 232,
+          "sourceName": "OpenAI",
+          "sourcePublisher": "OpenAI",
+          "sourceKind": "Official",
+          "title": "Streaming events | OpenAI API Reference",
+          "url": "https://platform.openai.com/docs/api-reference/responses-streaming/response/output_item?lang=node.js",
+          "publishedAt": "2026-08-11T17:38:49.000Z",
+          "summary": "补齐OpenAI此前公开设计：Responses API可返回reasoning.encrypted_content，官方要求在手动管理上下文时将推理项纳入后续请求；文档将其定义为推理项的加密内容。",
+          "fetchedAt": "2026-08-11T19:06:07.432Z",
+          "researchedFrom": "N6",
+          "researchRole": "Comparison",
+          "researchClaim": "一篇于2026年8月10日发布的研究论文报告称，OpenAI、Anthropic和Google的客户端持有加密推理块在同一提供商生态内可跨用户、会话和模型互换；研究者称可借由较弱模型将其解密并输出，从而绕过隐藏推理链的保护。",
+          "researchComparisons": "此前，OpenAI与Google的官方API文档将这些字段描述为用于在后续轮次保留推理上下文、需由客户端原样回传的加密内容或思维签名；论文的决定性基准是其对315,320个从公共代码库抓取的推理块解码后，报告发现367个PII痕迹和182项凭证。最强反例/范围限定是：该论文描述的是客户端回传设计与公开会话日志暴露相结合的攻击路径，并不等同于证明三家供应商的内部系统、账户数据库或全部私有会话遭到入侵。",
+          "researchUnresolved": "截至2026年8月11日，未找到三家供应商针对该论文的公开技术回应、受影响模型/版本清单、补丁状态或独立复现实验；论文虽称已负责任披露，但未在摘要中给出各供应商的修复结果。",
+          "ref": "R6"
+        },
+        {
+          "id": "research-232-1-https://the-decoder.com/but-marinade-and-leaked-passwords-are-what-researchers-found-in-chatgpts-hidden-reasoning/-3-https://ai.google.dev/gemini-api/docs/generate-content/thought-signatures",
+          "sourceId": 232,
+          "sourceName": "Google AI for Developers",
+          "sourcePublisher": "Google AI for Developers",
+          "sourceKind": "Official",
+          "title": "Thought Signatures | Gemini Generate Content API (Legacy)",
+          "url": "https://ai.google.dev/gemini-api/docs/generate-content/thought-signatures",
+          "publishedAt": "2026-08-11T17:38:49.000Z",
+          "summary": "补齐Google此前公开设计：thought signatures是用于多步交互保留推理上下文的加密内部思维表示，官方通常要求客户端在后续会话历史中原样回传。",
+          "fetchedAt": "2026-08-11T19:06:07.432Z",
+          "researchedFrom": "N6",
+          "researchRole": "Comparison",
+          "researchClaim": "一篇于2026年8月10日发布的研究论文报告称，OpenAI、Anthropic和Google的客户端持有加密推理块在同一提供商生态内可跨用户、会话和模型互换；研究者称可借由较弱模型将其解密并输出，从而绕过隐藏推理链的保护。",
+          "researchComparisons": "此前，OpenAI与Google的官方API文档将这些字段描述为用于在后续轮次保留推理上下文、需由客户端原样回传的加密内容或思维签名；论文的决定性基准是其对315,320个从公共代码库抓取的推理块解码后，报告发现367个PII痕迹和182项凭证。最强反例/范围限定是：该论文描述的是客户端回传设计与公开会话日志暴露相结合的攻击路径，并不等同于证明三家供应商的内部系统、账户数据库或全部私有会话遭到入侵。",
+          "researchUnresolved": "截至2026年8月11日，未找到三家供应商针对该论文的公开技术回应、受影响模型/版本清单、补丁状态或独立复现实验；论文虽称已负责任披露，但未在摘要中给出各供应商的修复结果。",
+          "ref": "R7"
+        }
+      ],
+      "feedBatchAt": "2026-08-11T19:06:07.432Z"
+    },
     {
       "id": 103,
       "editorialBucket": "dynamic",
@@ -39133,6 +39605,104 @@
       "editorNote": "今日信息环境由智能体安全事件、AI coding 工具链分化、open-weight 模型竞争与算力下沉共同主导。",
       "signals": [
         {
+          "category": "Agents",
+          "eyebrow": "产品信号",
+          "title": "SpaceXAI推出Grok Bot代理产品",
+          "summary": "SpaceXAI与Cursor推出Grok Bot，向部分付费用户开放持久化云电脑代理，可登录工作账户并跨应用完成任务。",
+          "why": "产品把模型能力、浏览器会话、文件和登录状态组合为可执行工作环境，竞争点延伸至代理运行环境。",
+          "impact": "若使用范围扩大，企业采购或更重视共享状态、审批流程与凭据隔离，而非单独比较模型能力。",
+          "shiftFrom": "模型主要作为独立对话或编码工具",
+          "shiftTo": "代理获得持久化云电脑执行层",
+          "crossValidation": "The Information披露产品发布与联合开发；SpaceXAI官方文档说明工作流、开放范围和安全边界，Cursor独立确认联合训练的Grok 4.5及其基准。",
+          "article": {
+            "lead": "SpaceXAI已发布AI代理产品Grok Bot，并与Cursor共同推进其开发。官方文档显示，Bot可在持久化云电脑中登录应用和网站、跨工具完成工作，并保存演示过的流程为例程。当前产品仅向SuperGrok Heavy、Cursor Ultra和Cursor Teams Premium用户开放，意味着代理竞争正从模型调用进一步进入可长期运行的工作环境。",
+            "sections": [
+              {
+                "heading": "代理从回答问题转向接管工作环境",
+                "body": "Grok Bot的核心变化不只是提供新的聊天入口，而是给代理配置可持续保留的云端执行环境。SpaceXAI文档称，Bot可登录工作账户、使用应用和网站，并把跨多个工具完成的任务保存为例程。多个Bot还可以共享上下文、文件、浏览器会话和登录状态。这使代理能够继承先前任务的操作条件，而不必在每次对话中重新建立环境。"
+              },
+              {
+                "heading": "Cursor合作把开发交互带入产品路径",
+                "body": "Cursor确认，Grok 4.5由其与SpaceXAI联合训练，训练数据包含数万亿token的Cursor开发者与代理交互。Cursor列出的Terminal-Bench 2.1结果中，Grok 4.5得分83.3%，接近GPT-5.5的83.4%和Fable 5的84.3%。这一比较不能单独证明Grok Bot的端到端表现，但说明其产品路径并非只是在通用模型外加一个浏览器壳，而是试图利用开发任务交互训练与代理运行环境结合。"
+              },
+              {
+                "heading": "共享状态也把安全边界推向流程治理",
+                "body": "持久化执行环境的价值，来自状态不被频繁清空；相应地，状态隔离成为产品能否进入企业场景的关键。SpaceXAI明确提示，所有Bot共享同一云电脑，文件、浏览器会话和命令行凭据可在用户的Bot之间访问，不能将不同Bot视为安全边界。其自动审查由模型驱动，不能取代最小权限和明确审批；删除Bot也不会清除共享电脑中的文件或浏览器会话。最强的反例因此是：若企业无法把共享状态拆分为可审计的权限域，便利性可能反而限制部署范围。"
+              }
+            ],
+            "outlook": "下一步可观察Grok Bot是否扩大至更多订阅层级、加入Linux支持或推出企业管理控制台；这些变化将检验其是否从早期付费试用走向更广泛分发。更关键的证据将是其是否提供Bot间隔离、凭据作用域、会话清理和可导出审批日志等控制项；若长期仍以单一共享电脑为默认设计，其企业可用范围将受到限制。"
+          },
+          "evidence": [
+            {
+              "role": "主张",
+              "takeaway": "报道披露SpaceXAI发布Grok Bot，并称产品由SpaceXAI与Cursor联合开发。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "官方文档说明Bot使用持久化云电脑、跨工具执行任务、共享状态并保存例程。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "官方入门文档列明产品仅向指定付费计划开放，支持macOS、Windows和iOS，并要求云端数据存储。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "Cursor确认Grok 4.5联合训练，并公布其与GPT-5.5、Fable 5的Terminal-Bench 2.1比较。"
+            },
+            {
+              "role": "反例",
+              "takeaway": "官方安全文档称Bot共享云电脑与部分状态，模型驱动审查不能替代最小权限和明确审批。"
+            }
+          ]
+        },
+        {
+          "category": "科技",
+          "eyebrow": "风险预警",
+          "title": "推理上下文回传变成密钥治理面",
+          "summary": "研究称，专有模型API的加密推理块可跨会话、用户和模型迁移，并在公开代码库中发现凭据痕迹；OpenAI与Google文档均要求在多步调用中回传此类状态。",
+          "why": "推理状态正从不可见内部过程变为应用需保存和转发的数据对象，密钥与隐私治理边界随之扩大。",
+          "impact": "开发团队或需将推理块按敏感会话数据处理，审查日志、仓库、代理记忆和跨模型转发链路。",
+          "shiftFrom": "推理内容被视为模型内部状态",
+          "shiftTo": "推理状态成为应用层可传播对象",
+          "crossValidation": "arXiv研究提出跨平台提取与公开泄漏计数；OpenAI和Google官方文档分别确认加密推理内容及thought signatures需在后续请求中回传。",
+          "article": {
+            "lead": "一项新研究认为，专有LLM API中的加密推理块可能并非只属于单次模型计算：研究者称其可跨会话、用户和模型迁移，并在公开代码库的推理块中发现个人信息与凭据痕迹。OpenAI和Google的官方文档均显示，开发者在多步交互中需要保留并回传相关加密状态。这意味着推理上下文正成为应用数据治理的一部分。",
+            "sections": [
+              {
+                "heading": "变化在于推理状态进入应用链路",
+                "body": "研究者分析专有LLM API的推理块后称，这些加密内容可在不同会话、用户和模型之间保持兼容，从而可能被提取和转移。其对315,320个公开代码库中的推理块扫描发现367个个人信息痕迹及182项凭据。研究结果若经更多验证，关键含义不在于模型是否公开完整思维链，而在于开发者保存、提交、转发的加密状态可能已经构成独立的数据暴露面。"
+              },
+              {
+                "heading": "官方接口设计解释了传播机制",
+                "body": "OpenAI的Responses API文档将reasoning.encrypted_content定义为推理项的加密内容，并要求手动管理上下文的客户端在后续请求中携带推理项。Google对Gemini Generate Content API的说明也称，thought signatures是用于保留多步交互推理上下文的加密内部表示，通常应在后续会话历史中原样回传。两种设计的共同点是，应用为了维持任务连续性，需要把模型生成的状态纳入自身数据流。"
+              },
+              {
+                "heading": "安全责任可能从提示词扩展到状态生命周期",
+                "body": "当代理、日志系统、代码仓库或跨模型编排层保存这些状态时，治理对象就不再仅是用户输入、工具输出和API密钥。更审慎的推论是，企业可能需要将推理块视为具有会话敏感性的工件：限制其进入版本控制系统，设置存储期限，隔离不同用户与任务的转发路径，并把其纳入秘密扫描。最强反例是，该研究尚未显示大规模在野利用，也未证明所有实现都能以相同方式被提取，因此风险范围仍取决于供应商实现和独立复现。"
+              }
+            ],
+            "outlook": "能够强化这一判断的新证据包括：模型供应商确认受影响实现、发布修复或轮换机制，第三方在不同API与客户端上独立复现，或企业安全工具开始将推理块纳入秘密扫描。若供应商证明推理块在用户、会话或模型间受到不可绕过的绑定，且独立测试无法复现跨域迁移，该判断将被明显削弱。"
+          },
+          "evidence": [
+            {
+              "role": "主张",
+              "takeaway": "报道概述研究者发现的加密推理块提取风险及公开会话中的密码和API密钥痕迹。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "研究论文称推理块可跨会话、用户和模型兼容，并在315,320个公开代码库中发现367个PII痕迹和182项凭据。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "OpenAI文档说明Responses API提供reasoning.encrypted_content，并要求手动上下文管理时回传推理项。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "Google文档说明thought signatures用于保留多步推理上下文，通常需在后续历史中原样回传。"
+            }
+          ]
+        },
+        {
           "category": "算力",
           "eyebrow": "资本信号",
           "title": "Anthropic联手Macquarie与GIC建数据中心平台",
@@ -49211,6 +49781,104 @@
     "en": {
       "editorNote": "Today’s information environment is being shaped by agent security incidents, a split in coding-agent toolchains, open-model competition, and compute moving closer to the edge.",
       "signals": [
+        {
+          "category": "Agents",
+          "eyebrow": "Product signal",
+          "title": "SpaceXAI launches Grok Bot agent product",
+          "summary": "SpaceXAI and Cursor have launched Grok Bot, giving selected paid users a persistent cloud-computer agent that can work across applications.",
+          "why": "The release combines model capability with browser sessions, files and login state, shifting competition toward the agent runtime environment.",
+          "impact": "If availability expands, enterprise buyers may put more weight on state sharing, approval workflows and credential isolation than on model comparisons alone.",
+          "shiftFrom": "Standalone chat and coding tools",
+          "shiftTo": "Agents with persistent cloud-computer runtimes",
+          "crossValidation": "The Information reports the launch and joint development; SpaceXAI documentation details workflows, availability and security boundaries; Cursor independently confirms the jointly trained Grok 4.5 model and benchmarks.",
+          "article": {
+            "lead": "SpaceXAI has released Grok Bot, an AI agent product developed with Cursor. Official documentation says the Bot can sign into work accounts, operate apps and websites from a persistent cloud computer, and save demonstrated workflows as routines. It is currently limited to selected SuperGrok Heavy, Cursor Ultra and Cursor Teams Premium users, moving agent competition beyond model access toward durable execution environments.",
+            "sections": [
+              {
+                "heading": "Agents move from answers to work environments",
+                "body": "The material change is not merely another chat interface. Grok Bot gives an agent a cloud execution environment whose state can persist. SpaceXAI says a Bot can sign into work accounts, use apps and websites, complete tasks across multiple tools, and save workflows as routines. Multiple Bots can also share context, files, browser sessions and login state. That structure lets agents retain operating conditions from prior tasks instead of rebuilding them in every conversation."
+              },
+              {
+                "heading": "The Cursor partnership connects training to deployment",
+                "body": "Cursor says Grok 4.5 was jointly trained with SpaceXAI using trillions of tokens of Cursor developer-agent interaction data. In Cursor's Terminal-Bench 2.1 comparison, Grok 4.5 scored 83.3%, near GPT-5.5 at 83.4% and Fable 5 at 84.3%. That comparison does not establish Grok Bot's end-to-end performance, but it indicates that the product is attempting to connect task-specific interaction training with an agent runtime rather than simply wrapping a general model in a browser."
+              },
+              {
+                "heading": "Shared state makes governance a product constraint",
+                "body": "A persistent environment is valuable because its state survives, but that also makes isolation central to enterprise adoption. SpaceXAI warns that all Bots share one cloud computer and that files, browser sessions and command-line credentials can be accessible among a user's Bots. Different Bots therefore are not security boundaries. Its automated review is model-driven and does not replace least privilege or explicit approvals; deleting a Bot also does not erase shared-computer files or browser sessions. The strongest countercase is that weakly separable state could limit deployment where auditable permission domains are required."
+              }
+            ],
+            "outlook": "The next observable signals are whether Grok Bot expands to additional subscription tiers, adds Linux support, or introduces an enterprise administration console; those would test whether it is moving beyond an early paid rollout. More decisive evidence would be Bot-level isolation, scoped credentials, session cleanup and exportable approval logs. If the shared-cloud-computer design remains the default without those controls, its enterprise addressable use cases may remain constrained."
+          },
+          "evidence": [
+            {
+              "role": "Claim",
+              "takeaway": "The report says SpaceXAI released Grok Bot and developed it jointly with Cursor."
+            },
+            {
+              "role": "Support",
+              "takeaway": "Official documentation describes persistent cloud computers, cross-tool work, shared state and saved routines."
+            },
+            {
+              "role": "Support",
+              "takeaway": "Official onboarding documentation specifies eligible plans, supported platforms and the cloud-storage requirement."
+            },
+            {
+              "role": "Support",
+              "takeaway": "Cursor confirms joint training of Grok 4.5 and publishes its Terminal-Bench 2.1 comparison."
+            },
+            {
+              "role": "Counterpoint",
+              "takeaway": "Official security documentation says Bots share a cloud computer and that automated review does not replace least privilege or approvals."
+            }
+          ]
+        },
+        {
+          "category": "Technology",
+          "eyebrow": "Risk alert",
+          "title": "Reasoning-state replay becomes a secret-governance surface",
+          "summary": "Research says encrypted reasoning blocks in proprietary LLM APIs may move across sessions, users and models, while public repositories contained credential traces. OpenAI and Google document replay of such state in multi-step calls.",
+          "why": "Reasoning state is becoming an application-managed data object rather than an exclusively internal model process.",
+          "impact": "Teams may need to govern reasoning blocks across logs, repositories, agent memory and cross-model forwarding paths as sensitive session data.",
+          "shiftFrom": "Reasoning treated as internal model state",
+          "shiftTo": "Reasoning state becomes transferable application data",
+          "crossValidation": "The arXiv paper makes the extraction claim and reports public-repository counts; OpenAI and Google documentation independently confirm that encrypted reasoning state or thought signatures are replayed in subsequent requests.",
+          "article": {
+            "lead": "New research argues that encrypted reasoning blocks in proprietary LLM APIs may not belong only to a single model computation: the authors say the blocks can move across sessions, users and models, and that public code repositories contained traces of personal information and credentials. Official OpenAI and Google documentation shows developers preserving and replaying related encrypted state in multi-step interactions. Reasoning context is therefore becoming part of application data governance.",
+            "sections": [
+              {
+                "heading": "The change is that reasoning state enters application flows",
+                "body": "After analyzing reasoning blocks from proprietary LLM APIs, the researchers say encrypted content can remain compatible across sessions, users and models, making extraction and transfer possible. Their scan of reasoning blocks in 315,320 public repositories found 367 traces of personal information and 182 credentials. If independently validated, the key implication is not that full hidden chain-of-thought has become public. It is that encrypted state saved, committed or forwarded by developers may already form a separate data-exposure surface."
+              },
+              {
+                "heading": "Official interface designs explain the propagation mechanism",
+                "body": "OpenAI's Responses API documentation defines reasoning.encrypted_content as encrypted content for a reasoning item and instructs clients manually managing context to include reasoning items in later requests. Google's documentation describes thought signatures in the Gemini Generate Content API as encrypted internal representations that preserve reasoning context in multi-step interactions and generally should be returned unchanged in later conversation history. In both designs, application software must carry model-generated state through its own data flow to preserve task continuity."
+              },
+              {
+                "heading": "Security responsibility may extend to state lifecycles",
+                "body": "Once agents, logging systems, repositories or cross-model orchestration layers retain that state, governance no longer concerns only user prompts, tool outputs and API keys. A cautious inference is that organizations may need to treat reasoning blocks as session-sensitive artifacts: keep them out of version control, limit retention, isolate forwarding paths by user and task, and include them in secret scanning. The strongest countercase is that the study does not demonstrate widespread in-the-wild exploitation or prove identical extractability across all implementations; the actual scope still depends on vendor design and independent replication."
+              }
+            ],
+            "outlook": "Evidence that would strengthen this claim includes vendor confirmation of affected implementations, patches or rotation mechanisms, independent reproduction across APIs and clients, or enterprise security tools adding reasoning blocks to secret scanning. The claim would be materially weakened if providers demonstrate non-bypassable binding of blocks to a user, session or model and independent tests cannot reproduce cross-domain transfer."
+          },
+          "evidence": [
+            {
+              "role": "Claim",
+              "takeaway": "The report summarizes researchers' claim of encrypted reasoning-block extraction and password and API-key traces in public sessions."
+            },
+            {
+              "role": "Support",
+              "takeaway": "The paper claims cross-session, cross-user and cross-model compatibility and reports 367 PII traces and 182 credentials in 315,320 public repositories."
+            },
+            {
+              "role": "Support",
+              "takeaway": "OpenAI documents reasoning.encrypted_content and replay of reasoning items for manually managed context."
+            },
+            {
+              "role": "Support",
+              "takeaway": "Google documents thought signatures as encrypted state generally replayed in subsequent conversation history."
+            }
+          ]
+        },
         {
           "category": "Compute",
           "eyebrow": "Capital signal",
@@ -59291,11 +59959,11 @@
     "en": "gpt-5.6-sol"
   },
   "incremental": {
-    "lastAddedAt": "2026-08-11T17:13:58.848Z",
-    "lastScanAt": "2026-08-11T17:07:04.707Z",
-    "lastAddedCount": 0,
-    "lastUpdatedCount": 1,
-    "totalAppended": 98,
+    "lastAddedAt": "2026-08-11T19:12:19.323Z",
+    "lastScanAt": "2026-08-11T19:06:07.432Z",
+    "lastAddedCount": 2,
+    "lastUpdatedCount": 0,
+    "totalAppended": 100,
     "totalUpdated": 93
   },
   "exploreDepth": {
