@@ -13,6 +13,7 @@ export const ADAPTIVE_FEED_POLICIES = {
   },
   conversation: {
     minimumItems: 12,
+    maximumItems: 12,
     exposureWindowsHours: [7 * 24, 14 * 24, 30 * 24],
   },
 } as const;
@@ -69,7 +70,9 @@ export function selectAdaptiveFeedItems<
     .filter((item) => item.heat.visible)
     .sort(currentComparator);
   if (currentItems.length >= policy.minimumItems) {
-    return currentItems;
+    return "maximumItems" in policy
+      ? currentItems.slice(0, policy.maximumItems)
+      : currentItems;
   }
   const missingItems = policy.minimumItems - currentItems.length;
   const backfillWindows = policy.exposureWindowsHours.slice(1);

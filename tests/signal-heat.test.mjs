@@ -331,6 +331,35 @@ test("conversations use a slower weekly exposure rhythm", () => {
   );
 });
 
+test("conversation inventory keeps only the twelve strongest visible notes", () => {
+  const conversations = Array.from({ length: 16 }, (_, index) => ({
+    id: `conversation-${index}`,
+    valueScore: 80 + index,
+    heat: {
+      score: 70,
+      stage: "hot",
+      visible: true,
+      ageHours: index + 1,
+      halfLifeHours: 100,
+      lastActivityAt: `2026-07-${String(10 - Math.floor(index / 8)).padStart(2, "0")}T${String(23 - (index % 8)).padStart(2, "0")}:00:00.000Z`,
+    },
+  }));
+
+  const selected = selectAdaptiveFeedItems(
+    conversations,
+    "conversation",
+  );
+
+  assert.equal(ADAPTIVE_FEED_POLICIES.conversation.maximumItems, 12);
+  assert.equal(selected.length, 12);
+  assert.deepEqual(
+    selected.map((item) => item.valueScore),
+    [...selected]
+      .map((item) => item.valueScore)
+      .sort((left, right) => right - left),
+  );
+});
+
 test("Explore leaves the page after 72 hours while conversations remain", () => {
   const now = "2026-07-10T12:00:00.000Z";
   const input = {
