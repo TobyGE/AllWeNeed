@@ -1,13 +1,413 @@
 {
-  "generatedAt": "2026-08-11T11:12:19.534Z",
-  "basedOnSnapshotAt": "2026-08-11T11:06:34.342Z",
+  "generatedAt": "2026-08-11T13:15:49.951Z",
+  "basedOnSnapshotAt": "2026-08-11T13:07:35.974Z",
   "model": "gpt-5.5",
   "analyzedItemCount": 180,
-  "totalFetchedItemCount": 2343,
+  "totalFetchedItemCount": 2326,
   "editorNote": "今日信息环境由代理安全事件、编码代理工具链分化、开放模型竞争和算力下沉共同主导。",
   "signalQuality": 86,
   "signalQualityChange": 8,
   "signals": [
+    {
+      "id": 105,
+      "editorialBucket": "dynamic",
+      "category": "AI & 模型",
+      "eyebrow": "产品信号",
+      "title": "NVIDIA发布Nemotron 3.5 Lightning",
+      "summary": "NVIDIA扩展Nemotron 3模型家族，推出Nemotron 3.5 Lightning，并以NeMo Switchyard加入代理任务的多模型路由能力。",
+      "why": "模型竞争正延伸至长程代理任务的吞吐、成本与模型编排。NVIDIA试图同时提供模型和运行时控制层。",
+      "impact": "若效率与路由效果在真实工作负载中成立，企业部署代理时对单一闭源模型的依赖或可下降。",
+      "shiftFrom": "Nemotron主要提供单模型推理能力",
+      "shiftTo": "模型与代理路由层同步扩展",
+      "crossValidation": "NVIDIA的发布公告确认新模型与Switchyard上线；技术说明补充路由机制。此前Nemotron 3和Nemotron 3 Super的架构、上下文及吞吐数据构成效率比较背景。现有旧版插件仍被标为实验性。",
+      "article": {
+        "lead": "NVIDIA已发布Nemotron 3.5 Lightning，并同步推出NeMo Switchyard，用于在代理工作流中按任务特征路由不同模型。这个变化的核心不只是新增一款开放模型，而是NVIDIA开始把长程代理推理的模型效率与运行时调度放进同一套产品叙事。",
+        "sections": [
+          {
+            "heading": "从单一模型扩展到代理工作负载",
+            "body": "NVIDIA称，Nemotron 3.5 Lightning面向长程agentic AI工作负载，并定位为同类中效率最高的模型。它扩展了此前的Nemotron 3产品线：NVIDIA此前已将该系列定义为开放、强调效率的混合Mamba-Transformer MoE模型，并披露最高100万token上下文等能力边界。新发布因而意味着该系列从通用推理模型继续向需要长上下文、连续工具调用和多步骤执行的代理任务推进。"
+          },
+          {
+            "heading": "效率竞争开始依赖路由层",
+            "body": "NeMo Switchyard的作用是把代理请求按模型的能力、成本和适配性分配，而不是让所有任务固定运行在一个模型上。NVIDIA的技术说明指出，不同模型的优势、弱点和成本会随任务变化。此前NVIDIA对Nemotron 3 Super披露的测试显示，在特定B200、长输入长输出和优化推理配置下，其吞吐可高于若干对比模型；这些结果说明，代理经济性不仅取决于参数规模，也取决于模型选择和推理配置是否被动态管理。"
+          },
+          {
+            "heading": "开放模型部署的竞争面扩大",
+            "body": "对企业而言，开放模型的价值通常不止于可下载权重，还包括是否能在自有环境中控制成本、数据位置和任务路径。NVIDIA此次把Lightning与Switchyard并列发布，显示其希望覆盖这一部署层。不过，NVIDIA同时披露，现有nemo-relay-switchyard插件仍属实验性、默认构建未启用，且计划由原生插件替代。这使当前信号更接近产品方向已经明确，而非路由层已经完全成熟。"
+          }
+        ],
+        "outlook": "接下来可观察三类证据：NVIDIA是否公布Nemotron 3.5 Lightning的权重、API或主要云平台可用范围；是否给出跨真实代理任务的成本、延迟和成功率对照；以及Switchyard原生插件能否按计划进入稳定版本并获得第三方部署案例。这些信息将直接检验其效率主张能否转化为可复用的企业代理基础设施。"
+      },
+      "validationType": "跨平台验证",
+      "publishedAt": "2026-08-11T13:00:25.000Z",
+      "updatedAt": "2026-08-11T13:00:25.000Z",
+      "sources": [
+        "Blog",
+        "Research",
+        "Official"
+      ],
+      "sourceNames": [
+        "NVIDIA AI Blog",
+        "NVIDIA Corporation",
+        "NVIDIA"
+      ],
+      "sourceCount": 3,
+      "age": "刚刚",
+      "score": 85,
+      "tone": "green",
+      "evidence": [
+        {
+          "id": "130-1-https://blogs.nvidia.com/blog/nemotron-lightning-switchyard-rtx-dgx/",
+          "sourceId": 130,
+          "sourceName": "NVIDIA AI Blog",
+          "sourcePublisher": "NVIDIA AI Blog",
+          "sourceKind": "Blog",
+          "title": "NVIDIA Nemotron 3.5 Lightning and NeMo Switchyard Deliver Faster, Smarter, More Efficient Agentic AI",
+          "url": "https://blogs.nvidia.com/blog/nemotron-lightning-switchyard-rtx-dgx/",
+          "publishedAt": "2026-08-11T13:00:05.000Z",
+          "summary": "As AI shifts from chatbots to autonomous agents, open models are serving market demands for full control over where AI runs and how it’s deployed and evolves. Today, NVIDIA is expanding its Nemotron 3 model family with Nemotron 3.5 Lightning, the highest-efficiency model in its class for long-running agentic AI workloads. This release follows Nemotron […]",
+          "fetchedAt": "2026-08-11T13:07:35.974Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-11T13:07:35.974Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "fast",
+            "reason": "fresh",
+            "ageHours": 0.12527055555555555,
+            "maxAgeHours": 72
+          },
+          "deferredResearch": false,
+          "ref": "N1",
+          "role": "主张",
+          "takeaway": "NVIDIA宣布扩展Nemotron 3家族，推出Nemotron 3.5 Lightning，并将其定位于长程代理AI工作负载。"
+        },
+        {
+          "id": "130-0-https://blogs.nvidia.com/blog/local-ai-open-source-models-agents-nemotron/",
+          "sourceId": 130,
+          "sourceName": "NVIDIA AI Blog",
+          "sourcePublisher": "NVIDIA AI Blog",
+          "sourceKind": "Blog",
+          "title": "NVIDIA and Local AI Community Fuel Open Source Models and Intelligent Agents",
+          "url": "https://blogs.nvidia.com/blog/local-ai-open-source-models-agents-nemotron/",
+          "publishedAt": "2026-08-11T13:00:25.000Z",
+          "summary": "The open source ecosystem is making it easier for AI enthusiasts and developers to build, customize and run increasingly capable agents locally. Throughout August, NVIDIA is celebrating the partners and open source communities moving local AI forward, along with the models, applications and tools emerging across the ecosystem. That includes NVIDIA’s latest o",
+          "fetchedAt": "2026-08-11T13:07:35.974Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-11T13:07:35.974Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "standard",
+            "reason": "fresh",
+            "ageHours": 0.119715,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N6",
+          "role": "佐证",
+          "takeaway": "NVIDIA将最新开放模型、开发工具和本地智能代理生态作为其8月开源社区活动的重点。"
+        },
+        {
+          "id": "10003-1-https://developer.nvidia.com/blog/route-ai-agent-workloads-across-models-with-nvidia-nemo-switchyard/",
+          "sourceId": 10003,
+          "sourceName": "NVIDIA Technical Blog",
+          "sourcePublisher": "NVIDIA Corporation",
+          "sourceKind": "Blog",
+          "title": "Route AI Agent Workloads Across Models with NVIDIA NeMo Switchyard",
+          "url": "https://developer.nvidia.com/blog/route-ai-agent-workloads-across-models-with-nvidia-nemo-switchyard/",
+          "publishedAt": "2026-08-11T13:00:00.000Z",
+          "summary": "Building an AI agent does not end with choosing a single model. Each model has its own strengths, weaknesses, and cost profile, which can shift from one...",
+          "fetchedAt": "2026-08-11T13:07:35.974Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-11T13:07:35.974Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "fast",
+            "reason": "fresh",
+            "ageHours": 0.12665944444444444,
+            "maxAgeHours": 72
+          },
+          "deferredResearch": false,
+          "ref": "N7",
+          "role": "佐证",
+          "takeaway": "NVIDIA说明NeMo Switchyard用于按模型能力、弱点和成本差异路由代理工作负载。"
+        },
+        {
+          "id": "research-130-1-https://blogs.nvidia.com/blog/nemotron-lightning-switchyard-rtx-dgx/-1-https://arxiv.org/abs/2512.20856",
+          "sourceId": 130,
+          "sourceName": "NVIDIA",
+          "sourcePublisher": "NVIDIA",
+          "sourceKind": "Research",
+          "title": "NVIDIA Nemotron 3: Efficient and Open Intelligence",
+          "url": "https://arxiv.org/abs/2512.20856",
+          "publishedAt": "2025-12-24T00:24:05.000Z",
+          "summary": "补齐Nemotron 3的此前状态：最高100万token上下文、混合Mamba-Transformer MoE架构，以及Nano 30B-A3B在8k输入/16k输出推理工作负载下相对Qwen3-30B-A3B的3.3倍吞吐基准。",
+          "fetchedAt": "2026-08-11T13:07:35.974Z",
+          "researchedFrom": "N1",
+          "researchRole": "Comparison",
+          "researchClaim": "NVIDIA公告将Nemotron 3.5 Lightning与NeMo Switchyard定位为面向长时程agentic AI的效率与模型路由扩展；但可独立核验的公开材料主要覆盖此前的Nemotron 3 Super及仍处早期接入阶段的Switchyard，尚不足以证实Lightning相对同级模型“最高效率”的具体排名。",
+          "researchComparisons": "此前的Nemotron 3已宣称支持最高100万token上下文，并以混合Mamba-Transformer MoE架构提高长上下文推理吞吐；其Nano 30B-A3B在8k输入/16k输出场景下相对Qwen3-30B-A3B达到3.3倍吞吐。作为可公开核验的较大前代基准，Nemotron 3 Super在8k输入/64k输出、B200 GPU、vLLM或TRT-LLM最佳配置下，声称相对GPT-OSS-120B和Qwen3.5-122B分别最高实现2.2倍和7.5倍吞吐，同时保持可比准确率。该基准并非Nemotron 3.5 Lightning的直接测试，且比较涉及不同量化格式和运行时。",
+          "researchUnresolved": "尚未找到不重复现有NVIDIA博客链接、且明确披露Nemotron 3.5 Lightning参数规模、活动参数、上下文长度、测试硬件、运行时、量化设置、绝对tokens/s或完整同级对照表的一手模型卡、技术报告或仓库发布页；Switchyard原生替代插件的可用日期和迁移细节也尚未公布。",
+          "ref": "R1",
+          "role": "背景",
+          "takeaway": "此前Nemotron 3采用混合Mamba-Transformer MoE架构，支持最高100万token上下文，并披露过特定工作负载下的吞吐比较。"
+        },
+        {
+          "id": "research-130-1-https://blogs.nvidia.com/blog/nemotron-lightning-switchyard-rtx-dgx/-2-https://research.nvidia.com/labs/nemotron/files/NVIDIA-Nemotron-3-Super-Technical-Report.pdf",
+          "sourceId": 130,
+          "sourceName": "NVIDIA",
+          "sourcePublisher": "NVIDIA",
+          "sourceKind": "Research",
+          "title": "Nemotron 3 Super: Open, Efficient Mixture-of-Experts Hybrid Mamba-Transformer Model for Agentic Reasoning",
+          "url": "https://research.nvidia.com/labs/nemotron/files/NVIDIA-Nemotron-3-Super-Technical-Report.pdf",
+          "publishedAt": "2026-03-11T00:00:00.000Z",
+          "summary": "提供可复核的效率比较：Nemotron 3 Super为120.6B总参数、12.7B活动参数；在8k输入/64k输出、B200 GPU和vLLM或TRT-LLM最佳配置下，报告相对GPT-OSS-120B最高2.2倍、相对Qwen3.5-122B最高7.5倍吞吐，并披露比较所用量化格式和评测设置。",
+          "fetchedAt": "2026-08-11T13:07:35.974Z",
+          "researchedFrom": "N1",
+          "researchRole": "Comparison",
+          "researchClaim": "NVIDIA公告将Nemotron 3.5 Lightning与NeMo Switchyard定位为面向长时程agentic AI的效率与模型路由扩展；但可独立核验的公开材料主要覆盖此前的Nemotron 3 Super及仍处早期接入阶段的Switchyard，尚不足以证实Lightning相对同级模型“最高效率”的具体排名。",
+          "researchComparisons": "此前的Nemotron 3已宣称支持最高100万token上下文，并以混合Mamba-Transformer MoE架构提高长上下文推理吞吐；其Nano 30B-A3B在8k输入/16k输出场景下相对Qwen3-30B-A3B达到3.3倍吞吐。作为可公开核验的较大前代基准，Nemotron 3 Super在8k输入/64k输出、B200 GPU、vLLM或TRT-LLM最佳配置下，声称相对GPT-OSS-120B和Qwen3.5-122B分别最高实现2.2倍和7.5倍吞吐，同时保持可比准确率。该基准并非Nemotron 3.5 Lightning的直接测试，且比较涉及不同量化格式和运行时。",
+          "researchUnresolved": "尚未找到不重复现有NVIDIA博客链接、且明确披露Nemotron 3.5 Lightning参数规模、活动参数、上下文长度、测试硬件、运行时、量化设置、绝对tokens/s或完整同级对照表的一手模型卡、技术报告或仓库发布页；Switchyard原生替代插件的可用日期和迁移细节也尚未公布。",
+          "ref": "R2",
+          "role": "背景",
+          "takeaway": "Nemotron 3 Super披露了120.6B总参数、12.7B活动参数，以及在特定B200长程推理设置下的吞吐比较。"
+        },
+        {
+          "id": "research-130-1-https://blogs.nvidia.com/blog/nemotron-lightning-switchyard-rtx-dgx/-3-https://docs.nvidia.com/nemo/relay/dev/configure-plugins/switchyard/about",
+          "sourceId": 130,
+          "sourceName": "NVIDIA",
+          "sourcePublisher": "NVIDIA",
+          "sourceKind": "Official",
+          "title": "Switchyard (Deprecated)",
+          "url": "https://docs.nvidia.com/nemo/relay/dev/configure-plugins/switchyard/about",
+          "publishedAt": "2026-08-11T13:00:05.000Z",
+          "summary": "为部署成熟度提供反证：现有nemo-relay-switchyard插件被标为实验性、默认构建未启用、配置与契约可能变化且需单独运行Decision API；该插件计划在NeMo Relay 0.8移除并由Switchyard原生插件替代。",
+          "fetchedAt": "2026-08-11T13:07:35.974Z",
+          "researchedFrom": "N1",
+          "researchRole": "Counterevidence",
+          "researchClaim": "NVIDIA公告将Nemotron 3.5 Lightning与NeMo Switchyard定位为面向长时程agentic AI的效率与模型路由扩展；但可独立核验的公开材料主要覆盖此前的Nemotron 3 Super及仍处早期接入阶段的Switchyard，尚不足以证实Lightning相对同级模型“最高效率”的具体排名。",
+          "researchComparisons": "此前的Nemotron 3已宣称支持最高100万token上下文，并以混合Mamba-Transformer MoE架构提高长上下文推理吞吐；其Nano 30B-A3B在8k输入/16k输出场景下相对Qwen3-30B-A3B达到3.3倍吞吐。作为可公开核验的较大前代基准，Nemotron 3 Super在8k输入/64k输出、B200 GPU、vLLM或TRT-LLM最佳配置下，声称相对GPT-OSS-120B和Qwen3.5-122B分别最高实现2.2倍和7.5倍吞吐，同时保持可比准确率。该基准并非Nemotron 3.5 Lightning的直接测试，且比较涉及不同量化格式和运行时。",
+          "researchUnresolved": "尚未找到不重复现有NVIDIA博客链接、且明确披露Nemotron 3.5 Lightning参数规模、活动参数、上下文长度、测试硬件、运行时、量化设置、绝对tokens/s或完整同级对照表的一手模型卡、技术报告或仓库发布页；Switchyard原生替代插件的可用日期和迁移细节也尚未公布。",
+          "ref": "R3",
+          "role": "反例",
+          "takeaway": "现有nemo-relay-switchyard插件被标为实验性，默认未启用，且计划由原生Switchyard插件替代。"
+        }
+      ],
+      "references": [
+        {
+          "id": "130-1-https://blogs.nvidia.com/blog/nemotron-lightning-switchyard-rtx-dgx/",
+          "sourceId": 130,
+          "sourceName": "NVIDIA AI Blog",
+          "sourcePublisher": "NVIDIA AI Blog",
+          "sourceKind": "Blog",
+          "title": "NVIDIA Nemotron 3.5 Lightning and NeMo Switchyard Deliver Faster, Smarter, More Efficient Agentic AI",
+          "url": "https://blogs.nvidia.com/blog/nemotron-lightning-switchyard-rtx-dgx/",
+          "publishedAt": "2026-08-11T13:00:05.000Z",
+          "summary": "As AI shifts from chatbots to autonomous agents, open models are serving market demands for full control over where AI runs and how it’s deployed and evolves. Today, NVIDIA is expanding its Nemotron 3 model family with Nemotron 3.5 Lightning, the highest-efficiency model in its class for long-running agentic AI workloads. This release follows Nemotron […]",
+          "fetchedAt": "2026-08-11T13:07:35.974Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-11T13:07:35.974Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "fast",
+            "reason": "fresh",
+            "ageHours": 0.12527055555555555,
+            "maxAgeHours": 72
+          },
+          "deferredResearch": false,
+          "ref": "N1"
+        },
+        {
+          "id": "130-0-https://blogs.nvidia.com/blog/local-ai-open-source-models-agents-nemotron/",
+          "sourceId": 130,
+          "sourceName": "NVIDIA AI Blog",
+          "sourcePublisher": "NVIDIA AI Blog",
+          "sourceKind": "Blog",
+          "title": "NVIDIA and Local AI Community Fuel Open Source Models and Intelligent Agents",
+          "url": "https://blogs.nvidia.com/blog/local-ai-open-source-models-agents-nemotron/",
+          "publishedAt": "2026-08-11T13:00:25.000Z",
+          "summary": "The open source ecosystem is making it easier for AI enthusiasts and developers to build, customize and run increasingly capable agents locally. Throughout August, NVIDIA is celebrating the partners and open source communities moving local AI forward, along with the models, applications and tools emerging across the ecosystem. That includes NVIDIA’s latest o",
+          "fetchedAt": "2026-08-11T13:07:35.974Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-11T13:07:35.974Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "standard",
+            "reason": "fresh",
+            "ageHours": 0.119715,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N6"
+        },
+        {
+          "id": "10003-1-https://developer.nvidia.com/blog/route-ai-agent-workloads-across-models-with-nvidia-nemo-switchyard/",
+          "sourceId": 10003,
+          "sourceName": "NVIDIA Technical Blog",
+          "sourcePublisher": "NVIDIA Corporation",
+          "sourceKind": "Blog",
+          "title": "Route AI Agent Workloads Across Models with NVIDIA NeMo Switchyard",
+          "url": "https://developer.nvidia.com/blog/route-ai-agent-workloads-across-models-with-nvidia-nemo-switchyard/",
+          "publishedAt": "2026-08-11T13:00:00.000Z",
+          "summary": "Building an AI agent does not end with choosing a single model. Each model has its own strengths, weaknesses, and cost profile, which can shift from one...",
+          "fetchedAt": "2026-08-11T13:07:35.974Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-11T13:07:35.974Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "fast",
+            "reason": "fresh",
+            "ageHours": 0.12665944444444444,
+            "maxAgeHours": 72
+          },
+          "deferredResearch": false,
+          "ref": "N7"
+        },
+        {
+          "id": "research-130-1-https://blogs.nvidia.com/blog/nemotron-lightning-switchyard-rtx-dgx/-1-https://arxiv.org/abs/2512.20856",
+          "sourceId": 130,
+          "sourceName": "NVIDIA",
+          "sourcePublisher": "NVIDIA",
+          "sourceKind": "Research",
+          "title": "NVIDIA Nemotron 3: Efficient and Open Intelligence",
+          "url": "https://arxiv.org/abs/2512.20856",
+          "publishedAt": "2025-12-24T00:24:05.000Z",
+          "summary": "补齐Nemotron 3的此前状态：最高100万token上下文、混合Mamba-Transformer MoE架构，以及Nano 30B-A3B在8k输入/16k输出推理工作负载下相对Qwen3-30B-A3B的3.3倍吞吐基准。",
+          "fetchedAt": "2026-08-11T13:07:35.974Z",
+          "researchedFrom": "N1",
+          "researchRole": "Comparison",
+          "researchClaim": "NVIDIA公告将Nemotron 3.5 Lightning与NeMo Switchyard定位为面向长时程agentic AI的效率与模型路由扩展；但可独立核验的公开材料主要覆盖此前的Nemotron 3 Super及仍处早期接入阶段的Switchyard，尚不足以证实Lightning相对同级模型“最高效率”的具体排名。",
+          "researchComparisons": "此前的Nemotron 3已宣称支持最高100万token上下文，并以混合Mamba-Transformer MoE架构提高长上下文推理吞吐；其Nano 30B-A3B在8k输入/16k输出场景下相对Qwen3-30B-A3B达到3.3倍吞吐。作为可公开核验的较大前代基准，Nemotron 3 Super在8k输入/64k输出、B200 GPU、vLLM或TRT-LLM最佳配置下，声称相对GPT-OSS-120B和Qwen3.5-122B分别最高实现2.2倍和7.5倍吞吐，同时保持可比准确率。该基准并非Nemotron 3.5 Lightning的直接测试，且比较涉及不同量化格式和运行时。",
+          "researchUnresolved": "尚未找到不重复现有NVIDIA博客链接、且明确披露Nemotron 3.5 Lightning参数规模、活动参数、上下文长度、测试硬件、运行时、量化设置、绝对tokens/s或完整同级对照表的一手模型卡、技术报告或仓库发布页；Switchyard原生替代插件的可用日期和迁移细节也尚未公布。",
+          "ref": "R1"
+        },
+        {
+          "id": "research-130-1-https://blogs.nvidia.com/blog/nemotron-lightning-switchyard-rtx-dgx/-2-https://research.nvidia.com/labs/nemotron/files/NVIDIA-Nemotron-3-Super-Technical-Report.pdf",
+          "sourceId": 130,
+          "sourceName": "NVIDIA",
+          "sourcePublisher": "NVIDIA",
+          "sourceKind": "Research",
+          "title": "Nemotron 3 Super: Open, Efficient Mixture-of-Experts Hybrid Mamba-Transformer Model for Agentic Reasoning",
+          "url": "https://research.nvidia.com/labs/nemotron/files/NVIDIA-Nemotron-3-Super-Technical-Report.pdf",
+          "publishedAt": "2026-03-11T00:00:00.000Z",
+          "summary": "提供可复核的效率比较：Nemotron 3 Super为120.6B总参数、12.7B活动参数；在8k输入/64k输出、B200 GPU和vLLM或TRT-LLM最佳配置下，报告相对GPT-OSS-120B最高2.2倍、相对Qwen3.5-122B最高7.5倍吞吐，并披露比较所用量化格式和评测设置。",
+          "fetchedAt": "2026-08-11T13:07:35.974Z",
+          "researchedFrom": "N1",
+          "researchRole": "Comparison",
+          "researchClaim": "NVIDIA公告将Nemotron 3.5 Lightning与NeMo Switchyard定位为面向长时程agentic AI的效率与模型路由扩展；但可独立核验的公开材料主要覆盖此前的Nemotron 3 Super及仍处早期接入阶段的Switchyard，尚不足以证实Lightning相对同级模型“最高效率”的具体排名。",
+          "researchComparisons": "此前的Nemotron 3已宣称支持最高100万token上下文，并以混合Mamba-Transformer MoE架构提高长上下文推理吞吐；其Nano 30B-A3B在8k输入/16k输出场景下相对Qwen3-30B-A3B达到3.3倍吞吐。作为可公开核验的较大前代基准，Nemotron 3 Super在8k输入/64k输出、B200 GPU、vLLM或TRT-LLM最佳配置下，声称相对GPT-OSS-120B和Qwen3.5-122B分别最高实现2.2倍和7.5倍吞吐，同时保持可比准确率。该基准并非Nemotron 3.5 Lightning的直接测试，且比较涉及不同量化格式和运行时。",
+          "researchUnresolved": "尚未找到不重复现有NVIDIA博客链接、且明确披露Nemotron 3.5 Lightning参数规模、活动参数、上下文长度、测试硬件、运行时、量化设置、绝对tokens/s或完整同级对照表的一手模型卡、技术报告或仓库发布页；Switchyard原生替代插件的可用日期和迁移细节也尚未公布。",
+          "ref": "R2"
+        },
+        {
+          "id": "research-130-1-https://blogs.nvidia.com/blog/nemotron-lightning-switchyard-rtx-dgx/-3-https://docs.nvidia.com/nemo/relay/dev/configure-plugins/switchyard/about",
+          "sourceId": 130,
+          "sourceName": "NVIDIA",
+          "sourcePublisher": "NVIDIA",
+          "sourceKind": "Official",
+          "title": "Switchyard (Deprecated)",
+          "url": "https://docs.nvidia.com/nemo/relay/dev/configure-plugins/switchyard/about",
+          "publishedAt": "2026-08-11T13:00:05.000Z",
+          "summary": "为部署成熟度提供反证：现有nemo-relay-switchyard插件被标为实验性、默认构建未启用、配置与契约可能变化且需单独运行Decision API；该插件计划在NeMo Relay 0.8移除并由Switchyard原生插件替代。",
+          "fetchedAt": "2026-08-11T13:07:35.974Z",
+          "researchedFrom": "N1",
+          "researchRole": "Counterevidence",
+          "researchClaim": "NVIDIA公告将Nemotron 3.5 Lightning与NeMo Switchyard定位为面向长时程agentic AI的效率与模型路由扩展；但可独立核验的公开材料主要覆盖此前的Nemotron 3 Super及仍处早期接入阶段的Switchyard，尚不足以证实Lightning相对同级模型“最高效率”的具体排名。",
+          "researchComparisons": "此前的Nemotron 3已宣称支持最高100万token上下文，并以混合Mamba-Transformer MoE架构提高长上下文推理吞吐；其Nano 30B-A3B在8k输入/16k输出场景下相对Qwen3-30B-A3B达到3.3倍吞吐。作为可公开核验的较大前代基准，Nemotron 3 Super在8k输入/64k输出、B200 GPU、vLLM或TRT-LLM最佳配置下，声称相对GPT-OSS-120B和Qwen3.5-122B分别最高实现2.2倍和7.5倍吞吐，同时保持可比准确率。该基准并非Nemotron 3.5 Lightning的直接测试，且比较涉及不同量化格式和运行时。",
+          "researchUnresolved": "尚未找到不重复现有NVIDIA博客链接、且明确披露Nemotron 3.5 Lightning参数规模、活动参数、上下文长度、测试硬件、运行时、量化设置、绝对tokens/s或完整同级对照表的一手模型卡、技术报告或仓库发布页；Switchyard原生替代插件的可用日期和迁移细节也尚未公布。",
+          "ref": "R3"
+        }
+      ],
+      "feedBatchAt": "2026-08-11T13:07:35.974Z"
+    },
+    {
+      "id": 106,
+      "editorialBucket": "dynamic",
+      "category": "算力",
+      "eyebrow": "资本信号",
+      "title": "IBM与Together AI签2.4亿美元推理协议",
+      "summary": "IBM确认与Together AI签署2.4亿美元多年协议，在IBM Cloud建设采用NVIDIA HGX B300和Spectrum-X Ethernet的开放模型推理集群。",
+      "why": "这是一笔已签约的云端推理基础设施投入，显示开放模型服务开始以专用集群和长期采购协议获得承载。",
+      "impact": "若项目按期上线，Together AI可扩大开放模型服务能力，IBM Cloud也将获得面向推理负载的差异化供给。",
+      "shiftFrom": "开放模型推理主要依赖通用云资源",
+      "shiftTo": "专用集群获得长期合同支持",
+      "crossValidation": "IBM的官方公告确认交易金额、硬件配置、用途和预计可用时间。该事件目前以单一公司来源成立，尚无独立披露的容量、客户合同或运营数据。",
+      "article": {
+        "lead": "IBM确认与Together AI签署一项价值2.4亿美元的多年协议，双方计划在IBM Cloud建设采用NVIDIA HGX B300系统和Spectrum-X Ethernet的AI推理集群，服务开放源代码模型。该集群预计于2027年第一季度可用，意味着一笔长期合同已将开放模型推理需求转化为具体的云基础设施建设计划。",
+        "sections": [
+          {
+            "heading": "长期协议将推理需求锁定为建设计划",
+            "body": "IBM公告明确，这项协议金额为2.4亿美元、期限为多年，建设对象是位于IBM Cloud上的大规模AI推理集群。Together AI计划使用该集群支持开放源代码模型推理。与短期按量采购相比，多年协议把未来推理需求与特定云平台、网络架构和GPU系统预先绑定，因而构成从资源消费到基础设施承诺的状态变化。项目的预计可用时间为2027年第一季度，而非已经投入服务。"
+          },
+          {
+            "heading": "推理集群需要计算和网络共同扩容",
+            "body": "IBM披露的配置包括NVIDIA HGX B300系统与Spectrum-X Ethernet。前者提供面向AI负载的加速计算，后者被用于连接集群网络。开放模型推理的商业化通常需要同时处理模型规模、并发请求、时延和服务成本；因此，该协议所反映的不只是采购更多GPU，也是在为可持续提供模型服务配置计算与网络的整套容量。Together AI获得的是专用于其推理业务的计划性供给。"
+          },
+          {
+            "heading": "IBM Cloud争取开放模型服务入口",
+            "body": "这笔合作使IBM Cloud获得一个面向开放模型推理的具名工作负载，也让Together AI把模型服务能力与IBM的企业云基础设施结合。编辑上看，合同金额本身不足以定义行业格局，但它表明开放模型推理正在吸引更明确的长期基础设施投入。最强的反向判断是，官方公告尚未披露集群规模、实际利用率、首批客户或单位经济性，项目能否形成持续需求仍需上线后的运营数据验证。"
+          }
+        ],
+        "outlook": "后续最值得观察的是IBM和Together AI是否披露集群的GPU数量、上线节点和实际服务区域；Together AI能否公布由该集群承载的模型、客户或推理量；以及项目投运后是否出现追加采购或其他云厂商的类似长期协议。这些可观测信号将加强或削弱开放模型推理正在转向专用长期容量的判断。"
+      },
+      "validationType": "单一来源",
+      "publishedAt": "2026-08-11T00:00:00.000Z",
+      "updatedAt": "2026-08-11T00:00:00.000Z",
+      "sources": [
+        "Official"
+      ],
+      "sourceNames": [
+        "IBM"
+      ],
+      "sourceCount": 1,
+      "age": "13 小时前",
+      "score": 83,
+      "tone": "orange",
+      "evidence": [
+        {
+          "id": "ground-226-2-https://www.reuters.com/business/ibm-together-ai-ink-240-million-deal-nvidia-powered-ai-inference-cluster-2026-08-11/-1-https://newsroom.ibm.com/2026-08-11-IBM-and-Together-AI-Sign-Multi-Year-Agreement-to-Scale-Open-Source-AI-Inference-with-NVIDIA-AI-Infrastructure-on-IBM-Cloud",
+          "sourceId": 226,
+          "sourceName": "IBM",
+          "sourcePublisher": "IBM",
+          "sourceKind": "Official",
+          "title": "IBM and Together AI Sign Multi-Year Agreement to Scale Open-Source AI Inference with NVIDIA AI Infrastructure on IBM Cloud",
+          "url": "https://newsroom.ibm.com/2026-08-11-IBM-and-Together-AI-Sign-Multi-Year-Agreement-to-Scale-Open-Source-AI-Inference-with-NVIDIA-AI-Infrastructure-on-IBM-Cloud",
+          "publishedAt": "2026-08-11T00:00:00.000Z",
+          "summary": "IBM确认与Together AI达成2.4亿美元多年协议，计划在IBM Cloud部署NVIDIA HGX B300大型集群并采用Spectrum-X Ethernet；Together AI将其用于开放源代码模型推理，预计2027年第一季度可用。",
+          "fetchedAt": "2026-08-11T13:07:35.974Z",
+          "groundedFrom": "N5",
+          "groundingClaim": "IBM 与 Together AI 签署价值2.4亿美元的多年协议，计划在 IBM Cloud 部署采用 NVIDIA HGX B300 和 Spectrum-X Ethernet 的大型推理集群，由 Together AI 用于开放源代码模型推理；预计于2027年第一季度提供。",
+          "groundingNotes": "2.4亿美元和多年协议属于已公布的合同信息；集群部署及2027年第一季度可用时间属于未来计划，并非已经投入运行的实际状态。",
+          "ref": "G1",
+          "role": "主张",
+          "takeaway": "IBM确认与Together AI达成2.4亿美元多年协议，将在IBM Cloud部署采用NVIDIA HGX B300和Spectrum-X Ethernet的开放模型推理集群，预计2027年第一季度可用。"
+        }
+      ],
+      "references": [
+        {
+          "id": "ground-226-2-https://www.reuters.com/business/ibm-together-ai-ink-240-million-deal-nvidia-powered-ai-inference-cluster-2026-08-11/-1-https://newsroom.ibm.com/2026-08-11-IBM-and-Together-AI-Sign-Multi-Year-Agreement-to-Scale-Open-Source-AI-Inference-with-NVIDIA-AI-Infrastructure-on-IBM-Cloud",
+          "sourceId": 226,
+          "sourceName": "IBM",
+          "sourcePublisher": "IBM",
+          "sourceKind": "Official",
+          "title": "IBM and Together AI Sign Multi-Year Agreement to Scale Open-Source AI Inference with NVIDIA AI Infrastructure on IBM Cloud",
+          "url": "https://newsroom.ibm.com/2026-08-11-IBM-and-Together-AI-Sign-Multi-Year-Agreement-to-Scale-Open-Source-AI-Inference-with-NVIDIA-AI-Infrastructure-on-IBM-Cloud",
+          "publishedAt": "2026-08-11T00:00:00.000Z",
+          "summary": "IBM确认与Together AI达成2.4亿美元多年协议，计划在IBM Cloud部署NVIDIA HGX B300大型集群并采用Spectrum-X Ethernet；Together AI将其用于开放源代码模型推理，预计2027年第一季度可用。",
+          "fetchedAt": "2026-08-11T13:07:35.974Z",
+          "groundedFrom": "N5",
+          "groundingClaim": "IBM 与 Together AI 签署价值2.4亿美元的多年协议，计划在 IBM Cloud 部署采用 NVIDIA HGX B300 和 Spectrum-X Ethernet 的大型推理集群，由 Together AI 用于开放源代码模型推理；预计于2027年第一季度提供。",
+          "groundingNotes": "2.4亿美元和多年协议属于已公布的合同信息；集群部署及2027年第一季度可用时间属于未来计划，并非已经投入运行的实际状态。",
+          "ref": "G1"
+        }
+      ],
+      "feedBatchAt": "2026-08-11T13:07:35.974Z"
+    },
     {
       "id": 37,
       "editorialBucket": "dynamic",
@@ -38302,6 +38702,96 @@
         {
           "category": "AI & 模型",
           "eyebrow": "产品信号",
+          "title": "NVIDIA发布Nemotron 3.5 Lightning",
+          "summary": "NVIDIA扩展Nemotron 3模型家族，推出Nemotron 3.5 Lightning，并以NeMo Switchyard加入代理任务的多模型路由能力。",
+          "why": "模型竞争正延伸至长程代理任务的吞吐、成本与模型编排。NVIDIA试图同时提供模型和运行时控制层。",
+          "impact": "若效率与路由效果在真实工作负载中成立，企业部署代理时对单一闭源模型的依赖或可下降。",
+          "shiftFrom": "Nemotron主要提供单模型推理能力",
+          "shiftTo": "模型与代理路由层同步扩展",
+          "crossValidation": "NVIDIA的发布公告确认新模型与Switchyard上线；技术说明补充路由机制。此前Nemotron 3和Nemotron 3 Super的架构、上下文及吞吐数据构成效率比较背景。现有旧版插件仍被标为实验性。",
+          "article": {
+            "lead": "NVIDIA已发布Nemotron 3.5 Lightning，并同步推出NeMo Switchyard，用于在代理工作流中按任务特征路由不同模型。这个变化的核心不只是新增一款开放模型，而是NVIDIA开始把长程代理推理的模型效率与运行时调度放进同一套产品叙事。",
+            "sections": [
+              {
+                "heading": "从单一模型扩展到代理工作负载",
+                "body": "NVIDIA称，Nemotron 3.5 Lightning面向长程agentic AI工作负载，并定位为同类中效率最高的模型。它扩展了此前的Nemotron 3产品线：NVIDIA此前已将该系列定义为开放、强调效率的混合Mamba-Transformer MoE模型，并披露最高100万token上下文等能力边界。新发布因而意味着该系列从通用推理模型继续向需要长上下文、连续工具调用和多步骤执行的代理任务推进。"
+              },
+              {
+                "heading": "效率竞争开始依赖路由层",
+                "body": "NeMo Switchyard的作用是把代理请求按模型的能力、成本和适配性分配，而不是让所有任务固定运行在一个模型上。NVIDIA的技术说明指出，不同模型的优势、弱点和成本会随任务变化。此前NVIDIA对Nemotron 3 Super披露的测试显示，在特定B200、长输入长输出和优化推理配置下，其吞吐可高于若干对比模型；这些结果说明，代理经济性不仅取决于参数规模，也取决于模型选择和推理配置是否被动态管理。"
+              },
+              {
+                "heading": "开放模型部署的竞争面扩大",
+                "body": "对企业而言，开放模型的价值通常不止于可下载权重，还包括是否能在自有环境中控制成本、数据位置和任务路径。NVIDIA此次把Lightning与Switchyard并列发布，显示其希望覆盖这一部署层。不过，NVIDIA同时披露，现有nemo-relay-switchyard插件仍属实验性、默认构建未启用，且计划由原生插件替代。这使当前信号更接近产品方向已经明确，而非路由层已经完全成熟。"
+              }
+            ],
+            "outlook": "接下来可观察三类证据：NVIDIA是否公布Nemotron 3.5 Lightning的权重、API或主要云平台可用范围；是否给出跨真实代理任务的成本、延迟和成功率对照；以及Switchyard原生插件能否按计划进入稳定版本并获得第三方部署案例。这些信息将直接检验其效率主张能否转化为可复用的企业代理基础设施。"
+          },
+          "evidence": [
+            {
+              "role": "主张",
+              "takeaway": "NVIDIA宣布扩展Nemotron 3家族，推出Nemotron 3.5 Lightning，并将其定位于长程代理AI工作负载。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "NVIDIA将最新开放模型、开发工具和本地智能代理生态作为其8月开源社区活动的重点。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "NVIDIA说明NeMo Switchyard用于按模型能力、弱点和成本差异路由代理工作负载。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "此前Nemotron 3采用混合Mamba-Transformer MoE架构，支持最高100万token上下文，并披露过特定工作负载下的吞吐比较。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "Nemotron 3 Super披露了120.6B总参数、12.7B活动参数，以及在特定B200长程推理设置下的吞吐比较。"
+            },
+            {
+              "role": "反例",
+              "takeaway": "现有nemo-relay-switchyard插件被标为实验性，默认未启用，且计划由原生Switchyard插件替代。"
+            }
+          ]
+        },
+        {
+          "category": "算力",
+          "eyebrow": "资本信号",
+          "title": "IBM与Together AI签2.4亿美元推理协议",
+          "summary": "IBM确认与Together AI签署2.4亿美元多年协议，在IBM Cloud建设采用NVIDIA HGX B300和Spectrum-X Ethernet的开放模型推理集群。",
+          "why": "这是一笔已签约的云端推理基础设施投入，显示开放模型服务开始以专用集群和长期采购协议获得承载。",
+          "impact": "若项目按期上线，Together AI可扩大开放模型服务能力，IBM Cloud也将获得面向推理负载的差异化供给。",
+          "shiftFrom": "开放模型推理主要依赖通用云资源",
+          "shiftTo": "专用集群获得长期合同支持",
+          "crossValidation": "IBM的官方公告确认交易金额、硬件配置、用途和预计可用时间。该事件目前以单一公司来源成立，尚无独立披露的容量、客户合同或运营数据。",
+          "article": {
+            "lead": "IBM确认与Together AI签署一项价值2.4亿美元的多年协议，双方计划在IBM Cloud建设采用NVIDIA HGX B300系统和Spectrum-X Ethernet的AI推理集群，服务开放源代码模型。该集群预计于2027年第一季度可用，意味着一笔长期合同已将开放模型推理需求转化为具体的云基础设施建设计划。",
+            "sections": [
+              {
+                "heading": "长期协议将推理需求锁定为建设计划",
+                "body": "IBM公告明确，这项协议金额为2.4亿美元、期限为多年，建设对象是位于IBM Cloud上的大规模AI推理集群。Together AI计划使用该集群支持开放源代码模型推理。与短期按量采购相比，多年协议把未来推理需求与特定云平台、网络架构和GPU系统预先绑定，因而构成从资源消费到基础设施承诺的状态变化。项目的预计可用时间为2027年第一季度，而非已经投入服务。"
+              },
+              {
+                "heading": "推理集群需要计算和网络共同扩容",
+                "body": "IBM披露的配置包括NVIDIA HGX B300系统与Spectrum-X Ethernet。前者提供面向AI负载的加速计算，后者被用于连接集群网络。开放模型推理的商业化通常需要同时处理模型规模、并发请求、时延和服务成本；因此，该协议所反映的不只是采购更多GPU，也是在为可持续提供模型服务配置计算与网络的整套容量。Together AI获得的是专用于其推理业务的计划性供给。"
+              },
+              {
+                "heading": "IBM Cloud争取开放模型服务入口",
+                "body": "这笔合作使IBM Cloud获得一个面向开放模型推理的具名工作负载，也让Together AI把模型服务能力与IBM的企业云基础设施结合。编辑上看，合同金额本身不足以定义行业格局，但它表明开放模型推理正在吸引更明确的长期基础设施投入。最强的反向判断是，官方公告尚未披露集群规模、实际利用率、首批客户或单位经济性，项目能否形成持续需求仍需上线后的运营数据验证。"
+              }
+            ],
+            "outlook": "后续最值得观察的是IBM和Together AI是否披露集群的GPU数量、上线节点和实际服务区域；Together AI能否公布由该集群承载的模型、客户或推理量；以及项目投运后是否出现追加采购或其他云厂商的类似长期协议。这些可观测信号将加强或削弱开放模型推理正在转向专用长期容量的判断。"
+          },
+          "evidence": [
+            {
+              "role": "主张",
+              "takeaway": "IBM确认与Together AI达成2.4亿美元多年协议，将在IBM Cloud部署采用NVIDIA HGX B300和Spectrum-X Ethernet的开放模型推理集群，预计2027年第一季度可用。"
+            }
+          ]
+        },
+        {
+          "category": "AI & 模型",
+          "eyebrow": "产品信号",
           "title": "GPT-5.6重画模型价格曲线",
           "summary": "OpenAI下调GPT-5.6 Luna与Terra价格；Simon Willison记录的降幅分别为80%和20%，背后包含模型参与基础设施优化。",
           "why": "价格下降会直接改变高频推理、Agent和企业workflow的模型选择，也强化低成本模型的替代压力。",
@@ -48208,6 +48698,96 @@
     "en": {
       "editorNote": "Today’s information environment is being shaped by agent security incidents, a split in coding-agent toolchains, open-model competition, and compute moving closer to the edge.",
       "signals": [
+        {
+          "category": "AI & Models",
+          "eyebrow": "Product Signal",
+          "title": "NVIDIA Launches Nemotron 3.5 Lightning",
+          "summary": "NVIDIA expanded the Nemotron 3 family with Nemotron 3.5 Lightning and introduced NeMo Switchyard for multi-model routing in agent workloads.",
+          "why": "Model competition is extending to throughput, cost and orchestration for long-running agents. NVIDIA is pairing a model layer with runtime control.",
+          "impact": "If its efficiency and routing claims hold in production, enterprises may have more options beyond relying on a single closed model.",
+          "shiftFrom": "Nemotron centered on single-model inference",
+          "shiftTo": "Model capability and agent routing expand together",
+          "crossValidation": "NVIDIA’s announcement confirms the new model and Switchyard, while its technical post explains the routing mechanism. Earlier Nemotron materials provide architecture and efficiency context; the prior plugin remains experimental.",
+          "article": {
+            "lead": "NVIDIA has released Nemotron 3.5 Lightning alongside NeMo Switchyard, a system for routing agent tasks across models. The central change is not merely another open model: NVIDIA is bringing long-running agent efficiency and runtime dispatch into one product strategy.",
+            "sections": [
+              {
+                "heading": "A move beyond a single model",
+                "body": "NVIDIA describes Nemotron 3.5 Lightning as a model for long-running agentic AI workloads and as the most efficient model in its class. The release extends the earlier Nemotron 3 line, which NVIDIA had positioned as an open, efficiency-focused hybrid Mamba-Transformer MoE family with up to one million tokens of context. The new release therefore pushes the family further toward workloads that require long context, repeated tool use and multi-step execution."
+              },
+              {
+                "heading": "Efficiency increasingly depends on routing",
+                "body": "NeMo Switchyard is designed to send agent requests to different models based on their capabilities, limitations and cost profiles rather than fixing every task to one model. NVIDIA’s technical explanation says those trade-offs vary by task. Earlier NVIDIA results for Nemotron 3 Super reported higher throughput than selected comparison models under specific B200, long-context and optimized-serving configurations. That suggests agent economics can depend on model selection and serving configuration as much as model size."
+              },
+              {
+                "heading": "The competitive surface for open deployment widens",
+                "body": "For enterprises, the value of open models is usually not limited to downloadable weights; it also includes control over cost, data location and task routing. By launching Lightning and Switchyard together, NVIDIA is attempting to address that deployment layer. However, NVIDIA says the existing nemo-relay-switchyard plugin is experimental, disabled in default builds and scheduled to be replaced by a native plugin. The direction is clear, but the routing layer is not yet fully mature."
+              }
+            ],
+            "outlook": "Watch for three observable signals: whether NVIDIA expands availability through weights, APIs or major cloud platforms; whether it publishes cost, latency and task-success comparisons on real agent workloads; and whether the native Switchyard plugin reaches a stable release with third-party deployment evidence. Those outcomes would test whether the efficiency claim becomes reusable enterprise infrastructure."
+          },
+          "evidence": [
+            {
+              "role": "Claim",
+              "takeaway": "NVIDIA announced Nemotron 3.5 Lightning as an expansion of the Nemotron 3 family for long-running agentic AI workloads."
+            },
+            {
+              "role": "Support",
+              "takeaway": "NVIDIA highlighted its latest open models, developer tools and local intelligent-agent ecosystem activity."
+            },
+            {
+              "role": "Support",
+              "takeaway": "NVIDIA described NeMo Switchyard as a way to route agent workloads across models with different capabilities and costs."
+            },
+            {
+              "role": "Context",
+              "takeaway": "Earlier Nemotron 3 materials described a hybrid Mamba-Transformer MoE architecture, up to one million tokens of context and workload-specific throughput compari"
+            },
+            {
+              "role": "Context",
+              "takeaway": "Nemotron 3 Super materials disclosed parameter counts and throughput comparisons under specified long-context B200 serving conditions."
+            },
+            {
+              "role": "Counterpoint",
+              "takeaway": "The existing nemo-relay-switchyard plugin is experimental, not enabled by default and planned for replacement."
+            }
+          ]
+        },
+        {
+          "category": "Compute",
+          "eyebrow": "Capital Signal",
+          "title": "IBM and Together AI Sign $240M Inference Deal",
+          "summary": "IBM confirmed a $240 million multi-year agreement with Together AI to build an open-model inference cluster on IBM Cloud using NVIDIA HGX B300 systems.",
+          "why": "The signed agreement converts open-model inference demand into a dedicated, long-term cloud infrastructure commitment.",
+          "impact": "If delivered on schedule, the cluster could expand Together AI’s serving capacity and give IBM Cloud differentiated inference supply.",
+          "shiftFrom": "Open-model inference relied largely on general cloud capacity",
+          "shiftTo": "Dedicated capacity gains long-term contract backing",
+          "crossValidation": "IBM’s official announcement confirms the value, hardware, intended use and expected availability. The event currently rests on a single company source, without independently disclosed capacity or operating metrics.",
+          "article": {
+            "lead": "IBM confirmed a $240 million multi-year agreement with Together AI to build an AI inference cluster on IBM Cloud using NVIDIA HGX B300 systems and Spectrum-X Ethernet for open-source models. Expected to become available in the first quarter of 2027, the agreement turns future open-model serving demand into a specific infrastructure build plan.",
+            "sections": [
+              {
+                "heading": "A long-term agreement locks in an infrastructure plan",
+                "body": "IBM says the agreement is worth $240 million over multiple years and covers a large-scale AI inference cluster on IBM Cloud. Together AI plans to use it for open-source model inference. Compared with short-term consumption purchasing, a multi-year agreement binds expected demand to a specific cloud platform, network architecture and GPU system. It is therefore a concrete shift from resource consumption to infrastructure commitment. The cluster is expected in the first quarter of 2027 rather than already operating."
+              },
+              {
+                "heading": "Inference capacity requires compute and networking",
+                "body": "IBM disclosed NVIDIA HGX B300 systems and Spectrum-X Ethernet as part of the planned configuration. The former supplies accelerated compute, while the latter connects the cluster. Commercial open-model inference must manage model scale, concurrent requests, latency and service cost together. The agreement is therefore more than a GPU purchase: it commits a combined compute-and-network capacity stack for sustained serving. Together AI is securing planned capacity dedicated to its inference business."
+              },
+              {
+                "heading": "IBM Cloud seeks an open-model serving role",
+                "body": "The partnership gives IBM Cloud a named workload in open-model inference and connects Together AI’s model-serving business to IBM’s enterprise cloud infrastructure. Editorially, the contract value alone does not define the market, but it signals more explicit long-term spending on open-model inference. The strongest countercase is that IBM has not disclosed cluster size, utilization, initial customers or unit economics, so durable demand remains to be tested after launch."
+              }
+            ],
+            "outlook": "The next evidence to watch is whether IBM and Together AI disclose GPU counts, deployment milestones and service regions; whether Together AI identifies models, customers or inference volumes supported by the cluster; and whether launch is followed by additional procurement or similar long-term cloud agreements. Those observable developments would strengthen or weaken the case that open-model inference is moving toward dedicated contracted capacity."
+          },
+          "evidence": [
+            {
+              "role": "Claim",
+              "takeaway": "IBM confirmed a $240 million multi-year agreement with Together AI for an IBM Cloud inference cluster using NVIDIA HGX B300 systems and Spectrum-X Ethernet, exp"
+            }
+          ]
+        },
         {
           "category": "AI & Models",
           "eyebrow": "Product Signal",
@@ -58118,11 +58698,11 @@
     "en": "gpt-5.6-sol"
   },
   "incremental": {
-    "lastAddedAt": "2026-08-11T11:12:19.534Z",
-    "lastScanAt": "2026-08-11T11:06:34.342Z",
-    "lastAddedCount": 0,
-    "lastUpdatedCount": 2,
-    "totalAppended": 96,
+    "lastAddedAt": "2026-08-11T13:15:49.951Z",
+    "lastScanAt": "2026-08-11T13:07:35.974Z",
+    "lastAddedCount": 2,
+    "lastUpdatedCount": 0,
+    "totalAppended": 98,
     "totalUpdated": 91
   },
   "exploreDepth": {

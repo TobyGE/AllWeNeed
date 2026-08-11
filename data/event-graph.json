@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-11T11:06:34.342Z",
+  "generatedAt": "2026-08-11T13:07:35.974Z",
   "counts": {
-    "sources": 566,
-    "claims": 663,
-    "events": 144,
-    "articles": 144,
+    "sources": 573,
+    "claims": 670,
+    "events": 146,
+    "articles": 146,
     "updates": 91,
-    "edges": 1770,
+    "edges": 1786,
     "revisionsRequired": 5
   },
   "revisionQueue": [
@@ -63,6 +63,147 @@
     }
   ],
   "nodes": [
+    {
+      "id": "event_4f43765a8c7d0363",
+      "type": "event",
+      "signalId": 105,
+      "title": "NVIDIA发布Nemotron 3.5 Lightning",
+      "bucket": "dynamic",
+      "valueScore": 85,
+      "publishedAt": "2026-08-11T13:00:25.000Z",
+      "updatedAt": "2026-08-11T13:00:25.000Z"
+    },
+    {
+      "id": "article_13958e597bdce78a",
+      "type": "article",
+      "signalId": 105,
+      "title": "NVIDIA发布Nemotron 3.5 Lightning",
+      "version": 1,
+      "publishedAt": "2026-08-11T13:07:35.974Z"
+    },
+    {
+      "id": "source_a8ba0b0ace9187db",
+      "type": "source",
+      "title": "NVIDIA AI Blog",
+      "url": "https://blogs.nvidia.com/blog/nemotron-lightning-switchyard-rtx-dgx/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-11T13:00:05.000Z"
+    },
+    {
+      "id": "claim_bbf4bf83cb65578a",
+      "type": "claim",
+      "title": "NVIDIA宣布扩展Nemotron 3家族，推出Nemotron 3.5 Lightning，并将其定位于长程代理AI工作负载。",
+      "role": "主张",
+      "addedAt": "2026-08-11T13:07:35.974Z"
+    },
+    {
+      "id": "source_82a1b397d389adf8",
+      "type": "source",
+      "title": "NVIDIA AI Blog",
+      "url": "https://blogs.nvidia.com/blog/local-ai-open-source-models-agents-nemotron/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-11T13:00:25.000Z"
+    },
+    {
+      "id": "claim_852f0e464f425743",
+      "type": "claim",
+      "title": "NVIDIA将最新开放模型、开发工具和本地智能代理生态作为其8月开源社区活动的重点。",
+      "role": "佐证",
+      "addedAt": "2026-08-11T13:07:35.974Z"
+    },
+    {
+      "id": "source_2ad5fa86d9386f1e",
+      "type": "source",
+      "title": "NVIDIA Technical Blog",
+      "url": "https://developer.nvidia.com/blog/route-ai-agent-workloads-across-models-with-nvidia-nemo-switchyard/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-11T13:00:00.000Z"
+    },
+    {
+      "id": "claim_bdca8c95361040f4",
+      "type": "claim",
+      "title": "NVIDIA说明NeMo Switchyard用于按模型能力、弱点和成本差异路由代理工作负载。",
+      "role": "佐证",
+      "addedAt": "2026-08-11T13:07:35.974Z"
+    },
+    {
+      "id": "source_9b5720367b8eaffc",
+      "type": "source",
+      "title": "NVIDIA",
+      "url": "https://arxiv.org/abs/2512.20856",
+      "sourceKind": "Research",
+      "publishedAt": "2025-12-24T00:24:05.000Z"
+    },
+    {
+      "id": "claim_f652a1775b784604",
+      "type": "claim",
+      "title": "此前Nemotron 3采用混合Mamba-Transformer MoE架构，支持最高100万token上下文，并披露过特定工作负载下的吞吐比较。",
+      "role": "背景",
+      "addedAt": "2026-08-11T13:07:35.974Z"
+    },
+    {
+      "id": "source_626d80751270922e",
+      "type": "source",
+      "title": "NVIDIA",
+      "url": "https://research.nvidia.com/labs/nemotron/files/NVIDIA-Nemotron-3-Super-Technical-Report.pdf",
+      "sourceKind": "Research",
+      "publishedAt": "2026-03-11T00:00:00.000Z"
+    },
+    {
+      "id": "claim_ab8010b6d5b84237",
+      "type": "claim",
+      "title": "Nemotron 3 Super披露了120.6B总参数、12.7B活动参数，以及在特定B200长程推理设置下的吞吐比较。",
+      "role": "背景",
+      "addedAt": "2026-08-11T13:07:35.974Z"
+    },
+    {
+      "id": "source_2da196b41a511dd5",
+      "type": "source",
+      "title": "NVIDIA",
+      "url": "https://docs.nvidia.com/nemo/relay/dev/configure-plugins/switchyard/about",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-11T13:00:05.000Z"
+    },
+    {
+      "id": "claim_332859a72b4291d6",
+      "type": "claim",
+      "title": "现有nemo-relay-switchyard插件被标为实验性，默认未启用，且计划由原生Switchyard插件替代。",
+      "role": "反例",
+      "addedAt": "2026-08-11T13:07:35.974Z"
+    },
+    {
+      "id": "event_f15e4d6c4f1184e1",
+      "type": "event",
+      "signalId": 106,
+      "title": "IBM与Together AI签2.4亿美元推理协议",
+      "bucket": "dynamic",
+      "valueScore": 83,
+      "publishedAt": "2026-08-11T00:00:00.000Z",
+      "updatedAt": "2026-08-11T00:00:00.000Z"
+    },
+    {
+      "id": "article_a5a299f94a974ca4",
+      "type": "article",
+      "signalId": 106,
+      "title": "IBM与Together AI签2.4亿美元推理协议",
+      "version": 1,
+      "publishedAt": "2026-08-11T13:07:35.974Z"
+    },
+    {
+      "id": "source_b830d772d6e11e0c",
+      "type": "source",
+      "title": "IBM",
+      "url": "https://newsroom.ibm.com/2026-08-11-IBM-and-Together-AI-Sign-Multi-Year-Agreement-to-Scale-Open-Source-AI-Inference-with-NVIDIA-AI-Infrastructure-on-IBM-Cloud",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-11T00:00:00.000Z"
+    },
+    {
+      "id": "claim_badbed421da21dcb",
+      "type": "claim",
+      "title": "IBM确认与Together AI达成2.4亿美元多年协议，将在IBM Cloud部署采用NVIDIA HGX B300和Spectrum-X Ethernet的开放模型推理集群，预计2027年第一季度可用。",
+      "role": "主张",
+      "addedAt": "2026-08-11T13:07:35.974Z"
+    },
     {
       "id": "event_ded79f4f58feab3e",
       "type": "event",
@@ -12747,6 +12888,109 @@
     }
   ],
   "edges": [
+    {
+      "id": "edge_12e1ac4d41f9bb36",
+      "from": "event_4f43765a8c7d0363",
+      "to": "article_13958e597bdce78a",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_16f2d53a518adbbc",
+      "from": "source_a8ba0b0ace9187db",
+      "to": "claim_bbf4bf83cb65578a",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_8251749ea8542740",
+      "from": "claim_bbf4bf83cb65578a",
+      "to": "event_4f43765a8c7d0363",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_b4996e66b1a7d3b9",
+      "from": "source_82a1b397d389adf8",
+      "to": "claim_852f0e464f425743",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_f57348750aa4d2db",
+      "from": "claim_852f0e464f425743",
+      "to": "event_4f43765a8c7d0363",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_026690b9aeaef176",
+      "from": "source_2ad5fa86d9386f1e",
+      "to": "claim_bdca8c95361040f4",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_527844de24df1aba",
+      "from": "claim_bdca8c95361040f4",
+      "to": "event_4f43765a8c7d0363",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_e3684581f1b1afc2",
+      "from": "source_9b5720367b8eaffc",
+      "to": "claim_f652a1775b784604",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_cef949af16ff92eb",
+      "from": "claim_f652a1775b784604",
+      "to": "event_4f43765a8c7d0363",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_3338b3723ceda684",
+      "from": "source_626d80751270922e",
+      "to": "claim_ab8010b6d5b84237",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_4e5e04b506fed6ec",
+      "from": "claim_ab8010b6d5b84237",
+      "to": "event_4f43765a8c7d0363",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_bcc1f480bb149233",
+      "from": "source_2da196b41a511dd5",
+      "to": "claim_332859a72b4291d6",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_ff9ab14dcb6ae8d3",
+      "from": "claim_332859a72b4291d6",
+      "to": "event_4f43765a8c7d0363",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_2d82289039f049a8",
+      "from": "event_f15e4d6c4f1184e1",
+      "to": "article_a5a299f94a974ca4",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_001c368ac62a519b",
+      "from": "source_b830d772d6e11e0c",
+      "to": "claim_badbed421da21dcb",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_49d9905999488489",
+      "from": "claim_badbed421da21dcb",
+      "to": "event_f15e4d6c4f1184e1",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
     {
       "id": "edge_0d53b26b270e0716",
       "from": "event_ded79f4f58feab3e",
