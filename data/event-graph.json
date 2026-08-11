@@ -1,16 +1,36 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-11T05:07:28.724Z",
+  "generatedAt": "2026-08-11T07:07:31.607Z",
   "counts": {
-    "sources": 549,
-    "claims": 641,
-    "events": 137,
-    "articles": 137,
-    "updates": 84,
-    "edges": 1702,
-    "revisionsRequired": 4
+    "sources": 557,
+    "claims": 649,
+    "events": 141,
+    "articles": 141,
+    "updates": 87,
+    "edges": 1729,
+    "revisionsRequired": 5
   },
   "revisionQueue": [
+    {
+      "signalId": 70,
+      "eventId": "event_0d44a0f6406a45f3",
+      "updateId": "update_3779ab6ebc379026",
+      "title": "SpaceX季度收入跃升，AI成核心引擎",
+      "updateTitle": "X广告收入同比降14%",
+      "thesisImpact": "SpaceX的最新季度文件将X广告收入纳入AI分部，并显示该项收入同比下降，令“AI成核心引擎”的收入结构判断需要更细分地审视。",
+      "detectedAt": "2026-08-04T20:05:48.000Z",
+      "status": "needs_editorial_revision"
+    },
+    {
+      "signalId": 56,
+      "eventId": "event_980a9070554db0a8",
+      "updateId": "update_a4729ee927c39100",
+      "title": "Alibaba将Qwen3.8-Max推入默认API",
+      "updateTitle": "Qwen3.8-Max仍受限于预览计划",
+      "thesisImpact": "新材料显示Qwen3.8-Max目前仍是受区域、接口和订阅计划限制的预览模型；“广泛可用”与可直接对标美国前沿模型的判断需要收窄。",
+      "detectedAt": "2026-08-03T11:01:11.000Z",
+      "status": "needs_editorial_revision"
+    },
     {
       "signalId": 1,
       "eventId": "event_0c9d4afc6715e91b",
@@ -40,19 +60,348 @@
       "thesisImpact": "新披露把事件的风险边界说得更清楚：评估环境中已出现真实越界，但OpenAI的系统卡不支持将其直接外推为已部署模型可广泛自主攻破加固关键系统。",
       "detectedAt": "2026-08-03T05:47:29.000Z",
       "status": "needs_editorial_revision"
-    },
-    {
-      "signalId": 56,
-      "eventId": "event_980a9070554db0a8",
-      "updateId": "update_a4729ee927c39100",
-      "title": "Alibaba将Qwen3.8-Max推入默认API",
-      "updateTitle": "Qwen3.8-Max仍受限于预览计划",
-      "thesisImpact": "新材料显示Qwen3.8-Max目前仍是受区域、接口和订阅计划限制的预览模型；“广泛可用”与可直接对标美国前沿模型的判断需要收窄。",
-      "detectedAt": "2026-08-03T11:01:11.000Z",
-      "status": "needs_editorial_revision"
     }
   ],
   "nodes": [
+    {
+      "id": "event_0d44a0f6406a45f3",
+      "type": "event",
+      "signalId": 70,
+      "title": "SpaceX季度收入跃升，AI成核心引擎",
+      "bucket": "dynamic",
+      "valueScore": 88,
+      "publishedAt": "2026-08-04T20:47:55.000Z",
+      "updatedAt": "2026-08-04T20:05:48.000Z"
+    },
+    {
+      "id": "article_15922c8085370f16",
+      "type": "article",
+      "signalId": 70,
+      "title": "SpaceX季度收入跃升，AI成核心引擎",
+      "version": 1,
+      "publishedAt": "2026-08-11T07:07:31.607Z"
+    },
+    {
+      "id": "source_30d8d6544d2f9c31",
+      "type": "source",
+      "title": "The Verge",
+      "url": "https://www.theverge.com/science/975335/spacex-made-more-money-as-a-neocloud",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-04T20:47:55.000Z"
+    },
+    {
+      "id": "claim_34d7bec278b553f8",
+      "type": "claim",
+      "title": "报道公司AI收入增长并成为重要收入来源。",
+      "role": "主张",
+      "addedAt": "2026-08-11T07:07:31.607Z"
+    },
+    {
+      "id": "source_6baa41278d33fd28",
+      "type": "source",
+      "title": "U.S. Securities and Exchange Commission",
+      "url": "https://d18rn0p25nwr6d.cloudfront.net/CIK-0001181412/cfe10442-59c3-460b-8a4f-75fa96c69af9.pdf",
+      "sourceKind": "SEC",
+      "publishedAt": "2026-08-04T00:00:00.000Z"
+    },
+    {
+      "id": "claim_7ce317c944217cca",
+      "type": "claim",
+      "title": "确认公司提交季度业绩新闻稿附件。",
+      "role": "佐证",
+      "addedAt": "2026-08-11T07:07:31.607Z"
+    },
+    {
+      "id": "source_6dd1476b5a5645d8",
+      "type": "source",
+      "title": "Axios",
+      "url": "https://www.axios.com/2026/08/04/spacex-earnings-elon-musk",
+      "sourceKind": "Media",
+      "publishedAt": "2026-08-04T00:00:00.000Z"
+    },
+    {
+      "id": "claim_9286b6e776da2a12",
+      "type": "claim",
+      "title": "补齐季度收入结构、市场预期与管理层收入目标。",
+      "role": "佐证",
+      "addedAt": "2026-08-11T07:07:31.607Z"
+    },
+    {
+      "id": "source_61adb09028ccba57",
+      "type": "source",
+      "title": "U.S. Securities and Exchange Commission",
+      "url": "https://www.sec.gov/Archives/edgar/data/1181412/000162828026040364/spaceexplorationtechnologib.htm",
+      "sourceKind": "SEC",
+      "publishedAt": "2026-06-03T00:00:00.000Z"
+    },
+    {
+      "id": "claim_285f54964da3dd9a",
+      "type": "claim",
+      "title": "说明AI业务此前的收入、亏损、资本开支与商业化阶段。",
+      "role": "背景",
+      "addedAt": "2026-08-11T07:07:31.607Z"
+    },
+    {
+      "id": "source_c960cedba1d170fd",
+      "type": "source",
+      "title": "SpaceX",
+      "url": "https://ir.spacex.com/updates/releases-details/2026/SpaceX-to-Post-Second-Quarter-2026-Results-and-Host-Webcast-on-August-4-2026-2026-g8layJlbFm/default.aspx",
+      "sourceKind": "IR",
+      "publishedAt": "2026-07-20T00:00:00.000Z"
+    },
+    {
+      "id": "claim_53f4130e6a90582e",
+      "type": "claim",
+      "title": "确认公司预先安排季度业绩披露。",
+      "role": "背景",
+      "addedAt": "2026-08-11T07:07:31.607Z"
+    },
+    {
+      "id": "source_89373f0b455201ce",
+      "type": "source",
+      "title": "U.S. Securities and Exchange Commission",
+      "url": "https://www.sec.gov/Archives/edgar/data/1181412/000162828026052535/spcx-20260630.htm",
+      "sourceKind": "SEC",
+      "publishedAt": "2026-08-04T20:05:48.000Z"
+    },
+    {
+      "id": "claim_1fb68bc847f09a76",
+      "type": "claim",
+      "title": "SpaceX 10-Q披露，X平台广告收入计入AI分部，2026年第二季度为3.67亿美元，2025年同期为4.26亿美元。",
+      "role": "最新进展",
+      "addedAt": "2026-08-11T07:07:31.607Z"
+    },
+    {
+      "id": "source_eb7aa9d8c8db60fc",
+      "type": "source",
+      "title": "U.S. Securities and Exchange Commission",
+      "url": "https://www.sec.gov/Archives/edgar/data/1418091/000141809122000147/twtr-20220630.htm",
+      "sourceKind": "SEC",
+      "publishedAt": "2022-07-22T00:00:00.000Z"
+    },
+    {
+      "id": "claim_0699f8fc8fe43fe3",
+      "type": "claim",
+      "title": "Twitter 2022年第二季度10-Q披露广告服务收入为10.76003亿美元。",
+      "role": "背景",
+      "addedAt": "2026-08-11T07:07:31.607Z"
+    },
+    {
+      "id": "update_3779ab6ebc379026",
+      "type": "update",
+      "signalId": 70,
+      "title": "X广告收入同比降14%",
+      "summary": "SpaceX最新10-Q披露，X平台广告收入被列入AI分部，2026年第二季度为3.67亿美元，低于2025年同期的4.26亿美元；2022年Twitter同期广告收入为10.76003亿美元。",
+      "addedAt": "2026-08-04T20:05:48.000Z",
+      "changeType": "thesis_change",
+      "thesisImpact": "SpaceX的最新季度文件将X广告收入纳入AI分部，并显示该项收入同比下降，令“AI成核心引擎”的收入结构判断需要更细分地审视。",
+      "revisionRequired": true
+    },
+    {
+      "id": "event_980a9070554db0a8",
+      "type": "event",
+      "signalId": 56,
+      "title": "Alibaba将Qwen3.8-Max推入默认API",
+      "bucket": "dynamic",
+      "valueScore": 86,
+      "publishedAt": "2026-08-03T10:48:50.000Z",
+      "updatedAt": "2026-08-03T02:15:04.000Z"
+    },
+    {
+      "id": "article_86bc9f1ae0ab4562",
+      "type": "article",
+      "signalId": 56,
+      "title": "Alibaba将Qwen3.8-Max推入默认API",
+      "version": 1,
+      "publishedAt": "2026-08-11T07:07:31.607Z"
+    },
+    {
+      "id": "source_acd146cd4a70635b",
+      "type": "source",
+      "title": "The Decoder AI",
+      "url": "https://the-decoder.com/alibabas-open-weight-qwen3-8-max-takes-on-long-horizon-ai-tasks-with-2-4-trillion-parameters/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-03T10:48:50.000Z"
+    },
+    {
+      "id": "claim_f8062b420110ef41",
+      "type": "claim",
+      "title": "报道称Alibaba推出2.4万亿参数Qwen3.8-Max，主打长时程复杂任务，并计划于下周发布权重。",
+      "role": "主张",
+      "addedAt": "2026-08-11T07:07:31.607Z"
+    },
+    {
+      "id": "source_d2ba5796f334a416",
+      "type": "source",
+      "title": "Alibaba Cloud Model Studio",
+      "url": "https://help.aliyun.com/en/model-studio/deep-thinking",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-03T10:48:50.000Z"
+    },
+    {
+      "id": "claim_c16b7804da4fe542",
+      "type": "claim",
+      "title": "Alibaba Cloud当前文档将qwen3.8-max列为默认启用思考的hybrid-thinking模型，并将预览版列为Token Plan限定版本。",
+      "role": "佐证",
+      "addedAt": "2026-08-11T07:07:31.607Z"
+    },
+    {
+      "id": "source_347c5a79b7068ea6",
+      "type": "source",
+      "title": "Model Studio",
+      "url": "https://modelstudio.alibabacloud.com/intl/blog/model-studio-token-plan-individual/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-07-19T00:00:00.000Z"
+    },
+    {
+      "id": "claim_7d9ea83395087edb",
+      "type": "claim",
+      "title": "官方7月公告显示Qwen3.8-Max-Preview当时仅作为Token Plan独家预览推出。",
+      "role": "背景",
+      "addedAt": "2026-08-11T07:07:31.607Z"
+    },
+    {
+      "id": "source_f2b07ec3cee45b10",
+      "type": "source",
+      "title": "Alibaba Group",
+      "url": "https://alihome.alibaba-inc.com/en-US/document-1994119844504535040",
+      "sourceKind": "Official",
+      "publishedAt": "2026-05-20T00:00:00.000Z"
+    },
+    {
+      "id": "claim_e1bbcfc9cd4afc0e",
+      "type": "claim",
+      "title": "Alibaba此前称Qwen3.7-Max可在内部任务中连续运行35小时并完成逾1,000次工具调用。",
+      "role": "背景",
+      "addedAt": "2026-08-11T07:07:31.607Z"
+    },
+    {
+      "id": "source_26760cd0cc9a4e66",
+      "type": "source",
+      "title": "Artificial Analysis",
+      "url": "https://artificialanalysis.ai/articles/qwen3-max-thinking-everything-you-need-to-know",
+      "sourceKind": "Media",
+      "publishedAt": "2026-01-29T00:00:00.000Z"
+    },
+    {
+      "id": "claim_f8a4dcb3df11bf84",
+      "type": "claim",
+      "title": "Artificial Analysis历史评测显示，Qwen3-Max-Thinking的综合与代理指标低于部分同业模型。",
+      "role": "反例",
+      "addedAt": "2026-08-11T07:07:31.607Z"
+    },
+    {
+      "id": "source_4f7ba0173228deb1",
+      "type": "source",
+      "title": "The Verge",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/974342/alibaba-qwen-max-open-weight-ai",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-03T11:01:11.000Z"
+    },
+    {
+      "id": "claim_d83fa347b3f0bb13",
+      "type": "claim",
+      "title": "The Verge报道称Alibaba将Qwen3.8-Max描述为其最大、最强模型，并称其面向用户更广泛提供。",
+      "role": "最新进展",
+      "addedAt": "2026-08-11T07:07:31.607Z"
+    },
+    {
+      "id": "source_337b2df6bfd48380",
+      "type": "source",
+      "title": "Alibaba Cloud",
+      "url": "https://help.aliyun.com/en/model-studio/web-search",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-03T11:01:11.000Z"
+    },
+    {
+      "id": "claim_cb193c5b0483fe06",
+      "type": "claim",
+      "title": "Alibaba Cloud模型表将qwen3.8-max标为预览版，并限制在中国（北京）区域、Responses API和Token Plan。",
+      "role": "佐证",
+      "addedAt": "2026-08-11T07:07:31.607Z"
+    },
+    {
+      "id": "source_070e6bcf0362bd8a",
+      "type": "source",
+      "title": "Alibaba Cloud",
+      "url": "https://www.alibabacloud.com/help/ja/model-studio/token-plan-team-overview",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-03T11:01:11.000Z"
+    },
+    {
+      "id": "claim_b60aed3d31fad374",
+      "type": "claim",
+      "title": "Alibaba Cloud说明该预览模型能力仍可能迭代，预览结束后可能下线或由生产版本替代，并列出推理、视觉理解和文本生成能力。",
+      "role": "佐证",
+      "addedAt": "2026-08-11T07:07:31.607Z"
+    },
+    {
+      "id": "source_44342b1dd849bb35",
+      "type": "source",
+      "title": "Alibaba Cloud",
+      "url": "https://www.alibabacloud.com/en/press-room/alibaba-cloud-unveil-advanced-agentic-ai-ecosystem",
+      "sourceKind": "Official",
+      "publishedAt": "2026-05-26T00:00:00.000Z"
+    },
+    {
+      "id": "claim_dd24528583180870",
+      "type": "claim",
+      "title": "Alibaba Cloud此前已将Qwen3.7-Max部署在新加坡Model Studio，构成上一代旗舰的全球公开部署基准。",
+      "role": "背景",
+      "addedAt": "2026-08-11T07:07:31.607Z"
+    },
+    {
+      "id": "source_1a56e1d980860bf3",
+      "type": "source",
+      "title": "QDNA",
+      "url": "https://qdna.fr/en/blog/qwen3-8-max-preview",
+      "sourceKind": "Media",
+      "publishedAt": "2026-07-21T00:00:00.000Z"
+    },
+    {
+      "id": "claim_b64dc4bb614928ae",
+      "type": "claim",
+      "title": "独立分析指出Qwen3.8-Max-Preview缺少技术报告、模型卡、许可证和独立基准，且不能本地部署。",
+      "role": "反例",
+      "addedAt": "2026-08-11T07:07:31.607Z"
+    },
+    {
+      "id": "source_1d6fe37cfdc9c9c8",
+      "type": "source",
+      "title": "Qwen",
+      "url": "https://x.com/Alibaba_Qwen/status/2084100707423289643",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-03T02:15:04.000Z"
+    },
+    {
+      "id": "claim_23e98074a977135e",
+      "type": "claim",
+      "title": "Qwen官方宣布计划于下一周发布Qwen3.8-Max开放权重，并确认Qwen3.8-27B也将开放权重。",
+      "role": "最新进展",
+      "addedAt": "2026-08-11T07:07:31.607Z"
+    },
+    {
+      "id": "update_91767b344258eaf7",
+      "type": "update",
+      "signalId": 56,
+      "title": "Qwen预告开放两款3.8权重",
+      "summary": "Qwen官方表示，Qwen3.8-Max的开放权重将在下一周发布，并称Qwen3.8-27B也将以开放权重形式推出。",
+      "addedAt": "2026-08-03T02:15:04.000Z",
+      "changeType": "progress",
+      "thesisImpact": "官方预告将Qwen3.8-Max和Qwen3.8-27B以开放权重形式推出，推进了Qwen3.8从受限计划走向更广泛部署的可能性，但尚非已完成上线。",
+      "revisionRequired": false
+    },
+    {
+      "id": "update_a4729ee927c39100",
+      "type": "update",
+      "signalId": 56,
+      "title": "Qwen3.8-Max仍受限于预览计划",
+      "summary": "The Verge称Alibaba推出其最大模型Qwen3.8-Max；但Alibaba Cloud当前文档显示，该模型仍为仅限中国（北京）、Responses API及Token Plan的预览版本。",
+      "addedAt": "2026-08-03T11:01:11.000Z",
+      "changeType": "thesis_change",
+      "thesisImpact": "新材料显示Qwen3.8-Max目前仍是受区域、接口和订阅计划限制的预览模型；“广泛可用”与可直接对标美国前沿模型的判断需要收窄。",
+      "revisionRequired": true
+    },
     {
       "id": "event_ded79f4f58feab3e",
       "type": "event",
@@ -5480,99 +5829,6 @@
       "addedAt": "2026-08-05T08:07:03.696Z"
     },
     {
-      "id": "event_0d44a0f6406a45f3",
-      "type": "event",
-      "signalId": 70,
-      "title": "SpaceX季度收入跃升，AI成核心引擎",
-      "bucket": "dynamic",
-      "valueScore": 88,
-      "publishedAt": "2026-08-04T20:47:55.000Z",
-      "updatedAt": "2026-08-04T20:47:55.000Z"
-    },
-    {
-      "id": "article_15922c8085370f16",
-      "type": "article",
-      "signalId": 70,
-      "title": "SpaceX季度收入跃升，AI成核心引擎",
-      "version": 1,
-      "publishedAt": "2026-08-05T05:17:52.892Z"
-    },
-    {
-      "id": "source_30d8d6544d2f9c31",
-      "type": "source",
-      "title": "The Verge",
-      "url": "https://www.theverge.com/science/975335/spacex-made-more-money-as-a-neocloud",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-04T20:47:55.000Z"
-    },
-    {
-      "id": "claim_34d7bec278b553f8",
-      "type": "claim",
-      "title": "报道公司AI收入增长并成为重要收入来源。",
-      "role": "主张",
-      "addedAt": "2026-08-05T05:17:52.892Z"
-    },
-    {
-      "id": "source_6baa41278d33fd28",
-      "type": "source",
-      "title": "U.S. Securities and Exchange Commission",
-      "url": "https://d18rn0p25nwr6d.cloudfront.net/CIK-0001181412/cfe10442-59c3-460b-8a4f-75fa96c69af9.pdf",
-      "sourceKind": "SEC",
-      "publishedAt": "2026-08-04T00:00:00.000Z"
-    },
-    {
-      "id": "claim_7ce317c944217cca",
-      "type": "claim",
-      "title": "确认公司提交季度业绩新闻稿附件。",
-      "role": "佐证",
-      "addedAt": "2026-08-05T05:17:52.892Z"
-    },
-    {
-      "id": "source_6dd1476b5a5645d8",
-      "type": "source",
-      "title": "Axios",
-      "url": "https://www.axios.com/2026/08/04/spacex-earnings-elon-musk",
-      "sourceKind": "Media",
-      "publishedAt": "2026-08-04T00:00:00.000Z"
-    },
-    {
-      "id": "claim_9286b6e776da2a12",
-      "type": "claim",
-      "title": "补齐季度收入结构、市场预期与管理层收入目标。",
-      "role": "佐证",
-      "addedAt": "2026-08-05T05:17:52.892Z"
-    },
-    {
-      "id": "source_61adb09028ccba57",
-      "type": "source",
-      "title": "U.S. Securities and Exchange Commission",
-      "url": "https://www.sec.gov/Archives/edgar/data/1181412/000162828026040364/spaceexplorationtechnologib.htm",
-      "sourceKind": "SEC",
-      "publishedAt": "2026-06-03T00:00:00.000Z"
-    },
-    {
-      "id": "claim_285f54964da3dd9a",
-      "type": "claim",
-      "title": "说明AI业务此前的收入、亏损、资本开支与商业化阶段。",
-      "role": "背景",
-      "addedAt": "2026-08-05T05:17:52.892Z"
-    },
-    {
-      "id": "source_c960cedba1d170fd",
-      "type": "source",
-      "title": "SpaceX",
-      "url": "https://ir.spacex.com/updates/releases-details/2026/SpaceX-to-Post-Second-Quarter-2026-Results-and-Host-Webcast-on-August-4-2026-2026-g8layJlbFm/default.aspx",
-      "sourceKind": "IR",
-      "publishedAt": "2026-07-20T00:00:00.000Z"
-    },
-    {
-      "id": "claim_53f4130e6a90582e",
-      "type": "claim",
-      "title": "确认公司预先安排季度业绩披露。",
-      "role": "背景",
-      "addedAt": "2026-08-05T05:17:52.892Z"
-    },
-    {
       "id": "event_f883ccf761128554",
       "type": "event",
       "signalId": 71,
@@ -6360,6 +6616,32 @@
       "title": "量化仓库列出多种可下载构建，并给出8-bit与4-bit版本的下载大小、常驻内存和PSNR权衡。",
       "role": "佐证",
       "addedAt": "2026-08-04T21:06:25.104Z"
+    },
+    {
+      "id": "source_f0fa1fe670d03028",
+      "type": "source",
+      "title": "antirez",
+      "url": "https://github.com/antirez/h3.c",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-11T01:22:09.000Z"
+    },
+    {
+      "id": "claim_d0ec423973e2c9dd",
+      "type": "claim",
+      "title": "h3-metal README将项目描述为Apple Silicon上的原生MiniMax-H3推理引擎，列出Metal优化及视频、音频和参考条件生成能力。",
+      "role": "佐证",
+      "addedAt": "2026-08-04T21:06:25.104Z"
+    },
+    {
+      "id": "update_91f5a5c7791a3c66",
+      "type": "update",
+      "signalId": 61,
+      "title": "H3新增Apple Silicon推理实现",
+      "summary": "h3-metal项目发布MiniMax-H3的Mac原生推理实现，列出Metal优化，并支持提示词到视频、音频及参考条件生成。",
+      "addedAt": "2026-08-11T01:22:09.000Z",
+      "changeType": "corroboration",
+      "thesisImpact": "新增原生Apple Silicon推理实现，为MiniMax H3的本地部署路径补充了具体工程证据，但未改变其开放权重已上线的原有判断。",
+      "revisionRequired": false
     },
     {
       "id": "update_7154b267e9a6f22a",
@@ -7316,185 +7598,6 @@
       "title": "第一季度10-Q提供了公司收入、客户及业务分部披露的法定口径基线。",
       "role": "背景",
       "addedAt": "2026-08-04T00:01:26.000Z"
-    },
-    {
-      "id": "event_980a9070554db0a8",
-      "type": "event",
-      "signalId": 56,
-      "title": "Alibaba将Qwen3.8-Max推入默认API",
-      "bucket": "dynamic",
-      "valueScore": 86,
-      "publishedAt": "2026-08-03T10:48:50.000Z",
-      "updatedAt": "2026-08-03T11:01:11.000Z"
-    },
-    {
-      "id": "article_86bc9f1ae0ab4562",
-      "type": "article",
-      "signalId": 56,
-      "title": "Alibaba将Qwen3.8-Max推入默认API",
-      "version": 1,
-      "publishedAt": "2026-08-03T18:07:02.829Z"
-    },
-    {
-      "id": "source_acd146cd4a70635b",
-      "type": "source",
-      "title": "The Decoder AI",
-      "url": "https://the-decoder.com/alibabas-open-weight-qwen3-8-max-takes-on-long-horizon-ai-tasks-with-2-4-trillion-parameters/",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-03T10:48:50.000Z"
-    },
-    {
-      "id": "claim_f8062b420110ef41",
-      "type": "claim",
-      "title": "报道称Alibaba推出2.4万亿参数Qwen3.8-Max，主打长时程复杂任务，并计划于下周发布权重。",
-      "role": "主张",
-      "addedAt": "2026-08-03T18:07:02.829Z"
-    },
-    {
-      "id": "source_d2ba5796f334a416",
-      "type": "source",
-      "title": "Alibaba Cloud Model Studio",
-      "url": "https://help.aliyun.com/en/model-studio/deep-thinking",
-      "sourceKind": "Official",
-      "publishedAt": "2026-08-03T10:48:50.000Z"
-    },
-    {
-      "id": "claim_c16b7804da4fe542",
-      "type": "claim",
-      "title": "Alibaba Cloud当前文档将qwen3.8-max列为默认启用思考的hybrid-thinking模型，并将预览版列为Token Plan限定版本。",
-      "role": "佐证",
-      "addedAt": "2026-08-03T18:07:02.829Z"
-    },
-    {
-      "id": "source_347c5a79b7068ea6",
-      "type": "source",
-      "title": "Model Studio",
-      "url": "https://modelstudio.alibabacloud.com/intl/blog/model-studio-token-plan-individual/",
-      "sourceKind": "Official",
-      "publishedAt": "2026-07-19T00:00:00.000Z"
-    },
-    {
-      "id": "claim_7d9ea83395087edb",
-      "type": "claim",
-      "title": "官方7月公告显示Qwen3.8-Max-Preview当时仅作为Token Plan独家预览推出。",
-      "role": "背景",
-      "addedAt": "2026-08-03T18:07:02.829Z"
-    },
-    {
-      "id": "source_f2b07ec3cee45b10",
-      "type": "source",
-      "title": "Alibaba Group",
-      "url": "https://alihome.alibaba-inc.com/en-US/document-1994119844504535040",
-      "sourceKind": "Official",
-      "publishedAt": "2026-05-20T00:00:00.000Z"
-    },
-    {
-      "id": "claim_e1bbcfc9cd4afc0e",
-      "type": "claim",
-      "title": "Alibaba此前称Qwen3.7-Max可在内部任务中连续运行35小时并完成逾1,000次工具调用。",
-      "role": "背景",
-      "addedAt": "2026-08-03T18:07:02.829Z"
-    },
-    {
-      "id": "source_26760cd0cc9a4e66",
-      "type": "source",
-      "title": "Artificial Analysis",
-      "url": "https://artificialanalysis.ai/articles/qwen3-max-thinking-everything-you-need-to-know",
-      "sourceKind": "Media",
-      "publishedAt": "2026-01-29T00:00:00.000Z"
-    },
-    {
-      "id": "claim_f8a4dcb3df11bf84",
-      "type": "claim",
-      "title": "Artificial Analysis历史评测显示，Qwen3-Max-Thinking的综合与代理指标低于部分同业模型。",
-      "role": "反例",
-      "addedAt": "2026-08-03T18:07:02.829Z"
-    },
-    {
-      "id": "source_4f7ba0173228deb1",
-      "type": "source",
-      "title": "The Verge",
-      "url": "https://www.theverge.com/ai-artificial-intelligence/974342/alibaba-qwen-max-open-weight-ai",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-03T11:01:11.000Z"
-    },
-    {
-      "id": "claim_d83fa347b3f0bb13",
-      "type": "claim",
-      "title": "The Verge报道称Alibaba将Qwen3.8-Max描述为其最大、最强模型，并称其面向用户更广泛提供。",
-      "role": "最新进展",
-      "addedAt": "2026-08-03T18:07:02.829Z"
-    },
-    {
-      "id": "source_337b2df6bfd48380",
-      "type": "source",
-      "title": "Alibaba Cloud",
-      "url": "https://help.aliyun.com/en/model-studio/web-search",
-      "sourceKind": "Official",
-      "publishedAt": "2026-08-03T11:01:11.000Z"
-    },
-    {
-      "id": "claim_cb193c5b0483fe06",
-      "type": "claim",
-      "title": "Alibaba Cloud模型表将qwen3.8-max标为预览版，并限制在中国（北京）区域、Responses API和Token Plan。",
-      "role": "佐证",
-      "addedAt": "2026-08-03T18:07:02.829Z"
-    },
-    {
-      "id": "source_070e6bcf0362bd8a",
-      "type": "source",
-      "title": "Alibaba Cloud",
-      "url": "https://www.alibabacloud.com/help/ja/model-studio/token-plan-team-overview",
-      "sourceKind": "Official",
-      "publishedAt": "2026-08-03T11:01:11.000Z"
-    },
-    {
-      "id": "claim_b60aed3d31fad374",
-      "type": "claim",
-      "title": "Alibaba Cloud说明该预览模型能力仍可能迭代，预览结束后可能下线或由生产版本替代，并列出推理、视觉理解和文本生成能力。",
-      "role": "佐证",
-      "addedAt": "2026-08-03T18:07:02.829Z"
-    },
-    {
-      "id": "source_44342b1dd849bb35",
-      "type": "source",
-      "title": "Alibaba Cloud",
-      "url": "https://www.alibabacloud.com/en/press-room/alibaba-cloud-unveil-advanced-agentic-ai-ecosystem",
-      "sourceKind": "Official",
-      "publishedAt": "2026-05-26T00:00:00.000Z"
-    },
-    {
-      "id": "claim_dd24528583180870",
-      "type": "claim",
-      "title": "Alibaba Cloud此前已将Qwen3.7-Max部署在新加坡Model Studio，构成上一代旗舰的全球公开部署基准。",
-      "role": "背景",
-      "addedAt": "2026-08-03T18:07:02.829Z"
-    },
-    {
-      "id": "source_1a56e1d980860bf3",
-      "type": "source",
-      "title": "QDNA",
-      "url": "https://qdna.fr/en/blog/qwen3-8-max-preview",
-      "sourceKind": "Media",
-      "publishedAt": "2026-07-21T00:00:00.000Z"
-    },
-    {
-      "id": "claim_b64dc4bb614928ae",
-      "type": "claim",
-      "title": "独立分析指出Qwen3.8-Max-Preview缺少技术报告、模型卡、许可证和独立基准，且不能本地部署。",
-      "role": "反例",
-      "addedAt": "2026-08-03T18:07:02.829Z"
-    },
-    {
-      "id": "update_a4729ee927c39100",
-      "type": "update",
-      "signalId": 56,
-      "title": "Qwen3.8-Max仍受限于预览计划",
-      "summary": "The Verge称Alibaba推出其最大模型Qwen3.8-Max；但Alibaba Cloud当前文档显示，该模型仍为仅限中国（北京）、Responses API及Token Plan的预览版本。",
-      "addedAt": "2026-08-03T11:01:11.000Z",
-      "changeType": "thesis_change",
-      "thesisImpact": "新材料显示Qwen3.8-Max目前仍是受区域、接口和订阅计划限制的预览模型；“广泛可用”与可直接对标美国前沿模型的判断需要收窄。",
-      "revisionRequired": true
     },
     {
       "id": "event_a463b4d81e8180b6",
@@ -11225,6 +11328,130 @@
       "addedAt": "2026-07-29T13:02:22.855Z"
     },
     {
+      "id": "event_081451bf5cb1b361",
+      "type": "event",
+      "conversationId": "conversation-20260811070731-1",
+      "title": "中国式 FDE：把企业 AI 做成可复制的流程工程",
+      "bucket": "conversation",
+      "publishedAt": "2026-08-11T01:45:00.000Z"
+    },
+    {
+      "id": "article_48d2fc6bdbc7d41d",
+      "type": "article",
+      "conversationId": "conversation-20260811070731-1",
+      "title": "中国式 FDE：把企业 AI 做成可复制的流程工程",
+      "version": 1,
+      "publishedAt": "2026-08-11T07:07:31.607Z"
+    },
+    {
+      "id": "source_a971ed2f37ed9252",
+      "type": "source",
+      "title": "硅谷101播客",
+      "url": "https://sv101.fireside.fm/261",
+      "sourceKind": "YouTube",
+      "publishedAt": "2026-08-11T01:45:00.000Z"
+    },
+    {
+      "id": "claim_09c7548c698811f3",
+      "type": "claim",
+      "title": "朋新宇认为，企业 AI 的关键不在于为每个客户长期定制或追逐最强模型，而在于选择高成本流程、接入私有数据，并以标准化部署把业务知识转化为可运营的 Agent。",
+      "role": "对谈",
+      "addedAt": "2026-08-11T07:07:31.607Z"
+    },
+    {
+      "id": "event_998f0c96e8ed5aab",
+      "type": "event",
+      "conversationId": "conversation-20260811070731-2",
+      "title": "不要因 AI 实验室而缩小创业野心",
+      "bucket": "conversation",
+      "publishedAt": "2026-08-06T10:00:00.000Z"
+    },
+    {
+      "id": "article_a7f9bc0c20b0164a",
+      "type": "article",
+      "conversationId": "conversation-20260811070731-2",
+      "title": "不要因 AI 实验室而缩小创业野心",
+      "version": 1,
+      "publishedAt": "2026-08-11T07:07:31.607Z"
+    },
+    {
+      "id": "source_ab71fcfed1fa1e81",
+      "type": "source",
+      "title": "No Priors",
+      "url": "https://feeds.megaphone.fm/17b96322-915c-11f1-aad7-53d361bc6996",
+      "sourceKind": "YouTube",
+      "publishedAt": "2026-08-06T10:00:00.000Z"
+    },
+    {
+      "id": "claim_e06591ca520c7adf",
+      "type": "claim",
+      "title": "Sarah 和 Elad 讨论的核心是：面对大型 AI 实验室、算力瓶颈和监管压力，创始人仍应从足够大的市场与结果定价出发，而不是预先把公司的上限让给平台公司。",
+      "role": "对谈",
+      "addedAt": "2026-08-11T07:07:31.607Z"
+    },
+    {
+      "id": "event_43130c4a9ed95e74",
+      "type": "event",
+      "conversationId": "conversation-20260811070731-3",
+      "title": "AI 繁荣的投资纪律：回报优先于规模",
+      "bucket": "conversation",
+      "publishedAt": "2026-08-08T12:56:00.000Z"
+    },
+    {
+      "id": "article_c1b391c99a207766",
+      "type": "article",
+      "conversationId": "conversation-20260811070731-3",
+      "title": "AI 繁荣的投资纪律：回报优先于规模",
+      "version": 1,
+      "publishedAt": "2026-08-11T07:07:31.607Z"
+    },
+    {
+      "id": "source_9acaf184c453b796",
+      "type": "source",
+      "title": "The Twenty Minute VC (20VC)",
+      "url": "https://thetwentyminutevc.libsyn.com/20vc-the-ai-boom-will-create-enormous-roadkill-who-wins-loses-why-founders-should-never-take-multi-stage-money-at-seed-why-triple-triple-double-double-is-good-enough",
+      "sourceKind": "YouTube",
+      "publishedAt": "2026-08-08T12:56:00.000Z"
+    },
+    {
+      "id": "claim_88b41ee3c6ba17b2",
+      "type": "claim",
+      "title": "Founder Collective 联合创始人 David Frankel 认为，AI 热潮会制造大量失败者；在更高估值、更活跃的二级市场和基金规模膨胀之下，投资人应优先守住回报纪律，而非把管理费、跟投权或多阶段资本当作默认优势。",
+      "role": "对谈",
+      "addedAt": "2026-08-11T07:07:31.607Z"
+    },
+    {
+      "id": "event_84627b680a4b5343",
+      "type": "event",
+      "conversationId": "conversation-20260811070731-4",
+      "title": "Bose 的重组实验：从硬件品牌走向技术授权",
+      "bucket": "conversation",
+      "publishedAt": "2026-08-10T09:00:00.000Z"
+    },
+    {
+      "id": "article_5d63744a305d618c",
+      "type": "article",
+      "conversationId": "conversation-20260811070731-4",
+      "title": "Bose 的重组实验：从硬件品牌走向技术授权",
+      "version": 1,
+      "publishedAt": "2026-08-11T07:07:31.607Z"
+    },
+    {
+      "id": "source_43ae3cc6e4f4b3c3",
+      "type": "source",
+      "title": "Decoder",
+      "url": "https://feeds.megaphone.fm/edda8e70-cfc6-11f0-83c5-6fba670f9cd7",
+      "sourceKind": "YouTube",
+      "publishedAt": "2026-08-10T09:00:00.000Z"
+    },
+    {
+      "id": "claim_692e5f31f2358cc4",
+      "type": "claim",
+      "title": "Lila Snyder 在 Decoder 中讨论 Bose 的重组路径：出售 Bose Professional、收购 McIntosh Labs 和 Sonus faber，并授权核心技术。中心问题是，一家以产品闻名的音频公司能否在保留硬件体验控制力的同时，建立软件与授权业务。",
+      "role": "对谈",
+      "addedAt": "2026-08-11T07:07:31.607Z"
+    },
+    {
       "id": "event_b588ce27c75582df",
       "type": "event",
       "conversationId": "conversation-20260811050728-1",
@@ -12256,6 +12483,326 @@
     }
   ],
   "edges": [
+    {
+      "id": "edge_f99f3f790155c181",
+      "from": "event_0d44a0f6406a45f3",
+      "to": "article_15922c8085370f16",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_f0f6dfdb1e7730b9",
+      "from": "source_30d8d6544d2f9c31",
+      "to": "claim_34d7bec278b553f8",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_f1ed36ec4088f33f",
+      "from": "claim_34d7bec278b553f8",
+      "to": "event_0d44a0f6406a45f3",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_a34df940dae9a881",
+      "from": "source_6baa41278d33fd28",
+      "to": "claim_7ce317c944217cca",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_30d8b601d52723dd",
+      "from": "claim_7ce317c944217cca",
+      "to": "event_0d44a0f6406a45f3",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_5990163840972803",
+      "from": "source_6dd1476b5a5645d8",
+      "to": "claim_9286b6e776da2a12",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_3e59884240719b52",
+      "from": "claim_9286b6e776da2a12",
+      "to": "event_0d44a0f6406a45f3",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_807b12f9e28b290b",
+      "from": "source_61adb09028ccba57",
+      "to": "claim_285f54964da3dd9a",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_cb631cd7d36fbddc",
+      "from": "claim_285f54964da3dd9a",
+      "to": "event_0d44a0f6406a45f3",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_137420c8c87b1062",
+      "from": "source_c960cedba1d170fd",
+      "to": "claim_53f4130e6a90582e",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_a510a6c35e902865",
+      "from": "claim_53f4130e6a90582e",
+      "to": "event_0d44a0f6406a45f3",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_95a77a5469c9298b",
+      "from": "source_89373f0b455201ce",
+      "to": "claim_1fb68bc847f09a76",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_08b25274297eac53",
+      "from": "claim_1fb68bc847f09a76",
+      "to": "event_0d44a0f6406a45f3",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_2cdbfb31f9a8c457",
+      "from": "source_eb7aa9d8c8db60fc",
+      "to": "claim_0699f8fc8fe43fe3",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_5e79c36d9cbfb873",
+      "from": "claim_0699f8fc8fe43fe3",
+      "to": "event_0d44a0f6406a45f3",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_e64618cab2162d9c",
+      "from": "update_3779ab6ebc379026",
+      "to": "event_0d44a0f6406a45f3",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_5e16e38a879987a6",
+      "from": "claim_1fb68bc847f09a76",
+      "to": "event_0d44a0f6406a45f3",
+      "relation": "update_evidence_for",
+      "updateTitle": "X广告收入同比降14%"
+    },
+    {
+      "id": "edge_66f7c4231642498e",
+      "from": "claim_0699f8fc8fe43fe3",
+      "to": "event_0d44a0f6406a45f3",
+      "relation": "update_evidence_for",
+      "updateTitle": "X广告收入同比降14%"
+    },
+    {
+      "id": "edge_1d534f04615d8565",
+      "from": "event_980a9070554db0a8",
+      "to": "article_86bc9f1ae0ab4562",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_dc1b013ac21acdb6",
+      "from": "source_acd146cd4a70635b",
+      "to": "claim_f8062b420110ef41",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_e7ab6c7ddbf1c775",
+      "from": "claim_f8062b420110ef41",
+      "to": "event_980a9070554db0a8",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_b01cc6ab0a6156ed",
+      "from": "source_d2ba5796f334a416",
+      "to": "claim_c16b7804da4fe542",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_06741ab835e9cab1",
+      "from": "claim_c16b7804da4fe542",
+      "to": "event_980a9070554db0a8",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_61ceb03fc3378377",
+      "from": "source_347c5a79b7068ea6",
+      "to": "claim_7d9ea83395087edb",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_be3e0b35f7ce4b30",
+      "from": "claim_7d9ea83395087edb",
+      "to": "event_980a9070554db0a8",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_7e1629aafb7e4806",
+      "from": "source_f2b07ec3cee45b10",
+      "to": "claim_e1bbcfc9cd4afc0e",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_db61c31cd7855efd",
+      "from": "claim_e1bbcfc9cd4afc0e",
+      "to": "event_980a9070554db0a8",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_348aaf3d4105cab8",
+      "from": "source_26760cd0cc9a4e66",
+      "to": "claim_f8a4dcb3df11bf84",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_ab894ee6c9c4a15d",
+      "from": "claim_f8a4dcb3df11bf84",
+      "to": "event_980a9070554db0a8",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_b3bec241819559c5",
+      "from": "source_4f7ba0173228deb1",
+      "to": "claim_d83fa347b3f0bb13",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_ae655bac891c72a7",
+      "from": "claim_d83fa347b3f0bb13",
+      "to": "event_980a9070554db0a8",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_97adc58cdd2e3e3b",
+      "from": "source_337b2df6bfd48380",
+      "to": "claim_cb193c5b0483fe06",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_896e166f92c9908a",
+      "from": "claim_cb193c5b0483fe06",
+      "to": "event_980a9070554db0a8",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_384ed3762c358a22",
+      "from": "source_070e6bcf0362bd8a",
+      "to": "claim_b60aed3d31fad374",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_b3deaf068b7ada14",
+      "from": "claim_b60aed3d31fad374",
+      "to": "event_980a9070554db0a8",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_a576b48929892984",
+      "from": "source_44342b1dd849bb35",
+      "to": "claim_dd24528583180870",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_d00e992a7aa51046",
+      "from": "claim_dd24528583180870",
+      "to": "event_980a9070554db0a8",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_8012960cc171143f",
+      "from": "source_1a56e1d980860bf3",
+      "to": "claim_b64dc4bb614928ae",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_0415d6736744cdfe",
+      "from": "claim_b64dc4bb614928ae",
+      "to": "event_980a9070554db0a8",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_8fb32ac700044c3b",
+      "from": "source_1d6fe37cfdc9c9c8",
+      "to": "claim_23e98074a977135e",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_14ab8edf9015db17",
+      "from": "claim_23e98074a977135e",
+      "to": "event_980a9070554db0a8",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_cd1125e2e1aec55a",
+      "from": "update_91767b344258eaf7",
+      "to": "event_980a9070554db0a8",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_eb385429f0536c1f",
+      "from": "claim_23e98074a977135e",
+      "to": "event_980a9070554db0a8",
+      "relation": "update_evidence_for",
+      "updateTitle": "Qwen预告开放两款3.8权重"
+    },
+    {
+      "id": "edge_c13e4022e1024634",
+      "from": "update_a4729ee927c39100",
+      "to": "event_980a9070554db0a8",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_f77192ce7adddfcc",
+      "from": "claim_d83fa347b3f0bb13",
+      "to": "event_980a9070554db0a8",
+      "relation": "update_evidence_for",
+      "updateTitle": "Qwen3.8-Max仍受限于预览计划"
+    },
+    {
+      "id": "edge_12a0b25924a9f1ae",
+      "from": "claim_cb193c5b0483fe06",
+      "to": "event_980a9070554db0a8",
+      "relation": "update_evidence_for",
+      "updateTitle": "Qwen3.8-Max仍受限于预览计划"
+    },
+    {
+      "id": "edge_5ddf0292b3635d00",
+      "from": "claim_b60aed3d31fad374",
+      "to": "event_980a9070554db0a8",
+      "relation": "update_evidence_for",
+      "updateTitle": "Qwen3.8-Max仍受限于预览计划"
+    },
+    {
+      "id": "edge_ddcf21b313d09d3b",
+      "from": "claim_dd24528583180870",
+      "to": "event_980a9070554db0a8",
+      "relation": "update_evidence_for",
+      "updateTitle": "Qwen3.8-Max仍受限于预览计划"
+    },
+    {
+      "id": "edge_b775c70ac020ac69",
+      "from": "claim_b64dc4bb614928ae",
+      "to": "event_980a9070554db0a8",
+      "relation": "update_evidence_for",
+      "updateTitle": "Qwen3.8-Max仍受限于预览计划"
+    },
     {
       "id": "edge_0d53b26b270e0716",
       "from": "event_ded79f4f58feab3e",
@@ -17814,77 +18361,6 @@
       "updateTitle": null
     },
     {
-      "id": "edge_f99f3f790155c181",
-      "from": "event_0d44a0f6406a45f3",
-      "to": "article_15922c8085370f16",
-      "relation": "rendered_as"
-    },
-    {
-      "id": "edge_f0f6dfdb1e7730b9",
-      "from": "source_30d8d6544d2f9c31",
-      "to": "claim_34d7bec278b553f8",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_f1ed36ec4088f33f",
-      "from": "claim_34d7bec278b553f8",
-      "to": "event_0d44a0f6406a45f3",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_a34df940dae9a881",
-      "from": "source_6baa41278d33fd28",
-      "to": "claim_7ce317c944217cca",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_30d8b601d52723dd",
-      "from": "claim_7ce317c944217cca",
-      "to": "event_0d44a0f6406a45f3",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_5990163840972803",
-      "from": "source_6dd1476b5a5645d8",
-      "to": "claim_9286b6e776da2a12",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_3e59884240719b52",
-      "from": "claim_9286b6e776da2a12",
-      "to": "event_0d44a0f6406a45f3",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_807b12f9e28b290b",
-      "from": "source_61adb09028ccba57",
-      "to": "claim_285f54964da3dd9a",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_cb631cd7d36fbddc",
-      "from": "claim_285f54964da3dd9a",
-      "to": "event_0d44a0f6406a45f3",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_137420c8c87b1062",
-      "from": "source_c960cedba1d170fd",
-      "to": "claim_53f4130e6a90582e",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_a510a6c35e902865",
-      "from": "claim_53f4130e6a90582e",
-      "to": "event_0d44a0f6406a45f3",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
       "id": "edge_542553e7cca0976b",
       "from": "event_f883ccf761128554",
       "to": "article_42dd3b383f90935a",
@@ -18621,6 +19097,32 @@
       "to": "event_bfceaa797526c36b",
       "relation": "evidence_for",
       "updateTitle": null
+    },
+    {
+      "id": "edge_46acca779eca904a",
+      "from": "source_f0fa1fe670d03028",
+      "to": "claim_d0ec423973e2c9dd",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_bc51aef384312fb2",
+      "from": "claim_d0ec423973e2c9dd",
+      "to": "event_bfceaa797526c36b",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_e80467ae9caf7681",
+      "from": "update_91f5a5c7791a3c66",
+      "to": "event_bfceaa797526c36b",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_5deee22c4cc84617",
+      "from": "claim_d0ec423973e2c9dd",
+      "to": "event_bfceaa797526c36b",
+      "relation": "update_evidence_for",
+      "updateTitle": "H3新增Apple Silicon推理实现"
     },
     {
       "id": "edge_3e540e3dd1703939",
@@ -19499,183 +20001,6 @@
       "to": "event_10d5fbaa20c08c68",
       "relation": "update_evidence_for",
       "updateTitle": "Palantir上调全年增长目标"
-    },
-    {
-      "id": "edge_1d534f04615d8565",
-      "from": "event_980a9070554db0a8",
-      "to": "article_86bc9f1ae0ab4562",
-      "relation": "rendered_as"
-    },
-    {
-      "id": "edge_dc1b013ac21acdb6",
-      "from": "source_acd146cd4a70635b",
-      "to": "claim_f8062b420110ef41",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_e7ab6c7ddbf1c775",
-      "from": "claim_f8062b420110ef41",
-      "to": "event_980a9070554db0a8",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_b01cc6ab0a6156ed",
-      "from": "source_d2ba5796f334a416",
-      "to": "claim_c16b7804da4fe542",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_06741ab835e9cab1",
-      "from": "claim_c16b7804da4fe542",
-      "to": "event_980a9070554db0a8",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_61ceb03fc3378377",
-      "from": "source_347c5a79b7068ea6",
-      "to": "claim_7d9ea83395087edb",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_be3e0b35f7ce4b30",
-      "from": "claim_7d9ea83395087edb",
-      "to": "event_980a9070554db0a8",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_7e1629aafb7e4806",
-      "from": "source_f2b07ec3cee45b10",
-      "to": "claim_e1bbcfc9cd4afc0e",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_db61c31cd7855efd",
-      "from": "claim_e1bbcfc9cd4afc0e",
-      "to": "event_980a9070554db0a8",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_348aaf3d4105cab8",
-      "from": "source_26760cd0cc9a4e66",
-      "to": "claim_f8a4dcb3df11bf84",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_ab894ee6c9c4a15d",
-      "from": "claim_f8a4dcb3df11bf84",
-      "to": "event_980a9070554db0a8",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_b3bec241819559c5",
-      "from": "source_4f7ba0173228deb1",
-      "to": "claim_d83fa347b3f0bb13",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_ae655bac891c72a7",
-      "from": "claim_d83fa347b3f0bb13",
-      "to": "event_980a9070554db0a8",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_97adc58cdd2e3e3b",
-      "from": "source_337b2df6bfd48380",
-      "to": "claim_cb193c5b0483fe06",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_896e166f92c9908a",
-      "from": "claim_cb193c5b0483fe06",
-      "to": "event_980a9070554db0a8",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_384ed3762c358a22",
-      "from": "source_070e6bcf0362bd8a",
-      "to": "claim_b60aed3d31fad374",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_b3deaf068b7ada14",
-      "from": "claim_b60aed3d31fad374",
-      "to": "event_980a9070554db0a8",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_a576b48929892984",
-      "from": "source_44342b1dd849bb35",
-      "to": "claim_dd24528583180870",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_d00e992a7aa51046",
-      "from": "claim_dd24528583180870",
-      "to": "event_980a9070554db0a8",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_8012960cc171143f",
-      "from": "source_1a56e1d980860bf3",
-      "to": "claim_b64dc4bb614928ae",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_0415d6736744cdfe",
-      "from": "claim_b64dc4bb614928ae",
-      "to": "event_980a9070554db0a8",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_c13e4022e1024634",
-      "from": "update_a4729ee927c39100",
-      "to": "event_980a9070554db0a8",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_f77192ce7adddfcc",
-      "from": "claim_d83fa347b3f0bb13",
-      "to": "event_980a9070554db0a8",
-      "relation": "update_evidence_for",
-      "updateTitle": "Qwen3.8-Max仍受限于预览计划"
-    },
-    {
-      "id": "edge_12a0b25924a9f1ae",
-      "from": "claim_cb193c5b0483fe06",
-      "to": "event_980a9070554db0a8",
-      "relation": "update_evidence_for",
-      "updateTitle": "Qwen3.8-Max仍受限于预览计划"
-    },
-    {
-      "id": "edge_5ddf0292b3635d00",
-      "from": "claim_b60aed3d31fad374",
-      "to": "event_980a9070554db0a8",
-      "relation": "update_evidence_for",
-      "updateTitle": "Qwen3.8-Max仍受限于预览计划"
-    },
-    {
-      "id": "edge_ddcf21b313d09d3b",
-      "from": "claim_dd24528583180870",
-      "to": "event_980a9070554db0a8",
-      "relation": "update_evidence_for",
-      "updateTitle": "Qwen3.8-Max仍受限于预览计划"
-    },
-    {
-      "id": "edge_b775c70ac020ac69",
-      "from": "claim_b64dc4bb614928ae",
-      "to": "event_980a9070554db0a8",
-      "relation": "update_evidence_for",
-      "updateTitle": "Qwen3.8-Max仍受限于预览计划"
     },
     {
       "id": "edge_12310eb1b3fc1f49",
@@ -22660,6 +22985,82 @@
       "from": "claim_6a91586fd2989c1a",
       "to": "event_cca4803f3ba7fbf7",
       "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_9b8c89623cb6dcc9",
+      "from": "event_081451bf5cb1b361",
+      "to": "article_48d2fc6bdbc7d41d",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_ed0a2e766696223a",
+      "from": "source_a971ed2f37ed9252",
+      "to": "claim_09c7548c698811f3",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_70426d4262a01ef8",
+      "from": "claim_09c7548c698811f3",
+      "to": "event_081451bf5cb1b361",
+      "relation": "conversation_source_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_9f69924e37ffcdd5",
+      "from": "event_998f0c96e8ed5aab",
+      "to": "article_a7f9bc0c20b0164a",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_a9b9cd06e565f146",
+      "from": "source_ab71fcfed1fa1e81",
+      "to": "claim_e06591ca520c7adf",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_e4fc5c61bf0ddf08",
+      "from": "claim_e06591ca520c7adf",
+      "to": "event_998f0c96e8ed5aab",
+      "relation": "conversation_source_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_d98decea8cc8bc21",
+      "from": "event_43130c4a9ed95e74",
+      "to": "article_c1b391c99a207766",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_f498fe9eaac9f94c",
+      "from": "source_9acaf184c453b796",
+      "to": "claim_88b41ee3c6ba17b2",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_2c89e0df7fef54af",
+      "from": "claim_88b41ee3c6ba17b2",
+      "to": "event_43130c4a9ed95e74",
+      "relation": "conversation_source_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_2f1d52063cbeb205",
+      "from": "event_84627b680a4b5343",
+      "to": "article_5d63744a305d618c",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_d166b9b37d7b09cd",
+      "from": "source_43ae3cc6e4f4b3c3",
+      "to": "claim_692e5f31f2358cc4",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_118282572cf94d5d",
+      "from": "claim_692e5f31f2358cc4",
+      "to": "event_84627b680a4b5343",
+      "relation": "conversation_source_for",
       "updateTitle": null
     },
     {
