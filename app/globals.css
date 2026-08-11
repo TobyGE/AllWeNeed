@@ -725,8 +725,7 @@ button {
 .view-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 18px;
+  gap: 16px;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   padding: 13px 0;
@@ -740,9 +739,27 @@ button {
 }
 
 .view-switch {
+  flex: 0 0 auto;
   padding: 3px;
   border-radius: 9px;
   background: #e7e5de;
+}
+
+.category-filters {
+  min-width: 0;
+  flex: 1 1 auto;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  padding: 3px;
+  border: 1px solid rgba(222, 221, 214, 0.9);
+  border-radius: 999px;
+  background: rgba(251, 250, 246, 0.58);
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.category-filters::-webkit-scrollbar {
+  display: none;
 }
 
 .view-switch button,
@@ -771,15 +788,25 @@ button {
 }
 
 .category-filters button {
+  min-height: 30px;
+  flex: 0 0 auto;
   border-radius: 20px;
-  padding: 6px 9px;
+  padding: 6px 11px;
   color: #777873;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 .category-filters button:hover,
 .category-filters button.selected {
   background: var(--ink);
   color: white;
+}
+
+.category-filters button:focus-visible,
+.view-switch a:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 1px;
 }
 
 .dashboard-grid {
