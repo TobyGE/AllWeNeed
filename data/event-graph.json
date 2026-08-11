@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-11T03:06:36.719Z",
+  "generatedAt": "2026-08-11T05:07:28.724Z",
   "counts": {
-    "sources": 541,
-    "claims": 632,
-    "events": 132,
-    "articles": 132,
-    "updates": 83,
-    "edges": 1674,
+    "sources": 549,
+    "claims": 641,
+    "events": 137,
+    "articles": 137,
+    "updates": 84,
+    "edges": 1702,
     "revisionsRequired": 4
   },
   "revisionQueue": [
@@ -53,6 +53,352 @@
     }
   ],
   "nodes": [
+    {
+      "id": "event_ded79f4f58feab3e",
+      "type": "event",
+      "signalId": 37,
+      "title": "GPT-5.6重画模型价格曲线",
+      "bucket": "dynamic",
+      "valueScore": 89,
+      "publishedAt": "2026-07-30T23:58:42.000Z",
+      "updatedAt": "2026-08-10T23:56:15.000Z"
+    },
+    {
+      "id": "article_6fe3700cec641a0d",
+      "type": "article",
+      "signalId": 37,
+      "title": "GPT-5.6重画模型价格曲线",
+      "version": 1,
+      "publishedAt": "2026-08-11T05:07:28.724Z"
+    },
+    {
+      "id": "source_dca7adc62d79fe1c",
+      "type": "source",
+      "title": "OpenAI Blog",
+      "url": "https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-07-30T10:00:00.000Z"
+    },
+    {
+      "id": "claim_ed4ddf169b2b9266",
+      "type": "claim",
+      "title": "OpenAI官方宣布降低GPT-5.6 Luna与Terra价格，并称更高效的模型可帮助企业规模化部署AI workflow。",
+      "role": "主张",
+      "addedAt": "2026-08-11T05:07:28.724Z"
+    },
+    {
+      "id": "source_7bc027728ff8ee44",
+      "type": "source",
+      "title": "Simon Willison",
+      "url": "https://simonwillison.net/2026/Jul/30/luna-price-drop/#atom-everything",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-07-30T23:58:42.000Z"
+    },
+    {
+      "id": "claim_5f33eeb99ba6243b",
+      "type": "claim",
+      "title": "Simon Willison记录Luna降价80%、Terra降价20%，并援引OpenAI说明称GPT-5.6 Sol参与优化负载均衡。",
+      "role": "佐证",
+      "addedAt": "2026-08-11T05:07:28.724Z"
+    },
+    {
+      "id": "source_857d7c4ab2ba1304",
+      "type": "source",
+      "title": "Hacker News",
+      "url": "https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-07-30T17:15:51.000Z"
+    },
+    {
+      "id": "claim_fbd95a786f5a6ac4",
+      "type": "claim",
+      "title": "OpenAI降价文章在Hacker News候选抓取时获得493分和325条评论，反映开发者关注度，但不构成采用证据。",
+      "role": "背景",
+      "addedAt": "2026-08-11T05:07:28.724Z"
+    },
+    {
+      "id": "source_eb2b47d50db42393",
+      "type": "source",
+      "title": "Simon Willison",
+      "url": "https://simonwillison.net/2026/Aug/2/july-newsletter/#atom-everything",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-02T04:12:41.000Z"
+    },
+    {
+      "id": "claim_1f65c1e091d3e370",
+      "type": "claim",
+      "title": "Simon Willison的月度通讯汇总了GPT-5.6 Sol、Terra与Luna等近期模型动态。",
+      "role": "背景",
+      "addedAt": "2026-08-11T05:07:28.724Z"
+    },
+    {
+      "id": "source_258cade2cefa3253",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://developers.openai.com/api/docs/models/gpt-5.6-sol",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-02T04:12:41.000Z"
+    },
+    {
+      "id": "claim_972dc74cc20064ea",
+      "type": "claim",
+      "title": "OpenAI将GPT-5.6 Sol列为旗舰层级，确认别名、上下文、最大输出及输入、缓存输入和输出定价。",
+      "role": "最新进展",
+      "addedAt": "2026-08-11T05:07:28.724Z"
+    },
+    {
+      "id": "source_2d8a643762c51828",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://deploymentsafety.openai.com/gpt-5-6",
+      "sourceKind": "Official",
+      "publishedAt": "2026-07-09T00:00:00.000Z"
+    },
+    {
+      "id": "claim_dbc450cf7fa4b5f6",
+      "type": "claim",
+      "title": "OpenAI系统卡显示，Sol在Irregular FrontierCyber评估中的总体完成数高于GPT-5.5，但仍被定为高网络能力、低于关键级别。",
+      "role": "佐证",
+      "addedAt": "2026-08-11T05:07:28.724Z"
+    },
+    {
+      "id": "source_f86f68dff2cfb3c8",
+      "type": "source",
+      "title": "The Decoder AI",
+      "url": "https://the-decoder.com/openai-launches-gpt-5-6-cyber-to-help-defenders-find-vulnerabilities-before-attackers-do/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-10T18:01:30.000Z"
+    },
+    {
+      "id": "claim_8f8a740c3417c8e8",
+      "type": "claim",
+      "title": "OpenAI推出GPT-5.6-Cyber，称其可回答98.5%的原本会被拦截的安全查询，并发现两个此前未知的Chrome漏洞。",
+      "role": "最新进展",
+      "addedAt": "2026-08-11T05:07:28.724Z"
+    },
+    {
+      "id": "source_649d3e805e1f6bca",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://openai.com/index/putting-frontier-cyber-models-in-more-trusted-hands/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "claim_249980007163e45b",
+      "type": "claim",
+      "title": "OpenAI扩大Daybreak Cyber Partner计划，获批伙伴可使用Daybreak Blue或Red，模型访问权不直接转给客户。",
+      "role": "最新进展",
+      "addedAt": "2026-08-11T05:07:28.724Z"
+    },
+    {
+      "id": "source_66c169853eb67829",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://openai.com/index/scaling-trusted-access-for-cyber-defense/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-04-14T00:00:00.000Z"
+    },
+    {
+      "id": "claim_bfa9d2e56923018e",
+      "type": "claim",
+      "title": "OpenAI此前已通过身份验证向防御者和团队提供更少限制的GPT-5.4-Cyber访问。",
+      "role": "背景",
+      "addedAt": "2026-08-11T05:07:28.724Z"
+    },
+    {
+      "id": "source_88ca535a278fef4f",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://openai.com/index/daybreak-securing-the-world/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-07-15T00:00:00.000Z"
+    },
+    {
+      "id": "claim_fff7f89ce8715d2a",
+      "type": "claim",
+      "title": "OpenAI此前公布GPT-5.5-Cyber在CyberGym、ExploitGym和SEC-bench Pro上优于GPT-5.5的测试结果。",
+      "role": "佐证",
+      "addedAt": "2026-08-11T05:07:28.724Z"
+    },
+    {
+      "id": "source_081601c279be28d3",
+      "type": "source",
+      "title": "OpenAI Blog",
+      "url": "https://openai.com/index/expanding-daybreak-as-the-cyber-defense-window-narrows",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "id": "claim_bda11b0acb276148",
+      "type": "claim",
+      "title": "OpenAI宣布面向获授权漏洞研究、漏洞利用验证和安全测试的GPT-5.6-Cyber，并通过Daybreak Red提供。",
+      "role": "最新进展",
+      "addedAt": "2026-08-11T05:07:28.724Z"
+    },
+    {
+      "id": "source_238c8d8bf6e82e96",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://openai.com/index/previewing-gpt-5-6-sol/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-06-26T00:00:00.000Z"
+    },
+    {
+      "id": "claim_fa6173ff6447d327",
+      "type": "claim",
+      "title": "OpenAI此前称GPT-5.6 Sol仅向少量可信伙伴预览，且未达到网络安全Critical阈值。",
+      "role": "背景",
+      "addedAt": "2026-08-11T05:07:28.724Z"
+    },
+    {
+      "id": "source_7df1ce629ccbc108",
+      "type": "source",
+      "title": "Google Chrome",
+      "url": "https://chromereleases.googleblog.com/2026/07/stable-channel-update-for-desktop_049796704.html",
+      "sourceKind": "Official",
+      "publishedAt": "2026-07-16T00:00:00.000Z"
+    },
+    {
+      "id": "claim_8d5d1d88ab117d43",
+      "type": "claim",
+      "title": "Google修复V8高危漏洞CVE-2026-15903，并将报告者列为OpenAI Codex Security，显示OpenAI相关安全工作已有成果进入厂商修复流程，但未将该漏洞归因于GPT-5.6-Cyber。",
+      "role": "佐证",
+      "addedAt": "2026-08-11T05:07:28.724Z"
+    },
+    {
+      "id": "source_605b54423210186e",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://openai.com/index/responding-next-frontier-critical-cyber-capabilities/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-07T00:00:00.000Z"
+    },
+    {
+      "id": "claim_910a1b8d87a40e78",
+      "type": "claim",
+      "title": "OpenAI称对即将推出的Astra已无法排除Critical网络能力，因此加强隔离环境、网络和工具访问限制、权重保护及监控。",
+      "role": "反例",
+      "addedAt": "2026-08-11T05:07:28.724Z"
+    },
+    {
+      "id": "source_0212f9770ddac1d8",
+      "type": "source",
+      "title": "TechCrunch AI",
+      "url": "https://techcrunch.com/2026/08/10/as-ai-led-attacks-multiply-openai-launches-a-new-cyber-model/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-10T23:56:15.000Z"
+    },
+    {
+      "id": "claim_8a0f8f76f5de6b7e",
+      "type": "claim",
+      "title": "TechCrunch报道称OpenAI扩展Daybreak网络防御项目，并推出新的网络安全训练模型。",
+      "role": "佐证",
+      "addedAt": "2026-08-11T05:07:28.724Z"
+    },
+    {
+      "id": "source_1d9bb896d76302f3",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://openai.com/index/expanding-daybreak-as-the-cyber-defense-window-narrows/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "claim_739ef14db503ee11",
+      "type": "claim",
+      "title": "OpenAI确认Daybreak Red提供GPT-5.6-Cyber、Blue调整GPT-5.6 Sol护栏，并公布完成率及与Sol的内部评测对照。",
+      "role": "最新进展",
+      "addedAt": "2026-08-11T05:07:28.724Z"
+    },
+    {
+      "id": "source_970979cb607942aa",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://openai.com/index/gpt-5-5-with-trusted-access-for-cyber/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-05-07T00:00:00.000Z"
+    },
+    {
+      "id": "claim_8d185d575e3c3ddb",
+      "type": "claim",
+      "title": "OpenAI此前将GPT-5.5-Cyber限量提供给关键基础设施防御者，并称其不预期在每项网络安全评测中领先。",
+      "role": "背景",
+      "addedAt": "2026-08-11T05:07:28.724Z"
+    },
+    {
+      "id": "source_ec5d8e7d6a1b2c7c",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://cdn.openai.com/pdf/18a02b5d-6b67-4cec-ab64-68cdfbddebcd/preparedness-framework-v2.pdf",
+      "sourceKind": "Research",
+      "publishedAt": "2026-08-10T23:56:15.000Z"
+    },
+    {
+      "id": "claim_ac2afefdedced930",
+      "type": "claim",
+      "title": "OpenAI的Preparedness Framework定义了High与Critical网络安全能力门槛，表明High认定不等同于Critical能力。",
+      "role": "背景",
+      "addedAt": "2026-08-11T05:07:28.724Z"
+    },
+    {
+      "id": "update_4eca18d8c048cc01",
+      "type": "update",
+      "signalId": 37,
+      "title": "GPT-5.6-Cyber纳入Daybreak",
+      "summary": "OpenAI宣布Daybreak扩展：Red向可信防御伙伴提供GPT-5.6-Cyber，Blue则移除GPT-5.6 Sol的系统级网络安全护栏。官方披露Red任务完成率为95.0%，并说明Cyber在一项内部漏洞发现与报告评测中低于Sol。",
+      "addedAt": "2026-08-10T23:56:15.000Z",
+      "changeType": "progress",
+      "thesisImpact": "OpenAI已把GPT-5.6-Cyber纳入Daybreak Red，并推出护栏调整后的Daybreak Blue；新披露的任务完成率和模型对照使其网络防御分发路径更具体，但也显示专项模型并非在所有防御任务上领先。",
+      "revisionRequired": false
+    },
+    {
+      "id": "update_096a9dc1e4574cc1",
+      "type": "update",
+      "signalId": 37,
+      "title": "GPT-5.6-Cyber接入Daybreak Red",
+      "summary": "OpenAI宣布GPT-5.6-Cyber通过Daybreak Red向获授权的漏洞研究、漏洞利用验证和安全测试开放；公司同时强调该能力处于更高的网络安全风险门槛附近。",
+      "addedAt": "2026-08-10T10:00:00.000Z",
+      "changeType": "progress",
+      "thesisImpact": "OpenAI已将GPT-5.6-Cyber通过Daybreak Red提供给获授权防御研究者，原有“可信伙伴访问扩大”的判断从计划性开放推进至具名模型和受控使用范围。",
+      "revisionRequired": false
+    },
+    {
+      "id": "claim_34c93c743fbfa3fc",
+      "type": "claim",
+      "title": "OpenAI此前将GPT-5.5-Cyber从预览推进至面向可信防御者的有限发布，并披露CyberGym、ExploitGym和SEC-bench Pro的对比结果及使用护栏。",
+      "role": "背景",
+      "addedAt": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "id": "update_262da49d62318098",
+      "type": "update",
+      "signalId": 37,
+      "title": "GPT-5.6-Cyber扩大可信伙伴访问",
+      "summary": "OpenAI推出GPT-5.6-Cyber，并扩大Daybreak Cyber Partner计划；获批伙伴可按工作需求使用Blue或Red，但访问权不直接转给客户。",
+      "addedAt": "2026-08-10T18:01:30.000Z",
+      "changeType": "progress",
+      "thesisImpact": "新证据把GPT-5.6从价格和旗舰身份变化推进到网络安全专用模型及可信伙伴分发，强化了其面向防御工作流的产品化判断。",
+      "revisionRequired": false
+    },
+    {
+      "id": "claim_c6db15281b1fb98e",
+      "type": "claim",
+      "title": "独立评估认为GPT-5.6 Sol的网络攻击能力仍受行动安全限制，测试环境也远小于真实企业网络。",
+      "role": "反例",
+      "addedAt": "2026-08-10T18:01:30.000Z"
+    },
+    {
+      "id": "update_4225c33731b80fdc",
+      "type": "update",
+      "signalId": 37,
+      "title": "GPT-5.6 Sol成为旗舰层",
+      "summary": "OpenAI页面确认GPT-5.6 Sol为系列旗舰，gpt-5.6别名指向Sol；其提供105万token上下文、12.8万token最大输出，并列出每百万token输入5美元、缓存输入0.50美元、输出30美元的价格。",
+      "addedAt": "2026-08-02T04:12:41.000Z",
+      "changeType": "progress",
+      "thesisImpact": "OpenAI现将GPT-5.6 Sol明确为系列旗舰，补齐了此前Luna与Terra降价之外的旗舰定价、上下文与网络安全能力边界，使价格曲线判断延伸至分层产品结构。",
+      "revisionRequired": false
+    },
     {
       "id": "event_292a78c2eba8fdf6",
       "type": "event",
@@ -163,281 +509,6 @@
       "title": "NVIDIA宣布与Apollo、BlackRock、Blackstone、Brookfield、Goldman Sachs和KKR建立AI算力基础设施融资平台，目标动员超过5000亿美元第三方资本。",
       "role": "主张",
       "addedAt": "2026-08-10T22:06:30.210Z"
-    },
-    {
-      "id": "event_ded79f4f58feab3e",
-      "type": "event",
-      "signalId": 37,
-      "title": "GPT-5.6重画模型价格曲线",
-      "bucket": "dynamic",
-      "valueScore": 89,
-      "publishedAt": "2026-07-30T23:58:42.000Z",
-      "updatedAt": "2026-08-10T10:00:00.000Z"
-    },
-    {
-      "id": "article_6fe3700cec641a0d",
-      "type": "article",
-      "signalId": 37,
-      "title": "GPT-5.6重画模型价格曲线",
-      "version": 1,
-      "publishedAt": "2026-08-10T22:06:30.210Z"
-    },
-    {
-      "id": "source_dca7adc62d79fe1c",
-      "type": "source",
-      "title": "OpenAI Blog",
-      "url": "https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-07-30T10:00:00.000Z"
-    },
-    {
-      "id": "claim_ed4ddf169b2b9266",
-      "type": "claim",
-      "title": "OpenAI官方宣布降低GPT-5.6 Luna与Terra价格，并称更高效的模型可帮助企业规模化部署AI workflow。",
-      "role": "主张",
-      "addedAt": "2026-08-10T22:06:30.210Z"
-    },
-    {
-      "id": "source_7bc027728ff8ee44",
-      "type": "source",
-      "title": "Simon Willison",
-      "url": "https://simonwillison.net/2026/Jul/30/luna-price-drop/#atom-everything",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-07-30T23:58:42.000Z"
-    },
-    {
-      "id": "claim_5f33eeb99ba6243b",
-      "type": "claim",
-      "title": "Simon Willison记录Luna降价80%、Terra降价20%，并援引OpenAI说明称GPT-5.6 Sol参与优化负载均衡。",
-      "role": "佐证",
-      "addedAt": "2026-08-10T22:06:30.210Z"
-    },
-    {
-      "id": "source_857d7c4ab2ba1304",
-      "type": "source",
-      "title": "Hacker News",
-      "url": "https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-07-30T17:15:51.000Z"
-    },
-    {
-      "id": "claim_fbd95a786f5a6ac4",
-      "type": "claim",
-      "title": "OpenAI降价文章在Hacker News候选抓取时获得493分和325条评论，反映开发者关注度，但不构成采用证据。",
-      "role": "背景",
-      "addedAt": "2026-08-10T22:06:30.210Z"
-    },
-    {
-      "id": "source_eb2b47d50db42393",
-      "type": "source",
-      "title": "Simon Willison",
-      "url": "https://simonwillison.net/2026/Aug/2/july-newsletter/#atom-everything",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-02T04:12:41.000Z"
-    },
-    {
-      "id": "claim_1f65c1e091d3e370",
-      "type": "claim",
-      "title": "Simon Willison的月度通讯汇总了GPT-5.6 Sol、Terra与Luna等近期模型动态。",
-      "role": "背景",
-      "addedAt": "2026-08-10T22:06:30.210Z"
-    },
-    {
-      "id": "source_258cade2cefa3253",
-      "type": "source",
-      "title": "OpenAI",
-      "url": "https://developers.openai.com/api/docs/models/gpt-5.6-sol",
-      "sourceKind": "Official",
-      "publishedAt": "2026-08-02T04:12:41.000Z"
-    },
-    {
-      "id": "claim_972dc74cc20064ea",
-      "type": "claim",
-      "title": "OpenAI将GPT-5.6 Sol列为旗舰层级，确认别名、上下文、最大输出及输入、缓存输入和输出定价。",
-      "role": "最新进展",
-      "addedAt": "2026-08-10T22:06:30.210Z"
-    },
-    {
-      "id": "source_2d8a643762c51828",
-      "type": "source",
-      "title": "OpenAI",
-      "url": "https://deploymentsafety.openai.com/gpt-5-6",
-      "sourceKind": "Official",
-      "publishedAt": "2026-07-09T00:00:00.000Z"
-    },
-    {
-      "id": "claim_dbc450cf7fa4b5f6",
-      "type": "claim",
-      "title": "OpenAI系统卡显示，Sol在Irregular FrontierCyber评估中的总体完成数高于GPT-5.5，但仍被定为高网络能力、低于关键级别。",
-      "role": "佐证",
-      "addedAt": "2026-08-10T22:06:30.210Z"
-    },
-    {
-      "id": "source_f86f68dff2cfb3c8",
-      "type": "source",
-      "title": "The Decoder AI",
-      "url": "https://the-decoder.com/openai-launches-gpt-5-6-cyber-to-help-defenders-find-vulnerabilities-before-attackers-do/",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-10T18:01:30.000Z"
-    },
-    {
-      "id": "claim_8f8a740c3417c8e8",
-      "type": "claim",
-      "title": "OpenAI推出GPT-5.6-Cyber，称其可回答98.5%的原本会被拦截的安全查询，并发现两个此前未知的Chrome漏洞。",
-      "role": "最新进展",
-      "addedAt": "2026-08-10T22:06:30.210Z"
-    },
-    {
-      "id": "source_649d3e805e1f6bca",
-      "type": "source",
-      "title": "OpenAI",
-      "url": "https://openai.com/index/putting-frontier-cyber-models-in-more-trusted-hands/",
-      "sourceKind": "Official",
-      "publishedAt": "2026-08-10T00:00:00.000Z"
-    },
-    {
-      "id": "claim_249980007163e45b",
-      "type": "claim",
-      "title": "OpenAI扩大Daybreak Cyber Partner计划，获批伙伴可使用Daybreak Blue或Red，模型访问权不直接转给客户。",
-      "role": "最新进展",
-      "addedAt": "2026-08-10T22:06:30.210Z"
-    },
-    {
-      "id": "source_66c169853eb67829",
-      "type": "source",
-      "title": "OpenAI",
-      "url": "https://openai.com/index/scaling-trusted-access-for-cyber-defense/",
-      "sourceKind": "Official",
-      "publishedAt": "2026-04-14T00:00:00.000Z"
-    },
-    {
-      "id": "claim_bfa9d2e56923018e",
-      "type": "claim",
-      "title": "OpenAI此前已通过身份验证向防御者和团队提供更少限制的GPT-5.4-Cyber访问。",
-      "role": "背景",
-      "addedAt": "2026-08-10T22:06:30.210Z"
-    },
-    {
-      "id": "source_88ca535a278fef4f",
-      "type": "source",
-      "title": "OpenAI",
-      "url": "https://openai.com/index/daybreak-securing-the-world/",
-      "sourceKind": "Official",
-      "publishedAt": "2026-07-15T00:00:00.000Z"
-    },
-    {
-      "id": "claim_fff7f89ce8715d2a",
-      "type": "claim",
-      "title": "OpenAI此前公布GPT-5.5-Cyber在CyberGym、ExploitGym和SEC-bench Pro上优于GPT-5.5的测试结果。",
-      "role": "佐证",
-      "addedAt": "2026-08-10T22:06:30.210Z"
-    },
-    {
-      "id": "source_081601c279be28d3",
-      "type": "source",
-      "title": "OpenAI Blog",
-      "url": "https://openai.com/index/expanding-daybreak-as-the-cyber-defense-window-narrows",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-10T10:00:00.000Z"
-    },
-    {
-      "id": "claim_bda11b0acb276148",
-      "type": "claim",
-      "title": "OpenAI宣布面向获授权漏洞研究、漏洞利用验证和安全测试的GPT-5.6-Cyber，并通过Daybreak Red提供。",
-      "role": "最新进展",
-      "addedAt": "2026-08-10T22:06:30.210Z"
-    },
-    {
-      "id": "source_238c8d8bf6e82e96",
-      "type": "source",
-      "title": "OpenAI",
-      "url": "https://openai.com/index/previewing-gpt-5-6-sol/",
-      "sourceKind": "Official",
-      "publishedAt": "2026-06-26T00:00:00.000Z"
-    },
-    {
-      "id": "claim_fa6173ff6447d327",
-      "type": "claim",
-      "title": "OpenAI此前称GPT-5.6 Sol仅向少量可信伙伴预览，且未达到网络安全Critical阈值。",
-      "role": "背景",
-      "addedAt": "2026-08-10T22:06:30.210Z"
-    },
-    {
-      "id": "source_7df1ce629ccbc108",
-      "type": "source",
-      "title": "Google Chrome",
-      "url": "https://chromereleases.googleblog.com/2026/07/stable-channel-update-for-desktop_049796704.html",
-      "sourceKind": "Official",
-      "publishedAt": "2026-07-16T00:00:00.000Z"
-    },
-    {
-      "id": "claim_8d5d1d88ab117d43",
-      "type": "claim",
-      "title": "Google修复V8高危漏洞CVE-2026-15903，并将报告者列为OpenAI Codex Security，显示OpenAI相关安全工作已有成果进入厂商修复流程，但未将该漏洞归因于GPT-5.6-Cyber。",
-      "role": "佐证",
-      "addedAt": "2026-08-10T22:06:30.210Z"
-    },
-    {
-      "id": "source_605b54423210186e",
-      "type": "source",
-      "title": "OpenAI",
-      "url": "https://openai.com/index/responding-next-frontier-critical-cyber-capabilities/",
-      "sourceKind": "Official",
-      "publishedAt": "2026-08-07T00:00:00.000Z"
-    },
-    {
-      "id": "claim_910a1b8d87a40e78",
-      "type": "claim",
-      "title": "OpenAI称对即将推出的Astra已无法排除Critical网络能力，因此加强隔离环境、网络和工具访问限制、权重保护及监控。",
-      "role": "反例",
-      "addedAt": "2026-08-10T22:06:30.210Z"
-    },
-    {
-      "id": "update_096a9dc1e4574cc1",
-      "type": "update",
-      "signalId": 37,
-      "title": "GPT-5.6-Cyber接入Daybreak Red",
-      "summary": "OpenAI宣布GPT-5.6-Cyber通过Daybreak Red向获授权的漏洞研究、漏洞利用验证和安全测试开放；公司同时强调该能力处于更高的网络安全风险门槛附近。",
-      "addedAt": "2026-08-10T10:00:00.000Z",
-      "changeType": "progress",
-      "thesisImpact": "OpenAI已将GPT-5.6-Cyber通过Daybreak Red提供给获授权防御研究者，原有“可信伙伴访问扩大”的判断从计划性开放推进至具名模型和受控使用范围。",
-      "revisionRequired": false
-    },
-    {
-      "id": "claim_34c93c743fbfa3fc",
-      "type": "claim",
-      "title": "OpenAI此前将GPT-5.5-Cyber从预览推进至面向可信防御者的有限发布，并披露CyberGym、ExploitGym和SEC-bench Pro的对比结果及使用护栏。",
-      "role": "背景",
-      "addedAt": "2026-08-10T10:00:00.000Z"
-    },
-    {
-      "id": "update_262da49d62318098",
-      "type": "update",
-      "signalId": 37,
-      "title": "GPT-5.6-Cyber扩大可信伙伴访问",
-      "summary": "OpenAI推出GPT-5.6-Cyber，并扩大Daybreak Cyber Partner计划；获批伙伴可按工作需求使用Blue或Red，但访问权不直接转给客户。",
-      "addedAt": "2026-08-10T18:01:30.000Z",
-      "changeType": "progress",
-      "thesisImpact": "新证据把GPT-5.6从价格和旗舰身份变化推进到网络安全专用模型及可信伙伴分发，强化了其面向防御工作流的产品化判断。",
-      "revisionRequired": false
-    },
-    {
-      "id": "claim_c6db15281b1fb98e",
-      "type": "claim",
-      "title": "独立评估认为GPT-5.6 Sol的网络攻击能力仍受行动安全限制，测试环境也远小于真实企业网络。",
-      "role": "反例",
-      "addedAt": "2026-08-10T18:01:30.000Z"
-    },
-    {
-      "id": "update_4225c33731b80fdc",
-      "type": "update",
-      "signalId": 37,
-      "title": "GPT-5.6 Sol成为旗舰层",
-      "summary": "OpenAI页面确认GPT-5.6 Sol为系列旗舰，gpt-5.6别名指向Sol；其提供105万token上下文、12.8万token最大输出，并列出每百万token输入5美元、缓存输入0.50美元、输出30美元的价格。",
-      "addedAt": "2026-08-02T04:12:41.000Z",
-      "changeType": "progress",
-      "thesisImpact": "OpenAI现将GPT-5.6 Sol明确为系列旗舰，补齐了此前Luna与Terra降价之外的旗舰定价、上下文与网络安全能力边界，使价格曲线判断延伸至分层产品结构。",
-      "revisionRequired": false
     },
     {
       "id": "event_119aad216f76db90",
@@ -1195,14 +1266,6 @@
       "title": "报道披露OpenAI因Astra可能触及其最高网络安全风险等级而暂停部分开发活动。",
       "role": "最新进展",
       "addedAt": "2026-08-10T11:06:27.244Z"
-    },
-    {
-      "id": "source_ec5d8e7d6a1b2c7c",
-      "type": "source",
-      "title": "OpenAI",
-      "url": "https://cdn.openai.com/pdf/18a02b5d-6b67-4cec-ab64-68cdfbddebcd/preparedness-framework-v2.pdf",
-      "sourceKind": "Official",
-      "publishedAt": "2026-08-07T19:41:06.000Z"
     },
     {
       "id": "claim_4e6c4327315261e2",
@@ -11162,6 +11225,161 @@
       "addedAt": "2026-07-29T13:02:22.855Z"
     },
     {
+      "id": "event_b588ce27c75582df",
+      "type": "event",
+      "conversationId": "conversation-20260811050728-1",
+      "title": "AI 员工的关键不是更聪明，而是拥有团队上下文",
+      "bucket": "conversation",
+      "publishedAt": "2026-08-10T18:02:50.000Z"
+    },
+    {
+      "id": "article_245a1c31c968df37",
+      "type": "article",
+      "conversationId": "conversation-20260811050728-1",
+      "title": "AI 员工的关键不是更聪明，而是拥有团队上下文",
+      "version": 1,
+      "publishedAt": "2026-08-11T05:07:28.724Z"
+    },
+    {
+      "id": "source_6c68d8a9e0adfba1",
+      "type": "source",
+      "title": "Cognitive Revolution",
+      "url": "https://www.cognitiverevolution.ai/lindy-teammate-flo-crivello-on-multiplayer-agents-memory-why-he-d-ban-the-chinese-models-he-uses/",
+      "sourceKind": "YouTube",
+      "publishedAt": "2026-08-10T18:02:50.000Z"
+    },
+    {
+      "id": "claim_56097ffd857671ba",
+      "type": "claim",
+      "title": "Lindy 创始人 Flo Crivello 的核心判断是，AI agent 要成为真正的同事，竞争重点将从单轮推理能力转向能否沉淀、检索并让团队共同编辑工作上下文。",
+      "role": "对谈",
+      "addedAt": "2026-08-11T05:07:28.724Z"
+    },
+    {
+      "id": "event_0c2a5b333d7a7c80",
+      "type": "event",
+      "conversationId": "conversation-20260811050728-2",
+      "title": "战略决策评测不能只测模型会不会答题",
+      "bucket": "conversation",
+      "publishedAt": "2026-08-10T08:57:00.000Z"
+    },
+    {
+      "id": "article_5c9dba05cb575d6a",
+      "type": "article",
+      "conversationId": "conversation-20260811050728-2",
+      "title": "战略决策评测不能只测模型会不会答题",
+      "version": 1,
+      "publishedAt": "2026-08-11T05:07:28.724Z"
+    },
+    {
+      "id": "source_c1ab7eec33708fad",
+      "type": "source",
+      "title": "ChinaTalk Podcast",
+      "url": "https://feeds.megaphone.fm/a41bb726-7ad1-11f1-952d-f306c09c6fe7",
+      "sourceKind": "Podcast",
+      "publishedAt": "2026-08-10T08:57:00.000Z"
+    },
+    {
+      "id": "claim_b97b6fea6d925cca",
+      "type": "claim",
+      "title": "Florian Brand 与 John Chen 讨论的核心问题是：若模型开始辅助高后果政策判断，评测必须从静态知识题转向能够暴露二阶推理、互动行为与价值取向的动态情境。",
+      "role": "对谈",
+      "addedAt": "2026-08-11T05:07:28.724Z"
+    },
+    {
+      "id": "event_a6eed01a53d62c0d",
+      "type": "event",
+      "conversationId": "conversation-20260811050728-3",
+      "title": "Paolo Ardoino 押注：AI 的终局不在数据中心",
+      "bucket": "conversation",
+      "publishedAt": "2026-08-10T17:00:00.000Z"
+    },
+    {
+      "id": "article_4dcc50ac62c7db77",
+      "type": "article",
+      "conversationId": "conversation-20260811050728-3",
+      "title": "Paolo Ardoino 押注：AI 的终局不在数据中心",
+      "version": 1,
+      "publishedAt": "2026-08-11T05:07:28.724Z"
+    },
+    {
+      "id": "source_24cbcdfb763d53a5",
+      "type": "source",
+      "title": "Eye On A.I.",
+      "url": "https://aneyeonai.libsyn.com/in-5-years-90-of-what-you-use-ai-for-will-run-on-your-smartphone-paolo-ardoino-tether",
+      "sourceKind": "Podcast",
+      "publishedAt": "2026-08-10T17:00:00.000Z"
+    },
+    {
+      "id": "claim_a25ee7951c566aa9",
+      "type": "claim",
+      "title": "Tether CEO Paolo Ardoino 认为，大多数日常 AI 最终会在智能手机、笔记本和边缘设备本地运行；他的论点将模型效率、数据主权和数据中心资本开支风险绑定在一起。",
+      "role": "对谈",
+      "addedAt": "2026-08-11T05:07:28.724Z"
+    },
+    {
+      "id": "event_bdca11033329d897",
+      "type": "event",
+      "conversationId": "conversation-20260811050728-4",
+      "title": "自主舰艇的赌注：用数量和软件重写海上成本曲线",
+      "bucket": "conversation",
+      "publishedAt": "2026-08-05T20:19:00.000Z"
+    },
+    {
+      "id": "article_8a07cb2da5eb73f2",
+      "type": "article",
+      "conversationId": "conversation-20260811050728-4",
+      "title": "自主舰艇的赌注：用数量和软件重写海上成本曲线",
+      "version": 1,
+      "publishedAt": "2026-08-11T05:07:28.724Z"
+    },
+    {
+      "id": "source_a5ba91f78d5eac0b",
+      "type": "source",
+      "title": "All-In Podcast",
+      "url": "https://allinchamathjason.libsyn.com/saronic-founders-autonomous-warships-chinas-230x-advantage-swarms-of-robot-ships",
+      "sourceKind": "YouTube",
+      "publishedAt": "2026-08-05T20:19:00.000Z"
+    },
+    {
+      "id": "claim_dd26b3dd93c9501c",
+      "type": "claim",
+      "title": "Saronic 创始人的论点是，面对昂贵有人舰艇与日益紧张的海上环境，美国需要将自主水面舰艇作为可规模化、可消耗且软件驱动的力量组成部分，而不只是传统舰队的附属设备。",
+      "role": "对谈",
+      "addedAt": "2026-08-11T05:07:28.724Z"
+    },
+    {
+      "id": "event_3726c931d9937091",
+      "type": "event",
+      "conversationId": "conversation-20260811050728-5",
+      "title": "数据中心反弹正在把 AI 基建变成地方政治问题",
+      "bucket": "conversation",
+      "publishedAt": "2026-08-06T09:00:00.000Z"
+    },
+    {
+      "id": "article_40085b6e116947e1",
+      "type": "article",
+      "conversationId": "conversation-20260811050728-5",
+      "title": "数据中心反弹正在把 AI 基建变成地方政治问题",
+      "version": 1,
+      "publishedAt": "2026-08-11T05:07:28.724Z"
+    },
+    {
+      "id": "source_acc28cbfb0daa370",
+      "type": "source",
+      "title": "Decoder",
+      "url": "https://feeds.megaphone.fm/ee64fe5c-cfc6-11f0-83c5-3ff05641883d",
+      "sourceKind": "YouTube",
+      "publishedAt": "2026-08-06T09:00:00.000Z"
+    },
+    {
+      "id": "claim_3ab35f924c94148e",
+      "type": "claim",
+      "title": "The Verge 记者 Gaby Del Valle 认为，反对 AI 数据中心的联盟正在跨越传统党派边界；争议的关键不只是人们是否支持 AI，而是谁承担土地、水、电力与税收激励的地方成本。",
+      "role": "对谈",
+      "addedAt": "2026-08-11T05:07:28.724Z"
+    },
+    {
       "id": "event_9676c944e32bc7e8",
       "type": "event",
       "conversationId": "conversation-20260810070554-1",
@@ -12039,83 +12257,6 @@
   ],
   "edges": [
     {
-      "id": "edge_d1368c556ca2aca9",
-      "from": "event_292a78c2eba8fdf6",
-      "to": "article_299b44e27cc7ee67",
-      "relation": "rendered_as"
-    },
-    {
-      "id": "edge_efe80019a660f07e",
-      "from": "source_1648b679205dff47",
-      "to": "claim_481a8ba373536c30",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_841b3fe5a164655c",
-      "from": "claim_481a8ba373536c30",
-      "to": "event_292a78c2eba8fdf6",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_6806600323d6aea2",
-      "from": "source_206e012e4cff9120",
-      "to": "claim_8c1d0f12caf87dae",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_1209517ea963ee8d",
-      "from": "claim_8c1d0f12caf87dae",
-      "to": "event_292a78c2eba8fdf6",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_c67b1ab54c49be48",
-      "from": "source_c414bd3d03e495d0",
-      "to": "claim_167cd12267d0c583",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_ec6e80ab343cc328",
-      "from": "claim_167cd12267d0c583",
-      "to": "event_292a78c2eba8fdf6",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_8272bb9acb7bfe7b",
-      "from": "source_ce714bb6ae2d9acf",
-      "to": "claim_101829ab419adcec",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_317fff94a51385b8",
-      "from": "claim_101829ab419adcec",
-      "to": "event_292a78c2eba8fdf6",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_11afeea28290e859",
-      "from": "event_1c0e52d26f417ac9",
-      "to": "article_6154bfc5759e6911",
-      "relation": "rendered_as"
-    },
-    {
-      "id": "edge_047be5075d8b7966",
-      "from": "source_0122ec2217c08ff3",
-      "to": "claim_b63375fbf9193803",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_a9f0c02570fbf5d3",
-      "from": "claim_b63375fbf9193803",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
       "id": "edge_0d53b26b270e0716",
       "from": "event_ded79f4f58feab3e",
       "to": "article_6fe3700cec641a0d",
@@ -12304,6 +12445,92 @@
       "updateTitle": null
     },
     {
+      "id": "edge_70a561960f4165b2",
+      "from": "source_0212f9770ddac1d8",
+      "to": "claim_8a0f8f76f5de6b7e",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_fa298942d7d8bb93",
+      "from": "claim_8a0f8f76f5de6b7e",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_98ec7199eee70251",
+      "from": "source_1d9bb896d76302f3",
+      "to": "claim_739ef14db503ee11",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_692f3270e3389fd8",
+      "from": "claim_739ef14db503ee11",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_111bde75fba67846",
+      "from": "source_970979cb607942aa",
+      "to": "claim_8d185d575e3c3ddb",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_ba381408c88b6adc",
+      "from": "claim_8d185d575e3c3ddb",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_aee914f72265146d",
+      "from": "source_ec5d8e7d6a1b2c7c",
+      "to": "claim_ac2afefdedced930",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_79e0022a59f7ca26",
+      "from": "claim_ac2afefdedced930",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_194f96048c130670",
+      "from": "update_4eca18d8c048cc01",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_efa978fb85668e82",
+      "from": "claim_8a0f8f76f5de6b7e",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "update_evidence_for",
+      "updateTitle": "GPT-5.6-Cyber纳入Daybreak"
+    },
+    {
+      "id": "edge_4bce36cca8e5a227",
+      "from": "claim_739ef14db503ee11",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "update_evidence_for",
+      "updateTitle": "GPT-5.6-Cyber纳入Daybreak"
+    },
+    {
+      "id": "edge_0b5b25354a5fab41",
+      "from": "claim_8d185d575e3c3ddb",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "update_evidence_for",
+      "updateTitle": "GPT-5.6-Cyber纳入Daybreak"
+    },
+    {
+      "id": "edge_8202defe692aa753",
+      "from": "claim_ac2afefdedced930",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "update_evidence_for",
+      "updateTitle": "GPT-5.6-Cyber纳入Daybreak"
+    },
+    {
       "id": "edge_a677d733e324ae8d",
       "from": "update_096a9dc1e4574cc1",
       "to": "event_ded79f4f58feab3e",
@@ -12423,6 +12650,83 @@
       "to": "event_ded79f4f58feab3e",
       "relation": "update_evidence_for",
       "updateTitle": "GPT-5.6 Sol成为旗舰层"
+    },
+    {
+      "id": "edge_d1368c556ca2aca9",
+      "from": "event_292a78c2eba8fdf6",
+      "to": "article_299b44e27cc7ee67",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_efe80019a660f07e",
+      "from": "source_1648b679205dff47",
+      "to": "claim_481a8ba373536c30",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_841b3fe5a164655c",
+      "from": "claim_481a8ba373536c30",
+      "to": "event_292a78c2eba8fdf6",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_6806600323d6aea2",
+      "from": "source_206e012e4cff9120",
+      "to": "claim_8c1d0f12caf87dae",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_1209517ea963ee8d",
+      "from": "claim_8c1d0f12caf87dae",
+      "to": "event_292a78c2eba8fdf6",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_c67b1ab54c49be48",
+      "from": "source_c414bd3d03e495d0",
+      "to": "claim_167cd12267d0c583",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_ec6e80ab343cc328",
+      "from": "claim_167cd12267d0c583",
+      "to": "event_292a78c2eba8fdf6",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_8272bb9acb7bfe7b",
+      "from": "source_ce714bb6ae2d9acf",
+      "to": "claim_101829ab419adcec",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_317fff94a51385b8",
+      "from": "claim_101829ab419adcec",
+      "to": "event_292a78c2eba8fdf6",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_11afeea28290e859",
+      "from": "event_1c0e52d26f417ac9",
+      "to": "article_6154bfc5759e6911",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_047be5075d8b7966",
+      "from": "source_0122ec2217c08ff3",
+      "to": "claim_b63375fbf9193803",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_a9f0c02570fbf5d3",
+      "from": "claim_b63375fbf9193803",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "evidence_for",
+      "updateTitle": null
     },
     {
       "id": "edge_6ae440a5d17719f5",
@@ -22356,6 +22660,101 @@
       "from": "claim_6a91586fd2989c1a",
       "to": "event_cca4803f3ba7fbf7",
       "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_c4ad0d1c45c3477c",
+      "from": "event_b588ce27c75582df",
+      "to": "article_245a1c31c968df37",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_db6a3c3705578cac",
+      "from": "source_6c68d8a9e0adfba1",
+      "to": "claim_56097ffd857671ba",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_f5ac4a5c770f5c78",
+      "from": "claim_56097ffd857671ba",
+      "to": "event_b588ce27c75582df",
+      "relation": "conversation_source_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_68db016ef722fb8e",
+      "from": "event_0c2a5b333d7a7c80",
+      "to": "article_5c9dba05cb575d6a",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_7ad8ad4c15df0509",
+      "from": "source_c1ab7eec33708fad",
+      "to": "claim_b97b6fea6d925cca",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_c78759c59330f751",
+      "from": "claim_b97b6fea6d925cca",
+      "to": "event_0c2a5b333d7a7c80",
+      "relation": "conversation_source_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_ea1a9cb2fc5e30ec",
+      "from": "event_a6eed01a53d62c0d",
+      "to": "article_4dcc50ac62c7db77",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_8f1edf4fa61a8b9c",
+      "from": "source_24cbcdfb763d53a5",
+      "to": "claim_a25ee7951c566aa9",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_7ec5eb96a1716779",
+      "from": "claim_a25ee7951c566aa9",
+      "to": "event_a6eed01a53d62c0d",
+      "relation": "conversation_source_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_9b71c4d759121877",
+      "from": "event_bdca11033329d897",
+      "to": "article_8a07cb2da5eb73f2",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_02508591f217dcde",
+      "from": "source_a5ba91f78d5eac0b",
+      "to": "claim_dd26b3dd93c9501c",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_c11f82e0056fcf92",
+      "from": "claim_dd26b3dd93c9501c",
+      "to": "event_bdca11033329d897",
+      "relation": "conversation_source_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_576b0a0dfbdb0dac",
+      "from": "event_3726c931d9937091",
+      "to": "article_40085b6e116947e1",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_4e5f07d0a40d7981",
+      "from": "source_acc28cbfb0daa370",
+      "to": "claim_3ab35f924c94148e",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_abb728f7f4809a6b",
+      "from": "claim_3ab35f924c94148e",
+      "to": "event_3726c931d9937091",
+      "relation": "conversation_source_for",
       "updateTitle": null
     },
     {
