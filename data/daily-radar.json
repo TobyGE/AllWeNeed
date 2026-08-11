@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-11T19:12:19.323Z",
-  "basedOnSnapshotAt": "2026-08-11T19:06:07.432Z",
+  "generatedAt": "2026-08-11T21:13:27.689Z",
+  "basedOnSnapshotAt": "2026-08-11T21:07:05.947Z",
   "model": "gpt-5.5",
   "analyzedItemCount": 180,
   "totalFetchedItemCount": 2336,
@@ -478,7 +478,37 @@
           "ref": "R7"
         }
       ],
-      "feedBatchAt": "2026-08-11T19:06:07.432Z"
+      "feedBatchAt": "2026-08-11T19:06:07.432Z",
+      "updates": [
+        {
+          "addedAt": "2026-08-10T17:24:50.000Z",
+          "title": "研究量化推理块泄露痕迹",
+          "summary": "新增研究报告解码315,320个加密推理块，发现367个PII痕迹和182个凭据；其测试覆盖Anthropic、OpenAI和Google，并称推理块可跨会话、用户及模型重放。",
+          "evidence": [
+            {
+              "id": "ground-158-2-https://stolen-thoughts.com/-3-https://arxiv.org/abs/2608.09867",
+              "sourceId": 158,
+              "sourceName": "arXiv",
+              "sourcePublisher": "arXiv",
+              "sourceKind": "Research",
+              "title": "Stealing Reasoning Traces from Proprietary LLM APIs",
+              "url": "https://arxiv.org/abs/2608.09867",
+              "publishedAt": "2026-08-10T17:24:50.000Z",
+              "summary": "论文摘要确认：加密 reasoning blocks 可在同一提供商的不同会话、用户和模型之间兼容重放；较弱模型可被诱导输出较强模型的推理；研究覆盖 Anthropic、OpenAI 和 Google，并报告解码 315,320 个 blocks、发现 367 个 PII artifacts 和 182 个 credentials。",
+              "fetchedAt": "2026-08-11T21:07:05.947Z",
+              "groundedFrom": "N8",
+              "groundingClaim": "论文《Stealing Reasoning Traces from Proprietary LLM APIs》报告了一种跨会话、跨用户及同一提供商不同模型重放加密 reasoning blocks 的攻击；研究者称其可诱使较弱模型输出较强模型的隐藏推理，并在 Anthropic、OpenAI 和 Google 的模型生态中进行展示。论文还报告解码 315,320 个公开 reasoning blocks 后发现 367 个 PII 项和 182 个凭据。",
+              "groundingNotes": "论文原文支持上述攻击机制、厂商范围及统计数字；Hacker News 页面独立确认了论文标题、发布事件及跨模型重放/提取的核心描述。该证据证明的是论文作者报告的研究结果，不等同于各厂商已公开承认漏洞或所有相关 API 当前仍可被攻击。",
+              "ref": "G3",
+              "role": "佐证",
+              "takeaway": "论文报告加密推理块可在同一提供商内跨会话、用户和模型兼容重放，并量化了315,320个块、367个PII痕迹和182个凭据。"
+            }
+          ],
+          "changeType": "corroboration",
+          "thesisImpact": "新论文量化了可迁移加密推理块的规模及其携带的敏感信息痕迹，强化了推理状态应被视为密钥治理面而非普通会话数据的判断。",
+          "revisionRequired": false
+        }
+      ]
     },
     {
       "id": 103,
@@ -39700,6 +39730,22 @@
               "role": "佐证",
               "takeaway": "Google文档说明thought signatures用于保留多步推理上下文，通常需在后续历史中原样回传。"
             }
+          ],
+          "updates": [
+            {
+              "addedAt": "2026-08-10T17:24:50.000Z",
+              "title": "研究量化推理块泄露痕迹",
+              "summary": "新增研究报告解码315,320个加密推理块，发现367个PII痕迹和182个凭据；其测试覆盖Anthropic、OpenAI和Google，并称推理块可跨会话、用户及模型重放。",
+              "evidence": [
+                {
+                  "role": "佐证",
+                  "takeaway": "论文报告加密推理块可在同一提供商内跨会话、用户和模型兼容重放，并量化了315,320个块、367个PII痕迹和182个凭据。"
+                }
+              ],
+              "changeType": "corroboration",
+              "thesisImpact": "新论文量化了可迁移加密推理块的规模及其携带的敏感信息痕迹，强化了推理状态应被视为密钥治理面而非普通会话数据的判断。",
+              "revisionRequired": false
+            }
           ]
         },
         {
@@ -49877,6 +49923,22 @@
               "role": "Support",
               "takeaway": "Google documents thought signatures as encrypted state generally replayed in subsequent conversation history."
             }
+          ],
+          "updates": [
+            {
+              "addedAt": "2026-08-10T17:24:50.000Z",
+              "title": "Research Quantifies Reasoning-Block Exposure",
+              "summary": "A newly added study reports decoding 315,320 encrypted reasoning blocks, finding 367 PII artifacts and 182 credentials. It tested Anthropic, OpenAI, and Google, and says blocks could be replayed across sessions, users, and models.",
+              "evidence": [
+                {
+                  "role": "Support",
+                  "takeaway": "The paper reports cross-session, cross-user, and cross-model replay compatibility for encrypted reasoning blocks, along with quantified PII and credential artifacts."
+                }
+              ],
+              "changeType": "corroboration",
+              "thesisImpact": "新论文量化了可迁移加密推理块的规模及其携带的敏感信息痕迹，强化了推理状态应被视为密钥治理面而非普通会话数据的判断。",
+              "revisionRequired": false
+            }
           ]
         },
         {
@@ -59959,12 +60021,12 @@
     "en": "gpt-5.6-sol"
   },
   "incremental": {
-    "lastAddedAt": "2026-08-11T19:12:19.323Z",
-    "lastScanAt": "2026-08-11T19:06:07.432Z",
-    "lastAddedCount": 2,
-    "lastUpdatedCount": 0,
+    "lastAddedAt": "2026-08-11T21:13:27.689Z",
+    "lastScanAt": "2026-08-11T21:07:05.947Z",
+    "lastAddedCount": 0,
+    "lastUpdatedCount": 1,
     "totalAppended": 100,
-    "totalUpdated": 93
+    "totalUpdated": 94
   },
   "exploreDepth": {
     "minimum": 50,

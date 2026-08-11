@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-11T19:06:07.432Z",
+  "generatedAt": "2026-08-11T21:07:05.947Z",
   "counts": {
     "sources": 589,
-    "claims": 686,
+    "claims": 687,
     "events": 148,
     "articles": 148,
-    "updates": 93,
-    "edges": 1829,
+    "updates": 94,
+    "edges": 1832,
     "revisionsRequired": 5
   },
   "revisionQueue": [
@@ -233,6 +233,24 @@
       "title": "Google文档说明thought signatures用于保留多步推理上下文，通常需在后续历史中原样回传。",
       "role": "佐证",
       "addedAt": "2026-08-11T19:06:07.432Z"
+    },
+    {
+      "id": "update_20e5b2c0faa60e7f",
+      "type": "update",
+      "signalId": 108,
+      "title": "研究量化推理块泄露痕迹",
+      "summary": "新增研究报告解码315,320个加密推理块，发现367个PII痕迹和182个凭据；其测试覆盖Anthropic、OpenAI和Google，并称推理块可跨会话、用户及模型重放。",
+      "addedAt": "2026-08-10T17:24:50.000Z",
+      "changeType": "corroboration",
+      "thesisImpact": "新论文量化了可迁移加密推理块的规模及其携带的敏感信息痕迹，强化了推理状态应被视为密钥治理面而非普通会话数据的判断。",
+      "revisionRequired": false
+    },
+    {
+      "id": "claim_53d8d800ab15798a",
+      "type": "claim",
+      "title": "论文报告加密推理块可在同一提供商内跨会话、用户和模型兼容重放，并量化了315,320个块、367个PII痕迹和182个凭据。",
+      "role": "佐证",
+      "addedAt": "2026-08-10T17:24:50.000Z"
     },
     {
       "id": "event_292a78c2eba8fdf6",
@@ -13314,6 +13332,25 @@
       "to": "event_882ac719bf0ebcdc",
       "relation": "evidence_for",
       "updateTitle": null
+    },
+    {
+      "id": "edge_07f5744fc6fb1833",
+      "from": "update_20e5b2c0faa60e7f",
+      "to": "event_882ac719bf0ebcdc",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_5ce89336bf0a4f64",
+      "from": "source_2cadb8c4f77f348b",
+      "to": "claim_53d8d800ab15798a",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_49481eae0fbcc65b",
+      "from": "claim_53d8d800ab15798a",
+      "to": "event_882ac719bf0ebcdc",
+      "relation": "update_evidence_for",
+      "updateTitle": "研究量化推理块泄露痕迹"
     },
     {
       "id": "edge_d1368c556ca2aca9",
