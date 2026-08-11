@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-11T13:07:35.974Z",
+  "generatedAt": "2026-08-11T15:06:34.119Z",
   "counts": {
-    "sources": 573,
-    "claims": 670,
+    "sources": 576,
+    "claims": 673,
     "events": 146,
     "articles": 146,
-    "updates": 91,
-    "edges": 1786,
+    "updates": 92,
+    "edges": 1796,
     "revisionsRequired": 5
   },
   "revisionQueue": [
@@ -170,6 +170,62 @@
       "title": "现有nemo-relay-switchyard插件被标为实验性，默认未启用，且计划由原生Switchyard插件替代。",
       "role": "反例",
       "addedAt": "2026-08-11T13:07:35.974Z"
+    },
+    {
+      "id": "source_89483a008eb7ed3a",
+      "type": "source",
+      "title": "NVIDIA",
+      "url": "https://developer.nvidia.com/blog/nvidia-nemotron-3-5-lightning-delivers-fast-accurate-specialized-task-execution-for-long-running-agents/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-11T00:00:00.000Z"
+    },
+    {
+      "id": "claim_5cb47dd1c962b356",
+      "type": "claim",
+      "title": "NVIDIA确认Nemotron 3.5 Lightning为开放30B MoE、激活参数3B，并称输出速度最高可达同规模模型的4倍。",
+      "role": "佐证",
+      "addedAt": "2026-08-11T13:07:35.974Z"
+    },
+    {
+      "id": "source_1da80cd2d3f3e0fd",
+      "type": "source",
+      "title": "NVIDIA-NeMo",
+      "url": "https://github.com/NVIDIA-NeMo/Switchyard",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-11T13:20:05.000Z"
+    },
+    {
+      "id": "claim_35ae612f2a02ac4c",
+      "type": "claim",
+      "title": "NVIDIA-NeMo代码库说明Switchyard是用于LLM流量代理、协议转换和多后端模型路由的开源Rust库及代理软件。",
+      "role": "最新进展",
+      "addedAt": "2026-08-11T13:07:35.974Z"
+    },
+    {
+      "id": "source_3a1086559746f9c3",
+      "type": "source",
+      "title": "NVIDIA-NeMo",
+      "url": "https://github.com/NVIDIA-NeMo/Nemotron",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-11T13:19:16.000Z"
+    },
+    {
+      "id": "claim_9b0a057383e02457",
+      "type": "claim",
+      "title": "NVIDIA Nemotron官方仓库确认模型采用30B-A3B混合Mamba-Transformer MoE架构，并提供权重、训练方案和开放许可资源。",
+      "role": "佐证",
+      "addedAt": "2026-08-11T13:07:35.974Z"
+    },
+    {
+      "id": "update_9b9d24498d70843f",
+      "type": "update",
+      "signalId": 105,
+      "title": "Nemotron补齐路由与开放细节",
+      "summary": "NVIDIA确认Nemotron 3.5 Lightning为30B-A3B混合Mamba-Transformer MoE开放模型；Switchyard则是支持LLM流量代理、协议转换及多后端路由的开源Rust软件。",
+      "addedAt": "2026-08-11T13:20:05.000Z",
+      "changeType": "corroboration",
+      "thesisImpact": "NVIDIA的一手发布页、代码库和模型仓库补齐了Nemotron 3.5 Lightning的架构、开放资源与Switchyard的实际路由范围，强化其从单一模型发布延展至代理多模型编排层的判断。",
+      "revisionRequired": false
     },
     {
       "id": "event_f15e4d6c4f1184e1",
@@ -12971,6 +13027,72 @@
       "to": "event_4f43765a8c7d0363",
       "relation": "evidence_for",
       "updateTitle": null
+    },
+    {
+      "id": "edge_120d2433e19475ad",
+      "from": "source_89483a008eb7ed3a",
+      "to": "claim_5cb47dd1c962b356",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_929cfaac4df18e67",
+      "from": "claim_5cb47dd1c962b356",
+      "to": "event_4f43765a8c7d0363",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_a3de677c75ff2b23",
+      "from": "source_1da80cd2d3f3e0fd",
+      "to": "claim_35ae612f2a02ac4c",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_57d16d145e767bbf",
+      "from": "claim_35ae612f2a02ac4c",
+      "to": "event_4f43765a8c7d0363",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_ee93deff5975d13d",
+      "from": "source_3a1086559746f9c3",
+      "to": "claim_9b0a057383e02457",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_d9cf4257a6ce08db",
+      "from": "claim_9b0a057383e02457",
+      "to": "event_4f43765a8c7d0363",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_7280ca4278cdd949",
+      "from": "update_9b9d24498d70843f",
+      "to": "event_4f43765a8c7d0363",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_04d69d302f48caca",
+      "from": "claim_5cb47dd1c962b356",
+      "to": "event_4f43765a8c7d0363",
+      "relation": "update_evidence_for",
+      "updateTitle": "Nemotron补齐路由与开放细节"
+    },
+    {
+      "id": "edge_b5c2380f00826e73",
+      "from": "claim_35ae612f2a02ac4c",
+      "to": "event_4f43765a8c7d0363",
+      "relation": "update_evidence_for",
+      "updateTitle": "Nemotron补齐路由与开放细节"
+    },
+    {
+      "id": "edge_9f916829ebeea837",
+      "from": "claim_9b0a057383e02457",
+      "to": "event_4f43765a8c7d0363",
+      "relation": "update_evidence_for",
+      "updateTitle": "Nemotron补齐路由与开放细节"
     },
     {
       "id": "edge_2d82289039f049a8",

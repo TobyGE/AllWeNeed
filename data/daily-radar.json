@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-08-11T13:15:49.951Z",
-  "basedOnSnapshotAt": "2026-08-11T13:07:35.974Z",
+  "generatedAt": "2026-08-11T15:15:17.892Z",
+  "basedOnSnapshotAt": "2026-08-11T15:06:34.119Z",
   "model": "gpt-5.5",
   "analyzedItemCount": 180,
-  "totalFetchedItemCount": 2326,
+  "totalFetchedItemCount": 2335,
   "editorNote": "今日信息环境由代理安全事件、编码代理工具链分化、开放模型竞争和算力下沉共同主导。",
   "signalQuality": 86,
   "signalQualityChange": 8,
@@ -49,9 +49,10 @@
       "sourceNames": [
         "NVIDIA AI Blog",
         "NVIDIA Corporation",
-        "NVIDIA"
+        "NVIDIA",
+        "NVIDIA-NeMo"
       ],
-      "sourceCount": 3,
+      "sourceCount": 4,
       "age": "刚刚",
       "score": 85,
       "tone": "green",
@@ -193,6 +194,60 @@
           "ref": "R3",
           "role": "反例",
           "takeaway": "现有nemo-relay-switchyard插件被标为实验性，默认未启用，且计划由原生Switchyard插件替代。"
+        },
+        {
+          "id": "ground-226-5-https://siliconangle.com/2026/08/11/nvidia-releases-nemotron-3-5-lightning-nemo-switchyard-give-enterprise-ai-capability-options/-1-https://developer.nvidia.com/blog/nvidia-nemotron-3-5-lightning-delivers-fast-accurate-specialized-task-execution-for-long-running-agents/",
+          "sourceId": 226,
+          "sourceName": "NVIDIA",
+          "sourcePublisher": "NVIDIA",
+          "sourceKind": "Official",
+          "title": "NVIDIA Nemotron 3.5 Lightning Delivers Fast, Accurate Specialized Task Execution for Long-Running Agents",
+          "url": "https://developer.nvidia.com/blog/nvidia-nemotron-3-5-lightning-delivers-fast-accurate-specialized-task-execution-for-long-running-agents/",
+          "publishedAt": "2026-08-11T00:00:00.000Z",
+          "summary": "NVIDIA 官方发布文确认 Nemotron 3.5 Lightning 为开放的 30B MoE、激活参数 3B，宣称其输出速度最高为同规模模型的 4 倍，并介绍 NeMo Switchyard 作为按任务选择模型的智能路由库。",
+          "fetchedAt": "2026-08-11T15:06:34.119Z",
+          "groundedFrom": "N1",
+          "groundingClaim": "NVIDIA 于 2026 年 8 月 11 日发布开放权重的 Nemotron 3.5 Lightning：一款总参数 30B、每次前向激活约 3B 参数的混合 Mamba-Transformer MoE 模型；公司称其输出速度最高可达同规模模型的 4 倍，并同时介绍用于智能模型路由的开源库 NeMo Switchyard。",
+          "groundingNotes": "“最高 4 倍”是 NVIDIA 基于其所引述基准给出的性能主张，不是独立复测结果；官方将 Switchyard 描述为路由库/代理，而非单独的托管服务。",
+          "ref": "G1",
+          "role": "佐证",
+          "takeaway": "NVIDIA确认Nemotron 3.5 Lightning为开放30B MoE、激活参数3B，并称输出速度最高可达同规模模型的4倍。"
+        },
+        {
+          "id": "ground-226-5-https://siliconangle.com/2026/08/11/nvidia-releases-nemotron-3-5-lightning-nemo-switchyard-give-enterprise-ai-capability-options/-2-https://github.com/NVIDIA-NeMo/Switchyard",
+          "sourceId": 226,
+          "sourceName": "NVIDIA-NeMo",
+          "sourcePublisher": "NVIDIA-NeMo",
+          "sourceKind": "Official",
+          "title": "GitHub - NVIDIA-NeMo/Switchyard",
+          "url": "https://github.com/NVIDIA-NeMo/Switchyard",
+          "publishedAt": "2026-08-11T13:20:05.000Z",
+          "summary": "NVIDIA 官方代码仓库说明 Switchyard 是用于 LLM 流量代理、协议转换和多后端模型路由的开源 Rust 库及代理软件。",
+          "fetchedAt": "2026-08-11T15:06:34.119Z",
+          "groundedFrom": "N1",
+          "groundingClaim": "NVIDIA 于 2026 年 8 月 11 日发布开放权重的 Nemotron 3.5 Lightning：一款总参数 30B、每次前向激活约 3B 参数的混合 Mamba-Transformer MoE 模型；公司称其输出速度最高可达同规模模型的 4 倍，并同时介绍用于智能模型路由的开源库 NeMo Switchyard。",
+          "groundingNotes": "“最高 4 倍”是 NVIDIA 基于其所引述基准给出的性能主张，不是独立复测结果；官方将 Switchyard 描述为路由库/代理，而非单独的托管服务。",
+          "ref": "G2",
+          "role": "最新进展",
+          "takeaway": "NVIDIA-NeMo代码库说明Switchyard是用于LLM流量代理、协议转换和多后端模型路由的开源Rust库及代理软件。"
+        },
+        {
+          "id": "ground-237-11-https://www.reddit.com/r/LocalLLaMA/comments/1vlh9fg/nvidianvidianemotron35lightning30ba3bbf16_hugging/-3-https://github.com/NVIDIA-NeMo/Nemotron",
+          "sourceId": 237,
+          "sourceName": "NVIDIA-NeMo",
+          "sourcePublisher": "NVIDIA-NeMo",
+          "sourceKind": "Official",
+          "title": "GitHub - NVIDIA-NeMo/Nemotron: Developer Asset Hub for NVIDIA Nemotron",
+          "url": "https://github.com/NVIDIA-NeMo/Nemotron",
+          "publishedAt": "2026-08-11T13:19:16.000Z",
+          "summary": "NVIDIA 官方 Nemotron 仓库宣布 Nemotron 3.5 Lightning 已发布，确认其为 30B-A3B 混合 Mamba-Transformer MoE，并列出模型权重、训练方案和开放许可资源。",
+          "fetchedAt": "2026-08-11T15:06:34.119Z",
+          "groundedFrom": "N4",
+          "groundingClaim": "NVIDIA 已公开发布 NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16；该 BF16 模型为总参数 30B、激活参数约 3B 的混合 Mamba-Transformer MoE，并作为 Nemotron 3.5 Lightning 的全精度参考权重供定制和研究使用。",
+          "groundingNotes": "核验聚焦于模型及指定 BF16 变体确已发布；未采用社区提交或讨论内容作为证据。",
+          "ref": "G3",
+          "role": "佐证",
+          "takeaway": "NVIDIA Nemotron官方仓库确认模型采用30B-A3B混合Mamba-Transformer MoE架构，并提供权重、训练方案和开放许可资源。"
         }
       ],
       "references": [
@@ -321,9 +376,123 @@
           "researchComparisons": "此前的Nemotron 3已宣称支持最高100万token上下文，并以混合Mamba-Transformer MoE架构提高长上下文推理吞吐；其Nano 30B-A3B在8k输入/16k输出场景下相对Qwen3-30B-A3B达到3.3倍吞吐。作为可公开核验的较大前代基准，Nemotron 3 Super在8k输入/64k输出、B200 GPU、vLLM或TRT-LLM最佳配置下，声称相对GPT-OSS-120B和Qwen3.5-122B分别最高实现2.2倍和7.5倍吞吐，同时保持可比准确率。该基准并非Nemotron 3.5 Lightning的直接测试，且比较涉及不同量化格式和运行时。",
           "researchUnresolved": "尚未找到不重复现有NVIDIA博客链接、且明确披露Nemotron 3.5 Lightning参数规模、活动参数、上下文长度、测试硬件、运行时、量化设置、绝对tokens/s或完整同级对照表的一手模型卡、技术报告或仓库发布页；Switchyard原生替代插件的可用日期和迁移细节也尚未公布。",
           "ref": "R3"
+        },
+        {
+          "id": "ground-226-5-https://siliconangle.com/2026/08/11/nvidia-releases-nemotron-3-5-lightning-nemo-switchyard-give-enterprise-ai-capability-options/-1-https://developer.nvidia.com/blog/nvidia-nemotron-3-5-lightning-delivers-fast-accurate-specialized-task-execution-for-long-running-agents/",
+          "sourceId": 226,
+          "sourceName": "NVIDIA",
+          "sourcePublisher": "NVIDIA",
+          "sourceKind": "Official",
+          "title": "NVIDIA Nemotron 3.5 Lightning Delivers Fast, Accurate Specialized Task Execution for Long-Running Agents",
+          "url": "https://developer.nvidia.com/blog/nvidia-nemotron-3-5-lightning-delivers-fast-accurate-specialized-task-execution-for-long-running-agents/",
+          "publishedAt": "2026-08-11T00:00:00.000Z",
+          "summary": "NVIDIA 官方发布文确认 Nemotron 3.5 Lightning 为开放的 30B MoE、激活参数 3B，宣称其输出速度最高为同规模模型的 4 倍，并介绍 NeMo Switchyard 作为按任务选择模型的智能路由库。",
+          "fetchedAt": "2026-08-11T15:06:34.119Z",
+          "groundedFrom": "N1",
+          "groundingClaim": "NVIDIA 于 2026 年 8 月 11 日发布开放权重的 Nemotron 3.5 Lightning：一款总参数 30B、每次前向激活约 3B 参数的混合 Mamba-Transformer MoE 模型；公司称其输出速度最高可达同规模模型的 4 倍，并同时介绍用于智能模型路由的开源库 NeMo Switchyard。",
+          "groundingNotes": "“最高 4 倍”是 NVIDIA 基于其所引述基准给出的性能主张，不是独立复测结果；官方将 Switchyard 描述为路由库/代理，而非单独的托管服务。",
+          "ref": "G1"
+        },
+        {
+          "id": "ground-226-5-https://siliconangle.com/2026/08/11/nvidia-releases-nemotron-3-5-lightning-nemo-switchyard-give-enterprise-ai-capability-options/-2-https://github.com/NVIDIA-NeMo/Switchyard",
+          "sourceId": 226,
+          "sourceName": "NVIDIA-NeMo",
+          "sourcePublisher": "NVIDIA-NeMo",
+          "sourceKind": "Official",
+          "title": "GitHub - NVIDIA-NeMo/Switchyard",
+          "url": "https://github.com/NVIDIA-NeMo/Switchyard",
+          "publishedAt": "2026-08-11T13:20:05.000Z",
+          "summary": "NVIDIA 官方代码仓库说明 Switchyard 是用于 LLM 流量代理、协议转换和多后端模型路由的开源 Rust 库及代理软件。",
+          "fetchedAt": "2026-08-11T15:06:34.119Z",
+          "groundedFrom": "N1",
+          "groundingClaim": "NVIDIA 于 2026 年 8 月 11 日发布开放权重的 Nemotron 3.5 Lightning：一款总参数 30B、每次前向激活约 3B 参数的混合 Mamba-Transformer MoE 模型；公司称其输出速度最高可达同规模模型的 4 倍，并同时介绍用于智能模型路由的开源库 NeMo Switchyard。",
+          "groundingNotes": "“最高 4 倍”是 NVIDIA 基于其所引述基准给出的性能主张，不是独立复测结果；官方将 Switchyard 描述为路由库/代理，而非单独的托管服务。",
+          "ref": "G2"
+        },
+        {
+          "id": "ground-237-11-https://www.reddit.com/r/LocalLLaMA/comments/1vlh9fg/nvidianvidianemotron35lightning30ba3bbf16_hugging/-3-https://github.com/NVIDIA-NeMo/Nemotron",
+          "sourceId": 237,
+          "sourceName": "NVIDIA-NeMo",
+          "sourcePublisher": "NVIDIA-NeMo",
+          "sourceKind": "Official",
+          "title": "GitHub - NVIDIA-NeMo/Nemotron: Developer Asset Hub for NVIDIA Nemotron",
+          "url": "https://github.com/NVIDIA-NeMo/Nemotron",
+          "publishedAt": "2026-08-11T13:19:16.000Z",
+          "summary": "NVIDIA 官方 Nemotron 仓库宣布 Nemotron 3.5 Lightning 已发布，确认其为 30B-A3B 混合 Mamba-Transformer MoE，并列出模型权重、训练方案和开放许可资源。",
+          "fetchedAt": "2026-08-11T15:06:34.119Z",
+          "groundedFrom": "N4",
+          "groundingClaim": "NVIDIA 已公开发布 NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16；该 BF16 模型为总参数 30B、激活参数约 3B 的混合 Mamba-Transformer MoE，并作为 Nemotron 3.5 Lightning 的全精度参考权重供定制和研究使用。",
+          "groundingNotes": "核验聚焦于模型及指定 BF16 变体确已发布；未采用社区提交或讨论内容作为证据。",
+          "ref": "G3"
         }
       ],
-      "feedBatchAt": "2026-08-11T13:07:35.974Z"
+      "feedBatchAt": "2026-08-11T13:07:35.974Z",
+      "updates": [
+        {
+          "addedAt": "2026-08-11T13:20:05.000Z",
+          "title": "Nemotron补齐路由与开放细节",
+          "summary": "NVIDIA确认Nemotron 3.5 Lightning为30B-A3B混合Mamba-Transformer MoE开放模型；Switchyard则是支持LLM流量代理、协议转换及多后端路由的开源Rust软件。",
+          "evidence": [
+            {
+              "id": "ground-226-5-https://siliconangle.com/2026/08/11/nvidia-releases-nemotron-3-5-lightning-nemo-switchyard-give-enterprise-ai-capability-options/-1-https://developer.nvidia.com/blog/nvidia-nemotron-3-5-lightning-delivers-fast-accurate-specialized-task-execution-for-long-running-agents/",
+              "sourceId": 226,
+              "sourceName": "NVIDIA",
+              "sourcePublisher": "NVIDIA",
+              "sourceKind": "Official",
+              "title": "NVIDIA Nemotron 3.5 Lightning Delivers Fast, Accurate Specialized Task Execution for Long-Running Agents",
+              "url": "https://developer.nvidia.com/blog/nvidia-nemotron-3-5-lightning-delivers-fast-accurate-specialized-task-execution-for-long-running-agents/",
+              "publishedAt": "2026-08-11T00:00:00.000Z",
+              "summary": "NVIDIA 官方发布文确认 Nemotron 3.5 Lightning 为开放的 30B MoE、激活参数 3B，宣称其输出速度最高为同规模模型的 4 倍，并介绍 NeMo Switchyard 作为按任务选择模型的智能路由库。",
+              "fetchedAt": "2026-08-11T15:06:34.119Z",
+              "groundedFrom": "N1",
+              "groundingClaim": "NVIDIA 于 2026 年 8 月 11 日发布开放权重的 Nemotron 3.5 Lightning：一款总参数 30B、每次前向激活约 3B 参数的混合 Mamba-Transformer MoE 模型；公司称其输出速度最高可达同规模模型的 4 倍，并同时介绍用于智能模型路由的开源库 NeMo Switchyard。",
+              "groundingNotes": "“最高 4 倍”是 NVIDIA 基于其所引述基准给出的性能主张，不是独立复测结果；官方将 Switchyard 描述为路由库/代理，而非单独的托管服务。",
+              "ref": "G1",
+              "role": "佐证",
+              "takeaway": "NVIDIA确认Nemotron 3.5 Lightning为开放30B MoE、激活参数3B，并称输出速度最高可达同规模模型的4倍。"
+            },
+            {
+              "id": "ground-226-5-https://siliconangle.com/2026/08/11/nvidia-releases-nemotron-3-5-lightning-nemo-switchyard-give-enterprise-ai-capability-options/-2-https://github.com/NVIDIA-NeMo/Switchyard",
+              "sourceId": 226,
+              "sourceName": "NVIDIA-NeMo",
+              "sourcePublisher": "NVIDIA-NeMo",
+              "sourceKind": "Official",
+              "title": "GitHub - NVIDIA-NeMo/Switchyard",
+              "url": "https://github.com/NVIDIA-NeMo/Switchyard",
+              "publishedAt": "2026-08-11T13:20:05.000Z",
+              "summary": "NVIDIA 官方代码仓库说明 Switchyard 是用于 LLM 流量代理、协议转换和多后端模型路由的开源 Rust 库及代理软件。",
+              "fetchedAt": "2026-08-11T15:06:34.119Z",
+              "groundedFrom": "N1",
+              "groundingClaim": "NVIDIA 于 2026 年 8 月 11 日发布开放权重的 Nemotron 3.5 Lightning：一款总参数 30B、每次前向激活约 3B 参数的混合 Mamba-Transformer MoE 模型；公司称其输出速度最高可达同规模模型的 4 倍，并同时介绍用于智能模型路由的开源库 NeMo Switchyard。",
+              "groundingNotes": "“最高 4 倍”是 NVIDIA 基于其所引述基准给出的性能主张，不是独立复测结果；官方将 Switchyard 描述为路由库/代理，而非单独的托管服务。",
+              "ref": "G2",
+              "role": "最新进展",
+              "takeaway": "NVIDIA-NeMo代码库说明Switchyard是用于LLM流量代理、协议转换和多后端模型路由的开源Rust库及代理软件。"
+            },
+            {
+              "id": "ground-237-11-https://www.reddit.com/r/LocalLLaMA/comments/1vlh9fg/nvidianvidianemotron35lightning30ba3bbf16_hugging/-3-https://github.com/NVIDIA-NeMo/Nemotron",
+              "sourceId": 237,
+              "sourceName": "NVIDIA-NeMo",
+              "sourcePublisher": "NVIDIA-NeMo",
+              "sourceKind": "Official",
+              "title": "GitHub - NVIDIA-NeMo/Nemotron: Developer Asset Hub for NVIDIA Nemotron",
+              "url": "https://github.com/NVIDIA-NeMo/Nemotron",
+              "publishedAt": "2026-08-11T13:19:16.000Z",
+              "summary": "NVIDIA 官方 Nemotron 仓库宣布 Nemotron 3.5 Lightning 已发布，确认其为 30B-A3B 混合 Mamba-Transformer MoE，并列出模型权重、训练方案和开放许可资源。",
+              "fetchedAt": "2026-08-11T15:06:34.119Z",
+              "groundedFrom": "N4",
+              "groundingClaim": "NVIDIA 已公开发布 NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16；该 BF16 模型为总参数 30B、激活参数约 3B 的混合 Mamba-Transformer MoE，并作为 Nemotron 3.5 Lightning 的全精度参考权重供定制和研究使用。",
+              "groundingNotes": "核验聚焦于模型及指定 BF16 变体确已发布；未采用社区提交或讨论内容作为证据。",
+              "ref": "G3",
+              "role": "佐证",
+              "takeaway": "NVIDIA Nemotron官方仓库确认模型采用30B-A3B混合Mamba-Transformer MoE架构，并提供权重、训练方案和开放许可资源。"
+            }
+          ],
+          "changeType": "corroboration",
+          "thesisImpact": "NVIDIA的一手发布页、代码库和模型仓库补齐了Nemotron 3.5 Lightning的架构、开放资源与Switchyard的实际路由范围，强化其从单一模型发布延展至代理多模型编排层的判断。",
+          "revisionRequired": false
+        }
+      ]
     },
     {
       "id": 106,
@@ -38751,6 +38920,42 @@
             {
               "role": "反例",
               "takeaway": "现有nemo-relay-switchyard插件被标为实验性，默认未启用，且计划由原生Switchyard插件替代。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "NVIDIA确认Nemotron 3.5 Lightning为开放30B MoE、激活参数3B，并称输出速度最高可达同规模模型的4倍。"
+            },
+            {
+              "role": "最新进展",
+              "takeaway": "NVIDIA-NeMo代码库说明Switchyard是用于LLM流量代理、协议转换和多后端模型路由的开源Rust库及代理软件。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "NVIDIA Nemotron官方仓库确认模型采用30B-A3B混合Mamba-Transformer MoE架构，并提供权重、训练方案和开放许可资源。"
+            }
+          ],
+          "updates": [
+            {
+              "addedAt": "2026-08-11T13:20:05.000Z",
+              "title": "Nemotron补齐路由与开放细节",
+              "summary": "NVIDIA确认Nemotron 3.5 Lightning为30B-A3B混合Mamba-Transformer MoE开放模型；Switchyard则是支持LLM流量代理、协议转换及多后端路由的开源Rust软件。",
+              "evidence": [
+                {
+                  "role": "佐证",
+                  "takeaway": "NVIDIA确认Nemotron 3.5 Lightning为开放30B MoE、激活参数3B，并称输出速度最高可达同规模模型的4倍。"
+                },
+                {
+                  "role": "最新进展",
+                  "takeaway": "NVIDIA-NeMo代码库说明Switchyard是用于LLM流量代理、协议转换和多后端模型路由的开源Rust库及代理软件。"
+                },
+                {
+                  "role": "佐证",
+                  "takeaway": "NVIDIA Nemotron官方仓库确认模型采用30B-A3B混合Mamba-Transformer MoE架构，并提供权重、训练方案和开放许可资源。"
+                }
+              ],
+              "changeType": "corroboration",
+              "thesisImpact": "NVIDIA的一手发布页、代码库和模型仓库补齐了Nemotron 3.5 Lightning的架构、开放资源与Switchyard的实际路由范围，强化其从单一模型发布延展至代理多模型编排层的判断。",
+              "revisionRequired": false
             }
           ]
         },
@@ -48750,6 +48955,42 @@
             {
               "role": "Counterpoint",
               "takeaway": "The existing nemo-relay-switchyard plugin is experimental, not enabled by default and planned for replacement."
+            },
+            {
+              "role": "Support",
+              "takeaway": "NVIDIA confirmed the open 30B MoE model, its 3B active parameters and claimed output speed of up to four times comparable models."
+            },
+            {
+              "role": "Update",
+              "takeaway": "The NVIDIA-NeMo repository describes Switchyard as open Rust software for LLM traffic proxying, protocol translation and multi-backend routing."
+            },
+            {
+              "role": "Support",
+              "takeaway": "NVIDIA’s Nemotron repository confirms the 30B-A3B hybrid architecture and lists weights, training material and open-license resources."
+            }
+          ],
+          "updates": [
+            {
+              "addedAt": "2026-08-11T13:20:05.000Z",
+              "title": "Nemotron Adds Routing and Open-Model Detail",
+              "summary": "NVIDIA confirmed Nemotron 3.5 Lightning as an open 30B-A3B hybrid Mamba-Transformer MoE model, while Switchyard is open Rust software for LLM proxying, protocol translation and multi-backend routing.",
+              "evidence": [
+                {
+                  "role": "Support",
+                  "takeaway": "NVIDIA confirmed the open 30B MoE model, its 3B active parameters and claimed output speed of up to four times comparable models."
+                },
+                {
+                  "role": "Update",
+                  "takeaway": "The NVIDIA-NeMo repository describes Switchyard as open Rust software for LLM traffic proxying, protocol translation and multi-backend routing."
+                },
+                {
+                  "role": "Support",
+                  "takeaway": "NVIDIA’s Nemotron repository confirms the 30B-A3B hybrid architecture and lists weights, training material and open-license resources."
+                }
+              ],
+              "changeType": "corroboration",
+              "thesisImpact": "NVIDIA的一手发布页、代码库和模型仓库补齐了Nemotron 3.5 Lightning的架构、开放资源与Switchyard的实际路由范围，强化其从单一模型发布延展至代理多模型编排层的判断。",
+              "revisionRequired": false
             }
           ]
         },
@@ -58698,12 +58939,12 @@
     "en": "gpt-5.6-sol"
   },
   "incremental": {
-    "lastAddedAt": "2026-08-11T13:15:49.951Z",
-    "lastScanAt": "2026-08-11T13:07:35.974Z",
-    "lastAddedCount": 2,
-    "lastUpdatedCount": 0,
+    "lastAddedAt": "2026-08-11T15:15:17.892Z",
+    "lastScanAt": "2026-08-11T15:06:34.119Z",
+    "lastAddedCount": 0,
+    "lastUpdatedCount": 1,
     "totalAppended": 98,
-    "totalUpdated": 91
+    "totalUpdated": 92
   },
   "exploreDepth": {
     "minimum": 50,
