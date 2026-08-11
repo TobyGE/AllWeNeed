@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-10T22:06:30.210Z",
+  "generatedAt": "2026-08-11T03:06:36.719Z",
   "counts": {
-    "sources": 536,
-    "claims": 627,
-    "events": 131,
-    "articles": 131,
-    "updates": 82,
-    "edges": 1661,
+    "sources": 541,
+    "claims": 632,
+    "events": 132,
+    "articles": 132,
+    "updates": 83,
+    "edges": 1674,
     "revisionsRequired": 4
   },
   "revisionQueue": [
@@ -53,6 +53,84 @@
     }
   ],
   "nodes": [
+    {
+      "id": "event_292a78c2eba8fdf6",
+      "type": "event",
+      "signalId": 103,
+      "title": "Anthropic联手Macquarie与GIC建数据中心平台",
+      "bucket": "dynamic",
+      "valueScore": 86,
+      "publishedAt": "2026-08-10T22:36:49.000Z",
+      "updatedAt": "2026-08-10T22:36:49.000Z"
+    },
+    {
+      "id": "article_299b44e27cc7ee67",
+      "type": "article",
+      "signalId": 103,
+      "title": "Anthropic联手Macquarie与GIC建数据中心平台",
+      "version": 1,
+      "publishedAt": "2026-08-11T03:06:36.719Z"
+    },
+    {
+      "id": "source_1648b679205dff47",
+      "type": "source",
+      "title": "The Information",
+      "url": "https://www.theinformation.com/briefings/anthropic-new-datacenter-partnership-macquarie-gic",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-10T22:36:49.000Z"
+    },
+    {
+      "id": "claim_481a8ba373536c30",
+      "type": "claim",
+      "title": "报道称Anthropic、Macquarie Asset Management和GIC启动新实体，开发、运营并租赁面向Anthropic的AI数据中心，初期聚焦美国。",
+      "role": "主张",
+      "addedAt": "2026-08-11T03:06:36.719Z"
+    },
+    {
+      "id": "source_206e012e4cff9120",
+      "type": "source",
+      "title": "Anthropic",
+      "url": "https://www.anthropic.com/news/build-ai-in-america?curius=2071",
+      "sourceKind": "Official",
+      "publishedAt": "2025-07-21T00:00:00.000Z"
+    },
+    {
+      "id": "claim_8c1d0f12caf87dae",
+      "type": "claim",
+      "title": "Anthropic曾预计单个先进模型到2027年需2GW、到2028年需5GW数据中心容量，并预计美国前沿AI训练需求到2028年达到20至25GW。",
+      "role": "背景",
+      "addedAt": "2026-08-11T03:06:36.719Z"
+    },
+    {
+      "id": "source_c414bd3d03e495d0",
+      "type": "source",
+      "title": "TeraWulf Inc.",
+      "url": "https://www.sec.gov/Archives/edgar/data/1083301/000110465926080583/tm2619468d1_ex99-1.htm",
+      "sourceKind": "SEC",
+      "publishedAt": "2026-07-06T00:00:00.000Z"
+    },
+    {
+      "id": "claim_167cd12267d0c583",
+      "type": "claim",
+      "title": "TeraWulf披露Anthropic已签署Justified Data园区20年租约，约401MW关键IT负载预计于2027年下半年开始投运。",
+      "role": "背景",
+      "addedAt": "2026-08-11T03:06:36.719Z"
+    },
+    {
+      "id": "source_ce714bb6ae2d9acf",
+      "type": "source",
+      "title": "Macquarie Group",
+      "url": "https://www.macquarie.com/sg/en/about/news/2026/macquarie-asset-management-announces-successful-close-of-aligned-data-centers-transaction.html",
+      "sourceKind": "Official",
+      "publishedAt": "2026-07-21T00:00:00.000Z"
+    },
+    {
+      "id": "claim_101829ab419adcec",
+      "type": "claim",
+      "title": "Macquarie披露其持有Aligned Data Centers期间，平台从2处设施和85MW扩展至51个园区及逾6.4GW运营和规划容量。",
+      "role": "佐证",
+      "addedAt": "2026-08-11T03:06:36.719Z"
+    },
     {
       "id": "event_1c0e52d26f417ac9",
       "type": "event",
@@ -696,6 +774,32 @@
       "title": "Associated Press确认Muse Glimmer采用宽松许可，并报道其发布伴随Zuckerberg对开放式AI的公开主张。",
       "role": "佐证",
       "addedAt": "2026-08-10T16:06:29.091Z"
+    },
+    {
+      "id": "source_04251f3749e76802",
+      "type": "source",
+      "title": "Simon Willison",
+      "url": "https://simonwillison.net/2026/Aug/10/introducing-muse-glimmer/#atom-everything",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-10T23:56:03.000Z"
+    },
+    {
+      "id": "claim_45124b51fded66a2",
+      "type": "claim",
+      "title": "Simon Willison的文章确认Muse Glimmer为30B、Apache 2.0许可，并转述其针对本地端到端代理任务完成的优化定位。",
+      "role": "佐证",
+      "addedAt": "2026-08-10T16:06:29.091Z"
+    },
+    {
+      "id": "update_1fc1143b35b91531",
+      "type": "update",
+      "signalId": 100,
+      "title": "Muse Glimmer获独立部署侧验证",
+      "summary": "Simon Willison将Muse Glimmer描述为30B、Apache 2.0许可的本地代理模型，并聚焦其端到端代理任务完成定位。",
+      "addedAt": "2026-08-10T23:56:03.000Z",
+      "changeType": "corroboration",
+      "thesisImpact": "独立开发者观察补充了Muse Glimmer的Apache 2.0许可与本地代理定位，强化其从开放权重发布走向可部署本地代理工具的判断。",
+      "revisionRequired": false
     },
     {
       "id": "update_73bcaca9d1f16d85",
@@ -11935,6 +12039,64 @@
   ],
   "edges": [
     {
+      "id": "edge_d1368c556ca2aca9",
+      "from": "event_292a78c2eba8fdf6",
+      "to": "article_299b44e27cc7ee67",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_efe80019a660f07e",
+      "from": "source_1648b679205dff47",
+      "to": "claim_481a8ba373536c30",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_841b3fe5a164655c",
+      "from": "claim_481a8ba373536c30",
+      "to": "event_292a78c2eba8fdf6",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_6806600323d6aea2",
+      "from": "source_206e012e4cff9120",
+      "to": "claim_8c1d0f12caf87dae",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_1209517ea963ee8d",
+      "from": "claim_8c1d0f12caf87dae",
+      "to": "event_292a78c2eba8fdf6",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_c67b1ab54c49be48",
+      "from": "source_c414bd3d03e495d0",
+      "to": "claim_167cd12267d0c583",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_ec6e80ab343cc328",
+      "from": "claim_167cd12267d0c583",
+      "to": "event_292a78c2eba8fdf6",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_8272bb9acb7bfe7b",
+      "from": "source_ce714bb6ae2d9acf",
+      "to": "claim_101829ab419adcec",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_317fff94a51385b8",
+      "from": "claim_101829ab419adcec",
+      "to": "event_292a78c2eba8fdf6",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
       "id": "edge_11afeea28290e859",
       "from": "event_1c0e52d26f417ac9",
       "to": "article_6154bfc5759e6911",
@@ -12533,6 +12695,32 @@
       "to": "event_a3d43ebec4c1df9b",
       "relation": "evidence_for",
       "updateTitle": null
+    },
+    {
+      "id": "edge_fb58a5caa8731955",
+      "from": "source_04251f3749e76802",
+      "to": "claim_45124b51fded66a2",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_17b321c83821f8b3",
+      "from": "claim_45124b51fded66a2",
+      "to": "event_a3d43ebec4c1df9b",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_347b23da5b18dcee",
+      "from": "update_1fc1143b35b91531",
+      "to": "event_a3d43ebec4c1df9b",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_6882127fe48a2d3a",
+      "from": "claim_45124b51fded66a2",
+      "to": "event_a3d43ebec4c1df9b",
+      "relation": "update_evidence_for",
+      "updateTitle": "Muse Glimmer获独立部署侧验证"
     },
     {
       "id": "edge_b0d28c2d12e8c18e",
