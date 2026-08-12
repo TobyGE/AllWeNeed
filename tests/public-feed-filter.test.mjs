@@ -107,6 +107,37 @@ test("drops YouTube Shorts without hiding the following full episode", () => {
   assert.equal(items[0].title, "The complete interview");
 });
 
+test("preserves an embedded YouTube alias from a canonical podcast item", () => {
+  const source = {
+    id: 20,
+    name: "Dwarkesh Podcast",
+    url: "https://www.youtube.com/channel/UCXl4i9dYBrFOabk0xGmbkRA",
+    feedUrl: "https://example.com/podcast.rss",
+    conversationSource: true,
+    feedSummaryLimit: 8_000,
+  };
+  const xml = `
+    <rss><channel><item>
+      <title>Ryan Greenblatt interview</title>
+      <link>https://www.dwarkesh.com/p/ryan-greenblatt</link>
+      <pubDate>Tue, 11 Aug 2026 16:31:23 GMT</pubDate>
+      <description><![CDATA[
+        <p>Long-form interview notes.</p>
+        <p>Watch on <a href="https://youtu.be/-RXD4bTuFTo">YouTube</a>.</p>
+      ]]></description>
+    </item></channel></rss>
+  `;
+
+  const [item] = parseFeed(xml, source, source.feedUrl);
+  assert.equal(item.url, "https://www.dwarkesh.com/p/ryan-greenblatt");
+  assert.equal(item.videoId, "-RXD4bTuFTo");
+  assert.equal(
+    item.videoUrl,
+    "https://www.youtube.com/watch?v=-RXD4bTuFTo",
+  );
+  assert.deepEqual(item.alternateUrls, [item.videoUrl]);
+});
+
 test("extracts public descriptions and duration from a YouTube conversation page", () => {
   const html = `
     <html><head><meta name="description" content="Short fallback"></head>

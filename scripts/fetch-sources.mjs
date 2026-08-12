@@ -451,6 +451,19 @@ function durationMinutes(value = "") {
   return Number.isFinite(seconds) ? Math.max(1, Math.round(seconds / 60)) : null;
 }
 
+export function extractYouTubeVideoId(value = "") {
+  const decoded = decodeEntities(value);
+  const patterns = [
+    /https?:\/\/(?:www\.)?youtu\.be\/([\w-]{11})(?:[^\w-]|$)/giu,
+    /https?:\/\/(?:www\.)?(?:youtube\.com|youtube-nocookie\.com)\/(?:watch\?[^\s"'<>]*?v=|embed\/|live\/)([\w-]{11})(?:[^\w-]|$)/giu,
+  ];
+  for (const pattern of patterns) {
+    const match = pattern.exec(decoded);
+    if (match?.[1]) return match[1];
+  }
+  return null;
+}
+
 export function parseFeed(xml, source, feedUrl) {
   const itemBlocks = [
     ...xml.matchAll(/<item(?:\s[^>]*)?>([\s\S]*?)<\/item>/gi),
@@ -490,9 +503,22 @@ export function parseFeed(xml, source, feedUrl) {
     const publishedAt = normalizeDate(
       tagValue(block, ["pubDate", "published", "updated", "dc:date"]),
     );
-    const summary = cleanText(
-      tagValue(block, ["description", "summary", "content:encoded", "content"]),
-    ).slice(0, source.feedSummaryLimit ?? 360);
+    const rawSummary = tagValue(block, [
+      "description",
+      "summary",
+      "content:encoded",
+      "content",
+    ]);
+    const summary = cleanText(rawSummary).slice(
+      0,
+      source.feedSummaryLimit ?? 360,
+    );
+    const videoId = source.conversationSource
+      ? extractYouTubeVideoId(rawSummary)
+      : null;
+    const videoUrl = videoId
+      ? `https://www.youtube.com/watch?v=${videoId}`
+      : null;
     const episodeDurationMinutes = durationMinutes(
       tagValue(block, ["itunes:duration"]),
     );
@@ -508,6 +534,13 @@ export function parseFeed(xml, source, feedUrl) {
         url,
         publishedAt,
         summary,
+        ...(videoId
+          ? {
+              videoId,
+              videoUrl,
+              alternateUrls: [videoUrl],
+            }
+          : {}),
         ...(episodeDurationMinutes
           ? { durationMinutes: episodeDurationMinutes }
           : {}),

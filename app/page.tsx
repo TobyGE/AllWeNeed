@@ -125,6 +125,7 @@ type Conversation = {
   id: string;
   feedBatchAt?: string;
   videoId: string;
+  videoUrl?: string;
   sourceName: string;
   sourceKind: string;
   originalTitle: string;
@@ -1232,7 +1233,9 @@ export default function Home() {
               sourceName: activeConversationArticle.sourceName,
               sourceKind: activeConversationArticle.sourceKind,
               title: activeConversationArticle.originalTitle,
-              url: activeConversationArticle.url,
+              url:
+                activeConversationArticle.videoUrl ??
+                activeConversationArticle.url,
               publishedAt: activeConversationArticle.publishedAt,
               role: t("完整节目", "Full episode"),
               takeaway: activeConversationArticle.whyListen,

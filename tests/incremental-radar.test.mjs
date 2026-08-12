@@ -391,6 +391,9 @@ test("accounts for every new conversation and hydrates a bilingual briefing", ()
       sourceKind: "Podcast",
       title: "149. 和清华刘子鸣聊 AI for AI",
       url: "https://example.com/podcast/149",
+      videoId: "-RXD4bTuFTo",
+      videoUrl: "https://www.youtube.com/watch?v=-RXD4bTuFTo",
+      alternateUrls: ["https://www.youtube.com/watch?v=-RXD4bTuFTo"],
       publishedAt: "2026-07-30T23:30:00.000Z",
       durationMinutes: 101,
     },
@@ -447,6 +450,11 @@ test("accounts for every new conversation and hydrates a bilingual briefing", ()
   });
   assert.equal(hydrated.length, 1);
   assert.equal(hydrated[0].durationMinutes, 101);
+  assert.equal(hydrated[0].videoId, "-RXD4bTuFTo");
+  assert.equal(
+    hydrated[0].videoUrl,
+    "https://www.youtube.com/watch?v=-RXD4bTuFTo",
+  );
   assert.equal(hydrated[0].sourceKind, "Podcast");
   assert.equal(hydrated[0].feedBatchAt, "2026-07-31T14:00:00.000Z");
   assert.equal(hydrated[0].takeawaysZh.length, 3);
@@ -478,6 +486,36 @@ test("accounts for every new conversation and hydrates a bilingual briefing", ()
     "2026-07-24T00:00:00.000Z",
   );
   assert.equal(merged.model, "gpt-test");
+});
+
+test("marks canonical conversation URLs and YouTube aliases as processed", () => {
+  const candidate = {
+    sourceId: 20,
+    url: "https://www.dwarkesh.com/p/ryan-greenblatt",
+    videoUrl: "https://www.youtube.com/watch?v=-RXD4bTuFTo",
+    alternateUrls: ["https://www.youtube.com/watch?v=-RXD4bTuFTo"],
+  };
+  const state = nextState({
+    state: {
+      lastScanAt: "2026-08-11T16:00:00.000Z",
+      windowStartAt: "2026-08-11T16:00:00.000Z",
+      initializedSourceIds: ["20"],
+      processedKeys: [],
+      processedUrls: [],
+    },
+    previousSnapshot: { items: [] },
+    candidates: [candidate],
+    scannedSnapshot: {
+      generatedAt: "2026-08-11T17:00:00.000Z",
+      statuses: [{ sourceId: 20, status: "ok" }],
+      items: [candidate],
+    },
+  });
+
+  assert.ok(state.processedKeys.includes(candidate.url));
+  assert.ok(state.processedKeys.includes(candidate.videoUrl));
+  assert.ok(state.processedUrls.includes(candidate.url));
+  assert.ok(state.processedUrls.includes(candidate.videoUrl));
 });
 
 test("rejects an unaccounted or multiply assigned conversation candidate", () => {

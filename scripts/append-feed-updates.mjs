@@ -144,6 +144,24 @@ function itemProcessingKey(item) {
   return item.versionKey ?? item.url;
 }
 
+function itemKnownUrls(item) {
+  return [item?.url, item?.videoUrl, ...(item?.alternateUrls ?? [])].filter(
+    (value) => typeof value === "string" && value,
+  );
+}
+
+function itemYouTubeVideoId(item) {
+  const explicit = cleanText(item?.videoId ?? "");
+  if (/^[\w-]{11}$/u.test(explicit)) return explicit;
+  for (const value of itemKnownUrls(item)) {
+    const match =
+      value.match(/[?&]v=([\w-]{11})(?:&|$)/u) ??
+      value.match(/youtu\.be\/([\w-]{11})(?:[?/#]|$)/u);
+    if (match?.[1]) return match[1];
+  }
+  return "";
+}
+
 function incrementalRelevance(item, snapshotTime) {
   const text = `${item.title} ${item.summary}`.toLowerCase();
   const terms = [
@@ -1668,10 +1686,8 @@ export function hydrateConversationItems({
     return [
       {
         id: `conversation-${stamp}-${index + 1}`,
-        videoId:
-          source.url.match(/[?&]v=([^&]+)/)?.[1] ??
-          source.url.match(/youtu\.be\/([^?]+)/)?.[1] ??
-          "",
+        videoId: itemYouTubeVideoId(source),
+        ...(source.videoUrl ? { videoUrl: source.videoUrl } : {}),
         sourceName: source.sourceName,
         sourceKind: source.sourceKind,
         originalTitle: cleanText(source.title).slice(0, 500),
@@ -2411,10 +2427,15 @@ export function createBaselineState(scannedSnapshot) {
       .filter((status) => status.status === "ok")
       .map((status) => String(status.sourceId)),
     processedUrls: [
-      ...new Set(processedItems.map((item) => item.url)),
+      ...new Set(processedItems.flatMap(itemKnownUrls)),
     ].slice(-20_000),
     processedKeys: [
-      ...new Set(processedItems.map(itemProcessingKey)),
+      ...new Set(
+        processedItems.flatMap((item) => [
+          itemProcessingKey(item),
+          ...itemKnownUrls(item).filter((url) => url !== item.url),
+        ]),
+      ),
     ].slice(-20_000),
     deferredKeys: [],
   };
@@ -2454,19 +2475,25 @@ export function nextState({
     !qualifiesForNewSourceLookback(item, snapshotTime);
   const urls = new Set([
     ...(state?.processedUrls ?? previousSnapshot.items.map((item) => item.url)),
-    ...candidates.map((item) => item.url),
+    ...candidates.flatMap(itemKnownUrls),
     ...scannedSnapshot.items
       .filter(shouldBaselineNewSourceItem)
-      .map((item) => item.url),
+      .flatMap(itemKnownUrls),
   ]);
   const keys = new Set([
     ...(state?.processedKeys ??
       state?.processedUrls ??
       previousSnapshot.items.map(itemProcessingKey)),
-    ...candidates.map(itemProcessingKey),
+    ...candidates.flatMap((item) => [
+      itemProcessingKey(item),
+      ...itemKnownUrls(item).filter((url) => url !== item.url),
+    ]),
     ...scannedSnapshot.items
       .filter(shouldBaselineNewSourceItem)
-      .map(itemProcessingKey),
+      .flatMap((item) => [
+        itemProcessingKey(item),
+        ...itemKnownUrls(item).filter((url) => url !== item.url),
+      ]),
   ]);
   const processedCandidateKeys = new Set(candidates.map(itemProcessingKey));
   const deferredKeys = new Set([
