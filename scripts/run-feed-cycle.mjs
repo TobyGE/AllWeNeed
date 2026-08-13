@@ -70,6 +70,45 @@ function runCommand(command, args, { cwd, capture = false } = {}) {
   return capture ? result.stdout.trim() : "";
 }
 
+export async function withGeneratedFileRollback(paths, action) {
+  const snapshots = await Promise.all(
+    paths.map(async (path) => {
+      try {
+        return { path, existed: true, contents: await readFile(path) };
+      } catch (error) {
+        if (error?.code === "ENOENT") {
+          return { path, existed: false, contents: null };
+        }
+        throw error;
+      }
+    }),
+  );
+
+  try {
+    return await action();
+  } catch (error) {
+    const rollbackErrors = [];
+    for (const snapshot of snapshots) {
+      try {
+        if (snapshot.existed) {
+          await writeFile(snapshot.path, snapshot.contents);
+        } else {
+          await rm(snapshot.path, { force: true });
+        }
+      } catch (rollbackError) {
+        rollbackErrors.push(rollbackError);
+      }
+    }
+    if (rollbackErrors.length) {
+      throw new AggregateError(
+        [error, ...rollbackErrors],
+        "Live publication failed and generated-file rollback was incomplete",
+      );
+    }
+    throw error;
+  }
+}
+
 function gitOutput(repo, args) {
   return runCommand("git", args, { cwd: repo, capture: true });
 }
@@ -333,6 +372,8 @@ async function publishLiveOnly({
   startedAt,
   reuseSnapshot,
 }) {
+  const liveFeedPath = resolve(projectRoot, "data/live-feed.json");
+  const trafficSummaryPath = resolve(projectRoot, "data/traffic-summary.json");
   const scannedSnapshotPath = resolve(
     projectRoot,
     reuseSnapshot ? "tmp/feed-snapshot.json" : "data/feed-snapshot.json",
@@ -346,9 +387,7 @@ async function publishLiveOnly({
 
   const liveCandidate = buildLiveFeed(scannedSnapshot);
   if (liveCandidate.items.length === 0) {
-    const retainedLiveFeed = await readJson(
-      resolve(projectRoot, "data/live-feed.json"),
-    );
+    const retainedLiveFeed = await readJson(liveFeedPath);
     const report = {
       status: "live_skipped_empty",
       startedAt,
@@ -369,36 +408,68 @@ async function publishLiveOnly({
     return;
   }
 
-  runCommand(
-    process.execPath,
-    [
-      resolve(projectRoot, "scripts/build-live-feed.mjs"),
-      `--snapshot=${scannedSnapshotPath}`,
-    ],
-    { cwd: projectRoot },
-  );
-  runCommand(
-    process.execPath,
-    [
-      resolve(projectRoot, "scripts/localize-live-feed.mjs"),
-      "--required",
-    ],
-    { cwd: projectRoot },
-  );
-  assertLiveLocalizationComplete(
-    await readJson(resolve(projectRoot, "data/live-feed.json")),
-  );
-  assertApprovedModelUsage({
-    localizationModel: (
-      await readJson(resolve(projectRoot, "data/live-feed.json"))
-    ).localizationModel,
-  });
+  const preparedLive = await withGeneratedFileRollback(
+    [liveFeedPath, trafficSummaryPath],
+    async () => {
+      runCommand(
+        process.execPath,
+        [
+          resolve(projectRoot, "scripts/build-live-feed.mjs"),
+          `--snapshot=${scannedSnapshotPath}`,
+        ],
+        { cwd: projectRoot },
+      );
+      runCommand(
+        process.execPath,
+        [
+          resolve(projectRoot, "scripts/localize-live-feed.mjs"),
+          "--required",
+        ],
+        { cwd: projectRoot },
+      );
+      const liveFeed = await readJson(liveFeedPath);
+      assertLiveLocalizationComplete(liveFeed);
+      assertApprovedModelUsage({
+        localizationModel: liveFeed.localizationModel,
+      });
 
-  const radarStatus = gitStatus(projectRoot);
+      const radarStatus = gitStatus(projectRoot);
+      if (!radarStatus) return { radarStatus, liveFeed };
+
+      assertOnlyExpectedChanges(
+        radarStatus,
+        ["data/live-feed.json", "data/traffic-summary.json"],
+        "All We Need live repository",
+      );
+      runCommand("npm", ["run", "refresh:traffic"], { cwd: projectRoot });
+      assertOnlyExpectedChanges(
+        gitStatus(projectRoot),
+        ["data/live-feed.json", "data/traffic-summary.json"],
+        "All We Need live repository",
+      );
+
+      // rendered-html.test.mjs exercises dist/server/index.js. A production
+      // checkout can retain an older dist after a fast-forward, so rebuild the
+      // server bundle before validating the freshly pulled Live implementation.
+      runCommand("npm", ["run", "build"], { cwd: projectRoot });
+      runCommand(
+        process.execPath,
+        [
+          "--test",
+          "tests/live-feed.test.mjs",
+          "tests/rendered-html.test.mjs",
+          "tests/analytics.test.mjs",
+        ],
+        { cwd: projectRoot },
+      );
+      runCommand("npm", ["run", "build:static"], { cwd: projectRoot });
+      return { radarStatus, liveFeed };
+    },
+  );
+
+  const { radarStatus } = preparedLive;
   if (!radarStatus) {
-    const liveFeed = await readJson(
-      resolve(projectRoot, "data/live-feed.json"),
-    );
+    const { liveFeed } = preparedLive;
     const report = {
       status: "live_no_changes",
       startedAt,
@@ -418,34 +489,6 @@ async function publishLiveOnly({
     console.log(JSON.stringify(report, null, 2));
     return;
   }
-
-  assertOnlyExpectedChanges(
-    radarStatus,
-    ["data/live-feed.json", "data/traffic-summary.json"],
-    "All We Need live repository",
-  );
-  runCommand("npm", ["run", "refresh:traffic"], { cwd: projectRoot });
-  assertOnlyExpectedChanges(
-    gitStatus(projectRoot),
-    ["data/live-feed.json", "data/traffic-summary.json"],
-    "All We Need live repository",
-  );
-
-  // rendered-html.test.mjs exercises dist/server/index.js. A production
-  // checkout can retain an older dist after a fast-forward, so rebuild the
-  // server bundle before validating the freshly pulled Live implementation.
-  runCommand("npm", ["run", "build"], { cwd: projectRoot });
-  runCommand(
-    process.execPath,
-    [
-      "--test",
-      "tests/live-feed.test.mjs",
-      "tests/rendered-html.test.mjs",
-      "tests/analytics.test.mjs",
-    ],
-    { cwd: projectRoot },
-  );
-  runCommand("npm", ["run", "build:static"], { cwd: projectRoot });
 
   const stamp = new Date(scannedSnapshot.generatedAt)
     .toISOString()
@@ -472,7 +515,7 @@ async function publishLiveOnly({
     new URL("/live/", primaryVerificationUrl).toString(),
     primaryVerificationUrl,
   );
-  const liveFeed = await readJson(resolve(projectRoot, "data/live-feed.json"));
+  const liveFeed = await readJson(liveFeedPath);
   const report = {
     status: "live_published",
     startedAt,
