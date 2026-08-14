@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-14T20:07:23.684Z",
+  "generatedAt": "2026-08-14T22:06:52.861Z",
   "counts": {
-    "sources": 663,
-    "claims": 777,
-    "events": 162,
-    "articles": 162,
+    "sources": 667,
+    "claims": 781,
+    "events": 163,
+    "articles": 163,
     "updates": 106,
-    "edges": 2068,
+    "edges": 2077,
     "revisionsRequired": 7
   },
   "revisionQueue": [
@@ -83,6 +83,84 @@
     }
   ],
   "nodes": [
+    {
+      "id": "event_2daba3f21c28759e",
+      "type": "event",
+      "signalId": 119,
+      "title": "Anthropic据报二季度收入增逾14倍",
+      "bucket": "dynamic",
+      "valueScore": 86,
+      "publishedAt": "2026-08-14T21:08:57.000Z",
+      "updatedAt": "2026-08-14T21:08:57.000Z"
+    },
+    {
+      "id": "article_0d54f8f50a4e2d7b",
+      "type": "article",
+      "signalId": 119,
+      "title": "Anthropic据报二季度收入增逾14倍",
+      "version": 1,
+      "publishedAt": "2026-08-14T22:06:52.861Z"
+    },
+    {
+      "id": "source_05e4b80a75340ce9",
+      "type": "source",
+      "title": "Bloomberg Technology",
+      "url": "https://www.bloomberg.com/news/articles/2026-08-14/anthropic-revenue-ahead-of-ipo-surges-over-14-fold-in-second-quarter",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-14T21:08:57.000Z"
+    },
+    {
+      "id": "claim_a914e848d513fabc",
+      "type": "claim",
+      "title": "Bloomberg报道称，Anthropic向潜在投资者披露第二季度收入同比至少增长14倍。",
+      "role": "主张",
+      "addedAt": "2026-08-14T22:06:52.861Z"
+    },
+    {
+      "id": "source_2e11a2b537cbadd1",
+      "type": "source",
+      "title": "The Wall Street Journal",
+      "url": "https://www.wsj.com/tech/ai/mind-blowing-growth-is-about-to-propel-anthropic-into-its-first-profitable-quarter-7edbf2f4",
+      "sourceKind": "Media",
+      "publishedAt": "2026-05-20T20:54:00.000Z"
+    },
+    {
+      "id": "claim_1ee8eea17db297d2",
+      "type": "claim",
+      "title": "华尔街日报此前报道称，Anthropic预计2026年第二季度收入109亿美元，第一季度为48亿美元，并预计实现营业利润。",
+      "role": "背景",
+      "addedAt": "2026-08-14T22:06:52.861Z"
+    },
+    {
+      "id": "source_b5e22ae086a6b353",
+      "type": "source",
+      "title": "Anthropic",
+      "url": "https://www.anthropic.com/news/series-h",
+      "sourceKind": "IR",
+      "publishedAt": "2026-05-28T00:00:00.000Z"
+    },
+    {
+      "id": "claim_be46f7d968b0aac8",
+      "type": "claim",
+      "title": "Anthropic官方5月披露年化收入运行率已超过470亿美元，为其商业化规模提供公司口径背景。",
+      "role": "佐证",
+      "addedAt": "2026-08-14T22:06:52.861Z"
+    },
+    {
+      "id": "source_bd891e1aa686b089",
+      "type": "source",
+      "title": "Anthropic",
+      "url": "https://www.anthropic.com/news/confidential-draft-s1-sec",
+      "sourceKind": "Official",
+      "publishedAt": "2026-06-01T00:00:00.000Z"
+    },
+    {
+      "id": "claim_e8848c0aa2a84669",
+      "type": "claim",
+      "title": "Anthropic确认仅保密递交IPO注册草案，相关财务数据尚无公开S-1报表可供独立核验。",
+      "role": "反例",
+      "addedAt": "2026-08-14T22:06:52.861Z"
+    },
     {
       "id": "event_d1c643b4a57ab552",
       "type": "event",
@@ -14822,6 +14900,64 @@
     }
   ],
   "edges": [
+    {
+      "id": "edge_d0fd71878af0823a",
+      "from": "event_2daba3f21c28759e",
+      "to": "article_0d54f8f50a4e2d7b",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_c9c9f5c230ad386f",
+      "from": "source_05e4b80a75340ce9",
+      "to": "claim_a914e848d513fabc",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_0ec3914ea32aa0b5",
+      "from": "claim_a914e848d513fabc",
+      "to": "event_2daba3f21c28759e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_054cf87f79a2b8fa",
+      "from": "source_2e11a2b537cbadd1",
+      "to": "claim_1ee8eea17db297d2",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_3269869592087977",
+      "from": "claim_1ee8eea17db297d2",
+      "to": "event_2daba3f21c28759e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_2f0ca5d8f7442c5a",
+      "from": "source_b5e22ae086a6b353",
+      "to": "claim_be46f7d968b0aac8",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_f0c5e62d790c8d7f",
+      "from": "claim_be46f7d968b0aac8",
+      "to": "event_2daba3f21c28759e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_9bc39b4e066e8b95",
+      "from": "source_bd891e1aa686b089",
+      "to": "claim_e8848c0aa2a84669",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_4bf7ecb489e6c42b",
+      "from": "claim_e8848c0aa2a84669",
+      "to": "event_2daba3f21c28759e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
     {
       "id": "edge_507323bbd33daf93",
       "from": "event_d1c643b4a57ab552",
