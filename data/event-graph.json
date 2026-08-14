@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-14T16:05:52.201Z",
+  "generatedAt": "2026-08-14T18:06:53.373Z",
   "counts": {
-    "sources": 655,
-    "claims": 767,
-    "events": 160,
-    "articles": 160,
+    "sources": 660,
+    "claims": 772,
+    "events": 161,
+    "articles": 161,
     "updates": 105,
-    "edges": 2044,
+    "edges": 2055,
     "revisionsRequired": 7
   },
   "revisionQueue": [
@@ -83,6 +83,99 @@
     }
   ],
   "nodes": [
+    {
+      "id": "event_bd08267689227246",
+      "type": "event",
+      "signalId": 117,
+      "title": "Qwen开放3.8-27B代理模型",
+      "bucket": "dynamic",
+      "valueScore": 85,
+      "publishedAt": "2026-08-14T17:01:54.000Z",
+      "updatedAt": "2026-08-14T17:01:54.000Z"
+    },
+    {
+      "id": "article_d54b51ea68262f79",
+      "type": "article",
+      "signalId": 117,
+      "title": "Qwen开放3.8-27B代理模型",
+      "version": 1,
+      "publishedAt": "2026-08-14T18:06:53.373Z"
+    },
+    {
+      "id": "source_bf9169bc18a6de86",
+      "type": "source",
+      "title": "The Decoder AI",
+      "url": "https://the-decoder.com/alibabas-qwen-team-releases-qwen-3-8-models-with-open-weights-under-the-apache-2-0-license/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-14T17:01:54.000Z"
+    },
+    {
+      "id": "claim_5eafb63f883af615",
+      "type": "claim",
+      "title": "The Decoder报道Qwen发布Apache 2.0许可的Qwen3.8开放权重模型，并定位其服务本地与代理应用。",
+      "role": "佐证",
+      "addedAt": "2026-08-14T18:06:53.373Z"
+    },
+    {
+      "id": "source_ca26bca182f697df",
+      "type": "source",
+      "title": "Qwen",
+      "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
+      "sourceKind": "Repository",
+      "publishedAt": "2026-08-14T17:01:54.000Z"
+    },
+    {
+      "id": "claim_a9b9dfc5035f842c",
+      "type": "claim",
+      "title": "Qwen官方仓库确认Qwen3.8-27B权重、Apache 2.0许可、27B规模、262,144-token上下文及Terminal-Bench 2.1比较结果。",
+      "role": "主张",
+      "addedAt": "2026-08-14T18:06:53.373Z"
+    },
+    {
+      "id": "source_20e9d0e734a8fb4e",
+      "type": "source",
+      "title": "Qwen",
+      "url": "https://huggingface.co/Qwen/Qwen3.6-27B",
+      "sourceKind": "Repository",
+      "publishedAt": "2026-08-14T17:01:54.000Z"
+    },
+    {
+      "id": "claim_c12b37ac26a4153b",
+      "type": "claim",
+      "title": "Qwen3.6-27B官方模型卡确认此前27B开放型号已有Apache 2.0许可与262,144-token原生上下文。",
+      "role": "背景",
+      "addedAt": "2026-08-14T18:06:53.373Z"
+    },
+    {
+      "id": "source_40851b30c97009a7",
+      "type": "source",
+      "title": "QwenCloud",
+      "url": "https://docs.qwencloud.com/developer-guides/getting-started/text-generation-models",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-14T17:01:54.000Z"
+    },
+    {
+      "id": "claim_e7e5fec0ce6a14b3",
+      "type": "claim",
+      "title": "QwenCloud将qwen3.7-plus列为工具调用模型，并标注其1M-token上下文定位。",
+      "role": "背景",
+      "addedAt": "2026-08-14T18:06:53.373Z"
+    },
+    {
+      "id": "source_154d8a92182c5cce",
+      "type": "source",
+      "title": "arXiv",
+      "url": "https://arxiv.org/abs/2404.00599",
+      "sourceKind": "Research",
+      "publishedAt": "2024-04-05T00:00:00.000Z"
+    },
+    {
+      "id": "claim_2749faa4e2855e87",
+      "type": "claim",
+      "title": "EvoCodeBench研究指出传统代码生成基准与真实代码仓库任务的对齐存在局限。",
+      "role": "反例",
+      "addedAt": "2026-08-14T18:06:53.373Z"
+    },
     {
       "id": "event_ded79f4f58feab3e",
       "type": "event",
@@ -14641,6 +14734,77 @@
     }
   ],
   "edges": [
+    {
+      "id": "edge_98a00f718302be0e",
+      "from": "event_bd08267689227246",
+      "to": "article_d54b51ea68262f79",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_7719ae56ae08c961",
+      "from": "source_bf9169bc18a6de86",
+      "to": "claim_5eafb63f883af615",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_b33d4fe6aea8dd3a",
+      "from": "claim_5eafb63f883af615",
+      "to": "event_bd08267689227246",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_f5c3d5dd9d6a152e",
+      "from": "source_ca26bca182f697df",
+      "to": "claim_a9b9dfc5035f842c",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_0313b99e49c7ba48",
+      "from": "claim_a9b9dfc5035f842c",
+      "to": "event_bd08267689227246",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_b72559bf493ce80d",
+      "from": "source_20e9d0e734a8fb4e",
+      "to": "claim_c12b37ac26a4153b",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_4fc3d6f9f93f6a95",
+      "from": "claim_c12b37ac26a4153b",
+      "to": "event_bd08267689227246",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_3593e598ba416e0c",
+      "from": "source_40851b30c97009a7",
+      "to": "claim_e7e5fec0ce6a14b3",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_339eef7623c25ab4",
+      "from": "claim_e7e5fec0ce6a14b3",
+      "to": "event_bd08267689227246",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_71b72a88e50b520c",
+      "from": "source_154d8a92182c5cce",
+      "to": "claim_2749faa4e2855e87",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_ef8f46b77e172d62",
+      "from": "claim_2749faa4e2855e87",
+      "to": "event_bd08267689227246",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
     {
       "id": "edge_0d53b26b270e0716",
       "from": "event_ded79f4f58feab3e",
