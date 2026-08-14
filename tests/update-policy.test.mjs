@@ -43,6 +43,7 @@ test("official material events enter the immediate fast lane", () => {
     fallbackLastCycleAt: "2026-08-01T09:55:00.000Z",
   });
   assert.deepEqual(plan.dueLanes, ["fast"]);
+  assert.equal(plan.modelCooldownActive, false);
   assert.equal(plan.shouldRunFullCycle, true);
 });
 
@@ -140,6 +141,7 @@ test("a global two-hour cooldown prevents adjacent lanes from calling the model"
   assert.equal(globalModelCooldownMinutes, 120);
   assert.equal(globalModelCooldownGraceMinutes, 5);
   assert.deepEqual(plan.dueLanes, []);
+  assert.equal(plan.modelCooldownActive, true);
   assert.equal(plan.shouldRunFullCycle, false);
   assert.equal(plan.nextDueAt, "2026-08-01T12:55:01.000Z");
   assert.match(plan.reason, /global model cooldown/);
@@ -159,6 +161,7 @@ test("scheduler grace prevents a near-boundary cooldown from missing an hourly p
     },
   });
   assert.deepEqual(plan.dueLanes, ["fast"]);
+  assert.equal(plan.modelCooldownActive, false);
   assert.equal(plan.shouldRunFullCycle, true);
   assert.match(plan.reason, /Process due lanes: fast/);
 });

@@ -50,14 +50,20 @@ const plan = JSON.parse(await readFile(planPath, "utf8"));
 // accepted decisions and translations are cached, rejected candidates are
 // remembered, and a two-hour Live-model cooldown queues bursts safely.
 // Publish it before the curated cycle so fresh wire items do not wait for the
-// full analysis cadence.
-run("npm", [
-  "run",
-  "cycle:live",
-  "--",
-  "--reuse-snapshot",
-  ...forwardedArguments(),
-]);
+// full analysis cadence. The global cooldown covers every model task,
+// including Live localization, so a cooling full cycle must not be bypassed
+// through this independent lane.
+if (!plan.modelCooldownActive) {
+  run("npm", [
+    "run",
+    "cycle:live",
+    "--",
+    "--reuse-snapshot",
+    ...forwardedArguments(),
+  ]);
+} else {
+  console.log("Skipping Live localization during the global model cooldown.");
+}
 
 if (!plan.shouldRunFullCycle) {
   runOptional("npm", ["run", "scout:sources:scheduled"]);

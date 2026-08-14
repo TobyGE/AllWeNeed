@@ -224,6 +224,7 @@ export function buildUpdatePlan({
       updateLaneNames.map((lane) => [lane, grouped[lane].length]),
     ),
     dueLanes,
+    modelCooldownActive,
     shouldRunFullCycle: dueLanes.length > 0,
     reason:
       dueLanes.length > 0
