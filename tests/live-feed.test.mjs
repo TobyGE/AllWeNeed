@@ -474,6 +474,25 @@ test("Live localization rejects dangling surname attribution in Chinese", () => 
   );
 });
 
+test("Live localization preserves a named institution attribution", () => {
+  const source = item({
+    title: "India Less Exposed to AI Job Risks Than Others, Goldman Says",
+  });
+
+  assert.equal(
+    mergeLiveTitleTranslations([source], {
+      items: [
+        {
+          id: source.id,
+          titleZh: "高盛称，印度面临的AI就业风险低于其他国家",
+        },
+      ],
+      duplicates: [],
+    }).items[0].titleZh,
+    "高盛称，印度面临的AI就业风险低于其他国家",
+  );
+});
+
 test("Luna may remove same-event reports while preserving distinct Meta news", () => {
   const items = [
     item({

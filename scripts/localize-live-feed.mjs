@@ -180,13 +180,17 @@ export function mergeLiveTitleTranslations(items, result) {
         `Live localization does not match retained item ${translated?.id}.`,
       );
     }
+    const localizedTitle = translated.titleZh.trim();
+    const institutionAttribution =
+      /^(?:高盛|摩根士丹利|摩根大通|花旗|瑞银|巴克莱|谷歌|微软|苹果|亚马逊|英伟达|OpenAI|Anthropic|Meta|特斯拉)(?:说|称)[，,:：]/u.test(
+        localizedTitle,
+      );
     if (
       /,\s*["'’]?\s*[A-Z][\p{L}'’-]{1,30}\s+(?:says|said)\s*$/iu.test(
         source.title ?? "",
       ) &&
-      /^[\p{Script=Han}]{1,4}(?:说|称)[，,:：]/u.test(
-        translated.titleZh.trim(),
-      )
+      /^[\p{Script=Han}]{1,4}(?:说|称)[，,:：]/u.test(localizedTitle) &&
+      !institutionAttribution
     ) {
       throw new Error(
         `Live title localization has a dangling surname attribution for ${source.id}.`,
@@ -197,7 +201,7 @@ export function mergeLiveTitleTranslations(items, result) {
         source.title ?? "",
       ) &&
       !/(?:被指|表示|认为|声称|指出|据|称|说|访谈)/u.test(
-        translated.titleZh.trim(),
+        localizedTitle,
       )
     ) {
       throw new Error(
@@ -205,7 +209,7 @@ export function mergeLiveTitleTranslations(items, result) {
       );
     }
     retainedIds.add(source.id);
-    translatedById.set(source.id, translated.titleZh.trim());
+    translatedById.set(source.id, localizedTitle);
   }
   const duplicateRelations = [];
   const accountedIds = new Set(retainedIds);
