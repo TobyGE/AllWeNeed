@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-14T10:13:02.375Z",
-  "basedOnSnapshotAt": "2026-08-14T10:07:36.312Z",
+  "generatedAt": "2026-08-14T12:12:19.690Z",
+  "basedOnSnapshotAt": "2026-08-14T12:07:21.671Z",
   "model": "gpt-5.5",
   "analyzedItemCount": 180,
   "totalFetchedItemCount": 2307,
@@ -40,17 +40,20 @@
       },
       "validationType": "跨平台验证",
       "publishedAt": "2026-08-14T09:48:17.000Z",
-      "updatedAt": "2026-08-14T09:48:17.000Z",
+      "updatedAt": "2026-08-14T10:21:34.000Z",
       "sources": [
         "Blog",
-        "Official"
+        "Official",
+        "Repository"
       ],
       "sourceNames": [
         "The Information",
         "Z.ai",
-        "Anthropic"
+        "Anthropic",
+        "The Decoder",
+        "Hugging Face / Z.ai"
       ],
-      "sourceCount": 3,
+      "sourceCount": 5,
       "age": "刚刚",
       "score": 84,
       "tone": "orange",
@@ -140,6 +143,72 @@
           "ref": "R3",
           "role": "反例",
           "takeaway": "Anthropic称Mythos 5面向网络安全等高要求领域，但仅向少量经审查的网络安全合作伙伴开放并要求安全监测。"
+        },
+        {
+          "id": "232-1-https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/",
+          "sourceId": 232,
+          "sourceName": "The Decoder AI",
+          "sourcePublisher": "The Decoder",
+          "sourceKind": "Blog",
+          "title": "Zhipu AI releases GLM-5.3, claims it's the strongest open-weights coding model",
+          "url": "https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/",
+          "publishedAt": "2026-08-14T10:21:34.000Z",
+          "summary": "Zhipu AI has released GLM-5.3, a model that, according to its own benchmarks, is the most powerful open-weights coding model, with a 50 percent improvement over its predecessor through post-training alone. Trained for cybersecurity, GLM-5.3 helped security teams find 2,436 vulnerabilities across 269 projects. The model weights are set to go open source in tw",
+          "fetchedAt": "2026-08-14T12:07:21.671Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-14T12:07:21.671Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "standard",
+            "reason": "fresh",
+            "ageHours": 1.7632419444444445,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N1",
+          "role": "佐证",
+          "takeaway": "The Decoder报道称Zhipu AI发布GLM-5.3，并转述其编码与网络安全能力主张及后续开源计划。"
+        },
+        {
+          "id": "research-232-1-https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/-2-https://huggingface.co/zai-org/GLM-5.2",
+          "sourceId": 232,
+          "sourceName": "Hugging Face / Z.ai",
+          "sourcePublisher": "Hugging Face / Z.ai",
+          "sourceKind": "Repository",
+          "title": "zai-org/GLM-5.2",
+          "url": "https://huggingface.co/zai-org/GLM-5.2",
+          "publishedAt": "2026-08-14T10:21:34.000Z",
+          "summary": "上一代公开权重的官方模型卡确认 GLM-5.2 为 753B 参数、MIT 许可，并给出可比较的既有编码基准：SWE-bench Pro 62.1、DeepSWE 46.2、Terminal-Bench 2.1 81.0；卡片还披露部分评测采用定制提示、特定 harness 或第三方执行，说明新旧“最强”结论需按基准和配置分别判断。",
+          "fetchedAt": "2026-08-14T12:07:21.671Z",
+          "researchedFrom": "N1",
+          "researchRole": "Comparison",
+          "researchClaim": "Z.ai 于 2026-08-14 发布 GLM-5.3，称该版本在不更换 GLM-5.2 基础模型的前提下，通过扩大后训练获得编码与网络安全能力提升；其“最强开放权重编码模型”定位目前仍主要基于公司自测。",
+          "researchComparisons": "公司称 GLM-5.3 在内部 Z.ai Code Bench 上较 GLM-5.2 提升 50%。可公开下载的上一代 GLM-5.2 为 753B 参数、MIT 许可模型；其模型卡报告 SWE-bench Pro 62.1、DeepSWE 46.2、Terminal-Bench 2.1 81.0，并将这些结果与 Claude Opus 4.8、GPT-5.5 等闭源模型并列比较。GLM-5.3 权重尚未公开：Z.ai 宣布将在完成安全评估和加固后约两周发布，因此“open-weights”目前是计划中的发布状态，而非已可下载状态。",
+          "researchUnresolved": "GLM-5.3 的完整技术报告、模型卡、权重仓库、Z.ai Code Bench 的任务集与评测配置，以及 2,436 个漏洞中已获项目维护者确认、修复或分配 CVE 的数量，均未见可公开独立复核材料；权重的目标发布日期按发布日推算为 2026-08-28，但仍取决于安全评估。",
+          "ref": "R2",
+          "role": "背景",
+          "takeaway": "GLM-5.2官方模型卡显示上一代已提供MIT许可的公开权重，并披露了若干编码基准及评测配置限制。"
+        },
+        {
+          "id": "research-232-1-https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/-3-https://huggingface.co/zai-org/models",
+          "sourceId": 232,
+          "sourceName": "Hugging Face / Z.ai",
+          "sourcePublisher": "Hugging Face / Z.ai",
+          "sourceKind": "Repository",
+          "title": "zai-org Models",
+          "url": "https://huggingface.co/zai-org/models",
+          "publishedAt": "2026-08-14T10:21:34.000Z",
+          "summary": "Z.ai 的官方 Hugging Face 组织页在检索时列出的最新 GLM-5.x 可下载权重仍为 GLM-5.2 与 GLM-5.2-FP8，未列出 GLM-5.3；这支持“GLM-5.3 已发布服务但权重尚未开放”的区别，也削弱将其直接称为当前开放权重模型的表述。",
+          "fetchedAt": "2026-08-14T12:07:21.671Z",
+          "researchedFrom": "N1",
+          "researchRole": "Counterevidence",
+          "researchClaim": "Z.ai 于 2026-08-14 发布 GLM-5.3，称该版本在不更换 GLM-5.2 基础模型的前提下，通过扩大后训练获得编码与网络安全能力提升；其“最强开放权重编码模型”定位目前仍主要基于公司自测。",
+          "researchComparisons": "公司称 GLM-5.3 在内部 Z.ai Code Bench 上较 GLM-5.2 提升 50%。可公开下载的上一代 GLM-5.2 为 753B 参数、MIT 许可模型；其模型卡报告 SWE-bench Pro 62.1、DeepSWE 46.2、Terminal-Bench 2.1 81.0，并将这些结果与 Claude Opus 4.8、GPT-5.5 等闭源模型并列比较。GLM-5.3 权重尚未公开：Z.ai 宣布将在完成安全评估和加固后约两周发布，因此“open-weights”目前是计划中的发布状态，而非已可下载状态。",
+          "researchUnresolved": "GLM-5.3 的完整技术报告、模型卡、权重仓库、Z.ai Code Bench 的任务集与评测配置，以及 2,436 个漏洞中已获项目维护者确认、修复或分配 CVE 的数量，均未见可公开独立复核材料；权重的目标发布日期按发布日推算为 2026-08-28，但仍取决于安全评估。",
+          "ref": "R3",
+          "role": "反例",
+          "takeaway": "Z.ai官方Hugging Face组织页检索时仅列出GLM-5.2及GLM-5.2-FP8，未列出GLM-5.3可下载权重。"
         }
       ],
       "references": [
@@ -220,9 +289,167 @@
           "researchComparisons": "此前，Z.ai公开文档将 GLM-5.1 定位为长时程代理与软件工程模型，并称其能力与 Claude Opus 4.6 对齐，而非网络安全专用模型。GLM-5.3 的关键变化是公司将比较对象提升为 Mythos 5。Anthropic 将 Mythos 5 定义为其最强的网络安全模型，且只向经过审查的少数合作伙伴开放；这意味着两者的“同等”说法必须以公开、同任务、同工具权限和同评分规则的网络安全评测来验证，不能仅以各自披露的内部基准相比较。",
           "researchUnresolved": "Z.ai发布页未见可独立复现的网络安全基准细目、测试协议、任务集、工具权限、样本量或第三方审计；GLM-5.3的模型卡、权重仓库、许可证和正式可用范围也仍需核验。",
           "ref": "R3"
+        },
+        {
+          "id": "232-1-https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/",
+          "sourceId": 232,
+          "sourceName": "The Decoder AI",
+          "sourcePublisher": "The Decoder",
+          "sourceKind": "Blog",
+          "title": "Zhipu AI releases GLM-5.3, claims it's the strongest open-weights coding model",
+          "url": "https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/",
+          "publishedAt": "2026-08-14T10:21:34.000Z",
+          "summary": "Zhipu AI has released GLM-5.3, a model that, according to its own benchmarks, is the most powerful open-weights coding model, with a 50 percent improvement over its predecessor through post-training alone. Trained for cybersecurity, GLM-5.3 helped security teams find 2,436 vulnerabilities across 269 projects. The model weights are set to go open source in tw",
+          "fetchedAt": "2026-08-14T12:07:21.671Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-14T12:07:21.671Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "standard",
+            "reason": "fresh",
+            "ageHours": 1.7632419444444445,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N1"
+        },
+        {
+          "id": "research-232-1-https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/-2-https://huggingface.co/zai-org/GLM-5.2",
+          "sourceId": 232,
+          "sourceName": "Hugging Face / Z.ai",
+          "sourcePublisher": "Hugging Face / Z.ai",
+          "sourceKind": "Repository",
+          "title": "zai-org/GLM-5.2",
+          "url": "https://huggingface.co/zai-org/GLM-5.2",
+          "publishedAt": "2026-08-14T10:21:34.000Z",
+          "summary": "上一代公开权重的官方模型卡确认 GLM-5.2 为 753B 参数、MIT 许可，并给出可比较的既有编码基准：SWE-bench Pro 62.1、DeepSWE 46.2、Terminal-Bench 2.1 81.0；卡片还披露部分评测采用定制提示、特定 harness 或第三方执行，说明新旧“最强”结论需按基准和配置分别判断。",
+          "fetchedAt": "2026-08-14T12:07:21.671Z",
+          "researchedFrom": "N1",
+          "researchRole": "Comparison",
+          "researchClaim": "Z.ai 于 2026-08-14 发布 GLM-5.3，称该版本在不更换 GLM-5.2 基础模型的前提下，通过扩大后训练获得编码与网络安全能力提升；其“最强开放权重编码模型”定位目前仍主要基于公司自测。",
+          "researchComparisons": "公司称 GLM-5.3 在内部 Z.ai Code Bench 上较 GLM-5.2 提升 50%。可公开下载的上一代 GLM-5.2 为 753B 参数、MIT 许可模型；其模型卡报告 SWE-bench Pro 62.1、DeepSWE 46.2、Terminal-Bench 2.1 81.0，并将这些结果与 Claude Opus 4.8、GPT-5.5 等闭源模型并列比较。GLM-5.3 权重尚未公开：Z.ai 宣布将在完成安全评估和加固后约两周发布，因此“open-weights”目前是计划中的发布状态，而非已可下载状态。",
+          "researchUnresolved": "GLM-5.3 的完整技术报告、模型卡、权重仓库、Z.ai Code Bench 的任务集与评测配置，以及 2,436 个漏洞中已获项目维护者确认、修复或分配 CVE 的数量，均未见可公开独立复核材料；权重的目标发布日期按发布日推算为 2026-08-28，但仍取决于安全评估。",
+          "ref": "R2"
+        },
+        {
+          "id": "research-232-1-https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/-3-https://huggingface.co/zai-org/models",
+          "sourceId": 232,
+          "sourceName": "Hugging Face / Z.ai",
+          "sourcePublisher": "Hugging Face / Z.ai",
+          "sourceKind": "Repository",
+          "title": "zai-org Models",
+          "url": "https://huggingface.co/zai-org/models",
+          "publishedAt": "2026-08-14T10:21:34.000Z",
+          "summary": "Z.ai 的官方 Hugging Face 组织页在检索时列出的最新 GLM-5.x 可下载权重仍为 GLM-5.2 与 GLM-5.2-FP8，未列出 GLM-5.3；这支持“GLM-5.3 已发布服务但权重尚未开放”的区别，也削弱将其直接称为当前开放权重模型的表述。",
+          "fetchedAt": "2026-08-14T12:07:21.671Z",
+          "researchedFrom": "N1",
+          "researchRole": "Counterevidence",
+          "researchClaim": "Z.ai 于 2026-08-14 发布 GLM-5.3，称该版本在不更换 GLM-5.2 基础模型的前提下，通过扩大后训练获得编码与网络安全能力提升；其“最强开放权重编码模型”定位目前仍主要基于公司自测。",
+          "researchComparisons": "公司称 GLM-5.3 在内部 Z.ai Code Bench 上较 GLM-5.2 提升 50%。可公开下载的上一代 GLM-5.2 为 753B 参数、MIT 许可模型；其模型卡报告 SWE-bench Pro 62.1、DeepSWE 46.2、Terminal-Bench 2.1 81.0，并将这些结果与 Claude Opus 4.8、GPT-5.5 等闭源模型并列比较。GLM-5.3 权重尚未公开：Z.ai 宣布将在完成安全评估和加固后约两周发布，因此“open-weights”目前是计划中的发布状态，而非已可下载状态。",
+          "researchUnresolved": "GLM-5.3 的完整技术报告、模型卡、权重仓库、Z.ai Code Bench 的任务集与评测配置，以及 2,436 个漏洞中已获项目维护者确认、修复或分配 CVE 的数量，均未见可公开独立复核材料；权重的目标发布日期按发布日推算为 2026-08-28，但仍取决于安全评估。",
+          "ref": "R3"
         }
       ],
-      "feedBatchAt": "2026-08-14T10:07:36.312Z"
+      "feedBatchAt": "2026-08-14T12:07:21.671Z",
+      "updates": [
+        {
+          "addedAt": "2026-08-14T10:21:34.000Z",
+          "title": "GLM-5.3权重尚未开放",
+          "summary": "Z.ai称GLM-5.3在后训练后编码表现提升50%，已用于269个项目发现2,436个漏洞；但公司表示权重将在安全评估和加固后约两周开放，官方组织页目前仍未列出GLM-5.3下载项。",
+          "evidence": [
+            {
+              "id": "232-1-https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/",
+              "sourceId": 232,
+              "sourceName": "The Decoder AI",
+              "sourcePublisher": "The Decoder",
+              "sourceKind": "Blog",
+              "title": "Zhipu AI releases GLM-5.3, claims it's the strongest open-weights coding model",
+              "url": "https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/",
+              "publishedAt": "2026-08-14T10:21:34.000Z",
+              "summary": "Zhipu AI has released GLM-5.3, a model that, according to its own benchmarks, is the most powerful open-weights coding model, with a 50 percent improvement over its predecessor through post-training alone. Trained for cybersecurity, GLM-5.3 helped security teams find 2,436 vulnerabilities across 269 projects. The model weights are set to go open source in tw",
+              "fetchedAt": "2026-08-14T12:07:21.671Z",
+              "accessMethod": "public-feed",
+              "publicContentPolicy": "headline-source-link-only",
+              "firstSeenAt": "2026-08-14T12:07:21.671Z",
+              "freshness": {
+                "eligible": true,
+                "lane": "standard",
+                "reason": "fresh",
+                "ageHours": 1.7632419444444445,
+                "maxAgeHours": 168
+              },
+              "deferredResearch": false,
+              "ref": "N1",
+              "role": "佐证",
+              "takeaway": "The Decoder报道称Zhipu AI发布GLM-5.3，并转述其编码与网络安全能力主张及后续开源计划。"
+            },
+            {
+              "id": "research-232-1-https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/-1-https://z.ai/blog/glm-5.3",
+              "sourceId": 232,
+              "sourceName": "Z.ai",
+              "sourcePublisher": "Z.ai",
+              "sourceKind": "Official",
+              "title": "GLM-5.3: Frontier Coding with Emergent Cyber Capabilities",
+              "url": "https://z.ai/blog/glm-5.3",
+              "publishedAt": "2026-08-14T10:21:34.000Z",
+              "summary": "发布公告提供当前版本的核心主张：GLM-5.3 使用与 GLM-5.2 相同的基础模型，称通过后训练使内部 Z.ai Code Bench 编码表现提升 50%，并报告在安全任务中发现 2,436 个漏洞、覆盖 269 个项目；公告同时称权重将在安全评估与加固后约两周发布。",
+              "fetchedAt": "2026-08-14T12:07:21.671Z",
+              "researchedFrom": "N1",
+              "researchRole": "Primary",
+              "researchClaim": "Z.ai 于 2026-08-14 发布 GLM-5.3，称该版本在不更换 GLM-5.2 基础模型的前提下，通过扩大后训练获得编码与网络安全能力提升；其“最强开放权重编码模型”定位目前仍主要基于公司自测。",
+              "researchComparisons": "公司称 GLM-5.3 在内部 Z.ai Code Bench 上较 GLM-5.2 提升 50%。可公开下载的上一代 GLM-5.2 为 753B 参数、MIT 许可模型；其模型卡报告 SWE-bench Pro 62.1、DeepSWE 46.2、Terminal-Bench 2.1 81.0，并将这些结果与 Claude Opus 4.8、GPT-5.5 等闭源模型并列比较。GLM-5.3 权重尚未公开：Z.ai 宣布将在完成安全评估和加固后约两周发布，因此“open-weights”目前是计划中的发布状态，而非已可下载状态。",
+              "researchUnresolved": "GLM-5.3 的完整技术报告、模型卡、权重仓库、Z.ai Code Bench 的任务集与评测配置，以及 2,436 个漏洞中已获项目维护者确认、修复或分配 CVE 的数量，均未见可公开独立复核材料；权重的目标发布日期按发布日推算为 2026-08-28，但仍取决于安全评估。",
+              "ref": "R1",
+              "role": "最新进展",
+              "takeaway": "Z.ai公告称GLM-5.3与GLM-5.2使用相同基础模型，经后训练后内部编码表现提升50%，并计划在安全评估和加固后约两周开放权重。"
+            },
+            {
+              "id": "research-232-1-https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/-2-https://huggingface.co/zai-org/GLM-5.2",
+              "sourceId": 232,
+              "sourceName": "Hugging Face / Z.ai",
+              "sourcePublisher": "Hugging Face / Z.ai",
+              "sourceKind": "Repository",
+              "title": "zai-org/GLM-5.2",
+              "url": "https://huggingface.co/zai-org/GLM-5.2",
+              "publishedAt": "2026-08-14T10:21:34.000Z",
+              "summary": "上一代公开权重的官方模型卡确认 GLM-5.2 为 753B 参数、MIT 许可，并给出可比较的既有编码基准：SWE-bench Pro 62.1、DeepSWE 46.2、Terminal-Bench 2.1 81.0；卡片还披露部分评测采用定制提示、特定 harness 或第三方执行，说明新旧“最强”结论需按基准和配置分别判断。",
+              "fetchedAt": "2026-08-14T12:07:21.671Z",
+              "researchedFrom": "N1",
+              "researchRole": "Comparison",
+              "researchClaim": "Z.ai 于 2026-08-14 发布 GLM-5.3，称该版本在不更换 GLM-5.2 基础模型的前提下，通过扩大后训练获得编码与网络安全能力提升；其“最强开放权重编码模型”定位目前仍主要基于公司自测。",
+              "researchComparisons": "公司称 GLM-5.3 在内部 Z.ai Code Bench 上较 GLM-5.2 提升 50%。可公开下载的上一代 GLM-5.2 为 753B 参数、MIT 许可模型；其模型卡报告 SWE-bench Pro 62.1、DeepSWE 46.2、Terminal-Bench 2.1 81.0，并将这些结果与 Claude Opus 4.8、GPT-5.5 等闭源模型并列比较。GLM-5.3 权重尚未公开：Z.ai 宣布将在完成安全评估和加固后约两周发布，因此“open-weights”目前是计划中的发布状态，而非已可下载状态。",
+              "researchUnresolved": "GLM-5.3 的完整技术报告、模型卡、权重仓库、Z.ai Code Bench 的任务集与评测配置，以及 2,436 个漏洞中已获项目维护者确认、修复或分配 CVE 的数量，均未见可公开独立复核材料；权重的目标发布日期按发布日推算为 2026-08-28，但仍取决于安全评估。",
+              "ref": "R2",
+              "role": "背景",
+              "takeaway": "GLM-5.2官方模型卡显示上一代已提供MIT许可的公开权重，并披露了若干编码基准及评测配置限制。"
+            },
+            {
+              "id": "research-232-1-https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/-3-https://huggingface.co/zai-org/models",
+              "sourceId": 232,
+              "sourceName": "Hugging Face / Z.ai",
+              "sourcePublisher": "Hugging Face / Z.ai",
+              "sourceKind": "Repository",
+              "title": "zai-org Models",
+              "url": "https://huggingface.co/zai-org/models",
+              "publishedAt": "2026-08-14T10:21:34.000Z",
+              "summary": "Z.ai 的官方 Hugging Face 组织页在检索时列出的最新 GLM-5.x 可下载权重仍为 GLM-5.2 与 GLM-5.2-FP8，未列出 GLM-5.3；这支持“GLM-5.3 已发布服务但权重尚未开放”的区别，也削弱将其直接称为当前开放权重模型的表述。",
+              "fetchedAt": "2026-08-14T12:07:21.671Z",
+              "researchedFrom": "N1",
+              "researchRole": "Counterevidence",
+              "researchClaim": "Z.ai 于 2026-08-14 发布 GLM-5.3，称该版本在不更换 GLM-5.2 基础模型的前提下，通过扩大后训练获得编码与网络安全能力提升；其“最强开放权重编码模型”定位目前仍主要基于公司自测。",
+              "researchComparisons": "公司称 GLM-5.3 在内部 Z.ai Code Bench 上较 GLM-5.2 提升 50%。可公开下载的上一代 GLM-5.2 为 753B 参数、MIT 许可模型；其模型卡报告 SWE-bench Pro 62.1、DeepSWE 46.2、Terminal-Bench 2.1 81.0，并将这些结果与 Claude Opus 4.8、GPT-5.5 等闭源模型并列比较。GLM-5.3 权重尚未公开：Z.ai 宣布将在完成安全评估和加固后约两周发布，因此“open-weights”目前是计划中的发布状态，而非已可下载状态。",
+              "researchUnresolved": "GLM-5.3 的完整技术报告、模型卡、权重仓库、Z.ai Code Bench 的任务集与评测配置，以及 2,436 个漏洞中已获项目维护者确认、修复或分配 CVE 的数量，均未见可公开独立复核材料；权重的目标发布日期按发布日推算为 2026-08-28，但仍取决于安全评估。",
+              "ref": "R3",
+              "role": "反例",
+              "takeaway": "Z.ai官方Hugging Face组织页检索时仅列出GLM-5.2及GLM-5.2-FP8，未列出GLM-5.3可下载权重。"
+            }
+          ],
+          "changeType": "thesis_change",
+          "thesisImpact": "新的一手资料显示GLM-5.3目前尚未提供可下载权重，原有“开源模型”判断应收窄为已发布、拟在安全评估和加固后开放权重的模型。",
+          "revisionRequired": true
+        }
+      ]
     },
     {
       "id": 42,
@@ -273,9 +500,11 @@
         "The Information",
         "National Institute of Standards and Technology",
         "The Decoder",
-        "Vals AI"
+        "Vals AI",
+        "Engadget",
+        "腾讯云"
       ],
-      "sourceCount": 10,
+      "sourceCount": 12,
       "age": "9 小时前",
       "score": 90,
       "tone": "green",
@@ -764,6 +993,52 @@
           "ref": "N2",
           "role": "最新进展",
           "takeaway": "The Information报道称，DeepSeek在发布V4-Pro后宣布上调模型API价格。"
+        },
+        {
+          "id": "235-0-https://www.engadget.com/2236912/deepseek-ai-models-get-four-times-pricier/",
+          "sourceId": 235,
+          "sourceName": "Engadget",
+          "sourcePublisher": "Engadget",
+          "sourceKind": "Blog",
+          "title": "DeepSeek's AI models are about to cost four times more",
+          "url": "https://www.engadget.com/2236912/deepseek-ai-models-get-four-times-pricier/",
+          "publishedAt": "2026-08-14T10:58:24.000Z",
+          "summary": "DeepSeek has announced price hikes for its V4 models.",
+          "fetchedAt": "2026-08-14T12:07:21.671Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-14T12:07:21.671Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 1.1493530555555556,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N2",
+          "role": "佐证",
+          "takeaway": "Engadget报道称DeepSeek计划上调V4模型价格。"
+        },
+        {
+          "id": "research-235-0-https://www.engadget.com/2236912/deepseek-ai-models-get-four-times-pricier/-2-https://cloud.tencent.cn/announce/detail/2353",
+          "sourceId": 235,
+          "sourceName": "腾讯云",
+          "sourcePublisher": "腾讯云",
+          "sourceKind": "Official",
+          "title": "〖大模型服务平台 TokenHub〗&〖智能体开发平台〗关于腾讯云 DeepSeek-V4 正式版〖原厂直供〗模型发布计划及计费调整通知",
+          "url": "https://cloud.tencent.cn/announce/detail/2353",
+          "publishedAt": "2026-08-14T10:58:24.000Z",
+          "summary": "腾讯云针对 DeepSeek-V4 原厂直供服务公布平时与高峰两档费率，高峰时段价格为平时价格两倍，佐证峰谷计费是可公开核验的服务商定价机制，而非单一“四倍涨价”规则。",
+          "fetchedAt": "2026-08-14T12:07:21.671Z",
+          "researchedFrom": "N2",
+          "researchRole": "Comparison",
+          "researchClaim": "DeepSeek 将在 2026-08-16 16:00 UTC 对 V4 API 启用峰谷计费并上调费率；这不是所有 V4 用量统一变为“四倍”，而是按 Flash/Pro、缓存命中与否、输出及峰谷时段而异。",
+          "researchComparisons": "调整前，V4-Flash 的每百万 token 缓存命中、未命中输入和输出分别为 0.0028、0.14、0.28 美元；V4-Pro 分别为 0.003625、0.435、0.87 美元。调整后，非高峰价格为 Flash 0.007、0.22、0.66 美元，Pro 0.022、0.66、1.98 美元；高峰价格则为非高峰的两倍。最显著的变动是 Pro 缓存命中：高峰价由 0.003625 美元升至 0.044 美元，约为原来的 12.1 倍；但 Pro 未命中输入的非高峰价仅由 0.435 美元升至 0.66 美元，约为原来的 1.5 倍。因而“四倍”可描述部分高峰输出价格附近的涨幅，但不是覆盖全部模型和 token 类型的准确总括。腾讯云此前公布的 V4 直供定价也采用高峰价为平时价两倍的峰谷结构，提供了该计费机制并非 DeepSeek 独有的比较基准。",
+          "researchUnresolved": "DeepSeek 定价页明确覆盖 API，未说明网页端和 App 的免费使用政策是否会随之变化；也未量化新模型版本相对于此前预览版的实际性能提升是否足以抵消特定工作负载的成本上升。",
+          "ref": "R5",
+          "role": "佐证",
+          "takeaway": "腾讯云针对DeepSeek-V4原厂直供服务公布平时和高峰两档费率，并说明高峰价格为平时两倍。"
         }
       ],
       "references": [
@@ -1205,10 +1480,128 @@
           },
           "deferredResearch": false,
           "ref": "N2"
+        },
+        {
+          "id": "235-0-https://www.engadget.com/2236912/deepseek-ai-models-get-four-times-pricier/",
+          "sourceId": 235,
+          "sourceName": "Engadget",
+          "sourcePublisher": "Engadget",
+          "sourceKind": "Blog",
+          "title": "DeepSeek's AI models are about to cost four times more",
+          "url": "https://www.engadget.com/2236912/deepseek-ai-models-get-four-times-pricier/",
+          "publishedAt": "2026-08-14T10:58:24.000Z",
+          "summary": "DeepSeek has announced price hikes for its V4 models.",
+          "fetchedAt": "2026-08-14T12:07:21.671Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-14T12:07:21.671Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 1.1493530555555556,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N2"
+        },
+        {
+          "id": "research-235-0-https://www.engadget.com/2236912/deepseek-ai-models-get-four-times-pricier/-2-https://cloud.tencent.cn/announce/detail/2353",
+          "sourceId": 235,
+          "sourceName": "腾讯云",
+          "sourcePublisher": "腾讯云",
+          "sourceKind": "Official",
+          "title": "〖大模型服务平台 TokenHub〗&〖智能体开发平台〗关于腾讯云 DeepSeek-V4 正式版〖原厂直供〗模型发布计划及计费调整通知",
+          "url": "https://cloud.tencent.cn/announce/detail/2353",
+          "publishedAt": "2026-08-14T10:58:24.000Z",
+          "summary": "腾讯云针对 DeepSeek-V4 原厂直供服务公布平时与高峰两档费率，高峰时段价格为平时价格两倍，佐证峰谷计费是可公开核验的服务商定价机制，而非单一“四倍涨价”规则。",
+          "fetchedAt": "2026-08-14T12:07:21.671Z",
+          "researchedFrom": "N2",
+          "researchRole": "Comparison",
+          "researchClaim": "DeepSeek 将在 2026-08-16 16:00 UTC 对 V4 API 启用峰谷计费并上调费率；这不是所有 V4 用量统一变为“四倍”，而是按 Flash/Pro、缓存命中与否、输出及峰谷时段而异。",
+          "researchComparisons": "调整前，V4-Flash 的每百万 token 缓存命中、未命中输入和输出分别为 0.0028、0.14、0.28 美元；V4-Pro 分别为 0.003625、0.435、0.87 美元。调整后，非高峰价格为 Flash 0.007、0.22、0.66 美元，Pro 0.022、0.66、1.98 美元；高峰价格则为非高峰的两倍。最显著的变动是 Pro 缓存命中：高峰价由 0.003625 美元升至 0.044 美元，约为原来的 12.1 倍；但 Pro 未命中输入的非高峰价仅由 0.435 美元升至 0.66 美元，约为原来的 1.5 倍。因而“四倍”可描述部分高峰输出价格附近的涨幅，但不是覆盖全部模型和 token 类型的准确总括。腾讯云此前公布的 V4 直供定价也采用高峰价为平时价两倍的峰谷结构，提供了该计费机制并非 DeepSeek 独有的比较基准。",
+          "researchUnresolved": "DeepSeek 定价页明确覆盖 API，未说明网页端和 App 的免费使用政策是否会随之变化；也未量化新模型版本相对于此前预览版的实际性能提升是否足以抵消特定工作负载的成本上升。",
+          "ref": "R5"
         }
       ],
       "feedBatchAt": "2026-08-14T07:06:44.137Z",
       "updates": [
+        {
+          "addedAt": "2026-08-14T10:58:24.000Z",
+          "title": "DeepSeek明确峰谷新费率",
+          "summary": "DeepSeek定价页列出V4-Flash-0731与V4-Pro-0813调整后的逐项API价格，计划于2026年8月16日16:00 UTC生效，并明确高峰价格为非高峰价格两倍。腾讯云的原厂直供通知也采用相同的峰谷双档机制。",
+          "evidence": [
+            {
+              "id": "235-0-https://www.engadget.com/2236912/deepseek-ai-models-get-four-times-pricier/",
+              "sourceId": 235,
+              "sourceName": "Engadget",
+              "sourcePublisher": "Engadget",
+              "sourceKind": "Blog",
+              "title": "DeepSeek's AI models are about to cost four times more",
+              "url": "https://www.engadget.com/2236912/deepseek-ai-models-get-four-times-pricier/",
+              "publishedAt": "2026-08-14T10:58:24.000Z",
+              "summary": "DeepSeek has announced price hikes for its V4 models.",
+              "fetchedAt": "2026-08-14T12:07:21.671Z",
+              "accessMethod": "public-feed",
+              "publicContentPolicy": "headline-source-link-only",
+              "firstSeenAt": "2026-08-14T12:07:21.671Z",
+              "freshness": {
+                "eligible": true,
+                "lane": "explore",
+                "reason": "fresh",
+                "ageHours": 1.1493530555555556,
+                "maxAgeHours": 168
+              },
+              "deferredResearch": false,
+              "ref": "N2",
+              "role": "佐证",
+              "takeaway": "Engadget报道称DeepSeek计划上调V4模型价格。"
+            },
+            {
+              "id": "research-235-0-https://www.engadget.com/2236912/deepseek-ai-models-get-four-times-pricier/-1-https://api-docs.deepseek.com/quick_start/pricing/",
+              "sourceId": 235,
+              "sourceName": "DeepSeek",
+              "sourcePublisher": "DeepSeek",
+              "sourceKind": "Official",
+              "title": "Models & Pricing",
+              "url": "https://api-docs.deepseek.com/quick_start/pricing/",
+              "publishedAt": "2026-08-14T10:58:24.000Z",
+              "summary": "列出 V4-Flash-0731 与 V4-Pro-0813 的现行 API 单价、2026-08-16 16:00 UTC 生效的峰谷时段、调整后逐项价格，以及高峰价格为非高峰价格两倍的规则。",
+              "fetchedAt": "2026-08-14T12:07:21.671Z",
+              "researchedFrom": "N2",
+              "researchRole": "Primary",
+              "researchClaim": "DeepSeek 将在 2026-08-16 16:00 UTC 对 V4 API 启用峰谷计费并上调费率；这不是所有 V4 用量统一变为“四倍”，而是按 Flash/Pro、缓存命中与否、输出及峰谷时段而异。",
+              "researchComparisons": "调整前，V4-Flash 的每百万 token 缓存命中、未命中输入和输出分别为 0.0028、0.14、0.28 美元；V4-Pro 分别为 0.003625、0.435、0.87 美元。调整后，非高峰价格为 Flash 0.007、0.22、0.66 美元，Pro 0.022、0.66、1.98 美元；高峰价格则为非高峰的两倍。最显著的变动是 Pro 缓存命中：高峰价由 0.003625 美元升至 0.044 美元，约为原来的 12.1 倍；但 Pro 未命中输入的非高峰价仅由 0.435 美元升至 0.66 美元，约为原来的 1.5 倍。因而“四倍”可描述部分高峰输出价格附近的涨幅，但不是覆盖全部模型和 token 类型的准确总括。腾讯云此前公布的 V4 直供定价也采用高峰价为平时价两倍的峰谷结构，提供了该计费机制并非 DeepSeek 独有的比较基准。",
+              "researchUnresolved": "DeepSeek 定价页明确覆盖 API，未说明网页端和 App 的免费使用政策是否会随之变化；也未量化新模型版本相对于此前预览版的实际性能提升是否足以抵消特定工作负载的成本上升。",
+              "ref": "R4",
+              "role": "最新进展",
+              "takeaway": "DeepSeek官方定价页列出V4-Flash-0731和V4-Pro-0813的新价格、2026年8月16日16:00 UTC生效时间及高峰价格为非高峰两倍的规则。"
+            },
+            {
+              "id": "research-235-0-https://www.engadget.com/2236912/deepseek-ai-models-get-four-times-pricier/-2-https://cloud.tencent.cn/announce/detail/2353",
+              "sourceId": 235,
+              "sourceName": "腾讯云",
+              "sourcePublisher": "腾讯云",
+              "sourceKind": "Official",
+              "title": "〖大模型服务平台 TokenHub〗&〖智能体开发平台〗关于腾讯云 DeepSeek-V4 正式版〖原厂直供〗模型发布计划及计费调整通知",
+              "url": "https://cloud.tencent.cn/announce/detail/2353",
+              "publishedAt": "2026-08-14T10:58:24.000Z",
+              "summary": "腾讯云针对 DeepSeek-V4 原厂直供服务公布平时与高峰两档费率，高峰时段价格为平时价格两倍，佐证峰谷计费是可公开核验的服务商定价机制，而非单一“四倍涨价”规则。",
+              "fetchedAt": "2026-08-14T12:07:21.671Z",
+              "researchedFrom": "N2",
+              "researchRole": "Comparison",
+              "researchClaim": "DeepSeek 将在 2026-08-16 16:00 UTC 对 V4 API 启用峰谷计费并上调费率；这不是所有 V4 用量统一变为“四倍”，而是按 Flash/Pro、缓存命中与否、输出及峰谷时段而异。",
+              "researchComparisons": "调整前，V4-Flash 的每百万 token 缓存命中、未命中输入和输出分别为 0.0028、0.14、0.28 美元；V4-Pro 分别为 0.003625、0.435、0.87 美元。调整后，非高峰价格为 Flash 0.007、0.22、0.66 美元，Pro 0.022、0.66、1.98 美元；高峰价格则为非高峰的两倍。最显著的变动是 Pro 缓存命中：高峰价由 0.003625 美元升至 0.044 美元，约为原来的 12.1 倍；但 Pro 未命中输入的非高峰价仅由 0.435 美元升至 0.66 美元，约为原来的 1.5 倍。因而“四倍”可描述部分高峰输出价格附近的涨幅，但不是覆盖全部模型和 token 类型的准确总括。腾讯云此前公布的 V4 直供定价也采用高峰价为平时价两倍的峰谷结构，提供了该计费机制并非 DeepSeek 独有的比较基准。",
+              "researchUnresolved": "DeepSeek 定价页明确覆盖 API，未说明网页端和 App 的免费使用政策是否会随之变化；也未量化新模型版本相对于此前预览版的实际性能提升是否足以抵消特定工作负载的成本上升。",
+              "ref": "R5",
+              "role": "佐证",
+              "takeaway": "腾讯云针对DeepSeek-V4原厂直供服务公布平时和高峰两档费率，并说明高峰价格为平时两倍。"
+            }
+          ],
+          "changeType": "corroboration",
+          "thesisImpact": "官方定价页补充了新费率的生效时间、峰谷时段和逐项价格；腾讯云的原厂直供通知独立佐证了峰谷双档计费机制。",
+          "revisionRequired": false
+        },
         {
           "addedAt": "2026-08-14T06:02:28.000Z",
           "title": "DeepSeek上调V4-Pro峰谷价格",
@@ -42892,6 +43285,46 @@
             {
               "role": "反例",
               "takeaway": "Anthropic称Mythos 5面向网络安全等高要求领域，但仅向少量经审查的网络安全合作伙伴开放并要求安全监测。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "The Decoder报道称Zhipu AI发布GLM-5.3，并转述其编码与网络安全能力主张及后续开源计划。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "GLM-5.2官方模型卡显示上一代已提供MIT许可的公开权重，并披露了若干编码基准及评测配置限制。"
+            },
+            {
+              "role": "反例",
+              "takeaway": "Z.ai官方Hugging Face组织页检索时仅列出GLM-5.2及GLM-5.2-FP8，未列出GLM-5.3可下载权重。"
+            }
+          ],
+          "updates": [
+            {
+              "addedAt": "2026-08-14T10:21:34.000Z",
+              "title": "GLM-5.3权重尚未开放",
+              "summary": "Z.ai称GLM-5.3在后训练后编码表现提升50%，已用于269个项目发现2,436个漏洞；但公司表示权重将在安全评估和加固后约两周开放，官方组织页目前仍未列出GLM-5.3下载项。",
+              "evidence": [
+                {
+                  "role": "佐证",
+                  "takeaway": "The Decoder报道称Zhipu AI发布GLM-5.3，并转述其编码与网络安全能力主张及后续开源计划。"
+                },
+                {
+                  "role": "最新进展",
+                  "takeaway": "Z.ai公告称GLM-5.3与GLM-5.2使用相同基础模型，经后训练后内部编码表现提升50%，并计划在安全评估和加固后约两周开放权重。"
+                },
+                {
+                  "role": "背景",
+                  "takeaway": "GLM-5.2官方模型卡显示上一代已提供MIT许可的公开权重，并披露了若干编码基准及评测配置限制。"
+                },
+                {
+                  "role": "反例",
+                  "takeaway": "Z.ai官方Hugging Face组织页检索时仅列出GLM-5.2及GLM-5.2-FP8，未列出GLM-5.3可下载权重。"
+                }
+              ],
+              "changeType": "thesis_change",
+              "thesisImpact": "新的一手资料显示GLM-5.3目前尚未提供可下载权重，原有“开源模型”判断应收窄为已发布、拟在安全评估和加固后开放权重的模型。",
+              "revisionRequired": true
             }
           ]
         },
@@ -43015,9 +43448,39 @@
             {
               "role": "最新进展",
               "takeaway": "The Information报道称，DeepSeek在发布V4-Pro后宣布上调模型API价格。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "Engadget报道称DeepSeek计划上调V4模型价格。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "腾讯云针对DeepSeek-V4原厂直供服务公布平时和高峰两档费率，并说明高峰价格为平时两倍。"
             }
           ],
           "updates": [
+            {
+              "addedAt": "2026-08-14T10:58:24.000Z",
+              "title": "DeepSeek明确峰谷新费率",
+              "summary": "DeepSeek定价页列出V4-Flash-0731与V4-Pro-0813调整后的逐项API价格，计划于2026年8月16日16:00 UTC生效，并明确高峰价格为非高峰价格两倍。腾讯云的原厂直供通知也采用相同的峰谷双档机制。",
+              "evidence": [
+                {
+                  "role": "佐证",
+                  "takeaway": "Engadget报道称DeepSeek计划上调V4模型价格。"
+                },
+                {
+                  "role": "最新进展",
+                  "takeaway": "DeepSeek官方定价页列出V4-Flash-0731和V4-Pro-0813的新价格、2026年8月16日16:00 UTC生效时间及高峰价格为非高峰两倍的规则。"
+                },
+                {
+                  "role": "佐证",
+                  "takeaway": "腾讯云针对DeepSeek-V4原厂直供服务公布平时和高峰两档费率，并说明高峰价格为平时两倍。"
+                }
+              ],
+              "changeType": "corroboration",
+              "thesisImpact": "官方定价页补充了新费率的生效时间、峰谷时段和逐项价格；腾讯云的原厂直供通知独立佐证了峰谷双档计费机制。",
+              "revisionRequired": false
+            },
             {
               "addedAt": "2026-08-14T06:02:28.000Z",
               "title": "DeepSeek上调V4-Pro峰谷价格",
@@ -53702,6 +54165,46 @@
             {
               "role": "Counterpoint",
               "takeaway": "Anthropic says Mythos 5 is intended for cybersecurity and other demanding domains, but access is limited to vetted partners with safety-monitoring requirements."
+            },
+            {
+              "role": "Support",
+              "takeaway": "The Decoder reported Zhipu AI's GLM-5.3 release claims, including coding and cybersecurity results and a planned open-weights release."
+            },
+            {
+              "role": "Context",
+              "takeaway": "The official GLM-5.2 model card documents MIT-licensed public weights and prior coding benchmarks, along with evaluation-configuration caveats."
+            },
+            {
+              "role": "Counterpoint",
+              "takeaway": "Z.ai's Hugging Face organization page listed GLM-5.2 and GLM-5.2-FP8, but not downloadable GLM-5.3 weights, at the time checked."
+            }
+          ],
+          "updates": [
+            {
+              "addedAt": "2026-08-14T10:21:34.000Z",
+              "title": "GLM-5.3 Weights Are Not Yet Available",
+              "summary": "Z.ai says GLM-5.3 improved coding performance by 50% through post-training and found 2,436 vulnerabilities across 269 projects. But the company says weights will be released only after security evaluation and hardening; its Hugging Face organization page does not yet list GLM-5.3 downloads.",
+              "evidence": [
+                {
+                  "role": "Support",
+                  "takeaway": "The Decoder reported Zhipu AI's GLM-5.3 release claims, including coding and cybersecurity results and a planned open-weights release."
+                },
+                {
+                  "role": "Update",
+                  "takeaway": "Z.ai says GLM-5.3 shares GLM-5.2's base model, gained 50% on its internal coding benchmark through post-training, and will release weights after security evaluation and hardening."
+                },
+                {
+                  "role": "Context",
+                  "takeaway": "The official GLM-5.2 model card documents MIT-licensed public weights and prior coding benchmarks, along with evaluation-configuration caveats."
+                },
+                {
+                  "role": "Counterpoint",
+                  "takeaway": "Z.ai's Hugging Face organization page listed GLM-5.2 and GLM-5.2-FP8, but not downloadable GLM-5.3 weights, at the time checked."
+                }
+              ],
+              "changeType": "thesis_change",
+              "thesisImpact": "新的一手资料显示GLM-5.3目前尚未提供可下载权重，原有“开源模型”判断应收窄为已发布、拟在安全评估和加固后开放权重的模型。",
+              "revisionRequired": true
             }
           ]
         },
@@ -53825,9 +54328,39 @@
             {
               "role": "Update",
               "takeaway": "The Information reported that DeepSeek announced API price increases after releasing V4-Pro."
+            },
+            {
+              "role": "Support",
+              "takeaway": "Engadget reported that DeepSeek plans to raise prices for its V4 models."
+            },
+            {
+              "role": "Support",
+              "takeaway": "Tencent Cloud's notice for first-party DeepSeek-V4 service specifies regular and peak rates, with peak rates set at twice regular rates."
             }
           ],
           "updates": [
+            {
+              "addedAt": "2026-08-14T10:58:24.000Z",
+              "title": "DeepSeek Specifies New Peak and Off-Peak Rates",
+              "summary": "DeepSeek's pricing page lists revised API prices for V4-Flash-0731 and V4-Pro-0813, effective at 16:00 UTC on August 16, 2026, and states that peak pricing is twice the off-peak rate. Tencent Cloud's first-party DeepSeek service notice independently uses the same two-tier structure.",
+              "evidence": [
+                {
+                  "role": "Support",
+                  "takeaway": "Engadget reported that DeepSeek plans to raise prices for its V4 models."
+                },
+                {
+                  "role": "Update",
+                  "takeaway": "DeepSeek's official pricing page lists revised V4-Flash-0731 and V4-Pro-0813 prices, an August 16, 2026 effective time, and a peak-price multiplier of two."
+                },
+                {
+                  "role": "Support",
+                  "takeaway": "Tencent Cloud's notice for first-party DeepSeek-V4 service specifies regular and peak rates, with peak rates set at twice regular rates."
+                }
+              ],
+              "changeType": "corroboration",
+              "thesisImpact": "官方定价页补充了新费率的生效时间、峰谷时段和逐项价格；腾讯云的原厂直供通知独立佐证了峰谷双档计费机制。",
+              "revisionRequired": false
+            },
             {
               "addedAt": "2026-08-14T06:02:28.000Z",
               "title": "DeepSeek Raises V4-Pro Peak and Off-Peak Prices",
@@ -64469,12 +65002,12 @@
     "en": "gpt-5.6-sol"
   },
   "incremental": {
-    "lastAddedAt": "2026-08-14T10:13:02.375Z",
-    "lastScanAt": "2026-08-14T10:07:36.312Z",
-    "lastAddedCount": 1,
-    "lastUpdatedCount": 0,
+    "lastAddedAt": "2026-08-14T12:12:19.690Z",
+    "lastScanAt": "2026-08-14T12:07:21.671Z",
+    "lastAddedCount": 0,
+    "lastUpdatedCount": 2,
     "totalAppended": 107,
-    "totalUpdated": 102
+    "totalUpdated": 104
   },
   "exploreDepth": {
     "minimum": 50,

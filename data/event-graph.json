@@ -1,16 +1,26 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-14T10:07:36.312Z",
+  "generatedAt": "2026-08-14T12:07:21.671Z",
   "counts": {
-    "sources": 643,
-    "claims": 750,
+    "sources": 648,
+    "claims": 757,
     "events": 159,
     "articles": 159,
-    "updates": 102,
-    "edges": 1998,
-    "revisionsRequired": 5
+    "updates": 104,
+    "edges": 2019,
+    "revisionsRequired": 6
   },
   "revisionQueue": [
+    {
+      "signalId": 115,
+      "eventId": "event_78547822baad4bb9",
+      "updateId": "update_f9f0bd6ba16f0882",
+      "title": "Z.ai发布GLM-5.3押注网络防御",
+      "updateTitle": "GLM-5.3权重尚未开放",
+      "thesisImpact": "新的一手资料显示GLM-5.3目前尚未提供可下载权重，原有“开源模型”判断应收窄为已发布、拟在安全评估和加固后开放权重的模型。",
+      "detectedAt": "2026-08-14T10:21:34.000Z",
+      "status": "needs_editorial_revision"
+    },
     {
       "signalId": 70,
       "eventId": "event_0d44a0f6406a45f3",
@@ -71,7 +81,7 @@
       "bucket": "dynamic",
       "valueScore": 84,
       "publishedAt": "2026-08-14T09:48:17.000Z",
-      "updatedAt": "2026-08-14T09:48:17.000Z"
+      "updatedAt": "2026-08-14T10:21:34.000Z"
     },
     {
       "id": "article_fe8ee3e26808930c",
@@ -79,7 +89,7 @@
       "signalId": 115,
       "title": "Z.ai发布GLM-5.3押注网络防御",
       "version": 1,
-      "publishedAt": "2026-08-14T10:07:36.312Z"
+      "publishedAt": "2026-08-14T12:07:21.671Z"
     },
     {
       "id": "source_e5175bf3c01c67fc",
@@ -94,7 +104,7 @@
       "type": "claim",
       "title": "The Information报道Z.ai发布开源GLM-5.3，并称其网络安全能力可与Anthropic的Mythos 5相比。",
       "role": "主张",
-      "addedAt": "2026-08-14T10:07:36.312Z"
+      "addedAt": "2026-08-14T12:07:21.671Z"
     },
     {
       "id": "source_1988761466109b07",
@@ -109,7 +119,7 @@
       "type": "claim",
       "title": "Z.ai发布原文确认GLM-5.3已发布，定位于编程及网络防御，并提出与Claude Mythos 5的能力比较。",
       "role": "主张",
-      "addedAt": "2026-08-14T10:07:36.312Z"
+      "addedAt": "2026-08-14T12:07:21.671Z"
     },
     {
       "id": "source_9156c37fb1c28b94",
@@ -124,7 +134,7 @@
       "type": "claim",
       "title": "Z.ai此前将GLM-5.1定位为处理长时程规划、执行、调试和策略迭代的工程代理模型。",
       "role": "背景",
-      "addedAt": "2026-08-14T10:07:36.312Z"
+      "addedAt": "2026-08-14T12:07:21.671Z"
     },
     {
       "id": "source_46dc397f07117c38",
@@ -139,7 +149,70 @@
       "type": "claim",
       "title": "Anthropic称Mythos 5面向网络安全等高要求领域，但仅向少量经审查的网络安全合作伙伴开放并要求安全监测。",
       "role": "反例",
-      "addedAt": "2026-08-14T10:07:36.312Z"
+      "addedAt": "2026-08-14T12:07:21.671Z"
+    },
+    {
+      "id": "source_9da584f102d05f46",
+      "type": "source",
+      "title": "The Decoder AI",
+      "url": "https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-14T10:21:34.000Z"
+    },
+    {
+      "id": "claim_1032c7fd1cc0de08",
+      "type": "claim",
+      "title": "The Decoder报道称Zhipu AI发布GLM-5.3，并转述其编码与网络安全能力主张及后续开源计划。",
+      "role": "佐证",
+      "addedAt": "2026-08-14T12:07:21.671Z"
+    },
+    {
+      "id": "source_9ec90332da9eec1d",
+      "type": "source",
+      "title": "Hugging Face / Z.ai",
+      "url": "https://huggingface.co/zai-org/GLM-5.2",
+      "sourceKind": "Repository",
+      "publishedAt": "2026-08-14T10:21:34.000Z"
+    },
+    {
+      "id": "claim_c7864b6513a2603f",
+      "type": "claim",
+      "title": "GLM-5.2官方模型卡显示上一代已提供MIT许可的公开权重，并披露了若干编码基准及评测配置限制。",
+      "role": "背景",
+      "addedAt": "2026-08-14T12:07:21.671Z"
+    },
+    {
+      "id": "source_3b2e9eb6d77fcdba",
+      "type": "source",
+      "title": "Hugging Face / Z.ai",
+      "url": "https://huggingface.co/zai-org/models",
+      "sourceKind": "Repository",
+      "publishedAt": "2026-08-14T10:21:34.000Z"
+    },
+    {
+      "id": "claim_b65def0755c8a3e2",
+      "type": "claim",
+      "title": "Z.ai官方Hugging Face组织页检索时仅列出GLM-5.2及GLM-5.2-FP8，未列出GLM-5.3可下载权重。",
+      "role": "反例",
+      "addedAt": "2026-08-14T12:07:21.671Z"
+    },
+    {
+      "id": "update_f9f0bd6ba16f0882",
+      "type": "update",
+      "signalId": 115,
+      "title": "GLM-5.3权重尚未开放",
+      "summary": "Z.ai称GLM-5.3在后训练后编码表现提升50%，已用于269个项目发现2,436个漏洞；但公司表示权重将在安全评估和加固后约两周开放，官方组织页目前仍未列出GLM-5.3下载项。",
+      "addedAt": "2026-08-14T10:21:34.000Z",
+      "changeType": "thesis_change",
+      "thesisImpact": "新的一手资料显示GLM-5.3目前尚未提供可下载权重，原有“开源模型”判断应收窄为已发布、拟在安全评估和加固后开放权重的模型。",
+      "revisionRequired": true
+    },
+    {
+      "id": "claim_ae40ba59f1778d94",
+      "type": "claim",
+      "title": "Z.ai公告称GLM-5.3与GLM-5.2使用相同基础模型，经后训练后内部编码表现提升50%，并计划在安全评估和加固后约两周开放权重。",
+      "role": "最新进展",
+      "addedAt": "2026-08-14T10:21:34.000Z"
     },
     {
       "id": "event_fd6738bc4783b911",
@@ -503,6 +576,54 @@
       "title": "The Information报道称，DeepSeek在发布V4-Pro后宣布上调模型API价格。",
       "role": "最新进展",
       "addedAt": "2026-08-14T07:06:44.137Z"
+    },
+    {
+      "id": "source_72c3e757e055faf7",
+      "type": "source",
+      "title": "Engadget",
+      "url": "https://www.engadget.com/2236912/deepseek-ai-models-get-four-times-pricier/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-14T10:58:24.000Z"
+    },
+    {
+      "id": "claim_2b41c0e66d9b1708",
+      "type": "claim",
+      "title": "Engadget报道称DeepSeek计划上调V4模型价格。",
+      "role": "佐证",
+      "addedAt": "2026-08-14T07:06:44.137Z"
+    },
+    {
+      "id": "source_5a08e099f805776a",
+      "type": "source",
+      "title": "腾讯云",
+      "url": "https://cloud.tencent.cn/announce/detail/2353",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-14T10:58:24.000Z"
+    },
+    {
+      "id": "claim_94ded09a79c9d3c7",
+      "type": "claim",
+      "title": "腾讯云针对DeepSeek-V4原厂直供服务公布平时和高峰两档费率，并说明高峰价格为平时两倍。",
+      "role": "佐证",
+      "addedAt": "2026-08-14T07:06:44.137Z"
+    },
+    {
+      "id": "update_bdb49c233fa9ded2",
+      "type": "update",
+      "signalId": 42,
+      "title": "DeepSeek明确峰谷新费率",
+      "summary": "DeepSeek定价页列出V4-Flash-0731与V4-Pro-0813调整后的逐项API价格，计划于2026年8月16日16:00 UTC生效，并明确高峰价格为非高峰价格两倍。腾讯云的原厂直供通知也采用相同的峰谷双档机制。",
+      "addedAt": "2026-08-14T10:58:24.000Z",
+      "changeType": "corroboration",
+      "thesisImpact": "官方定价页补充了新费率的生效时间、峰谷时段和逐项价格；腾讯云的原厂直供通知独立佐证了峰谷双档计费机制。",
+      "revisionRequired": false
+    },
+    {
+      "id": "claim_a9e153161bd8abc9",
+      "type": "claim",
+      "title": "DeepSeek官方定价页列出V4-Flash-0731和V4-Pro-0813的新价格、2026年8月16日16:00 UTC生效时间及高峰价格为非高峰两倍的规则。",
+      "role": "最新进展",
+      "addedAt": "2026-08-14T10:58:24.000Z"
     },
     {
       "id": "update_981741d07d52608f",
@@ -14414,6 +14535,85 @@
       "updateTitle": null
     },
     {
+      "id": "edge_4e17983eb99b8c78",
+      "from": "source_9da584f102d05f46",
+      "to": "claim_1032c7fd1cc0de08",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_b6ce045370803f78",
+      "from": "claim_1032c7fd1cc0de08",
+      "to": "event_78547822baad4bb9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_c4d306854c072af8",
+      "from": "source_9ec90332da9eec1d",
+      "to": "claim_c7864b6513a2603f",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_676e2090bd24ca1d",
+      "from": "claim_c7864b6513a2603f",
+      "to": "event_78547822baad4bb9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_2817849971d1cdf3",
+      "from": "source_3b2e9eb6d77fcdba",
+      "to": "claim_b65def0755c8a3e2",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_a6efa34a4f52934f",
+      "from": "claim_b65def0755c8a3e2",
+      "to": "event_78547822baad4bb9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_2874bb837264cb38",
+      "from": "update_f9f0bd6ba16f0882",
+      "to": "event_78547822baad4bb9",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_968508563f16762c",
+      "from": "claim_1032c7fd1cc0de08",
+      "to": "event_78547822baad4bb9",
+      "relation": "update_evidence_for",
+      "updateTitle": "GLM-5.3权重尚未开放"
+    },
+    {
+      "id": "edge_918c78bfb35625b6",
+      "from": "source_1988761466109b07",
+      "to": "claim_ae40ba59f1778d94",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_fac9f6eeb58e3279",
+      "from": "claim_ae40ba59f1778d94",
+      "to": "event_78547822baad4bb9",
+      "relation": "update_evidence_for",
+      "updateTitle": "GLM-5.3权重尚未开放"
+    },
+    {
+      "id": "edge_50f3a2b0108d2766",
+      "from": "claim_c7864b6513a2603f",
+      "to": "event_78547822baad4bb9",
+      "relation": "update_evidence_for",
+      "updateTitle": "GLM-5.3权重尚未开放"
+    },
+    {
+      "id": "edge_21b93c0201ebee75",
+      "from": "claim_b65def0755c8a3e2",
+      "to": "event_78547822baad4bb9",
+      "relation": "update_evidence_for",
+      "updateTitle": "GLM-5.3权重尚未开放"
+    },
+    {
       "id": "edge_105aa36c9e988d6e",
       "from": "event_fd6738bc4783b911",
       "to": "article_b56f0e63c13abe3d",
@@ -14717,6 +14917,65 @@
       "to": "event_fd6738bc4783b911",
       "relation": "evidence_for",
       "updateTitle": null
+    },
+    {
+      "id": "edge_842c81696cc9e808",
+      "from": "source_72c3e757e055faf7",
+      "to": "claim_2b41c0e66d9b1708",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_1b8d7c9a21e6e74f",
+      "from": "claim_2b41c0e66d9b1708",
+      "to": "event_fd6738bc4783b911",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_399a182a1338c1d5",
+      "from": "source_5a08e099f805776a",
+      "to": "claim_94ded09a79c9d3c7",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_4076ac3736c8c1c6",
+      "from": "claim_94ded09a79c9d3c7",
+      "to": "event_fd6738bc4783b911",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_bbb3c67c22eac40e",
+      "from": "update_bdb49c233fa9ded2",
+      "to": "event_fd6738bc4783b911",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_3d10b8c9fc5375d8",
+      "from": "claim_2b41c0e66d9b1708",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "DeepSeek明确峰谷新费率"
+    },
+    {
+      "id": "edge_d04d3829e1622437",
+      "from": "source_280758cc57a6ef53",
+      "to": "claim_a9e153161bd8abc9",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_45ed5f6a4f19f77e",
+      "from": "claim_a9e153161bd8abc9",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "DeepSeek明确峰谷新费率"
+    },
+    {
+      "id": "edge_4e083131ed5dd1cd",
+      "from": "claim_94ded09a79c9d3c7",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "DeepSeek明确峰谷新费率"
     },
     {
       "id": "edge_3785ff63ed21382a",
