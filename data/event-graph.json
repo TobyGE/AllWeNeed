@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-14T07:06:44.137Z",
+  "generatedAt": "2026-08-14T10:07:36.312Z",
   "counts": {
-    "sources": 639,
-    "claims": 746,
-    "events": 158,
-    "articles": 158,
+    "sources": 643,
+    "claims": 750,
+    "events": 159,
+    "articles": 159,
     "updates": 102,
-    "edges": 1989,
+    "edges": 1998,
     "revisionsRequired": 5
   },
   "revisionQueue": [
@@ -63,6 +63,84 @@
     }
   ],
   "nodes": [
+    {
+      "id": "event_78547822baad4bb9",
+      "type": "event",
+      "signalId": 115,
+      "title": "Z.ai发布GLM-5.3押注网络防御",
+      "bucket": "dynamic",
+      "valueScore": 84,
+      "publishedAt": "2026-08-14T09:48:17.000Z",
+      "updatedAt": "2026-08-14T09:48:17.000Z"
+    },
+    {
+      "id": "article_fe8ee3e26808930c",
+      "type": "article",
+      "signalId": 115,
+      "title": "Z.ai发布GLM-5.3押注网络防御",
+      "version": 1,
+      "publishedAt": "2026-08-14T10:07:36.312Z"
+    },
+    {
+      "id": "source_e5175bf3c01c67fc",
+      "type": "source",
+      "title": "The Information",
+      "url": "https://www.theinformation.com/briefings/chinas-z-ai-touts-new-glm-5-3-model-cyber-defense-tool",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-14T09:48:17.000Z"
+    },
+    {
+      "id": "claim_035c95a43f9f47ad",
+      "type": "claim",
+      "title": "The Information报道Z.ai发布开源GLM-5.3，并称其网络安全能力可与Anthropic的Mythos 5相比。",
+      "role": "主张",
+      "addedAt": "2026-08-14T10:07:36.312Z"
+    },
+    {
+      "id": "source_1988761466109b07",
+      "type": "source",
+      "title": "Z.ai",
+      "url": "https://z.ai/blog/glm-5.3",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-14T09:48:17.000Z"
+    },
+    {
+      "id": "claim_c0368bcd4e934d3d",
+      "type": "claim",
+      "title": "Z.ai发布原文确认GLM-5.3已发布，定位于编程及网络防御，并提出与Claude Mythos 5的能力比较。",
+      "role": "主张",
+      "addedAt": "2026-08-14T10:07:36.312Z"
+    },
+    {
+      "id": "source_9156c37fb1c28b94",
+      "type": "source",
+      "title": "Z.ai",
+      "url": "https://docs.z.ai/release-notes/new-released",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-14T09:48:17.000Z"
+    },
+    {
+      "id": "claim_a481086ee605bd37",
+      "type": "claim",
+      "title": "Z.ai此前将GLM-5.1定位为处理长时程规划、执行、调试和策略迭代的工程代理模型。",
+      "role": "背景",
+      "addedAt": "2026-08-14T10:07:36.312Z"
+    },
+    {
+      "id": "source_46dc397f07117c38",
+      "type": "source",
+      "title": "Anthropic",
+      "url": "https://www.anthropic.com/claude/mythos",
+      "sourceKind": "Official",
+      "publishedAt": "2026-06-09T00:00:00.000Z"
+    },
+    {
+      "id": "claim_ff1f5b908a47648f",
+      "type": "claim",
+      "title": "Anthropic称Mythos 5面向网络安全等高要求领域，但仅向少量经审查的网络安全合作伙伴开放并要求安全监测。",
+      "role": "反例",
+      "addedAt": "2026-08-14T10:07:36.312Z"
+    },
     {
       "id": "event_fd6738bc4783b911",
       "type": "event",
@@ -14277,6 +14355,64 @@
     }
   ],
   "edges": [
+    {
+      "id": "edge_5e06981566715dd2",
+      "from": "event_78547822baad4bb9",
+      "to": "article_fe8ee3e26808930c",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_9145cc207aae7c0d",
+      "from": "source_e5175bf3c01c67fc",
+      "to": "claim_035c95a43f9f47ad",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_bbe0f0521ad155ba",
+      "from": "claim_035c95a43f9f47ad",
+      "to": "event_78547822baad4bb9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_1df5614805dbc2bc",
+      "from": "source_1988761466109b07",
+      "to": "claim_c0368bcd4e934d3d",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_c59f17ff42256946",
+      "from": "claim_c0368bcd4e934d3d",
+      "to": "event_78547822baad4bb9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_ea5425d01bc67521",
+      "from": "source_9156c37fb1c28b94",
+      "to": "claim_a481086ee605bd37",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_fec8f00b1587a78c",
+      "from": "claim_a481086ee605bd37",
+      "to": "event_78547822baad4bb9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_f9d457d209ea36f4",
+      "from": "source_46dc397f07117c38",
+      "to": "claim_ff1f5b908a47648f",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_c501ed4cb67672cd",
+      "from": "claim_ff1f5b908a47648f",
+      "to": "event_78547822baad4bb9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
     {
       "id": "edge_105aa36c9e988d6e",
       "from": "event_fd6738bc4783b911",
