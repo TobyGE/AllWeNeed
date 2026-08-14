@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-14T18:06:53.373Z",
+  "generatedAt": "2026-08-14T20:07:23.684Z",
   "counts": {
-    "sources": 660,
-    "claims": 772,
-    "events": 161,
-    "articles": 161,
-    "updates": 105,
-    "edges": 2055,
+    "sources": 663,
+    "claims": 777,
+    "events": 162,
+    "articles": 162,
+    "updates": 106,
+    "edges": 2068,
     "revisionsRequired": 7
   },
   "revisionQueue": [
@@ -84,6 +84,54 @@
   ],
   "nodes": [
     {
+      "id": "event_d1c643b4a57ab552",
+      "type": "event",
+      "signalId": 118,
+      "title": "Anthropic将风险评级纳入发布闸门",
+      "bucket": "explore",
+      "valueScore": 80,
+      "publishedAt": "2026-08-14T00:00:00.000Z",
+      "updatedAt": "2026-08-14T00:00:00.000Z"
+    },
+    {
+      "id": "article_64dee3be595c7122",
+      "type": "article",
+      "signalId": 118,
+      "title": "Anthropic将风险评级纳入发布闸门",
+      "version": 1,
+      "publishedAt": "2026-08-14T20:07:23.684Z"
+    },
+    {
+      "id": "source_c9eb27f95a84f8c2",
+      "type": "source",
+      "title": "Axios",
+      "url": "https://www.axios.com/2026/08/14/anthropic-model-2-ai-risk",
+      "sourceKind": "Media",
+      "publishedAt": "2026-08-14T00:00:00.000Z"
+    },
+    {
+      "id": "claim_b21547de6ecce6b6",
+      "type": "claim",
+      "title": "Axios报道称，Anthropic将更强内部模型的misalignment风险评级从very low上调至low，并无计划发布Model 2。",
+      "role": "主张",
+      "addedAt": "2026-08-14T20:07:23.684Z"
+    },
+    {
+      "id": "source_21868c13a5de9089",
+      "type": "source",
+      "title": "Anthropic",
+      "url": "https://www-cdn.anthropic.com/3edfc1a7f947aa81841cf88305cb513f184c36ae/Alignment%20Risk%20Update_%20Claude%20Mythos%20Preview%20%28Redacted%2C%20April%2010%29.pdf",
+      "sourceKind": "Official",
+      "publishedAt": "2026-04-10T00:00:00.000Z"
+    },
+    {
+      "id": "claim_c7bedf22055318d1",
+      "type": "claim",
+      "title": "Anthropic 2026年4月的风险更新说明Claude Mythos Preview当时尚未向公众普遍开放，并讨论其能力与alignment风险。",
+      "role": "背景",
+      "addedAt": "2026-08-14T20:07:23.684Z"
+    },
+    {
       "id": "event_bd08267689227246",
       "type": "event",
       "signalId": 117,
@@ -91,7 +139,7 @@
       "bucket": "dynamic",
       "valueScore": 85,
       "publishedAt": "2026-08-14T17:01:54.000Z",
-      "updatedAt": "2026-08-14T17:01:54.000Z"
+      "updatedAt": "2026-08-14T16:12:35.000Z"
     },
     {
       "id": "article_d54b51ea68262f79",
@@ -99,7 +147,7 @@
       "signalId": 117,
       "title": "Qwen开放3.8-27B代理模型",
       "version": 1,
-      "publishedAt": "2026-08-14T18:06:53.373Z"
+      "publishedAt": "2026-08-14T20:07:23.684Z"
     },
     {
       "id": "source_bf9169bc18a6de86",
@@ -114,7 +162,7 @@
       "type": "claim",
       "title": "The Decoder报道Qwen发布Apache 2.0许可的Qwen3.8开放权重模型，并定位其服务本地与代理应用。",
       "role": "佐证",
-      "addedAt": "2026-08-14T18:06:53.373Z"
+      "addedAt": "2026-08-14T20:07:23.684Z"
     },
     {
       "id": "source_ca26bca182f697df",
@@ -129,7 +177,7 @@
       "type": "claim",
       "title": "Qwen官方仓库确认Qwen3.8-27B权重、Apache 2.0许可、27B规模、262,144-token上下文及Terminal-Bench 2.1比较结果。",
       "role": "主张",
-      "addedAt": "2026-08-14T18:06:53.373Z"
+      "addedAt": "2026-08-14T20:07:23.684Z"
     },
     {
       "id": "source_20e9d0e734a8fb4e",
@@ -144,7 +192,7 @@
       "type": "claim",
       "title": "Qwen3.6-27B官方模型卡确认此前27B开放型号已有Apache 2.0许可与262,144-token原生上下文。",
       "role": "背景",
-      "addedAt": "2026-08-14T18:06:53.373Z"
+      "addedAt": "2026-08-14T20:07:23.684Z"
     },
     {
       "id": "source_40851b30c97009a7",
@@ -159,7 +207,7 @@
       "type": "claim",
       "title": "QwenCloud将qwen3.7-plus列为工具调用模型，并标注其1M-token上下文定位。",
       "role": "背景",
-      "addedAt": "2026-08-14T18:06:53.373Z"
+      "addedAt": "2026-08-14T20:07:23.684Z"
     },
     {
       "id": "source_154d8a92182c5cce",
@@ -174,7 +222,47 @@
       "type": "claim",
       "title": "EvoCodeBench研究指出传统代码生成基准与真实代码仓库任务的对齐存在局限。",
       "role": "反例",
-      "addedAt": "2026-08-14T18:06:53.373Z"
+      "addedAt": "2026-08-14T20:07:23.684Z"
+    },
+    {
+      "id": "source_034c2462b05d2238",
+      "type": "source",
+      "title": "Qwen",
+      "url": "https://huggingface.co/Qwen/Qwen3.8-27B-FP8",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-14T15:16:58.000Z"
+    },
+    {
+      "id": "claim_8e1258b51ef42c96",
+      "type": "claim",
+      "title": "Qwen官方模型卡确认Qwen3.8-27B-FP8权重存在，并说明其采用block size 128的fine-grained FP8量化。",
+      "role": "最新进展",
+      "addedAt": "2026-08-14T20:07:23.684Z"
+    },
+    {
+      "id": "update_b97eb8d70517b2ff",
+      "type": "update",
+      "signalId": 117,
+      "title": "Qwen补充27B的FP8权重",
+      "summary": "Qwen官方模型卡新增Qwen3.8-27B-FP8，采用block size 128的fine-grained FP8量化；Qwen3.6-27B公开配置可作为同级架构对照。",
+      "addedAt": "2026-08-14T16:12:35.000Z",
+      "changeType": "progress",
+      "thesisImpact": "官方新增FP8量化权重信息，并与Qwen3.6-27B的公开配置形成对照，强化该版本以训练改进和部署形态扩展为主的判断。",
+      "revisionRequired": false
+    },
+    {
+      "id": "claim_5a7ce412bad07e0b",
+      "type": "claim",
+      "title": "Qwen官方模型卡确认Qwen3.8-27B仓库提供模型权重与配置文件，并列出其27B参数规模和模型结构。",
+      "role": "最新进展",
+      "addedAt": "2026-08-14T16:12:35.000Z"
+    },
+    {
+      "id": "claim_3011d44f8bb452a5",
+      "type": "claim",
+      "title": "Qwen3.6-27B官方模型卡列出27B参数、64层、5120隐藏维度及262144原生上下文等公开配置。",
+      "role": "背景",
+      "addedAt": "2026-08-14T16:12:35.000Z"
     },
     {
       "id": "event_ded79f4f58feab3e",
@@ -14735,6 +14823,38 @@
   ],
   "edges": [
     {
+      "id": "edge_507323bbd33daf93",
+      "from": "event_d1c643b4a57ab552",
+      "to": "article_64dee3be595c7122",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_dd3f097ebd0039f5",
+      "from": "source_c9eb27f95a84f8c2",
+      "to": "claim_b21547de6ecce6b6",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_bb591f40d90cf7ab",
+      "from": "claim_b21547de6ecce6b6",
+      "to": "event_d1c643b4a57ab552",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_22c1ff8ae909f805",
+      "from": "source_21868c13a5de9089",
+      "to": "claim_c7bedf22055318d1",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_0947c77568ae54c1",
+      "from": "claim_c7bedf22055318d1",
+      "to": "event_d1c643b4a57ab552",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
       "id": "edge_98a00f718302be0e",
       "from": "event_bd08267689227246",
       "to": "article_d54b51ea68262f79",
@@ -14804,6 +14924,58 @@
       "to": "event_bd08267689227246",
       "relation": "evidence_for",
       "updateTitle": null
+    },
+    {
+      "id": "edge_645a9eaa0ef9e219",
+      "from": "source_034c2462b05d2238",
+      "to": "claim_8e1258b51ef42c96",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_25d9f63e0b30666a",
+      "from": "claim_8e1258b51ef42c96",
+      "to": "event_bd08267689227246",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_80dda2f1460b3838",
+      "from": "update_b97eb8d70517b2ff",
+      "to": "event_bd08267689227246",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_785d59aadc422471",
+      "from": "source_ca26bca182f697df",
+      "to": "claim_5a7ce412bad07e0b",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_29dac5a80cf73b23",
+      "from": "claim_5a7ce412bad07e0b",
+      "to": "event_bd08267689227246",
+      "relation": "update_evidence_for",
+      "updateTitle": "Qwen补充27B的FP8权重"
+    },
+    {
+      "id": "edge_9161e757485514ac",
+      "from": "claim_8e1258b51ef42c96",
+      "to": "event_bd08267689227246",
+      "relation": "update_evidence_for",
+      "updateTitle": "Qwen补充27B的FP8权重"
+    },
+    {
+      "id": "edge_45530ca3004e5342",
+      "from": "source_20e9d0e734a8fb4e",
+      "to": "claim_3011d44f8bb452a5",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_783e1299ab73689d",
+      "from": "claim_3011d44f8bb452a5",
+      "to": "event_bd08267689227246",
+      "relation": "update_evidence_for",
+      "updateTitle": "Qwen补充27B的FP8权重"
     },
     {
       "id": "edge_0d53b26b270e0716",

@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-14T18:13:44.492Z",
-  "basedOnSnapshotAt": "2026-08-14T18:06:53.373Z",
+  "generatedAt": "2026-08-14T20:12:29.103Z",
+  "basedOnSnapshotAt": "2026-08-14T20:07:23.684Z",
   "model": "gpt-5.5",
   "analyzedItemCount": 180,
   "totalFetchedItemCount": 2309,
@@ -8,6 +8,125 @@
   "signalQuality": 86,
   "signalQualityChange": 8,
   "signals": [
+    {
+      "id": 118,
+      "editorialBucket": "explore",
+      "category": "AI & 模型",
+      "eyebrow": "趋势变化",
+      "title": "Anthropic将风险评级纳入发布闸门",
+      "summary": "Anthropic据报上调更强内部模型的misalignment风险评级，并暂不发布Model 2。前沿模型竞争的关键变量可能从能力展示转向能否通过内部风险闸门。",
+      "why": "若风险评级直接改变模型发布节奏，实验室的产品路线、收入兑现和客户迁移时间表都将更依赖安全治理决策。",
+      "impact": "这可能使外部市场更重视可部署能力而非内部能力上限，并放大安全评估、访问控制和分阶段发布的竞争价值。",
+      "shiftFrom": "能力提升通常对应更快发布",
+      "shiftTo": "风险评级可直接延后发布",
+      "crossValidation": "Axios报道了风险评级上调及不发布Model 2的决定；Anthropic较早的官方风险更新确认Claude Mythos Preview并未普遍开放，提供其分阶段访问模式的背景。",
+      "article": {
+        "lead": "Anthropic据报已将一款更强内部模型的misalignment风险评级从very low上调至low，并决定暂不对外发布Model 2。这一决定指向同一个变化：前沿实验室的内部能力进展不再必然自动转化为产品供给，风险评估正在成为影响发布节奏的实际闸门。",
+        "sections": [
+          {
+            "heading": "内部能力与市场可用性开始脱钩",
+            "body": "Axios报道，Anthropic上调了更强内部模型的misalignment风险判断，同时没有计划发布被称为Model 2的系统。报道所描述的并非单纯的模型命名变化，而是内部能力存在、却不进入公开产品线的状态。Anthropic在2026年4月发布的官方风险更新也显示，Claude Mythos Preview当时尚未向公众普遍开放。两项信息共同表明，该公司已经采用将能力开发、有限访问和广泛发布分开的路径。"
+          },
+          {
+            "heading": "风险评级为何会改变商业节奏",
+            "body": "模型发布不是只由基准成绩决定。若内部评估认为更强系统的失配风险上升，公司需要在训练后缓解、红队测试、权限设计、监控能力和事故响应之间完成配套，才能扩大访问范围。这个机制会把安全团队和治理流程从发布前的合规检查，推向产品排期的共同决定者。对企业客户而言，真正可采购的能力边界也将由模型性能与部署护栏共同定义，而不只是实验室内部的能力上限。"
+          },
+          {
+            "heading": "竞争焦点或转向可控部署能力",
+            "body": "若类似做法扩展至其他前沿实验室，市场比较可能更强调哪些模型能在明确权限、审计和风险控制下稳定上线，而非谁先披露更高的内部能力。最强的反面解释是，Model 2不发布也可能主要是产品定位、算力分配或商业时机选择，风险评级未必是唯一决定因素。但Anthropic将风险判断变化与暂不发布并列，至少使治理约束成为需要持续追踪的竞争变量。"
+          }
+        ],
+        "outlook": "接下来可观察Anthropic是否发布新的系统卡、访问分级政策或针对Model 2的缓解措施，也可观察其是否将更强能力先提供给受控企业客户或政府环境。若公司随后公布明确的发布条件、完成评估后开放模型，将强化“风险闸门决定节奏”的判断；若无新增护栏说明便直接广泛上线，则会削弱这一判断。"
+      },
+      "validationType": "跨平台验证",
+      "publishedAt": "2026-08-14T00:00:00.000Z",
+      "updatedAt": "2026-08-14T00:00:00.000Z",
+      "sources": [
+        "Media",
+        "Official"
+      ],
+      "sourceNames": [
+        "Axios",
+        "Anthropic"
+      ],
+      "sourceCount": 2,
+      "age": "20 小时前",
+      "score": 80,
+      "tone": "orange",
+      "evidence": [
+        {
+          "id": "ground-226-1-https://www.axios.com/2026/08/14/anthropic-model-2-ai-risk-3-https://www.axios.com/2026/08/14/anthropic-model-2-ai-risk",
+          "sourceId": 226,
+          "sourceName": "Axios",
+          "sourcePublisher": "Axios",
+          "sourceKind": "Media",
+          "title": "Anthropic sees AI risks rising, no plan to release stronger “Model 2”",
+          "url": "https://www.axios.com/2026/08/14/anthropic-model-2-ai-risk",
+          "publishedAt": "2026-08-14T00:00:00.000Z",
+          "summary": "报道确认 Anthropic 将高风险 misalignment 评估从 very low 上调至 low，并称公司目前没有将 Model 2 对外发布的计划。",
+          "fetchedAt": "2026-08-14T20:07:23.684Z",
+          "groundedFrom": "N3",
+          "groundingClaim": "Anthropic 将高风险场景下的 misalignment 风险评估从“very low”上调为“low”，并表示目前没有将名为 Model 2 的内部模型对外发布的计划。",
+          "groundingNotes": "Axios 报道直接确认了该风险评级变化及 Model 2 暂无对外发布计划；Anthropic 的相关风险报告确认 Mythos Preview 属于未向公众开放的高能力模型。来源没有证明“Model 2 明显强于 Mythos”的更强表述。",
+          "ref": "G3",
+          "role": "主张",
+          "takeaway": "Axios报道称，Anthropic将更强内部模型的misalignment风险评级从very low上调至low，并无计划发布Model 2。"
+        },
+        {
+          "id": "ground-226-1-https://www.axios.com/2026/08/14/anthropic-model-2-ai-risk-4-https://www-cdn.anthropic.com/3edfc1a7f947aa81841cf88305cb513f184c36ae/Alignment%20Risk%20Update_%20Claude%20Mythos%20Preview%20%28Redacted%2C%20April%2010%29.pdf",
+          "sourceId": 226,
+          "sourceName": "Anthropic",
+          "sourcePublisher": "Anthropic",
+          "sourceKind": "Official",
+          "title": "Alignment Risk Update: Claude Mythos Preview (Redacted, April 10)",
+          "url": "https://www-cdn.anthropic.com/3edfc1a7f947aa81841cf88305cb513f184c36ae/Alignment%20Risk%20Update_%20Claude%20Mythos%20Preview%20%28Redacted%2C%20April%2010%29.pdf",
+          "publishedAt": "2026-04-10T00:00:00.000Z",
+          "summary": "Anthropic 风险报告说明 Claude Mythos Preview 尚未向公众普遍开放，并讨论其相较前代模型的能力与 alignment 风险评估。",
+          "fetchedAt": "2026-08-14T20:07:23.684Z",
+          "groundedFrom": "N3",
+          "groundingClaim": "Anthropic 将高风险场景下的 misalignment 风险评估从“very low”上调为“low”，并表示目前没有将名为 Model 2 的内部模型对外发布的计划。",
+          "groundingNotes": "Axios 报道直接确认了该风险评级变化及 Model 2 暂无对外发布计划；Anthropic 的相关风险报告确认 Mythos Preview 属于未向公众开放的高能力模型。来源没有证明“Model 2 明显强于 Mythos”的更强表述。",
+          "ref": "G4",
+          "role": "背景",
+          "takeaway": "Anthropic 2026年4月的风险更新说明Claude Mythos Preview当时尚未向公众普遍开放，并讨论其能力与alignment风险。"
+        }
+      ],
+      "references": [
+        {
+          "id": "ground-226-1-https://www.axios.com/2026/08/14/anthropic-model-2-ai-risk-3-https://www.axios.com/2026/08/14/anthropic-model-2-ai-risk",
+          "sourceId": 226,
+          "sourceName": "Axios",
+          "sourcePublisher": "Axios",
+          "sourceKind": "Media",
+          "title": "Anthropic sees AI risks rising, no plan to release stronger “Model 2”",
+          "url": "https://www.axios.com/2026/08/14/anthropic-model-2-ai-risk",
+          "publishedAt": "2026-08-14T00:00:00.000Z",
+          "summary": "报道确认 Anthropic 将高风险 misalignment 评估从 very low 上调至 low，并称公司目前没有将 Model 2 对外发布的计划。",
+          "fetchedAt": "2026-08-14T20:07:23.684Z",
+          "groundedFrom": "N3",
+          "groundingClaim": "Anthropic 将高风险场景下的 misalignment 风险评估从“very low”上调为“low”，并表示目前没有将名为 Model 2 的内部模型对外发布的计划。",
+          "groundingNotes": "Axios 报道直接确认了该风险评级变化及 Model 2 暂无对外发布计划；Anthropic 的相关风险报告确认 Mythos Preview 属于未向公众开放的高能力模型。来源没有证明“Model 2 明显强于 Mythos”的更强表述。",
+          "ref": "G3"
+        },
+        {
+          "id": "ground-226-1-https://www.axios.com/2026/08/14/anthropic-model-2-ai-risk-4-https://www-cdn.anthropic.com/3edfc1a7f947aa81841cf88305cb513f184c36ae/Alignment%20Risk%20Update_%20Claude%20Mythos%20Preview%20%28Redacted%2C%20April%2010%29.pdf",
+          "sourceId": 226,
+          "sourceName": "Anthropic",
+          "sourcePublisher": "Anthropic",
+          "sourceKind": "Official",
+          "title": "Alignment Risk Update: Claude Mythos Preview (Redacted, April 10)",
+          "url": "https://www-cdn.anthropic.com/3edfc1a7f947aa81841cf88305cb513f184c36ae/Alignment%20Risk%20Update_%20Claude%20Mythos%20Preview%20%28Redacted%2C%20April%2010%29.pdf",
+          "publishedAt": "2026-04-10T00:00:00.000Z",
+          "summary": "Anthropic 风险报告说明 Claude Mythos Preview 尚未向公众普遍开放，并讨论其相较前代模型的能力与 alignment 风险评估。",
+          "fetchedAt": "2026-08-14T20:07:23.684Z",
+          "groundedFrom": "N3",
+          "groundingClaim": "Anthropic 将高风险场景下的 misalignment 风险评估从“very low”上调为“low”，并表示目前没有将名为 Model 2 的内部模型对外发布的计划。",
+          "groundingNotes": "Axios 报道直接确认了该风险评级变化及 Model 2 暂无对外发布计划；Anthropic 的相关风险报告确认 Mythos Preview 属于未向公众开放的高能力模型。来源没有证明“Model 2 明显强于 Mythos”的更强表述。",
+          "ref": "G4"
+        }
+      ],
+      "feedBatchAt": "2026-08-14T20:07:23.684Z"
+    },
     {
       "id": 117,
       "editorialBucket": "dynamic",
@@ -40,7 +159,7 @@
       },
       "validationType": "跨平台验证",
       "publishedAt": "2026-08-14T17:01:54.000Z",
-      "updatedAt": "2026-08-14T17:01:54.000Z",
+      "updatedAt": "2026-08-14T16:12:35.000Z",
       "sources": [
         "Blog",
         "Repository",
@@ -163,6 +282,24 @@
           "ref": "R4",
           "role": "反例",
           "takeaway": "EvoCodeBench研究指出传统代码生成基准与真实代码仓库任务的对齐存在局限。"
+        },
+        {
+          "id": "ground-237-6-https://www.reddit.com/r/LocalLLaMA/comments/1voa3ch/qwen_38_27b_released_please_share_your_experience/-2-https://huggingface.co/Qwen/Qwen3.8-27B-FP8",
+          "sourceId": 237,
+          "sourceName": "Qwen",
+          "sourcePublisher": "Qwen",
+          "sourceKind": "Official",
+          "title": "Qwen/Qwen3.8-27B-FP8",
+          "url": "https://huggingface.co/Qwen/Qwen3.8-27B-FP8",
+          "publishedAt": "2026-08-14T15:16:58.000Z",
+          "summary": "官方模型卡确认存在 Qwen3.8-27B-FP8，并说明其为采用 block size 128 的 fine-grained FP8 量化权重。",
+          "fetchedAt": "2026-08-14T20:07:23.684Z",
+          "groundedFrom": "N1",
+          "groundingClaim": "Qwen 官方 Hugging Face 仓库已公开 Qwen3.8-27B 权重；另有官方 Qwen3.8-27B-FP8 量化权重。",
+          "groundingNotes": "来源确认了模型权重和 FP8 版本已公开，但没有确认线索中所问的其与某个 frontier model 的主观接近程度，也没有确认具体用户实验所用量化格式。",
+          "ref": "G2",
+          "role": "最新进展",
+          "takeaway": "Qwen官方模型卡确认Qwen3.8-27B-FP8权重存在，并说明其采用block size 128的fine-grained FP8量化。"
         }
       ],
       "references": [
@@ -261,9 +398,91 @@
           "researchComparisons": "决定性比较是同一发布页披露的 Terminal-Bench 2.1：Qwen3.8-27B 为 73.0，较 Qwen3.6-27B 的 63.4 高 9.6 分，较 Qwen3.7-Plus 的 64.0 高 9.0 分，但仍低于 Claude Opus 4.6 Max 的 78.2。此前的 Qwen3.6-27B 同为 Apache 2.0、27B 和 262,144-token 原生上下文，因此 3.8 的实质更新主要是发布方报告的代理编码能力提升，而非参数规模、许可证或原生上下文长度的跃迁。对“更适合长代码库”的比较需限定：QwenCloud 当前将 Qwen3.7-Plus 列为 1M-token context，而 3.8-27B 的原生上下文为 262,144 tokens。",
           "researchUnresolved": "发布时可核验的性能数字主要来自 Qwen 的模型卡；尚无独立、同一代理脚手架和同一推理预算下对 Qwen3.8-27B、Qwen3.7-Plus 与闭源前沿模型的复现实测。Terminal-Bench 等代理评测对工具链、超时、采样和上下文配置敏感，不能单独等同于生产环境的代码质量或办公室任务表现。",
           "ref": "R4"
+        },
+        {
+          "id": "ground-237-6-https://www.reddit.com/r/LocalLLaMA/comments/1voa3ch/qwen_38_27b_released_please_share_your_experience/-2-https://huggingface.co/Qwen/Qwen3.8-27B-FP8",
+          "sourceId": 237,
+          "sourceName": "Qwen",
+          "sourcePublisher": "Qwen",
+          "sourceKind": "Official",
+          "title": "Qwen/Qwen3.8-27B-FP8",
+          "url": "https://huggingface.co/Qwen/Qwen3.8-27B-FP8",
+          "publishedAt": "2026-08-14T15:16:58.000Z",
+          "summary": "官方模型卡确认存在 Qwen3.8-27B-FP8，并说明其为采用 block size 128 的 fine-grained FP8 量化权重。",
+          "fetchedAt": "2026-08-14T20:07:23.684Z",
+          "groundedFrom": "N1",
+          "groundingClaim": "Qwen 官方 Hugging Face 仓库已公开 Qwen3.8-27B 权重；另有官方 Qwen3.8-27B-FP8 量化权重。",
+          "groundingNotes": "来源确认了模型权重和 FP8 版本已公开，但没有确认线索中所问的其与某个 frontier model 的主观接近程度，也没有确认具体用户实验所用量化格式。",
+          "ref": "G2"
         }
       ],
-      "feedBatchAt": "2026-08-14T18:06:53.373Z"
+      "feedBatchAt": "2026-08-14T20:07:23.684Z",
+      "updates": [
+        {
+          "addedAt": "2026-08-14T16:12:35.000Z",
+          "title": "Qwen补充27B的FP8权重",
+          "summary": "Qwen官方模型卡新增Qwen3.8-27B-FP8，采用block size 128的fine-grained FP8量化；Qwen3.6-27B公开配置可作为同级架构对照。",
+          "evidence": [
+            {
+              "id": "ground-237-6-https://www.reddit.com/r/LocalLLaMA/comments/1voa3ch/qwen_38_27b_released_please_share_your_experience/-1-https://huggingface.co/Qwen/Qwen3.8-27B",
+              "sourceId": 237,
+              "sourceName": "Qwen",
+              "sourcePublisher": "Qwen",
+              "sourceKind": "Official",
+              "title": "Qwen/Qwen3.8-27B",
+              "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
+              "publishedAt": "2026-08-14T15:16:58.000Z",
+              "summary": "官方模型卡说明该仓库包含 Qwen3.8-27B 的模型权重与配置文件，并列出 27B 参数规模及模型结构。",
+              "fetchedAt": "2026-08-14T20:07:23.684Z",
+              "groundedFrom": "N1",
+              "groundingClaim": "Qwen 官方 Hugging Face 仓库已公开 Qwen3.8-27B 权重；另有官方 Qwen3.8-27B-FP8 量化权重。",
+              "groundingNotes": "来源确认了模型权重和 FP8 版本已公开，但没有确认线索中所问的其与某个 frontier model 的主观接近程度，也没有确认具体用户实验所用量化格式。",
+              "ref": "G1",
+              "role": "最新进展",
+              "takeaway": "Qwen官方模型卡确认Qwen3.8-27B仓库提供模型权重与配置文件，并列出其27B参数规模和模型结构。"
+            },
+            {
+              "id": "ground-237-6-https://www.reddit.com/r/LocalLLaMA/comments/1voa3ch/qwen_38_27b_released_please_share_your_experience/-2-https://huggingface.co/Qwen/Qwen3.8-27B-FP8",
+              "sourceId": 237,
+              "sourceName": "Qwen",
+              "sourcePublisher": "Qwen",
+              "sourceKind": "Official",
+              "title": "Qwen/Qwen3.8-27B-FP8",
+              "url": "https://huggingface.co/Qwen/Qwen3.8-27B-FP8",
+              "publishedAt": "2026-08-14T15:16:58.000Z",
+              "summary": "官方模型卡确认存在 Qwen3.8-27B-FP8，并说明其为采用 block size 128 的 fine-grained FP8 量化权重。",
+              "fetchedAt": "2026-08-14T20:07:23.684Z",
+              "groundedFrom": "N1",
+              "groundingClaim": "Qwen 官方 Hugging Face 仓库已公开 Qwen3.8-27B 权重；另有官方 Qwen3.8-27B-FP8 量化权重。",
+              "groundingNotes": "来源确认了模型权重和 FP8 版本已公开，但没有确认线索中所问的其与某个 frontier model 的主观接近程度，也没有确认具体用户实验所用量化格式。",
+              "ref": "G2",
+              "role": "最新进展",
+              "takeaway": "Qwen官方模型卡确认Qwen3.8-27B-FP8权重存在，并说明其采用block size 128的fine-grained FP8量化。"
+            },
+            {
+              "id": "ground-237-5-https://www.reddit.com/r/LocalLLaMA/comments/1voblcs/qwen3827b_is_identical_to_qwen3627b/-5-https://huggingface.co/Qwen/Qwen3.6-27B",
+              "sourceId": 237,
+              "sourceName": "Qwen",
+              "sourcePublisher": "Qwen",
+              "sourceKind": "Official",
+              "title": "Qwen/Qwen3.6-27B",
+              "url": "https://huggingface.co/Qwen/Qwen3.6-27B",
+              "publishedAt": "2026-08-14T16:12:35.000Z",
+              "summary": "官方模型卡列出 Qwen3.6-27B 的 27B 参数、5120 隐藏维度、64 层、相同层布局、注意力头配置和 262144 原生上下文。",
+              "fetchedAt": "2026-08-14T20:07:23.684Z",
+              "groundedFrom": "N6",
+              "groundingClaim": "Qwen3.8-27B 与 Qwen3.6-27B 的公开模型卡列出了相同的核心语言模型结构参数，包括 27B 参数、64 层、相同的隐藏维度、层布局和注意力头配置。",
+              "groundingNotes": "这支持“公开架构字段一致”，但不能仅凭模型卡证明两个模型的全部配置文件逐字段完全相同，也不能证明所有能力提升都只来自训练改进。",
+              "ref": "G5",
+              "role": "背景",
+              "takeaway": "Qwen3.6-27B官方模型卡列出27B参数、64层、5120隐藏维度及262144原生上下文等公开配置。"
+            }
+          ],
+          "changeType": "progress",
+          "thesisImpact": "官方新增FP8量化权重信息，并与Qwen3.6-27B的公开配置形成对照，强化该版本以训练改进和部署形态扩展为主的判断。",
+          "revisionRequired": false
+        }
+      ]
     },
     {
       "id": 37,
@@ -44000,6 +44219,45 @@
       "signals": [
         {
           "category": "AI & 模型",
+          "eyebrow": "趋势变化",
+          "title": "Anthropic将风险评级纳入发布闸门",
+          "summary": "Anthropic据报上调更强内部模型的misalignment风险评级，并暂不发布Model 2。前沿模型竞争的关键变量可能从能力展示转向能否通过内部风险闸门。",
+          "why": "若风险评级直接改变模型发布节奏，实验室的产品路线、收入兑现和客户迁移时间表都将更依赖安全治理决策。",
+          "impact": "这可能使外部市场更重视可部署能力而非内部能力上限，并放大安全评估、访问控制和分阶段发布的竞争价值。",
+          "shiftFrom": "能力提升通常对应更快发布",
+          "shiftTo": "风险评级可直接延后发布",
+          "crossValidation": "Axios报道了风险评级上调及不发布Model 2的决定；Anthropic较早的官方风险更新确认Claude Mythos Preview并未普遍开放，提供其分阶段访问模式的背景。",
+          "article": {
+            "lead": "Anthropic据报已将一款更强内部模型的misalignment风险评级从very low上调至low，并决定暂不对外发布Model 2。这一决定指向同一个变化：前沿实验室的内部能力进展不再必然自动转化为产品供给，风险评估正在成为影响发布节奏的实际闸门。",
+            "sections": [
+              {
+                "heading": "内部能力与市场可用性开始脱钩",
+                "body": "Axios报道，Anthropic上调了更强内部模型的misalignment风险判断，同时没有计划发布被称为Model 2的系统。报道所描述的并非单纯的模型命名变化，而是内部能力存在、却不进入公开产品线的状态。Anthropic在2026年4月发布的官方风险更新也显示，Claude Mythos Preview当时尚未向公众普遍开放。两项信息共同表明，该公司已经采用将能力开发、有限访问和广泛发布分开的路径。"
+              },
+              {
+                "heading": "风险评级为何会改变商业节奏",
+                "body": "模型发布不是只由基准成绩决定。若内部评估认为更强系统的失配风险上升，公司需要在训练后缓解、红队测试、权限设计、监控能力和事故响应之间完成配套，才能扩大访问范围。这个机制会把安全团队和治理流程从发布前的合规检查，推向产品排期的共同决定者。对企业客户而言，真正可采购的能力边界也将由模型性能与部署护栏共同定义，而不只是实验室内部的能力上限。"
+              },
+              {
+                "heading": "竞争焦点或转向可控部署能力",
+                "body": "若类似做法扩展至其他前沿实验室，市场比较可能更强调哪些模型能在明确权限、审计和风险控制下稳定上线，而非谁先披露更高的内部能力。最强的反面解释是，Model 2不发布也可能主要是产品定位、算力分配或商业时机选择，风险评级未必是唯一决定因素。但Anthropic将风险判断变化与暂不发布并列，至少使治理约束成为需要持续追踪的竞争变量。"
+              }
+            ],
+            "outlook": "接下来可观察Anthropic是否发布新的系统卡、访问分级政策或针对Model 2的缓解措施，也可观察其是否将更强能力先提供给受控企业客户或政府环境。若公司随后公布明确的发布条件、完成评估后开放模型，将强化“风险闸门决定节奏”的判断；若无新增护栏说明便直接广泛上线，则会削弱这一判断。"
+          },
+          "evidence": [
+            {
+              "role": "主张",
+              "takeaway": "Axios报道称，Anthropic将更强内部模型的misalignment风险评级从very low上调至low，并无计划发布Model 2。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "Anthropic 2026年4月的风险更新说明Claude Mythos Preview当时尚未向公众普遍开放，并讨论其能力与alignment风险。"
+            }
+          ]
+        },
+        {
+          "category": "AI & 模型",
           "eyebrow": "产品信号",
           "title": "Qwen开放3.8-27B代理模型",
           "summary": "Qwen发布Apache 2.0许可的Qwen3.8-27B权重，将27B级本地模型推进到长上下文、编码与代理任务场景。",
@@ -44046,6 +44304,34 @@
             {
               "role": "反例",
               "takeaway": "EvoCodeBench研究指出传统代码生成基准与真实代码仓库任务的对齐存在局限。"
+            },
+            {
+              "role": "最新进展",
+              "takeaway": "Qwen官方模型卡确认Qwen3.8-27B-FP8权重存在，并说明其采用block size 128的fine-grained FP8量化。"
+            }
+          ],
+          "updates": [
+            {
+              "addedAt": "2026-08-14T16:12:35.000Z",
+              "title": "Qwen补充27B的FP8权重",
+              "summary": "Qwen官方模型卡新增Qwen3.8-27B-FP8，采用block size 128的fine-grained FP8量化；Qwen3.6-27B公开配置可作为同级架构对照。",
+              "evidence": [
+                {
+                  "role": "最新进展",
+                  "takeaway": "Qwen官方模型卡确认Qwen3.8-27B仓库提供模型权重与配置文件，并列出其27B参数规模和模型结构。"
+                },
+                {
+                  "role": "最新进展",
+                  "takeaway": "Qwen官方模型卡确认Qwen3.8-27B-FP8权重存在，并说明其采用block size 128的fine-grained FP8量化。"
+                },
+                {
+                  "role": "背景",
+                  "takeaway": "Qwen3.6-27B官方模型卡列出27B参数、64层、5120隐藏维度及262144原生上下文等公开配置。"
+                }
+              ],
+              "changeType": "progress",
+              "thesisImpact": "官方新增FP8量化权重信息，并与Qwen3.6-27B的公开配置形成对照，强化该版本以训练改进和部署形态扩展为主的判断。",
+              "revisionRequired": false
             }
           ]
         },
@@ -55024,6 +55310,45 @@
       "signals": [
         {
           "category": "AI & Models",
+          "eyebrow": "Trend Shift",
+          "title": "Anthropic makes risk ratings a release gate",
+          "summary": "Anthropic reportedly raised the misalignment-risk rating for a stronger internal model and does not plan to release Model 2. Frontier-model competition may increasingly hinge on passing internal risk gates, not just demonstrating capability.",
+          "why": "If risk ratings directly alter release timing, lab roadmaps, revenue realization and customer migration timelines become more dependent on governance decisions.",
+          "impact": "The market may place more value on deployable capability than internal capability ceilings, elevating evaluation, access controls and staged-release systems.",
+          "shiftFrom": "Capability gains usually implied faster releases",
+          "shiftTo": "Risk ratings can delay public release",
+          "crossValidation": "Axios reported the higher risk rating and decision not to release Model 2. An earlier Anthropic risk update confirmed that Claude Mythos Preview was not broadly public, providing context for staged access.",
+          "article": {
+            "lead": "Anthropic reportedly raised the misalignment-risk rating for a stronger internal model from very low to low and does not plan to release Model 2. The combined signal is that frontier capability progress no longer necessarily converts into public product supply: risk assessment is becoming an operational release gate.",
+            "sections": [
+              {
+                "heading": "Internal capability can diverge from public availability",
+                "body": "Axios reported both the higher misalignment-risk assessment and Anthropic's decision not to release the system described as Model 2. This is more than a naming change: it describes a state in which stronger internal capability may exist without entering the public product line. Anthropic's April 2026 official risk update also said Claude Mythos Preview was not broadly available to the public. Together, these signals point to a model in which capability development, limited access and broad release are distinct stages."
+              },
+              {
+                "heading": "Why risk ratings can change commercial timing",
+                "body": "Model release is not determined by benchmark performance alone. If internal assessment finds higher misalignment risk, a company may need post-training mitigations, red-teaming, permissions design, monitoring and incident response before expanding access. That makes safety and governance teams co-determinants of product schedules rather than final compliance reviewers. For enterprise buyers, the meaningful capability boundary becomes the combination of model performance and deployable safeguards, not the lab's internal capability ceiling."
+              },
+              {
+                "heading": "Competition may shift toward controlled deployment",
+                "body": "If comparable practices spread across frontier labs, market comparisons may increasingly focus on which systems can be deployed reliably with explicit permissions, auditability and risk controls, rather than which lab first discloses the highest internal capability. The strongest alternative explanation is that Model 2 could be held back mainly for product positioning, compute allocation or commercial timing. Still, Anthropic's reported pairing of a changed risk judgment with a non-release decision makes governance a variable worth tracking."
+              }
+            ],
+            "outlook": "Watch for Anthropic system cards, tiered-access policies or specific mitigation disclosures related to Model 2, as well as whether stronger capabilities first appear in controlled enterprise or government settings. Explicit release criteria and later access following evaluation would strengthen the release-gate thesis. Broad release without new safeguard disclosures would weaken it."
+          },
+          "evidence": [
+            {
+              "role": "Claim",
+              "takeaway": "Axios reported that Anthropic raised a stronger internal model's misalignment-risk rating from very low to low and does not plan to release Model 2."
+            },
+            {
+              "role": "Context",
+              "takeaway": "Anthropic's April 2026 risk update said Claude Mythos Preview was not broadly available to the public and discussed its capability and alignment risk."
+            }
+          ]
+        },
+        {
+          "category": "AI & Models",
           "eyebrow": "Product signal",
           "title": "Qwen Opens Qwen3.8-27B for Agent Workflows",
           "summary": "Qwen has released Apache 2.0 weights for Qwen3.8-27B, positioning the 27B local model for long-context coding and agent tasks.",
@@ -55070,6 +55395,34 @@
             {
               "role": "Counterpoint",
               "takeaway": "EvoCodeBench argues that conventional coding benchmarks can be poorly aligned with real code-repository tasks."
+            },
+            {
+              "role": "Update",
+              "takeaway": "Qwen's official model card confirms Qwen3.8-27B-FP8 and describes fine-grained FP8 quantization with block size 128."
+            }
+          ],
+          "updates": [
+            {
+              "addedAt": "2026-08-14T16:12:35.000Z",
+              "title": "Qwen adds FP8 weights for its 27B model",
+              "summary": "Qwen's official model card adds Qwen3.8-27B-FP8, using fine-grained FP8 quantization with block size 128. The published Qwen3.6-27B configuration provides an architecture reference point.",
+              "evidence": [
+                {
+                  "role": "Update",
+                  "takeaway": "Qwen's official model card confirms that Qwen3.8-27B provides model weights and configuration files, including its 27B scale and architecture."
+                },
+                {
+                  "role": "Update",
+                  "takeaway": "Qwen's official model card confirms Qwen3.8-27B-FP8 and describes fine-grained FP8 quantization with block size 128."
+                },
+                {
+                  "role": "Context",
+                  "takeaway": "The official Qwen3.6-27B model card lists its 27B scale, 64 layers, 5120 hidden size and 262144 native context."
+                }
+              ],
+              "changeType": "progress",
+              "thesisImpact": "官方新增FP8量化权重信息，并与Qwen3.6-27B的公开配置形成对照，强化该版本以训练改进和部署形态扩展为主的判断。",
+              "revisionRequired": false
             }
           ]
         },
@@ -66047,12 +66400,12 @@
     "en": "gpt-5.6-sol"
   },
   "incremental": {
-    "lastAddedAt": "2026-08-14T18:13:44.492Z",
-    "lastScanAt": "2026-08-14T18:06:53.373Z",
+    "lastAddedAt": "2026-08-14T20:12:29.103Z",
+    "lastScanAt": "2026-08-14T20:07:23.684Z",
     "lastAddedCount": 1,
-    "lastUpdatedCount": 0,
-    "totalAppended": 109,
-    "totalUpdated": 105
+    "lastUpdatedCount": 1,
+    "totalAppended": 110,
+    "totalUpdated": 106
   },
   "exploreDepth": {
     "minimum": 50,
