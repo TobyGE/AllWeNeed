@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-14T12:07:21.671Z",
+  "generatedAt": "2026-08-14T14:07:52.663Z",
   "counts": {
-    "sources": 648,
-    "claims": 757,
-    "events": 159,
-    "articles": 159,
+    "sources": 653,
+    "claims": 762,
+    "events": 160,
+    "articles": 160,
     "updates": 104,
-    "edges": 2019,
+    "edges": 2030,
     "revisionsRequired": 6
   },
   "revisionQueue": [
@@ -73,6 +73,99 @@
     }
   ],
   "nodes": [
+    {
+      "id": "event_12699b275732ac05",
+      "type": "event",
+      "signalId": 116,
+      "title": "SpaceX完成600亿美元收购Cursor",
+      "bucket": "dynamic",
+      "valueScore": 94,
+      "publishedAt": "2026-08-14T12:55:33.000Z",
+      "updatedAt": "2026-08-14T12:55:33.000Z"
+    },
+    {
+      "id": "article_d36db34b0c9f2ecc",
+      "type": "article",
+      "signalId": 116,
+      "title": "SpaceX完成600亿美元收购Cursor",
+      "version": 1,
+      "publishedAt": "2026-08-14T14:07:52.663Z"
+    },
+    {
+      "id": "source_1da8a5c720634361",
+      "type": "source",
+      "title": "Bloomberg Technology",
+      "url": "https://www.bloomberg.com/news/articles/2026-08-14/spacex-completes-its-60-billion-cursor-acquisition",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-14T12:55:33.000Z"
+    },
+    {
+      "id": "claim_97ce9067b680ec09",
+      "type": "claim",
+      "title": "Bloomberg报道称，SpaceX已完成对AI编码创业公司Cursor的600亿美元收购。",
+      "role": "主张",
+      "addedAt": "2026-08-14T14:07:52.663Z"
+    },
+    {
+      "id": "source_7cb38fddc594f085",
+      "type": "source",
+      "title": "Cursor",
+      "url": "https://cursor.com/blog/joining-spacex",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-14T12:55:33.000Z"
+    },
+    {
+      "id": "claim_f030867c0baf1e89",
+      "type": "claim",
+      "title": "Cursor于8月14日确认已被SpaceX正式收购，并称交易完成了始于4月的收购流程，公司将获得SpaceX的GPU算力。",
+      "role": "主张",
+      "addedAt": "2026-08-14T14:07:52.663Z"
+    },
+    {
+      "id": "source_64e3217117bd7021",
+      "type": "source",
+      "title": "U.S. Securities and Exchange Commission",
+      "url": "https://www.sec.gov/Archives/edgar/data/1181412/000162828026043411/spaceexplorationtechnologi.htm",
+      "sourceKind": "SEC",
+      "publishedAt": "2026-08-14T12:55:33.000Z"
+    },
+    {
+      "id": "claim_29a43a64bc5b38fc",
+      "type": "claim",
+      "title": "SpaceX的8-K披露，双方于6月16日签署与Anysphere（Cursor）的合并协议，对价以600亿美元隐含股权价值及SpaceX股票成交量加权平均价计算。",
+      "role": "佐证",
+      "addedAt": "2026-08-14T14:07:52.663Z"
+    },
+    {
+      "id": "source_af32ef685179a497",
+      "type": "source",
+      "title": "Cursor",
+      "url": "https://cursor.com/blog/spacex-model-training",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-14T12:55:33.000Z"
+    },
+    {
+      "id": "claim_e1d0af5ec7e61378",
+      "type": "claim",
+      "title": "Cursor在4月宣布的状态是与SpaceX合作训练模型，并计划使用SpaceXAI的Colossus基础设施缓解训练算力瓶颈。",
+      "role": "背景",
+      "addedAt": "2026-08-14T14:07:52.663Z"
+    },
+    {
+      "id": "source_63ea223bbc8ca85e",
+      "type": "source",
+      "title": "U.S. Securities and Exchange Commission",
+      "url": "https://www.sec.gov/Archives/edgar/data/1181412/000162828026041013/japanfwp_06042026.htm",
+      "sourceKind": "SEC",
+      "publishedAt": "2026-08-14T12:55:33.000Z"
+    },
+    {
+      "id": "claim_39d4ef80a216ed27",
+      "type": "claim",
+      "title": "SpaceX此前文件称收购价预计主要计入商誉，并提示Cursor历史服务收入在收购后可能显著不同。",
+      "role": "反例",
+      "addedAt": "2026-08-14T14:07:52.663Z"
+    },
     {
       "id": "event_78547822baad4bb9",
       "type": "event",
@@ -14476,6 +14569,77 @@
     }
   ],
   "edges": [
+    {
+      "id": "edge_1b23aea8725f60be",
+      "from": "event_12699b275732ac05",
+      "to": "article_d36db34b0c9f2ecc",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_ab6cdf96784b3c9c",
+      "from": "source_1da8a5c720634361",
+      "to": "claim_97ce9067b680ec09",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_8fe94bd843ef8c8e",
+      "from": "claim_97ce9067b680ec09",
+      "to": "event_12699b275732ac05",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_4061d00ecbd9dafa",
+      "from": "source_7cb38fddc594f085",
+      "to": "claim_f030867c0baf1e89",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_19026f32845f8d3f",
+      "from": "claim_f030867c0baf1e89",
+      "to": "event_12699b275732ac05",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_ebdd01dea6cb8635",
+      "from": "source_64e3217117bd7021",
+      "to": "claim_29a43a64bc5b38fc",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_56ef6dda22254b06",
+      "from": "claim_29a43a64bc5b38fc",
+      "to": "event_12699b275732ac05",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_c507589f10eb65e7",
+      "from": "source_af32ef685179a497",
+      "to": "claim_e1d0af5ec7e61378",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_b629b3b70191b0f1",
+      "from": "claim_e1d0af5ec7e61378",
+      "to": "event_12699b275732ac05",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_7724768f74882f13",
+      "from": "source_63ea223bbc8ca85e",
+      "to": "claim_39d4ef80a216ed27",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_e1a12c3543a0ca6d",
+      "from": "claim_39d4ef80a216ed27",
+      "to": "event_12699b275732ac05",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
     {
       "id": "edge_5e06981566715dd2",
       "from": "event_78547822baad4bb9",
