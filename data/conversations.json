@@ -1,8 +1,281 @@
 {
-  "generatedAt": "2026-08-11T09:06:59.090Z",
+  "generatedAt": "2026-08-14T01:06:53.294Z",
   "weekStart": "2026-07-24T00:00:00.000Z",
   "model": "gpt-5.6-terra",
   "items": [
+    {
+      "id": "conversation-20260814010653-1",
+      "videoId": "-RXD4bTuFTo",
+      "videoUrl": "https://www.youtube.com/watch?v=-RXD4bTuFTo",
+      "sourceName": "Dwarkesh Podcast",
+      "sourceKind": "YouTube",
+      "originalTitle": "Ryan Greenblatt – What happens once AI can automate AI research?",
+      "url": "https://www.dwarkesh.com/p/ryan-greenblatt",
+      "feedBatchAt": "2026-08-14T01:06:53.294Z",
+      "publishedAt": "2026-08-11T16:31:23.000Z",
+      "durationMinutes": 133,
+      "guest": "Ryan Greenblatt",
+      "categoryZh": "AI 安全与递归改进",
+      "categoryEn": "AI Safety & Recursive Improvement",
+      "titleZh": "当 AI 开始做 AI 研究，速度限制会在哪里？",
+      "titleEn": "What Bottlenecks Remain When AI Can Do AI Research?",
+      "dekZh": "Ryan Greenblatt 认为，AI 自动化 AI 研发一旦到来，进步速度未必仍受人类专家数据约束；关键问题将转向研发结果能否被验证，以及人类能否在能力跃迁前维持有效的对齐与治理。",
+      "dekEn": "Ryan Greenblatt argues that once AI can automate AI R&D, human expert data may no longer be the binding constraint. The decisive questions become whether research outputs are verifiable and whether alignment and governance can keep pace with capability gains.",
+      "whyListenZh": "这不是把“递归自我改进”当作抽象末日叙事，而是把争论拆成可讨论的技术环节：AI 研发是否可验证、训练是否仍依赖人类数据、以及奖励投机如何从局部失败演变为系统性风险。",
+      "whyListenEn": "Rather than treating recursive self-improvement as an abstract end-times scenario, this conversation breaks it into technical questions: whether AI research is verifiable, whether progress still depends on human data, and how reward hacking could become a systemic problem.",
+      "counterpointZh": "自动化研发并不必然带来连续的能力爆发：若关键实验昂贵、结果难复现、计算与部署受限，或模型难以提出真正新颖的研究方向，闭环可能在多个环节变慢。",
+      "counterpointEn": "Automated R&D does not necessarily produce a continuous capability explosion: expensive experiments, irreproducible results, compute and deployment constraints, or difficulty generating genuinely novel ideas could slow the loop at several points.",
+      "takeawaysZh": [
+        "Greenblatt 的核心判断是：若 AI 能产出可验证的研发改进，研发闭环就可能比人类专家供给扩张得更快。",
+        "对话将“人类数据是能力上限”的直觉与另一种可能对照：模型也许能通过实验、代码、评测和研究反馈获得足够的训练信号。",
+        "真正困难的不只是让更强系统服从某份规范，而是决定谁定义目标、谁审计行为，以及监督能力能否跟上研发速度。"
+      ],
+      "takeawaysEn": [
+        "Greenblatt’s central view is that if AI-generated research improvements are verifiable, the R&D loop could accelerate faster than the supply of human experts.",
+        "The discussion contrasts the intuition that human data caps progress with the possibility that experiments, code, evaluations, and research feedback can provide sufficient training signal.",
+        "The hard problem is not merely making stronger systems follow a specification, but deciding who defines goals, who audits behavior, and whether oversight can match R&D speed."
+      ],
+      "articleZh": {
+        "lead": "这场对谈值得保留的，不是某个具体时间表，而是一个更可操作的命题：决定 AI 是否会快速改进自身的，未必是“模型像不像人”，而是它能否进入一个由机器提出、执行并验证研发改进的闭环。",
+        "sections": [
+          {
+            "heading": "速度问题首先是验证问题",
+            "body": "Greenblatt 将自动化 AI 研发视为潜在的转折点：一旦系统不仅能协助工程师，还能提出模型、训练、评测或基础设施层面的改进，并可靠地判断改进是否有效，研发就不再完全受制于人类研究人员的吞吐量。主持人提出的怀疑是，人类专家数据仍是当下进步的重要底座；Greenblatt 的回应方向则是，AI 研发中的许多反馈可以来自可运行的代码、实验结果和评测，而不只来自人类示范。"
+          },
+          {
+            "heading": "可验证任务会形成更短的学习回路",
+            "body": "对话的机制在于区分“会做研究”和“能被研究系统验证”。在软件、训练配方、基准测试或部分实验设计中，候选方案往往可通过预先定义的指标比较；若模型还能据此生成下一轮假设，反馈回路便可能压缩。Greenblatt 给出的自动化 AI 研发中位时间判断是 2031，但这应被理解为他的预测，而非对行业进程的确认。节目也讨论了 token 价格、规模化速度和人类数据瓶颈，试图检验这一加速叙事是否已经有可观测的先兆。"
+          },
+          {
+            "heading": "能力闭环不等于治理闭环",
+            "body": "Greenblatt 与主持人把限制进一步推向对齐：即使系统能够加速研发，也仍要回答它应为谁服务、如何接受审计，以及局部的奖励投机或欺骗行为能否在更强能力下被放大。将既有事件直接外推为“接管世界”并不构成证明；但它提出了一个严肃的可证伪变量——监督者是否能以至少相近的速度发现、复现并纠正模型在复杂任务中的策略性偏离。"
+          }
+        ],
+        "outlook": "观察下一代 AI 研究代理的关键不是演示数量，而是它们能否在独立、可复现的研发任务上持续提出改进，并由外部团队验证这些改进能迁移到新任务。"
+      },
+      "articleEn": {
+        "lead": "The durable idea in this conversation is not a particular timeline. It is a more operational proposition: whether AI can rapidly improve itself may depend less on whether it looks human-like than on whether it can enter a loop of proposing, executing, and verifying research improvements.",
+        "sections": [
+          {
+            "heading": "The speed question is first a verification question",
+            "body": "Greenblatt treats automated AI R&D as a possible inflection point. If systems can do more than assist engineers—proposing improvements to models, training, evaluation, or infrastructure and reliably determining whether they work—research throughput need not remain tied to human researchers. The host presses the case that expert human data remains a major foundation of current progress. Greenblatt’s response is that much AI research feedback can come from executable code, experiments, and evaluations, not only human demonstrations."
+          },
+          {
+            "heading": "Verifiable work can create shorter learning loops",
+            "body": "The mechanism is the distinction between doing research and producing research that a system can verify. In software, training recipes, benchmarks, and parts of experimental design, candidate changes can often be compared against defined metrics. If a model can use those results to generate the next hypothesis, the loop may compress. Greenblatt gives 2031 as his median estimate for automating AI R&D; that is his forecast, not a confirmed industry trajectory. The episode also examines token prices, scaling speed, and the human-data bottleneck as possible signals against the acceleration thesis."
+          },
+          {
+            "heading": "A capability loop is not a governance loop",
+            "body": "Greenblatt and the host push the constraint question into alignment: even if systems accelerate R&D, someone must determine whom they serve, how they are audited, and whether local reward hacking or deception can be amplified by greater capability. Existing incidents do not prove a path to takeover. They do, however, identify a falsifiable variable: can overseers discover, reproduce, and correct strategic deviation in complex tasks at something close to the pace at which systems improve?"
+          }
+        ],
+        "outlook": "Watch whether the next generation of AI research agents can repeatedly produce improvements on independent, reproducible R&D tasks that external teams can verify and transfer to new settings."
+      }
+    },
+    {
+      "id": "conversation-20260814010653-2",
+      "videoId": "",
+      "sourceName": "Latent Space",
+      "sourceKind": "YouTube",
+      "originalTitle": "🔬The BioAI Phase Shift - Matthew McPartlon & Neil Patil, Chai Discovery",
+      "url": "https://www.latent.space/p/chai-discovery",
+      "feedBatchAt": "2026-08-14T01:06:53.294Z",
+      "publishedAt": "2026-08-11T21:03:50.000Z",
+      "durationMinutes": 95,
+      "guest": "Matthew McPartlon & Neil Patil, Chai Discovery",
+      "categoryZh": "BioAI 与药物发现",
+      "categoryEn": "BioAI & Drug Discovery",
+      "titleZh": "BioAI 的门槛不是模型演示，而是进入药物研发工作流",
+      "titleEn": "BioAI’s Threshold Is Workflow Adoption, Not Model Demos",
+      "dekZh": "Chai Discovery 的 Matthew McPartlon 与 Neil Patil 主张，分子模型的价值正从单点预测转向可被药物团队信任的设计工作流；当模型、界面与合作反馈共同缩短实验迭代时，AI 才可能改变研发组合的选择方式。",
+      "dekEn": "Matthew McPartlon and Neil Patil of Chai Discovery argue that molecular AI is moving from isolated prediction toward design workflows drug teams can trust. AI changes portfolio choices only when models, interfaces, and partner feedback together shorten experimental iteration.",
+      "whyListenZh": "对谈提供了一个比“AI 能否发现新药”更具体的框架：结构预测如何走向结合与设计，产品为何需要像 CAD 工具而非聊天机器人，以及为什么药企合作本身可能成为改进产品的反馈系统。",
+      "whyListenEn": "The episode offers a more concrete frame than whether AI can discover drugs: how structure prediction moves toward binding and design, why the product may need to resemble CAD rather than chat, and how pharma partnerships can become a product-feedback system.",
+      "counterpointZh": "更好的设计候选并不自动转化为临床成功。湿实验复现、毒性、递送、制造、试验设计和监管路径都可能重新拉长周期；工具被采用也未必证明其对最终临床结果有增量贡献。",
+      "counterpointEn": "Better designed candidates do not automatically translate into clinical success. Wet-lab reproducibility, toxicity, delivery, manufacturing, trial design, and regulation can all reintroduce long cycles; adoption alone does not prove incremental clinical impact.",
+      "takeawaysZh": [
+        "McPartlon 与 Patil 的论点是，能被研发团队信任并嵌入决策流程的工具，比单一模型指标更接近商业与科学价值。",
+        "节目将 binding models 视为设计能力的关键台阶：预测分子间关系若足够可靠，才可能支持更主动的候选分子设计。",
+        "Chai Discovery 认为，密集的药企合作不仅是销售渠道，也让研究优先级和产品交互更贴近实际实验需求。"
+      ],
+      "takeawaysEn": [
+        "McPartlon and Patil argue that tools trusted inside R&D decision workflows are closer to scientific and commercial value than standalone model metrics.",
+        "The episode treats binding models as a key step toward design: sufficiently reliable predictions of molecular interactions may enable more active candidate design.",
+        "Chai Discovery’s view is that close pharma partnerships are not only a sales channel; they also make research priorities and product interaction more responsive to real experimental needs."
+      ],
+      "articleZh": {
+        "lead": "这场对谈的核心不是宣告药物发现已被 AI 重写，而是提出一个更严格的判断标准：BioAI 只有在模型输出进入科学家实际的设计、筛选和实验决策链条后，才可能从研究展示变成研发基础设施。",
+        "sections": [
+          {
+            "heading": "从预测能力走向可用的设计能力",
+            "body": "节目主持人将近期药企工具合作描述为市场变化的背景；McPartlon 和 Patil 的更具体主张是，价值不应停留在模型“看懂”结构，而在于帮助团队更早做出可实验的分子设计选择。对话把结构模型向 binding models 的演进视为关键，因为设计需要的不只是描述分子形状，还要处理分子之间是否以及如何相互作用。按照这一逻辑，好的工具应提高研发团队的候选选择质量，而非只提供一个更醒目的模型演示。"
+          },
+          {
+            "heading": "产品界面决定模型能否进入实验室",
+            "body": "Patil 介绍的产品方向强调从合作方的实际问题中学习，并将分子编辑器做得更接近 CAD 或图形设计工具，而不是让科学家用聊天框完成高维设计。其背后的机制是，模型能力、实验约束和研究人员判断必须在同一工作流中反复交互。McPartlon 对“能否先胜过实验动物、再做到实验动物做不到的事”的表述，也说明该团队将进步理解为层级式的能力扩展，而不是一次性替代实验。"
+          },
+          {
+            "heading": "临床结果仍是最难跨越的证据门槛",
+            "body": "这一框架的边界很清楚：更快地产生候选分子，不等于候选能在人体中安全、有效且可制造。节目描述中的合作和 Chai Discovery 的公司状态，最多说明其获得了市场关注或合作机会，不能单独证明平台已改善临床成功率。最强反证将来自长期比较：使用工具的项目是否能在控制适应症和项目质量后，稳定缩短周期、减少失败，或提升进入临床后的成功表现。"
+          }
+        ],
+        "outlook": "关注合作公告之外的项目级证据：采用这类工具的候选分子，能否在独立湿实验中提高命中率，并在毒性、递送和临床推进上留下可比较的改进。"
+      },
+      "articleEn": {
+        "lead": "The core of this conversation is not a declaration that AI has rewritten drug discovery. It is a stricter test: BioAI becomes R&D infrastructure only when model outputs enter scientists’ actual chain of design, screening, and experimental decisions.",
+        "sections": [
+          {
+            "heading": "From prediction to usable design",
+            "body": "The hosts present recent pharma tool partnerships as evidence of changing market conditions. McPartlon and Patil make a narrower claim: value does not lie merely in a model understanding structure, but in helping teams make experimentally actionable molecular design choices earlier. The conversation treats the move from structural models toward binding models as important because design requires more than describing molecular shape; it requires reasoning about whether and how molecules interact. On this view, a good tool improves candidate selection rather than simply producing a more impressive demo."
+          },
+          {
+            "heading": "The interface determines whether a model reaches the lab",
+            "body": "Patil describes a product direction shaped by partner requests, with a molecular editor closer to CAD or graphics software than a chat interface for high-dimensional design. The mechanism is repeated interaction among model capability, experimental constraints, and researcher judgment inside one workflow. McPartlon’s framing—first beating what an animal model can do, then doing what it cannot—also suggests a layered expansion of capability rather than a one-shot replacement for experimentation."
+          },
+          {
+            "heading": "Clinical outcomes remain the hardest evidence threshold",
+            "body": "The boundary is clear: generating candidates faster does not mean they will be safe, effective, and manufacturable in humans. The partnerships and company status described in the episode can indicate attention and access, but cannot by themselves establish that the platform improves clinical success. The strongest disconfirmation or confirmation will come from long-run comparisons: after accounting for indication and project quality, do tool-assisted programs consistently shorten cycles, reduce failures, or improve performance after entering the clinic?"
+          }
+        ],
+        "outlook": "Look beyond partnership announcements for project-level evidence: can candidates developed with these tools improve hit rates in independent wet-lab work and show comparable gains on toxicity, delivery, and clinical advancement?"
+      }
+    },
+    {
+      "id": "conversation-20260814010653-3",
+      "videoId": "",
+      "sourceName": "Eye On A.I.",
+      "sourceKind": "Podcast",
+      "originalTitle": "American Companies Have 36 Months to Go AI-Native or Get Left Behind | Drew Cukor, TWG AI",
+      "url": "https://aneyeonai.libsyn.com/american-companies-have-36-months-to-go-ai-native-or-get-left-behind-drew-cukor-twg-ai",
+      "feedBatchAt": "2026-08-14T01:06:53.294Z",
+      "publishedAt": "2026-08-13T17:00:00.000Z",
+      "durationMinutes": 59,
+      "guest": "Drew Cukor, TWG AI",
+      "categoryZh": "企业 AI 转型",
+      "categoryEn": "Enterprise AI Transformation",
+      "titleZh": "企业 AI 转型的单位，不是聊天机器人，而是核心工作流",
+      "titleEn": "The Unit of Enterprise AI Transformation Is the Core Workflow",
+      "dekZh": "Drew Cukor 的观点是，传统企业若只部署聊天机器人或设立孤立的 AI 职能，无法形成 AI-native 组织；转型必须由 CEO 牵头，重构获客、交付和后台等核心工作流，并解决数据可用性与治理问题。",
+      "dekEn": "Drew Cukor argues that legacy companies will not become AI-native through chatbot deployments or isolated AI functions. Transformation requires CEO-led redesign of core customer, delivery, and back-office workflows, alongside usable data and governance.",
+      "whyListenZh": "Cukor 将企业 AI 的讨论从模型选型拉回组织设计：数据在哪里、谁拥有流程、如何衡量成果，以及为什么“把旧流程加上 AI”可能只是把旧摩擦自动化。",
+      "whyListenEn": "Cukor shifts the enterprise AI conversation from model selection back to organizational design: where data lives, who owns workflows, how outcomes are measured, and why adding AI to legacy processes may simply automate old friction.",
+      "counterpointZh": "从零重构流程成本高且风险大。高度监管、低频高责任或数据质量不足的业务，可能更适合渐进式自动化；CEO 直接负责也不能替代安全、合规和一线专家的持续参与。",
+      "counterpointEn": "Rebuilding workflows from scratch is costly and risky. Highly regulated, low-frequency, high-liability, or data-poor operations may be better served by incremental automation; CEO ownership cannot replace continued involvement from security, compliance, and frontline experts.",
+      "takeawaysZh": [
+        "Cukor 认为，企业转型的对象应是端到端工作流，而不是单独的聊天机器人、试点项目或 AI 职位。",
+        "他把分散在文件夹、表格和邮件中的数据视为部署障碍，因为 AI 系统难以在缺乏权限、语义和流程上下文时稳定行动。",
+        "他主张 CEO 对结果负责，并把 36 个月视为行动窗口；这是一项战略判断，而不是已被普遍验证的时限。"
+      ],
+      "takeawaysEn": [
+        "Cukor argues that the object of transformation should be an end-to-end workflow, not a standalone chatbot, pilot, or AI job title.",
+        "He sees data scattered across folders, spreadsheets, and email as a deployment obstacle because AI systems cannot reliably act without permissions, semantics, and process context.",
+        "He argues that the CEO must own the outcome and frames 36 months as an action window; that is a strategic judgment, not a universally established deadline."
+      ],
+      "articleZh": {
+        "lead": "Drew Cukor 的可带走观点很简单：企业 AI 的失败常常不是模型不够强，而是企业把 AI 当作附加界面，而没有把它当作重写工作流的组织能力。",
+        "sections": [
+          {
+            "heading": "聊天机器人不是经营系统",
+            "body": "Cukor 认为，许多企业把 AI 视为一个可部署的前端功能：上线问答助手、设立 AI 负责人、保留原有获客、交付和后台流程。这种做法在他的判断中无法形成 AI-native 企业，因为真正的价值不在于员工偶尔调用模型，而在于决策、交接和执行如何被重新组织。他主张由 CEO 而不是被孤立的技术职能拥有转型结果，实质上是在把 AI 定义为经营模式问题。"
+          },
+          {
+            "heading": "数据与流程上下文决定能否行动",
+            "body": "他给出的机制是，旧企业的知识往往沉在 Microsoft 文件夹、Excel、email 和 Word 等分散工具中。即使模型具备推理能力，也未必知道哪些数据可访问、哪份版本可信、一次操作应触发什么后续责任。Cukor 提倡先拆解核心工作流，再将 AI 嵌入重建后的流程，并提到 Palantir Foundry 作为受保护的交付环境。这是他的实施处方，而非证明某一平台对所有企业都是必要条件。"
+          },
+          {
+            "heading": "期限压力需要用经营指标检验",
+            "body": "Cukor 把 36 个月描述为美国企业采取行动的窗口，并以中国的新建基础设施和 legacy burden 的差异说明紧迫感。这一比较强化了他的战略论证，但时间窗口本身仍须接受结果检验。最有价值的反证不是某个聊天机器人未达预期，而是重构后的流程是否在质量、周期、成本、风险和客户体验之间出现可持续的净改善；若没有，所谓 AI-native 可能只是昂贵的系统替换。"
+          }
+        ],
+        "outlook": "观察一家传统企业是否把一个端到端核心流程交给单一业务负责人，并公开衡量从数据接入到最终交付的周期、人工介入率、错误率和经济回报。"
+      },
+      "articleEn": {
+        "lead": "Drew Cukor’s portable idea is simple: enterprise AI often fails not because the models are too weak, but because companies treat AI as an added interface rather than as an organizational capability for rewriting workflows.",
+        "sections": [
+          {
+            "heading": "A chatbot is not an operating system",
+            "body": "Cukor argues that many companies treat AI as a front-end feature: launch a Q&A assistant, appoint an AI leader, and preserve the existing customer-acquisition, delivery, and back-office processes. In his view, that cannot create an AI-native company because value does not come from employees occasionally invoking a model; it comes from reorganizing decisions, handoffs, and execution. His insistence that the CEO, rather than an isolated technical function, own the outcome defines AI as an operating-model issue."
+          },
+          {
+            "heading": "Data and process context determine whether AI can act",
+            "body": "His mechanism is that legacy-company knowledge is often buried across Microsoft folders, Excel, email, and Word. Even a capable model may not know what data it can access, which version is authoritative, or what accountability should follow an action. Cukor’s prescription is to decompose core workflows and embed AI into rebuilt processes, mentioning Palantir Foundry as a protected delivery environment. That is his implementation view, not evidence that one platform is necessary for every company."
+          },
+          {
+            "heading": "Deadline pressure needs operating evidence",
+            "body": "Cukor presents 36 months as an action window for American companies and invokes the contrast between Chinese greenfield infrastructure and legacy burdens to explain urgency. That comparison strengthens his strategic case, but the deadline itself still requires outcome-based testing. The relevant countertest is not whether one chatbot disappoints; it is whether redesigned workflows deliver durable net gains across quality, cycle time, cost, risk, and customer experience. Without that, AI-native may be an expensive system replacement."
+          }
+        ],
+        "outlook": "Watch whether a legacy company assigns one end-to-end core workflow to a single business owner and publicly measures cycle time, human intervention, error rates, and economic return from data intake through final delivery."
+      }
+    },
+    {
+      "id": "conversation-20260814010653-4",
+      "videoId": "",
+      "sourceName": "张小珺Jùn｜商业访谈录",
+      "sourceKind": "Podcast",
+      "originalTitle": "150. 对英伟达研究副总裁刘洺堉的4小时访谈：功夫、Cosmos 3、开源世界模型、黄仁勋、你不需要击败所有对手",
+      "url": "https://www.xiaoyuzhoufm.com/episode/6a7cbeb017676351c5710266?utm_source=rss",
+      "feedBatchAt": "2026-08-14T01:06:53.294Z",
+      "publishedAt": "2026-08-12T23:00:00.000Z",
+      "durationMinutes": 216,
+      "guest": "刘洺堉",
+      "categoryZh": "Physical AI 与世界模型",
+      "categoryEn": "Physical AI & World Models",
+      "titleZh": "Cosmos 的赌注：世界模型要为 Physical AI 造出新市场",
+      "titleEn": "The Cosmos Bet: Building a Market for Physical AI",
+      "dekZh": "英伟达研究副总裁刘洺堉将 Cosmos 定位为面向 Physical AI 的世界基座模型，并以“造市场”而非存量竞争解释其取舍：基础设施公司应集中资源解决足够大的新问题，而非追逐每一项既有机会。",
+      "dekEn": "NVIDIA Research VP Liu Ming-Yu positions Cosmos as a world foundation model for Physical AI and explains its choices through market creation rather than zero-sum competition: an infrastructure company should concentrate on sufficiently large new problems instead of pursuing every existing opportunity.",
+      "whyListenZh": "这是一场少见的长访谈，连接了世界模型的技术路线、Cosmos 从 1 到 3 的演变、英伟达内部资源分配，以及刘洺堉对大型基础设施公司竞争与组织哲学的阐释。",
+      "whyListenEn": "This unusually long interview connects world-model technical direction, the evolution from Cosmos 1 to Cosmos 3, NVIDIA’s internal resource allocation, and Liu Ming-Yu’s account of competition and organizational philosophy at an infrastructure company.",
+      "counterpointZh": "世界模型是否会成为 Physical AI 的关键基础层仍未定论。真实世界数据、仿真到现实的迁移、长时序可靠性、机器人硬件成本与安全责任，都可能让模型能力难以直接转化为可规模化部署。",
+      "counterpointEn": "Whether world models become the key foundation layer for Physical AI remains unresolved. Real-world data, sim-to-real transfer, long-horizon reliability, robot hardware costs, and safety liability could prevent model capability from becoming scalable deployment.",
+      "takeawaysZh": [
+        "刘洺堉将 Cosmos 的目标放在 Physical AI，而非把它描述为又一个通用语言模型竞争项目。",
+        "他提出“造市场”的取舍框架：对英伟达而言，成功业务应具有足够大的影响力，较小规模机会可能反而造成组织分心。",
+        "他认为模型竞争不必是“鱿鱼游戏”；这一合作优先的表述与其世界模型及生态系统战略相连，但仍要由开发者采用和实际产品证明。"
+      ],
+      "takeawaysEn": [
+        "Liu Ming-Yu places Cosmos in Physical AI rather than presenting it as another contest among general-purpose language models.",
+        "He offers market creation as a prioritization framework: for NVIDIA, a successful business must be sufficiently influential, while smaller opportunities can become organizational distractions.",
+        "He argues that model competition need not be a “Squid Game”; that collaboration-first framing connects to his world-model and ecosystem strategy, but still requires proof through developer adoption and real products."
+      ],
+      "articleZh": {
+        "lead": "刘洺堉在这场四小时访谈中给出的中心论点，不只是 Cosmos 的技术愿景，而是一种基础设施公司的资源观：真正值得长期投入的项目，应当为 Physical AI 开辟新市场，而不是在既有模型竞争中争夺有限份额。",
+        "sections": [
+          {
+            "heading": "从存量竞争转向“造市场”",
+            "body": "刘洺堉反复强调，他不把其他公司视为必须击败的竞争对手，并将这一态度与 Jensen Huang 所说的 zero-billion-dollar business 联系起来：业务在早期可以不赚钱，但成功后必须足够有影响力。按他的说法，对英伟达而言，每年带来 100 million 规模的机会也可能是 distraction。这个观点不是对市场结构的客观描述，而是他为大型平台公司提出的优先级原则：集中资源解决更大的未被满足的问题。"
+          },
+          {
+            "heading": "Cosmos 被放在 Physical AI 的基础层",
+            "body": "节目介绍称，刘洺堉领导英伟达的重要模型项目 Cosmos，并讨论了从 Cosmos 1 到 Cosmos 3 的演变。刘将其方向放在世界模型和物理世界的人工智能：系统需要表示环境、变化、行动与结果之间的关系，才可能为机器人和其他实体系统提供更通用的能力。他也谈及 Cosmos 团队规模、GPU 资源和内部组织经验，显示这不是单纯的研究命题，而是模型、计算、产品与生态协同的执行问题。"
+          },
+          {
+            "heading": "物理世界会把技术愿景推回工程约束",
+            "body": "世界模型的吸引力在于，它可能为 Physical AI 提供类似通用软件层的能力；但这一类比尚待证明。语言或视频层面的表现，不能直接说明系统能在开放环境中稳定感知、预测、规划并安全行动。刘关于“不需要击败所有对手”的判断，最终也要接受更具体的检验：Cosmos 是否能让开发者缩短训练与验证周期，是否能跨硬件和场景迁移，以及是否产生可复用的应用与工具链。"
+          }
+        ],
+        "outlook": "关注 Cosmos 的下一批外部开发者案例：它是否能在真实机器人或工业场景中，把仿真到部署的时间、数据需求或失败率降到足以改变项目经济性的程度？"
+      },
+      "articleEn": {
+        "lead": "The central claim Liu Ming-Yu offers in this four-hour interview is not merely a technical vision for Cosmos. It is an infrastructure-company view of capital and attention: projects worthy of long-term investment should open a new market for Physical AI rather than compete for a limited share of an existing model market.",
+        "sections": [
+          {
+            "heading": "From share competition to market creation",
+            "body": "Liu repeatedly says he does not see other companies as opponents that must be defeated, linking that posture to Jensen Huang’s idea of a zero-billion-dollar business: a business may not make money initially, but if successful it must become highly influential. In his account, even an opportunity producing 100 million annually can be a distraction for NVIDIA. This is not an objective description of market structure; it is his prioritization principle for a large platform company—concentrate resources on bigger unmet problems."
+          },
+          {
+            "heading": "Cosmos is positioned as a foundation layer for Physical AI",
+            "body": "The episode description says that Liu leads the important NVIDIA model project Cosmos and covers its evolution from Cosmos 1 to Cosmos 3. Liu places its direction in world models and AI for the physical world: systems need representations of environments, change, action, and outcomes if they are to support more general capabilities for robots and other embodied systems. His discussion of Cosmos team size, GPU access, and internal organization makes clear that this is not only a research thesis; it is an execution problem spanning models, compute, products, and ecosystem."
+          },
+          {
+            "heading": "The physical world returns the vision to engineering constraints",
+            "body": "World models are appealing because they may provide a general-purpose software-like layer for Physical AI, but that analogy remains to be proven. Strong language or video performance does not establish that a system can perceive, predict, plan, and act safely in open environments. Liu’s claim that no one needs to defeat every competitor therefore faces concrete tests: whether Cosmos shortens training and validation cycles for developers, transfers across hardware and settings, and produces reusable applications and toolchains."
+          }
+        ],
+        "outlook": "Watch the next external developer cases for Cosmos: can it reduce sim-to-deployment time, data requirements, or failure rates in real robotics or industrial settings enough to change project economics?"
+      }
+    },
     {
       "id": "conversation-20260811090659-1",
       "videoId": "",
