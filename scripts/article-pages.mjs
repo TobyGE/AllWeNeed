@@ -377,6 +377,137 @@ export function renderNewsSitemap(catalog, now = catalog.generatedAt) {
   ].join("\n");
 }
 
+export function renderRssFeed(catalog) {
+  const latest = catalog.articles.slice(0, 100);
+  const lastBuildDate = new Date(
+    latest[0]?.updatedAt ?? catalog.generatedAt ?? Date.now(),
+  ).toUTCString();
+  return [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">',
+    "  <channel>",
+    "    <title>All We Need — AI &amp; Tech Intelligence</title>",
+    `    <link>${siteOrigin}/</link>`,
+    "    <description>Independent AI and technology intelligence with cross-validated analysis and original sources.</description>",
+    "    <language>en-US</language>",
+    `    <lastBuildDate>${escapeXml(lastBuildDate)}</lastBuildDate>`,
+    `    <atom:link href="${siteOrigin}/feed.xml" rel="self" type="application/rss+xml" />`,
+    ...latest.map((article) => {
+      const copy = article.locales.en;
+      const url = `${siteOrigin}${article.path}`;
+      return [
+        "    <item>",
+        `      <title>${escapeXml(copy.title)}</title>`,
+        `      <link>${escapeXml(url)}</link>`,
+        `      <guid isPermaLink="true">${escapeXml(url)}</guid>`,
+        `      <pubDate>${escapeXml(new Date(article.publishedAt).toUTCString())}</pubDate>`,
+        `      <description>${escapeXml(copy.description)}</description>`,
+        `      <category>${escapeXml(article.kind === "focus" ? "Focus" : "Explore")}</category>`,
+        "    </item>",
+      ].join("\n");
+    }),
+    "  </channel>",
+    "</rss>",
+    "",
+  ].join("\n");
+}
+
+const staticPageCopy = {
+  home: {
+    eyebrow: "Independent intelligence",
+    title: "AI and technology signals worth your attention",
+    description:
+      "A continuously updated intelligence feed built from public sources, cross-validation, and editorial judgment.",
+  },
+  live: {
+    eyebrow: "Continuous feed",
+    title: "What is happening now",
+    description:
+      "Recent AI, technology, and investment updates traced back to their original public sources.",
+  },
+  focus: {
+    eyebrow: "Focus",
+    title: "Consequential shifts that survived cross-validation",
+    description:
+      "The AI, technology, and investment developments most likely to matter beyond today’s news cycle.",
+  },
+  explore: {
+    eyebrow: "Explore",
+    title: "Early theses and second-order effects",
+    description:
+      "Evidence-led arguments about changes that are still taking shape and have not reached consensus.",
+  },
+  conversations: {
+    eyebrow: "Podcasts",
+    title: "The long conversations worth your time",
+    description:
+      "Concise editorial notes on interviews and podcasts with durable ideas, useful detail, and clear limitations.",
+  },
+  sources: {
+    eyebrow: "Sources",
+    title: "The public sources behind All We Need",
+    description:
+      "A transparent view of the official, research, media, and independent sources monitored by the radar.",
+  },
+};
+
+export function staticLandingFallbackHtml(catalog, page = "home") {
+  const copy = staticPageCopy[page] ?? staticPageCopy.home;
+  const kind = page === "focus" || page === "explore" ? page : null;
+  const articles = catalog.articles
+    .filter((article) => !kind || article.kind === kind)
+    .slice(0, page === "home" ? 24 : 36);
+  return [
+    '<main class="seo-fallback">',
+    '  <header class="seo-fallback-header">',
+    '    <a class="seo-fallback-brand" href="/">All We Need</a>',
+    '    <nav aria-label="Primary">',
+    '      <a href="/focus/">Focus</a>',
+    '      <a href="/explore/">Explore</a>',
+    '      <a href="/conversations/">Podcasts</a>',
+    '      <a href="/sources/">Sources</a>',
+    '      <a href="/feed.xml">RSS</a>',
+    "    </nav>",
+    "  </header>",
+    '  <section class="seo-fallback-hero">',
+    `    <p>${escapeHtml(copy.eyebrow)}</p>`,
+    `    <h1>${escapeHtml(copy.title)}</h1>`,
+    `    <p>${escapeHtml(copy.description)}</p>`,
+    "  </section>",
+    ...(articles.length
+      ? [
+          '  <section class="seo-fallback-stories">',
+          "    <h2>Latest intelligence</h2>",
+          '    <div class="seo-fallback-grid">',
+          ...articles.map((article) => {
+            const articleCopy = article.locales.en;
+            return [
+              "      <article>",
+              `        <p>${article.kind === "focus" ? "Focus" : "Explore"} · <time datetime="${escapeHtml(article.updatedAt)}">${escapeHtml(article.updatedAt.slice(0, 10))}</time></p>`,
+              `        <h3><a href="${escapeHtml(article.path)}">${escapeHtml(articleCopy.title)}</a></h3>`,
+              `        <p>${escapeHtml(articleCopy.description)}</p>`,
+              "      </article>",
+            ].join("\n");
+          }),
+          "    </div>",
+          "  </section>",
+        ]
+      : []),
+    '  <footer class="seo-fallback-footer">',
+    '    <a href="/feed.xml">Subscribe via RSS</a>',
+    "    <span>Independent intelligence · Original sources preserved</span>",
+    "  </footer>",
+    "</main>",
+  ].join("\n");
+}
+
+export function applyStaticLandingFallback(template, catalog, page) {
+  return template.replace(
+    '<div id="root"></div>',
+    `<div id="root">${staticLandingFallbackHtml(catalog, page)}</div>`,
+  );
+}
+
 export function articleJsonLd(article, locale) {
   const copy = article.locales[locale];
   const path = locale === "zh" ? article.zhPath : article.path;
@@ -469,9 +600,12 @@ export function applyArticleMetadata(template, article, locale) {
       `<link rel="canonical" href="${canonical}" />`,
     )
     .replace(
+      /<meta\s+property="og:url"\s+content="[^"]*"\s*\/>/,
+      `<meta property="og:url" content="${canonical}" />`,
+    )
+    .replace(
       "</head>",
       [
-        `    <meta property="og:url" content="${canonical}" />`,
         `    <meta property="article:published_time" content="${article.publishedAt}" />`,
         `    <meta property="article:modified_time" content="${article.updatedAt}" />`,
         '    <meta name="twitter:card" content="summary_large_image" />',
@@ -517,6 +651,7 @@ export async function generateArticleArtifacts(root = projectRoot) {
     resolve(root, "public/news-sitemap.xml"),
     renderNewsSitemap(catalog),
   );
+  await writeFile(resolve(root, "public/feed.xml"), renderRssFeed(catalog));
   return catalog;
 }
 

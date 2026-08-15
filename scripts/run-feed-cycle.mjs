@@ -12,6 +12,7 @@ import { assertSnapshotHealth } from "./append-feed-updates.mjs";
 import { buildLiveFeed } from "./build-live-feed.mjs";
 import { assertLiveLocalizationComplete } from "./localize-live-feed.mjs";
 import { assertApprovedModelUsage } from "./model-routing.mjs";
+import { submitIndexNow } from "./submit-indexnow.mjs";
 
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const lockPath = resolve(projectRoot, "tmp/feed-cycle.lock");
@@ -36,6 +37,7 @@ const generatedDataFiles = [
   "data/discovered-sources.json",
   "public/sitemap.xml",
   "public/news-sitemap.xml",
+  "public/feed.xml",
 ];
 
 function argumentValue(name) {
@@ -765,6 +767,16 @@ async function main() {
       verificationUrl: primaryVerificationUrl,
     }));
     const pages = { primary: primaryPages };
+    let indexNow;
+    try {
+      indexNow = await submitIndexNow();
+    } catch (error) {
+      indexNow = {
+        status: "failed",
+        error: error instanceof Error ? error.message : String(error),
+      };
+      console.warn(`IndexNow best-effort submission failed: ${indexNow.error}`);
+    }
     assertClean(projectRoot, "Radar repository after publish");
 
     const report = {
@@ -774,6 +786,7 @@ async function main() {
       radarCommit,
       publishedUrl,
       pages,
+      indexNow,
       ...(recoveredBatch ? { recoveredBatch } : {}),
       ...result,
     };

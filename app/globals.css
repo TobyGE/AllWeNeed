@@ -3900,6 +3900,136 @@ button {
   }
 }
 
+.seo-fallback {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 84% -8%, rgba(255, 92, 53, 0.1), transparent 30%),
+    var(--paper);
+  color: var(--ink);
+  padding: 28px max(24px, calc((100vw - 1120px) / 2)) 56px;
+}
+
+.seo-fallback-header,
+.seo-fallback-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 22px;
+}
+
+.seo-fallback-brand {
+  color: var(--ink);
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  text-decoration: none;
+}
+
+.seo-fallback nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.seo-fallback nav a,
+.seo-fallback-footer a {
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.seo-fallback-hero {
+  max-width: 850px;
+  padding: 78px 0 58px;
+}
+
+.seo-fallback-hero > p:first-child {
+  color: var(--orange);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.seo-fallback-hero h1 {
+  margin: 18px 0 0;
+  font-family: Georgia, "Songti SC", serif;
+  font-size: clamp(42px, 7vw, 78px);
+  font-weight: 600;
+  letter-spacing: -0.055em;
+  line-height: 1.03;
+}
+
+.seo-fallback-hero > p:last-child {
+  max-width: 700px;
+  margin: 22px 0 0;
+  color: #61625d;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.seo-fallback-stories {
+  border-top: 1px solid var(--line);
+  padding-top: 28px;
+}
+
+.seo-fallback-stories > h2 {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.seo-fallback-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 28px;
+  margin-top: 18px;
+}
+
+.seo-fallback-grid article {
+  border-top: 1px solid var(--line);
+  padding: 22px 0;
+}
+
+.seo-fallback-grid article > p:first-child {
+  color: #90918b;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+}
+
+.seo-fallback-grid h3 {
+  margin: 9px 0 0;
+  font-family: Georgia, "Songti SC", serif;
+  font-size: 21px;
+  line-height: 1.3;
+}
+
+.seo-fallback-grid h3 a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.seo-fallback-grid article > p:last-child {
+  margin: 9px 0 0;
+  color: #696a64;
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.seo-fallback-footer {
+  margin-top: 34px;
+  border-top: 1px solid var(--line);
+  border-bottom: 0;
+  padding: 22px 0 0;
+  color: #8b8c86;
+  font-size: 10px;
+}
+
 .article-page {
   min-height: 100vh;
   background:
@@ -4031,6 +4161,38 @@ button {
 
 .article-meta span:first-child {
   color: var(--green);
+}
+
+.article-share {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 22px;
+}
+
+.article-share button,
+.article-share a {
+  display: inline-flex;
+  min-height: 34px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d8d6cf;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.58);
+  padding: 7px 13px;
+  color: var(--ink);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: calc(8px + var(--font-adjust));
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.article-share button:hover,
+.article-share a:hover {
+  border-color: var(--orange);
+  color: var(--orange);
 }
 
 .article-body-grid {
@@ -4414,6 +4576,24 @@ button {
 }
 
 @media (max-width: 760px) {
+  .seo-fallback {
+    padding: 20px 18px 42px;
+  }
+
+  .seo-fallback-header,
+  .seo-fallback-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .seo-fallback-hero {
+    padding: 52px 0 42px;
+  }
+
+  .seo-fallback-grid {
+    grid-template-columns: 1fr;
+  }
+
   .sidebar {
     display: none;
   }

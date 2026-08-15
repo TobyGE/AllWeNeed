@@ -4,6 +4,7 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath, URL } from "node:url";
 import { defineConfig } from "vite";
 import {
+  applyStaticLandingFallback,
   applyArticleMetadata,
   buildArticleCatalog,
 } from "./scripts/article-pages.mjs";
@@ -41,6 +42,21 @@ function permanentArticlePages() {
             applyArticleMetadata(templates[article.kind], article, locale),
           );
         }
+      }
+      for (const [page, outputPath] of Object.entries({
+        home: "index.html",
+        live: "live/index.html",
+        focus: "focus/index.html",
+        explore: "explore/index.html",
+        conversations: "conversations/index.html",
+        sources: "sources/index.html",
+      })) {
+        const path = resolve(outDir, outputPath);
+        const template = await readFile(path, "utf8");
+        await writeFile(
+          path,
+          applyStaticLandingFallback(template, catalog, page),
+        );
       }
     },
   };

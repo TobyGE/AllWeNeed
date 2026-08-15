@@ -222,12 +222,14 @@ test("removes all disposable starter preview code", async () => {
       staticEntry,
       /rel="apple-touch-icon"[\s\S]*href="\/apple-touch-icon\.png"/,
     );
+    assert.match(staticEntry, /type="application\/rss\+xml"/);
   }
   await access(new URL("public/favicon-48.png", templateRoot));
   await access(new URL("public/favicon.png", templateRoot));
   await access(new URL("public/apple-touch-icon.png", templateRoot));
   await access(new URL("public/robots.txt", templateRoot));
   await access(new URL("public/sitemap.xml", templateRoot));
+  await access(new URL("public/feed.xml", templateRoot));
   assert.match(
     await readFile(new URL("public/robots.txt", templateRoot), "utf8"),
     /Sitemap: https:\/\/allweneed\.info\/sitemap\.xml/,

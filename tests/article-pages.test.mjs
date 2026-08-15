@@ -7,7 +7,9 @@ import {
   buildArticleCatalog,
   compactArticleCatalog,
   renderNewsSitemap,
+  renderRssFeed,
   renderSitemap,
+  staticLandingFallbackHtml,
 } from "../scripts/article-pages.mjs";
 
 const root = new URL("../", import.meta.url);
@@ -94,6 +96,28 @@ test("sitemaps include permanent bilingual pages and limit News sitemap to 48 ho
     ),
   );
   assert.doesNotMatch(news, /\/explore\//);
+});
+
+test("RSS and static landing fallbacks expose permanent, crawlable story links", async () => {
+  const { catalog } = await fixture();
+  const rss = renderRssFeed(catalog);
+  assert.match(rss, /<rss version="2\.0"/);
+  assert.match(rss, /rel="self" type="application\/rss\+xml"/);
+  assert.match(rss, /<guid isPermaLink="true">/);
+  assert.ok(
+    catalog.articles.slice(0, 20).every((article) =>
+      rss.includes(`https://allweneed.info${article.path}`),
+    ),
+  );
+
+  const home = staticLandingFallbackHtml(catalog, "home");
+  assert.match(home, /class="seo-fallback"/);
+  assert.match(home, /href="\/feed\.xml"/);
+  assert.ok(
+    catalog.articles.slice(0, 20).every((article) =>
+      home.includes(`href="${article.path}"`),
+    ),
+  );
 });
 
 test("static article HTML exposes unique metadata, structured data, body copy and sources", async () => {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   FontSizeControl,
   type FontSizePreference,
@@ -130,6 +130,7 @@ export function ArticleView({
       ? `${basePath}/conversations/`
       : `${basePath}/focus/`;
   const article = signal.article ?? fallbackArticle(signal, locale);
+  const [shareStatus, setShareStatus] = useState<"idle" | "copied">("idle");
   useEffect(() => {
     const previousTitle = document.title;
     document.title = `${signal.title} — All We Need`;
@@ -155,6 +156,34 @@ export function ArticleView({
       timeZone: "America/New_York",
     },
   ).format(new Date(articleTimestamp));
+  const shareUrl =
+    typeof window === "undefined"
+      ? "https://allweneed.info/"
+      : window.location.href;
+  const shareText = encodeURIComponent(signal.title);
+  const encodedShareUrl = encodeURIComponent(shareUrl);
+
+  async function copyShareLink() {
+    await navigator.clipboard.writeText(shareUrl);
+    setShareStatus("copied");
+    window.setTimeout(() => setShareStatus("idle"), 2_000);
+  }
+
+  async function shareArticle() {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: signal.title,
+          text: signal.summary,
+          url: shareUrl,
+        });
+        return;
+      } catch (error) {
+        if (error instanceof DOMException && error.name === "AbortError") return;
+      }
+    }
+    await copyShareLink();
+  }
 
   return (
     <main className="article-page">
@@ -275,6 +304,32 @@ export function ArticleView({
                 </span>
               </>
             )}
+          </div>
+          <div className="article-share" aria-label={t("分享文章", "Share article")}>
+            <button type="button" onClick={shareArticle}>
+              {shareStatus === "copied"
+                ? t("链接已复制", "Link copied")
+                : t("分享", "Share")}
+            </button>
+            <a
+              href={`https://x.com/intent/post?text=${shareText}&url=${encodedShareUrl}`}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={t("分享到 X", "Share on X")}
+            >
+              X
+            </a>
+            <a
+              href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedShareUrl}`}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={t("分享到 LinkedIn", "Share on LinkedIn")}
+            >
+              in
+            </a>
+            <a href="/feed.xml" aria-label={t("订阅 RSS", "Subscribe via RSS")}>
+              RSS
+            </a>
           </div>
         </header>
 
