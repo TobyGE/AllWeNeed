@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-15T21:07:43.238Z",
+  "generatedAt": "2026-08-15T23:06:10.041Z",
   "counts": {
-    "sources": 704,
-    "claims": 823,
-    "events": 170,
-    "articles": 170,
+    "sources": 706,
+    "claims": 825,
+    "events": 171,
+    "articles": 171,
     "updates": 113,
-    "edges": 2195,
+    "edges": 2200,
     "revisionsRequired": 9
   },
   "revisionQueue": [
@@ -103,6 +103,54 @@
     }
   ],
   "nodes": [
+    {
+      "id": "event_2e4dc22ace4148d1",
+      "type": "event",
+      "signalId": 124,
+      "title": "OpenAI的IPO筹备转向治理重组",
+      "bucket": "explore",
+      "valueScore": 81,
+      "publishedAt": "2026-08-14T09:28:05.000Z",
+      "updatedAt": "2026-08-14T09:28:05.000Z"
+    },
+    {
+      "id": "article_a9c678ad388bb205",
+      "type": "article",
+      "signalId": 124,
+      "title": "OpenAI的IPO筹备转向治理重组",
+      "version": 1,
+      "publishedAt": "2026-08-15T23:06:10.041Z"
+    },
+    {
+      "id": "source_5ca3cdddb99f3998",
+      "type": "source",
+      "title": "Axios",
+      "url": "https://www.axios.com/2026/08/14/openai-executive-greg-brockman-ipo",
+      "sourceKind": "Media",
+      "publishedAt": "2026-08-14T09:28:05.000Z"
+    },
+    {
+      "id": "claim_9603d6f61cdad8e8",
+      "type": "claim",
+      "title": "Axios报道称，OpenAI约一个月内有高级副手、前COO及首席营收官等高管离任，公司正在为预期IPO重组领导层。",
+      "role": "主张",
+      "addedAt": "2026-08-15T23:06:10.041Z"
+    },
+    {
+      "id": "source_5fccadd991f2f940",
+      "type": "source",
+      "title": "Bloomberg Law",
+      "url": "https://news.bloomberglaw.com/financial-accounting/openai-names-bny-nubank-ceos-to-board-ahead-of-ipo",
+      "sourceKind": "Media",
+      "publishedAt": "2026-07-21T20:15:00.000Z"
+    },
+    {
+      "id": "claim_aae44a375b9f46ce",
+      "type": "claim",
+      "title": "Bloomberg Law报道称，OpenAI任命BNY和Nubank的CEO进入董事会，并将此举置于公司考虑IPO的准备背景下。",
+      "role": "佐证",
+      "addedAt": "2026-08-15T23:06:10.041Z"
+    },
     {
       "id": "event_bd08267689227246",
       "type": "event",
@@ -15707,6 +15755,38 @@
     }
   ],
   "edges": [
+    {
+      "id": "edge_a78e8cdd49c1cfcf",
+      "from": "event_2e4dc22ace4148d1",
+      "to": "article_a9c678ad388bb205",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_656149c0813ef090",
+      "from": "source_5ca3cdddb99f3998",
+      "to": "claim_9603d6f61cdad8e8",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_d0ee499643696b39",
+      "from": "claim_9603d6f61cdad8e8",
+      "to": "event_2e4dc22ace4148d1",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_802d3438c4d97602",
+      "from": "source_5fccadd991f2f940",
+      "to": "claim_aae44a375b9f46ce",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_cb47690bf6e984ee",
+      "from": "claim_aae44a375b9f46ce",
+      "to": "event_2e4dc22ace4148d1",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
     {
       "id": "edge_98a00f718302be0e",
       "from": "event_bd08267689227246",
