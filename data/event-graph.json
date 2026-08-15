@@ -1,24 +1,24 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-14T22:06:52.861Z",
+  "generatedAt": "2026-08-15T00:08:04.211Z",
   "counts": {
-    "sources": 667,
-    "claims": 781,
+    "sources": 672,
+    "claims": 787,
     "events": 163,
     "articles": 163,
-    "updates": 106,
-    "edges": 2077,
-    "revisionsRequired": 7
+    "updates": 108,
+    "edges": 2096,
+    "revisionsRequired": 8
   },
   "revisionQueue": [
     {
-      "signalId": 37,
-      "eventId": "event_ded79f4f58feab3e",
-      "updateId": "update_0107adde250d2cac",
-      "title": "GPT-5.6重画模型价格曲线",
-      "updateTitle": "Claude Sonnet 5永久降价",
-      "thesisImpact": "Anthropic将Claude Sonnet 5优惠价永久化，且DeepSeek官方低价仍显著存在，强化了模型竞争从一次性降价转向持续价格分层的判断。",
-      "detectedAt": "2026-08-14T14:27:14.000Z",
+      "signalId": 115,
+      "eventId": "event_78547822baad4bb9",
+      "updateId": "update_11fbdeb9367970d8",
+      "title": "Z.ai发布GLM-5.3押注网络防御",
+      "updateTitle": "GLM-5.3敏感能力改受控开放",
+      "thesisImpact": "新增报道显示Z.ai并未将最敏感网络安全能力普遍开放，而是采用受控、分级访问。这使原有“网络防御模型”定位更明确地转向能力商业化与风险门槛并行。",
+      "detectedAt": "2026-08-14T00:00:00.000Z",
       "status": "needs_editorial_revision"
     },
     {
@@ -29,6 +29,16 @@
       "updateTitle": "GLM-5.3权重尚未开放",
       "thesisImpact": "新的一手资料显示GLM-5.3目前尚未提供可下载权重，原有“开源模型”判断应收窄为已发布、拟在安全评估和加固后开放权重的模型。",
       "detectedAt": "2026-08-14T10:21:34.000Z",
+      "status": "needs_editorial_revision"
+    },
+    {
+      "signalId": 37,
+      "eventId": "event_ded79f4f58feab3e",
+      "updateId": "update_0107adde250d2cac",
+      "title": "GPT-5.6重画模型价格曲线",
+      "updateTitle": "Claude Sonnet 5永久降价",
+      "thesisImpact": "Anthropic将Claude Sonnet 5优惠价永久化，且DeepSeek官方低价仍显著存在，强化了模型竞争从一次性降价转向持续价格分层的判断。",
+      "detectedAt": "2026-08-14T14:27:14.000Z",
       "status": "needs_editorial_revision"
     },
     {
@@ -83,6 +93,188 @@
     }
   ],
   "nodes": [
+    {
+      "id": "event_78547822baad4bb9",
+      "type": "event",
+      "signalId": 115,
+      "title": "Z.ai发布GLM-5.3押注网络防御",
+      "bucket": "dynamic",
+      "valueScore": 84,
+      "publishedAt": "2026-08-14T09:48:17.000Z",
+      "updatedAt": "2026-08-14T00:00:00.000Z"
+    },
+    {
+      "id": "article_fe8ee3e26808930c",
+      "type": "article",
+      "signalId": 115,
+      "title": "Z.ai发布GLM-5.3押注网络防御",
+      "version": 1,
+      "publishedAt": "2026-08-15T00:08:04.211Z"
+    },
+    {
+      "id": "source_e5175bf3c01c67fc",
+      "type": "source",
+      "title": "The Information",
+      "url": "https://www.theinformation.com/briefings/chinas-z-ai-touts-new-glm-5-3-model-cyber-defense-tool",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-14T09:48:17.000Z"
+    },
+    {
+      "id": "claim_035c95a43f9f47ad",
+      "type": "claim",
+      "title": "The Information报道Z.ai发布开源GLM-5.3，并称其网络安全能力可与Anthropic的Mythos 5相比。",
+      "role": "主张",
+      "addedAt": "2026-08-15T00:08:04.211Z"
+    },
+    {
+      "id": "source_1988761466109b07",
+      "type": "source",
+      "title": "Z.ai",
+      "url": "https://z.ai/blog/glm-5.3",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-14T09:48:17.000Z"
+    },
+    {
+      "id": "claim_c0368bcd4e934d3d",
+      "type": "claim",
+      "title": "Z.ai发布原文确认GLM-5.3已发布，定位于编程及网络防御，并提出与Claude Mythos 5的能力比较。",
+      "role": "主张",
+      "addedAt": "2026-08-15T00:08:04.211Z"
+    },
+    {
+      "id": "source_9156c37fb1c28b94",
+      "type": "source",
+      "title": "Z.ai",
+      "url": "https://docs.z.ai/release-notes/new-released",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-14T09:48:17.000Z"
+    },
+    {
+      "id": "claim_a481086ee605bd37",
+      "type": "claim",
+      "title": "Z.ai此前将GLM-5.1定位为处理长时程规划、执行、调试和策略迭代的工程代理模型。",
+      "role": "背景",
+      "addedAt": "2026-08-15T00:08:04.211Z"
+    },
+    {
+      "id": "source_46dc397f07117c38",
+      "type": "source",
+      "title": "Anthropic",
+      "url": "https://www.anthropic.com/claude/mythos",
+      "sourceKind": "Official",
+      "publishedAt": "2026-06-09T00:00:00.000Z"
+    },
+    {
+      "id": "claim_ff1f5b908a47648f",
+      "type": "claim",
+      "title": "Anthropic称Mythos 5面向网络安全等高要求领域，但仅向少量经审查的网络安全合作伙伴开放并要求安全监测。",
+      "role": "反例",
+      "addedAt": "2026-08-15T00:08:04.211Z"
+    },
+    {
+      "id": "source_9da584f102d05f46",
+      "type": "source",
+      "title": "The Decoder AI",
+      "url": "https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-14T10:21:34.000Z"
+    },
+    {
+      "id": "claim_1032c7fd1cc0de08",
+      "type": "claim",
+      "title": "The Decoder报道称Zhipu AI发布GLM-5.3，并转述其编码与网络安全能力主张及后续开源计划。",
+      "role": "佐证",
+      "addedAt": "2026-08-15T00:08:04.211Z"
+    },
+    {
+      "id": "source_9ec90332da9eec1d",
+      "type": "source",
+      "title": "Hugging Face / Z.ai",
+      "url": "https://huggingface.co/zai-org/GLM-5.2",
+      "sourceKind": "Repository",
+      "publishedAt": "2026-08-14T10:21:34.000Z"
+    },
+    {
+      "id": "claim_c7864b6513a2603f",
+      "type": "claim",
+      "title": "GLM-5.2官方模型卡显示上一代已提供MIT许可的公开权重，并披露了若干编码基准及评测配置限制。",
+      "role": "背景",
+      "addedAt": "2026-08-15T00:08:04.211Z"
+    },
+    {
+      "id": "source_3b2e9eb6d77fcdba",
+      "type": "source",
+      "title": "Hugging Face / Z.ai",
+      "url": "https://huggingface.co/zai-org/models",
+      "sourceKind": "Repository",
+      "publishedAt": "2026-08-14T10:21:34.000Z"
+    },
+    {
+      "id": "claim_b65def0755c8a3e2",
+      "type": "claim",
+      "title": "Z.ai官方Hugging Face组织页检索时仅列出GLM-5.2及GLM-5.2-FP8，未列出GLM-5.3可下载权重。",
+      "role": "反例",
+      "addedAt": "2026-08-15T00:08:04.211Z"
+    },
+    {
+      "id": "source_a3d04ff8e73f6cd0",
+      "type": "source",
+      "title": "Axios",
+      "url": "https://www.axios.com/2026/08/14/china-open-source-ai-glm-53",
+      "sourceKind": "Media",
+      "publishedAt": "2026-08-14T00:00:00.000Z"
+    },
+    {
+      "id": "claim_3ba1ff90c1e5e08b",
+      "type": "claim",
+      "title": "Axios报道称，Z.ai对GLM-5.3采取分级访问，最敏感网络安全功能仅面向选定安全合作方在受控环境开放，并引述其84.5%的CyberGym成绩。",
+      "role": "最新进展",
+      "addedAt": "2026-08-15T00:08:04.211Z"
+    },
+    {
+      "id": "source_c5c75145f18db804",
+      "type": "source",
+      "title": "Anthropic",
+      "url": "https://www-cdn.anthropic.com/2f9323abbcc4abe219577539efe19a623c9ca2bd/Claude%20Fable%205%20%26%20Claude%20Mythos%205%20System%20Card.pdf",
+      "sourceKind": "Research",
+      "publishedAt": "2026-07-01T00:00:00.000Z"
+    },
+    {
+      "id": "claim_1da27f15a8900d3c",
+      "type": "claim",
+      "title": "Anthropic的系统卡称，Claude Mythos 5在CyberGym 1,507项定向漏洞复现任务上的pass@1成绩为83.8%。",
+      "role": "背景",
+      "addedAt": "2026-08-15T00:08:04.211Z"
+    },
+    {
+      "id": "update_11fbdeb9367970d8",
+      "type": "update",
+      "signalId": 115,
+      "title": "GLM-5.3敏感能力改受控开放",
+      "summary": "Axios报道称，Z.ai称GLM-5.3在CyberGym取得84.5%，并将最敏感的网络安全功能仅向选定安全合作方在受控环境中开放。Anthropic系统卡列出的Mythos 5对应成绩为83.8%。",
+      "addedAt": "2026-08-14T00:00:00.000Z",
+      "changeType": "thesis_change",
+      "thesisImpact": "新增报道显示Z.ai并未将最敏感网络安全能力普遍开放，而是采用受控、分级访问。这使原有“网络防御模型”定位更明确地转向能力商业化与风险门槛并行。",
+      "revisionRequired": true
+    },
+    {
+      "id": "update_f9f0bd6ba16f0882",
+      "type": "update",
+      "signalId": 115,
+      "title": "GLM-5.3权重尚未开放",
+      "summary": "Z.ai称GLM-5.3在后训练后编码表现提升50%，已用于269个项目发现2,436个漏洞；但公司表示权重将在安全评估和加固后约两周开放，官方组织页目前仍未列出GLM-5.3下载项。",
+      "addedAt": "2026-08-14T10:21:34.000Z",
+      "changeType": "thesis_change",
+      "thesisImpact": "新的一手资料显示GLM-5.3目前尚未提供可下载权重，原有“开源模型”判断应收窄为已发布、拟在安全评估和加固后开放权重的模型。",
+      "revisionRequired": true
+    },
+    {
+      "id": "claim_ae40ba59f1778d94",
+      "type": "claim",
+      "title": "Z.ai公告称GLM-5.3与GLM-5.2使用相同基础模型，经后训练后内部编码表现提升50%，并计划在安全评估和加固后约两周开放权重。",
+      "role": "最新进展",
+      "addedAt": "2026-08-14T10:21:34.000Z"
+    },
     {
       "id": "event_2daba3f21c28759e",
       "type": "event",
@@ -160,6 +352,69 @@
       "title": "Anthropic确认仅保密递交IPO注册草案，相关财务数据尚无公开S-1报表可供独立核验。",
       "role": "反例",
       "addedAt": "2026-08-14T22:06:52.861Z"
+    },
+    {
+      "id": "source_677dcb7981efe37f",
+      "type": "source",
+      "title": "The Information",
+      "url": "https://www.theinformation.com/briefings/anthropic-revenue-jumped-14-times-second-quarter",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-14T22:27:19.000Z"
+    },
+    {
+      "id": "claim_83827d935f3f8f98",
+      "type": "claim",
+      "title": "The Information报道称，Anthropic第二季度收入约为去年同期的14倍，并引述Bloomberg的115亿美元季度收入数据。",
+      "role": "最新进展",
+      "addedAt": "2026-08-14T22:06:52.861Z"
+    },
+    {
+      "id": "source_576b59cedbe1d9e4",
+      "type": "source",
+      "title": "Bloomberg",
+      "url": "https://www.bloomberg.com/news/articles/2026-08-14/anthropic-revenue-surges-to-over-11-5-billion-in-second-quarter",
+      "sourceKind": "Media",
+      "publishedAt": "2026-08-14T22:27:19.000Z"
+    },
+    {
+      "id": "claim_cb143d227dc370c8",
+      "type": "claim",
+      "title": "Bloomberg报道称，Anthropic第二季度初步收入超过115亿美元，较去年同期7.87亿美元和第一季度47.3亿美元增长，并称调整后营业利润转正；数据可能修订。",
+      "role": "佐证",
+      "addedAt": "2026-08-14T22:06:52.861Z"
+    },
+    {
+      "id": "source_8589c87e9bba394d",
+      "type": "source",
+      "title": "Anthropic",
+      "url": "https://www.anthropic.com/news/google-broadcom-partnership-compute",
+      "sourceKind": "Official",
+      "publishedAt": "2026-04-06T00:00:00.000Z"
+    },
+    {
+      "id": "claim_f279abd0658ae41a",
+      "type": "claim",
+      "title": "Anthropic在4月称收入run-rate超过300亿美元，并披露年化支出超100万美元的企业客户数快速增加。",
+      "role": "背景",
+      "addedAt": "2026-08-14T22:06:52.861Z"
+    },
+    {
+      "id": "update_98af94f76d4afdcf",
+      "type": "update",
+      "signalId": 119,
+      "title": "Anthropic二季度收入超115亿美元",
+      "summary": "Bloomberg与The Information报道称，Anthropic第二季度初步收入超过115亿美元，较去年同期7.87亿美元大幅增长，且当季调整后营业利润为正；公司拒绝置评，数字仍可能修订。",
+      "addedAt": "2026-08-14T22:27:19.000Z",
+      "changeType": "corroboration",
+      "thesisImpact": "新增报道给出第二季度初步收入、环比规模及调整后营业利润转正信息，强化Anthropic商业化规模快速扩大、IPO前估值将更聚焦盈利兑现的判断。",
+      "revisionRequired": false
+    },
+    {
+      "id": "claim_8712586f499d52e8",
+      "type": "claim",
+      "title": "Anthropic在5月称其收入run-rate已超过470亿美元，为季度收入规模提供相邻但口径不同的官方参照。",
+      "role": "背景",
+      "addedAt": "2026-08-14T22:27:19.000Z"
     },
     {
       "id": "event_d1c643b4a57ab552",
@@ -1065,147 +1320,6 @@
       "title": "SpaceX此前文件称收购价预计主要计入商誉，并提示Cursor历史服务收入在收购后可能显著不同。",
       "role": "反例",
       "addedAt": "2026-08-14T14:07:52.663Z"
-    },
-    {
-      "id": "event_78547822baad4bb9",
-      "type": "event",
-      "signalId": 115,
-      "title": "Z.ai发布GLM-5.3押注网络防御",
-      "bucket": "dynamic",
-      "valueScore": 84,
-      "publishedAt": "2026-08-14T09:48:17.000Z",
-      "updatedAt": "2026-08-14T10:21:34.000Z"
-    },
-    {
-      "id": "article_fe8ee3e26808930c",
-      "type": "article",
-      "signalId": 115,
-      "title": "Z.ai发布GLM-5.3押注网络防御",
-      "version": 1,
-      "publishedAt": "2026-08-14T12:07:21.671Z"
-    },
-    {
-      "id": "source_e5175bf3c01c67fc",
-      "type": "source",
-      "title": "The Information",
-      "url": "https://www.theinformation.com/briefings/chinas-z-ai-touts-new-glm-5-3-model-cyber-defense-tool",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-14T09:48:17.000Z"
-    },
-    {
-      "id": "claim_035c95a43f9f47ad",
-      "type": "claim",
-      "title": "The Information报道Z.ai发布开源GLM-5.3，并称其网络安全能力可与Anthropic的Mythos 5相比。",
-      "role": "主张",
-      "addedAt": "2026-08-14T12:07:21.671Z"
-    },
-    {
-      "id": "source_1988761466109b07",
-      "type": "source",
-      "title": "Z.ai",
-      "url": "https://z.ai/blog/glm-5.3",
-      "sourceKind": "Official",
-      "publishedAt": "2026-08-14T09:48:17.000Z"
-    },
-    {
-      "id": "claim_c0368bcd4e934d3d",
-      "type": "claim",
-      "title": "Z.ai发布原文确认GLM-5.3已发布，定位于编程及网络防御，并提出与Claude Mythos 5的能力比较。",
-      "role": "主张",
-      "addedAt": "2026-08-14T12:07:21.671Z"
-    },
-    {
-      "id": "source_9156c37fb1c28b94",
-      "type": "source",
-      "title": "Z.ai",
-      "url": "https://docs.z.ai/release-notes/new-released",
-      "sourceKind": "Official",
-      "publishedAt": "2026-08-14T09:48:17.000Z"
-    },
-    {
-      "id": "claim_a481086ee605bd37",
-      "type": "claim",
-      "title": "Z.ai此前将GLM-5.1定位为处理长时程规划、执行、调试和策略迭代的工程代理模型。",
-      "role": "背景",
-      "addedAt": "2026-08-14T12:07:21.671Z"
-    },
-    {
-      "id": "source_46dc397f07117c38",
-      "type": "source",
-      "title": "Anthropic",
-      "url": "https://www.anthropic.com/claude/mythos",
-      "sourceKind": "Official",
-      "publishedAt": "2026-06-09T00:00:00.000Z"
-    },
-    {
-      "id": "claim_ff1f5b908a47648f",
-      "type": "claim",
-      "title": "Anthropic称Mythos 5面向网络安全等高要求领域，但仅向少量经审查的网络安全合作伙伴开放并要求安全监测。",
-      "role": "反例",
-      "addedAt": "2026-08-14T12:07:21.671Z"
-    },
-    {
-      "id": "source_9da584f102d05f46",
-      "type": "source",
-      "title": "The Decoder AI",
-      "url": "https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-14T10:21:34.000Z"
-    },
-    {
-      "id": "claim_1032c7fd1cc0de08",
-      "type": "claim",
-      "title": "The Decoder报道称Zhipu AI发布GLM-5.3，并转述其编码与网络安全能力主张及后续开源计划。",
-      "role": "佐证",
-      "addedAt": "2026-08-14T12:07:21.671Z"
-    },
-    {
-      "id": "source_9ec90332da9eec1d",
-      "type": "source",
-      "title": "Hugging Face / Z.ai",
-      "url": "https://huggingface.co/zai-org/GLM-5.2",
-      "sourceKind": "Repository",
-      "publishedAt": "2026-08-14T10:21:34.000Z"
-    },
-    {
-      "id": "claim_c7864b6513a2603f",
-      "type": "claim",
-      "title": "GLM-5.2官方模型卡显示上一代已提供MIT许可的公开权重，并披露了若干编码基准及评测配置限制。",
-      "role": "背景",
-      "addedAt": "2026-08-14T12:07:21.671Z"
-    },
-    {
-      "id": "source_3b2e9eb6d77fcdba",
-      "type": "source",
-      "title": "Hugging Face / Z.ai",
-      "url": "https://huggingface.co/zai-org/models",
-      "sourceKind": "Repository",
-      "publishedAt": "2026-08-14T10:21:34.000Z"
-    },
-    {
-      "id": "claim_b65def0755c8a3e2",
-      "type": "claim",
-      "title": "Z.ai官方Hugging Face组织页检索时仅列出GLM-5.2及GLM-5.2-FP8，未列出GLM-5.3可下载权重。",
-      "role": "反例",
-      "addedAt": "2026-08-14T12:07:21.671Z"
-    },
-    {
-      "id": "update_f9f0bd6ba16f0882",
-      "type": "update",
-      "signalId": 115,
-      "title": "GLM-5.3权重尚未开放",
-      "summary": "Z.ai称GLM-5.3在后训练后编码表现提升50%，已用于269个项目发现2,436个漏洞；但公司表示权重将在安全评估和加固后约两周开放，官方组织页目前仍未列出GLM-5.3下载项。",
-      "addedAt": "2026-08-14T10:21:34.000Z",
-      "changeType": "thesis_change",
-      "thesisImpact": "新的一手资料显示GLM-5.3目前尚未提供可下载权重，原有“开源模型”判断应收窄为已发布、拟在安全评估和加固后开放权重的模型。",
-      "revisionRequired": true
-    },
-    {
-      "id": "claim_ae40ba59f1778d94",
-      "type": "claim",
-      "title": "Z.ai公告称GLM-5.3与GLM-5.2使用相同基础模型，经后训练后内部编码表现提升50%，并计划在安全评估和加固后约两周开放权重。",
-      "role": "最新进展",
-      "addedAt": "2026-08-14T10:21:34.000Z"
     },
     {
       "id": "event_fd6738bc4783b911",
@@ -14901,6 +15015,189 @@
   ],
   "edges": [
     {
+      "id": "edge_5e06981566715dd2",
+      "from": "event_78547822baad4bb9",
+      "to": "article_fe8ee3e26808930c",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_9145cc207aae7c0d",
+      "from": "source_e5175bf3c01c67fc",
+      "to": "claim_035c95a43f9f47ad",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_bbe0f0521ad155ba",
+      "from": "claim_035c95a43f9f47ad",
+      "to": "event_78547822baad4bb9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_1df5614805dbc2bc",
+      "from": "source_1988761466109b07",
+      "to": "claim_c0368bcd4e934d3d",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_c59f17ff42256946",
+      "from": "claim_c0368bcd4e934d3d",
+      "to": "event_78547822baad4bb9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_ea5425d01bc67521",
+      "from": "source_9156c37fb1c28b94",
+      "to": "claim_a481086ee605bd37",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_fec8f00b1587a78c",
+      "from": "claim_a481086ee605bd37",
+      "to": "event_78547822baad4bb9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_f9d457d209ea36f4",
+      "from": "source_46dc397f07117c38",
+      "to": "claim_ff1f5b908a47648f",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_c501ed4cb67672cd",
+      "from": "claim_ff1f5b908a47648f",
+      "to": "event_78547822baad4bb9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_4e17983eb99b8c78",
+      "from": "source_9da584f102d05f46",
+      "to": "claim_1032c7fd1cc0de08",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_b6ce045370803f78",
+      "from": "claim_1032c7fd1cc0de08",
+      "to": "event_78547822baad4bb9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_c4d306854c072af8",
+      "from": "source_9ec90332da9eec1d",
+      "to": "claim_c7864b6513a2603f",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_676e2090bd24ca1d",
+      "from": "claim_c7864b6513a2603f",
+      "to": "event_78547822baad4bb9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_2817849971d1cdf3",
+      "from": "source_3b2e9eb6d77fcdba",
+      "to": "claim_b65def0755c8a3e2",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_a6efa34a4f52934f",
+      "from": "claim_b65def0755c8a3e2",
+      "to": "event_78547822baad4bb9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_b6766389e5a687ad",
+      "from": "source_a3d04ff8e73f6cd0",
+      "to": "claim_3ba1ff90c1e5e08b",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_5e50a712d6994157",
+      "from": "claim_3ba1ff90c1e5e08b",
+      "to": "event_78547822baad4bb9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_956275acb71b47de",
+      "from": "source_c5c75145f18db804",
+      "to": "claim_1da27f15a8900d3c",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_53ea96fc54377290",
+      "from": "claim_1da27f15a8900d3c",
+      "to": "event_78547822baad4bb9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_39eb94144e0b7c42",
+      "from": "update_11fbdeb9367970d8",
+      "to": "event_78547822baad4bb9",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_0eb1c2377d63d2fa",
+      "from": "claim_3ba1ff90c1e5e08b",
+      "to": "event_78547822baad4bb9",
+      "relation": "update_evidence_for",
+      "updateTitle": "GLM-5.3敏感能力改受控开放"
+    },
+    {
+      "id": "edge_e0abd1cc3436ff2e",
+      "from": "claim_1da27f15a8900d3c",
+      "to": "event_78547822baad4bb9",
+      "relation": "update_evidence_for",
+      "updateTitle": "GLM-5.3敏感能力改受控开放"
+    },
+    {
+      "id": "edge_2874bb837264cb38",
+      "from": "update_f9f0bd6ba16f0882",
+      "to": "event_78547822baad4bb9",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_968508563f16762c",
+      "from": "claim_1032c7fd1cc0de08",
+      "to": "event_78547822baad4bb9",
+      "relation": "update_evidence_for",
+      "updateTitle": "GLM-5.3权重尚未开放"
+    },
+    {
+      "id": "edge_918c78bfb35625b6",
+      "from": "source_1988761466109b07",
+      "to": "claim_ae40ba59f1778d94",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_fac9f6eeb58e3279",
+      "from": "claim_ae40ba59f1778d94",
+      "to": "event_78547822baad4bb9",
+      "relation": "update_evidence_for",
+      "updateTitle": "GLM-5.3权重尚未开放"
+    },
+    {
+      "id": "edge_50f3a2b0108d2766",
+      "from": "claim_c7864b6513a2603f",
+      "to": "event_78547822baad4bb9",
+      "relation": "update_evidence_for",
+      "updateTitle": "GLM-5.3权重尚未开放"
+    },
+    {
+      "id": "edge_21b93c0201ebee75",
+      "from": "claim_b65def0755c8a3e2",
+      "to": "event_78547822baad4bb9",
+      "relation": "update_evidence_for",
+      "updateTitle": "GLM-5.3权重尚未开放"
+    },
+    {
       "id": "edge_d0fd71878af0823a",
       "from": "event_2daba3f21c28759e",
       "to": "article_0d54f8f50a4e2d7b",
@@ -14957,6 +15254,85 @@
       "to": "event_2daba3f21c28759e",
       "relation": "evidence_for",
       "updateTitle": null
+    },
+    {
+      "id": "edge_94d432261bcd4281",
+      "from": "source_677dcb7981efe37f",
+      "to": "claim_83827d935f3f8f98",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_d2652f50b68648cb",
+      "from": "claim_83827d935f3f8f98",
+      "to": "event_2daba3f21c28759e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_fc4462db97a3e1bb",
+      "from": "source_576b59cedbe1d9e4",
+      "to": "claim_cb143d227dc370c8",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_08f9cd8344441a52",
+      "from": "claim_cb143d227dc370c8",
+      "to": "event_2daba3f21c28759e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_494179754aa6a8a9",
+      "from": "source_8589c87e9bba394d",
+      "to": "claim_f279abd0658ae41a",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_92be10ea3dccc8d5",
+      "from": "claim_f279abd0658ae41a",
+      "to": "event_2daba3f21c28759e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_f8821741cd1b79ad",
+      "from": "update_98af94f76d4afdcf",
+      "to": "event_2daba3f21c28759e",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_18903f3860fbbc86",
+      "from": "claim_83827d935f3f8f98",
+      "to": "event_2daba3f21c28759e",
+      "relation": "update_evidence_for",
+      "updateTitle": "Anthropic二季度收入超115亿美元"
+    },
+    {
+      "id": "edge_153e6fb04b925287",
+      "from": "claim_cb143d227dc370c8",
+      "to": "event_2daba3f21c28759e",
+      "relation": "update_evidence_for",
+      "updateTitle": "Anthropic二季度收入超115亿美元"
+    },
+    {
+      "id": "edge_b74bfc4a3db67f05",
+      "from": "source_b5e22ae086a6b353",
+      "to": "claim_8712586f499d52e8",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_97ba9e9bc2d69c04",
+      "from": "claim_8712586f499d52e8",
+      "to": "event_2daba3f21c28759e",
+      "relation": "update_evidence_for",
+      "updateTitle": "Anthropic二季度收入超115亿美元"
+    },
+    {
+      "id": "edge_296cb6b7aac3305a",
+      "from": "claim_f279abd0658ae41a",
+      "to": "event_2daba3f21c28759e",
+      "relation": "update_evidence_for",
+      "updateTitle": "Anthropic二季度收入超115亿美元"
     },
     {
       "id": "edge_507323bbd33daf93",
@@ -15933,143 +16309,6 @@
       "to": "event_12699b275732ac05",
       "relation": "evidence_for",
       "updateTitle": null
-    },
-    {
-      "id": "edge_5e06981566715dd2",
-      "from": "event_78547822baad4bb9",
-      "to": "article_fe8ee3e26808930c",
-      "relation": "rendered_as"
-    },
-    {
-      "id": "edge_9145cc207aae7c0d",
-      "from": "source_e5175bf3c01c67fc",
-      "to": "claim_035c95a43f9f47ad",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_bbe0f0521ad155ba",
-      "from": "claim_035c95a43f9f47ad",
-      "to": "event_78547822baad4bb9",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_1df5614805dbc2bc",
-      "from": "source_1988761466109b07",
-      "to": "claim_c0368bcd4e934d3d",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_c59f17ff42256946",
-      "from": "claim_c0368bcd4e934d3d",
-      "to": "event_78547822baad4bb9",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_ea5425d01bc67521",
-      "from": "source_9156c37fb1c28b94",
-      "to": "claim_a481086ee605bd37",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_fec8f00b1587a78c",
-      "from": "claim_a481086ee605bd37",
-      "to": "event_78547822baad4bb9",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_f9d457d209ea36f4",
-      "from": "source_46dc397f07117c38",
-      "to": "claim_ff1f5b908a47648f",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_c501ed4cb67672cd",
-      "from": "claim_ff1f5b908a47648f",
-      "to": "event_78547822baad4bb9",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_4e17983eb99b8c78",
-      "from": "source_9da584f102d05f46",
-      "to": "claim_1032c7fd1cc0de08",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_b6ce045370803f78",
-      "from": "claim_1032c7fd1cc0de08",
-      "to": "event_78547822baad4bb9",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_c4d306854c072af8",
-      "from": "source_9ec90332da9eec1d",
-      "to": "claim_c7864b6513a2603f",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_676e2090bd24ca1d",
-      "from": "claim_c7864b6513a2603f",
-      "to": "event_78547822baad4bb9",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_2817849971d1cdf3",
-      "from": "source_3b2e9eb6d77fcdba",
-      "to": "claim_b65def0755c8a3e2",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_a6efa34a4f52934f",
-      "from": "claim_b65def0755c8a3e2",
-      "to": "event_78547822baad4bb9",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_2874bb837264cb38",
-      "from": "update_f9f0bd6ba16f0882",
-      "to": "event_78547822baad4bb9",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_968508563f16762c",
-      "from": "claim_1032c7fd1cc0de08",
-      "to": "event_78547822baad4bb9",
-      "relation": "update_evidence_for",
-      "updateTitle": "GLM-5.3权重尚未开放"
-    },
-    {
-      "id": "edge_918c78bfb35625b6",
-      "from": "source_1988761466109b07",
-      "to": "claim_ae40ba59f1778d94",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_fac9f6eeb58e3279",
-      "from": "claim_ae40ba59f1778d94",
-      "to": "event_78547822baad4bb9",
-      "relation": "update_evidence_for",
-      "updateTitle": "GLM-5.3权重尚未开放"
-    },
-    {
-      "id": "edge_50f3a2b0108d2766",
-      "from": "claim_c7864b6513a2603f",
-      "to": "event_78547822baad4bb9",
-      "relation": "update_evidence_for",
-      "updateTitle": "GLM-5.3权重尚未开放"
-    },
-    {
-      "id": "edge_21b93c0201ebee75",
-      "from": "claim_b65def0755c8a3e2",
-      "to": "event_78547822baad4bb9",
-      "relation": "update_evidence_for",
-      "updateTitle": "GLM-5.3权重尚未开放"
     },
     {
       "id": "edge_105aa36c9e988d6e",
