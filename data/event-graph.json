@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-15T04:06:55.089Z",
+  "generatedAt": "2026-08-15T09:06:39.261Z",
   "counts": {
-    "sources": 690,
-    "claims": 808,
-    "events": 167,
-    "articles": 167,
+    "sources": 692,
+    "claims": 810,
+    "events": 169,
+    "articles": 169,
     "updates": 110,
-    "edges": 2151,
+    "edges": 2157,
     "revisionsRequired": 8
   },
   "revisionQueue": [
@@ -93,6 +93,72 @@
     }
   ],
   "nodes": [
+    {
+      "id": "event_3f7f7a21ddc11501",
+      "type": "event",
+      "signalId": 121,
+      "title": "NVIDIA以巨额持股扩展战略敞口",
+      "bucket": "explore",
+      "valueScore": 88,
+      "publishedAt": "2026-08-14T21:17:14.000Z",
+      "updatedAt": "2026-08-14T21:17:14.000Z"
+    },
+    {
+      "id": "article_f238f038f1de2a11",
+      "type": "article",
+      "signalId": 121,
+      "title": "NVIDIA以巨额持股扩展战略敞口",
+      "version": 1,
+      "publishedAt": "2026-08-15T09:06:39.261Z"
+    },
+    {
+      "id": "source_660da7a0bfbb7ee4",
+      "type": "source",
+      "title": "Bloomberg Technology",
+      "url": "https://www.bloomberg.com/news/articles/2026-08-14/nvidia-has-21-billion-spacex-stake-30-billion-in-intel-shares",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-14T21:17:14.000Z"
+    },
+    {
+      "id": "claim_733f880b4ce273d5",
+      "type": "claim",
+      "title": "Bloomberg报道称NVIDIA披露持有近210亿美元SpaceX股份和300亿美元Intel股份。",
+      "role": "主张",
+      "addedAt": "2026-08-15T09:06:39.261Z"
+    },
+    {
+      "id": "event_50e21af75af5faf8",
+      "type": "event",
+      "signalId": 122,
+      "title": "Twitch把AI训练同意设为退出制",
+      "bucket": "explore",
+      "valueScore": 82,
+      "publishedAt": "2026-08-15T09:00:00.000Z",
+      "updatedAt": "2026-08-15T09:00:00.000Z"
+    },
+    {
+      "id": "article_ee345eec2de37c41",
+      "type": "article",
+      "signalId": 122,
+      "title": "Twitch把AI训练同意设为退出制",
+      "version": 1,
+      "publishedAt": "2026-08-15T09:06:39.261Z"
+    },
+    {
+      "id": "source_e6cc2a2222e0bf0c",
+      "type": "source",
+      "title": "WIRED AI",
+      "url": "https://www.wired.com/story/amazon-uses-your-twitch-content-to-train-its-ai-how-to-opt-out/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-15T09:00:00.000Z"
+    },
+    {
+      "id": "claim_c9642222284fd9c2",
+      "type": "claim",
+      "title": "WIRED报道Amazon可使用Twitch内容训练AI，除非主播主动退出，并称数千名用户质疑这一默认安排。",
+      "role": "主张",
+      "addedAt": "2026-08-15T09:06:39.261Z"
+    },
     {
       "id": "event_a54424288d0d3cf5",
       "type": "event",
@@ -15393,6 +15459,44 @@
     }
   ],
   "edges": [
+    {
+      "id": "edge_61cc83e9bebb6586",
+      "from": "event_3f7f7a21ddc11501",
+      "to": "article_f238f038f1de2a11",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_c9697d5f61f66da9",
+      "from": "source_660da7a0bfbb7ee4",
+      "to": "claim_733f880b4ce273d5",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_dc87a2ded7fdb2be",
+      "from": "claim_733f880b4ce273d5",
+      "to": "event_3f7f7a21ddc11501",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_abdbb151a6dc0243",
+      "from": "event_50e21af75af5faf8",
+      "to": "article_ee345eec2de37c41",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_032ab9cfa5e2af29",
+      "from": "source_e6cc2a2222e0bf0c",
+      "to": "claim_c9642222284fd9c2",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_1b94fb461f3f88cf",
+      "from": "claim_c9642222284fd9c2",
+      "to": "event_50e21af75af5faf8",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
     {
       "id": "edge_6f5f3f173fb19cd3",
       "from": "event_a54424288d0d3cf5",
