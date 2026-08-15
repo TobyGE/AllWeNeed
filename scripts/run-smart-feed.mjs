@@ -7,6 +7,23 @@ const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const planPath = resolve(projectRoot, "tmp/feed-update-plan.json");
 const scheduleStatePath = resolve(projectRoot, "tmp/feed-schedule-state.json");
 
+async function readScheduleState() {
+  try {
+    return JSON.parse(await readFile(scheduleStatePath, "utf8"));
+  } catch {
+    return { laneProcessedAt: {} };
+  }
+}
+
+async function writeScheduleState(scheduleState) {
+  await mkdir(dirname(scheduleStatePath), { recursive: true });
+  await writeFile(
+    scheduleStatePath,
+    `${JSON.stringify(scheduleState, null, 2)}\n`,
+    "utf8",
+  );
+}
+
 function run(command, args) {
   const result = spawnSync(command, args, {
     cwd: projectRoot,
@@ -44,6 +61,16 @@ function forwardedArguments() {
 
 run("npm", ["run", "poll:feed"]);
 const plan = JSON.parse(await readFile(planPath, "utf8"));
+let scheduleState = await readScheduleState();
+
+// Start the global cooldown before the first model task. A failed Live or
+// curated cycle is still a complete model attempt and must not be retried by
+// every hourly poll. Lane timestamps remain success-only below so candidates
+// are queued, not lost, while the cooldown is active.
+if (!plan.modelCooldownActive && plan.shouldRunFullCycle) {
+  scheduleState.lastFullCycleAt = plan.plannedAt;
+  await writeScheduleState(scheduleState);
+}
 
 // Live is an independent lightweight publication lane. It asks the Live
 // editorial model only about undecided additions to the six-hour window;
@@ -91,20 +118,9 @@ run("npm", [
   ...forwardedArguments(),
 ]);
 
-let scheduleState = { laneProcessedAt: {} };
-try {
-  scheduleState = JSON.parse(await readFile(scheduleStatePath, "utf8"));
-} catch {
-  // First smart cycle starts an empty schedule.
-}
 scheduleState.lastFullCycleAt = plan.plannedAt;
 scheduleState.laneProcessedAt = {
   ...(scheduleState.laneProcessedAt ?? {}),
   ...Object.fromEntries(plan.dueLanes.map((lane) => [lane, plan.plannedAt])),
 };
-await mkdir(dirname(scheduleStatePath), { recursive: true });
-await writeFile(
-  scheduleStatePath,
-  `${JSON.stringify(scheduleState, null, 2)}\n`,
-  "utf8",
-);
+await writeScheduleState(scheduleState);

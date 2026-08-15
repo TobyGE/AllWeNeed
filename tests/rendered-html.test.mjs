@@ -311,6 +311,11 @@ test("removes all disposable starter preview code", async () => {
     smartFeedScript,
     /if \(!plan\.modelCooldownActive\)[\s\S]*"cycle:live"/,
   );
+  assert.ok(
+    smartFeedScript.indexOf("scheduleState.lastFullCycleAt = plan.plannedAt") <
+      smartFeedScript.indexOf('"cycle:live"'),
+    "the global cooldown must be recorded before Live or feed model calls",
+  );
   assert.match(feedCycleScript, /status: "live_skipped_empty"/);
   assert.ok(
     feedCycleScript.indexOf('status: "live_skipped_empty"') <
