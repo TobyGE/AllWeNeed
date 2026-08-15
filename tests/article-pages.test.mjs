@@ -4,12 +4,16 @@ import test from "node:test";
 
 import {
   applyArticleMetadata,
+  applyTopicIndex,
+  applyTopicPage,
+  articlesForTopic,
   buildArticleCatalog,
   compactArticleCatalog,
   renderNewsSitemap,
   renderRssFeed,
   renderSitemap,
   staticLandingFallbackHtml,
+  topicDefinitions,
 } from "../scripts/article-pages.mjs";
 
 const root = new URL("../", import.meta.url);
@@ -120,6 +124,46 @@ test("RSS and static landing fallbacks expose permanent, crawlable story links",
   );
 });
 
+test("topic hubs expose stable, crawlable collections and sitemap entries", async () => {
+  const { catalog } = await fixture();
+  const template = await readFile(
+    new URL("static/topics/index.html", root),
+    "utf8",
+  );
+  const index = applyTopicIndex(template, catalog);
+
+  for (const topic of topicDefinitions) {
+    const matches = articlesForTopic(catalog, topic);
+    assert.ok(matches.length > 0, `${topic.slug} should contain stories`);
+    assert.match(index, new RegExp(`/topics/${topic.slug}/`));
+
+    const page = applyTopicPage(template, catalog, topic);
+    assert.match(
+      page,
+      new RegExp(
+        `rel="canonical" href="https://allweneed.info/topics/${topic.slug}/"`,
+      ),
+    );
+    assert.match(page, /"@type":"CollectionPage"/);
+    assert.match(page, /"@type":"ItemList"/);
+    assert.ok(
+      matches
+        .slice(0, 20)
+        .every((article) => page.includes(`href="${article.path}"`)),
+    );
+  }
+
+  const sitemap = renderSitemap(catalog);
+  for (const path of [
+    "/about/",
+    "/editorial-standards/",
+    "/topics/",
+    ...topicDefinitions.map((topic) => `/topics/${topic.slug}/`),
+  ]) {
+    assert.match(sitemap, new RegExp(path.replaceAll("/", "\\/")));
+  }
+});
+
 test("static article HTML exposes unique metadata, structured data, body copy and sources", async () => {
   const { catalog, focusTemplate, exploreTemplate } = await fixture();
   const article = catalog.articles.find(
@@ -143,6 +187,7 @@ test("static article HTML exposes unique metadata, structured data, body copy an
   assert.match(html, /<h1>/);
   assert.match(html, /<h2>Sources<\/h2>/);
   assert.match(html, /rel="noopener noreferrer"/);
+  assert.match(html, /All We Need Editorial System/);
 
   const explore = catalog.articles.find(
     (candidate) => candidate.kind === "explore",

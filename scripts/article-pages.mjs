@@ -333,8 +333,23 @@ function sitemapUrl(path, lastmod, alternates = true) {
 }
 
 export function renderSitemap(catalog) {
-  const staticPaths = ["/", "/focus/", "/explore/", "/conversations/", "/sources/"];
+  const staticPaths = [
+    "/",
+    "/focus/",
+    "/explore/",
+    "/conversations/",
+    "/sources/",
+    "/about/",
+    "/editorial-standards/",
+    "/topics/",
+  ];
   const urls = staticPaths.map((path) => sitemapUrl(path, null, false));
+  for (const topic of topicDefinitions) {
+    const latest = articlesForTopic(catalog, topic)[0];
+    urls.push(
+      sitemapUrl(`/topics/${topic.slug}/`, latest?.updatedAt ?? null, false),
+    );
+  }
   for (const article of catalog.articles) {
     urls.push(sitemapUrl(article.path, article.updatedAt));
     urls.push(
@@ -451,6 +466,261 @@ const staticPageCopy = {
   },
 };
 
+export const topicDefinitions = [
+  {
+    slug: "openai",
+    title: "OpenAI",
+    description:
+      "OpenAI product releases, models, enterprise moves, safety decisions, and the competitive consequences around them.",
+    patterns: [/\bopenai\b/i, /\bgpt[-\s]/i, /\bcodex\b/i],
+  },
+  {
+    slug: "anthropic-claude",
+    title: "Anthropic & Claude",
+    description:
+      "Anthropic and Claude releases, research, policy choices, partnerships, and business signals.",
+    patterns: [/\banthropic\b/i, /\bclaude\b/i],
+  },
+  {
+    slug: "google-gemini",
+    title: "Google, Gemini & DeepMind",
+    description:
+      "Google AI, Gemini, and DeepMind model releases, research, products, and platform strategy.",
+    patterns: [/\bgoogle\b/i, /\bgemini\b/i, /\bdeepmind\b/i],
+  },
+  {
+    slug: "open-models",
+    title: "Open Models",
+    description:
+      "Open-weight and open-source model releases, including Qwen, DeepSeek, Llama, and the ecosystems forming around them.",
+    patterns: [
+      /\bqwen\b/i,
+      /\bdeepseek\b/i,
+      /\bllama\b/i,
+      /\bhugging face\b/i,
+      /open[-\s](?:weight|source)/i,
+    ],
+  },
+  {
+    slug: "ai-agents",
+    title: "AI Agents",
+    description:
+      "Agentic systems, coding agents, tool use, memory, reliability, and the shift from assistance to execution.",
+    patterns: [/\bagent(?:ic|s)?\b/i, /coding agent/i, /tool use/i],
+  },
+  {
+    slug: "chips-compute",
+    title: "Chips & AI Compute",
+    description:
+      "Semiconductors, accelerators, memory, data centers, energy, and the economics of AI infrastructure.",
+    patterns: [
+      /\bnvidia\b/i,
+      /\bamd\b/i,
+      /\btsmc\b/i,
+      /\bchip(?:s)?\b/i,
+      /semiconductor/i,
+      /data cent(?:er|re)/i,
+      /\bcompute\b/i,
+      /\bmemory\b/i,
+    ],
+  },
+  {
+    slug: "robotics",
+    title: "Robotics",
+    description:
+      "Robotics, embodied intelligence, humanoids, world models, and the data bottlenecks between simulation and deployment.",
+    patterns: [/\brobot(?:ics|s)?\b/i, /\bhumanoid/i, /embodied/i],
+  },
+  {
+    slug: "ai-safety-security",
+    title: "AI Safety & Security",
+    description:
+      "AI safety, cybersecurity, model governance, misuse, evaluations, incidents, and defensive applications.",
+    patterns: [
+      /\bsafety\b/i,
+      /\bsecurity\b/i,
+      /\bcyber/i,
+      /governance/i,
+      /\brisk(?:s)?\b/i,
+      /watermark/i,
+    ],
+  },
+];
+
+function articleTopicText(article) {
+  const copy = article.locales.en;
+  return [
+    copy.title,
+    copy.description,
+    copy.category,
+    copy.eyebrow,
+    copy.why,
+    copy.impact,
+  ].filter(Boolean).join(" ");
+}
+
+export function articlesForTopic(catalog, topic) {
+  return catalog.articles.filter((article) =>
+    topic.patterns.some((pattern) => pattern.test(articleTopicText(article))),
+  );
+}
+
+function topicCards(catalog) {
+  return topicDefinitions.map((topic) => ({
+    ...topic,
+    articles: articlesForTopic(catalog, topic),
+  }));
+}
+
+function staticPageJsonLd(value) {
+  return JSON.stringify(value).replaceAll("<", "\\u003c");
+}
+
+function staticPageShell({ eyebrow, title, description, body }) {
+  return [
+    '<main class="editorial-page">',
+    '  <header class="editorial-page-header">',
+    '    <a class="seo-fallback-brand" href="/">All We Need</a>',
+    '    <nav aria-label="Primary">',
+    '      <a href="/focus/">Focus</a>',
+    '      <a href="/explore/">Explore</a>',
+    '      <a href="/topics/">Topics</a>',
+    '      <a href="/about/">About</a>',
+    '      <a href="/feed.xml">RSS</a>',
+    "    </nav>",
+    "  </header>",
+    '  <section class="editorial-page-hero">',
+    `    <p>${escapeHtml(eyebrow)}</p>`,
+    `    <h1>${escapeHtml(title)}</h1>`,
+    `    <p>${escapeHtml(description)}</p>`,
+    "  </section>",
+    body,
+    '  <footer class="editorial-page-footer">',
+    '    <a href="/editorial-standards/">Editorial standards &amp; corrections</a>',
+    '    <a href="https://github.com/TobyGE/AllWeNeed/issues">Contact and report an issue</a>',
+    "  </footer>",
+    "</main>",
+  ].join("\n");
+}
+
+function applyStaticPageMetadata(template, { title, description, path, jsonLd, body }) {
+  const canonical = `${siteOrigin}${path}`;
+  return template
+    .replace(/<title>[\s\S]*?<\/title>/, `<title>${escapeHtml(title)} — All We Need</title>`)
+    .replace(
+      /<meta\s+name="description"\s+content="[\s\S]*?"\s*\/>/,
+      `<meta name="description" content="${escapeHtml(description)}" />`,
+    )
+    .replace(
+      /<meta property="og:title" content="[\s\S]*?" \/>/,
+      `<meta property="og:title" content="${escapeHtml(title)} — All We Need" />`,
+    )
+    .replace(
+      /<meta\s+property="og:description"\s+content="[\s\S]*?"\s*\/>/,
+      `<meta property="og:description" content="${escapeHtml(description)}" />`,
+    )
+    .replace(
+      /<link\s+rel="canonical"\s+href="[^"]*"\s*\/>/,
+      `<link rel="canonical" href="${canonical}" />`,
+    )
+    .replace(
+      /<meta\s+property="og:url"\s+content="[^"]*"\s*\/>/,
+      `<meta property="og:url" content="${canonical}" />`,
+    )
+    .replace(
+      "</head>",
+      `    <script type="application/ld+json">${staticPageJsonLd(jsonLd)}</script>\n  </head>`,
+    )
+    .replace(/<main id="static-content">[\s\S]*?<\/main>/, body);
+}
+
+export function applyTopicIndex(template, catalog) {
+  const topics = topicCards(catalog);
+  const body = staticPageShell({
+    eyebrow: "Topic index",
+    title: "Follow the systems changing AI and technology",
+    description:
+      "Stable topic pages connect fast-moving stories into durable research trails, with every claim linked back to its original sources.",
+    body: [
+      '<section class="topic-card-grid">',
+      ...topics.map((topic) => [
+        "  <article>",
+        `    <p>${topic.articles.length} articles</p>`,
+        `    <h2><a href="/topics/${topic.slug}/">${escapeHtml(topic.title)}</a></h2>`,
+        `    <p>${escapeHtml(topic.description)}</p>`,
+        "  </article>",
+      ].join("\n")),
+      "</section>",
+    ].join("\n"),
+  });
+  return applyStaticPageMetadata(template, {
+    title: "AI & Technology Topics",
+    description:
+      "Browse All We Need research trails across frontier AI labs, open models, agents, chips, robotics, safety, and security.",
+    path: "/topics/",
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: "All We Need Topics",
+      url: `${siteOrigin}/topics/`,
+      hasPart: topics.map((topic) => ({
+        "@type": "CollectionPage",
+        name: topic.title,
+        url: `${siteOrigin}/topics/${topic.slug}/`,
+      })),
+    },
+    body,
+  });
+}
+
+export function applyTopicPage(template, catalog, topic) {
+  const articles = articlesForTopic(catalog, topic).slice(0, 40);
+  const path = `/topics/${topic.slug}/`;
+  const body = staticPageShell({
+    eyebrow: `${articles.length} linked articles`,
+    title: topic.title,
+    description: topic.description,
+    body: [
+      '<section class="topic-story-list">',
+      "  <h2>Latest intelligence</h2>",
+      ...articles.map((article) => {
+        const copy = article.locales.en;
+        return [
+          "  <article>",
+          `    <p>${article.kind === "focus" ? "Focus" : "Explore"} · <time datetime="${escapeHtml(article.updatedAt)}">${escapeHtml(article.updatedAt.slice(0, 10))}</time></p>`,
+          `    <h3><a href="${escapeHtml(article.path)}">${escapeHtml(copy.title)}</a></h3>`,
+          `    <p>${escapeHtml(copy.description)}</p>`,
+          `    <a class="topic-zh-link" href="${escapeHtml(article.zhPath)}">中文版</a>`,
+          "  </article>",
+        ].join("\n");
+      }),
+      "</section>",
+    ].join("\n"),
+  });
+  return applyStaticPageMetadata(template, {
+    title: topic.title,
+    description: topic.description,
+    path,
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: topic.title,
+      description: topic.description,
+      url: `${siteOrigin}${path}`,
+      mainEntity: {
+        "@type": "ItemList",
+        itemListElement: articles.map((article, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          url: `${siteOrigin}${article.path}`,
+          name: article.locales.en.title,
+        })),
+      },
+    },
+    body,
+  });
+}
+
 export function staticLandingFallbackHtml(catalog, page = "home") {
   const copy = staticPageCopy[page] ?? staticPageCopy.home;
   const kind = page === "focus" || page === "explore" ? page : null;
@@ -466,6 +736,8 @@ export function staticLandingFallbackHtml(catalog, page = "home") {
     '      <a href="/explore/">Explore</a>',
     '      <a href="/conversations/">Podcasts</a>',
     '      <a href="/sources/">Sources</a>',
+    '      <a href="/topics/">Topics</a>',
+    '      <a href="/about/">About</a>',
     '      <a href="/feed.xml">RSS</a>',
     "    </nav>",
     "  </header>",
@@ -520,7 +792,11 @@ export function articleJsonLd(article, locale) {
     dateModified: article.updatedAt,
     inLanguage: locale === "zh" ? "zh-CN" : "en",
     mainEntityOfPage: `${siteOrigin}${path}`,
-    author: { "@type": "Organization", name: "All We Need" },
+    author: {
+      "@type": "Organization",
+      name: "All We Need Editorial System",
+      url: `${siteOrigin}/editorial-standards/`,
+    },
     publisher: {
       "@type": "Organization",
       name: "All We Need",
@@ -549,6 +825,7 @@ export function articleFallbackHtml(article, locale) {
     `      <p class="article-eyebrow">${escapeHtml(copy.eyebrow)}</p>`,
     `      <h1>${escapeHtml(copy.title)}</h1>`,
     `      <p class="article-dek">${escapeHtml(copy.description)}</p>`,
+    '      <p class="article-static-byline">By <a href="/editorial-standards/">All We Need Editorial System</a></p>',
     "    </header>",
     `    <p class="article-lead">${escapeHtml(body.lead)}</p>`,
     ...body.sections.map((section) => [

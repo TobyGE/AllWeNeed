@@ -1,7 +1,6 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import snapshot from "../data/feed-snapshot.json";
 import {
   getSourceKind,
   publicSourceCatalog,
@@ -59,9 +58,11 @@ function sourceKindLabel(kind: SourceKind, locale: "zh" | "en") {
 export function SourceLibrary({
   locale,
   onNotice,
+  snapshot,
 }: {
   locale: "zh" | "en";
   onNotice: (message: string) => void;
+  snapshot: { statuses: SourceStatus[] };
 }) {
   const [kind, setKind] = useState<(typeof kindFilters)[number]>("全部");
   const [query, setQuery] = useState("");
@@ -76,7 +77,7 @@ export function SourceLibrary({
     pending: t("待首次抓取", "Awaiting first fetch"),
   };
 
-  const statuses = snapshot.statuses as SourceStatus[];
+  const statuses = snapshot.statuses;
   const publicSourceIds = new Set(publicSourceCatalog.map((source) => source.id));
   const publicStatuses = statuses.filter((status) =>
     publicSourceIds.has(status.sourceId),

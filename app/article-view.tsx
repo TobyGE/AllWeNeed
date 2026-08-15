@@ -271,6 +271,12 @@ export function ArticleView({
           <h1>{signal.title}</h1>
           <p className="article-lead">{article.lead}</p>
           <div className="article-meta">
+            <span className="article-byline">
+              {t("由", "By")} {" "}
+              <a href="/editorial-standards/">
+                {t("All We Need 编辑系统", "All We Need Editorial System")}
+              </a>
+            </span>
             {isConversation ? (
               <>
                 <span>{signal.guest}</span>
@@ -484,6 +490,13 @@ export function ArticleView({
                   ? t("返回播客", "Back to Podcasts")
                   : t("返回焦点", "Back to Focus")}
           </a>
+          <nav aria-label={t("编辑信息", "Editorial information")}>
+            <a href="/topics/">{t("主题", "Topics")}</a>
+            <a href="/about/">{t("关于", "About")}</a>
+            <a href="/editorial-standards/">
+              {t("编辑原则与更正", "Standards & corrections")}
+            </a>
+          </nav>
           <span>All We Need · {dateLabel}</span>
         </footer>
       </article>

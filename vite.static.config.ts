@@ -4,9 +4,12 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath, URL } from "node:url";
 import { defineConfig } from "vite";
 import {
+  applyTopicIndex,
+  applyTopicPage,
   applyStaticLandingFallback,
   applyArticleMetadata,
   buildArticleCatalog,
+  topicDefinitions,
 } from "./scripts/article-pages.mjs";
 
 const staticRoot = fileURLToPath(new URL("./static", import.meta.url));
@@ -58,6 +61,17 @@ function permanentArticlePages() {
           applyStaticLandingFallback(template, catalog, page),
         );
       }
+      const topicTemplatePath = resolve(outDir, "topics/index.html");
+      const topicTemplate = await readFile(topicTemplatePath, "utf8");
+      await writeFile(topicTemplatePath, applyTopicIndex(topicTemplate, catalog));
+      for (const topic of topicDefinitions) {
+        const outputPath = resolve(outDir, `topics/${topic.slug}/index.html`);
+        await mkdir(dirname(outputPath), { recursive: true });
+        await writeFile(
+          outputPath,
+          applyTopicPage(topicTemplate, catalog, topic),
+        );
+      }
     },
   };
 }
@@ -65,6 +79,9 @@ function permanentArticlePages() {
 export default defineConfig({
   root: staticRoot,
   base: staticBase,
+  define: {
+    "import.meta.env.VITE_ALL_WE_NEED_STATIC_BUILD": "true",
+  },
   publicDir: fileURLToPath(new URL("./public", import.meta.url)),
   plugins: [react(), permanentArticlePages()],
   build: {
@@ -87,6 +104,15 @@ export default defineConfig({
         ),
         sources: fileURLToPath(
           new URL("./static/sources/index.html", import.meta.url),
+        ),
+        about: fileURLToPath(
+          new URL("./static/about/index.html", import.meta.url),
+        ),
+        editorialStandards: fileURLToPath(
+          new URL("./static/editorial-standards/index.html", import.meta.url),
+        ),
+        topics: fileURLToPath(
+          new URL("./static/topics/index.html", import.meta.url),
         ),
       },
     },

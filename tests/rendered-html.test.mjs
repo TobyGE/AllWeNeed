@@ -127,6 +127,10 @@ test("removes all disposable starter preview code", async () => {
     exploreEntry,
     conversationsEntry,
     sourcesEntry,
+    runtimeEntry,
+    aboutEntry,
+    standardsEntry,
+    topicsEntry,
   ] =
     await Promise.all([
     readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
@@ -159,9 +163,28 @@ test("removes all disposable starter preview code", async () => {
       "utf8",
     ),
     readFile(new URL("../static/sources/index.html", import.meta.url), "utf8"),
+    readFile(new URL("../static/main.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../static/about/index.html", import.meta.url), "utf8"),
+    readFile(
+      new URL("../static/editorial-standards/index.html", import.meta.url),
+      "utf8",
+    ),
+    readFile(new URL("../static/topics/index.html", import.meta.url), "utf8"),
   ]);
 
   assert.match(page, /All We Need/);
+  assert.doesNotMatch(page, /^import .*\.json/m);
+  assert.match(runtimeEntry, /daily-radar\.json\?url/);
+  assert.match(runtimeEntry, /feed-snapshot\.json\?url/);
+  assert.match(runtimeEntry, /await import\("\.\.\/app\/page"\)/);
+  assert.match(aboutEntry, /About All We Need/);
+  assert.match(aboutEntry, /How automation is used/);
+  assert.match(standardsEntry, /Updates and corrections/);
+  assert.match(standardsEntry, /Model output is never treated as evidence/);
+  assert.match(
+    topicsEntry,
+    /rel="canonical" href="https:\/\/allweneed\.info\/topics\/"/,
+  );
   assert.match(page, /t\("搜索情报", "Search intelligence"\)/);
   assert.match(page, /app-shell view-\$\{view\}/);
   assert.match(page, /liveFeed\.items/);
@@ -244,6 +267,10 @@ test("removes all disposable starter preview code", async () => {
     "https://allweneed.info/explore/",
     "https://allweneed.info/conversations/",
     "https://allweneed.info/sources/",
+    "https://allweneed.info/about/",
+    "https://allweneed.info/editorial-standards/",
+    "https://allweneed.info/topics/",
+    "https://allweneed.info/topics/openai/",
   ]) {
     assert.match(sitemap, new RegExp(escapeRenderedText(url)));
   }
@@ -779,7 +806,10 @@ test("removes all disposable starter preview code", async () => {
   assert.match(exploreArticleScript, /single-source hypothesis/);
   assert.match(packageJson, /expand-explore-articles\.mjs/);
   assert.match(packageJson, /ensure-explore-depth\.mjs/);
-  assert.match(page, /SourceLibrary locale=\{locale\}/);
+  assert.match(
+    page,
+    /<SourceLibrary[\s\S]*locale=\{locale\}[\s\S]*snapshot=\{snapshot\}/,
+  );
   assert.doesNotMatch(page, /最强反方观点/);
   assert.doesNotMatch(page, /SkeletonPreview|codex-preview/);
   assert.doesNotMatch(layout, /Starter Project|codex-preview/);

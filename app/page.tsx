@@ -1,11 +1,6 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import conversations from "../data/conversations.json";
-import dailyRadar from "../data/daily-radar.json";
-import snapshot from "../data/feed-snapshot.json";
-import liveFeed from "../data/live-feed.json";
-import trafficSummary from "../data/traffic-summary.json";
 import {
   trackAnalyticsEvent,
   trackPageView,
@@ -32,7 +27,19 @@ import {
 } from "./signal-heat";
 import { getSourceKind, publicSourceCatalog } from "./source-catalog";
 import { SourceLibrary } from "./source-library";
+import type { RuntimeData } from "./runtime-data";
 import { VisitorMap, type TrafficSummary } from "./visitor-map";
+
+declare global {
+  var __ALL_WE_NEED_DATA__: RuntimeData | undefined;
+}
+
+const runtimeData = import.meta.env.VITE_ALL_WE_NEED_STATIC_BUILD
+  ? globalThis.__ALL_WE_NEED_DATA__!
+  : globalThis.__ALL_WE_NEED_DATA__ ??
+    await import("./runtime-data").then((module) => module.loadRuntimeData());
+const { conversations, dailyRadar, snapshot, liveFeed, trafficSummary } =
+  runtimeData;
 
 type SignalReference = {
   sourceName: string;
@@ -1591,7 +1598,11 @@ export default function Home() {
 
         <div className="content">
           {section === "sources" ? (
-            <SourceLibrary locale={locale} onNotice={showNotice} />
+            <SourceLibrary
+              locale={locale}
+              onNotice={showNotice}
+              snapshot={snapshot}
+            />
           ) : (
             <>
           <section className="page-intro">
@@ -2514,6 +2525,14 @@ export default function Home() {
                     `GPT analysis complete · ${dailyRadar.analyzedItemCount} high-relevance items`,
                   )}
             </span>
+            <nav className="footer-links" aria-label={t("站点信息", "Site information")}>
+              <a href="/topics/">{t("主题", "Topics")}</a>
+              <a href="/about/">{t("关于", "About")}</a>
+              <a href="/editorial-standards/">
+                {t("编辑原则", "Standards")}
+              </a>
+              <a href="/feed.xml">RSS</a>
+            </nav>
             <span>
               {view === "live"
                 ? t(
