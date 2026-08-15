@@ -233,7 +233,10 @@ export function mergeLiveTitleTranslations(items, result) {
   if (accountedIds.size !== items.length) {
     throw new Error("Live localization did not account for every input item.");
   }
-  const minimumRetained = Math.min(5, items.length);
+  // A five-item window can legitimately contain one same-event report pair.
+  // Keep a conservative floor, but do not make truthful deduplication
+  // impossible when the six-hour window has no sixth item to backfill it.
+  const minimumRetained = Math.min(5, Math.max(1, items.length - 1));
   if (retainedIds.size < minimumRetained) {
     throw new Error(
       `Live localization retained only ${retainedIds.size} item(s); expected at least ${minimumRetained}.`,

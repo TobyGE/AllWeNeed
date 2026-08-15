@@ -573,6 +573,37 @@ test("Luna may remove same-event reports while preserving distinct Meta news", (
   ]);
 });
 
+test("a five-item Live window may remove one same-event report", () => {
+  const items = [
+    item({ id: "books-bbc" }),
+    item({ id: "books-decoder" }),
+    item({ id: "nvidia" }),
+    item({ id: "cursor" }),
+    item({ id: "algorithm" }),
+  ];
+  const localized = mergeLiveTitleTranslations(items, {
+    items: [
+      { id: "books-bbc", titleZh: "AI图书正在影响二手书市场" },
+      { id: "nvidia", titleZh: "英伟达调整其AI投资" },
+      { id: "cursor", titleZh: "SpaceX收购Cursor" },
+      { id: "algorithm", titleZh: "新算法正式亮相" },
+    ],
+    duplicates: [
+      { id: "books-decoder", duplicateOf: "books-bbc" },
+    ],
+  });
+
+  assert.deepEqual(localized.items.map((entry) => entry.id), [
+    "books-bbc",
+    "nvidia",
+    "cursor",
+    "algorithm",
+  ]);
+  assert.deepEqual(localized.duplicateClusters, [
+    { keptId: "books-bbc", duplicateIds: ["books-decoder"] },
+  ]);
+});
+
 test("nested duplicate clusters resolve to the final retained report", () => {
   assert.deepEqual(
     normalizeDuplicateClusters([
