@@ -1,8 +1,144 @@
 {
-  "generatedAt": "2026-08-15T02:06:21.496Z",
+  "generatedAt": "2026-08-15T04:06:55.089Z",
   "weekStart": "2026-07-24T00:00:00.000Z",
   "model": "gpt-5.6-terra",
   "items": [
+    {
+      "id": "conversation-20260815040655-1",
+      "videoId": "",
+      "sourceName": "The TWIML AI Podcast",
+      "sourceKind": "Podcast",
+      "originalTitle": "Why Image Generation Needs More Than Bigger Models with Fatih Porikli - #773",
+      "url": "https://twimlai.com/podcast/twimlai/why-image-generation-needs-more-than-bigger-models",
+      "feedBatchAt": "2026-08-15T04:06:55.089Z",
+      "publishedAt": "2026-08-12T22:18:00.000Z",
+      "durationMinutes": 57,
+      "guest": "Fatih Porikli",
+      "categoryZh": "生成式视觉",
+      "categoryEn": "Generative vision",
+      "titleZh": "图像生成的下一关：先规划场景，再渲染像素",
+      "titleEn": "The Next Step for Image Generation: Plan the Scene Before Rendering Pixels",
+      "dekZh": "Qualcomm 技术副总裁 Fatih Porikli 认为，图像模型继续扩大并不能自动解决“生成正确内容”的问题；更可靠的路线是把场景规划、可控生成与高效渲染拆开处理。",
+      "dekEn": "Fatih Porikli, Vice President of Technology at Qualcomm, argues that scaling image models alone does not guarantee correct outputs; a more reliable path separates scene planning, controllable generation, and efficient rendering.",
+      "whyListenZh": "这是一场从真实感转向正确性与可控性的技术讨论：它把多人构图、局部编辑伪影、16-megapixel 端侧生成等看似分散的问题，收束为生成系统是否拥有明确中间表示与优化目标的问题。",
+      "whyListenEn": "This is a technical conversation about moving from realism to correctness and control. It connects multi-person composition, editing artifacts, and 16-megapixel edge generation through one question: whether generative systems need explicit intermediate representations and better objectives.",
+      "counterpointZh": "分层规划可能提高可控性，但也会引入额外模型、接口和错误传递环节；关键反证是，这类系统能否在开放式提示词上保持端到端模型的速度、视觉质量与使用简洁性。",
+      "counterpointEn": "Layered planning may improve control, but it also adds models, interfaces, and opportunities for error propagation. The key test is whether such systems can retain the speed, visual quality, and simplicity of end-to-end models on open-ended prompts.",
+      "takeawaysZh": [
+        "Fatih Porikli 指出，图像看起来逼真，不等于模型准确执行了人数、关系和构图等具体要求。",
+        "他讨论的方向是将场景规划与渲染分离，以减少一次性生成同时承担语义、布局和像素细节的负担。",
+        "端侧高分辨率生成若要成立，不只取决于模型质量，也取决于效率、编辑稳定性与可控工作流。"
+      ],
+      "takeawaysEn": [
+        "Fatih Porikli argues that photorealism does not mean a model has correctly followed requirements such as person count, relationships, and composition.",
+        "He discusses separating scene planning from rendering so a single generation pass does not have to solve semantics, layout, and pixel detail at once.",
+        "Viable high-resolution edge generation depends not only on model quality, but also on efficiency, stable editing, and controllable workflows."
+      ],
+      "articleZh": {
+        "lead": "在这期 TWIML AI Podcast 中，Qualcomm 技术副总裁 Fatih Porikli 提出的核心判断是：生成式视觉的瓶颈正从“能否画得像”转向“能否按要求画对”。当用户要求多个不同人物、特定空间关系、可编辑的局部内容或本地运行的高分辨率图像时，更大的模型本身未必是充分答案。",
+        "sections": [
+          {
+            "heading": "真实感不等于任务完成",
+            "body": "Porikli 将当前 text-to-image 系统的弱点定位在可控性而非单纯观感。模型可以产出令人信服的图像，却仍可能错置人物数量、混淆对象关系，或偏离指定构图。这个区分改变了优化目标：若用户真正需要的是可被检查的约束满足，生成系统就不能只以整体视觉逼真度作为成功标准。"
+          },
+          {
+            "heading": "把规划与渲染拆成不同问题",
+            "body": "他介绍的 CVPR 相关方向包括更好的训练目标、强化学习、agentic image generation pipeline，以及将场景规划同渲染分离。其机制是先让系统处理“画面里有什么、在哪里、彼此如何组织”，再解决纹理、光照和像素级细节。Porikli 还将这一思路连接到 16-megapixel 图像在 edge devices 上的高效生成，以及减少 AI 编辑中可见伪影的方法：两者都要求系统在资源和编辑约束下维持输出一致性。"
+          },
+          {
+            "heading": "模块化未必天然胜出",
+            "body": "分层架构的代价是新增协调问题。规划表示若不够准确，渲染器可能会忠实地放大错误；多个阶段也可能增加延迟与工程复杂度。因而，这一判断可被证伪的变量不是演示图是否更可控，而是这些方法能否在开放提示、反复编辑和本地部署时，同时超过端到端方案的成功率、速度与视觉质量。"
+          }
+        ],
+        "outlook": "关注下一批生成式视觉产品是否开始公开报告约束遵循率——例如多人身份、对象计数和空间关系的成功率——并将其与延迟、显存和端侧功耗放在同一张指标表中。"
+      },
+      "articleEn": {
+        "lead": "In this episode of The TWIML AI Podcast, Qualcomm Vice President of Technology Fatih Porikli advances a focused claim: generative vision is moving from the problem of making images look real to the problem of making them correctly satisfy instructions. Requests involving distinct people, spatial relationships, editable content, or local high-resolution generation may not be solved by larger models alone.",
+        "sections": [
+          {
+            "heading": "Realism is not task completion",
+            "body": "Porikli locates a central weakness of current text-to-image systems in controllability rather than appearance alone. A model can produce a convincing image while getting person counts, object relationships, or requested composition wrong. That distinction changes the optimization target: if users need checkable constraint satisfaction, overall visual plausibility cannot be the only measure of success."
+          },
+          {
+            "heading": "Treat planning and rendering as separate problems",
+            "body": "He discusses CVPR-related work involving improved training objectives, reinforcement learning, agentic image-generation pipelines, and a separation between scene planning and rendering. The proposed mechanism is to first establish what belongs in an image, where it belongs, and how elements relate, then address texture, lighting, and pixel-level detail. Porikli connects this approach to efficient 16-megapixel generation on edge devices and to reducing visible artifacts in AI editing, both of which require consistency under resource and editing constraints."
+          },
+          {
+            "heading": "Modularity does not automatically win",
+            "body": "A layered architecture also creates coordination costs. If a planning representation is wrong, a renderer may faithfully amplify the error; multiple stages can add latency and engineering complexity. The falsifiable variable is therefore not whether a demo appears more controllable, but whether these systems can outperform end-to-end alternatives on success rate, speed, and visual quality across open-ended prompts, repeated edits, and local deployment."
+          }
+        ],
+        "outlook": "Watch whether the next generative-vision products publish constraint-following metrics—such as success on identity, object count, and spatial relations—alongside latency, memory, and edge-power measurements."
+      }
+    },
+    {
+      "id": "conversation-20260815040655-2",
+      "videoId": "",
+      "sourceName": "Possible",
+      "sourceKind": "Podcast",
+      "originalTitle": "Making taxes fun with Pikachu and AI | Cadi Zhang",
+      "url": "https://feeds.megaphone.fm/4e419a74-95d3-11f1-9dcf-837db0d89475",
+      "feedBatchAt": "2026-08-15T04:06:55.089Z",
+      "publishedAt": "2026-08-12T07:01:00.000Z",
+      "durationMinutes": 35,
+      "guest": "Cadi Zhang",
+      "categoryZh": "具身智能",
+      "categoryEn": "Embodied AI",
+      "titleZh": "机器人缺的不是又一个世界模型，而是触觉与任务数据",
+      "titleEn": "Robotics Needs More Than Another World Model: It Needs Tactile, Task-Level Data",
+      "dekZh": "Cadi Zhang 认为，生成式 AI 已能显著压缩游戏原型制作的成本，但虚拟世界的学习无法直接填补机器人在触觉、受力和真实任务经验上的数据缺口。",
+      "dekEn": "Cadi Zhang argues that generative AI can materially compress game-prototyping work, but learning from virtual worlds does not directly close robotics’ data gap in touch, force, and real task experience.",
+      "whyListenZh": "这场对谈把游戏开发、VR teleoperation、AI accounting 与机器人产品运营放在同一条问题链上：数字内容生成越快，越能凸显具身系统需要从真实交互中获得的数据，以及人类判断仍不可替代的环节。",
+      "whyListenEn": "The conversation puts game development, VR teleoperation, AI accounting, and robotics product operations on one problem chain: the faster digital content can be generated, the clearer it becomes that embodied systems need data from real interaction and that human judgment remains important.",
+      "counterpointZh": "真实数据稀缺并不意味着模拟和世界模型只能充当辅助工具；如果传感器、teleoperation 数据采集和任务定义同时改善，虚拟训练与真实数据的组合可能比“先等足够多真实数据”更快扩展。",
+      "counterpointEn": "Scarce real-world data does not mean simulation and world models can only play a supporting role. If sensors, teleoperation data collection, and task definition improve together, a blend of virtual training and real data may scale faster than waiting for a large real-data corpus.",
+      "takeawaysZh": [
+        "Cadi Zhang 表示，GPT、Blender、PixelLab 和 Aseprite 可加快代码、玩法机制与 3D 资产的原型制作。",
+        "她认为，当前 AI 仍难以判断游戏是否好玩、维持一致的美术风格，或准确建模折叠一张纸所需的力。",
+        "她将 simulation-to-reality gap 归因于物理机器人缺少无法从互联网抓取的触觉与真实世界数据。"
+      ],
+      "takeawaysEn": [
+        "Cadi Zhang says GPT, Blender, PixelLab, and Aseprite can accelerate prototyping for code, gameplay mechanics, and 3D assets.",
+        "She argues that current AI still struggles to judge whether a game is fun, preserve a consistent art style, or precisely model the force needed to fold a sheet of paper.",
+        "She attributes the simulation-to-reality gap in robotics to missing tactile and real-world data that cannot simply be scraped from the internet."
+      ],
+      "articleZh": {
+        "lead": "在 Possible 的对谈中，Cadi Zhang 给出了一条值得带走的分界线：生成式 AI 可以把数字创作中的产出速度推得很快，但具身智能的困难并不会因此自动消失。虚拟环境可以帮助构造和测试世界，却不能天然提供机器人理解接触、摩擦、力与安全边界所需的经验。",
+        "sections": [
+          {
+            "heading": "生成工具正在重写原型制作，而非替代品味",
+            "body": "Zhang 以自己的工作流程说明，GPT、Blender、PixelLab 和 Aseprite 可以快速生成代码、玩法机制和 3D 资产，并帮助她推进 duck-themed imposter game 与 Pokémon-inspired tax-filing game PokéTax 等原型。她的论点并不是这些工具不能创造，而是它们尚不能可靠判断作品是否“好玩”，也难以持续保持美术风格一致。对游戏团队而言，生产环节可以被压缩，但创意方向与体验评估仍是不同性质的工作。"
+          },
+          {
+            "heading": "具身学习卡在互联网没有的数据上",
+            "body": "Zhang 把游戏、VR teleoperation 和机器人联系起来：虚拟世界能为世界模型和策略测试提供环境，但物理机器人仍需面对触觉、材料差异、接触时机与具体受力。她用折叠一张纸所需的精确力量说明，机器人所缺的不只是更多视觉样本，而是来自实际交互的任务级数据。这也是她讨论 humanoid 与 task-specific form factors、robot safety 及 simulation-to-reality gap 时的共同底层约束。"
+          },
+          {
+            "heading": "数据瓶颈的边界取决于采集系统",
+            "body": "把问题归结为缺少真实数据，不能直接推出模拟的价值有限。仿真可以覆盖危险、昂贵或罕见的场景，世界模型也可能提高真实采样的效率。Zhang 的判断面临的关键检验是：VR teleoperation、传感器与安全流程能否以足够低的成本产出高质量任务数据，并让这些数据与模拟训练共同改善跨环境泛化，而非只在受控演示中有效。"
+          }
+        ],
+        "outlook": "观察机器人团队是否开始披露数据闭环的具体指标：每项任务需要多少 teleoperation 轨迹、触觉或力传感数据带来多少成功率提升，以及模型换环境后成功率下降多少。"
+      },
+      "articleEn": {
+        "lead": "In this Possible conversation, Cadi Zhang draws a useful boundary: generative AI can dramatically accelerate output in digital creation, but that does not automatically dissolve the hard problems of embodied intelligence. Virtual environments can help construct and test worlds, yet they do not inherently provide the experience robots need around contact, friction, force, and safety limits.",
+        "sections": [
+          {
+            "heading": "Generative tools change prototyping, not taste",
+            "body": "Zhang describes using GPT, Blender, PixelLab, and Aseprite to rapidly produce code, gameplay mechanics, and 3D assets, including for a duck-themed imposter game and the Pokémon-inspired tax-filing game PokéTax. Her point is not that these tools cannot create; it is that they do not yet reliably judge whether a game is fun or maintain a coherent art style. Production can be compressed, while creative direction and experience evaluation remain work of a different kind."
+          },
+          {
+            "heading": "Embodied learning lacks data the internet does not contain",
+            "body": "Zhang connects games, VR teleoperation, and robotics: virtual worlds can provide environments for world models and policy testing, but physical robots still confront touch, material variation, timing of contact, and task-specific force. Her example of the precise force required to fold a sheet of paper illustrates the claim that robotics lacks more than visual samples; it lacks task-level data from real interactions. This is the shared constraint beneath her discussion of humanoid versus task-specific form factors, robot safety, and the simulation-to-reality gap."
+          },
+          {
+            "heading": "The data bottleneck depends on the collection system",
+            "body": "Describing the problem as a shortage of real-world data does not imply that simulation has limited value. Simulation can cover dangerous, expensive, or rare settings, and world models may make real sampling more efficient. The important test for Zhang’s framing is whether VR teleoperation, sensors, and safety processes can produce high-quality task data cheaply enough for it to combine with simulation and improve cross-environment generalization, rather than merely supporting controlled demonstrations."
+          }
+        ],
+        "outlook": "Watch whether robotics teams begin disclosing concrete data-loop metrics: teleoperation trajectories required per task, the success-rate gain from tactile or force data, and the performance drop when models move across environments."
+      }
+    },
     {
       "id": "conversation-20260815020621-1",
       "videoId": "",
