@@ -1,16 +1,26 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-15T13:07:15.643Z",
+  "generatedAt": "2026-08-15T21:07:43.238Z",
   "counts": {
-    "sources": 699,
-    "claims": 818,
+    "sources": 704,
+    "claims": 823,
     "events": 170,
     "articles": 170,
-    "updates": 111,
-    "edges": 2178,
-    "revisionsRequired": 8
+    "updates": 113,
+    "edges": 2195,
+    "revisionsRequired": 9
   },
   "revisionQueue": [
+    {
+      "signalId": 102,
+      "eventId": "event_1c0e52d26f417ac9",
+      "updateId": "update_40425cc133455c1a",
+      "title": "NVIDIA联手资本巨头扩展算力融资",
+      "updateTitle": "NVIDIA收缩OpenAI项目担保",
+      "thesisImpact": "新增报道把算力融资平台的宏观承诺推进到具体项目担保规模，并显示公开讨论中的规模已收缩；这使风险分担和资本约束成为判断AI基础设施扩张的重要变量。",
+      "detectedAt": "2026-08-15T15:41:02.000Z",
+      "status": "needs_editorial_revision"
+    },
     {
       "signalId": 115,
       "eventId": "event_78547822baad4bb9",
@@ -93,6 +103,321 @@
     }
   ],
   "nodes": [
+    {
+      "id": "event_bd08267689227246",
+      "type": "event",
+      "signalId": 117,
+      "title": "Qwen开放3.8-27B代理模型",
+      "bucket": "dynamic",
+      "valueScore": 85,
+      "publishedAt": "2026-08-14T17:01:54.000Z",
+      "updatedAt": "2026-08-14T21:54:36.000Z"
+    },
+    {
+      "id": "article_d54b51ea68262f79",
+      "type": "article",
+      "signalId": 117,
+      "title": "Qwen开放3.8-27B代理模型",
+      "version": 1,
+      "publishedAt": "2026-08-15T21:07:43.238Z"
+    },
+    {
+      "id": "source_bf9169bc18a6de86",
+      "type": "source",
+      "title": "The Decoder AI",
+      "url": "https://the-decoder.com/alibabas-qwen-team-releases-qwen-3-8-models-with-open-weights-under-the-apache-2-0-license/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-14T17:01:54.000Z"
+    },
+    {
+      "id": "claim_5eafb63f883af615",
+      "type": "claim",
+      "title": "The Decoder报道Qwen发布Apache 2.0许可的Qwen3.8开放权重模型，并定位其服务本地与代理应用。",
+      "role": "佐证",
+      "addedAt": "2026-08-15T21:07:43.238Z"
+    },
+    {
+      "id": "source_ca26bca182f697df",
+      "type": "source",
+      "title": "Qwen",
+      "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
+      "sourceKind": "Repository",
+      "publishedAt": "2026-08-14T17:01:54.000Z"
+    },
+    {
+      "id": "claim_a9b9dfc5035f842c",
+      "type": "claim",
+      "title": "Qwen官方仓库确认Qwen3.8-27B权重、Apache 2.0许可、27B规模、262,144-token上下文及Terminal-Bench 2.1比较结果。",
+      "role": "主张",
+      "addedAt": "2026-08-15T21:07:43.238Z"
+    },
+    {
+      "id": "source_20e9d0e734a8fb4e",
+      "type": "source",
+      "title": "Qwen",
+      "url": "https://huggingface.co/Qwen/Qwen3.6-27B",
+      "sourceKind": "Repository",
+      "publishedAt": "2026-08-14T17:01:54.000Z"
+    },
+    {
+      "id": "claim_c12b37ac26a4153b",
+      "type": "claim",
+      "title": "Qwen3.6-27B官方模型卡确认此前27B开放型号已有Apache 2.0许可与262,144-token原生上下文。",
+      "role": "背景",
+      "addedAt": "2026-08-15T21:07:43.238Z"
+    },
+    {
+      "id": "source_40851b30c97009a7",
+      "type": "source",
+      "title": "QwenCloud",
+      "url": "https://docs.qwencloud.com/developer-guides/getting-started/text-generation-models",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-14T17:01:54.000Z"
+    },
+    {
+      "id": "claim_e7e5fec0ce6a14b3",
+      "type": "claim",
+      "title": "QwenCloud将qwen3.7-plus列为工具调用模型，并标注其1M-token上下文定位。",
+      "role": "背景",
+      "addedAt": "2026-08-15T21:07:43.238Z"
+    },
+    {
+      "id": "source_154d8a92182c5cce",
+      "type": "source",
+      "title": "arXiv",
+      "url": "https://arxiv.org/abs/2404.00599",
+      "sourceKind": "Research",
+      "publishedAt": "2024-04-05T00:00:00.000Z"
+    },
+    {
+      "id": "claim_2749faa4e2855e87",
+      "type": "claim",
+      "title": "EvoCodeBench研究指出传统代码生成基准与真实代码仓库任务的对齐存在局限。",
+      "role": "反例",
+      "addedAt": "2026-08-15T21:07:43.238Z"
+    },
+    {
+      "id": "source_034c2462b05d2238",
+      "type": "source",
+      "title": "Qwen",
+      "url": "https://huggingface.co/Qwen/Qwen3.8-27B-FP8",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-14T15:16:58.000Z"
+    },
+    {
+      "id": "claim_8e1258b51ef42c96",
+      "type": "claim",
+      "title": "Qwen官方模型卡确认Qwen3.8-27B-FP8权重存在，并说明其采用block size 128的fine-grained FP8量化。",
+      "role": "最新进展",
+      "addedAt": "2026-08-15T21:07:43.238Z"
+    },
+    {
+      "id": "source_4b1f7c337b97d982",
+      "type": "source",
+      "title": "ARahim3/mlx-dspark",
+      "url": "https://github.com/ARahim3/mlx-dspark/releases/tag/v0.10.0",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-14T21:54:36.000Z"
+    },
+    {
+      "id": "claim_677608a76e50e81a",
+      "type": "claim",
+      "title": "官方v0.10.0发布说明：在M4 Pro上，8-bit达到2.45×和20.3 tok/s，4-bit达到1.74×和25.3 tok/s，内存约29 GB和18 GB，输出与普通解码一致。",
+      "role": "最新进展",
+      "addedAt": "2026-08-15T21:07:43.238Z"
+    },
+    {
+      "id": "update_efa00e162f322af2",
+      "type": "update",
+      "signalId": 117,
+      "title": "Qwen3.8-27B本地推理提速",
+      "summary": "官方mlx-dspark更新加入Qwen3.8-27B的RadixArk推测解码器，在保持输出一致的条件下，为8-bit与4-bit本地运行提供更高吞吐和更低部署门槛。",
+      "addedAt": "2026-08-14T21:54:36.000Z",
+      "changeType": "progress",
+      "thesisImpact": "官方发布补充了Qwen3.8-27B在Apple Silicon上的本地推理效率证据，强化其可部署性判断，但仍属于既有模型的工具链进展而非新模型状态变化。",
+      "revisionRequired": false
+    },
+    {
+      "id": "update_b97eb8d70517b2ff",
+      "type": "update",
+      "signalId": 117,
+      "title": "Qwen补充27B的FP8权重",
+      "summary": "Qwen官方模型卡新增Qwen3.8-27B-FP8，采用block size 128的fine-grained FP8量化；Qwen3.6-27B公开配置可作为同级架构对照。",
+      "addedAt": "2026-08-14T16:12:35.000Z",
+      "changeType": "progress",
+      "thesisImpact": "官方新增FP8量化权重信息，并与Qwen3.6-27B的公开配置形成对照，强化该版本以训练改进和部署形态扩展为主的判断。",
+      "revisionRequired": false
+    },
+    {
+      "id": "claim_5a7ce412bad07e0b",
+      "type": "claim",
+      "title": "Qwen官方模型卡确认Qwen3.8-27B仓库提供模型权重与配置文件，并列出其27B参数规模和模型结构。",
+      "role": "最新进展",
+      "addedAt": "2026-08-14T16:12:35.000Z"
+    },
+    {
+      "id": "claim_3011d44f8bb452a5",
+      "type": "claim",
+      "title": "Qwen3.6-27B官方模型卡列出27B参数、64层、5120隐藏维度及262144原生上下文等公开配置。",
+      "role": "背景",
+      "addedAt": "2026-08-14T16:12:35.000Z"
+    },
+    {
+      "id": "event_1c0e52d26f417ac9",
+      "type": "event",
+      "signalId": 102,
+      "title": "NVIDIA联手资本巨头扩展算力融资",
+      "bucket": "dynamic",
+      "valueScore": 84,
+      "publishedAt": "2026-08-10T20:01:00.000Z",
+      "updatedAt": "2026-08-15T15:41:02.000Z"
+    },
+    {
+      "id": "article_6154bfc5759e6911",
+      "type": "article",
+      "signalId": 102,
+      "title": "NVIDIA联手资本巨头扩展算力融资",
+      "version": 1,
+      "publishedAt": "2026-08-15T21:07:43.238Z"
+    },
+    {
+      "id": "source_0122ec2217c08ff3",
+      "type": "source",
+      "title": "NVIDIA Newsroom",
+      "url": "https://nvidianews.nvidia.com/news/nvidia-partners-with-apollo-blackrock-blackstone-brookfield-goldman-sachs-and-kkr-to-establish-ai-compute-infrastructure-financing-platforms-to-mobilize-over-500-billion-of-third-party-capital",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-10T20:01:00.000Z"
+    },
+    {
+      "id": "claim_b63375fbf9193803",
+      "type": "claim",
+      "title": "NVIDIA宣布与Apollo、BlackRock、Blackstone、Brookfield、Goldman Sachs和KKR建立AI算力基础设施融资平台，目标动员超过5000亿美元第三方资本。",
+      "role": "主张",
+      "addedAt": "2026-08-15T21:07:43.238Z"
+    },
+    {
+      "id": "source_95824baa8e354aed",
+      "type": "source",
+      "title": "BBC Technology",
+      "url": "https://www.bbc.co.uk/news/articles/c78gr0jv0mdo?at_medium=RSS&at_campaign=rss",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-11T08:44:52.000Z"
+    },
+    {
+      "id": "claim_e1973cd23f275af9",
+      "type": "claim",
+      "title": "BBC报道称，华尔街大型机构提供5000亿美元支持AI项目，资金将用于建设、运行和冷却容纳大量AI芯片的数据中心。",
+      "role": "佐证",
+      "addedAt": "2026-08-15T21:07:43.238Z"
+    },
+    {
+      "id": "source_8010a95ae63d6168",
+      "type": "source",
+      "title": "The Decoder AI",
+      "url": "https://the-decoder.com/nvidia-guarantees-its-own-chips-value-to-unlock-500-billion-in-ai-infrastructure-financing/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-11T09:41:03.000Z"
+    },
+    {
+      "id": "claim_201df8160502d32a",
+      "type": "claim",
+      "title": "The Decoder报道称，NVIDIA在与大型资管机构建立的AI基础设施融资安排中，为自家芯片提供最高25%的残值保障。",
+      "role": "佐证",
+      "addedAt": "2026-08-15T21:07:43.238Z"
+    },
+    {
+      "id": "source_251e738970217249",
+      "type": "source",
+      "title": "The Decoder AI",
+      "url": "https://the-decoder.com/investor-pressure-forces-nvidia-to-shrink-its-openai-bet-just-as-anthropics-numbers-defy-bubble-warnings/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-15T15:41:02.000Z"
+    },
+    {
+      "id": "claim_74d35ff4c3a0f2f2",
+      "type": "claim",
+      "title": "报道指NVIDIA对俄亥俄州OpenAI数据中心的担保规模不足1200亿美元，相比此前约2500亿美元的讨论规模明显收缩，并称投资者压力促成调整。",
+      "role": "最新进展",
+      "addedAt": "2026-08-15T21:07:43.238Z"
+    },
+    {
+      "id": "source_bd2e1b0a3e1a96ee",
+      "type": "source",
+      "title": "Reuters",
+      "url": "https://www.reuters.com/business/media-telecom/nvidia-scales-back-funding-guarantee-ohio-openai-data-center-wsj-reports-2026-08-14/",
+      "sourceKind": "Media",
+      "publishedAt": "2026-08-14T00:00:00.000Z"
+    },
+    {
+      "id": "claim_9c7cafdad778259c",
+      "type": "claim",
+      "title": "Reuters转述《华尔街日报》称，NVIDIA拟为俄亥俄州OpenAI数据中心提供较低规模的初始融资担保。",
+      "role": "佐证",
+      "addedAt": "2026-08-15T21:07:43.238Z"
+    },
+    {
+      "id": "source_6544a97b36dc6167",
+      "type": "source",
+      "title": "Reuters",
+      "url": "https://www.reuters.com/business/media-telecom/nvidia-talks-with-openai-guarantee-250-billion-financing-data-center-wsj-reports-2026-07-26/",
+      "sourceKind": "Media",
+      "publishedAt": "2026-07-26T00:00:00.000Z"
+    },
+    {
+      "id": "claim_494f6a15f4695eb2",
+      "type": "claim",
+      "title": "此前报道曾称NVIDIA讨论为俄亥俄州项目提供大额融资担保，但当时无法独立核实。",
+      "role": "背景",
+      "addedAt": "2026-08-15T21:07:43.238Z"
+    },
+    {
+      "id": "source_af67c54c62f39511",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://openai.com/index/openai-nvidia-systems-partnership/",
+      "sourceKind": "Official",
+      "publishedAt": "2025-09-22T00:00:00.000Z"
+    },
+    {
+      "id": "claim_ba75213e2337de6a",
+      "type": "claim",
+      "title": "OpenAI与NVIDIA此前公开宣布至少10GW系统部署意向，NVIDIA拟按每GW部署进度最多投资1000亿美元；该意向不等同于媒体所述项目担保。",
+      "role": "背景",
+      "addedAt": "2026-08-15T21:07:43.238Z"
+    },
+    {
+      "id": "update_40425cc133455c1a",
+      "type": "update",
+      "signalId": 102,
+      "title": "NVIDIA收缩OpenAI项目担保",
+      "summary": "新增报道显示，NVIDIA拟为俄亥俄州OpenAI数据中心提供的初始担保规模低于此前讨论水平；公开基准仍是双方关于系统部署和按部署进度投资的意向。",
+      "addedAt": "2026-08-15T15:41:02.000Z",
+      "changeType": "thesis_change",
+      "thesisImpact": "新增报道把算力融资平台的宏观承诺推进到具体项目担保规模，并显示公开讨论中的规模已收缩；这使风险分担和资本约束成为判断AI基础设施扩张的重要变量。",
+      "revisionRequired": true
+    },
+    {
+      "id": "update_06712410f23a1697",
+      "type": "update",
+      "signalId": 102,
+      "title": "NVIDIA补充硬件残值保障",
+      "summary": "The Decoder报道称，NVIDIA为其AI硬件提供最高25%的残值保障，以帮助撬动逾5000亿美元AI基础设施融资。该安排为此前公布的第三方资本动员平台补充了风险分担机制。",
+      "addedAt": "2026-08-11T09:41:03.000Z",
+      "changeType": "corroboration",
+      "thesisImpact": "新增报道补充称NVIDIA以硬件残值保障帮助吸引基础设施资本，强化了该融资平台正把设备资产价值与大规模外部融资直接绑定的判断。",
+      "revisionRequired": false
+    },
+    {
+      "id": "update_e787822bc31fa533",
+      "type": "update",
+      "signalId": 102,
+      "title": "BBC佐证5000亿美元算力融资",
+      "summary": "BBC报道华尔街机构向NVIDIA支持的AI项目提供5000亿美元资金，用于建设、运营和冷却承载AI芯片的数据中心。",
+      "addedAt": "2026-08-11T08:44:52.000Z",
+      "changeType": "corroboration",
+      "thesisImpact": "BBC对逾5000亿美元AI算力融资平台的报道提供独立媒体佐证，强化了AI基础设施融资正在向大型资产管理机构扩展的既有判断。",
+      "revisionRequired": false
+    },
     {
       "id": "event_8508d5105d4ed279",
       "type": "event",
@@ -987,139 +1312,6 @@
       "title": "Anthropic 2026年4月的风险更新说明Claude Mythos Preview当时尚未向公众普遍开放，并讨论其能力与alignment风险。",
       "role": "背景",
       "addedAt": "2026-08-14T20:07:23.684Z"
-    },
-    {
-      "id": "event_bd08267689227246",
-      "type": "event",
-      "signalId": 117,
-      "title": "Qwen开放3.8-27B代理模型",
-      "bucket": "dynamic",
-      "valueScore": 85,
-      "publishedAt": "2026-08-14T17:01:54.000Z",
-      "updatedAt": "2026-08-14T16:12:35.000Z"
-    },
-    {
-      "id": "article_d54b51ea68262f79",
-      "type": "article",
-      "signalId": 117,
-      "title": "Qwen开放3.8-27B代理模型",
-      "version": 1,
-      "publishedAt": "2026-08-14T20:07:23.684Z"
-    },
-    {
-      "id": "source_bf9169bc18a6de86",
-      "type": "source",
-      "title": "The Decoder AI",
-      "url": "https://the-decoder.com/alibabas-qwen-team-releases-qwen-3-8-models-with-open-weights-under-the-apache-2-0-license/",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-14T17:01:54.000Z"
-    },
-    {
-      "id": "claim_5eafb63f883af615",
-      "type": "claim",
-      "title": "The Decoder报道Qwen发布Apache 2.0许可的Qwen3.8开放权重模型，并定位其服务本地与代理应用。",
-      "role": "佐证",
-      "addedAt": "2026-08-14T20:07:23.684Z"
-    },
-    {
-      "id": "source_ca26bca182f697df",
-      "type": "source",
-      "title": "Qwen",
-      "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
-      "sourceKind": "Repository",
-      "publishedAt": "2026-08-14T17:01:54.000Z"
-    },
-    {
-      "id": "claim_a9b9dfc5035f842c",
-      "type": "claim",
-      "title": "Qwen官方仓库确认Qwen3.8-27B权重、Apache 2.0许可、27B规模、262,144-token上下文及Terminal-Bench 2.1比较结果。",
-      "role": "主张",
-      "addedAt": "2026-08-14T20:07:23.684Z"
-    },
-    {
-      "id": "source_20e9d0e734a8fb4e",
-      "type": "source",
-      "title": "Qwen",
-      "url": "https://huggingface.co/Qwen/Qwen3.6-27B",
-      "sourceKind": "Repository",
-      "publishedAt": "2026-08-14T17:01:54.000Z"
-    },
-    {
-      "id": "claim_c12b37ac26a4153b",
-      "type": "claim",
-      "title": "Qwen3.6-27B官方模型卡确认此前27B开放型号已有Apache 2.0许可与262,144-token原生上下文。",
-      "role": "背景",
-      "addedAt": "2026-08-14T20:07:23.684Z"
-    },
-    {
-      "id": "source_40851b30c97009a7",
-      "type": "source",
-      "title": "QwenCloud",
-      "url": "https://docs.qwencloud.com/developer-guides/getting-started/text-generation-models",
-      "sourceKind": "Official",
-      "publishedAt": "2026-08-14T17:01:54.000Z"
-    },
-    {
-      "id": "claim_e7e5fec0ce6a14b3",
-      "type": "claim",
-      "title": "QwenCloud将qwen3.7-plus列为工具调用模型，并标注其1M-token上下文定位。",
-      "role": "背景",
-      "addedAt": "2026-08-14T20:07:23.684Z"
-    },
-    {
-      "id": "source_154d8a92182c5cce",
-      "type": "source",
-      "title": "arXiv",
-      "url": "https://arxiv.org/abs/2404.00599",
-      "sourceKind": "Research",
-      "publishedAt": "2024-04-05T00:00:00.000Z"
-    },
-    {
-      "id": "claim_2749faa4e2855e87",
-      "type": "claim",
-      "title": "EvoCodeBench研究指出传统代码生成基准与真实代码仓库任务的对齐存在局限。",
-      "role": "反例",
-      "addedAt": "2026-08-14T20:07:23.684Z"
-    },
-    {
-      "id": "source_034c2462b05d2238",
-      "type": "source",
-      "title": "Qwen",
-      "url": "https://huggingface.co/Qwen/Qwen3.8-27B-FP8",
-      "sourceKind": "Official",
-      "publishedAt": "2026-08-14T15:16:58.000Z"
-    },
-    {
-      "id": "claim_8e1258b51ef42c96",
-      "type": "claim",
-      "title": "Qwen官方模型卡确认Qwen3.8-27B-FP8权重存在，并说明其采用block size 128的fine-grained FP8量化。",
-      "role": "最新进展",
-      "addedAt": "2026-08-14T20:07:23.684Z"
-    },
-    {
-      "id": "update_b97eb8d70517b2ff",
-      "type": "update",
-      "signalId": 117,
-      "title": "Qwen补充27B的FP8权重",
-      "summary": "Qwen官方模型卡新增Qwen3.8-27B-FP8，采用block size 128的fine-grained FP8量化；Qwen3.6-27B公开配置可作为同级架构对照。",
-      "addedAt": "2026-08-14T16:12:35.000Z",
-      "changeType": "progress",
-      "thesisImpact": "官方新增FP8量化权重信息，并与Qwen3.6-27B的公开配置形成对照，强化该版本以训练改进和部署形态扩展为主的判断。",
-      "revisionRequired": false
-    },
-    {
-      "id": "claim_5a7ce412bad07e0b",
-      "type": "claim",
-      "title": "Qwen官方模型卡确认Qwen3.8-27B仓库提供模型权重与配置文件，并列出其27B参数规模和模型结构。",
-      "role": "最新进展",
-      "addedAt": "2026-08-14T16:12:35.000Z"
-    },
-    {
-      "id": "claim_3011d44f8bb452a5",
-      "type": "claim",
-      "title": "Qwen3.6-27B官方模型卡列出27B参数、64层、5120隐藏维度及262144原生上下文等公开配置。",
-      "role": "背景",
-      "addedAt": "2026-08-14T16:12:35.000Z"
     },
     {
       "id": "event_ded79f4f58feab3e",
@@ -4145,91 +4337,6 @@
       "changeType": "thesis_change",
       "thesisImpact": "新材料显示Qwen3.8-Max目前仍是受区域、接口和订阅计划限制的预览模型；“广泛可用”与可直接对标美国前沿模型的判断需要收窄。",
       "revisionRequired": true
-    },
-    {
-      "id": "event_1c0e52d26f417ac9",
-      "type": "event",
-      "signalId": 102,
-      "title": "NVIDIA联手资本巨头扩展算力融资",
-      "bucket": "dynamic",
-      "valueScore": 84,
-      "publishedAt": "2026-08-10T20:01:00.000Z",
-      "updatedAt": "2026-08-10T20:01:00.000Z"
-    },
-    {
-      "id": "article_6154bfc5759e6911",
-      "type": "article",
-      "signalId": 102,
-      "title": "NVIDIA联手资本巨头扩展算力融资",
-      "version": 1,
-      "publishedAt": "2026-08-10T22:06:30.210Z"
-    },
-    {
-      "id": "source_0122ec2217c08ff3",
-      "type": "source",
-      "title": "NVIDIA Newsroom",
-      "url": "https://nvidianews.nvidia.com/news/nvidia-partners-with-apollo-blackrock-blackstone-brookfield-goldman-sachs-and-kkr-to-establish-ai-compute-infrastructure-financing-platforms-to-mobilize-over-500-billion-of-third-party-capital",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-10T20:01:00.000Z"
-    },
-    {
-      "id": "claim_b63375fbf9193803",
-      "type": "claim",
-      "title": "NVIDIA宣布与Apollo、BlackRock、Blackstone、Brookfield、Goldman Sachs和KKR建立AI算力基础设施融资平台，目标动员超过5000亿美元第三方资本。",
-      "role": "主张",
-      "addedAt": "2026-08-10T22:06:30.210Z"
-    },
-    {
-      "id": "source_95824baa8e354aed",
-      "type": "source",
-      "title": "BBC Technology",
-      "url": "https://www.bbc.co.uk/news/articles/c78gr0jv0mdo?at_medium=RSS&at_campaign=rss",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-11T08:44:52.000Z"
-    },
-    {
-      "id": "claim_e1973cd23f275af9",
-      "type": "claim",
-      "title": "BBC报道称，华尔街大型机构提供5000亿美元支持AI项目，资金将用于建设、运行和冷却容纳大量AI芯片的数据中心。",
-      "role": "佐证",
-      "addedAt": "2026-08-10T22:06:30.210Z"
-    },
-    {
-      "id": "source_8010a95ae63d6168",
-      "type": "source",
-      "title": "The Decoder AI",
-      "url": "https://the-decoder.com/nvidia-guarantees-its-own-chips-value-to-unlock-500-billion-in-ai-infrastructure-financing/",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-11T09:41:03.000Z"
-    },
-    {
-      "id": "claim_201df8160502d32a",
-      "type": "claim",
-      "title": "The Decoder报道称，NVIDIA在与大型资管机构建立的AI基础设施融资安排中，为自家芯片提供最高25%的残值保障。",
-      "role": "佐证",
-      "addedAt": "2026-08-10T22:06:30.210Z"
-    },
-    {
-      "id": "update_06712410f23a1697",
-      "type": "update",
-      "signalId": 102,
-      "title": "NVIDIA补充硬件残值保障",
-      "summary": "The Decoder报道称，NVIDIA为其AI硬件提供最高25%的残值保障，以帮助撬动逾5000亿美元AI基础设施融资。该安排为此前公布的第三方资本动员平台补充了风险分担机制。",
-      "addedAt": "2026-08-11T09:41:03.000Z",
-      "changeType": "corroboration",
-      "thesisImpact": "新增报道补充称NVIDIA以硬件残值保障帮助吸引基础设施资本，强化了该融资平台正把设备资产价值与大规模外部融资直接绑定的判断。",
-      "revisionRequired": false
-    },
-    {
-      "id": "update_e787822bc31fa533",
-      "type": "update",
-      "signalId": 102,
-      "title": "BBC佐证5000亿美元算力融资",
-      "summary": "BBC报道华尔街机构向NVIDIA支持的AI项目提供5000亿美元资金，用于建设、运营和冷却承载AI芯片的数据中心。",
-      "addedAt": "2026-08-11T08:44:52.000Z",
-      "changeType": "corroboration",
-      "thesisImpact": "BBC对逾5000亿美元AI算力融资平台的报道提供独立媒体佐证，强化了AI基础设施融资正在向大型资产管理机构扩展的既有判断。",
-      "revisionRequired": false
     },
     {
       "id": "event_119aad216f76db90",
@@ -15601,6 +15708,312 @@
   ],
   "edges": [
     {
+      "id": "edge_98a00f718302be0e",
+      "from": "event_bd08267689227246",
+      "to": "article_d54b51ea68262f79",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_7719ae56ae08c961",
+      "from": "source_bf9169bc18a6de86",
+      "to": "claim_5eafb63f883af615",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_b33d4fe6aea8dd3a",
+      "from": "claim_5eafb63f883af615",
+      "to": "event_bd08267689227246",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_f5c3d5dd9d6a152e",
+      "from": "source_ca26bca182f697df",
+      "to": "claim_a9b9dfc5035f842c",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_0313b99e49c7ba48",
+      "from": "claim_a9b9dfc5035f842c",
+      "to": "event_bd08267689227246",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_b72559bf493ce80d",
+      "from": "source_20e9d0e734a8fb4e",
+      "to": "claim_c12b37ac26a4153b",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_4fc3d6f9f93f6a95",
+      "from": "claim_c12b37ac26a4153b",
+      "to": "event_bd08267689227246",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_3593e598ba416e0c",
+      "from": "source_40851b30c97009a7",
+      "to": "claim_e7e5fec0ce6a14b3",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_339eef7623c25ab4",
+      "from": "claim_e7e5fec0ce6a14b3",
+      "to": "event_bd08267689227246",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_71b72a88e50b520c",
+      "from": "source_154d8a92182c5cce",
+      "to": "claim_2749faa4e2855e87",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_ef8f46b77e172d62",
+      "from": "claim_2749faa4e2855e87",
+      "to": "event_bd08267689227246",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_645a9eaa0ef9e219",
+      "from": "source_034c2462b05d2238",
+      "to": "claim_8e1258b51ef42c96",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_25d9f63e0b30666a",
+      "from": "claim_8e1258b51ef42c96",
+      "to": "event_bd08267689227246",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_58b5977a45702820",
+      "from": "source_4b1f7c337b97d982",
+      "to": "claim_677608a76e50e81a",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_2c0277f87c428d19",
+      "from": "claim_677608a76e50e81a",
+      "to": "event_bd08267689227246",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_114d0c9b43b7c541",
+      "from": "update_efa00e162f322af2",
+      "to": "event_bd08267689227246",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_1b01853e85ea138a",
+      "from": "claim_677608a76e50e81a",
+      "to": "event_bd08267689227246",
+      "relation": "update_evidence_for",
+      "updateTitle": "Qwen3.8-27B本地推理提速"
+    },
+    {
+      "id": "edge_80dda2f1460b3838",
+      "from": "update_b97eb8d70517b2ff",
+      "to": "event_bd08267689227246",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_785d59aadc422471",
+      "from": "source_ca26bca182f697df",
+      "to": "claim_5a7ce412bad07e0b",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_29dac5a80cf73b23",
+      "from": "claim_5a7ce412bad07e0b",
+      "to": "event_bd08267689227246",
+      "relation": "update_evidence_for",
+      "updateTitle": "Qwen补充27B的FP8权重"
+    },
+    {
+      "id": "edge_9161e757485514ac",
+      "from": "claim_8e1258b51ef42c96",
+      "to": "event_bd08267689227246",
+      "relation": "update_evidence_for",
+      "updateTitle": "Qwen补充27B的FP8权重"
+    },
+    {
+      "id": "edge_45530ca3004e5342",
+      "from": "source_20e9d0e734a8fb4e",
+      "to": "claim_3011d44f8bb452a5",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_783e1299ab73689d",
+      "from": "claim_3011d44f8bb452a5",
+      "to": "event_bd08267689227246",
+      "relation": "update_evidence_for",
+      "updateTitle": "Qwen补充27B的FP8权重"
+    },
+    {
+      "id": "edge_11afeea28290e859",
+      "from": "event_1c0e52d26f417ac9",
+      "to": "article_6154bfc5759e6911",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_047be5075d8b7966",
+      "from": "source_0122ec2217c08ff3",
+      "to": "claim_b63375fbf9193803",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_a9f0c02570fbf5d3",
+      "from": "claim_b63375fbf9193803",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_3d14aa2f70722f03",
+      "from": "source_95824baa8e354aed",
+      "to": "claim_e1973cd23f275af9",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_c64e836ce0a8700f",
+      "from": "claim_e1973cd23f275af9",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_0d7dbdec686a3c36",
+      "from": "source_8010a95ae63d6168",
+      "to": "claim_201df8160502d32a",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_4bbec55b45ba7674",
+      "from": "claim_201df8160502d32a",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_ad2d4fa81d05d207",
+      "from": "source_251e738970217249",
+      "to": "claim_74d35ff4c3a0f2f2",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_81b542536eaad700",
+      "from": "claim_74d35ff4c3a0f2f2",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_27e02053656eae8d",
+      "from": "source_bd2e1b0a3e1a96ee",
+      "to": "claim_9c7cafdad778259c",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_70b72e566972e161",
+      "from": "claim_9c7cafdad778259c",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_453f595bd29ae853",
+      "from": "source_6544a97b36dc6167",
+      "to": "claim_494f6a15f4695eb2",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_118e8d39b046362c",
+      "from": "claim_494f6a15f4695eb2",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_eebc0a3841498c9a",
+      "from": "source_af67c54c62f39511",
+      "to": "claim_ba75213e2337de6a",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_fb6a4d832a82fec6",
+      "from": "claim_ba75213e2337de6a",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_bb780e8879fc6b9b",
+      "from": "update_40425cc133455c1a",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_2b69c9c3bfcf677d",
+      "from": "claim_74d35ff4c3a0f2f2",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "update_evidence_for",
+      "updateTitle": "NVIDIA收缩OpenAI项目担保"
+    },
+    {
+      "id": "edge_02c37a93ea0aff00",
+      "from": "claim_9c7cafdad778259c",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "update_evidence_for",
+      "updateTitle": "NVIDIA收缩OpenAI项目担保"
+    },
+    {
+      "id": "edge_f5b1ffa4708429c0",
+      "from": "claim_494f6a15f4695eb2",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "update_evidence_for",
+      "updateTitle": "NVIDIA收缩OpenAI项目担保"
+    },
+    {
+      "id": "edge_05fa4d5aeb4a5835",
+      "from": "claim_ba75213e2337de6a",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "update_evidence_for",
+      "updateTitle": "NVIDIA收缩OpenAI项目担保"
+    },
+    {
+      "id": "edge_210188a21e080d83",
+      "from": "update_06712410f23a1697",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_b99c2467d9f45d87",
+      "from": "claim_201df8160502d32a",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "update_evidence_for",
+      "updateTitle": "NVIDIA补充硬件残值保障"
+    },
+    {
+      "id": "edge_44e9c74f8ac41646",
+      "from": "update_e787822bc31fa533",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_7aa62020db35a648",
+      "from": "claim_e1973cd23f275af9",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "update_evidence_for",
+      "updateTitle": "BBC佐证5000亿美元算力融资"
+    },
+    {
       "id": "edge_9044ae8ac81a450c",
       "from": "event_8508d5105d4ed279",
       "to": "article_2f99be88201fba8f",
@@ -16413,129 +16826,6 @@
       "to": "event_d1c643b4a57ab552",
       "relation": "evidence_for",
       "updateTitle": null
-    },
-    {
-      "id": "edge_98a00f718302be0e",
-      "from": "event_bd08267689227246",
-      "to": "article_d54b51ea68262f79",
-      "relation": "rendered_as"
-    },
-    {
-      "id": "edge_7719ae56ae08c961",
-      "from": "source_bf9169bc18a6de86",
-      "to": "claim_5eafb63f883af615",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_b33d4fe6aea8dd3a",
-      "from": "claim_5eafb63f883af615",
-      "to": "event_bd08267689227246",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_f5c3d5dd9d6a152e",
-      "from": "source_ca26bca182f697df",
-      "to": "claim_a9b9dfc5035f842c",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_0313b99e49c7ba48",
-      "from": "claim_a9b9dfc5035f842c",
-      "to": "event_bd08267689227246",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_b72559bf493ce80d",
-      "from": "source_20e9d0e734a8fb4e",
-      "to": "claim_c12b37ac26a4153b",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_4fc3d6f9f93f6a95",
-      "from": "claim_c12b37ac26a4153b",
-      "to": "event_bd08267689227246",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_3593e598ba416e0c",
-      "from": "source_40851b30c97009a7",
-      "to": "claim_e7e5fec0ce6a14b3",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_339eef7623c25ab4",
-      "from": "claim_e7e5fec0ce6a14b3",
-      "to": "event_bd08267689227246",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_71b72a88e50b520c",
-      "from": "source_154d8a92182c5cce",
-      "to": "claim_2749faa4e2855e87",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_ef8f46b77e172d62",
-      "from": "claim_2749faa4e2855e87",
-      "to": "event_bd08267689227246",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_645a9eaa0ef9e219",
-      "from": "source_034c2462b05d2238",
-      "to": "claim_8e1258b51ef42c96",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_25d9f63e0b30666a",
-      "from": "claim_8e1258b51ef42c96",
-      "to": "event_bd08267689227246",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_80dda2f1460b3838",
-      "from": "update_b97eb8d70517b2ff",
-      "to": "event_bd08267689227246",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_785d59aadc422471",
-      "from": "source_ca26bca182f697df",
-      "to": "claim_5a7ce412bad07e0b",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_29dac5a80cf73b23",
-      "from": "claim_5a7ce412bad07e0b",
-      "to": "event_bd08267689227246",
-      "relation": "update_evidence_for",
-      "updateTitle": "Qwen补充27B的FP8权重"
-    },
-    {
-      "id": "edge_9161e757485514ac",
-      "from": "claim_8e1258b51ef42c96",
-      "to": "event_bd08267689227246",
-      "relation": "update_evidence_for",
-      "updateTitle": "Qwen补充27B的FP8权重"
-    },
-    {
-      "id": "edge_45530ca3004e5342",
-      "from": "source_20e9d0e734a8fb4e",
-      "to": "claim_3011d44f8bb452a5",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_783e1299ab73689d",
-      "from": "claim_3011d44f8bb452a5",
-      "to": "event_bd08267689227246",
-      "relation": "update_evidence_for",
-      "updateTitle": "Qwen补充27B的FP8权重"
     },
     {
       "id": "edge_0d53b26b270e0716",
@@ -19646,77 +19936,6 @@
       "to": "event_980a9070554db0a8",
       "relation": "update_evidence_for",
       "updateTitle": "Qwen3.8-Max仍受限于预览计划"
-    },
-    {
-      "id": "edge_11afeea28290e859",
-      "from": "event_1c0e52d26f417ac9",
-      "to": "article_6154bfc5759e6911",
-      "relation": "rendered_as"
-    },
-    {
-      "id": "edge_047be5075d8b7966",
-      "from": "source_0122ec2217c08ff3",
-      "to": "claim_b63375fbf9193803",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_a9f0c02570fbf5d3",
-      "from": "claim_b63375fbf9193803",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_3d14aa2f70722f03",
-      "from": "source_95824baa8e354aed",
-      "to": "claim_e1973cd23f275af9",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_c64e836ce0a8700f",
-      "from": "claim_e1973cd23f275af9",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_0d7dbdec686a3c36",
-      "from": "source_8010a95ae63d6168",
-      "to": "claim_201df8160502d32a",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_4bbec55b45ba7674",
-      "from": "claim_201df8160502d32a",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_210188a21e080d83",
-      "from": "update_06712410f23a1697",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_b99c2467d9f45d87",
-      "from": "claim_201df8160502d32a",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "update_evidence_for",
-      "updateTitle": "NVIDIA补充硬件残值保障"
-    },
-    {
-      "id": "edge_44e9c74f8ac41646",
-      "from": "update_e787822bc31fa533",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_7aa62020db35a648",
-      "from": "claim_e1973cd23f275af9",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "update_evidence_for",
-      "updateTitle": "BBC佐证5000亿美元算力融资"
     },
     {
       "id": "edge_6ae440a5d17719f5",
