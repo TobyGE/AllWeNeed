@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-16T05:10:15.610Z",
+  "generatedAt": "2026-08-16T09:07:40.066Z",
   "counts": {
-    "sources": 714,
-    "claims": 838,
-    "events": 173,
-    "articles": 173,
+    "sources": 715,
+    "claims": 839,
+    "events": 174,
+    "articles": 174,
     "updates": 117,
-    "edges": 2238,
+    "edges": 2241,
     "revisionsRequired": 9
   },
   "revisionQueue": [
@@ -103,6 +103,39 @@
     }
   ],
   "nodes": [
+    {
+      "id": "event_d4c849df07b4f55e",
+      "type": "event",
+      "signalId": 125,
+      "title": "Anthropic生物风险过滤停摆近一年",
+      "bucket": "dynamic",
+      "valueScore": 84,
+      "publishedAt": "2026-08-16T07:20:06.000Z",
+      "updatedAt": "2026-08-16T07:20:06.000Z"
+    },
+    {
+      "id": "article_e3731b86cbd7fc61",
+      "type": "article",
+      "signalId": 125,
+      "title": "Anthropic生物风险过滤停摆近一年",
+      "version": 1,
+      "publishedAt": "2026-08-16T09:07:40.066Z"
+    },
+    {
+      "id": "source_46c92dbd34325e1b",
+      "type": "source",
+      "title": "The Decoder AI",
+      "url": "https://the-decoder.com/anthropics-bio-weapons-filter-was-down-for-nearly-a-year-exposing-133-million-requests/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-16T07:20:06.000Z"
+    },
+    {
+      "id": "claim_7a41fbdc9af1d14b",
+      "type": "claim",
+      "title": "The Decoder称，Anthropic在安全报告中披露，其生物与化学武器风险过滤系统曾停用近一年，约5万名外部反馈承包商进行了约1.33亿次未过滤交互。",
+      "role": "主张",
+      "addedAt": "2026-08-16T09:07:40.066Z"
+    },
     {
       "id": "event_12699b275732ac05",
       "type": "event",
@@ -15986,6 +16019,25 @@
     }
   ],
   "edges": [
+    {
+      "id": "edge_a6fbb01ae88a7e10",
+      "from": "event_d4c849df07b4f55e",
+      "to": "article_e3731b86cbd7fc61",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_0bbfab835e9205ea",
+      "from": "source_46c92dbd34325e1b",
+      "to": "claim_7a41fbdc9af1d14b",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_693be02232d54b2d",
+      "from": "claim_7a41fbdc9af1d14b",
+      "to": "event_d4c849df07b4f55e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
     {
       "id": "edge_1b23aea8725f60be",
       "from": "event_12699b275732ac05",
