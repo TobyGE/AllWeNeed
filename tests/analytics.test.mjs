@@ -27,6 +27,8 @@ test("configures the dedicated All We Need GA4 property on production hosts", ()
   assert.match(analyticsSource, /send_page_view: false/);
   assert.match(analyticsSource, /globalPrivacyControl/);
   assert.doesNotMatch(analyticsSource, /document\.createElement\("script"\)/);
+  assert.match(analyticsSource, /all-we-need-internal-traffic/);
+  assert.match(analyticsSource, /signalRadarInternalTraffic/);
 });
 
 test("initializes GA4 in the document head before React starts", () => {
@@ -39,11 +41,21 @@ test("initializes GA4 in the document head before React starts", () => {
     assert.match(entrypoint, /googletagmanager\.com\/gtag\/js/);
     assert.match(entrypoint, /G-8R17J8CJ1W/);
     assert.match(entrypoint, /signalRadarAnalyticsReady = true/);
+    assert.match(entrypoint, /awn_internal/);
+    assert.match(entrypoint, /signalRadarInternalTraffic/);
   }
 });
 
-test("tracks Radar page views and article opens", () => {
+test("tracks Radar page views, reading and conversion events", async () => {
+  const articleSource = await readFile(
+    new URL("../app/article-view.tsx", import.meta.url),
+    "utf8",
+  );
   assert.match(pageSource, /trackPageView/);
   assert.match(pageSource, /article_open/);
   assert.match(pageSource, /content_type/);
+  assert.match(articleSource, /article_read_complete/);
+  assert.match(articleSource, /article_share/);
+  assert.match(articleSource, /rss_subscribe/);
+  assert.match(articleSource, /source_link_open/);
 });

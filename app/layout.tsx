@@ -48,12 +48,36 @@ const siteStructuredData = {
 const gaMeasurementId = "G-8R17J8CJ1W";
 const analyticsBootstrap = `
 (() => {
+  const internalTrafficKey = "all-we-need-internal-traffic";
+  const internalTrafficParam = new URLSearchParams(window.location.search).get(
+    "awn_internal",
+  );
+  try {
+    if (internalTrafficParam === "1") {
+      window.localStorage.setItem(internalTrafficKey, "true");
+    } else if (internalTrafficParam === "0") {
+      window.localStorage.removeItem(internalTrafficKey);
+    }
+    if (internalTrafficParam === "1" || internalTrafficParam === "0") {
+      const cleanUrl = new URL(window.location.href);
+      cleanUrl.searchParams.delete("awn_internal");
+      window.history.replaceState({}, "", cleanUrl);
+    }
+    window.signalRadarInternalTraffic =
+      window.localStorage.getItem(internalTrafficKey) === "true";
+  } catch {
+    window.signalRadarInternalTraffic = false;
+  }
+
   const productionHosts = new Set([
     "allweneed.info",
     "www.allweneed.info",
     "yingqiangge.github.io",
   ]);
-  if (!productionHosts.has(window.location.hostname)) return;
+  if (
+    !productionHosts.has(window.location.hostname) ||
+    window.signalRadarInternalTraffic
+  ) return;
 
   window.dataLayer = window.dataLayer || [];
   window.gtag =

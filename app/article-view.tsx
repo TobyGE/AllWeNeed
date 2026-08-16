@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   FontSizeControl,
   type FontSizePreference,
 } from "./font-size-control";
+import { trackAnalyticsEvent } from "./analytics";
 
 type Locale = "zh" | "en";
 
@@ -131,6 +132,8 @@ export function ArticleView({
       : `${basePath}/focus/`;
   const article = signal.article ?? fallbackArticle(signal, locale);
   const [shareStatus, setShareStatus] = useState<"idle" | "copied">("idle");
+  const completionTarget = useRef<HTMLElement | null>(null);
+  const completionTracked = useRef(false);
   useEffect(() => {
     const previousTitle = document.title;
     document.title = `${signal.title} — All We Need`;
@@ -138,6 +141,27 @@ export function ArticleView({
       document.title = previousTitle;
     };
   }, [signal.title]);
+  useEffect(() => {
+    completionTracked.current = false;
+    const target = completionTarget.current;
+    if (!target || typeof IntersectionObserver === "undefined") return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (!entries.some((entry) => entry.isIntersecting)) return;
+        if (completionTracked.current) return;
+        completionTracked.current = true;
+        trackAnalyticsEvent("article_read_complete", {
+          article_id: String(signal.id),
+          content_type: kind,
+          language: locale,
+        });
+        observer.disconnect();
+      },
+      { threshold: 0.25 },
+    );
+    observer.observe(target);
+    return () => observer.disconnect();
+  }, [kind, locale, signal.id]);
   const articleTimestamp =
     signal.updatedAt ??
     signal.publishedAt ??
@@ -163,8 +187,14 @@ export function ArticleView({
   const shareText = encodeURIComponent(signal.title);
   const encodedShareUrl = encodeURIComponent(shareUrl);
 
-  async function copyShareLink() {
+  async function copyShareLink(source = "copy") {
     await navigator.clipboard.writeText(shareUrl);
+    trackAnalyticsEvent("article_share", {
+      article_id: String(signal.id),
+      content_type: kind,
+      language: locale,
+      method: source,
+    });
     setShareStatus("copied");
     window.setTimeout(() => setShareStatus("idle"), 2_000);
   }
@@ -177,12 +207,18 @@ export function ArticleView({
           text: signal.summary,
           url: shareUrl,
         });
+        trackAnalyticsEvent("article_share", {
+          article_id: String(signal.id),
+          content_type: kind,
+          language: locale,
+          method: "native",
+        });
         return;
       } catch (error) {
         if (error instanceof DOMException && error.name === "AbortError") return;
       }
     }
-    await copyShareLink();
+    await copyShareLink("copy");
   }
 
   return (
@@ -322,6 +358,14 @@ export function ArticleView({
               target="_blank"
               rel="noreferrer"
               aria-label={t("分享到 X", "Share on X")}
+              onClick={() =>
+                trackAnalyticsEvent("article_share", {
+                  article_id: String(signal.id),
+                  content_type: kind,
+                  language: locale,
+                  method: "x",
+                })
+              }
             >
               X
             </a>
@@ -330,10 +374,28 @@ export function ArticleView({
               target="_blank"
               rel="noreferrer"
               aria-label={t("分享到 LinkedIn", "Share on LinkedIn")}
+              onClick={() =>
+                trackAnalyticsEvent("article_share", {
+                  article_id: String(signal.id),
+                  content_type: kind,
+                  language: locale,
+                  method: "linkedin",
+                })
+              }
             >
               in
             </a>
-            <a href="/feed.xml" aria-label={t("订阅 RSS", "Subscribe via RSS")}>
+            <a
+              href="/feed.xml"
+              aria-label={t("订阅 RSS", "Subscribe via RSS")}
+              onClick={() =>
+                trackAnalyticsEvent("rss_subscribe", {
+                  article_id: String(signal.id),
+                  content_type: kind,
+                  language: locale,
+                })
+              }
+            >
               RSS
             </a>
           </div>
@@ -436,7 +498,7 @@ export function ArticleView({
           </aside>
         </div>
 
-        <section className="article-sources">
+        <section className="article-sources" ref={completionTarget}>
           <div className="article-sources-heading">
             <div>
               <span>{t("原始材料", "SOURCE MATERIAL")}</span>
@@ -456,6 +518,14 @@ export function ArticleView({
                 rel="noreferrer"
                 className="article-source-card"
                 key={`${evidence.url}-${index}`}
+                onClick={() =>
+                  trackAnalyticsEvent("source_link_open", {
+                    article_id: String(signal.id),
+                    content_type: kind,
+                    language: locale,
+                    source_name: evidence.sourceName,
+                  })
+                }
               >
                 <span className="article-source-index">0{index + 1}</span>
                 <div>

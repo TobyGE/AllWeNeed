@@ -4,6 +4,7 @@ const PRODUCTION_HOSTS = new Set([
   "www.allweneed.info",
   "yingqiangge.github.io",
 ]);
+const INTERNAL_TRAFFIC_KEY = "all-we-need-internal-traffic";
 
 type AnalyticsParameters = Record<
   string,
@@ -19,13 +20,25 @@ declare global {
     dataLayer?: unknown[][];
     gtag?: (...args: unknown[]) => void;
     signalRadarAnalyticsReady?: boolean;
+    signalRadarInternalTraffic?: boolean;
+  }
+}
+
+function internalTrafficDisabled() {
+  if (typeof window === "undefined") return false;
+  if (window.signalRadarInternalTraffic) return true;
+  try {
+    return window.localStorage.getItem(INTERNAL_TRAFFIC_KEY) === "true";
+  } catch {
+    return false;
   }
 }
 
 function analyticsAllowed() {
   return (
     typeof window !== "undefined" &&
-    PRODUCTION_HOSTS.has(window.location.hostname)
+    PRODUCTION_HOSTS.has(window.location.hostname) &&
+    !internalTrafficDisabled()
   );
 }
 
