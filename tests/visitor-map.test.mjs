@@ -18,7 +18,9 @@ test("publishes country aggregates without city-level data", () => {
   assert.equal(summary.countryCount, summary.countries.length);
   assert.equal("cities" in summary, false);
   assert.ok(summary.activeUsers >= 0);
+  assert.ok(summary.sessions >= 0);
   assert.ok(summary.pageViews >= 0);
+  assert.equal(summary.scope, "external");
   assert.ok(
     summary.countries.every(
       (country) =>

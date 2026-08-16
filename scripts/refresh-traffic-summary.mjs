@@ -1,13 +1,15 @@
 import { spawnSync } from "node:child_process";
-import { access, mkdir, writeFile } from "node:fs/promises";
+import { access, mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const outputPath = resolve(projectRoot, "data/traffic-summary.json");
+const baselinePath = resolve(projectRoot, "data/traffic-baseline.json");
 const propertyId = process.env.GA4_PROPERTY_ID ?? "548148776";
+const defaultBaseline = JSON.parse(await readFile(baselinePath, "utf8"));
 export const trafficDateRange = {
-  startDate: "30daysAgo",
+  startDate: defaultBaseline.cleanCollectionStart,
   endDate: "today",
 };
 
@@ -25,6 +27,7 @@ const countryCentroids = {
   ID: [-0.7893, 113.9213],
   IE: [53.1424, -7.6921],
   IN: [20.5937, 78.9629],
+  IR: [32.4279, 53.688],
   IT: [41.8719, 12.5674],
   JP: [36.2048, 138.2529],
   KR: [35.9078, 127.7669],
@@ -48,25 +51,48 @@ function metricNumber(row, index) {
 export function trafficSummaryFromReport(
   report,
   generatedAt = new Date().toISOString(),
+  baseline = defaultBaseline,
 ) {
   const chineseRegionNames = new Intl.DisplayNames(["zh-CN"], {
     type: "region",
   });
-  const countries = (report.rows ?? [])
-    .map((row) => {
+  const countryMap = new Map(
+    (baseline.countries ?? []).map((country) => [
+      country.countryId,
+      { ...country },
+    ]),
+  );
+  for (const row of report.rows ?? []) {
       const countryId = row.dimensionValues?.[0]?.value?.toUpperCase() ?? "";
       const nameEn = row.dimensionValues?.[1]?.value ?? countryId;
-      if (!/^[A-Z]{2}$/.test(countryId)) return null;
-      const centroid = countryCentroids[countryId] ?? [null, null];
-      return {
-        nameZh: chineseRegionNames.of(countryId) ?? nameEn,
+      if (!/^[A-Z]{2}$/.test(countryId)) continue;
+      const current = countryMap.get(countryId) ?? {
+        countryId,
         nameEn,
+        activeUsers: 0,
+        sessions: 0,
+        pageViews: 0,
+      };
+      current.nameEn = nameEn;
+      current.pageViews += metricNumber(row, 0);
+      current.sessions += metricNumber(row, 1);
+      current.activeUsers += metricNumber(row, 2);
+      countryMap.set(countryId, current);
+  }
+  const countries = [...countryMap.values()]
+    .map((country) => {
+      const centroid = countryCentroids[country.countryId] ?? [null, null];
+      return {
+        nameZh:
+          chineseRegionNames.of(country.countryId) ?? country.nameEn,
+        nameEn: country.nameEn,
         latitude: centroid[0],
         longitude: centroid[1],
-        activeUsers: metricNumber(row, 1),
+        activeUsers: country.activeUsers,
+        sessions: country.sessions,
+        pageViews: country.pageViews,
       };
     })
-    .filter(Boolean)
     .sort(
       (left, right) =>
         right.activeUsers - left.activeUsers ||
@@ -74,23 +100,33 @@ export function trafficSummaryFromReport(
     );
 
   const total = report.totals?.[0];
-  const pageViews = total
-    ? metricNumber(total, 0)
-    : (report.rows ?? []).reduce(
-        (sum, row) => sum + metricNumber(row, 0),
-        0,
-      );
-  const activeUsers = total
-    ? metricNumber(total, 1)
-    : countries.reduce((sum, country) => sum + country.activeUsers, 0);
+  const pageViews = baseline.pageViews + metricNumber(total, 0);
+  const sessions = baseline.sessions + metricNumber(total, 1);
+  const activeUsers = baseline.activeUsers + metricNumber(total, 2);
+  const countedSince = new Date(`${baseline.countedSince}T00:00:00Z`);
+  const countedSinceZh = new Intl.DateTimeFormat("zh-CN", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    timeZone: "UTC",
+  }).format(countedSince);
+  const countedSinceEn = new Intl.DateTimeFormat("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+    timeZone: "UTC",
+  }).format(countedSince);
 
   return {
     generatedAt,
+    countedSince: baseline.countedSince,
+    scope: "external",
     period: {
-      labelZh: "最近 30 天",
-      labelEn: "Last 30 days",
+      labelZh: `真实外部访问 · 自 ${countedSinceZh}`,
+      labelEn: `Verified external traffic · Since ${countedSinceEn}`,
     },
     activeUsers,
+    sessions,
     pageViews,
     countryCount: countries.length,
     countries,
@@ -155,10 +191,14 @@ export async function refreshTrafficSummary({
       body: JSON.stringify({
         dateRanges: [trafficDateRange],
         dimensions: [{ name: "countryId" }, { name: "country" }],
-        metrics: [{ name: "screenPageViews" }, { name: "activeUsers" }],
+        metrics: [
+          { name: "screenPageViews" },
+          { name: "sessions" },
+          { name: "newUsers" },
+        ],
         metricAggregations: ["TOTAL"],
         orderBys: [
-          { metric: { metricName: "activeUsers" }, desc: true },
+          { metric: { metricName: "newUsers" }, desc: true },
         ],
         limit: 250,
       }),
@@ -177,7 +217,7 @@ export async function refreshTrafficSummary({
   await mkdir(dirname(outputPath), { recursive: true });
   await writeFile(outputPath, `${JSON.stringify(summary, null, 2)}\n`, "utf8");
   console.log(
-    `Updated GA4 traffic summary: ${summary.pageViews} views, ${summary.activeUsers} visitors, ${summary.countryCount} countries.`,
+    `Updated GA4 external traffic summary: ${summary.pageViews} views, ${summary.sessions} sessions, ${summary.activeUsers} visitors, ${summary.countryCount} countries.`,
   );
   return summary;
 }

@@ -4,6 +4,8 @@ type VisitorCountry = {
   latitude: number | null;
   longitude: number | null;
   activeUsers: number;
+  sessions: number;
+  pageViews: number;
 };
 
 export type TrafficSummary = {
@@ -12,7 +14,10 @@ export type TrafficSummary = {
     labelZh: string;
     labelEn: string;
   };
+  countedSince: string;
+  scope: "external";
   activeUsers: number;
+  sessions: number;
   pageViews: number;
   countryCount: number;
   countries: VisitorCountry[];
@@ -52,8 +57,8 @@ export function VisitorMap({
         <strong>{summary.pageViews.toLocaleString()}</strong>
         <span>
           {isZh
-            ? `次浏览 · ${summary.activeUsers} 位访客`
-            : `views · ${summary.activeUsers} visitors`}
+            ? `次浏览 · ${summary.sessions} 次访问 · ${summary.activeUsers} 位访客`
+            : `views · ${summary.sessions} visits · ${summary.activeUsers} visitors`}
         </span>
       </div>
 
@@ -114,7 +119,9 @@ export function VisitorMap({
       </div>
 
       <p className="visitor-map-privacy">
-        {isZh ? "按国家汇总" : "Country-level totals"}
+        {isZh
+          ? "已排除站长设备 · 按国家汇总"
+          : "Owner devices excluded · Country-level totals"}
       </p>
     </section>
   );
