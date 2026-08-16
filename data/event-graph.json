@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-16T11:06:40.635Z",
+  "generatedAt": "2026-08-16T13:06:44.333Z",
   "counts": {
-    "sources": 719,
-    "claims": 845,
-    "events": 174,
-    "articles": 174,
+    "sources": 721,
+    "claims": 847,
+    "events": 175,
+    "articles": 175,
     "updates": 119,
-    "edges": 2259,
+    "edges": 2264,
     "revisionsRequired": 9
   },
   "revisionQueue": [
@@ -103,6 +103,54 @@
     }
   ],
   "nodes": [
+    {
+      "id": "event_e07eb4e044dd681a",
+      "type": "event",
+      "signalId": 126,
+      "title": "AI开发把工程基本功变成控制层",
+      "bucket": "explore",
+      "valueScore": 81,
+      "publishedAt": "2026-08-15T22:31:09.000Z",
+      "updatedAt": "2026-08-15T22:31:09.000Z"
+    },
+    {
+      "id": "article_1a62c37f582af6bd",
+      "type": "article",
+      "signalId": 126,
+      "title": "AI开发把工程基本功变成控制层",
+      "version": 1,
+      "publishedAt": "2026-08-16T13:06:44.333Z"
+    },
+    {
+      "id": "source_2e10fed9af067238",
+      "type": "source",
+      "title": "TechTarget",
+      "url": "https://www.techtarget.com/searchcio/feature/how-ai-is-changing-software-development-at-jpmorgan-chase",
+      "sourceKind": "Media",
+      "publishedAt": "2026-06-17T00:00:00.000Z"
+    },
+    {
+      "id": "claim_a2bb09d4f00a0738",
+      "type": "claim",
+      "title": "TechTarget报道JPMorgan Chase CIO Gill Haus认为，AI提升了测试、架构、安全和治理等软件工程基本功的重要性。",
+      "role": "佐证",
+      "addedAt": "2026-08-16T13:06:44.333Z"
+    },
+    {
+      "id": "source_7ddae578fbd5fdc0",
+      "type": "source",
+      "title": "Wealthsimple Engineering",
+      "url": "https://engineering.wealthsimple.com/wealthsimples-engineering-ai-strategy",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-15T22:31:09.000Z"
+    },
+    {
+      "id": "claim_20143a255d3a9ed0",
+      "type": "claim",
+      "title": "Wealthsimple Engineering将工程基本功、批判性思维、代码理解、质量和安全列为其AI工程策略的关键原则。",
+      "role": "主张",
+      "addedAt": "2026-08-16T13:06:44.333Z"
+    },
     {
       "id": "event_a54424288d0d3cf5",
       "type": "event",
@@ -16115,6 +16163,38 @@
     }
   ],
   "edges": [
+    {
+      "id": "edge_550356ec60c8c20d",
+      "from": "event_e07eb4e044dd681a",
+      "to": "article_1a62c37f582af6bd",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_ba4027faf1e24468",
+      "from": "source_2e10fed9af067238",
+      "to": "claim_a2bb09d4f00a0738",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_5b8e164f0136fa84",
+      "from": "claim_a2bb09d4f00a0738",
+      "to": "event_e07eb4e044dd681a",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_639a7b276bad540a",
+      "from": "source_7ddae578fbd5fdc0",
+      "to": "claim_20143a255d3a9ed0",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_19ce0da0d2df8b15",
+      "from": "claim_20143a255d3a9ed0",
+      "to": "event_e07eb4e044dd681a",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
     {
       "id": "edge_6f5f3f173fb19cd3",
       "from": "event_a54424288d0d3cf5",
