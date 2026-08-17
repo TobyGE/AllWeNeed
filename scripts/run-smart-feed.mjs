@@ -121,7 +121,11 @@ run("npm", [
   ...forwardedArguments(),
 ]);
 
-scheduleState.lastFullCycleAt = plan.plannedAt;
+// A successful cycle may spend substantial time in model fallbacks, builds,
+// pushes, and Pages verification. Restart the global cooldown from actual
+// completion so the next hourly poll cannot launch another model cycle
+// immediately after a slow publication finishes.
+scheduleState.lastFullCycleAt = new Date().toISOString();
 scheduleState.laneProcessedAt = {
   ...(scheduleState.laneProcessedAt ?? {}),
   ...Object.fromEntries(plan.dueLanes.map((lane) => [lane, plan.plannedAt])),
