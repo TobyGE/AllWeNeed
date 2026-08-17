@@ -2526,8 +2526,13 @@ export async function main() {
       return bTime - aTime;
     });
 
+  // `checkedAt` records when polling started and is useful for per-item fetch
+  // provenance. A full source poll can legitimately take longer than the
+  // reusable-snapshot TTL, though, so snapshot freshness must begin when the
+  // completed aggregate is ready to be handed to the Live/curated cycles.
+  const completedAt = new Date().toISOString();
   const snapshot = {
-    generatedAt: checkedAt,
+    generatedAt: completedAt,
     totalSources: sourcesToFetch.length,
     successfulSources: statuses.filter((status) =>
       ["ok", "empty"].includes(status.status),
