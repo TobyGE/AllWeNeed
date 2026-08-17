@@ -85,6 +85,30 @@ test("reuses only a fresh, complete polling snapshot", () => {
       ),
     /incomplete/,
   );
+
+  const longSmartCycleSnapshot = {
+    generatedAt: "2026-08-01T11:15:00.000Z",
+    successfulSources: 198,
+    items: [],
+  };
+  assert.doesNotThrow(() =>
+    assertReusableSnapshot(
+      longSmartCycleSnapshot,
+      now,
+      2 * 60 * 60 * 1_000,
+      longSmartCycleSnapshot.generatedAt,
+    ),
+  );
+  assert.throws(
+    () =>
+      assertReusableSnapshot(
+        longSmartCycleSnapshot,
+        now,
+        2 * 60 * 60 * 1_000,
+        "2026-08-01T11:16:00.000Z",
+      ),
+    /does not match this smart cycle/,
+  );
 });
 
 test("rejects a rewritten or removed old article", () => {

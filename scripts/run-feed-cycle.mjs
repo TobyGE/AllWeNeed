@@ -272,10 +272,16 @@ export function assertReusableSnapshot(
   snapshot,
   now = Date.now(),
   maxAgeMs = 15 * 60 * 1_000,
+  expectedGeneratedAt = null,
 ) {
   const generatedAt = Date.parse(snapshot?.generatedAt ?? "");
   if (!Number.isFinite(generatedAt)) {
     throw new Error("Reusable snapshot has no valid generatedAt");
+  }
+  if (expectedGeneratedAt && snapshot.generatedAt !== expectedGeneratedAt) {
+    throw new Error(
+      `Reusable snapshot does not match this smart cycle: expected ${expectedGeneratedAt}, received ${snapshot.generatedAt}`,
+    );
   }
   const ageMs = now - generatedAt;
   if (ageMs < -5 * 60 * 1_000 || ageMs > maxAgeMs) {
@@ -373,6 +379,8 @@ function push(repo, branch) {
 async function publishLiveOnly({
   startedAt,
   reuseSnapshot,
+  expectedSnapshotAt,
+  reusableSnapshotMaxAgeMs,
 }) {
   const liveFeedPath = resolve(projectRoot, "data/live-feed.json");
   const trafficSummaryPath = resolve(projectRoot, "data/traffic-summary.json");
@@ -384,7 +392,14 @@ async function publishLiveOnly({
   const previousSnapshot = await readJson(
     resolve(projectRoot, "data/feed-snapshot.json"),
   );
-  if (reuseSnapshot) assertReusableSnapshot(scannedSnapshot);
+  if (reuseSnapshot) {
+    assertReusableSnapshot(
+      scannedSnapshot,
+      Date.now(),
+      reusableSnapshotMaxAgeMs,
+      expectedSnapshotAt,
+    );
+  }
   assertSnapshotHealth(scannedSnapshot, previousSnapshot);
 
   const liveCandidate = buildLiveFeed(scannedSnapshot);
@@ -591,6 +606,10 @@ async function main() {
   const liveOnly = process.argv.includes("--live-only");
   const skipRemoteCheck = process.argv.includes("--skip-remote-check");
   const reuseSnapshot = process.argv.includes("--reuse-snapshot");
+  const expectedSnapshotAt = argumentValue("snapshot-generated-at");
+  const reusableSnapshotMaxAgeMs = expectedSnapshotAt
+    ? 2 * 60 * 60 * 1_000
+    : undefined;
   const requestedLanes = argumentValue("lanes");
   const startedAt = new Date().toISOString();
   let recoveredBatch = null;
@@ -661,6 +680,8 @@ async function main() {
       await publishLiveOnly({
         startedAt,
         reuseSnapshot,
+        expectedSnapshotAt,
+        reusableSnapshotMaxAgeMs,
       });
       return;
     }
@@ -677,6 +698,9 @@ async function main() {
       if (reuseSnapshot) {
         assertReusableSnapshot(
           await readJson(resolve(projectRoot, "tmp/feed-snapshot.json")),
+          Date.now(),
+          reusableSnapshotMaxAgeMs,
+          expectedSnapshotAt,
         );
         runCommand(
           process.execPath,

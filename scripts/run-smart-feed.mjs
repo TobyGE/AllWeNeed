@@ -55,6 +55,7 @@ function forwardedArguments() {
   return process.argv.slice(2).filter(
     (argument) =>
       !argument.startsWith("--lanes=") &&
+      !argument.startsWith("--snapshot-generated-at=") &&
       argument !== "--reuse-snapshot",
   );
 }
@@ -86,6 +87,7 @@ if (!plan.modelCooldownActive) {
     "cycle:live",
     "--",
     "--reuse-snapshot",
+    `--snapshot-generated-at=${plan.plannedAt}`,
     ...forwardedArguments(),
   ]);
 } else {
@@ -115,6 +117,7 @@ run("npm", [
   "--",
   `--lanes=${plan.dueLanes.join(",")}`,
   "--reuse-snapshot",
+  `--snapshot-generated-at=${plan.plannedAt}`,
   ...forwardedArguments(),
 ]);
 
