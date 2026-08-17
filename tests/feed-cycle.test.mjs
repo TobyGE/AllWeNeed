@@ -95,7 +95,7 @@ test("reuses only a fresh, complete polling snapshot", () => {
     assertReusableSnapshot(
       longSmartCycleSnapshot,
       now,
-      2 * 60 * 60 * 1_000,
+      Number.POSITIVE_INFINITY,
       longSmartCycleSnapshot.generatedAt,
     ),
   );
@@ -104,7 +104,7 @@ test("reuses only a fresh, complete polling snapshot", () => {
       assertReusableSnapshot(
         longSmartCycleSnapshot,
         now,
-        2 * 60 * 60 * 1_000,
+        Number.POSITIVE_INFINITY,
         "2026-08-01T11:16:00.000Z",
       ),
     /does not match this smart cycle/,

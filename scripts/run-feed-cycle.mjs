@@ -607,8 +607,11 @@ async function main() {
   const skipRemoteCheck = process.argv.includes("--skip-remote-check");
   const reuseSnapshot = process.argv.includes("--reuse-snapshot");
   const expectedSnapshotAt = argumentValue("snapshot-generated-at");
+  // The exact timestamp binds a snapshot to the poll that launched this smart
+  // cycle. Do not let slow builds or Pages verification invalidate that same
+  // immutable snapshot before the following curated phase can consume it.
   const reusableSnapshotMaxAgeMs = expectedSnapshotAt
-    ? 2 * 60 * 60 * 1_000
+    ? Number.POSITIVE_INFINITY
     : undefined;
   const requestedLanes = argumentValue("lanes");
   const startedAt = new Date().toISOString();
