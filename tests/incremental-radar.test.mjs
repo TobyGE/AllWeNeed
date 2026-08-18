@@ -26,15 +26,45 @@ import {
   selectEditorialResearchItems,
   selectFeedStoriesForPublication,
   selectIncrementalItems,
+  stateWithDeferredCandidates,
   validateConversationCoverage,
   validateEditorialResearchCoverage,
   validateFeedCoverage,
   withoutDeferredResearchCandidates,
 } from "../scripts/append-feed-updates.mjs";
+
 import {
   isResearchLikeEvidence,
   qualifiesExploreEvidenceBundle,
 } from "../scripts/explore-quality.mjs";
+
+test("technical editorial research failures persist without processing URLs", () => {
+  const previousSnapshot = {
+    generatedAt: "2026-08-18T00:00:00.000Z",
+    statuses: [{ sourceId: 1, status: "ok" }],
+    items: [
+      {
+        sourceId: 1,
+        title: "Already baselined",
+        url: "https://example.com/baseline",
+      },
+    ],
+  };
+  const deferred = {
+    sourceId: 1,
+    title: "Needs research retry",
+    url: "https://example.com/deferred",
+  };
+  const state = stateWithDeferredCandidates({
+    state: createBaselineState(previousSnapshot),
+    previousSnapshot,
+    deferredCandidates: [deferred],
+  });
+
+  assert.ok(state.deferredKeys.includes(deferred.url));
+  assert.ok(!state.processedKeys.includes(deferred.url));
+  assert.equal(state.lastScanAt, previousSnapshot.generatedAt);
+});
 
 function article(prefix) {
   return {

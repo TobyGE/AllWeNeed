@@ -2528,6 +2528,24 @@ export function nextState({
   };
 }
 
+export function stateWithDeferredCandidates({
+  state,
+  previousSnapshot,
+  deferredCandidates = [],
+}) {
+  if (!deferredCandidates.length) return state;
+  const baseState = state ?? createBaselineState(previousSnapshot);
+  return {
+    ...baseState,
+    deferredKeys: [
+      ...new Set([
+        ...(baseState.deferredKeys ?? []),
+        ...deferredCandidates.map(itemProcessingKey),
+      ]),
+    ].slice(-2_000),
+  };
+}
+
 export function assertSnapshotHealth(scannedSnapshot, previousSnapshot) {
   const currentSuccessful = Number(scannedSnapshot.successfulSources ?? 0);
   const previousSuccessful = Number(previousSnapshot.successfulSources ?? 0);
@@ -2695,6 +2713,20 @@ async function main() {
       generatedAt: scannedSnapshot.generatedAt,
       skillInstructions: editorialSkillInstructions,
     });
+    const deferredResearchCandidates = allSelectedCandidates.filter((item) =>
+      editorialResearch.deferredRefs.includes(item.ref),
+    );
+    if (deferredResearchCandidates.length) {
+      // Persist technical research deferrals immediately. Later editorial or
+      // conversation model failures must not erase this retry queue or mark
+      // these URLs processed.
+      state = stateWithDeferredCandidates({
+        state,
+        previousSnapshot,
+        deferredCandidates: deferredResearchCandidates,
+      });
+      await writeJson(statePath, state);
+    }
     candidates = withoutDeferredResearchCandidates(
       [...candidates, ...editorialResearch.candidates],
       editorialResearch.deferredRefs,
