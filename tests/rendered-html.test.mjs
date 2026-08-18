@@ -320,7 +320,17 @@ test("removes all disposable starter preview code", async () => {
     smartFeedScript.lastIndexOf(
       "scheduleState.lastFullCycleAt = new Date().toISOString()",
     ) > smartFeedScript.indexOf('"cycle:feed"'),
-    "a successful slow cycle must restart cooldown from completion",
+    "a slow cycle must restart cooldown from completion",
+  );
+  assert.match(
+    smartFeedScript,
+    /finally \{[\s\S]*scheduleState\.lastFullCycleAt = new Date\(\)\.toISOString\(\)/,
+    "failed model cycles must also restart cooldown from completion",
+  );
+  assert.match(
+    smartFeedScript,
+    /if \(fullCycleSucceeded\) \{[\s\S]*scheduleState\.laneProcessedAt/,
+    "lane timestamps must remain success-only",
   );
   assert.match(feedCycleScript, /status: "live_skipped_empty"/);
   assert.ok(

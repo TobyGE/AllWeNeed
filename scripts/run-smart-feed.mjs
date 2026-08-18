@@ -81,53 +81,60 @@ if (!plan.modelCooldownActive && plan.shouldRunFullCycle) {
 // full analysis cadence. The global cooldown covers every model task,
 // including Live localization, so a cooling full cycle must not be bypassed
 // through this independent lane.
-if (!plan.modelCooldownActive) {
-  run("npm", [
-    "run",
-    "cycle:live",
-    "--",
-    "--reuse-snapshot",
-    `--snapshot-generated-at=${plan.plannedAt}`,
-    ...forwardedArguments(),
-  ]);
-} else {
-  console.log("Skipping Live localization during the global model cooldown.");
+let fullCycleSucceeded = false;
+try {
+  if (!plan.modelCooldownActive) {
+    run("npm", [
+      "run",
+      "cycle:live",
+      "--",
+      "--reuse-snapshot",
+      `--snapshot-generated-at=${plan.plannedAt}`,
+      ...forwardedArguments(),
+    ]);
+  } else {
+    console.log("Skipping Live localization during the global model cooldown.");
+  }
+
+  if (!plan.shouldRunFullCycle) {
+    runOptional("npm", ["run", "scout:sources:scheduled"]);
+    console.log(
+      JSON.stringify(
+        {
+          status: "queued",
+          reason: plan.reason,
+          nextDueAt: plan.nextDueAt,
+          laneCounts: plan.laneCounts,
+        },
+        null,
+        2,
+      ),
+    );
+  } else {
+    run("npm", [
+      "run",
+      "cycle:feed",
+      "--",
+      `--lanes=${plan.dueLanes.join(",")}`,
+      "--reuse-snapshot",
+      `--snapshot-generated-at=${plan.plannedAt}`,
+      ...forwardedArguments(),
+    ]);
+    fullCycleSucceeded = true;
+  }
+} finally {
+  // Model attempts can spend hours in fallbacks before either succeeding or
+  // failing. Restart cooldown at actual completion in both cases so a failed
+  // cycle is not relaunched by the next hourly poll. Lane timestamps remain
+  // success-only, keeping every candidate queued for a later retry.
+  if (!plan.modelCooldownActive && plan.shouldRunFullCycle) {
+    scheduleState.lastFullCycleAt = new Date().toISOString();
+    if (fullCycleSucceeded) {
+      scheduleState.laneProcessedAt = {
+        ...(scheduleState.laneProcessedAt ?? {}),
+        ...Object.fromEntries(plan.dueLanes.map((lane) => [lane, plan.plannedAt])),
+      };
+    }
+    await writeScheduleState(scheduleState);
+  }
 }
-
-if (!plan.shouldRunFullCycle) {
-  runOptional("npm", ["run", "scout:sources:scheduled"]);
-  console.log(
-    JSON.stringify(
-      {
-        status: "queued",
-        reason: plan.reason,
-        nextDueAt: plan.nextDueAt,
-        laneCounts: plan.laneCounts,
-      },
-      null,
-      2,
-    ),
-  );
-  process.exit(0);
-}
-
-run("npm", [
-  "run",
-  "cycle:feed",
-  "--",
-  `--lanes=${plan.dueLanes.join(",")}`,
-  "--reuse-snapshot",
-  `--snapshot-generated-at=${plan.plannedAt}`,
-  ...forwardedArguments(),
-]);
-
-// A successful cycle may spend substantial time in model fallbacks, builds,
-// pushes, and Pages verification. Restart the global cooldown from actual
-// completion so the next hourly poll cannot launch another model cycle
-// immediately after a slow publication finishes.
-scheduleState.lastFullCycleAt = new Date().toISOString();
-scheduleState.laneProcessedAt = {
-  ...(scheduleState.laneProcessedAt ?? {}),
-  ...Object.fromEntries(plan.dueLanes.map((lane) => [lane, plan.plannedAt])),
-};
-await writeScheduleState(scheduleState);
