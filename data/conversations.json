@@ -1,8 +1,213 @@
 {
-  "generatedAt": "2026-08-17T11:16:49.555Z",
+  "generatedAt": "2026-08-19T03:52:39.353Z",
   "weekStart": "2026-07-24T00:00:00.000Z",
-  "model": "gpt-5.6-luna",
+  "model": "gpt-5.6-terra",
   "items": [
+    {
+      "id": "conversation-20260819035239-1",
+      "videoId": "pvJa2pzuXWQ",
+      "videoUrl": "https://www.youtube.com/watch?v=pvJa2pzuXWQ",
+      "sourceName": "This Week in Startups",
+      "sourceKind": "YouTube",
+      "originalTitle": "Bittensor creator Const on Affine, dTAO, \"mining reasoning,\" and more | E2326",
+      "url": "https://4a885955-6823-4b22-a3e1-a526c25516a5.libsyn.com/bittensor-creator-const-on-affine-dtao-mining-reasoning-and-more-e2326",
+      "feedBatchAt": "2026-08-19T03:52:39.353Z",
+      "publishedAt": "2026-08-17T19:37:00.000Z",
+      "durationMinutes": 85,
+      "guest": "Jason Steeves（Const）",
+      "categoryZh": "去中心化 AI 基础设施",
+      "categoryEn": "Decentralized AI infrastructure",
+      "titleZh": "Bittensor 的赌注：把 AI 基础设施变成一场持续定价的市场",
+      "titleEn": "Bittensor’s Bet: Turn AI Infrastructure into a Continuously Priced Market",
+      "dekZh": "Bittensor 联合创始人 Jason Steeves 认为，去中心化网络不应只分配算力，而应通过子网竞争、验证机制与 dTAO 市场，让不同 AI 服务持续接受资本和使用者的定价。",
+      "dekEn": "Bittensor co-founder Jason Steeves argues that a decentralized network should do more than allocate compute: subnet competition, verification, and the dTAO market can continuously price AI services through capital and usage.",
+      "whyListenZh": "这是一场少见的、从协议设计者视角解释 Bittensor 激励结构的长谈。它的价值不在于接受“去中心化 AI 会胜出”的结论，而在于理解：一个试图把推理、存储和模型服务拆成可竞争市场的网络，究竟要解决哪些协调问题。",
+      "whyListenEn": "This is an unusually detailed explanation of Bittensor’s incentive design from one of its protocol creators. The value is not in accepting that decentralized AI will win, but in understanding the coordination problems a network must solve when inference, storage, and model services become competing markets.",
+      "counterpointZh": "市场化激励并不自动产生可靠服务。若验证无法准确衡量推理质量，或代币交易主要由投机而非用户需求驱动，子网价格可能奖励的是叙事、流动性和短期套利，而不是更好的 AI 基础设施。",
+      "counterpointEn": "Market incentives do not automatically produce reliable services. If verification cannot measure inference quality well, or token trading is driven more by speculation than user demand, subnet prices may reward narrative, liquidity, and short-term arbitrage rather than better AI infrastructure.",
+      "takeawaysZh": [
+        "Steeves 将 Bittensor 的核心问题定义为：如何让分散参与者为有价值的智能服务竞争，而不只是为硬件产出竞争。",
+        "子网需要同时处理服务质量、矿工激励与抗作弊验证；这也是系统是否能提供真实 AI 服务的关键环节。",
+        "dTAO 把子网本身变成竞争对象，但市场价格能否稳定反映长期效用，仍取决于实际需求和治理执行。"
+      ],
+      "takeawaysEn": [
+        "Steeves frames Bittensor’s central problem as getting distributed participants to compete on valuable intelligence services, not merely on hardware output.",
+        "Subnets must jointly address service quality, miner incentives, and adversarial verification; that is the critical test of whether the system can provide useful AI services.",
+        "dTAO turns subnets themselves into competitive assets, but whether market prices track durable utility still depends on real demand and governance execution."
+      ],
+      "articleZh": {
+        "lead": "Jason Steeves 对 Bittensor 的描述，指向的不是“用代币购买算力”这样简单的主张，而是一套更激进的机制：让 AI 服务本身成为可被竞争、验证和定价的经济单元。若这套机制成立，去中心化 AI 的差异化将不在于复制云厂商，而在于用开放市场决定哪些服务值得持续投入。",
+        "sections": [
+          {
+            "heading": "从挖矿硬件转向“挖掘智能”",
+            "body": "Steeves 将 Bittensor 的出发点放在激励设计上：网络需要吸引参与者提供推理、计算或存储，但不能只按投入的硬件资源分配回报。按他的说法，子网的意义是把不同类型的 AI 服务分开竞争，使贡献者因服务对网络的价值而获得奖励。这一论点把协议的竞争单位从单一链或单一模型，转为多个可独立演化的服务市场。"
+          },
+          {
+            "heading": "子网、验证与 dTAO 如何连接",
+            "body": "公开时间轴显示，对谈依次讨论了子网、对抗不诚实推理者、创建子网的难度，以及 dTAO。其机制上的关键在于：一个子网不仅要招募提供服务的矿工，还要设法判断服务是否真实、有效且难以伪造。Steeves 进一步把 dTAO 描述为让创建子网也进入竞争的安排：资本可在不同子网间表达判断，注册与排放等规则则决定这种判断如何反馈到网络资源分配。"
+          },
+          {
+            "heading": "可证伪点不在口号，而在质量信号",
+            "body": "这套设计最容易被证伪的地方，是市场信号是否真正对应用户价值。推理任务往往难以低成本、无争议地评分；一旦验证者、矿工和代币持有者的利益无法对齐，系统就可能奖励可被指标捕捉的行为，而非可靠服务。对谈提及 Templar controversy 与 Conviction “rug pull”，也说明网络治理和参与者信任不是协议抽象之外的边缘问题，而是经济机制的一部分。"
+          }
+        ],
+        "outlook": "接下来值得观察的具体信号是：哪些子网能够披露可复现的服务质量、持续使用量与验证成本，并让这些指标而非短期代币热度，解释其资本流入。"
+      },
+      "articleEn": {
+        "lead": "Jason Steeves describes something more ambitious than buying compute with tokens: a system in which AI services themselves become economic units that can compete, be verified, and be priced. If that system works, decentralized AI would not merely replicate cloud providers; it would use an open market to decide which services deserve continued investment.",
+        "sections": [
+          {
+            "heading": "From mining hardware to “mining intelligence”",
+            "body": "Steeves frames Bittensor as an incentive-design problem. A network must attract contributors offering inference, compute, or storage, but cannot simply reward hardware inputs. In his account, subnets separate different kinds of AI services into distinct competitions, so contributors are rewarded for value delivered to the network. That shifts the unit of competition from a single chain or model to multiple services that can evolve independently."
+          },
+          {
+            "heading": "How subnets, verification, and dTAO connect",
+            "body": "The published timeline moves through subnets, dishonest inference, the difficulty of creating a subnet, and dTAO. The central mechanism is that a subnet must not only recruit miners but also determine whether their service is real, useful, and difficult to fake. Steeves presents dTAO as a way to make subnet creation itself competitive: capital can express judgments across subnets, while registration and emissions rules determine how those judgments feed back into resource allocation."
+          },
+          {
+            "heading": "The falsifiable variable is the quality signal",
+            "body": "The design stands or falls on whether market signals correspond to user value. Inference tasks can be difficult to score cheaply and unambiguously; if validators, miners, and token holders are not aligned, the system may reward behavior that is easy to measure rather than services that are dependable. The discussion of the Templar controversy and the Conviction “rug pull” also makes clear that governance and participant trust are part of the economic mechanism, not peripheral concerns."
+          }
+        ],
+        "outlook": "Watch for subnets that can disclose reproducible service quality, sustained usage, and verification costs—and for those measures, rather than short-term token attention, to explain where capital flows."
+      }
+    },
+    {
+      "id": "conversation-20260819035239-2",
+      "videoId": "",
+      "sourceName": "Eye On A.I.",
+      "sourceKind": "Podcast",
+      "originalTitle": "Why People Are Paying 10x More for AI - and What That Means for the Chip Market | Sid Sheth, d-Matrix",
+      "url": "https://aneyeonai.libsyn.com/why-people-are-paying-10x-more-for-ai-and-what-that-means-for-the-chip-market-sid-sheth-d-matrix",
+      "feedBatchAt": "2026-08-19T03:52:39.353Z",
+      "publishedAt": "2026-08-17T15:25:00.000Z",
+      "durationMinutes": 51,
+      "guest": "Sid Sheth",
+      "categoryZh": "AI 推理芯片",
+      "categoryEn": "AI inference chips",
+      "titleZh": "AI 推理会分层吗？d-Matrix 对“高溢价 token”的芯片判断",
+      "titleEn": "Will AI Inference Split into Tiers? d-Matrix’s Case for Premium Tokens",
+      "dekZh": "d-Matrix CEO Sid Sheth 认为，AI 推理正在分成低成本批处理与高价值交互式服务两层；后者对延迟和内存带宽的要求，可能为专用架构而非通用 GPU 留出空间。",
+      "dekEn": "d-Matrix CEO Sid Sheth argues that AI inference is splitting between low-cost batch workloads and high-value interactive services, where latency and memory-bandwidth demands may create room for purpose-built architectures beyond general-purpose GPUs.",
+      "whyListenZh": "这场对谈把芯片竞争从“谁能取代 NVIDIA”的泛化问题，收束到更可检验的问题：客户是否愿意为更快、更可交互的 token 支付溢价，以及这种溢价能否覆盖专用硬件的部署成本。",
+      "whyListenEn": "The conversation narrows chip competition from the vague question of who can replace NVIDIA to a testable one: whether customers will pay a premium for faster, more interactive tokens, and whether that premium can cover the cost of deploying specialized hardware.",
+      "counterpointZh": "高溢价交互式推理是否会成为足够大的独立市场仍未确定。GPU 平台也在通过软件、网络、内存和系统设计改善推理效率；即便低延迟有价值，客户也未必愿意为另一套硬件与软件栈承担迁移成本。",
+      "counterpointEn": "It remains uncertain whether premium interactive inference will become a large enough distinct market. GPU platforms are also improving inference through software, networking, memory, and system design; even if low latency matters, customers may not accept the switching cost of another hardware and software stack.",
+      "takeawaysZh": [
+        "Sheth 的核心判断是，推理需求并非单一市场：交互延迟本身可能成为可收费的产品属性。",
+        "他把 GPU 系统的内存带宽限制视为高并发、低延迟推理的结构性约束，并据此论证专用架构的机会。",
+        "“组织型 AI”是他的需求侧预期：如果多智能体承担公司职能，推理规模与服务等级可能比单个聊天机器人更重要。"
+      ],
+      "takeawaysEn": [
+        "Sheth’s central claim is that inference is not one market: interactive latency may itself become a priced product attribute.",
+        "He treats memory-bandwidth limits in GPU systems as a structural constraint for high-concurrency, low-latency inference, creating an opening for specialized architectures.",
+        "His demand-side expectation is “organizational AI”: if teams of agents run company functions, inference scale and service levels may matter more than for a single chatbot."
+      ],
+      "articleZh": {
+        "lead": "Sid Sheth 的芯片市场判断不是 NVIDIA 会不会失去主导地位，而是 AI 推理会不会因服务等级而分裂。如果即时响应能带来显著更高的商业价值，那么最重要的竞争变量可能不再只是每 token 成本，而是系统能否在高并发下稳定交付低延迟。",
+        "sections": [
+          {
+            "heading": "价格差异可能重塑推理市场",
+            "body": "Sheth 在对谈中提出“premium token economy”：用户可能为即时、可交互的响应支付远高于普通 token 的价格。这个论点将推理从统一的云资源商品，重新定义为具有不同服务等级的产品。若企业应用确实能从即时反馈中获得更高转化率、更高员工效率或更可靠的自动化流程，延迟就不只是工程指标，而会进入定价模型。"
+          },
+          {
+            "heading": "专用架构的依据是带宽，而非反 GPU 口号",
+            "body": "Sheth 认为，GPU 系统的内存带宽会限制某些交互式推理负载，因此为面向该场景设计的架构留下空间。其逻辑是，生成式模型在推理时需要反复访问模型状态；当大量用户同时要求快速响应，数据移动与内存访问可能比理论计算峰值更早成为瓶颈。对 d-Matrix 而言，这意味着竞争不必覆盖所有训练和推理任务，而是集中服务对吞吐、成本与响应时间组合最敏感的工作负载。"
+          },
+          {
+            "heading": "需求侧预测仍是整套论证的压力测试",
+            "body": "Sheth 对“组织型 AI”的设想，为高性能推理提供了更大的需求故事：从单个助手走向多智能体协同运行公司职能。但这仍是他的判断，而不是对市场规模的证明。若企业采用停留在试点、智能体的错误率使人工复核持续存在，或客户优先选择通用平台的一体化能力，所谓高溢价层就可能不足以支撑新的硬件供应链。"
+          }
+        ],
+        "outlook": "应关注的信号是：企业是否开始以明确的延迟等级采购推理服务，并公开显示低延迟工作负载的使用增长、单位经济性和从 GPU 集群迁移到专用系统的比例。"
+      },
+      "articleEn": {
+        "lead": "Sid Sheth’s market thesis is not simply about whether NVIDIA loses leadership. It is about whether AI inference splits by service level. If instant responses create meaningfully higher commercial value, the key competitive variable may no longer be cost per token alone, but whether a system can reliably deliver low latency under heavy concurrency.",
+        "sections": [
+          {
+            "heading": "Price differentiation could reshape inference",
+            "body": "Sheth proposes a “premium token economy,” in which users pay much more for immediate, interactive responses than for ordinary tokens. The argument recasts inference from a uniform cloud commodity into a product with differentiated service levels. If enterprise applications gain conversion, employee productivity, or more dependable automation from immediate feedback, latency becomes not just an engineering metric but an input to pricing."
+          },
+          {
+            "heading": "The specialized-architecture case rests on bandwidth",
+            "body": "Sheth argues that memory bandwidth in GPU systems constrains some interactive inference workloads, creating room for architectures designed for that setting. The logic is that generative models repeatedly access model state during inference; when many users require rapid responses at once, data movement and memory access may become bottlenecks before theoretical compute peaks do. For d-Matrix, this implies that it need not serve every training and inference job, only workloads most sensitive to the combination of throughput, cost, and response time."
+          },
+          {
+            "heading": "The demand forecast remains the pressure test",
+            "body": "Sheth’s vision of “organizational AI” supplies the larger demand story for high-performance inference: moving from a single assistant to teams of agents operating company functions. But that remains his forecast, not evidence of market size. If enterprise adoption remains in pilot mode, agent errors keep human review in the loop, or customers prioritize the integrated capabilities of general-purpose platforms, the premium tier may not be large enough to support a new hardware supply chain."
+          }
+        ],
+        "outlook": "Watch whether enterprises begin buying inference with explicit latency tiers, and whether they disclose growth in low-latency workloads, their unit economics, and the share of deployments moving from GPU clusters to specialized systems."
+      }
+    },
+    {
+      "id": "conversation-20260819035239-3",
+      "videoId": "",
+      "sourceName": "All-In Podcast",
+      "sourceKind": "YouTube",
+      "originalTitle": "Flock CEO Garrett Langley on Controversy, \"Surveillance State\" Claims, and Privacy vs Safety",
+      "url": "https://allinchamathjason.libsyn.com/flock-ceo-garrett-langley-on-controversy-surveillance-state-claims-and-privacy-vs-safety",
+      "feedBatchAt": "2026-08-19T03:52:39.353Z",
+      "publishedAt": "2026-08-18T00:47:00.000Z",
+      "durationMinutes": 56,
+      "guest": "Garrett Langley",
+      "categoryZh": "AI 安全与隐私",
+      "categoryEn": "AI safety and privacy",
+      "titleZh": "Flock 的边界问题：安全摄像头能否被设计成可问责的基础设施",
+      "titleEn": "Flock’s Boundary Problem: Can Safety Cameras Be Designed for Accountability?",
+      "dekZh": "Flock CEO Garrett Langley 主张，车牌识别摄像头、审计工具和有限数据留存可以在提升公共安全的同时约束滥用；真正的考验是，这些制度性限制能否在执法扩张、产品迭代和地方采购压力下持续有效。",
+      "dekEn": "Flock CEO Garrett Langley argues that license-plate cameras, audit tools, and limited data retention can improve public safety while constraining abuse; the real test is whether those institutional limits remain effective amid policing expansion, product evolution, and local procurement pressure.",
+      "whyListenZh": "AI 监控的争论常停留在“安全对隐私”的抽象对立。这场对谈提供了一家被争议包围的公司如何为留存期限、审计记录、面部识别和预测性警务划界的具体说法，也让听者能够检验这些边界是否足够。",
+      "whyListenEn": "Debates over AI surveillance often stay at the abstract level of safety versus privacy. This conversation offers a concrete account of how a controversial company says it draws boundaries around retention, audit logs, facial recognition, and predictive policing—and lets listeners assess whether those boundaries are sufficient.",
+      "counterpointZh": "审计和短期留存能够降低部分风险，却不能单独解决监控网络的规模、接入权限、执法选择性或未来功能扩张问题。即使每一次访问都被记录，受影响的人也未必能知道、质疑或纠正对其数据的使用。",
+      "counterpointEn": "Auditing and short retention can reduce some risks, but they do not by themselves resolve the scale of a surveillance network, access rights, selective enforcement, or future feature expansion. Even when every access is logged, affected people may not know about, challenge, or correct the use of their data.",
+      "takeawaysZh": [
+        "Langley 将短期车牌数据留存和可审计访问视为 Flock 安全模式的核心约束，而非附属合规措施。",
+        "他把审计工具描述为发现不当访问的机制，并以 Georgia 9 名警员被解雇的案例说明其作用；该案例在节目中由主持人与公司叙述提出。",
+        "围绕无人机、面部识别和预测性警务的讨论表明，监控产品的风险不仅来自当前功能，也来自功能边界如何随部署扩张而变化。"
+      ],
+      "takeawaysEn": [
+        "Langley treats short license-plate-data retention and auditable access as core constraints of Flock’s safety model, not secondary compliance features.",
+        "He presents audit tools as a mechanism for detecting improper access, with the program citing the firing of 9 Georgia officers; that example is presented through the hosts’ and company’s account.",
+        "The discussion of drones, facial recognition, and predictive policing shows that surveillance risk comes not only from current features, but from how product boundaries change as deployments expand."
+      ],
+      "articleZh": {
+        "lead": "Garrett Langley 试图把 Flock 的争议改写为一个系统设计问题：公共安全技术并非天然等同于“监控国家”，关键在于数据保存多久、谁能访问、访问是否留下痕迹，以及哪些功能被明确排除。这个主张值得认真对待，因为它把争论从价值宣言推进到可审计的制度边界；但边界能否约束权力，取决于它是否可执行、可见且难以被后来改写。",
+        "sections": [
+          {
+            "heading": "公司的论点是：约束应嵌入产品",
+            "body": "节目时间轴显示，讨论集中在车牌数据保存 7 天、摄像头破坏、隐私担忧，以及安全覆盖的适用对象。Langley 的立场是，短期留存和受控访问可以让系统支持案件调查，同时避免建立无限期的行为档案。主持人和节目说明还提到“7 days solves 90% of crimes”的说法；这应被理解为节目中提出的公司立场，而不是独立确认的效果结论。"
+          },
+          {
+            "heading": "审计工具提供了一种可追责机制",
+            "body": "Langley 将审计能力置于其论证中心：如果执法人员或其他获授权者访问数据，每次操作应当可被追踪，从而识别不当使用。节目将 Georgia 9 名警员被解雇与 Flock 的审计工具联系起来，这一案例说明了公司希望建立的机制——不是假设所有访问者都可信，而是为滥用留下发现与处罚的记录。审计的价值因此取决于日志是否完整、审查是否独立，以及违规后果是否一致。"
+          },
+          {
+            "heading": "产品边界必须经受扩张压力",
+            "body": "对谈也触及 AI、无人机、面部识别与避免预测性警务，这些议题揭示了最难的问题：限制不只是一份今天的产品声明。摄像头网络一旦铺开，新的数据源、跨机构共享和分析能力都可能改变原有风险。节目提到 Flock 面临公关危机、客户流失以及 20 个城市关闭摄像头；无论具体规模如何，这些来自节目叙述的信号都表明，社区接受度本身会反过来约束部署。"
+          }
+        ],
+        "outlook": "下一步应盯住一个可验证的问题：采用 Flock 的城市是否公布独立审计结果，包括访问次数、违规访问、申诉处理、数据共享对象，以及留存和功能政策发生的每一次变更。"
+      },
+      "articleEn": {
+        "lead": "Garrett Langley tries to recast the controversy around Flock as a systems-design question: public-safety technology is not inherently a “surveillance state”; what matters is how long data is retained, who can access it, whether access leaves a record, and which capabilities are explicitly excluded. That claim matters because it moves the debate from value statements to auditable institutional boundaries. But whether those boundaries constrain power depends on whether they are enforceable, visible, and difficult to rewrite later.",
+        "sections": [
+          {
+            "heading": "The company’s argument: constraints belong in the product",
+            "body": "The episode timeline centers on seven-day license-plate-data retention, camera vandalism, privacy concerns, and who needs safety coverage. Langley’s position is that short retention and controlled access can support investigations without creating an indefinite record of movement. The hosts and episode description also present the claim that “7 days solves 90% of crimes”; this should be understood as a position raised in the program, not as independently verified evidence of effectiveness."
+          },
+          {
+            "heading": "Audit tools offer a mechanism for accountability",
+            "body": "Langley places auditability at the center of his case: if police or other authorized users access data, each action should be traceable so improper use can be detected. The program links the firing of 9 Georgia officers to Flock’s audit tool. The example illustrates the mechanism the company wants to establish—not an assumption that every user is trustworthy, but a record that can expose and punish misuse. Its value depends on whether logs are complete, review is independent, and consequences are applied consistently."
+          },
+          {
+            "heading": "Product boundaries must survive expansion pressure",
+            "body": "The conversation also covers AI, drones, facial recognition, and avoiding predictive policing, exposing the harder issue: limits are not merely a product statement made today. Once a camera network is deployed, new data sources, inter-agency sharing, and analytical capabilities can change the original risk profile. The episode mentions a Flock public-relations crisis, churn, and 20 cities turning cameras off; whatever the precise scale, those program-supplied signals suggest that community acceptance can itself constrain deployment."
+          }
+        ],
+        "outlook": "Watch one verifiable question: whether cities using Flock publish independent audit results covering access volume, improper access, complaint resolution, data-sharing recipients, and every change to retention or product-function policy."
+      }
+    },
     {
       "id": "conversation-20260817111649-1",
       "videoId": "",
