@@ -18,10 +18,6 @@ import {
   modelTaskInstructions,
 } from "./model-prompts.mjs";
 import { qualifiesExploreEvidenceBundle } from "./explore-quality.mjs";
-import {
-  compareEditorialAssignments,
-  shouldRunShadowEvaluation,
-} from "./shadow-evaluation.mjs";
 
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const canonicalSnapshotPath = resolve(projectRoot, "data/feed-snapshot.json");
@@ -2674,8 +2670,6 @@ async function main() {
   };
   let model = null;
   let editorialQualityWarnings = [];
-  let primaryEditorialRaw = null;
-  let primaryEditorialCall = null;
   let shadowEvaluation = {
     attempted: false,
     completedAt: scannedSnapshot.generatedAt,
@@ -2793,8 +2787,6 @@ async function main() {
             });
             model = candidateModel;
             editorialQualityWarnings = attemptQualityWarnings;
-            primaryEditorialRaw = raw;
-            primaryEditorialCall = call;
             break;
           } catch (error) {
             lastError = error;
@@ -2810,67 +2802,10 @@ async function main() {
       if (model === null) {
         throw lastError ?? new Error("Incremental analysis failed");
       }
-      const shadowSeed = [
-        scannedSnapshot.generatedAt,
-        ...candidates.map((item) => item.url),
-      ].join("|");
-      if (
-        model === "gpt-5.6-terra" &&
-        shouldRunShadowEvaluation({ seed: shadowSeed })
-      ) {
-        shadowEvaluation = {
-          attempted: true,
-          completedAt: scannedSnapshot.generatedAt,
-          primaryModel: model,
-          shadowModel: "gpt-5.6-sol",
-          primaryLatencyMs: primaryEditorialCall?.latencyMs ?? null,
-          primaryUsage: primaryEditorialCall?.usage ?? null,
-        };
-        try {
-          const shadowCall = await callSubscriptionModelDetailed({
-            model: "gpt-5.6-sol",
-            prompt,
-            ...auth,
-            instructions: modelTaskInstructions({
-              model: "gpt-5.6-sol",
-              task: "editorial",
-              fallbackInstructions:
-                `${editorialSkillInstructions}\n\nIndependently classify every source item. Do not defer to another model. Apply the publication bar strictly and return only valid JSON.`,
-            }),
-            reasoningEffort: modelReasoningEffort({
-              model: "gpt-5.6-sol",
-              task: "editorial",
-              fallbackEffort: "high",
-            }),
-          });
-          const shadowRaw = applyEditorialPublicationBar(
-            normalizeFeedCoverageRefs(
-              parseJsonOutput(shadowCall.output),
-              candidates,
-            ),
-            candidates,
-          );
-          validateFeedCoverage(shadowRaw, candidates);
-          shadowEvaluation = {
-            ...shadowEvaluation,
-            completed: true,
-            shadowLatencyMs: shadowCall.latencyMs,
-            shadowUsage: shadowCall.usage,
-            comparison: compareEditorialAssignments(
-              primaryEditorialRaw,
-              shadowRaw,
-              candidates.map((item) => item.ref),
-            ),
-          };
-        } catch (error) {
-          shadowEvaluation = {
-            ...shadowEvaluation,
-            completed: false,
-            error: error instanceof Error ? error.message : String(error),
-          };
-          console.warn(`Editorial shadow evaluation failed: ${shadowEvaluation.error}`);
-        }
-      }
+      // Sol is reserved for the final quality fallback after Terra/Luna
+      // failure. Do not spend it on shadow evaluation after a valid Terra
+      // result; offline deterministic comparison utilities remain available
+      // for explicit evaluation runs.
     }
   }
 

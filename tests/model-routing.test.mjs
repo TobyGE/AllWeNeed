@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 import test from "node:test";
 import {
   assertApprovedModelUsage,
@@ -84,4 +85,13 @@ test("uses Terra for both fast-lane and ordinary writing", () => {
     )[0],
     "gpt-5.6-terra",
   );
+});
+
+test("reserves Sol for routed fallback instead of shadow evaluation", async () => {
+  const appendFeedScript = await readFile(
+    new URL("../scripts/append-feed-updates.mjs", import.meta.url),
+    "utf8",
+  );
+
+  assert.doesNotMatch(appendFeedScript, /gpt-5\.6-sol/);
 });
