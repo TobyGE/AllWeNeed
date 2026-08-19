@@ -1,16 +1,36 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-19T03:52:39.353Z",
+  "generatedAt": "2026-08-19T06:07:09.189Z",
   "counts": {
-    "sources": 735,
-    "claims": 867,
-    "events": 183,
-    "articles": 183,
-    "updates": 122,
-    "edges": 2321,
+    "sources": 745,
+    "claims": 878,
+    "events": 185,
+    "articles": 185,
+    "updates": 123,
+    "edges": 2350,
     "revisionsRequired": 10
   },
   "revisionQueue": [
+    {
+      "signalId": 115,
+      "eventId": "event_78547822baad4bb9",
+      "updateId": "update_11fbdeb9367970d8",
+      "title": "Z.ai发布GLM-5.3押注网络防御",
+      "updateTitle": "GLM-5.3敏感能力改受控开放",
+      "thesisImpact": "新增报道显示Z.ai并未将最敏感网络安全能力普遍开放，而是采用受控、分级访问。这使原有“网络防御模型”定位更明确地转向能力商业化与风险门槛并行。",
+      "detectedAt": "2026-08-14T00:00:00.000Z",
+      "status": "needs_editorial_revision"
+    },
+    {
+      "signalId": 115,
+      "eventId": "event_78547822baad4bb9",
+      "updateId": "update_f9f0bd6ba16f0882",
+      "title": "Z.ai发布GLM-5.3押注网络防御",
+      "updateTitle": "GLM-5.3权重尚未开放",
+      "thesisImpact": "新的一手资料显示GLM-5.3目前尚未提供可下载权重，原有“开源模型”判断应收窄为已发布、拟在安全评估和加固后开放权重的模型。",
+      "detectedAt": "2026-08-14T10:21:34.000Z",
+      "status": "needs_editorial_revision"
+    },
     {
       "signalId": 1,
       "eventId": "event_0c9d4afc6715e91b",
@@ -72,26 +92,6 @@
       "status": "needs_editorial_revision"
     },
     {
-      "signalId": 115,
-      "eventId": "event_78547822baad4bb9",
-      "updateId": "update_11fbdeb9367970d8",
-      "title": "Z.ai发布GLM-5.3押注网络防御",
-      "updateTitle": "GLM-5.3敏感能力改受控开放",
-      "thesisImpact": "新增报道显示Z.ai并未将最敏感网络安全能力普遍开放，而是采用受控、分级访问。这使原有“网络防御模型”定位更明确地转向能力商业化与风险门槛并行。",
-      "detectedAt": "2026-08-14T00:00:00.000Z",
-      "status": "needs_editorial_revision"
-    },
-    {
-      "signalId": 115,
-      "eventId": "event_78547822baad4bb9",
-      "updateId": "update_f9f0bd6ba16f0882",
-      "title": "Z.ai发布GLM-5.3押注网络防御",
-      "updateTitle": "GLM-5.3权重尚未开放",
-      "thesisImpact": "新的一手资料显示GLM-5.3目前尚未提供可下载权重，原有“开源模型”判断应收窄为已发布、拟在安全评估和加固后开放权重的模型。",
-      "detectedAt": "2026-08-14T10:21:34.000Z",
-      "status": "needs_editorial_revision"
-    },
-    {
       "signalId": 70,
       "eventId": "event_0d44a0f6406a45f3",
       "updateId": "update_3779ab6ebc379026",
@@ -113,6 +113,359 @@
     }
   ],
   "nodes": [
+    {
+      "id": "event_f912950146092c1d",
+      "type": "event",
+      "signalId": 128,
+      "title": "Cursor向付费用户开放代码托管",
+      "bucket": "dynamic",
+      "valueScore": 84,
+      "publishedAt": "2026-08-18T22:14:25.000Z",
+      "updatedAt": "2026-08-18T22:14:25.000Z"
+    },
+    {
+      "id": "article_18c3b93bbd863146",
+      "type": "article",
+      "signalId": 128,
+      "title": "Cursor向付费用户开放代码托管",
+      "version": 1,
+      "publishedAt": "2026-08-19T06:07:09.189Z"
+    },
+    {
+      "id": "source_d1942c284f95144f",
+      "type": "source",
+      "title": "TechCrunch AI",
+      "url": "https://techcrunch.com/2026/08/18/cursor-capitalizes-on-github-frustration-launches-rival-hosting-platform/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-18T22:14:25.000Z"
+    },
+    {
+      "id": "claim_ccdb41ae6b63f714",
+      "type": "claim",
+      "title": "报道称Cursor推出代码托管平台，以GitHub为主要对标对象。",
+      "role": "主张",
+      "addedAt": "2026-08-19T06:07:09.189Z"
+    },
+    {
+      "id": "source_6202587d018d50e4",
+      "type": "source",
+      "title": "Anysphere, Inc. / Cursor",
+      "url": "https://cursor.com/origin",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-18T22:14:25.000Z"
+    },
+    {
+      "id": "claim_4ace32cb016420a3",
+      "type": "claim",
+      "title": "Cursor官方确认Origin定位为Git forge，early beta已向所有付费套餐开放。",
+      "role": "佐证",
+      "addedAt": "2026-08-19T06:07:09.189Z"
+    },
+    {
+      "id": "source_e13bb5f78ed0db7b",
+      "type": "source",
+      "title": "Cursor",
+      "url": "https://cursor.com/blog/cursor-3",
+      "sourceKind": "Official",
+      "publishedAt": "2026-04-02T00:00:00.000Z"
+    },
+    {
+      "id": "claim_f7a6c087c23c0313",
+      "type": "claim",
+      "title": "Cursor此前将产品定位为整合本地和云端代理的编辑器工作流。",
+      "role": "背景",
+      "addedAt": "2026-08-19T06:07:09.189Z"
+    },
+    {
+      "id": "source_d274013f6ae66846",
+      "type": "source",
+      "title": "GitHub",
+      "url": "https://github.com/features?locale=en-US",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-18T22:14:25.000Z"
+    },
+    {
+      "id": "claim_a63665e4d1620b4c",
+      "type": "claim",
+      "title": "GitHub列出协作、PR、CI/CD、代码安全和企业治理等成熟托管能力。",
+      "role": "背景",
+      "addedAt": "2026-08-19T06:07:09.189Z"
+    },
+    {
+      "id": "source_440986dac0dc2121",
+      "type": "source",
+      "title": "GitHub",
+      "url": "https://github.com/features/code-review",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-18T22:14:25.000Z"
+    },
+    {
+      "id": "claim_77429a2f52f6293e",
+      "type": "claim",
+      "title": "GitHub披露每月超过4,300万个合并PR、8,200万次commit推送和1,000万个新仓库。",
+      "role": "佐证",
+      "addedAt": "2026-08-19T06:07:09.189Z"
+    },
+    {
+      "id": "event_78547822baad4bb9",
+      "type": "event",
+      "signalId": 115,
+      "title": "Z.ai发布GLM-5.3押注网络防御",
+      "bucket": "dynamic",
+      "valueScore": 84,
+      "publishedAt": "2026-08-14T09:48:17.000Z",
+      "updatedAt": "2026-08-18T09:00:00.000Z"
+    },
+    {
+      "id": "article_fe8ee3e26808930c",
+      "type": "article",
+      "signalId": 115,
+      "title": "Z.ai发布GLM-5.3押注网络防御",
+      "version": 1,
+      "publishedAt": "2026-08-19T06:07:09.189Z"
+    },
+    {
+      "id": "source_e5175bf3c01c67fc",
+      "type": "source",
+      "title": "The Information",
+      "url": "https://www.theinformation.com/briefings/chinas-z-ai-touts-new-glm-5-3-model-cyber-defense-tool",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-14T09:48:17.000Z"
+    },
+    {
+      "id": "claim_035c95a43f9f47ad",
+      "type": "claim",
+      "title": "The Information报道Z.ai发布开源GLM-5.3，并称其网络安全能力可与Anthropic的Mythos 5相比。",
+      "role": "主张",
+      "addedAt": "2026-08-19T06:07:09.189Z"
+    },
+    {
+      "id": "source_1988761466109b07",
+      "type": "source",
+      "title": "Z.ai",
+      "url": "https://z.ai/blog/glm-5.3",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-14T09:48:17.000Z"
+    },
+    {
+      "id": "claim_c0368bcd4e934d3d",
+      "type": "claim",
+      "title": "Z.ai发布原文确认GLM-5.3已发布，定位于编程及网络防御，并提出与Claude Mythos 5的能力比较。",
+      "role": "主张",
+      "addedAt": "2026-08-19T06:07:09.189Z"
+    },
+    {
+      "id": "source_9156c37fb1c28b94",
+      "type": "source",
+      "title": "Z.ai",
+      "url": "https://docs.z.ai/release-notes/new-released",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-14T09:48:17.000Z"
+    },
+    {
+      "id": "claim_a481086ee605bd37",
+      "type": "claim",
+      "title": "Z.ai此前将GLM-5.1定位为处理长时程规划、执行、调试和策略迭代的工程代理模型。",
+      "role": "背景",
+      "addedAt": "2026-08-19T06:07:09.189Z"
+    },
+    {
+      "id": "source_46dc397f07117c38",
+      "type": "source",
+      "title": "Anthropic",
+      "url": "https://www.anthropic.com/claude/mythos",
+      "sourceKind": "Official",
+      "publishedAt": "2026-06-09T00:00:00.000Z"
+    },
+    {
+      "id": "claim_ff1f5b908a47648f",
+      "type": "claim",
+      "title": "Anthropic称Mythos 5面向网络安全等高要求领域，但仅向少量经审查的网络安全合作伙伴开放并要求安全监测。",
+      "role": "反例",
+      "addedAt": "2026-08-19T06:07:09.189Z"
+    },
+    {
+      "id": "source_9da584f102d05f46",
+      "type": "source",
+      "title": "The Decoder AI",
+      "url": "https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-14T10:21:34.000Z"
+    },
+    {
+      "id": "claim_1032c7fd1cc0de08",
+      "type": "claim",
+      "title": "The Decoder报道称Zhipu AI发布GLM-5.3，并转述其编码与网络安全能力主张及后续开源计划。",
+      "role": "佐证",
+      "addedAt": "2026-08-19T06:07:09.189Z"
+    },
+    {
+      "id": "source_9ec90332da9eec1d",
+      "type": "source",
+      "title": "Hugging Face / Z.ai",
+      "url": "https://huggingface.co/zai-org/GLM-5.2",
+      "sourceKind": "Repository",
+      "publishedAt": "2026-08-14T10:21:34.000Z"
+    },
+    {
+      "id": "claim_c7864b6513a2603f",
+      "type": "claim",
+      "title": "GLM-5.2官方模型卡显示上一代已提供MIT许可的公开权重，并披露了若干编码基准及评测配置限制。",
+      "role": "背景",
+      "addedAt": "2026-08-19T06:07:09.189Z"
+    },
+    {
+      "id": "source_3b2e9eb6d77fcdba",
+      "type": "source",
+      "title": "Hugging Face / Z.ai",
+      "url": "https://huggingface.co/zai-org/models",
+      "sourceKind": "Repository",
+      "publishedAt": "2026-08-14T10:21:34.000Z"
+    },
+    {
+      "id": "claim_b65def0755c8a3e2",
+      "type": "claim",
+      "title": "Z.ai官方Hugging Face组织页检索时仅列出GLM-5.2及GLM-5.2-FP8，未列出GLM-5.3可下载权重。",
+      "role": "反例",
+      "addedAt": "2026-08-19T06:07:09.189Z"
+    },
+    {
+      "id": "source_a3d04ff8e73f6cd0",
+      "type": "source",
+      "title": "Axios",
+      "url": "https://www.axios.com/2026/08/14/china-open-source-ai-glm-53",
+      "sourceKind": "Media",
+      "publishedAt": "2026-08-14T00:00:00.000Z"
+    },
+    {
+      "id": "claim_3ba1ff90c1e5e08b",
+      "type": "claim",
+      "title": "Axios报道称，Z.ai对GLM-5.3采取分级访问，最敏感网络安全功能仅面向选定安全合作方在受控环境开放，并引述其84.5%的CyberGym成绩。",
+      "role": "最新进展",
+      "addedAt": "2026-08-19T06:07:09.189Z"
+    },
+    {
+      "id": "source_c5c75145f18db804",
+      "type": "source",
+      "title": "Anthropic",
+      "url": "https://www-cdn.anthropic.com/2f9323abbcc4abe219577539efe19a623c9ca2bd/Claude%20Fable%205%20%26%20Claude%20Mythos%205%20System%20Card.pdf",
+      "sourceKind": "Research",
+      "publishedAt": "2026-07-01T00:00:00.000Z"
+    },
+    {
+      "id": "claim_1da27f15a8900d3c",
+      "type": "claim",
+      "title": "Anthropic的系统卡称，Claude Mythos 5在CyberGym 1,507项定向漏洞复现任务上的pass@1成绩为83.8%。",
+      "role": "背景",
+      "addedAt": "2026-08-19T06:07:09.189Z"
+    },
+    {
+      "id": "source_171bcd36c04eca6a",
+      "type": "source",
+      "title": "WIRED AI",
+      "url": "https://www.wired.com/story/zai-open-weight-ai-models-release-cybersecurity-hacking/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-18T09:00:00.000Z"
+    },
+    {
+      "id": "claim_303f601592133552",
+      "type": "claim",
+      "title": "报道聚焦GLM-5.3同时具备防御用途与被滥用进行攻击的风险。",
+      "role": "佐证",
+      "addedAt": "2026-08-19T06:07:09.189Z"
+    },
+    {
+      "id": "source_df41d65ff8fc32de",
+      "type": "source",
+      "title": "Z.ai",
+      "url": "https://cvd.z.ai/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-18T09:00:00.000Z"
+    },
+    {
+      "id": "claim_4c8b7fa250f0dac3",
+      "type": "claim",
+      "title": "Z.ai安全页面列出2,436个漏洞，其中1,097个为严重或高危，且大部分尚未公开。",
+      "role": "佐证",
+      "addedAt": "2026-08-19T06:07:09.189Z"
+    },
+    {
+      "id": "source_705da17fc8822f12",
+      "type": "source",
+      "title": "Z.ai / zai-org",
+      "url": "https://github.com/zai-org/GLM-5",
+      "sourceKind": "Repository",
+      "publishedAt": "2026-08-18T09:00:00.000Z"
+    },
+    {
+      "id": "claim_db71242c5a6c2107",
+      "type": "claim",
+      "title": "GLM-5.2此前已提供权重下载、本地部署框架和代理编码基准改进。",
+      "role": "背景",
+      "addedAt": "2026-08-19T06:07:09.189Z"
+    },
+    {
+      "id": "source_25f2df9c75b1c972",
+      "type": "source",
+      "title": "arXiv",
+      "url": "https://arxiv.org/abs/2510.24317",
+      "sourceKind": "Research",
+      "publishedAt": "2025-10-28T11:36:20.000Z"
+    },
+    {
+      "id": "claim_22e2a44450c5a45a",
+      "type": "claim",
+      "title": "研究指出网络安全知识基准高分不等于真实多步骤攻防表现，代理编排可显著改变结果。",
+      "role": "反例",
+      "addedAt": "2026-08-19T06:07:09.189Z"
+    },
+    {
+      "id": "update_854c1c380b6fd0fb",
+      "type": "update",
+      "signalId": 115,
+      "title": "GLM-5.3延后开放权重",
+      "summary": "Axios称GLM-5.3的公开权重已延后两周，并采取分层受控访问。Z.ai同日披露其漏洞账本含2,436个条目，其中2,383个尚未公开。",
+      "addedAt": "2026-08-18T09:00:00.000Z",
+      "changeType": "progress",
+      "thesisImpact": "新增资料强化GLM-5.3的网络防御定位，同时表明其权重仍被延后并采用分层受控访问；风险判断应更多看真实代理任务而非单项基准。",
+      "revisionRequired": false
+    },
+    {
+      "id": "claim_efc5c5a37e6f0374",
+      "type": "claim",
+      "title": "Axios称GLM-5.3权重延后两周公开，并采用分层受控访问；其CyberGym分数较高但ExploitBench表现存在限定。",
+      "role": "最新进展",
+      "addedAt": "2026-08-18T09:00:00.000Z"
+    },
+    {
+      "id": "update_11fbdeb9367970d8",
+      "type": "update",
+      "signalId": 115,
+      "title": "GLM-5.3敏感能力改受控开放",
+      "summary": "Axios报道称，Z.ai称GLM-5.3在CyberGym取得84.5%，并将最敏感的网络安全功能仅向选定安全合作方在受控环境中开放。Anthropic系统卡列出的Mythos 5对应成绩为83.8%。",
+      "addedAt": "2026-08-14T00:00:00.000Z",
+      "changeType": "thesis_change",
+      "thesisImpact": "新增报道显示Z.ai并未将最敏感网络安全能力普遍开放，而是采用受控、分级访问。这使原有“网络防御模型”定位更明确地转向能力商业化与风险门槛并行。",
+      "revisionRequired": true
+    },
+    {
+      "id": "update_f9f0bd6ba16f0882",
+      "type": "update",
+      "signalId": 115,
+      "title": "GLM-5.3权重尚未开放",
+      "summary": "Z.ai称GLM-5.3在后训练后编码表现提升50%，已用于269个项目发现2,436个漏洞；但公司表示权重将在安全评估和加固后约两周开放，官方组织页目前仍未列出GLM-5.3下载项。",
+      "addedAt": "2026-08-14T10:21:34.000Z",
+      "changeType": "thesis_change",
+      "thesisImpact": "新的一手资料显示GLM-5.3目前尚未提供可下载权重，原有“开源模型”判断应收窄为已发布、拟在安全评估和加固后开放权重的模型。",
+      "revisionRequired": true
+    },
+    {
+      "id": "claim_ae40ba59f1778d94",
+      "type": "claim",
+      "title": "Z.ai公告称GLM-5.3与GLM-5.2使用相同基础模型，经后训练后内部编码表现提升50%，并计划在安全评估和加固后约两周开放权重。",
+      "role": "最新进展",
+      "addedAt": "2026-08-14T10:21:34.000Z"
+    },
     {
       "id": "event_0c9d4afc6715e91b",
       "type": "event",
@@ -3731,188 +4084,6 @@
       "title": "WIRED报道Amazon可使用Twitch内容训练AI，除非主播主动退出，并称数千名用户质疑这一默认安排。",
       "role": "主张",
       "addedAt": "2026-08-15T09:06:39.261Z"
-    },
-    {
-      "id": "event_78547822baad4bb9",
-      "type": "event",
-      "signalId": 115,
-      "title": "Z.ai发布GLM-5.3押注网络防御",
-      "bucket": "dynamic",
-      "valueScore": 84,
-      "publishedAt": "2026-08-14T09:48:17.000Z",
-      "updatedAt": "2026-08-14T00:00:00.000Z"
-    },
-    {
-      "id": "article_fe8ee3e26808930c",
-      "type": "article",
-      "signalId": 115,
-      "title": "Z.ai发布GLM-5.3押注网络防御",
-      "version": 1,
-      "publishedAt": "2026-08-15T00:08:04.211Z"
-    },
-    {
-      "id": "source_e5175bf3c01c67fc",
-      "type": "source",
-      "title": "The Information",
-      "url": "https://www.theinformation.com/briefings/chinas-z-ai-touts-new-glm-5-3-model-cyber-defense-tool",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-14T09:48:17.000Z"
-    },
-    {
-      "id": "claim_035c95a43f9f47ad",
-      "type": "claim",
-      "title": "The Information报道Z.ai发布开源GLM-5.3，并称其网络安全能力可与Anthropic的Mythos 5相比。",
-      "role": "主张",
-      "addedAt": "2026-08-15T00:08:04.211Z"
-    },
-    {
-      "id": "source_1988761466109b07",
-      "type": "source",
-      "title": "Z.ai",
-      "url": "https://z.ai/blog/glm-5.3",
-      "sourceKind": "Official",
-      "publishedAt": "2026-08-14T09:48:17.000Z"
-    },
-    {
-      "id": "claim_c0368bcd4e934d3d",
-      "type": "claim",
-      "title": "Z.ai发布原文确认GLM-5.3已发布，定位于编程及网络防御，并提出与Claude Mythos 5的能力比较。",
-      "role": "主张",
-      "addedAt": "2026-08-15T00:08:04.211Z"
-    },
-    {
-      "id": "source_9156c37fb1c28b94",
-      "type": "source",
-      "title": "Z.ai",
-      "url": "https://docs.z.ai/release-notes/new-released",
-      "sourceKind": "Official",
-      "publishedAt": "2026-08-14T09:48:17.000Z"
-    },
-    {
-      "id": "claim_a481086ee605bd37",
-      "type": "claim",
-      "title": "Z.ai此前将GLM-5.1定位为处理长时程规划、执行、调试和策略迭代的工程代理模型。",
-      "role": "背景",
-      "addedAt": "2026-08-15T00:08:04.211Z"
-    },
-    {
-      "id": "source_46dc397f07117c38",
-      "type": "source",
-      "title": "Anthropic",
-      "url": "https://www.anthropic.com/claude/mythos",
-      "sourceKind": "Official",
-      "publishedAt": "2026-06-09T00:00:00.000Z"
-    },
-    {
-      "id": "claim_ff1f5b908a47648f",
-      "type": "claim",
-      "title": "Anthropic称Mythos 5面向网络安全等高要求领域，但仅向少量经审查的网络安全合作伙伴开放并要求安全监测。",
-      "role": "反例",
-      "addedAt": "2026-08-15T00:08:04.211Z"
-    },
-    {
-      "id": "source_9da584f102d05f46",
-      "type": "source",
-      "title": "The Decoder AI",
-      "url": "https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-14T10:21:34.000Z"
-    },
-    {
-      "id": "claim_1032c7fd1cc0de08",
-      "type": "claim",
-      "title": "The Decoder报道称Zhipu AI发布GLM-5.3，并转述其编码与网络安全能力主张及后续开源计划。",
-      "role": "佐证",
-      "addedAt": "2026-08-15T00:08:04.211Z"
-    },
-    {
-      "id": "source_9ec90332da9eec1d",
-      "type": "source",
-      "title": "Hugging Face / Z.ai",
-      "url": "https://huggingface.co/zai-org/GLM-5.2",
-      "sourceKind": "Repository",
-      "publishedAt": "2026-08-14T10:21:34.000Z"
-    },
-    {
-      "id": "claim_c7864b6513a2603f",
-      "type": "claim",
-      "title": "GLM-5.2官方模型卡显示上一代已提供MIT许可的公开权重，并披露了若干编码基准及评测配置限制。",
-      "role": "背景",
-      "addedAt": "2026-08-15T00:08:04.211Z"
-    },
-    {
-      "id": "source_3b2e9eb6d77fcdba",
-      "type": "source",
-      "title": "Hugging Face / Z.ai",
-      "url": "https://huggingface.co/zai-org/models",
-      "sourceKind": "Repository",
-      "publishedAt": "2026-08-14T10:21:34.000Z"
-    },
-    {
-      "id": "claim_b65def0755c8a3e2",
-      "type": "claim",
-      "title": "Z.ai官方Hugging Face组织页检索时仅列出GLM-5.2及GLM-5.2-FP8，未列出GLM-5.3可下载权重。",
-      "role": "反例",
-      "addedAt": "2026-08-15T00:08:04.211Z"
-    },
-    {
-      "id": "source_a3d04ff8e73f6cd0",
-      "type": "source",
-      "title": "Axios",
-      "url": "https://www.axios.com/2026/08/14/china-open-source-ai-glm-53",
-      "sourceKind": "Media",
-      "publishedAt": "2026-08-14T00:00:00.000Z"
-    },
-    {
-      "id": "claim_3ba1ff90c1e5e08b",
-      "type": "claim",
-      "title": "Axios报道称，Z.ai对GLM-5.3采取分级访问，最敏感网络安全功能仅面向选定安全合作方在受控环境开放，并引述其84.5%的CyberGym成绩。",
-      "role": "最新进展",
-      "addedAt": "2026-08-15T00:08:04.211Z"
-    },
-    {
-      "id": "source_c5c75145f18db804",
-      "type": "source",
-      "title": "Anthropic",
-      "url": "https://www-cdn.anthropic.com/2f9323abbcc4abe219577539efe19a623c9ca2bd/Claude%20Fable%205%20%26%20Claude%20Mythos%205%20System%20Card.pdf",
-      "sourceKind": "Research",
-      "publishedAt": "2026-07-01T00:00:00.000Z"
-    },
-    {
-      "id": "claim_1da27f15a8900d3c",
-      "type": "claim",
-      "title": "Anthropic的系统卡称，Claude Mythos 5在CyberGym 1,507项定向漏洞复现任务上的pass@1成绩为83.8%。",
-      "role": "背景",
-      "addedAt": "2026-08-15T00:08:04.211Z"
-    },
-    {
-      "id": "update_11fbdeb9367970d8",
-      "type": "update",
-      "signalId": 115,
-      "title": "GLM-5.3敏感能力改受控开放",
-      "summary": "Axios报道称，Z.ai称GLM-5.3在CyberGym取得84.5%，并将最敏感的网络安全功能仅向选定安全合作方在受控环境中开放。Anthropic系统卡列出的Mythos 5对应成绩为83.8%。",
-      "addedAt": "2026-08-14T00:00:00.000Z",
-      "changeType": "thesis_change",
-      "thesisImpact": "新增报道显示Z.ai并未将最敏感网络安全能力普遍开放，而是采用受控、分级访问。这使原有“网络防御模型”定位更明确地转向能力商业化与风险门槛并行。",
-      "revisionRequired": true
-    },
-    {
-      "id": "update_f9f0bd6ba16f0882",
-      "type": "update",
-      "signalId": 115,
-      "title": "GLM-5.3权重尚未开放",
-      "summary": "Z.ai称GLM-5.3在后训练后编码表现提升50%，已用于269个项目发现2,436个漏洞；但公司表示权重将在安全评估和加固后约两周开放，官方组织页目前仍未列出GLM-5.3下载项。",
-      "addedAt": "2026-08-14T10:21:34.000Z",
-      "changeType": "thesis_change",
-      "thesisImpact": "新的一手资料显示GLM-5.3目前尚未提供可下载权重，原有“开源模型”判断应收窄为已发布、拟在安全评估和加固后开放权重的模型。",
-      "revisionRequired": true
-    },
-    {
-      "id": "claim_ae40ba59f1778d94",
-      "type": "claim",
-      "title": "Z.ai公告称GLM-5.3与GLM-5.2使用相同基础模型，经后训练后内部编码表现提升50%，并计划在安全评估和加固后约两周开放权重。",
-      "role": "最新进展",
-      "addedAt": "2026-08-14T10:21:34.000Z"
     },
     {
       "id": "event_2daba3f21c28759e",
@@ -14875,6 +15046,37 @@
       "addedAt": "2026-07-29T13:02:22.855Z"
     },
     {
+      "id": "event_5e33a305c037eae0",
+      "type": "event",
+      "conversationId": "conversation-20260819060709-1",
+      "title": "Rich Sutton 与 Khurram Javed：AI 若要真正学习，部署后不能停止更新",
+      "bucket": "conversation",
+      "publishedAt": "2026-08-18T09:00:00.000Z"
+    },
+    {
+      "id": "article_63ac8e80801d0b81",
+      "type": "article",
+      "conversationId": "conversation-20260819060709-1",
+      "title": "Rich Sutton 与 Khurram Javed：AI 若要真正学习，部署后不能停止更新",
+      "version": 1,
+      "publishedAt": "2026-08-19T06:07:09.189Z"
+    },
+    {
+      "id": "source_1d8c6c59149eeb76",
+      "type": "source",
+      "title": "Training Data",
+      "url": "https://feeds.megaphone.fm/f22093e6-9ac6-11f1-aa57-23eadad59cc7",
+      "sourceKind": "Podcast",
+      "publishedAt": "2026-08-18T09:00:00.000Z"
+    },
+    {
+      "id": "claim_a182d5c081d73fc6",
+      "type": "claim",
+      "title": "Rich Sutton 与 Khurram Javed 主张，当前模型把训练与部署割裂开来，限制了智能的上限；能够从自身经验中持续更新的 agent，才是通往更通用智能的必要架构。",
+      "role": "对谈",
+      "addedAt": "2026-08-19T06:07:09.189Z"
+    },
+    {
       "id": "event_3ac53b014d0fa118",
       "type": "event",
       "conversationId": "conversation-20260819035239-1",
@@ -16588,6 +16790,359 @@
     }
   ],
   "edges": [
+    {
+      "id": "edge_77173023fa1180c9",
+      "from": "event_f912950146092c1d",
+      "to": "article_18c3b93bbd863146",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_768e1a9e6dbec936",
+      "from": "source_d1942c284f95144f",
+      "to": "claim_ccdb41ae6b63f714",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_90deb116e560bcc9",
+      "from": "claim_ccdb41ae6b63f714",
+      "to": "event_f912950146092c1d",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_4a7ee147a051a977",
+      "from": "source_6202587d018d50e4",
+      "to": "claim_4ace32cb016420a3",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_362e1a64241f0295",
+      "from": "claim_4ace32cb016420a3",
+      "to": "event_f912950146092c1d",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_07087be372940209",
+      "from": "source_e13bb5f78ed0db7b",
+      "to": "claim_f7a6c087c23c0313",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_af18f44106382cd0",
+      "from": "claim_f7a6c087c23c0313",
+      "to": "event_f912950146092c1d",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_09c853dd434e3365",
+      "from": "source_d274013f6ae66846",
+      "to": "claim_a63665e4d1620b4c",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_a26b329402f0f69e",
+      "from": "claim_a63665e4d1620b4c",
+      "to": "event_f912950146092c1d",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_1115e824cc124a38",
+      "from": "source_440986dac0dc2121",
+      "to": "claim_77429a2f52f6293e",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_acdc9ca5cbc1d414",
+      "from": "claim_77429a2f52f6293e",
+      "to": "event_f912950146092c1d",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_5e06981566715dd2",
+      "from": "event_78547822baad4bb9",
+      "to": "article_fe8ee3e26808930c",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_9145cc207aae7c0d",
+      "from": "source_e5175bf3c01c67fc",
+      "to": "claim_035c95a43f9f47ad",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_bbe0f0521ad155ba",
+      "from": "claim_035c95a43f9f47ad",
+      "to": "event_78547822baad4bb9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_1df5614805dbc2bc",
+      "from": "source_1988761466109b07",
+      "to": "claim_c0368bcd4e934d3d",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_c59f17ff42256946",
+      "from": "claim_c0368bcd4e934d3d",
+      "to": "event_78547822baad4bb9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_ea5425d01bc67521",
+      "from": "source_9156c37fb1c28b94",
+      "to": "claim_a481086ee605bd37",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_fec8f00b1587a78c",
+      "from": "claim_a481086ee605bd37",
+      "to": "event_78547822baad4bb9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_f9d457d209ea36f4",
+      "from": "source_46dc397f07117c38",
+      "to": "claim_ff1f5b908a47648f",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_c501ed4cb67672cd",
+      "from": "claim_ff1f5b908a47648f",
+      "to": "event_78547822baad4bb9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_4e17983eb99b8c78",
+      "from": "source_9da584f102d05f46",
+      "to": "claim_1032c7fd1cc0de08",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_b6ce045370803f78",
+      "from": "claim_1032c7fd1cc0de08",
+      "to": "event_78547822baad4bb9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_c4d306854c072af8",
+      "from": "source_9ec90332da9eec1d",
+      "to": "claim_c7864b6513a2603f",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_676e2090bd24ca1d",
+      "from": "claim_c7864b6513a2603f",
+      "to": "event_78547822baad4bb9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_2817849971d1cdf3",
+      "from": "source_3b2e9eb6d77fcdba",
+      "to": "claim_b65def0755c8a3e2",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_a6efa34a4f52934f",
+      "from": "claim_b65def0755c8a3e2",
+      "to": "event_78547822baad4bb9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_b6766389e5a687ad",
+      "from": "source_a3d04ff8e73f6cd0",
+      "to": "claim_3ba1ff90c1e5e08b",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_5e50a712d6994157",
+      "from": "claim_3ba1ff90c1e5e08b",
+      "to": "event_78547822baad4bb9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_956275acb71b47de",
+      "from": "source_c5c75145f18db804",
+      "to": "claim_1da27f15a8900d3c",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_53ea96fc54377290",
+      "from": "claim_1da27f15a8900d3c",
+      "to": "event_78547822baad4bb9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_09e30593b4fa625a",
+      "from": "source_171bcd36c04eca6a",
+      "to": "claim_303f601592133552",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_ceb70363afb8d909",
+      "from": "claim_303f601592133552",
+      "to": "event_78547822baad4bb9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_dbbfa331b294156b",
+      "from": "source_df41d65ff8fc32de",
+      "to": "claim_4c8b7fa250f0dac3",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_12e9b7540c15f28f",
+      "from": "claim_4c8b7fa250f0dac3",
+      "to": "event_78547822baad4bb9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_42f5309c8170a2bb",
+      "from": "source_705da17fc8822f12",
+      "to": "claim_db71242c5a6c2107",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_f3ccb9aecfd8ee1a",
+      "from": "claim_db71242c5a6c2107",
+      "to": "event_78547822baad4bb9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_58fa38f402fdc2c9",
+      "from": "source_25f2df9c75b1c972",
+      "to": "claim_22e2a44450c5a45a",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_45641dd6005bdd1a",
+      "from": "claim_22e2a44450c5a45a",
+      "to": "event_78547822baad4bb9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_dfb8bacd7d871c86",
+      "from": "update_854c1c380b6fd0fb",
+      "to": "event_78547822baad4bb9",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_79fa2552a0180185",
+      "from": "claim_303f601592133552",
+      "to": "event_78547822baad4bb9",
+      "relation": "update_evidence_for",
+      "updateTitle": "GLM-5.3延后开放权重"
+    },
+    {
+      "id": "edge_e30f24ac3fee765a",
+      "from": "source_a3d04ff8e73f6cd0",
+      "to": "claim_efc5c5a37e6f0374",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_dbec35a0ebd8a10d",
+      "from": "claim_efc5c5a37e6f0374",
+      "to": "event_78547822baad4bb9",
+      "relation": "update_evidence_for",
+      "updateTitle": "GLM-5.3延后开放权重"
+    },
+    {
+      "id": "edge_e16d384ae819047f",
+      "from": "claim_4c8b7fa250f0dac3",
+      "to": "event_78547822baad4bb9",
+      "relation": "update_evidence_for",
+      "updateTitle": "GLM-5.3延后开放权重"
+    },
+    {
+      "id": "edge_dee61043a8782336",
+      "from": "claim_db71242c5a6c2107",
+      "to": "event_78547822baad4bb9",
+      "relation": "update_evidence_for",
+      "updateTitle": "GLM-5.3延后开放权重"
+    },
+    {
+      "id": "edge_89348b31438ae797",
+      "from": "claim_22e2a44450c5a45a",
+      "to": "event_78547822baad4bb9",
+      "relation": "update_evidence_for",
+      "updateTitle": "GLM-5.3延后开放权重"
+    },
+    {
+      "id": "edge_39eb94144e0b7c42",
+      "from": "update_11fbdeb9367970d8",
+      "to": "event_78547822baad4bb9",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_0eb1c2377d63d2fa",
+      "from": "claim_3ba1ff90c1e5e08b",
+      "to": "event_78547822baad4bb9",
+      "relation": "update_evidence_for",
+      "updateTitle": "GLM-5.3敏感能力改受控开放"
+    },
+    {
+      "id": "edge_e0abd1cc3436ff2e",
+      "from": "claim_1da27f15a8900d3c",
+      "to": "event_78547822baad4bb9",
+      "relation": "update_evidence_for",
+      "updateTitle": "GLM-5.3敏感能力改受控开放"
+    },
+    {
+      "id": "edge_2874bb837264cb38",
+      "from": "update_f9f0bd6ba16f0882",
+      "to": "event_78547822baad4bb9",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_968508563f16762c",
+      "from": "claim_1032c7fd1cc0de08",
+      "to": "event_78547822baad4bb9",
+      "relation": "update_evidence_for",
+      "updateTitle": "GLM-5.3权重尚未开放"
+    },
+    {
+      "id": "edge_918c78bfb35625b6",
+      "from": "source_1988761466109b07",
+      "to": "claim_ae40ba59f1778d94",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_fac9f6eeb58e3279",
+      "from": "claim_ae40ba59f1778d94",
+      "to": "event_78547822baad4bb9",
+      "relation": "update_evidence_for",
+      "updateTitle": "GLM-5.3权重尚未开放"
+    },
+    {
+      "id": "edge_50f3a2b0108d2766",
+      "from": "claim_c7864b6513a2603f",
+      "to": "event_78547822baad4bb9",
+      "relation": "update_evidence_for",
+      "updateTitle": "GLM-5.3权重尚未开放"
+    },
+    {
+      "id": "edge_21b93c0201ebee75",
+      "from": "claim_b65def0755c8a3e2",
+      "to": "event_78547822baad4bb9",
+      "relation": "update_evidence_for",
+      "updateTitle": "GLM-5.3权重尚未开放"
+    },
     {
       "id": "edge_e14ac870acaf4a93",
       "from": "event_0c9d4afc6715e91b",
@@ -20672,189 +21227,6 @@
       "to": "event_50e21af75af5faf8",
       "relation": "evidence_for",
       "updateTitle": null
-    },
-    {
-      "id": "edge_5e06981566715dd2",
-      "from": "event_78547822baad4bb9",
-      "to": "article_fe8ee3e26808930c",
-      "relation": "rendered_as"
-    },
-    {
-      "id": "edge_9145cc207aae7c0d",
-      "from": "source_e5175bf3c01c67fc",
-      "to": "claim_035c95a43f9f47ad",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_bbe0f0521ad155ba",
-      "from": "claim_035c95a43f9f47ad",
-      "to": "event_78547822baad4bb9",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_1df5614805dbc2bc",
-      "from": "source_1988761466109b07",
-      "to": "claim_c0368bcd4e934d3d",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_c59f17ff42256946",
-      "from": "claim_c0368bcd4e934d3d",
-      "to": "event_78547822baad4bb9",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_ea5425d01bc67521",
-      "from": "source_9156c37fb1c28b94",
-      "to": "claim_a481086ee605bd37",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_fec8f00b1587a78c",
-      "from": "claim_a481086ee605bd37",
-      "to": "event_78547822baad4bb9",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_f9d457d209ea36f4",
-      "from": "source_46dc397f07117c38",
-      "to": "claim_ff1f5b908a47648f",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_c501ed4cb67672cd",
-      "from": "claim_ff1f5b908a47648f",
-      "to": "event_78547822baad4bb9",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_4e17983eb99b8c78",
-      "from": "source_9da584f102d05f46",
-      "to": "claim_1032c7fd1cc0de08",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_b6ce045370803f78",
-      "from": "claim_1032c7fd1cc0de08",
-      "to": "event_78547822baad4bb9",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_c4d306854c072af8",
-      "from": "source_9ec90332da9eec1d",
-      "to": "claim_c7864b6513a2603f",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_676e2090bd24ca1d",
-      "from": "claim_c7864b6513a2603f",
-      "to": "event_78547822baad4bb9",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_2817849971d1cdf3",
-      "from": "source_3b2e9eb6d77fcdba",
-      "to": "claim_b65def0755c8a3e2",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_a6efa34a4f52934f",
-      "from": "claim_b65def0755c8a3e2",
-      "to": "event_78547822baad4bb9",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_b6766389e5a687ad",
-      "from": "source_a3d04ff8e73f6cd0",
-      "to": "claim_3ba1ff90c1e5e08b",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_5e50a712d6994157",
-      "from": "claim_3ba1ff90c1e5e08b",
-      "to": "event_78547822baad4bb9",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_956275acb71b47de",
-      "from": "source_c5c75145f18db804",
-      "to": "claim_1da27f15a8900d3c",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_53ea96fc54377290",
-      "from": "claim_1da27f15a8900d3c",
-      "to": "event_78547822baad4bb9",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_39eb94144e0b7c42",
-      "from": "update_11fbdeb9367970d8",
-      "to": "event_78547822baad4bb9",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_0eb1c2377d63d2fa",
-      "from": "claim_3ba1ff90c1e5e08b",
-      "to": "event_78547822baad4bb9",
-      "relation": "update_evidence_for",
-      "updateTitle": "GLM-5.3敏感能力改受控开放"
-    },
-    {
-      "id": "edge_e0abd1cc3436ff2e",
-      "from": "claim_1da27f15a8900d3c",
-      "to": "event_78547822baad4bb9",
-      "relation": "update_evidence_for",
-      "updateTitle": "GLM-5.3敏感能力改受控开放"
-    },
-    {
-      "id": "edge_2874bb837264cb38",
-      "from": "update_f9f0bd6ba16f0882",
-      "to": "event_78547822baad4bb9",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_968508563f16762c",
-      "from": "claim_1032c7fd1cc0de08",
-      "to": "event_78547822baad4bb9",
-      "relation": "update_evidence_for",
-      "updateTitle": "GLM-5.3权重尚未开放"
-    },
-    {
-      "id": "edge_918c78bfb35625b6",
-      "from": "source_1988761466109b07",
-      "to": "claim_ae40ba59f1778d94",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_fac9f6eeb58e3279",
-      "from": "claim_ae40ba59f1778d94",
-      "to": "event_78547822baad4bb9",
-      "relation": "update_evidence_for",
-      "updateTitle": "GLM-5.3权重尚未开放"
-    },
-    {
-      "id": "edge_50f3a2b0108d2766",
-      "from": "claim_c7864b6513a2603f",
-      "to": "event_78547822baad4bb9",
-      "relation": "update_evidence_for",
-      "updateTitle": "GLM-5.3权重尚未开放"
-    },
-    {
-      "id": "edge_21b93c0201ebee75",
-      "from": "claim_b65def0755c8a3e2",
-      "to": "event_78547822baad4bb9",
-      "relation": "update_evidence_for",
-      "updateTitle": "GLM-5.3权重尚未开放"
     },
     {
       "id": "edge_d0fd71878af0823a",
@@ -30597,6 +30969,25 @@
       "from": "claim_6a91586fd2989c1a",
       "to": "event_cca4803f3ba7fbf7",
       "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_1c2462f2ad27427d",
+      "from": "event_5e33a305c037eae0",
+      "to": "article_63ac8e80801d0b81",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_37cd43ed24f45655",
+      "from": "source_1d8c6c59149eeb76",
+      "to": "claim_a182d5c081d73fc6",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_0736818aa7a77147",
+      "from": "claim_a182d5c081d73fc6",
+      "to": "event_5e33a305c037eae0",
+      "relation": "conversation_source_for",
       "updateTitle": null
     },
     {

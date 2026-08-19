@@ -1,8 +1,76 @@
 {
-  "generatedAt": "2026-08-19T03:52:39.353Z",
+  "generatedAt": "2026-08-19T06:07:09.189Z",
   "weekStart": "2026-07-24T00:00:00.000Z",
   "model": "gpt-5.6-terra",
   "items": [
+    {
+      "id": "conversation-20260819060709-1",
+      "videoId": "",
+      "sourceName": "Training Data",
+      "sourceKind": "Podcast",
+      "originalTitle": "Rich Sutton and Khurram Javed: Why AI Models Stop Learning, and How to Start It Again",
+      "url": "https://feeds.megaphone.fm/f22093e6-9ac6-11f1-aa57-23eadad59cc7",
+      "feedBatchAt": "2026-08-19T06:07:09.189Z",
+      "publishedAt": "2026-08-18T09:00:00.000Z",
+      "durationMinutes": 54,
+      "guest": "Rich Sutton and Khurram Javed",
+      "categoryZh": "持续学习",
+      "categoryEn": "Continual learning",
+      "titleZh": "Rich Sutton 与 Khurram Javed：AI 若要真正学习，部署后不能停止更新",
+      "titleEn": "Rich Sutton and Khurram Javed: AI Cannot Stop Learning at Deployment",
+      "dekZh": "Rich Sutton 与 Khurram Javed 主张，当前模型把训练与部署割裂开来，限制了智能的上限；能够从自身经验中持续更新的 agent，才是通往更通用智能的必要架构。",
+      "dekEn": "Rich Sutton and Khurram Javed argue that separating training from deployment imposes a ceiling on AI. Agents that keep updating from their own experience are, in their view, a necessary architecture for more general intelligence.",
+      "whyListenZh": "这不是一场关于下一代模型参数规模的讨论，而是对主流训练范式的直接挑战。Sutton 将持续学习视为学习本来的形态，Javed 则解释了为什么即使方向正确，既有 frontier labs 也可能难以承受从短期退步到长期收益的迁移成本。",
+      "whyListenEn": "This is less a discussion of the next scaling run than a challenge to the prevailing training paradigm. Sutton treats continual learning as the natural form of learning, while Javed explains why even frontier labs may struggle to absorb a transition that gets worse before it gets better.",
+      "counterpointZh": "持续学习能否在开放环境中既保留长期能力、又避免被噪声、对抗输入或短期反馈带偏，仍是决定这一路线能否超越离线训练的关键。将 continual backprop 从研究主张变成稳定、可审计且大规模运行的系统，也尚未由这场对谈本身证明。",
+      "counterpointEn": "The decisive question is whether continual learning can preserve long-horizon capabilities in open environments without being distorted by noise, adversarial inputs, or short-term feedback. The conversation itself does not establish that continual backprop can become a stable, auditable system at scale.",
+      "takeawaysZh": [
+        "Sutton 认为，部署后被冻结的模型无法适应一个远比任何训练集或模拟器都复杂的世界。",
+        "两人把 catastrophic forgetting 视为可被 continual backprop 一类方法解决的工程问题，而非持续学习不可避免的代价。",
+        "他们的判断是，现有实验室可能被短期指标和既有基础设施锁定，因此难以投资一条先降后升的新路线。"
+      ],
+      "takeawaysEn": [
+        "Sutton argues that a model frozen after deployment cannot adapt to a world far more complex than any training set or simulator.",
+        "The pair frame catastrophic forgetting as an engineering problem that approaches such as continual backprop can address, rather than an unavoidable cost of continual learning.",
+        "Their view is that incumbent labs may be locked into short-term metrics and existing infrastructure, making a worse-before-better transition difficult to fund."
+      ],
+      "articleZh": {
+        "lead": "Rich Sutton 与 Khurram Javed 想推进的并非又一套更高效的预训练配方，而是一种不同的边界定义：智能体不应在发布那一刻结束学习。两人的中心论点是，若模型只能在一个预先固定的数据世界里训练，再以冻结状态进入现实，它就难以获得适应真实世界所需的持续性。",
+        "sections": [
+          {
+            "heading": "把“训练完成”视为架构限制",
+            "body": "Sutton 认为，所谓 continual learning 并不是 AI 的特殊分支，而是学习本身应有的状态。他与 Javed 的论点建立在“big world hypothesis”上：现实世界的复杂度远超任何单一 agent、训练语料或模拟器。由此，部署前一次性逼近环境并不足够，系统必须在行动和反馈中持续修正自己的内部表征。按照这一观点，今天大模型的强项并未否定这一需求；Sutton 将 LLMs 称为意料之外的科学突破，但判断它们只覆盖了智能的一部分。"
+          },
+          {
+            "heading": "技术难点从数据规模转向记忆与更新",
+            "body": "这条路线的机制不是简单地让模型不断吞入新数据，而是让参数更新既吸收经验又不抹掉已有能力。Sutton 说，catastrophic forgetting 可以通过 continual backprop 背后的思路得到解决；Javed 则把障碍放在组织和技术路径的共同锁定上。若一个新范式在早期表现更差，它很难通过依赖即时 benchmark、既有训练栈和产品节奏的决策流程。两人提出的远期目标——在五到十年内形成一个可持续学习、保持连贯、拥有 trillion-parameter 规模且运行功耗为 20 watts 的“mind”——因此既是技术愿景，也是在说明他们认为现有优化目标不够用。"
+          },
+          {
+            "heading": "真正的检验不在于能否更新，而在于更新后是否仍可信",
+            "body": "持续更新本身不必然带来更好的智能。现实反馈可能稀疏、延迟、带偏见，甚至被恶意操纵；一个不断改变的系统也会比冻结模型更难复现、评估和审计。因而，这套主张最有力的反证不是某个静态 benchmark 上的暂时落后，而是持续学习系统在长期任务中无法保住旧能力、无法稳定归因错误，或在分布变化下表现得比定期重训更差。若这些问题不能解决，“部署后继续学习”可能只会扩大维护成本和行为不确定性。"
+          }
+        ],
+        "outlook": "观察一个具体信号：Oak Lab 或其他团队能否公开展示同一 agent 在长周期、非平稳任务中持续吸收新经验，同时用可复现评测证明旧能力没有显著退化，并优于定期离线重训的基线？"
+      },
+      "articleEn": {
+        "lead": "Rich Sutton and Khurram Javed are not primarily proposing another pretraining recipe. They are redrawing the boundary of the system: an agent should not cease learning when it is deployed. Their central claim is that a model trained in a fixed, preassembled world and then frozen for reality cannot acquire the continuity required to adapt to the real one.",
+        "sections": [
+          {
+            "heading": "Treating completed training as an architectural constraint",
+            "body": "Sutton argues that continual learning is not a niche AI category but the natural condition of learning. His and Javed’s argument rests on the “big world hypothesis”: the real world is vastly more complex than any individual agent, corpus, or simulator. If that is right, approximating the environment once before deployment is insufficient; the system must keep revising its representations through action and feedback. In this framing, current large language models do not remove the need. Sutton calls LLMs an unanticipated scientific breakthrough, while judging that they represent only part of intelligence."
+          },
+          {
+            "heading": "The bottleneck shifts from data scale to memory and updating",
+            "body": "The mechanism is not merely feeding a model more data. Parameter updates must absorb new experience without erasing existing capabilities. Sutton says catastrophic forgetting is addressable through ideas behind continual backprop, while Javed places the obstacle in a joint technical and organizational lock-in. A new paradigm that performs worse at first is difficult to pursue through decision systems organized around immediate benchmarks, established training stacks, and product cadence. Their longer-term target—a coherent, continually learning trillion-parameter “mind” running on 20 watts within five to ten years—is therefore both a technical ambition and an argument that prevailing objectives are too narrow."
+          },
+          {
+            "heading": "The real test is not whether a system updates, but whether it remains trustworthy",
+            "body": "Continual updating does not automatically produce better intelligence. Real-world feedback can be sparse, delayed, biased, or adversarial, and a changing system is harder to reproduce, evaluate, and audit than a frozen one. The strongest falsifier is therefore not a temporary loss on a static benchmark. It is a continual-learning system that cannot retain prior capabilities, cannot reliably attribute its errors, or performs worse under distribution shift than a periodically retrained baseline. Without resolving those problems, learning after deployment could simply expand maintenance costs and behavioral uncertainty."
+          }
+        ],
+        "outlook": "Watch for a concrete demonstration from Oak Lab or another team: can one agent learn across a long, non-stationary task while reproducible evaluations show that prior capabilities do not materially degrade—and that it beats periodic offline retraining?"
+      }
+    },
     {
       "id": "conversation-20260819035239-1",
       "videoId": "pvJa2pzuXWQ",

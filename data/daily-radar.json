@@ -1,13 +1,1111 @@
 {
-  "generatedAt": "2026-08-19T03:59:45.548Z",
-  "basedOnSnapshotAt": "2026-08-19T03:52:39.353Z",
+  "generatedAt": "2026-08-19T06:13:04.772Z",
+  "basedOnSnapshotAt": "2026-08-19T06:07:09.189Z",
   "model": "gpt-5.5",
   "analyzedItemCount": 180,
-  "totalFetchedItemCount": 2339,
+  "totalFetchedItemCount": 2328,
   "editorNote": "今日信息环境由代理安全事件、编码代理工具链分化、开放模型竞争和算力下沉共同主导。",
   "signalQuality": 86,
   "signalQualityChange": 8,
   "signals": [
+    {
+      "id": 128,
+      "editorialBucket": "dynamic",
+      "category": "Agents",
+      "eyebrow": "产品信号",
+      "title": "Cursor向付费用户开放代码托管",
+      "summary": "Cursor推出Git forge Origin的early beta，并向全部付费套餐开放，开始把AI代理从编辑器延伸至代码托管、提交与协作层。",
+      "why": "代码托管掌握仓库、PR、权限和自动化入口。Cursor若能占据这一层，竞争将从AI编码助手转向开发工作流控制权。",
+      "impact": "这可能迫使开发团队重新评估代理权限、代码审查和CI治理的承载平台，但Origin能否迁移成熟仓库仍待验证。",
+      "shiftFrom": "Cursor主要是AI代码编辑器",
+      "shiftTo": "进入代码托管与协作层",
+      "crossValidation": "Cursor确认Origin已向所有付费套餐开放early beta；其旧产品资料界定了此前编辑器与本地、云端代理边界。GitHub公开的协作功能和运营规模则构成Origin面对的既有基准。",
+      "article": {
+        "lead": "Cursor已将Origin的early beta开放给全部付费套餐，首次以Git forge身份进入代码托管层。这个变化的核心不在于新增一个仓库入口，而在于Cursor正试图把代理编码从编辑器内的生成与修改，延伸到提交、审查、合并和项目协作的系统记录层。",
+        "sections": [
+          {
+            "heading": "从编辑器延伸到代码系统",
+            "body": "Cursor官方将Origin定位为面向“agentic era”的Git forge，并确认early beta现已覆盖所有付费套餐。此前，Cursor的产品叙事主要是把本地代理和云端代理整合进编辑器，使代理可以参与从commit到合并PR的流程。Origin将这一流程的承载位置向上移动：Cursor不再只在开发者桌面上协助写代码，也开始直接承接代码仓库和协作对象。"
+          },
+          {
+            "heading": "托管层决定代理能做什么",
+            "body": "代理要从建议代码走向持续执行，需要读取仓库历史、创建分支、发起PR、触发自动化并接受权限约束。这些动作通常由代码托管平台定义。GitHub现有产品覆盖协作编码、PR审查、规则集、Actions CI/CD、包管理、代码安全与企业治理，其公开数据还显示每月有超过4,300万个PR被合并。Cursor进入这一层，意味着其产品路线可能从模型调用体验竞争，转向工作流数据、执行权限与治理规则的整合。"
+          },
+          {
+            "heading": "分发入口开始成为竞争变量",
+            "body": "对Cursor而言，向现有付费用户开放beta降低了尝试Origin的门槛，也让编辑器用户可在相邻工作流内评估托管服务。对企业而言，代码托管并非单纯的开发者体验选择：仓库迁移会涉及身份、审计、分支保护、依赖管理和CI连接。编辑上看，Origin更重要的信号是AI编码公司开始争夺系统级入口，而不是仅在既有Git平台上提供一个更强的代理。"
+          }
+        ],
+        "outlook": "接下来可观察Origin是否公布迁移工具、企业身份与审计能力、第三方CI和安全集成，以及付费用户外的可用范围。若有团队将生产仓库迁入并披露代理提交、PR审查或部署的使用指标，代码托管层迁移的判断将被强化；若长期停留在beta且缺少企业治理功能，则更像编辑器生态的附属功能。"
+      },
+      "validationType": "跨平台验证",
+      "publishedAt": "2026-08-18T22:14:25.000Z",
+      "updatedAt": "2026-08-18T22:14:25.000Z",
+      "sources": [
+        "Blog",
+        "Official"
+      ],
+      "sourceNames": [
+        "TechCrunch",
+        "Anysphere, Inc. / Cursor",
+        "Cursor",
+        "GitHub"
+      ],
+      "sourceCount": 4,
+      "age": "8 小时前",
+      "score": 84,
+      "tone": "blue",
+      "evidence": [
+        {
+          "id": "228-0-https://techcrunch.com/2026/08/18/cursor-capitalizes-on-github-frustration-launches-rival-hosting-platform/",
+          "sourceId": 228,
+          "sourceName": "TechCrunch AI",
+          "sourcePublisher": "TechCrunch",
+          "sourceKind": "Blog",
+          "title": "Cursor capitalizes on GitHub frustration, launches rival hosting platform",
+          "url": "https://techcrunch.com/2026/08/18/cursor-capitalizes-on-github-frustration-launches-rival-hosting-platform/",
+          "publishedAt": "2026-08-18T22:14:25.000Z",
+          "summary": "Cursor, known for its AI Code Editor, is launching a new code-hosting platform to rival developers' long preferred favorite, GitHub.",
+          "fetchedAt": "2026-08-19T03:52:09.741Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-19T03:52:09.741Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 7.878941388888889,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N2",
+          "role": "主张",
+          "takeaway": "报道称Cursor推出代码托管平台，以GitHub为主要对标对象。"
+        },
+        {
+          "id": "research-228-0-https://techcrunch.com/2026/08/18/cursor-capitalizes-on-github-frustration-launches-rival-hosting-platform/-1-https://cursor.com/origin",
+          "sourceId": 228,
+          "sourceName": "Anysphere, Inc. / Cursor",
+          "sourcePublisher": "Anysphere, Inc. / Cursor",
+          "sourceKind": "Official",
+          "title": "Cursor · Origin",
+          "url": "https://cursor.com/origin",
+          "publishedAt": "2026-08-18T22:14:25.000Z",
+          "summary": "Cursor 的官方 Origin 页面确认其定位为“agentic era”的 Git forge，并明确称 early beta 已向所有付费套餐开放，补足了发布状态和可用用户范围。",
+          "fetchedAt": "2026-08-19T06:07:09.189Z",
+          "researchedFrom": "N2",
+          "researchRole": "Primary",
+          "researchClaim": "Cursor 已将 Origin 作为面向“agentic era”的 Git forge 推向所有付费套餐，但目前仍是 early beta；这标志着其从 AI 代码编辑器和代理工作流向代码托管层扩张。",
+          "researchComparisons": "此前，Cursor 的产品重心是把本地与云端代理集中到编辑器中，并支持从 commit 到合并 PR 的工作流；Origin 将竞争范围延伸至仓库托管。作为成熟基准，GitHub 报告其平台每月合并超过 4,300 万个 PR、推送 8,200 万次 commit，并提供 PR 审查、分支规则、CI/CD、包管理和安全能力；因此，Cursor 当前可验证的差异是 agent-first 定位与付费用户 beta 可用性，而非已证明在规模或平台广度上取代 GitHub。",
+          "researchUnresolved": "Origin 的公开页面未披露 GA 时间、定价增量、数据迁移与双向同步的完整范围、可用性/SLA、企业合规控制，以及实际用户、仓库或代理工作负载指标；这些因素将决定其是否构成实质性托管迁移而非编辑器附加功能。",
+          "ref": "R5",
+          "role": "佐证",
+          "takeaway": "Cursor官方确认Origin定位为Git forge，early beta已向所有付费套餐开放。"
+        },
+        {
+          "id": "research-228-0-https://techcrunch.com/2026/08/18/cursor-capitalizes-on-github-frustration-launches-rival-hosting-platform/-2-https://cursor.com/blog/cursor-3",
+          "sourceId": 228,
+          "sourceName": "Cursor",
+          "sourcePublisher": "Cursor",
+          "sourceKind": "Official",
+          "title": "Meet the new Cursor",
+          "url": "https://cursor.com/blog/cursor-3",
+          "publishedAt": "2026-04-02T00:00:00.000Z",
+          "summary": "Cursor 在此前的产品发布中将自身描述为把本地和云端代理整合到编辑器、支持从 commit 到合并 PR 的工作流；这构成 Origin 发布前其产品边界的可核验比较基线。",
+          "fetchedAt": "2026-08-19T06:07:09.189Z",
+          "researchedFrom": "N2",
+          "researchRole": "Comparison",
+          "researchClaim": "Cursor 已将 Origin 作为面向“agentic era”的 Git forge 推向所有付费套餐，但目前仍是 early beta；这标志着其从 AI 代码编辑器和代理工作流向代码托管层扩张。",
+          "researchComparisons": "此前，Cursor 的产品重心是把本地与云端代理集中到编辑器中，并支持从 commit 到合并 PR 的工作流；Origin 将竞争范围延伸至仓库托管。作为成熟基准，GitHub 报告其平台每月合并超过 4,300 万个 PR、推送 8,200 万次 commit，并提供 PR 审查、分支规则、CI/CD、包管理和安全能力；因此，Cursor 当前可验证的差异是 agent-first 定位与付费用户 beta 可用性，而非已证明在规模或平台广度上取代 GitHub。",
+          "researchUnresolved": "Origin 的公开页面未披露 GA 时间、定价增量、数据迁移与双向同步的完整范围、可用性/SLA、企业合规控制，以及实际用户、仓库或代理工作负载指标；这些因素将决定其是否构成实质性托管迁移而非编辑器附加功能。",
+          "ref": "R6",
+          "role": "背景",
+          "takeaway": "Cursor此前将产品定位为整合本地和云端代理的编辑器工作流。"
+        },
+        {
+          "id": "research-228-0-https://techcrunch.com/2026/08/18/cursor-capitalizes-on-github-frustration-launches-rival-hosting-platform/-3-https://github.com/features?locale=en-US",
+          "sourceId": 228,
+          "sourceName": "GitHub",
+          "sourcePublisher": "GitHub",
+          "sourceKind": "Official",
+          "title": "GitHub Features",
+          "url": "https://github.com/features?locale=en-US",
+          "publishedAt": "2026-08-18T22:14:25.000Z",
+          "summary": "GitHub 列出其现有的协作编码、PR 审查、规则集、Actions CI/CD、包管理、API、代码安全和企业治理能力，说明 Cursor 的早期 beta 面对的是功能成熟且生态广泛的既有平台。",
+          "fetchedAt": "2026-08-19T06:07:09.189Z",
+          "researchedFrom": "N2",
+          "researchRole": "Counterevidence",
+          "researchClaim": "Cursor 已将 Origin 作为面向“agentic era”的 Git forge 推向所有付费套餐，但目前仍是 early beta；这标志着其从 AI 代码编辑器和代理工作流向代码托管层扩张。",
+          "researchComparisons": "此前，Cursor 的产品重心是把本地与云端代理集中到编辑器中，并支持从 commit 到合并 PR 的工作流；Origin 将竞争范围延伸至仓库托管。作为成熟基准，GitHub 报告其平台每月合并超过 4,300 万个 PR、推送 8,200 万次 commit，并提供 PR 审查、分支规则、CI/CD、包管理和安全能力；因此，Cursor 当前可验证的差异是 agent-first 定位与付费用户 beta 可用性，而非已证明在规模或平台广度上取代 GitHub。",
+          "researchUnresolved": "Origin 的公开页面未披露 GA 时间、定价增量、数据迁移与双向同步的完整范围、可用性/SLA、企业合规控制，以及实际用户、仓库或代理工作负载指标；这些因素将决定其是否构成实质性托管迁移而非编辑器附加功能。",
+          "ref": "R7",
+          "role": "背景",
+          "takeaway": "GitHub列出协作、PR、CI/CD、代码安全和企业治理等成熟托管能力。"
+        },
+        {
+          "id": "research-228-0-https://techcrunch.com/2026/08/18/cursor-capitalizes-on-github-frustration-launches-rival-hosting-platform/-4-https://github.com/features/code-review",
+          "sourceId": 228,
+          "sourceName": "GitHub",
+          "sourcePublisher": "GitHub",
+          "sourceKind": "Official",
+          "title": "Code review and pull requests",
+          "url": "https://github.com/features/code-review",
+          "publishedAt": "2026-08-18T22:14:25.000Z",
+          "summary": "GitHub 报告每月超过 4,300 万个已合并 PR、8,200 万次 commit 推送和 1,000 万个新仓库；这些公开运营规模指标是评估 Origin 是否能成为实际 GitHub 替代品的关键基准。",
+          "fetchedAt": "2026-08-19T06:07:09.189Z",
+          "researchedFrom": "N2",
+          "researchRole": "Counterevidence",
+          "researchClaim": "Cursor 已将 Origin 作为面向“agentic era”的 Git forge 推向所有付费套餐，但目前仍是 early beta；这标志着其从 AI 代码编辑器和代理工作流向代码托管层扩张。",
+          "researchComparisons": "此前，Cursor 的产品重心是把本地与云端代理集中到编辑器中，并支持从 commit 到合并 PR 的工作流；Origin 将竞争范围延伸至仓库托管。作为成熟基准，GitHub 报告其平台每月合并超过 4,300 万个 PR、推送 8,200 万次 commit，并提供 PR 审查、分支规则、CI/CD、包管理和安全能力；因此，Cursor 当前可验证的差异是 agent-first 定位与付费用户 beta 可用性，而非已证明在规模或平台广度上取代 GitHub。",
+          "researchUnresolved": "Origin 的公开页面未披露 GA 时间、定价增量、数据迁移与双向同步的完整范围、可用性/SLA、企业合规控制，以及实际用户、仓库或代理工作负载指标；这些因素将决定其是否构成实质性托管迁移而非编辑器附加功能。",
+          "ref": "R8",
+          "role": "佐证",
+          "takeaway": "GitHub披露每月超过4,300万个合并PR、8,200万次commit推送和1,000万个新仓库。"
+        }
+      ],
+      "references": [
+        {
+          "id": "228-0-https://techcrunch.com/2026/08/18/cursor-capitalizes-on-github-frustration-launches-rival-hosting-platform/",
+          "sourceId": 228,
+          "sourceName": "TechCrunch AI",
+          "sourcePublisher": "TechCrunch",
+          "sourceKind": "Blog",
+          "title": "Cursor capitalizes on GitHub frustration, launches rival hosting platform",
+          "url": "https://techcrunch.com/2026/08/18/cursor-capitalizes-on-github-frustration-launches-rival-hosting-platform/",
+          "publishedAt": "2026-08-18T22:14:25.000Z",
+          "summary": "Cursor, known for its AI Code Editor, is launching a new code-hosting platform to rival developers' long preferred favorite, GitHub.",
+          "fetchedAt": "2026-08-19T03:52:09.741Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-19T03:52:09.741Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 7.878941388888889,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N2"
+        },
+        {
+          "id": "research-228-0-https://techcrunch.com/2026/08/18/cursor-capitalizes-on-github-frustration-launches-rival-hosting-platform/-1-https://cursor.com/origin",
+          "sourceId": 228,
+          "sourceName": "Anysphere, Inc. / Cursor",
+          "sourcePublisher": "Anysphere, Inc. / Cursor",
+          "sourceKind": "Official",
+          "title": "Cursor · Origin",
+          "url": "https://cursor.com/origin",
+          "publishedAt": "2026-08-18T22:14:25.000Z",
+          "summary": "Cursor 的官方 Origin 页面确认其定位为“agentic era”的 Git forge，并明确称 early beta 已向所有付费套餐开放，补足了发布状态和可用用户范围。",
+          "fetchedAt": "2026-08-19T06:07:09.189Z",
+          "researchedFrom": "N2",
+          "researchRole": "Primary",
+          "researchClaim": "Cursor 已将 Origin 作为面向“agentic era”的 Git forge 推向所有付费套餐，但目前仍是 early beta；这标志着其从 AI 代码编辑器和代理工作流向代码托管层扩张。",
+          "researchComparisons": "此前，Cursor 的产品重心是把本地与云端代理集中到编辑器中，并支持从 commit 到合并 PR 的工作流；Origin 将竞争范围延伸至仓库托管。作为成熟基准，GitHub 报告其平台每月合并超过 4,300 万个 PR、推送 8,200 万次 commit，并提供 PR 审查、分支规则、CI/CD、包管理和安全能力；因此，Cursor 当前可验证的差异是 agent-first 定位与付费用户 beta 可用性，而非已证明在规模或平台广度上取代 GitHub。",
+          "researchUnresolved": "Origin 的公开页面未披露 GA 时间、定价增量、数据迁移与双向同步的完整范围、可用性/SLA、企业合规控制，以及实际用户、仓库或代理工作负载指标；这些因素将决定其是否构成实质性托管迁移而非编辑器附加功能。",
+          "ref": "R5"
+        },
+        {
+          "id": "research-228-0-https://techcrunch.com/2026/08/18/cursor-capitalizes-on-github-frustration-launches-rival-hosting-platform/-2-https://cursor.com/blog/cursor-3",
+          "sourceId": 228,
+          "sourceName": "Cursor",
+          "sourcePublisher": "Cursor",
+          "sourceKind": "Official",
+          "title": "Meet the new Cursor",
+          "url": "https://cursor.com/blog/cursor-3",
+          "publishedAt": "2026-04-02T00:00:00.000Z",
+          "summary": "Cursor 在此前的产品发布中将自身描述为把本地和云端代理整合到编辑器、支持从 commit 到合并 PR 的工作流；这构成 Origin 发布前其产品边界的可核验比较基线。",
+          "fetchedAt": "2026-08-19T06:07:09.189Z",
+          "researchedFrom": "N2",
+          "researchRole": "Comparison",
+          "researchClaim": "Cursor 已将 Origin 作为面向“agentic era”的 Git forge 推向所有付费套餐，但目前仍是 early beta；这标志着其从 AI 代码编辑器和代理工作流向代码托管层扩张。",
+          "researchComparisons": "此前，Cursor 的产品重心是把本地与云端代理集中到编辑器中，并支持从 commit 到合并 PR 的工作流；Origin 将竞争范围延伸至仓库托管。作为成熟基准，GitHub 报告其平台每月合并超过 4,300 万个 PR、推送 8,200 万次 commit，并提供 PR 审查、分支规则、CI/CD、包管理和安全能力；因此，Cursor 当前可验证的差异是 agent-first 定位与付费用户 beta 可用性，而非已证明在规模或平台广度上取代 GitHub。",
+          "researchUnresolved": "Origin 的公开页面未披露 GA 时间、定价增量、数据迁移与双向同步的完整范围、可用性/SLA、企业合规控制，以及实际用户、仓库或代理工作负载指标；这些因素将决定其是否构成实质性托管迁移而非编辑器附加功能。",
+          "ref": "R6"
+        },
+        {
+          "id": "research-228-0-https://techcrunch.com/2026/08/18/cursor-capitalizes-on-github-frustration-launches-rival-hosting-platform/-3-https://github.com/features?locale=en-US",
+          "sourceId": 228,
+          "sourceName": "GitHub",
+          "sourcePublisher": "GitHub",
+          "sourceKind": "Official",
+          "title": "GitHub Features",
+          "url": "https://github.com/features?locale=en-US",
+          "publishedAt": "2026-08-18T22:14:25.000Z",
+          "summary": "GitHub 列出其现有的协作编码、PR 审查、规则集、Actions CI/CD、包管理、API、代码安全和企业治理能力，说明 Cursor 的早期 beta 面对的是功能成熟且生态广泛的既有平台。",
+          "fetchedAt": "2026-08-19T06:07:09.189Z",
+          "researchedFrom": "N2",
+          "researchRole": "Counterevidence",
+          "researchClaim": "Cursor 已将 Origin 作为面向“agentic era”的 Git forge 推向所有付费套餐，但目前仍是 early beta；这标志着其从 AI 代码编辑器和代理工作流向代码托管层扩张。",
+          "researchComparisons": "此前，Cursor 的产品重心是把本地与云端代理集中到编辑器中，并支持从 commit 到合并 PR 的工作流；Origin 将竞争范围延伸至仓库托管。作为成熟基准，GitHub 报告其平台每月合并超过 4,300 万个 PR、推送 8,200 万次 commit，并提供 PR 审查、分支规则、CI/CD、包管理和安全能力；因此，Cursor 当前可验证的差异是 agent-first 定位与付费用户 beta 可用性，而非已证明在规模或平台广度上取代 GitHub。",
+          "researchUnresolved": "Origin 的公开页面未披露 GA 时间、定价增量、数据迁移与双向同步的完整范围、可用性/SLA、企业合规控制，以及实际用户、仓库或代理工作负载指标；这些因素将决定其是否构成实质性托管迁移而非编辑器附加功能。",
+          "ref": "R7"
+        },
+        {
+          "id": "research-228-0-https://techcrunch.com/2026/08/18/cursor-capitalizes-on-github-frustration-launches-rival-hosting-platform/-4-https://github.com/features/code-review",
+          "sourceId": 228,
+          "sourceName": "GitHub",
+          "sourcePublisher": "GitHub",
+          "sourceKind": "Official",
+          "title": "Code review and pull requests",
+          "url": "https://github.com/features/code-review",
+          "publishedAt": "2026-08-18T22:14:25.000Z",
+          "summary": "GitHub 报告每月超过 4,300 万个已合并 PR、8,200 万次 commit 推送和 1,000 万个新仓库；这些公开运营规模指标是评估 Origin 是否能成为实际 GitHub 替代品的关键基准。",
+          "fetchedAt": "2026-08-19T06:07:09.189Z",
+          "researchedFrom": "N2",
+          "researchRole": "Counterevidence",
+          "researchClaim": "Cursor 已将 Origin 作为面向“agentic era”的 Git forge 推向所有付费套餐，但目前仍是 early beta；这标志着其从 AI 代码编辑器和代理工作流向代码托管层扩张。",
+          "researchComparisons": "此前，Cursor 的产品重心是把本地与云端代理集中到编辑器中，并支持从 commit 到合并 PR 的工作流；Origin 将竞争范围延伸至仓库托管。作为成熟基准，GitHub 报告其平台每月合并超过 4,300 万个 PR、推送 8,200 万次 commit，并提供 PR 审查、分支规则、CI/CD、包管理和安全能力；因此，Cursor 当前可验证的差异是 agent-first 定位与付费用户 beta 可用性，而非已证明在规模或平台广度上取代 GitHub。",
+          "researchUnresolved": "Origin 的公开页面未披露 GA 时间、定价增量、数据迁移与双向同步的完整范围、可用性/SLA、企业合规控制，以及实际用户、仓库或代理工作负载指标；这些因素将决定其是否构成实质性托管迁移而非编辑器附加功能。",
+          "ref": "R8"
+        }
+      ],
+      "feedBatchAt": "2026-08-19T06:07:09.189Z"
+    },
+    {
+      "id": 115,
+      "editorialBucket": "dynamic",
+      "category": "AI & 模型",
+      "eyebrow": "产品信号",
+      "title": "Z.ai发布GLM-5.3押注网络防御",
+      "summary": "Z.ai发布开源GLM-5.3，并将其定位为编程与网络防御模型。公司称其网络安全能力可与Anthropic的Claude Mythos 5相比。",
+      "why": "开源模型若能进入高要求的网络防御工作流，将把竞争从通用编码能力延伸至安全任务、部署方式与治理条件。",
+      "impact": "企业可能更重视开源模型在安全任务中的评测、隔离和审计能力，而非仅比较通用代码基准。",
+      "shiftFrom": "GLM-5.1主打长程工程代理",
+      "shiftTo": "GLM-5.3加入网络防御定位",
+      "crossValidation": "Z.ai的发布页确认GLM-5.3已发布及其网络防御定位；其更新记录提供GLM-5.1的工程代理基线。Anthropic资料显示Mythos 5受限于审查合作伙伴和安全监测，比较应同时考察能力与部署条件。",
+      "article": {
+        "lead": "Z.ai已发布开源GLM-5.3，并明确将其用于编程和网络防御。这意味着该公司正把GLM产品线从长时程工程代理推进到安全任务：模型能力的竞争不再只围绕代码生成，也开始围绕是否能在受控环境中承担防御性安全工作。",
+        "sections": [
+          {
+            "heading": "产品定位出现明确扩展",
+            "body": "Z.ai在发布原文中确认GLM-5.3已经推出，并将其定位于编程和网络防御。此前的官方更新将GLM-5.1描述为面向长时程任务的工程代理模型，覆盖规划、执行、调试与策略迭代。两者对照显示，GLM-5.3并非仅以代际版本号更新，而是把目标工作流延伸到网络安全场景。对于开源模型市场，这类定位变化具有实际意义：安全团队需要的不只是生成代码，还包括理解防御任务、在既定流程中调用工具以及支持可审计部署的能力。"
+          },
+          {
+            "heading": "安全能力竞争依赖工作流而非单项得分",
+            "body": "Z.ai称GLM-5.3的网络安全能力可与Claude Mythos 5相比。这个表述将竞争锚点放在高风险专业模型，而非一般编程助手。其背后的机制是，网络防御任务往往要求模型同时处理代码、上下文、步骤规划与工具调用；如果开源权重能覆盖这些环节，企业可在自有环境中设计访问控制、日志留存和数据边界。由此，模型选择的比较维度可能从通用能力榜单，转向防御任务完成率、误用控制、部署成本及内部治理兼容性。"
+          },
+          {
+            "heading": "开源可部署性将成为安全采用的分水岭",
+            "body": "这一发布的直接后果，可能是安全采购更明确地区分“模型表现”与“安全部署条件”。Anthropic将Mythos 5定位为网络安全等领域的强模型，但其访问仅面向少量经审查合作伙伴，并附带安全监测要求；因此，Z.ai关于能力相当的说法目前主要来自自身，尚不能证明两者在评测覆盖、可靠性或风险控制上完全等价。即便如此，GLM-5.3的开源路线仍可能推动企业测试本地或私有环境中的防御模型，并将隔离、权限与人工复核纳入采购门槛。"
+          }
+        ],
+        "outlook": "下一步可观察的证据包括：Z.ai是否披露可复现的网络防御评测、模型权重和许可范围，以及第三方安全机构是否在相同任务集上验证其表现。若企业或安全平台公布受控部署案例，将强化其进入防御工作流的判断；若独立测试显示关键任务差距明显，或出现难以控制的误用风险，该判断将被削弱。"
+      },
+      "validationType": "跨平台验证",
+      "publishedAt": "2026-08-14T09:48:17.000Z",
+      "updatedAt": "2026-08-18T09:00:00.000Z",
+      "sources": [
+        "Blog",
+        "Official",
+        "Repository",
+        "Media",
+        "Research"
+      ],
+      "sourceNames": [
+        "The Information",
+        "Z.ai",
+        "Anthropic",
+        "The Decoder",
+        "Hugging Face / Z.ai",
+        "Axios",
+        "WIRED",
+        "Z.ai / zai-org",
+        "arXiv"
+      ],
+      "sourceCount": 9,
+      "age": "刚刚",
+      "score": 84,
+      "tone": "orange",
+      "evidence": [
+        {
+          "id": "236-0-https://www.theinformation.com/briefings/chinas-z-ai-touts-new-glm-5-3-model-cyber-defense-tool",
+          "sourceId": 236,
+          "sourceName": "The Information",
+          "sourcePublisher": "The Information",
+          "sourceKind": "Blog",
+          "title": "China’s Z.ai Touts New GLM-5.3 Model as Cyber Defense Tool",
+          "url": "https://www.theinformation.com/briefings/chinas-z-ai-touts-new-glm-5-3-model-cyber-defense-tool",
+          "publishedAt": "2026-08-14T09:48:17.000Z",
+          "summary": "Chinese AI developer Z.ai on Friday released its new open-source model, GLM-5.3, saying its cybersecurity capabilities are on par with Anthropic’s Mythos 5. Beijing-based Z.ai, also known as Zhipu in Chinese, said GLM-5.3 has achieved significant improvements from its predecessor, GLM-5.2, in ...",
+          "fetchedAt": "2026-08-14T10:07:36.312Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-14T10:07:36.312Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "standard",
+            "reason": "fresh",
+            "ageHours": 0.3220311111111111,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N1",
+          "role": "主张",
+          "takeaway": "The Information报道Z.ai发布开源GLM-5.3，并称其网络安全能力可与Anthropic的Mythos 5相比。"
+        },
+        {
+          "id": "research-236-0-https://www.theinformation.com/briefings/chinas-z-ai-touts-new-glm-5-3-model-cyber-defense-tool-1-https://z.ai/blog/glm-5.3",
+          "sourceId": 236,
+          "sourceName": "Z.ai",
+          "sourcePublisher": "Z.ai",
+          "sourceKind": "Official",
+          "title": "GLM-5.3: Frontier Coding with Emergent Cyber Capabilities",
+          "url": "https://z.ai/blog/glm-5.3",
+          "publishedAt": "2026-08-14T09:48:17.000Z",
+          "summary": "Z.ai的发布原文是GLM-5.3已发布、面向编程及网络防御，以及其声称网络安全能力可与Claude Mythos 5相比的第一手依据。",
+          "fetchedAt": "2026-08-14T10:07:36.312Z",
+          "researchedFrom": "N1",
+          "researchRole": "Primary",
+          "researchClaim": "Z.ai称其新发布的开源 GLM-5.3 已将定位从通用编程与代理工程扩展至网络防御，并宣称其网络安全能力可与 Anthropic 的 Claude Mythos 5 媲美；现有可核验材料尚不足以把这一“媲美”转化为独立、同条件的性能结论。",
+          "researchComparisons": "此前，Z.ai公开文档将 GLM-5.1 定位为长时程代理与软件工程模型，并称其能力与 Claude Opus 4.6 对齐，而非网络安全专用模型。GLM-5.3 的关键变化是公司将比较对象提升为 Mythos 5。Anthropic 将 Mythos 5 定义为其最强的网络安全模型，且只向经过审查的少数合作伙伴开放；这意味着两者的“同等”说法必须以公开、同任务、同工具权限和同评分规则的网络安全评测来验证，不能仅以各自披露的内部基准相比较。",
+          "researchUnresolved": "Z.ai发布页未见可独立复现的网络安全基准细目、测试协议、任务集、工具权限、样本量或第三方审计；GLM-5.3的模型卡、权重仓库、许可证和正式可用范围也仍需核验。",
+          "ref": "R1",
+          "role": "主张",
+          "takeaway": "Z.ai发布原文确认GLM-5.3已发布，定位于编程及网络防御，并提出与Claude Mythos 5的能力比较。"
+        },
+        {
+          "id": "research-236-0-https://www.theinformation.com/briefings/chinas-z-ai-touts-new-glm-5-3-model-cyber-defense-tool-2-https://docs.z.ai/release-notes/new-released",
+          "sourceId": 236,
+          "sourceName": "Z.ai",
+          "sourcePublisher": "Z.ai",
+          "sourceKind": "Official",
+          "title": "New Released",
+          "url": "https://docs.z.ai/release-notes/new-released",
+          "publishedAt": "2026-08-14T09:48:17.000Z",
+          "summary": "Z.ai的产品更新记录显示，GLM-5.1此前被定位为可处理长时程任务、规划、执行、调试和策略迭代的工程代理模型，并称其与Claude Opus 4.6能力对齐，构成GLM-5.3转向网络安全定位前的官方基线。",
+          "fetchedAt": "2026-08-14T10:07:36.312Z",
+          "researchedFrom": "N1",
+          "researchRole": "Comparison",
+          "researchClaim": "Z.ai称其新发布的开源 GLM-5.3 已将定位从通用编程与代理工程扩展至网络防御，并宣称其网络安全能力可与 Anthropic 的 Claude Mythos 5 媲美；现有可核验材料尚不足以把这一“媲美”转化为独立、同条件的性能结论。",
+          "researchComparisons": "此前，Z.ai公开文档将 GLM-5.1 定位为长时程代理与软件工程模型，并称其能力与 Claude Opus 4.6 对齐，而非网络安全专用模型。GLM-5.3 的关键变化是公司将比较对象提升为 Mythos 5。Anthropic 将 Mythos 5 定义为其最强的网络安全模型，且只向经过审查的少数合作伙伴开放；这意味着两者的“同等”说法必须以公开、同任务、同工具权限和同评分规则的网络安全评测来验证，不能仅以各自披露的内部基准相比较。",
+          "researchUnresolved": "Z.ai发布页未见可独立复现的网络安全基准细目、测试协议、任务集、工具权限、样本量或第三方审计；GLM-5.3的模型卡、权重仓库、许可证和正式可用范围也仍需核验。",
+          "ref": "R2",
+          "role": "背景",
+          "takeaway": "Z.ai此前将GLM-5.1定位为处理长时程规划、执行、调试和策略迭代的工程代理模型。"
+        },
+        {
+          "id": "research-236-0-https://www.theinformation.com/briefings/chinas-z-ai-touts-new-glm-5-3-model-cyber-defense-tool-3-https://www.anthropic.com/claude/mythos",
+          "sourceId": 236,
+          "sourceName": "Anthropic",
+          "sourcePublisher": "Anthropic",
+          "sourceKind": "Official",
+          "title": "Claude Mythos 5",
+          "url": "https://www.anthropic.com/claude/mythos",
+          "publishedAt": "2026-06-09T00:00:00.000Z",
+          "summary": "Anthropic将Mythos 5称为其最强的网络安全、生命科学与医疗研究模型，同时说明其仅向少量经审查的网络安全合作伙伴提供访问并附带安全监测要求；这表明将GLM-5.3直接称为“同等”需要覆盖能力和安全部署条件的可比证据。",
+          "fetchedAt": "2026-08-14T10:07:36.312Z",
+          "researchedFrom": "N1",
+          "researchRole": "Counterevidence",
+          "researchClaim": "Z.ai称其新发布的开源 GLM-5.3 已将定位从通用编程与代理工程扩展至网络防御，并宣称其网络安全能力可与 Anthropic 的 Claude Mythos 5 媲美；现有可核验材料尚不足以把这一“媲美”转化为独立、同条件的性能结论。",
+          "researchComparisons": "此前，Z.ai公开文档将 GLM-5.1 定位为长时程代理与软件工程模型，并称其能力与 Claude Opus 4.6 对齐，而非网络安全专用模型。GLM-5.3 的关键变化是公司将比较对象提升为 Mythos 5。Anthropic 将 Mythos 5 定义为其最强的网络安全模型，且只向经过审查的少数合作伙伴开放；这意味着两者的“同等”说法必须以公开、同任务、同工具权限和同评分规则的网络安全评测来验证，不能仅以各自披露的内部基准相比较。",
+          "researchUnresolved": "Z.ai发布页未见可独立复现的网络安全基准细目、测试协议、任务集、工具权限、样本量或第三方审计；GLM-5.3的模型卡、权重仓库、许可证和正式可用范围也仍需核验。",
+          "ref": "R3",
+          "role": "反例",
+          "takeaway": "Anthropic称Mythos 5面向网络安全等高要求领域，但仅向少量经审查的网络安全合作伙伴开放并要求安全监测。"
+        },
+        {
+          "id": "232-1-https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/",
+          "sourceId": 232,
+          "sourceName": "The Decoder AI",
+          "sourcePublisher": "The Decoder",
+          "sourceKind": "Blog",
+          "title": "Zhipu AI releases GLM-5.3, claims it's the strongest open-weights coding model",
+          "url": "https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/",
+          "publishedAt": "2026-08-14T10:21:34.000Z",
+          "summary": "Zhipu AI has released GLM-5.3, a model that, according to its own benchmarks, is the most powerful open-weights coding model, with a 50 percent improvement over its predecessor through post-training alone. Trained for cybersecurity, GLM-5.3 helped security teams find 2,436 vulnerabilities across 269 projects. The model weights are set to go open source in tw",
+          "fetchedAt": "2026-08-14T12:07:21.671Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-14T12:07:21.671Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "standard",
+            "reason": "fresh",
+            "ageHours": 1.7632419444444445,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N1",
+          "role": "佐证",
+          "takeaway": "The Decoder报道称Zhipu AI发布GLM-5.3，并转述其编码与网络安全能力主张及后续开源计划。"
+        },
+        {
+          "id": "research-232-1-https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/-2-https://huggingface.co/zai-org/GLM-5.2",
+          "sourceId": 232,
+          "sourceName": "Hugging Face / Z.ai",
+          "sourcePublisher": "Hugging Face / Z.ai",
+          "sourceKind": "Repository",
+          "title": "zai-org/GLM-5.2",
+          "url": "https://huggingface.co/zai-org/GLM-5.2",
+          "publishedAt": "2026-08-14T10:21:34.000Z",
+          "summary": "上一代公开权重的官方模型卡确认 GLM-5.2 为 753B 参数、MIT 许可，并给出可比较的既有编码基准：SWE-bench Pro 62.1、DeepSWE 46.2、Terminal-Bench 2.1 81.0；卡片还披露部分评测采用定制提示、特定 harness 或第三方执行，说明新旧“最强”结论需按基准和配置分别判断。",
+          "fetchedAt": "2026-08-14T12:07:21.671Z",
+          "researchedFrom": "N1",
+          "researchRole": "Comparison",
+          "researchClaim": "Z.ai 于 2026-08-14 发布 GLM-5.3，称该版本在不更换 GLM-5.2 基础模型的前提下，通过扩大后训练获得编码与网络安全能力提升；其“最强开放权重编码模型”定位目前仍主要基于公司自测。",
+          "researchComparisons": "公司称 GLM-5.3 在内部 Z.ai Code Bench 上较 GLM-5.2 提升 50%。可公开下载的上一代 GLM-5.2 为 753B 参数、MIT 许可模型；其模型卡报告 SWE-bench Pro 62.1、DeepSWE 46.2、Terminal-Bench 2.1 81.0，并将这些结果与 Claude Opus 4.8、GPT-5.5 等闭源模型并列比较。GLM-5.3 权重尚未公开：Z.ai 宣布将在完成安全评估和加固后约两周发布，因此“open-weights”目前是计划中的发布状态，而非已可下载状态。",
+          "researchUnresolved": "GLM-5.3 的完整技术报告、模型卡、权重仓库、Z.ai Code Bench 的任务集与评测配置，以及 2,436 个漏洞中已获项目维护者确认、修复或分配 CVE 的数量，均未见可公开独立复核材料；权重的目标发布日期按发布日推算为 2026-08-28，但仍取决于安全评估。",
+          "ref": "R2",
+          "role": "背景",
+          "takeaway": "GLM-5.2官方模型卡显示上一代已提供MIT许可的公开权重，并披露了若干编码基准及评测配置限制。"
+        },
+        {
+          "id": "research-232-1-https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/-3-https://huggingface.co/zai-org/models",
+          "sourceId": 232,
+          "sourceName": "Hugging Face / Z.ai",
+          "sourcePublisher": "Hugging Face / Z.ai",
+          "sourceKind": "Repository",
+          "title": "zai-org Models",
+          "url": "https://huggingface.co/zai-org/models",
+          "publishedAt": "2026-08-14T10:21:34.000Z",
+          "summary": "Z.ai 的官方 Hugging Face 组织页在检索时列出的最新 GLM-5.x 可下载权重仍为 GLM-5.2 与 GLM-5.2-FP8，未列出 GLM-5.3；这支持“GLM-5.3 已发布服务但权重尚未开放”的区别，也削弱将其直接称为当前开放权重模型的表述。",
+          "fetchedAt": "2026-08-14T12:07:21.671Z",
+          "researchedFrom": "N1",
+          "researchRole": "Counterevidence",
+          "researchClaim": "Z.ai 于 2026-08-14 发布 GLM-5.3，称该版本在不更换 GLM-5.2 基础模型的前提下，通过扩大后训练获得编码与网络安全能力提升；其“最强开放权重编码模型”定位目前仍主要基于公司自测。",
+          "researchComparisons": "公司称 GLM-5.3 在内部 Z.ai Code Bench 上较 GLM-5.2 提升 50%。可公开下载的上一代 GLM-5.2 为 753B 参数、MIT 许可模型；其模型卡报告 SWE-bench Pro 62.1、DeepSWE 46.2、Terminal-Bench 2.1 81.0，并将这些结果与 Claude Opus 4.8、GPT-5.5 等闭源模型并列比较。GLM-5.3 权重尚未公开：Z.ai 宣布将在完成安全评估和加固后约两周发布，因此“open-weights”目前是计划中的发布状态，而非已可下载状态。",
+          "researchUnresolved": "GLM-5.3 的完整技术报告、模型卡、权重仓库、Z.ai Code Bench 的任务集与评测配置，以及 2,436 个漏洞中已获项目维护者确认、修复或分配 CVE 的数量，均未见可公开独立复核材料；权重的目标发布日期按发布日推算为 2026-08-28，但仍取决于安全评估。",
+          "ref": "R3",
+          "role": "反例",
+          "takeaway": "Z.ai官方Hugging Face组织页检索时仅列出GLM-5.2及GLM-5.2-FP8，未列出GLM-5.3可下载权重。"
+        },
+        {
+          "id": "ground-226-2-https://www.reuters.com/technology/chinas-zai-says-new-model-nears-anthropics-mythos-5-cyber-defence-tests-2026-08-14/-1-https://www.axios.com/2026/08/14/china-open-source-ai-glm-53",
+          "sourceId": 226,
+          "sourceName": "Axios",
+          "sourcePublisher": "Axios",
+          "sourceKind": "Media",
+          "title": "China's Z.ai holds GLM 5.3 release over hacking risks",
+          "url": "https://www.axios.com/2026/08/14/china-open-source-ai-glm-53",
+          "publishedAt": "2026-08-14T00:00:00.000Z",
+          "summary": "报道 Z.ai 声称 GLM-5.3 在 CyberGym 上得分 84.5%，并称 Z.ai 对 GLM-5.3 实施分级访问，仅向选定安全合作方在受控环境中开放。",
+          "fetchedAt": "2026-08-15T00:08:04.211Z",
+          "groundedFrom": "N3",
+          "groundingClaim": "Z.ai 表示 GLM-5.3 在 CyberGym 上取得 84.5%；Anthropic 的官方系统卡将 Claude Mythos 5 的 CyberGym 成绩列为 83.8%。Z.ai 采取受控、分级访问方式，向选定的安全合作方提供相关能力。",
+          "groundingNotes": "来源支持 84.5% 与 83.8% 两个数字及受限访问安排；“最敏感的网络安全功能仅向 verified users 开放”不是现有来源中的准确原文表述。",
+          "ref": "G1",
+          "role": "最新进展",
+          "takeaway": "Axios报道称，Z.ai对GLM-5.3采取分级访问，最敏感网络安全功能仅面向选定安全合作方在受控环境开放，并引述其84.5%的CyberGym成绩。"
+        },
+        {
+          "id": "ground-226-2-https://www.reuters.com/technology/chinas-zai-says-new-model-nears-anthropics-mythos-5-cyber-defence-tests-2026-08-14/-2-https://www-cdn.anthropic.com/2f9323abbcc4abe219577539efe19a623c9ca2bd/Claude%20Fable%205%20%26%20Claude%20Mythos%205%20System%20Card.pdf",
+          "sourceId": 226,
+          "sourceName": "Anthropic",
+          "sourcePublisher": "Anthropic",
+          "sourceKind": "Research",
+          "title": "Claude Fable 5 & Claude Mythos 5 System Card",
+          "url": "https://www-cdn.anthropic.com/2f9323abbcc4abe219577539efe19a623c9ca2bd/Claude%20Fable%205%20%26%20Claude%20Mythos%205%20System%20Card.pdf",
+          "publishedAt": "2026-07-01T00:00:00.000Z",
+          "summary": "官方系统卡说明 Mythos 5 在 CyberGym 1,507 项任务的 pass@1 定向漏洞复现成绩为 83.8%。",
+          "fetchedAt": "2026-08-15T00:08:04.211Z",
+          "groundedFrom": "N3",
+          "groundingClaim": "Z.ai 表示 GLM-5.3 在 CyberGym 上取得 84.5%；Anthropic 的官方系统卡将 Claude Mythos 5 的 CyberGym 成绩列为 83.8%。Z.ai 采取受控、分级访问方式，向选定的安全合作方提供相关能力。",
+          "groundingNotes": "来源支持 84.5% 与 83.8% 两个数字及受限访问安排；“最敏感的网络安全功能仅向 verified users 开放”不是现有来源中的准确原文表述。",
+          "ref": "G2",
+          "role": "背景",
+          "takeaway": "Anthropic的系统卡称，Claude Mythos 5在CyberGym 1,507项定向漏洞复现任务上的pass@1成绩为83.8%。"
+        },
+        {
+          "id": "231-1-https://www.wired.com/story/zai-open-weight-ai-models-release-cybersecurity-hacking/",
+          "sourceId": 231,
+          "sourceName": "WIRED AI",
+          "sourcePublisher": "WIRED",
+          "sourceKind": "Blog",
+          "title": "The Powerful Chinese AI Model Experts Warned About Is Here",
+          "url": "https://www.wired.com/story/zai-open-weight-ai-models-release-cybersecurity-hacking/",
+          "publishedAt": "2026-08-18T09:00:00.000Z",
+          "summary": "Z.ai’s latest AI model release could help companies secure their systems—or find its way into the hands of hackers.",
+          "fetchedAt": "2026-08-19T06:06:43.320Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-19T03:52:09.741Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 21.119219166666667,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N3",
+          "role": "佐证",
+          "takeaway": "报道聚焦GLM-5.3同时具备防御用途与被滥用进行攻击的风险。"
+        },
+        {
+          "id": "research-231-1-https://www.wired.com/story/zai-open-weight-ai-models-release-cybersecurity-hacking/-2-https://cvd.z.ai/",
+          "sourceId": 231,
+          "sourceName": "Z.ai",
+          "sourcePublisher": "Z.ai",
+          "sourceKind": "Official",
+          "title": "Z.ai Security",
+          "url": "https://cvd.z.ai/",
+          "publishedAt": "2026-08-18T09:00:00.000Z",
+          "summary": "补齐 Z.ai 可核验的漏洞披露规模：2,436 个收录漏洞、1,097 个严重或高危漏洞、269 个覆盖开源项目；账本还显示仅 53 个已公开，2,383 个尚未公开。",
+          "fetchedAt": "2026-08-19T06:07:09.189Z",
+          "researchedFrom": "N3",
+          "researchRole": "Primary",
+          "researchClaim": "Z.ai 的 GLM-5.3 将网络安全能力从此前可公开下载部署的 GLM-5.2 推向受控发布：公司因其漏洞发现与利用能力而暂缓公开权重两周，并先向选定安全合作伙伴提供受控环境访问。",
+          "researchComparisons": "在 Z.ai 披露的 CyberGym 上，GLM-5.3 得分 84.5%，高于其比较表中的 Anthropic Fable 5 和 OpenAI GPT-5.6 Sol；但在衡量真实漏洞利用推理与开发的 ExploitBench 上，它仍落后于这两款模型。此前的 GLM-5.2 已以 744B-A40B 的 BF16 和 FP8 权重公开，支持本地部署；Z.ai 的漏洞披露账本目前列出 2,436 个收录漏洞，其中 1,097 个为严重或高危，覆盖 269 个开源项目。",
+          "researchUnresolved": "GLM-5.3 权重在两周安全审查期结束后是否按计划公开、受控访问的具体限制以及 CyberGym、ExploitBench 结果能否由独立团队以相同代理框架和工具配置复现，仍会影响其实际风险与能力判断。",
+          "ref": "R10",
+          "role": "佐证",
+          "takeaway": "Z.ai安全页面列出2,436个漏洞，其中1,097个为严重或高危，且大部分尚未公开。"
+        },
+        {
+          "id": "research-231-1-https://www.wired.com/story/zai-open-weight-ai-models-release-cybersecurity-hacking/-3-https://github.com/zai-org/GLM-5",
+          "sourceId": 231,
+          "sourceName": "Z.ai / zai-org",
+          "sourcePublisher": "Z.ai / zai-org",
+          "sourceKind": "Repository",
+          "title": "GLM-5: From Vibe Coding to Agentic Engineering",
+          "url": "https://github.com/zai-org/GLM-5",
+          "publishedAt": "2026-08-18T09:00:00.000Z",
+          "summary": "补齐此前 GLM-5.2 的可部署状态与技术基准：官方仓库提供 744B-A40B BF16、FP8 下载链接和本地部署框架支持，并列出其相对 GLM-5.1 的 Terminal-Bench 2.1 与 SWE-bench Pro 改善。",
+          "fetchedAt": "2026-08-19T06:07:09.189Z",
+          "researchedFrom": "N3",
+          "researchRole": "Comparison",
+          "researchClaim": "Z.ai 的 GLM-5.3 将网络安全能力从此前可公开下载部署的 GLM-5.2 推向受控发布：公司因其漏洞发现与利用能力而暂缓公开权重两周，并先向选定安全合作伙伴提供受控环境访问。",
+          "researchComparisons": "在 Z.ai 披露的 CyberGym 上，GLM-5.3 得分 84.5%，高于其比较表中的 Anthropic Fable 5 和 OpenAI GPT-5.6 Sol；但在衡量真实漏洞利用推理与开发的 ExploitBench 上，它仍落后于这两款模型。此前的 GLM-5.2 已以 744B-A40B 的 BF16 和 FP8 权重公开，支持本地部署；Z.ai 的漏洞披露账本目前列出 2,436 个收录漏洞，其中 1,097 个为严重或高危，覆盖 269 个开源项目。",
+          "researchUnresolved": "GLM-5.3 权重在两周安全审查期结束后是否按计划公开、受控访问的具体限制以及 CyberGym、ExploitBench 结果能否由独立团队以相同代理框架和工具配置复现，仍会影响其实际风险与能力判断。",
+          "ref": "R11",
+          "role": "背景",
+          "takeaway": "GLM-5.2此前已提供权重下载、本地部署框架和代理编码基准改进。"
+        },
+        {
+          "id": "research-231-1-https://www.wired.com/story/zai-open-weight-ai-models-release-cybersecurity-hacking/-4-https://arxiv.org/abs/2510.24317",
+          "sourceId": 231,
+          "sourceName": "arXiv",
+          "sourcePublisher": "arXiv",
+          "sourceKind": "Research",
+          "title": "Cybersecurity AI Benchmark (CAIBench): A Meta-Benchmark for Evaluating Cybersecurity AI Agents",
+          "url": "https://arxiv.org/abs/2510.24317",
+          "publishedAt": "2025-10-28T11:36:20.000Z",
+          "summary": "提供最强方法论反例：研究发现网络安全知识基准的高分并不等同于真实攻防能力，前沿模型在多步骤攻防场景中的成功率通常只有 20%–40%，且代理框架与工具编排可带来最高 2.6 倍的结果差异。",
+          "fetchedAt": "2026-08-19T06:07:09.189Z",
+          "researchedFrom": "N3",
+          "researchRole": "Counterevidence",
+          "researchClaim": "Z.ai 的 GLM-5.3 将网络安全能力从此前可公开下载部署的 GLM-5.2 推向受控发布：公司因其漏洞发现与利用能力而暂缓公开权重两周，并先向选定安全合作伙伴提供受控环境访问。",
+          "researchComparisons": "在 Z.ai 披露的 CyberGym 上，GLM-5.3 得分 84.5%，高于其比较表中的 Anthropic Fable 5 和 OpenAI GPT-5.6 Sol；但在衡量真实漏洞利用推理与开发的 ExploitBench 上，它仍落后于这两款模型。此前的 GLM-5.2 已以 744B-A40B 的 BF16 和 FP8 权重公开，支持本地部署；Z.ai 的漏洞披露账本目前列出 2,436 个收录漏洞，其中 1,097 个为严重或高危，覆盖 269 个开源项目。",
+          "researchUnresolved": "GLM-5.3 权重在两周安全审查期结束后是否按计划公开、受控访问的具体限制以及 CyberGym、ExploitBench 结果能否由独立团队以相同代理框架和工具配置复现，仍会影响其实际风险与能力判断。",
+          "ref": "R12",
+          "role": "反例",
+          "takeaway": "研究指出网络安全知识基准高分不等于真实多步骤攻防表现，代理编排可显著改变结果。"
+        }
+      ],
+      "references": [
+        {
+          "id": "236-0-https://www.theinformation.com/briefings/chinas-z-ai-touts-new-glm-5-3-model-cyber-defense-tool",
+          "sourceId": 236,
+          "sourceName": "The Information",
+          "sourcePublisher": "The Information",
+          "sourceKind": "Blog",
+          "title": "China’s Z.ai Touts New GLM-5.3 Model as Cyber Defense Tool",
+          "url": "https://www.theinformation.com/briefings/chinas-z-ai-touts-new-glm-5-3-model-cyber-defense-tool",
+          "publishedAt": "2026-08-14T09:48:17.000Z",
+          "summary": "Chinese AI developer Z.ai on Friday released its new open-source model, GLM-5.3, saying its cybersecurity capabilities are on par with Anthropic’s Mythos 5. Beijing-based Z.ai, also known as Zhipu in Chinese, said GLM-5.3 has achieved significant improvements from its predecessor, GLM-5.2, in ...",
+          "fetchedAt": "2026-08-14T10:07:36.312Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-14T10:07:36.312Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "standard",
+            "reason": "fresh",
+            "ageHours": 0.3220311111111111,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N1"
+        },
+        {
+          "id": "research-236-0-https://www.theinformation.com/briefings/chinas-z-ai-touts-new-glm-5-3-model-cyber-defense-tool-1-https://z.ai/blog/glm-5.3",
+          "sourceId": 236,
+          "sourceName": "Z.ai",
+          "sourcePublisher": "Z.ai",
+          "sourceKind": "Official",
+          "title": "GLM-5.3: Frontier Coding with Emergent Cyber Capabilities",
+          "url": "https://z.ai/blog/glm-5.3",
+          "publishedAt": "2026-08-14T09:48:17.000Z",
+          "summary": "Z.ai的发布原文是GLM-5.3已发布、面向编程及网络防御，以及其声称网络安全能力可与Claude Mythos 5相比的第一手依据。",
+          "fetchedAt": "2026-08-14T10:07:36.312Z",
+          "researchedFrom": "N1",
+          "researchRole": "Primary",
+          "researchClaim": "Z.ai称其新发布的开源 GLM-5.3 已将定位从通用编程与代理工程扩展至网络防御，并宣称其网络安全能力可与 Anthropic 的 Claude Mythos 5 媲美；现有可核验材料尚不足以把这一“媲美”转化为独立、同条件的性能结论。",
+          "researchComparisons": "此前，Z.ai公开文档将 GLM-5.1 定位为长时程代理与软件工程模型，并称其能力与 Claude Opus 4.6 对齐，而非网络安全专用模型。GLM-5.3 的关键变化是公司将比较对象提升为 Mythos 5。Anthropic 将 Mythos 5 定义为其最强的网络安全模型，且只向经过审查的少数合作伙伴开放；这意味着两者的“同等”说法必须以公开、同任务、同工具权限和同评分规则的网络安全评测来验证，不能仅以各自披露的内部基准相比较。",
+          "researchUnresolved": "Z.ai发布页未见可独立复现的网络安全基准细目、测试协议、任务集、工具权限、样本量或第三方审计；GLM-5.3的模型卡、权重仓库、许可证和正式可用范围也仍需核验。",
+          "ref": "R1"
+        },
+        {
+          "id": "research-236-0-https://www.theinformation.com/briefings/chinas-z-ai-touts-new-glm-5-3-model-cyber-defense-tool-2-https://docs.z.ai/release-notes/new-released",
+          "sourceId": 236,
+          "sourceName": "Z.ai",
+          "sourcePublisher": "Z.ai",
+          "sourceKind": "Official",
+          "title": "New Released",
+          "url": "https://docs.z.ai/release-notes/new-released",
+          "publishedAt": "2026-08-14T09:48:17.000Z",
+          "summary": "Z.ai的产品更新记录显示，GLM-5.1此前被定位为可处理长时程任务、规划、执行、调试和策略迭代的工程代理模型，并称其与Claude Opus 4.6能力对齐，构成GLM-5.3转向网络安全定位前的官方基线。",
+          "fetchedAt": "2026-08-14T10:07:36.312Z",
+          "researchedFrom": "N1",
+          "researchRole": "Comparison",
+          "researchClaim": "Z.ai称其新发布的开源 GLM-5.3 已将定位从通用编程与代理工程扩展至网络防御，并宣称其网络安全能力可与 Anthropic 的 Claude Mythos 5 媲美；现有可核验材料尚不足以把这一“媲美”转化为独立、同条件的性能结论。",
+          "researchComparisons": "此前，Z.ai公开文档将 GLM-5.1 定位为长时程代理与软件工程模型，并称其能力与 Claude Opus 4.6 对齐，而非网络安全专用模型。GLM-5.3 的关键变化是公司将比较对象提升为 Mythos 5。Anthropic 将 Mythos 5 定义为其最强的网络安全模型，且只向经过审查的少数合作伙伴开放；这意味着两者的“同等”说法必须以公开、同任务、同工具权限和同评分规则的网络安全评测来验证，不能仅以各自披露的内部基准相比较。",
+          "researchUnresolved": "Z.ai发布页未见可独立复现的网络安全基准细目、测试协议、任务集、工具权限、样本量或第三方审计；GLM-5.3的模型卡、权重仓库、许可证和正式可用范围也仍需核验。",
+          "ref": "R2"
+        },
+        {
+          "id": "research-236-0-https://www.theinformation.com/briefings/chinas-z-ai-touts-new-glm-5-3-model-cyber-defense-tool-3-https://www.anthropic.com/claude/mythos",
+          "sourceId": 236,
+          "sourceName": "Anthropic",
+          "sourcePublisher": "Anthropic",
+          "sourceKind": "Official",
+          "title": "Claude Mythos 5",
+          "url": "https://www.anthropic.com/claude/mythos",
+          "publishedAt": "2026-06-09T00:00:00.000Z",
+          "summary": "Anthropic将Mythos 5称为其最强的网络安全、生命科学与医疗研究模型，同时说明其仅向少量经审查的网络安全合作伙伴提供访问并附带安全监测要求；这表明将GLM-5.3直接称为“同等”需要覆盖能力和安全部署条件的可比证据。",
+          "fetchedAt": "2026-08-14T10:07:36.312Z",
+          "researchedFrom": "N1",
+          "researchRole": "Counterevidence",
+          "researchClaim": "Z.ai称其新发布的开源 GLM-5.3 已将定位从通用编程与代理工程扩展至网络防御，并宣称其网络安全能力可与 Anthropic 的 Claude Mythos 5 媲美；现有可核验材料尚不足以把这一“媲美”转化为独立、同条件的性能结论。",
+          "researchComparisons": "此前，Z.ai公开文档将 GLM-5.1 定位为长时程代理与软件工程模型，并称其能力与 Claude Opus 4.6 对齐，而非网络安全专用模型。GLM-5.3 的关键变化是公司将比较对象提升为 Mythos 5。Anthropic 将 Mythos 5 定义为其最强的网络安全模型，且只向经过审查的少数合作伙伴开放；这意味着两者的“同等”说法必须以公开、同任务、同工具权限和同评分规则的网络安全评测来验证，不能仅以各自披露的内部基准相比较。",
+          "researchUnresolved": "Z.ai发布页未见可独立复现的网络安全基准细目、测试协议、任务集、工具权限、样本量或第三方审计；GLM-5.3的模型卡、权重仓库、许可证和正式可用范围也仍需核验。",
+          "ref": "R3"
+        },
+        {
+          "id": "232-1-https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/",
+          "sourceId": 232,
+          "sourceName": "The Decoder AI",
+          "sourcePublisher": "The Decoder",
+          "sourceKind": "Blog",
+          "title": "Zhipu AI releases GLM-5.3, claims it's the strongest open-weights coding model",
+          "url": "https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/",
+          "publishedAt": "2026-08-14T10:21:34.000Z",
+          "summary": "Zhipu AI has released GLM-5.3, a model that, according to its own benchmarks, is the most powerful open-weights coding model, with a 50 percent improvement over its predecessor through post-training alone. Trained for cybersecurity, GLM-5.3 helped security teams find 2,436 vulnerabilities across 269 projects. The model weights are set to go open source in tw",
+          "fetchedAt": "2026-08-14T12:07:21.671Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-14T12:07:21.671Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "standard",
+            "reason": "fresh",
+            "ageHours": 1.7632419444444445,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N1"
+        },
+        {
+          "id": "research-232-1-https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/-2-https://huggingface.co/zai-org/GLM-5.2",
+          "sourceId": 232,
+          "sourceName": "Hugging Face / Z.ai",
+          "sourcePublisher": "Hugging Face / Z.ai",
+          "sourceKind": "Repository",
+          "title": "zai-org/GLM-5.2",
+          "url": "https://huggingface.co/zai-org/GLM-5.2",
+          "publishedAt": "2026-08-14T10:21:34.000Z",
+          "summary": "上一代公开权重的官方模型卡确认 GLM-5.2 为 753B 参数、MIT 许可，并给出可比较的既有编码基准：SWE-bench Pro 62.1、DeepSWE 46.2、Terminal-Bench 2.1 81.0；卡片还披露部分评测采用定制提示、特定 harness 或第三方执行，说明新旧“最强”结论需按基准和配置分别判断。",
+          "fetchedAt": "2026-08-14T12:07:21.671Z",
+          "researchedFrom": "N1",
+          "researchRole": "Comparison",
+          "researchClaim": "Z.ai 于 2026-08-14 发布 GLM-5.3，称该版本在不更换 GLM-5.2 基础模型的前提下，通过扩大后训练获得编码与网络安全能力提升；其“最强开放权重编码模型”定位目前仍主要基于公司自测。",
+          "researchComparisons": "公司称 GLM-5.3 在内部 Z.ai Code Bench 上较 GLM-5.2 提升 50%。可公开下载的上一代 GLM-5.2 为 753B 参数、MIT 许可模型；其模型卡报告 SWE-bench Pro 62.1、DeepSWE 46.2、Terminal-Bench 2.1 81.0，并将这些结果与 Claude Opus 4.8、GPT-5.5 等闭源模型并列比较。GLM-5.3 权重尚未公开：Z.ai 宣布将在完成安全评估和加固后约两周发布，因此“open-weights”目前是计划中的发布状态，而非已可下载状态。",
+          "researchUnresolved": "GLM-5.3 的完整技术报告、模型卡、权重仓库、Z.ai Code Bench 的任务集与评测配置，以及 2,436 个漏洞中已获项目维护者确认、修复或分配 CVE 的数量，均未见可公开独立复核材料；权重的目标发布日期按发布日推算为 2026-08-28，但仍取决于安全评估。",
+          "ref": "R2"
+        },
+        {
+          "id": "research-232-1-https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/-3-https://huggingface.co/zai-org/models",
+          "sourceId": 232,
+          "sourceName": "Hugging Face / Z.ai",
+          "sourcePublisher": "Hugging Face / Z.ai",
+          "sourceKind": "Repository",
+          "title": "zai-org Models",
+          "url": "https://huggingface.co/zai-org/models",
+          "publishedAt": "2026-08-14T10:21:34.000Z",
+          "summary": "Z.ai 的官方 Hugging Face 组织页在检索时列出的最新 GLM-5.x 可下载权重仍为 GLM-5.2 与 GLM-5.2-FP8，未列出 GLM-5.3；这支持“GLM-5.3 已发布服务但权重尚未开放”的区别，也削弱将其直接称为当前开放权重模型的表述。",
+          "fetchedAt": "2026-08-14T12:07:21.671Z",
+          "researchedFrom": "N1",
+          "researchRole": "Counterevidence",
+          "researchClaim": "Z.ai 于 2026-08-14 发布 GLM-5.3，称该版本在不更换 GLM-5.2 基础模型的前提下，通过扩大后训练获得编码与网络安全能力提升；其“最强开放权重编码模型”定位目前仍主要基于公司自测。",
+          "researchComparisons": "公司称 GLM-5.3 在内部 Z.ai Code Bench 上较 GLM-5.2 提升 50%。可公开下载的上一代 GLM-5.2 为 753B 参数、MIT 许可模型；其模型卡报告 SWE-bench Pro 62.1、DeepSWE 46.2、Terminal-Bench 2.1 81.0，并将这些结果与 Claude Opus 4.8、GPT-5.5 等闭源模型并列比较。GLM-5.3 权重尚未公开：Z.ai 宣布将在完成安全评估和加固后约两周发布，因此“open-weights”目前是计划中的发布状态，而非已可下载状态。",
+          "researchUnresolved": "GLM-5.3 的完整技术报告、模型卡、权重仓库、Z.ai Code Bench 的任务集与评测配置，以及 2,436 个漏洞中已获项目维护者确认、修复或分配 CVE 的数量，均未见可公开独立复核材料；权重的目标发布日期按发布日推算为 2026-08-28，但仍取决于安全评估。",
+          "ref": "R3"
+        },
+        {
+          "id": "ground-226-2-https://www.reuters.com/technology/chinas-zai-says-new-model-nears-anthropics-mythos-5-cyber-defence-tests-2026-08-14/-1-https://www.axios.com/2026/08/14/china-open-source-ai-glm-53",
+          "sourceId": 226,
+          "sourceName": "Axios",
+          "sourcePublisher": "Axios",
+          "sourceKind": "Media",
+          "title": "China's Z.ai holds GLM 5.3 release over hacking risks",
+          "url": "https://www.axios.com/2026/08/14/china-open-source-ai-glm-53",
+          "publishedAt": "2026-08-14T00:00:00.000Z",
+          "summary": "报道 Z.ai 声称 GLM-5.3 在 CyberGym 上得分 84.5%，并称 Z.ai 对 GLM-5.3 实施分级访问，仅向选定安全合作方在受控环境中开放。",
+          "fetchedAt": "2026-08-15T00:08:04.211Z",
+          "groundedFrom": "N3",
+          "groundingClaim": "Z.ai 表示 GLM-5.3 在 CyberGym 上取得 84.5%；Anthropic 的官方系统卡将 Claude Mythos 5 的 CyberGym 成绩列为 83.8%。Z.ai 采取受控、分级访问方式，向选定的安全合作方提供相关能力。",
+          "groundingNotes": "来源支持 84.5% 与 83.8% 两个数字及受限访问安排；“最敏感的网络安全功能仅向 verified users 开放”不是现有来源中的准确原文表述。",
+          "ref": "G1"
+        },
+        {
+          "id": "ground-226-2-https://www.reuters.com/technology/chinas-zai-says-new-model-nears-anthropics-mythos-5-cyber-defence-tests-2026-08-14/-2-https://www-cdn.anthropic.com/2f9323abbcc4abe219577539efe19a623c9ca2bd/Claude%20Fable%205%20%26%20Claude%20Mythos%205%20System%20Card.pdf",
+          "sourceId": 226,
+          "sourceName": "Anthropic",
+          "sourcePublisher": "Anthropic",
+          "sourceKind": "Research",
+          "title": "Claude Fable 5 & Claude Mythos 5 System Card",
+          "url": "https://www-cdn.anthropic.com/2f9323abbcc4abe219577539efe19a623c9ca2bd/Claude%20Fable%205%20%26%20Claude%20Mythos%205%20System%20Card.pdf",
+          "publishedAt": "2026-07-01T00:00:00.000Z",
+          "summary": "官方系统卡说明 Mythos 5 在 CyberGym 1,507 项任务的 pass@1 定向漏洞复现成绩为 83.8%。",
+          "fetchedAt": "2026-08-15T00:08:04.211Z",
+          "groundedFrom": "N3",
+          "groundingClaim": "Z.ai 表示 GLM-5.3 在 CyberGym 上取得 84.5%；Anthropic 的官方系统卡将 Claude Mythos 5 的 CyberGym 成绩列为 83.8%。Z.ai 采取受控、分级访问方式，向选定的安全合作方提供相关能力。",
+          "groundingNotes": "来源支持 84.5% 与 83.8% 两个数字及受限访问安排；“最敏感的网络安全功能仅向 verified users 开放”不是现有来源中的准确原文表述。",
+          "ref": "G2"
+        },
+        {
+          "id": "231-1-https://www.wired.com/story/zai-open-weight-ai-models-release-cybersecurity-hacking/",
+          "sourceId": 231,
+          "sourceName": "WIRED AI",
+          "sourcePublisher": "WIRED",
+          "sourceKind": "Blog",
+          "title": "The Powerful Chinese AI Model Experts Warned About Is Here",
+          "url": "https://www.wired.com/story/zai-open-weight-ai-models-release-cybersecurity-hacking/",
+          "publishedAt": "2026-08-18T09:00:00.000Z",
+          "summary": "Z.ai’s latest AI model release could help companies secure their systems—or find its way into the hands of hackers.",
+          "fetchedAt": "2026-08-19T06:06:43.320Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-19T03:52:09.741Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 21.119219166666667,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N3"
+        },
+        {
+          "id": "research-231-1-https://www.wired.com/story/zai-open-weight-ai-models-release-cybersecurity-hacking/-2-https://cvd.z.ai/",
+          "sourceId": 231,
+          "sourceName": "Z.ai",
+          "sourcePublisher": "Z.ai",
+          "sourceKind": "Official",
+          "title": "Z.ai Security",
+          "url": "https://cvd.z.ai/",
+          "publishedAt": "2026-08-18T09:00:00.000Z",
+          "summary": "补齐 Z.ai 可核验的漏洞披露规模：2,436 个收录漏洞、1,097 个严重或高危漏洞、269 个覆盖开源项目；账本还显示仅 53 个已公开，2,383 个尚未公开。",
+          "fetchedAt": "2026-08-19T06:07:09.189Z",
+          "researchedFrom": "N3",
+          "researchRole": "Primary",
+          "researchClaim": "Z.ai 的 GLM-5.3 将网络安全能力从此前可公开下载部署的 GLM-5.2 推向受控发布：公司因其漏洞发现与利用能力而暂缓公开权重两周，并先向选定安全合作伙伴提供受控环境访问。",
+          "researchComparisons": "在 Z.ai 披露的 CyberGym 上，GLM-5.3 得分 84.5%，高于其比较表中的 Anthropic Fable 5 和 OpenAI GPT-5.6 Sol；但在衡量真实漏洞利用推理与开发的 ExploitBench 上，它仍落后于这两款模型。此前的 GLM-5.2 已以 744B-A40B 的 BF16 和 FP8 权重公开，支持本地部署；Z.ai 的漏洞披露账本目前列出 2,436 个收录漏洞，其中 1,097 个为严重或高危，覆盖 269 个开源项目。",
+          "researchUnresolved": "GLM-5.3 权重在两周安全审查期结束后是否按计划公开、受控访问的具体限制以及 CyberGym、ExploitBench 结果能否由独立团队以相同代理框架和工具配置复现，仍会影响其实际风险与能力判断。",
+          "ref": "R10"
+        },
+        {
+          "id": "research-231-1-https://www.wired.com/story/zai-open-weight-ai-models-release-cybersecurity-hacking/-3-https://github.com/zai-org/GLM-5",
+          "sourceId": 231,
+          "sourceName": "Z.ai / zai-org",
+          "sourcePublisher": "Z.ai / zai-org",
+          "sourceKind": "Repository",
+          "title": "GLM-5: From Vibe Coding to Agentic Engineering",
+          "url": "https://github.com/zai-org/GLM-5",
+          "publishedAt": "2026-08-18T09:00:00.000Z",
+          "summary": "补齐此前 GLM-5.2 的可部署状态与技术基准：官方仓库提供 744B-A40B BF16、FP8 下载链接和本地部署框架支持，并列出其相对 GLM-5.1 的 Terminal-Bench 2.1 与 SWE-bench Pro 改善。",
+          "fetchedAt": "2026-08-19T06:07:09.189Z",
+          "researchedFrom": "N3",
+          "researchRole": "Comparison",
+          "researchClaim": "Z.ai 的 GLM-5.3 将网络安全能力从此前可公开下载部署的 GLM-5.2 推向受控发布：公司因其漏洞发现与利用能力而暂缓公开权重两周，并先向选定安全合作伙伴提供受控环境访问。",
+          "researchComparisons": "在 Z.ai 披露的 CyberGym 上，GLM-5.3 得分 84.5%，高于其比较表中的 Anthropic Fable 5 和 OpenAI GPT-5.6 Sol；但在衡量真实漏洞利用推理与开发的 ExploitBench 上，它仍落后于这两款模型。此前的 GLM-5.2 已以 744B-A40B 的 BF16 和 FP8 权重公开，支持本地部署；Z.ai 的漏洞披露账本目前列出 2,436 个收录漏洞，其中 1,097 个为严重或高危，覆盖 269 个开源项目。",
+          "researchUnresolved": "GLM-5.3 权重在两周安全审查期结束后是否按计划公开、受控访问的具体限制以及 CyberGym、ExploitBench 结果能否由独立团队以相同代理框架和工具配置复现，仍会影响其实际风险与能力判断。",
+          "ref": "R11"
+        },
+        {
+          "id": "research-231-1-https://www.wired.com/story/zai-open-weight-ai-models-release-cybersecurity-hacking/-4-https://arxiv.org/abs/2510.24317",
+          "sourceId": 231,
+          "sourceName": "arXiv",
+          "sourcePublisher": "arXiv",
+          "sourceKind": "Research",
+          "title": "Cybersecurity AI Benchmark (CAIBench): A Meta-Benchmark for Evaluating Cybersecurity AI Agents",
+          "url": "https://arxiv.org/abs/2510.24317",
+          "publishedAt": "2025-10-28T11:36:20.000Z",
+          "summary": "提供最强方法论反例：研究发现网络安全知识基准的高分并不等同于真实攻防能力，前沿模型在多步骤攻防场景中的成功率通常只有 20%–40%，且代理框架与工具编排可带来最高 2.6 倍的结果差异。",
+          "fetchedAt": "2026-08-19T06:07:09.189Z",
+          "researchedFrom": "N3",
+          "researchRole": "Counterevidence",
+          "researchClaim": "Z.ai 的 GLM-5.3 将网络安全能力从此前可公开下载部署的 GLM-5.2 推向受控发布：公司因其漏洞发现与利用能力而暂缓公开权重两周，并先向选定安全合作伙伴提供受控环境访问。",
+          "researchComparisons": "在 Z.ai 披露的 CyberGym 上，GLM-5.3 得分 84.5%，高于其比较表中的 Anthropic Fable 5 和 OpenAI GPT-5.6 Sol；但在衡量真实漏洞利用推理与开发的 ExploitBench 上，它仍落后于这两款模型。此前的 GLM-5.2 已以 744B-A40B 的 BF16 和 FP8 权重公开，支持本地部署；Z.ai 的漏洞披露账本目前列出 2,436 个收录漏洞，其中 1,097 个为严重或高危，覆盖 269 个开源项目。",
+          "researchUnresolved": "GLM-5.3 权重在两周安全审查期结束后是否按计划公开、受控访问的具体限制以及 CyberGym、ExploitBench 结果能否由独立团队以相同代理框架和工具配置复现，仍会影响其实际风险与能力判断。",
+          "ref": "R12"
+        }
+      ],
+      "feedBatchAt": "2026-08-19T06:07:09.189Z",
+      "updates": [
+        {
+          "addedAt": "2026-08-18T09:00:00.000Z",
+          "title": "GLM-5.3延后开放权重",
+          "summary": "Axios称GLM-5.3的公开权重已延后两周，并采取分层受控访问。Z.ai同日披露其漏洞账本含2,436个条目，其中2,383个尚未公开。",
+          "evidence": [
+            {
+              "id": "231-1-https://www.wired.com/story/zai-open-weight-ai-models-release-cybersecurity-hacking/",
+              "sourceId": 231,
+              "sourceName": "WIRED AI",
+              "sourcePublisher": "WIRED",
+              "sourceKind": "Blog",
+              "title": "The Powerful Chinese AI Model Experts Warned About Is Here",
+              "url": "https://www.wired.com/story/zai-open-weight-ai-models-release-cybersecurity-hacking/",
+              "publishedAt": "2026-08-18T09:00:00.000Z",
+              "summary": "Z.ai’s latest AI model release could help companies secure their systems—or find its way into the hands of hackers.",
+              "fetchedAt": "2026-08-19T06:06:43.320Z",
+              "accessMethod": "public-feed",
+              "publicContentPolicy": "headline-source-link-only",
+              "firstSeenAt": "2026-08-19T03:52:09.741Z",
+              "freshness": {
+                "eligible": true,
+                "lane": "explore",
+                "reason": "fresh",
+                "ageHours": 21.119219166666667,
+                "maxAgeHours": 168
+              },
+              "deferredResearch": false,
+              "ref": "N3",
+              "role": "佐证",
+              "takeaway": "报道聚焦GLM-5.3同时具备防御用途与被滥用进行攻击的风险。"
+            },
+            {
+              "id": "research-231-1-https://www.wired.com/story/zai-open-weight-ai-models-release-cybersecurity-hacking/-1-https://www.axios.com/2026/08/14/china-open-source-ai-glm-53",
+              "sourceId": 231,
+              "sourceName": "Axios",
+              "sourcePublisher": "Axios",
+              "sourceKind": "Media",
+              "title": "A Chinese lab's new model is nearly as good at hacking as U.S. AI",
+              "url": "https://www.axios.com/2026/08/14/china-open-source-ai-glm-53",
+              "publishedAt": "2026-08-14T00:00:00.000Z",
+              "summary": "补齐 GLM-5.3 的发布状态、两周延后公开权重和分层受控访问安排，并提供 CyberGym 84.5% 及其相对 Fable 5、GPT-5.6 Sol 的比较，以及 ExploitBench 落后的关键限定。",
+              "fetchedAt": "2026-08-19T06:07:09.189Z",
+              "researchedFrom": "N3",
+              "researchRole": "Comparison",
+              "researchClaim": "Z.ai 的 GLM-5.3 将网络安全能力从此前可公开下载部署的 GLM-5.2 推向受控发布：公司因其漏洞发现与利用能力而暂缓公开权重两周，并先向选定安全合作伙伴提供受控环境访问。",
+              "researchComparisons": "在 Z.ai 披露的 CyberGym 上，GLM-5.3 得分 84.5%，高于其比较表中的 Anthropic Fable 5 和 OpenAI GPT-5.6 Sol；但在衡量真实漏洞利用推理与开发的 ExploitBench 上，它仍落后于这两款模型。此前的 GLM-5.2 已以 744B-A40B 的 BF16 和 FP8 权重公开，支持本地部署；Z.ai 的漏洞披露账本目前列出 2,436 个收录漏洞，其中 1,097 个为严重或高危，覆盖 269 个开源项目。",
+              "researchUnresolved": "GLM-5.3 权重在两周安全审查期结束后是否按计划公开、受控访问的具体限制以及 CyberGym、ExploitBench 结果能否由独立团队以相同代理框架和工具配置复现，仍会影响其实际风险与能力判断。",
+              "ref": "R9",
+              "role": "最新进展",
+              "takeaway": "Axios称GLM-5.3权重延后两周公开，并采用分层受控访问；其CyberGym分数较高但ExploitBench表现存在限定。"
+            },
+            {
+              "id": "research-231-1-https://www.wired.com/story/zai-open-weight-ai-models-release-cybersecurity-hacking/-2-https://cvd.z.ai/",
+              "sourceId": 231,
+              "sourceName": "Z.ai",
+              "sourcePublisher": "Z.ai",
+              "sourceKind": "Official",
+              "title": "Z.ai Security",
+              "url": "https://cvd.z.ai/",
+              "publishedAt": "2026-08-18T09:00:00.000Z",
+              "summary": "补齐 Z.ai 可核验的漏洞披露规模：2,436 个收录漏洞、1,097 个严重或高危漏洞、269 个覆盖开源项目；账本还显示仅 53 个已公开，2,383 个尚未公开。",
+              "fetchedAt": "2026-08-19T06:07:09.189Z",
+              "researchedFrom": "N3",
+              "researchRole": "Primary",
+              "researchClaim": "Z.ai 的 GLM-5.3 将网络安全能力从此前可公开下载部署的 GLM-5.2 推向受控发布：公司因其漏洞发现与利用能力而暂缓公开权重两周，并先向选定安全合作伙伴提供受控环境访问。",
+              "researchComparisons": "在 Z.ai 披露的 CyberGym 上，GLM-5.3 得分 84.5%，高于其比较表中的 Anthropic Fable 5 和 OpenAI GPT-5.6 Sol；但在衡量真实漏洞利用推理与开发的 ExploitBench 上，它仍落后于这两款模型。此前的 GLM-5.2 已以 744B-A40B 的 BF16 和 FP8 权重公开，支持本地部署；Z.ai 的漏洞披露账本目前列出 2,436 个收录漏洞，其中 1,097 个为严重或高危，覆盖 269 个开源项目。",
+              "researchUnresolved": "GLM-5.3 权重在两周安全审查期结束后是否按计划公开、受控访问的具体限制以及 CyberGym、ExploitBench 结果能否由独立团队以相同代理框架和工具配置复现，仍会影响其实际风险与能力判断。",
+              "ref": "R10",
+              "role": "佐证",
+              "takeaway": "Z.ai安全页面列出2,436个漏洞，其中1,097个为严重或高危，且大部分尚未公开。"
+            },
+            {
+              "id": "research-231-1-https://www.wired.com/story/zai-open-weight-ai-models-release-cybersecurity-hacking/-3-https://github.com/zai-org/GLM-5",
+              "sourceId": 231,
+              "sourceName": "Z.ai / zai-org",
+              "sourcePublisher": "Z.ai / zai-org",
+              "sourceKind": "Repository",
+              "title": "GLM-5: From Vibe Coding to Agentic Engineering",
+              "url": "https://github.com/zai-org/GLM-5",
+              "publishedAt": "2026-08-18T09:00:00.000Z",
+              "summary": "补齐此前 GLM-5.2 的可部署状态与技术基准：官方仓库提供 744B-A40B BF16、FP8 下载链接和本地部署框架支持，并列出其相对 GLM-5.1 的 Terminal-Bench 2.1 与 SWE-bench Pro 改善。",
+              "fetchedAt": "2026-08-19T06:07:09.189Z",
+              "researchedFrom": "N3",
+              "researchRole": "Comparison",
+              "researchClaim": "Z.ai 的 GLM-5.3 将网络安全能力从此前可公开下载部署的 GLM-5.2 推向受控发布：公司因其漏洞发现与利用能力而暂缓公开权重两周，并先向选定安全合作伙伴提供受控环境访问。",
+              "researchComparisons": "在 Z.ai 披露的 CyberGym 上，GLM-5.3 得分 84.5%，高于其比较表中的 Anthropic Fable 5 和 OpenAI GPT-5.6 Sol；但在衡量真实漏洞利用推理与开发的 ExploitBench 上，它仍落后于这两款模型。此前的 GLM-5.2 已以 744B-A40B 的 BF16 和 FP8 权重公开，支持本地部署；Z.ai 的漏洞披露账本目前列出 2,436 个收录漏洞，其中 1,097 个为严重或高危，覆盖 269 个开源项目。",
+              "researchUnresolved": "GLM-5.3 权重在两周安全审查期结束后是否按计划公开、受控访问的具体限制以及 CyberGym、ExploitBench 结果能否由独立团队以相同代理框架和工具配置复现，仍会影响其实际风险与能力判断。",
+              "ref": "R11",
+              "role": "背景",
+              "takeaway": "GLM-5.2此前已提供权重下载、本地部署框架和代理编码基准改进。"
+            },
+            {
+              "id": "research-231-1-https://www.wired.com/story/zai-open-weight-ai-models-release-cybersecurity-hacking/-4-https://arxiv.org/abs/2510.24317",
+              "sourceId": 231,
+              "sourceName": "arXiv",
+              "sourcePublisher": "arXiv",
+              "sourceKind": "Research",
+              "title": "Cybersecurity AI Benchmark (CAIBench): A Meta-Benchmark for Evaluating Cybersecurity AI Agents",
+              "url": "https://arxiv.org/abs/2510.24317",
+              "publishedAt": "2025-10-28T11:36:20.000Z",
+              "summary": "提供最强方法论反例：研究发现网络安全知识基准的高分并不等同于真实攻防能力，前沿模型在多步骤攻防场景中的成功率通常只有 20%–40%，且代理框架与工具编排可带来最高 2.6 倍的结果差异。",
+              "fetchedAt": "2026-08-19T06:07:09.189Z",
+              "researchedFrom": "N3",
+              "researchRole": "Counterevidence",
+              "researchClaim": "Z.ai 的 GLM-5.3 将网络安全能力从此前可公开下载部署的 GLM-5.2 推向受控发布：公司因其漏洞发现与利用能力而暂缓公开权重两周，并先向选定安全合作伙伴提供受控环境访问。",
+              "researchComparisons": "在 Z.ai 披露的 CyberGym 上，GLM-5.3 得分 84.5%，高于其比较表中的 Anthropic Fable 5 和 OpenAI GPT-5.6 Sol；但在衡量真实漏洞利用推理与开发的 ExploitBench 上，它仍落后于这两款模型。此前的 GLM-5.2 已以 744B-A40B 的 BF16 和 FP8 权重公开，支持本地部署；Z.ai 的漏洞披露账本目前列出 2,436 个收录漏洞，其中 1,097 个为严重或高危，覆盖 269 个开源项目。",
+              "researchUnresolved": "GLM-5.3 权重在两周安全审查期结束后是否按计划公开、受控访问的具体限制以及 CyberGym、ExploitBench 结果能否由独立团队以相同代理框架和工具配置复现，仍会影响其实际风险与能力判断。",
+              "ref": "R12",
+              "role": "反例",
+              "takeaway": "研究指出网络安全知识基准高分不等于真实多步骤攻防表现，代理编排可显著改变结果。"
+            }
+          ],
+          "changeType": "progress",
+          "thesisImpact": "新增资料强化GLM-5.3的网络防御定位，同时表明其权重仍被延后并采用分层受控访问；风险判断应更多看真实代理任务而非单项基准。",
+          "revisionRequired": false
+        },
+        {
+          "addedAt": "2026-08-14T00:00:00.000Z",
+          "title": "GLM-5.3敏感能力改受控开放",
+          "summary": "Axios报道称，Z.ai称GLM-5.3在CyberGym取得84.5%，并将最敏感的网络安全功能仅向选定安全合作方在受控环境中开放。Anthropic系统卡列出的Mythos 5对应成绩为83.8%。",
+          "evidence": [
+            {
+              "id": "ground-226-2-https://www.reuters.com/technology/chinas-zai-says-new-model-nears-anthropics-mythos-5-cyber-defence-tests-2026-08-14/-1-https://www.axios.com/2026/08/14/china-open-source-ai-glm-53",
+              "sourceId": 226,
+              "sourceName": "Axios",
+              "sourcePublisher": "Axios",
+              "sourceKind": "Media",
+              "title": "China's Z.ai holds GLM 5.3 release over hacking risks",
+              "url": "https://www.axios.com/2026/08/14/china-open-source-ai-glm-53",
+              "publishedAt": "2026-08-14T00:00:00.000Z",
+              "summary": "报道 Z.ai 声称 GLM-5.3 在 CyberGym 上得分 84.5%，并称 Z.ai 对 GLM-5.3 实施分级访问，仅向选定安全合作方在受控环境中开放。",
+              "fetchedAt": "2026-08-15T00:08:04.211Z",
+              "groundedFrom": "N3",
+              "groundingClaim": "Z.ai 表示 GLM-5.3 在 CyberGym 上取得 84.5%；Anthropic 的官方系统卡将 Claude Mythos 5 的 CyberGym 成绩列为 83.8%。Z.ai 采取受控、分级访问方式，向选定的安全合作方提供相关能力。",
+              "groundingNotes": "来源支持 84.5% 与 83.8% 两个数字及受限访问安排；“最敏感的网络安全功能仅向 verified users 开放”不是现有来源中的准确原文表述。",
+              "ref": "G1",
+              "role": "最新进展",
+              "takeaway": "Axios报道称，Z.ai对GLM-5.3采取分级访问，最敏感网络安全功能仅面向选定安全合作方在受控环境开放，并引述其84.5%的CyberGym成绩。"
+            },
+            {
+              "id": "ground-226-2-https://www.reuters.com/technology/chinas-zai-says-new-model-nears-anthropics-mythos-5-cyber-defence-tests-2026-08-14/-2-https://www-cdn.anthropic.com/2f9323abbcc4abe219577539efe19a623c9ca2bd/Claude%20Fable%205%20%26%20Claude%20Mythos%205%20System%20Card.pdf",
+              "sourceId": 226,
+              "sourceName": "Anthropic",
+              "sourcePublisher": "Anthropic",
+              "sourceKind": "Research",
+              "title": "Claude Fable 5 & Claude Mythos 5 System Card",
+              "url": "https://www-cdn.anthropic.com/2f9323abbcc4abe219577539efe19a623c9ca2bd/Claude%20Fable%205%20%26%20Claude%20Mythos%205%20System%20Card.pdf",
+              "publishedAt": "2026-07-01T00:00:00.000Z",
+              "summary": "官方系统卡说明 Mythos 5 在 CyberGym 1,507 项任务的 pass@1 定向漏洞复现成绩为 83.8%。",
+              "fetchedAt": "2026-08-15T00:08:04.211Z",
+              "groundedFrom": "N3",
+              "groundingClaim": "Z.ai 表示 GLM-5.3 在 CyberGym 上取得 84.5%；Anthropic 的官方系统卡将 Claude Mythos 5 的 CyberGym 成绩列为 83.8%。Z.ai 采取受控、分级访问方式，向选定的安全合作方提供相关能力。",
+              "groundingNotes": "来源支持 84.5% 与 83.8% 两个数字及受限访问安排；“最敏感的网络安全功能仅向 verified users 开放”不是现有来源中的准确原文表述。",
+              "ref": "G2",
+              "role": "背景",
+              "takeaway": "Anthropic的系统卡称，Claude Mythos 5在CyberGym 1,507项定向漏洞复现任务上的pass@1成绩为83.8%。"
+            }
+          ],
+          "changeType": "thesis_change",
+          "thesisImpact": "新增报道显示Z.ai并未将最敏感网络安全能力普遍开放，而是采用受控、分级访问。这使原有“网络防御模型”定位更明确地转向能力商业化与风险门槛并行。",
+          "revisionRequired": true
+        },
+        {
+          "addedAt": "2026-08-14T10:21:34.000Z",
+          "title": "GLM-5.3权重尚未开放",
+          "summary": "Z.ai称GLM-5.3在后训练后编码表现提升50%，已用于269个项目发现2,436个漏洞；但公司表示权重将在安全评估和加固后约两周开放，官方组织页目前仍未列出GLM-5.3下载项。",
+          "evidence": [
+            {
+              "id": "232-1-https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/",
+              "sourceId": 232,
+              "sourceName": "The Decoder AI",
+              "sourcePublisher": "The Decoder",
+              "sourceKind": "Blog",
+              "title": "Zhipu AI releases GLM-5.3, claims it's the strongest open-weights coding model",
+              "url": "https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/",
+              "publishedAt": "2026-08-14T10:21:34.000Z",
+              "summary": "Zhipu AI has released GLM-5.3, a model that, according to its own benchmarks, is the most powerful open-weights coding model, with a 50 percent improvement over its predecessor through post-training alone. Trained for cybersecurity, GLM-5.3 helped security teams find 2,436 vulnerabilities across 269 projects. The model weights are set to go open source in tw",
+              "fetchedAt": "2026-08-14T12:07:21.671Z",
+              "accessMethod": "public-feed",
+              "publicContentPolicy": "headline-source-link-only",
+              "firstSeenAt": "2026-08-14T12:07:21.671Z",
+              "freshness": {
+                "eligible": true,
+                "lane": "standard",
+                "reason": "fresh",
+                "ageHours": 1.7632419444444445,
+                "maxAgeHours": 168
+              },
+              "deferredResearch": false,
+              "ref": "N1",
+              "role": "佐证",
+              "takeaway": "The Decoder报道称Zhipu AI发布GLM-5.3，并转述其编码与网络安全能力主张及后续开源计划。"
+            },
+            {
+              "id": "research-232-1-https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/-1-https://z.ai/blog/glm-5.3",
+              "sourceId": 232,
+              "sourceName": "Z.ai",
+              "sourcePublisher": "Z.ai",
+              "sourceKind": "Official",
+              "title": "GLM-5.3: Frontier Coding with Emergent Cyber Capabilities",
+              "url": "https://z.ai/blog/glm-5.3",
+              "publishedAt": "2026-08-14T10:21:34.000Z",
+              "summary": "发布公告提供当前版本的核心主张：GLM-5.3 使用与 GLM-5.2 相同的基础模型，称通过后训练使内部 Z.ai Code Bench 编码表现提升 50%，并报告在安全任务中发现 2,436 个漏洞、覆盖 269 个项目；公告同时称权重将在安全评估与加固后约两周发布。",
+              "fetchedAt": "2026-08-14T12:07:21.671Z",
+              "researchedFrom": "N1",
+              "researchRole": "Primary",
+              "researchClaim": "Z.ai 于 2026-08-14 发布 GLM-5.3，称该版本在不更换 GLM-5.2 基础模型的前提下，通过扩大后训练获得编码与网络安全能力提升；其“最强开放权重编码模型”定位目前仍主要基于公司自测。",
+              "researchComparisons": "公司称 GLM-5.3 在内部 Z.ai Code Bench 上较 GLM-5.2 提升 50%。可公开下载的上一代 GLM-5.2 为 753B 参数、MIT 许可模型；其模型卡报告 SWE-bench Pro 62.1、DeepSWE 46.2、Terminal-Bench 2.1 81.0，并将这些结果与 Claude Opus 4.8、GPT-5.5 等闭源模型并列比较。GLM-5.3 权重尚未公开：Z.ai 宣布将在完成安全评估和加固后约两周发布，因此“open-weights”目前是计划中的发布状态，而非已可下载状态。",
+              "researchUnresolved": "GLM-5.3 的完整技术报告、模型卡、权重仓库、Z.ai Code Bench 的任务集与评测配置，以及 2,436 个漏洞中已获项目维护者确认、修复或分配 CVE 的数量，均未见可公开独立复核材料；权重的目标发布日期按发布日推算为 2026-08-28，但仍取决于安全评估。",
+              "ref": "R1",
+              "role": "最新进展",
+              "takeaway": "Z.ai公告称GLM-5.3与GLM-5.2使用相同基础模型，经后训练后内部编码表现提升50%，并计划在安全评估和加固后约两周开放权重。"
+            },
+            {
+              "id": "research-232-1-https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/-2-https://huggingface.co/zai-org/GLM-5.2",
+              "sourceId": 232,
+              "sourceName": "Hugging Face / Z.ai",
+              "sourcePublisher": "Hugging Face / Z.ai",
+              "sourceKind": "Repository",
+              "title": "zai-org/GLM-5.2",
+              "url": "https://huggingface.co/zai-org/GLM-5.2",
+              "publishedAt": "2026-08-14T10:21:34.000Z",
+              "summary": "上一代公开权重的官方模型卡确认 GLM-5.2 为 753B 参数、MIT 许可，并给出可比较的既有编码基准：SWE-bench Pro 62.1、DeepSWE 46.2、Terminal-Bench 2.1 81.0；卡片还披露部分评测采用定制提示、特定 harness 或第三方执行，说明新旧“最强”结论需按基准和配置分别判断。",
+              "fetchedAt": "2026-08-14T12:07:21.671Z",
+              "researchedFrom": "N1",
+              "researchRole": "Comparison",
+              "researchClaim": "Z.ai 于 2026-08-14 发布 GLM-5.3，称该版本在不更换 GLM-5.2 基础模型的前提下，通过扩大后训练获得编码与网络安全能力提升；其“最强开放权重编码模型”定位目前仍主要基于公司自测。",
+              "researchComparisons": "公司称 GLM-5.3 在内部 Z.ai Code Bench 上较 GLM-5.2 提升 50%。可公开下载的上一代 GLM-5.2 为 753B 参数、MIT 许可模型；其模型卡报告 SWE-bench Pro 62.1、DeepSWE 46.2、Terminal-Bench 2.1 81.0，并将这些结果与 Claude Opus 4.8、GPT-5.5 等闭源模型并列比较。GLM-5.3 权重尚未公开：Z.ai 宣布将在完成安全评估和加固后约两周发布，因此“open-weights”目前是计划中的发布状态，而非已可下载状态。",
+              "researchUnresolved": "GLM-5.3 的完整技术报告、模型卡、权重仓库、Z.ai Code Bench 的任务集与评测配置，以及 2,436 个漏洞中已获项目维护者确认、修复或分配 CVE 的数量，均未见可公开独立复核材料；权重的目标发布日期按发布日推算为 2026-08-28，但仍取决于安全评估。",
+              "ref": "R2",
+              "role": "背景",
+              "takeaway": "GLM-5.2官方模型卡显示上一代已提供MIT许可的公开权重，并披露了若干编码基准及评测配置限制。"
+            },
+            {
+              "id": "research-232-1-https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/-3-https://huggingface.co/zai-org/models",
+              "sourceId": 232,
+              "sourceName": "Hugging Face / Z.ai",
+              "sourcePublisher": "Hugging Face / Z.ai",
+              "sourceKind": "Repository",
+              "title": "zai-org Models",
+              "url": "https://huggingface.co/zai-org/models",
+              "publishedAt": "2026-08-14T10:21:34.000Z",
+              "summary": "Z.ai 的官方 Hugging Face 组织页在检索时列出的最新 GLM-5.x 可下载权重仍为 GLM-5.2 与 GLM-5.2-FP8，未列出 GLM-5.3；这支持“GLM-5.3 已发布服务但权重尚未开放”的区别，也削弱将其直接称为当前开放权重模型的表述。",
+              "fetchedAt": "2026-08-14T12:07:21.671Z",
+              "researchedFrom": "N1",
+              "researchRole": "Counterevidence",
+              "researchClaim": "Z.ai 于 2026-08-14 发布 GLM-5.3，称该版本在不更换 GLM-5.2 基础模型的前提下，通过扩大后训练获得编码与网络安全能力提升；其“最强开放权重编码模型”定位目前仍主要基于公司自测。",
+              "researchComparisons": "公司称 GLM-5.3 在内部 Z.ai Code Bench 上较 GLM-5.2 提升 50%。可公开下载的上一代 GLM-5.2 为 753B 参数、MIT 许可模型；其模型卡报告 SWE-bench Pro 62.1、DeepSWE 46.2、Terminal-Bench 2.1 81.0，并将这些结果与 Claude Opus 4.8、GPT-5.5 等闭源模型并列比较。GLM-5.3 权重尚未公开：Z.ai 宣布将在完成安全评估和加固后约两周发布，因此“open-weights”目前是计划中的发布状态，而非已可下载状态。",
+              "researchUnresolved": "GLM-5.3 的完整技术报告、模型卡、权重仓库、Z.ai Code Bench 的任务集与评测配置，以及 2,436 个漏洞中已获项目维护者确认、修复或分配 CVE 的数量，均未见可公开独立复核材料；权重的目标发布日期按发布日推算为 2026-08-28，但仍取决于安全评估。",
+              "ref": "R3",
+              "role": "反例",
+              "takeaway": "Z.ai官方Hugging Face组织页检索时仅列出GLM-5.2及GLM-5.2-FP8，未列出GLM-5.3可下载权重。"
+            }
+          ],
+          "changeType": "thesis_change",
+          "thesisImpact": "新的一手资料显示GLM-5.3目前尚未提供可下载权重，原有“开源模型”判断应收窄为已发布、拟在安全评估和加固后开放权重的模型。",
+          "revisionRequired": true
+        }
+      ]
+    },
     {
       "id": 1,
       "category": "Agents",
@@ -11859,566 +12957,6 @@
         }
       ],
       "feedBatchAt": "2026-08-15T09:06:39.261Z"
-    },
-    {
-      "id": 115,
-      "editorialBucket": "dynamic",
-      "category": "AI & 模型",
-      "eyebrow": "产品信号",
-      "title": "Z.ai发布GLM-5.3押注网络防御",
-      "summary": "Z.ai发布开源GLM-5.3，并将其定位为编程与网络防御模型。公司称其网络安全能力可与Anthropic的Claude Mythos 5相比。",
-      "why": "开源模型若能进入高要求的网络防御工作流，将把竞争从通用编码能力延伸至安全任务、部署方式与治理条件。",
-      "impact": "企业可能更重视开源模型在安全任务中的评测、隔离和审计能力，而非仅比较通用代码基准。",
-      "shiftFrom": "GLM-5.1主打长程工程代理",
-      "shiftTo": "GLM-5.3加入网络防御定位",
-      "crossValidation": "Z.ai的发布页确认GLM-5.3已发布及其网络防御定位；其更新记录提供GLM-5.1的工程代理基线。Anthropic资料显示Mythos 5受限于审查合作伙伴和安全监测，比较应同时考察能力与部署条件。",
-      "article": {
-        "lead": "Z.ai已发布开源GLM-5.3，并明确将其用于编程和网络防御。这意味着该公司正把GLM产品线从长时程工程代理推进到安全任务：模型能力的竞争不再只围绕代码生成，也开始围绕是否能在受控环境中承担防御性安全工作。",
-        "sections": [
-          {
-            "heading": "产品定位出现明确扩展",
-            "body": "Z.ai在发布原文中确认GLM-5.3已经推出，并将其定位于编程和网络防御。此前的官方更新将GLM-5.1描述为面向长时程任务的工程代理模型，覆盖规划、执行、调试与策略迭代。两者对照显示，GLM-5.3并非仅以代际版本号更新，而是把目标工作流延伸到网络安全场景。对于开源模型市场，这类定位变化具有实际意义：安全团队需要的不只是生成代码，还包括理解防御任务、在既定流程中调用工具以及支持可审计部署的能力。"
-          },
-          {
-            "heading": "安全能力竞争依赖工作流而非单项得分",
-            "body": "Z.ai称GLM-5.3的网络安全能力可与Claude Mythos 5相比。这个表述将竞争锚点放在高风险专业模型，而非一般编程助手。其背后的机制是，网络防御任务往往要求模型同时处理代码、上下文、步骤规划与工具调用；如果开源权重能覆盖这些环节，企业可在自有环境中设计访问控制、日志留存和数据边界。由此，模型选择的比较维度可能从通用能力榜单，转向防御任务完成率、误用控制、部署成本及内部治理兼容性。"
-          },
-          {
-            "heading": "开源可部署性将成为安全采用的分水岭",
-            "body": "这一发布的直接后果，可能是安全采购更明确地区分“模型表现”与“安全部署条件”。Anthropic将Mythos 5定位为网络安全等领域的强模型，但其访问仅面向少量经审查合作伙伴，并附带安全监测要求；因此，Z.ai关于能力相当的说法目前主要来自自身，尚不能证明两者在评测覆盖、可靠性或风险控制上完全等价。即便如此，GLM-5.3的开源路线仍可能推动企业测试本地或私有环境中的防御模型，并将隔离、权限与人工复核纳入采购门槛。"
-          }
-        ],
-        "outlook": "下一步可观察的证据包括：Z.ai是否披露可复现的网络防御评测、模型权重和许可范围，以及第三方安全机构是否在相同任务集上验证其表现。若企业或安全平台公布受控部署案例，将强化其进入防御工作流的判断；若独立测试显示关键任务差距明显，或出现难以控制的误用风险，该判断将被削弱。"
-      },
-      "validationType": "跨平台验证",
-      "publishedAt": "2026-08-14T09:48:17.000Z",
-      "updatedAt": "2026-08-14T00:00:00.000Z",
-      "sources": [
-        "Blog",
-        "Official",
-        "Repository",
-        "Media",
-        "Research"
-      ],
-      "sourceNames": [
-        "The Information",
-        "Z.ai",
-        "Anthropic",
-        "The Decoder",
-        "Hugging Face / Z.ai",
-        "Axios"
-      ],
-      "sourceCount": 6,
-      "age": "刚刚",
-      "score": 84,
-      "tone": "orange",
-      "evidence": [
-        {
-          "id": "236-0-https://www.theinformation.com/briefings/chinas-z-ai-touts-new-glm-5-3-model-cyber-defense-tool",
-          "sourceId": 236,
-          "sourceName": "The Information",
-          "sourcePublisher": "The Information",
-          "sourceKind": "Blog",
-          "title": "China’s Z.ai Touts New GLM-5.3 Model as Cyber Defense Tool",
-          "url": "https://www.theinformation.com/briefings/chinas-z-ai-touts-new-glm-5-3-model-cyber-defense-tool",
-          "publishedAt": "2026-08-14T09:48:17.000Z",
-          "summary": "Chinese AI developer Z.ai on Friday released its new open-source model, GLM-5.3, saying its cybersecurity capabilities are on par with Anthropic’s Mythos 5. Beijing-based Z.ai, also known as Zhipu in Chinese, said GLM-5.3 has achieved significant improvements from its predecessor, GLM-5.2, in ...",
-          "fetchedAt": "2026-08-14T10:07:36.312Z",
-          "accessMethod": "public-feed",
-          "publicContentPolicy": "headline-source-link-only",
-          "firstSeenAt": "2026-08-14T10:07:36.312Z",
-          "freshness": {
-            "eligible": true,
-            "lane": "standard",
-            "reason": "fresh",
-            "ageHours": 0.3220311111111111,
-            "maxAgeHours": 168
-          },
-          "deferredResearch": false,
-          "ref": "N1",
-          "role": "主张",
-          "takeaway": "The Information报道Z.ai发布开源GLM-5.3，并称其网络安全能力可与Anthropic的Mythos 5相比。"
-        },
-        {
-          "id": "research-236-0-https://www.theinformation.com/briefings/chinas-z-ai-touts-new-glm-5-3-model-cyber-defense-tool-1-https://z.ai/blog/glm-5.3",
-          "sourceId": 236,
-          "sourceName": "Z.ai",
-          "sourcePublisher": "Z.ai",
-          "sourceKind": "Official",
-          "title": "GLM-5.3: Frontier Coding with Emergent Cyber Capabilities",
-          "url": "https://z.ai/blog/glm-5.3",
-          "publishedAt": "2026-08-14T09:48:17.000Z",
-          "summary": "Z.ai的发布原文是GLM-5.3已发布、面向编程及网络防御，以及其声称网络安全能力可与Claude Mythos 5相比的第一手依据。",
-          "fetchedAt": "2026-08-14T10:07:36.312Z",
-          "researchedFrom": "N1",
-          "researchRole": "Primary",
-          "researchClaim": "Z.ai称其新发布的开源 GLM-5.3 已将定位从通用编程与代理工程扩展至网络防御，并宣称其网络安全能力可与 Anthropic 的 Claude Mythos 5 媲美；现有可核验材料尚不足以把这一“媲美”转化为独立、同条件的性能结论。",
-          "researchComparisons": "此前，Z.ai公开文档将 GLM-5.1 定位为长时程代理与软件工程模型，并称其能力与 Claude Opus 4.6 对齐，而非网络安全专用模型。GLM-5.3 的关键变化是公司将比较对象提升为 Mythos 5。Anthropic 将 Mythos 5 定义为其最强的网络安全模型，且只向经过审查的少数合作伙伴开放；这意味着两者的“同等”说法必须以公开、同任务、同工具权限和同评分规则的网络安全评测来验证，不能仅以各自披露的内部基准相比较。",
-          "researchUnresolved": "Z.ai发布页未见可独立复现的网络安全基准细目、测试协议、任务集、工具权限、样本量或第三方审计；GLM-5.3的模型卡、权重仓库、许可证和正式可用范围也仍需核验。",
-          "ref": "R1",
-          "role": "主张",
-          "takeaway": "Z.ai发布原文确认GLM-5.3已发布，定位于编程及网络防御，并提出与Claude Mythos 5的能力比较。"
-        },
-        {
-          "id": "research-236-0-https://www.theinformation.com/briefings/chinas-z-ai-touts-new-glm-5-3-model-cyber-defense-tool-2-https://docs.z.ai/release-notes/new-released",
-          "sourceId": 236,
-          "sourceName": "Z.ai",
-          "sourcePublisher": "Z.ai",
-          "sourceKind": "Official",
-          "title": "New Released",
-          "url": "https://docs.z.ai/release-notes/new-released",
-          "publishedAt": "2026-08-14T09:48:17.000Z",
-          "summary": "Z.ai的产品更新记录显示，GLM-5.1此前被定位为可处理长时程任务、规划、执行、调试和策略迭代的工程代理模型，并称其与Claude Opus 4.6能力对齐，构成GLM-5.3转向网络安全定位前的官方基线。",
-          "fetchedAt": "2026-08-14T10:07:36.312Z",
-          "researchedFrom": "N1",
-          "researchRole": "Comparison",
-          "researchClaim": "Z.ai称其新发布的开源 GLM-5.3 已将定位从通用编程与代理工程扩展至网络防御，并宣称其网络安全能力可与 Anthropic 的 Claude Mythos 5 媲美；现有可核验材料尚不足以把这一“媲美”转化为独立、同条件的性能结论。",
-          "researchComparisons": "此前，Z.ai公开文档将 GLM-5.1 定位为长时程代理与软件工程模型，并称其能力与 Claude Opus 4.6 对齐，而非网络安全专用模型。GLM-5.3 的关键变化是公司将比较对象提升为 Mythos 5。Anthropic 将 Mythos 5 定义为其最强的网络安全模型，且只向经过审查的少数合作伙伴开放；这意味着两者的“同等”说法必须以公开、同任务、同工具权限和同评分规则的网络安全评测来验证，不能仅以各自披露的内部基准相比较。",
-          "researchUnresolved": "Z.ai发布页未见可独立复现的网络安全基准细目、测试协议、任务集、工具权限、样本量或第三方审计；GLM-5.3的模型卡、权重仓库、许可证和正式可用范围也仍需核验。",
-          "ref": "R2",
-          "role": "背景",
-          "takeaway": "Z.ai此前将GLM-5.1定位为处理长时程规划、执行、调试和策略迭代的工程代理模型。"
-        },
-        {
-          "id": "research-236-0-https://www.theinformation.com/briefings/chinas-z-ai-touts-new-glm-5-3-model-cyber-defense-tool-3-https://www.anthropic.com/claude/mythos",
-          "sourceId": 236,
-          "sourceName": "Anthropic",
-          "sourcePublisher": "Anthropic",
-          "sourceKind": "Official",
-          "title": "Claude Mythos 5",
-          "url": "https://www.anthropic.com/claude/mythos",
-          "publishedAt": "2026-06-09T00:00:00.000Z",
-          "summary": "Anthropic将Mythos 5称为其最强的网络安全、生命科学与医疗研究模型，同时说明其仅向少量经审查的网络安全合作伙伴提供访问并附带安全监测要求；这表明将GLM-5.3直接称为“同等”需要覆盖能力和安全部署条件的可比证据。",
-          "fetchedAt": "2026-08-14T10:07:36.312Z",
-          "researchedFrom": "N1",
-          "researchRole": "Counterevidence",
-          "researchClaim": "Z.ai称其新发布的开源 GLM-5.3 已将定位从通用编程与代理工程扩展至网络防御，并宣称其网络安全能力可与 Anthropic 的 Claude Mythos 5 媲美；现有可核验材料尚不足以把这一“媲美”转化为独立、同条件的性能结论。",
-          "researchComparisons": "此前，Z.ai公开文档将 GLM-5.1 定位为长时程代理与软件工程模型，并称其能力与 Claude Opus 4.6 对齐，而非网络安全专用模型。GLM-5.3 的关键变化是公司将比较对象提升为 Mythos 5。Anthropic 将 Mythos 5 定义为其最强的网络安全模型，且只向经过审查的少数合作伙伴开放；这意味着两者的“同等”说法必须以公开、同任务、同工具权限和同评分规则的网络安全评测来验证，不能仅以各自披露的内部基准相比较。",
-          "researchUnresolved": "Z.ai发布页未见可独立复现的网络安全基准细目、测试协议、任务集、工具权限、样本量或第三方审计；GLM-5.3的模型卡、权重仓库、许可证和正式可用范围也仍需核验。",
-          "ref": "R3",
-          "role": "反例",
-          "takeaway": "Anthropic称Mythos 5面向网络安全等高要求领域，但仅向少量经审查的网络安全合作伙伴开放并要求安全监测。"
-        },
-        {
-          "id": "232-1-https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/",
-          "sourceId": 232,
-          "sourceName": "The Decoder AI",
-          "sourcePublisher": "The Decoder",
-          "sourceKind": "Blog",
-          "title": "Zhipu AI releases GLM-5.3, claims it's the strongest open-weights coding model",
-          "url": "https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/",
-          "publishedAt": "2026-08-14T10:21:34.000Z",
-          "summary": "Zhipu AI has released GLM-5.3, a model that, according to its own benchmarks, is the most powerful open-weights coding model, with a 50 percent improvement over its predecessor through post-training alone. Trained for cybersecurity, GLM-5.3 helped security teams find 2,436 vulnerabilities across 269 projects. The model weights are set to go open source in tw",
-          "fetchedAt": "2026-08-14T12:07:21.671Z",
-          "accessMethod": "public-feed",
-          "publicContentPolicy": "headline-source-link-only",
-          "firstSeenAt": "2026-08-14T12:07:21.671Z",
-          "freshness": {
-            "eligible": true,
-            "lane": "standard",
-            "reason": "fresh",
-            "ageHours": 1.7632419444444445,
-            "maxAgeHours": 168
-          },
-          "deferredResearch": false,
-          "ref": "N1",
-          "role": "佐证",
-          "takeaway": "The Decoder报道称Zhipu AI发布GLM-5.3，并转述其编码与网络安全能力主张及后续开源计划。"
-        },
-        {
-          "id": "research-232-1-https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/-2-https://huggingface.co/zai-org/GLM-5.2",
-          "sourceId": 232,
-          "sourceName": "Hugging Face / Z.ai",
-          "sourcePublisher": "Hugging Face / Z.ai",
-          "sourceKind": "Repository",
-          "title": "zai-org/GLM-5.2",
-          "url": "https://huggingface.co/zai-org/GLM-5.2",
-          "publishedAt": "2026-08-14T10:21:34.000Z",
-          "summary": "上一代公开权重的官方模型卡确认 GLM-5.2 为 753B 参数、MIT 许可，并给出可比较的既有编码基准：SWE-bench Pro 62.1、DeepSWE 46.2、Terminal-Bench 2.1 81.0；卡片还披露部分评测采用定制提示、特定 harness 或第三方执行，说明新旧“最强”结论需按基准和配置分别判断。",
-          "fetchedAt": "2026-08-14T12:07:21.671Z",
-          "researchedFrom": "N1",
-          "researchRole": "Comparison",
-          "researchClaim": "Z.ai 于 2026-08-14 发布 GLM-5.3，称该版本在不更换 GLM-5.2 基础模型的前提下，通过扩大后训练获得编码与网络安全能力提升；其“最强开放权重编码模型”定位目前仍主要基于公司自测。",
-          "researchComparisons": "公司称 GLM-5.3 在内部 Z.ai Code Bench 上较 GLM-5.2 提升 50%。可公开下载的上一代 GLM-5.2 为 753B 参数、MIT 许可模型；其模型卡报告 SWE-bench Pro 62.1、DeepSWE 46.2、Terminal-Bench 2.1 81.0，并将这些结果与 Claude Opus 4.8、GPT-5.5 等闭源模型并列比较。GLM-5.3 权重尚未公开：Z.ai 宣布将在完成安全评估和加固后约两周发布，因此“open-weights”目前是计划中的发布状态，而非已可下载状态。",
-          "researchUnresolved": "GLM-5.3 的完整技术报告、模型卡、权重仓库、Z.ai Code Bench 的任务集与评测配置，以及 2,436 个漏洞中已获项目维护者确认、修复或分配 CVE 的数量，均未见可公开独立复核材料；权重的目标发布日期按发布日推算为 2026-08-28，但仍取决于安全评估。",
-          "ref": "R2",
-          "role": "背景",
-          "takeaway": "GLM-5.2官方模型卡显示上一代已提供MIT许可的公开权重，并披露了若干编码基准及评测配置限制。"
-        },
-        {
-          "id": "research-232-1-https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/-3-https://huggingface.co/zai-org/models",
-          "sourceId": 232,
-          "sourceName": "Hugging Face / Z.ai",
-          "sourcePublisher": "Hugging Face / Z.ai",
-          "sourceKind": "Repository",
-          "title": "zai-org Models",
-          "url": "https://huggingface.co/zai-org/models",
-          "publishedAt": "2026-08-14T10:21:34.000Z",
-          "summary": "Z.ai 的官方 Hugging Face 组织页在检索时列出的最新 GLM-5.x 可下载权重仍为 GLM-5.2 与 GLM-5.2-FP8，未列出 GLM-5.3；这支持“GLM-5.3 已发布服务但权重尚未开放”的区别，也削弱将其直接称为当前开放权重模型的表述。",
-          "fetchedAt": "2026-08-14T12:07:21.671Z",
-          "researchedFrom": "N1",
-          "researchRole": "Counterevidence",
-          "researchClaim": "Z.ai 于 2026-08-14 发布 GLM-5.3，称该版本在不更换 GLM-5.2 基础模型的前提下，通过扩大后训练获得编码与网络安全能力提升；其“最强开放权重编码模型”定位目前仍主要基于公司自测。",
-          "researchComparisons": "公司称 GLM-5.3 在内部 Z.ai Code Bench 上较 GLM-5.2 提升 50%。可公开下载的上一代 GLM-5.2 为 753B 参数、MIT 许可模型；其模型卡报告 SWE-bench Pro 62.1、DeepSWE 46.2、Terminal-Bench 2.1 81.0，并将这些结果与 Claude Opus 4.8、GPT-5.5 等闭源模型并列比较。GLM-5.3 权重尚未公开：Z.ai 宣布将在完成安全评估和加固后约两周发布，因此“open-weights”目前是计划中的发布状态，而非已可下载状态。",
-          "researchUnresolved": "GLM-5.3 的完整技术报告、模型卡、权重仓库、Z.ai Code Bench 的任务集与评测配置，以及 2,436 个漏洞中已获项目维护者确认、修复或分配 CVE 的数量，均未见可公开独立复核材料；权重的目标发布日期按发布日推算为 2026-08-28，但仍取决于安全评估。",
-          "ref": "R3",
-          "role": "反例",
-          "takeaway": "Z.ai官方Hugging Face组织页检索时仅列出GLM-5.2及GLM-5.2-FP8，未列出GLM-5.3可下载权重。"
-        },
-        {
-          "id": "ground-226-2-https://www.reuters.com/technology/chinas-zai-says-new-model-nears-anthropics-mythos-5-cyber-defence-tests-2026-08-14/-1-https://www.axios.com/2026/08/14/china-open-source-ai-glm-53",
-          "sourceId": 226,
-          "sourceName": "Axios",
-          "sourcePublisher": "Axios",
-          "sourceKind": "Media",
-          "title": "China's Z.ai holds GLM 5.3 release over hacking risks",
-          "url": "https://www.axios.com/2026/08/14/china-open-source-ai-glm-53",
-          "publishedAt": "2026-08-14T00:00:00.000Z",
-          "summary": "报道 Z.ai 声称 GLM-5.3 在 CyberGym 上得分 84.5%，并称 Z.ai 对 GLM-5.3 实施分级访问，仅向选定安全合作方在受控环境中开放。",
-          "fetchedAt": "2026-08-15T00:08:04.211Z",
-          "groundedFrom": "N3",
-          "groundingClaim": "Z.ai 表示 GLM-5.3 在 CyberGym 上取得 84.5%；Anthropic 的官方系统卡将 Claude Mythos 5 的 CyberGym 成绩列为 83.8%。Z.ai 采取受控、分级访问方式，向选定的安全合作方提供相关能力。",
-          "groundingNotes": "来源支持 84.5% 与 83.8% 两个数字及受限访问安排；“最敏感的网络安全功能仅向 verified users 开放”不是现有来源中的准确原文表述。",
-          "ref": "G1",
-          "role": "最新进展",
-          "takeaway": "Axios报道称，Z.ai对GLM-5.3采取分级访问，最敏感网络安全功能仅面向选定安全合作方在受控环境开放，并引述其84.5%的CyberGym成绩。"
-        },
-        {
-          "id": "ground-226-2-https://www.reuters.com/technology/chinas-zai-says-new-model-nears-anthropics-mythos-5-cyber-defence-tests-2026-08-14/-2-https://www-cdn.anthropic.com/2f9323abbcc4abe219577539efe19a623c9ca2bd/Claude%20Fable%205%20%26%20Claude%20Mythos%205%20System%20Card.pdf",
-          "sourceId": 226,
-          "sourceName": "Anthropic",
-          "sourcePublisher": "Anthropic",
-          "sourceKind": "Research",
-          "title": "Claude Fable 5 & Claude Mythos 5 System Card",
-          "url": "https://www-cdn.anthropic.com/2f9323abbcc4abe219577539efe19a623c9ca2bd/Claude%20Fable%205%20%26%20Claude%20Mythos%205%20System%20Card.pdf",
-          "publishedAt": "2026-07-01T00:00:00.000Z",
-          "summary": "官方系统卡说明 Mythos 5 在 CyberGym 1,507 项任务的 pass@1 定向漏洞复现成绩为 83.8%。",
-          "fetchedAt": "2026-08-15T00:08:04.211Z",
-          "groundedFrom": "N3",
-          "groundingClaim": "Z.ai 表示 GLM-5.3 在 CyberGym 上取得 84.5%；Anthropic 的官方系统卡将 Claude Mythos 5 的 CyberGym 成绩列为 83.8%。Z.ai 采取受控、分级访问方式，向选定的安全合作方提供相关能力。",
-          "groundingNotes": "来源支持 84.5% 与 83.8% 两个数字及受限访问安排；“最敏感的网络安全功能仅向 verified users 开放”不是现有来源中的准确原文表述。",
-          "ref": "G2",
-          "role": "背景",
-          "takeaway": "Anthropic的系统卡称，Claude Mythos 5在CyberGym 1,507项定向漏洞复现任务上的pass@1成绩为83.8%。"
-        }
-      ],
-      "references": [
-        {
-          "id": "236-0-https://www.theinformation.com/briefings/chinas-z-ai-touts-new-glm-5-3-model-cyber-defense-tool",
-          "sourceId": 236,
-          "sourceName": "The Information",
-          "sourcePublisher": "The Information",
-          "sourceKind": "Blog",
-          "title": "China’s Z.ai Touts New GLM-5.3 Model as Cyber Defense Tool",
-          "url": "https://www.theinformation.com/briefings/chinas-z-ai-touts-new-glm-5-3-model-cyber-defense-tool",
-          "publishedAt": "2026-08-14T09:48:17.000Z",
-          "summary": "Chinese AI developer Z.ai on Friday released its new open-source model, GLM-5.3, saying its cybersecurity capabilities are on par with Anthropic’s Mythos 5. Beijing-based Z.ai, also known as Zhipu in Chinese, said GLM-5.3 has achieved significant improvements from its predecessor, GLM-5.2, in ...",
-          "fetchedAt": "2026-08-14T10:07:36.312Z",
-          "accessMethod": "public-feed",
-          "publicContentPolicy": "headline-source-link-only",
-          "firstSeenAt": "2026-08-14T10:07:36.312Z",
-          "freshness": {
-            "eligible": true,
-            "lane": "standard",
-            "reason": "fresh",
-            "ageHours": 0.3220311111111111,
-            "maxAgeHours": 168
-          },
-          "deferredResearch": false,
-          "ref": "N1"
-        },
-        {
-          "id": "research-236-0-https://www.theinformation.com/briefings/chinas-z-ai-touts-new-glm-5-3-model-cyber-defense-tool-1-https://z.ai/blog/glm-5.3",
-          "sourceId": 236,
-          "sourceName": "Z.ai",
-          "sourcePublisher": "Z.ai",
-          "sourceKind": "Official",
-          "title": "GLM-5.3: Frontier Coding with Emergent Cyber Capabilities",
-          "url": "https://z.ai/blog/glm-5.3",
-          "publishedAt": "2026-08-14T09:48:17.000Z",
-          "summary": "Z.ai的发布原文是GLM-5.3已发布、面向编程及网络防御，以及其声称网络安全能力可与Claude Mythos 5相比的第一手依据。",
-          "fetchedAt": "2026-08-14T10:07:36.312Z",
-          "researchedFrom": "N1",
-          "researchRole": "Primary",
-          "researchClaim": "Z.ai称其新发布的开源 GLM-5.3 已将定位从通用编程与代理工程扩展至网络防御，并宣称其网络安全能力可与 Anthropic 的 Claude Mythos 5 媲美；现有可核验材料尚不足以把这一“媲美”转化为独立、同条件的性能结论。",
-          "researchComparisons": "此前，Z.ai公开文档将 GLM-5.1 定位为长时程代理与软件工程模型，并称其能力与 Claude Opus 4.6 对齐，而非网络安全专用模型。GLM-5.3 的关键变化是公司将比较对象提升为 Mythos 5。Anthropic 将 Mythos 5 定义为其最强的网络安全模型，且只向经过审查的少数合作伙伴开放；这意味着两者的“同等”说法必须以公开、同任务、同工具权限和同评分规则的网络安全评测来验证，不能仅以各自披露的内部基准相比较。",
-          "researchUnresolved": "Z.ai发布页未见可独立复现的网络安全基准细目、测试协议、任务集、工具权限、样本量或第三方审计；GLM-5.3的模型卡、权重仓库、许可证和正式可用范围也仍需核验。",
-          "ref": "R1"
-        },
-        {
-          "id": "research-236-0-https://www.theinformation.com/briefings/chinas-z-ai-touts-new-glm-5-3-model-cyber-defense-tool-2-https://docs.z.ai/release-notes/new-released",
-          "sourceId": 236,
-          "sourceName": "Z.ai",
-          "sourcePublisher": "Z.ai",
-          "sourceKind": "Official",
-          "title": "New Released",
-          "url": "https://docs.z.ai/release-notes/new-released",
-          "publishedAt": "2026-08-14T09:48:17.000Z",
-          "summary": "Z.ai的产品更新记录显示，GLM-5.1此前被定位为可处理长时程任务、规划、执行、调试和策略迭代的工程代理模型，并称其与Claude Opus 4.6能力对齐，构成GLM-5.3转向网络安全定位前的官方基线。",
-          "fetchedAt": "2026-08-14T10:07:36.312Z",
-          "researchedFrom": "N1",
-          "researchRole": "Comparison",
-          "researchClaim": "Z.ai称其新发布的开源 GLM-5.3 已将定位从通用编程与代理工程扩展至网络防御，并宣称其网络安全能力可与 Anthropic 的 Claude Mythos 5 媲美；现有可核验材料尚不足以把这一“媲美”转化为独立、同条件的性能结论。",
-          "researchComparisons": "此前，Z.ai公开文档将 GLM-5.1 定位为长时程代理与软件工程模型，并称其能力与 Claude Opus 4.6 对齐，而非网络安全专用模型。GLM-5.3 的关键变化是公司将比较对象提升为 Mythos 5。Anthropic 将 Mythos 5 定义为其最强的网络安全模型，且只向经过审查的少数合作伙伴开放；这意味着两者的“同等”说法必须以公开、同任务、同工具权限和同评分规则的网络安全评测来验证，不能仅以各自披露的内部基准相比较。",
-          "researchUnresolved": "Z.ai发布页未见可独立复现的网络安全基准细目、测试协议、任务集、工具权限、样本量或第三方审计；GLM-5.3的模型卡、权重仓库、许可证和正式可用范围也仍需核验。",
-          "ref": "R2"
-        },
-        {
-          "id": "research-236-0-https://www.theinformation.com/briefings/chinas-z-ai-touts-new-glm-5-3-model-cyber-defense-tool-3-https://www.anthropic.com/claude/mythos",
-          "sourceId": 236,
-          "sourceName": "Anthropic",
-          "sourcePublisher": "Anthropic",
-          "sourceKind": "Official",
-          "title": "Claude Mythos 5",
-          "url": "https://www.anthropic.com/claude/mythos",
-          "publishedAt": "2026-06-09T00:00:00.000Z",
-          "summary": "Anthropic将Mythos 5称为其最强的网络安全、生命科学与医疗研究模型，同时说明其仅向少量经审查的网络安全合作伙伴提供访问并附带安全监测要求；这表明将GLM-5.3直接称为“同等”需要覆盖能力和安全部署条件的可比证据。",
-          "fetchedAt": "2026-08-14T10:07:36.312Z",
-          "researchedFrom": "N1",
-          "researchRole": "Counterevidence",
-          "researchClaim": "Z.ai称其新发布的开源 GLM-5.3 已将定位从通用编程与代理工程扩展至网络防御，并宣称其网络安全能力可与 Anthropic 的 Claude Mythos 5 媲美；现有可核验材料尚不足以把这一“媲美”转化为独立、同条件的性能结论。",
-          "researchComparisons": "此前，Z.ai公开文档将 GLM-5.1 定位为长时程代理与软件工程模型，并称其能力与 Claude Opus 4.6 对齐，而非网络安全专用模型。GLM-5.3 的关键变化是公司将比较对象提升为 Mythos 5。Anthropic 将 Mythos 5 定义为其最强的网络安全模型，且只向经过审查的少数合作伙伴开放；这意味着两者的“同等”说法必须以公开、同任务、同工具权限和同评分规则的网络安全评测来验证，不能仅以各自披露的内部基准相比较。",
-          "researchUnresolved": "Z.ai发布页未见可独立复现的网络安全基准细目、测试协议、任务集、工具权限、样本量或第三方审计；GLM-5.3的模型卡、权重仓库、许可证和正式可用范围也仍需核验。",
-          "ref": "R3"
-        },
-        {
-          "id": "232-1-https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/",
-          "sourceId": 232,
-          "sourceName": "The Decoder AI",
-          "sourcePublisher": "The Decoder",
-          "sourceKind": "Blog",
-          "title": "Zhipu AI releases GLM-5.3, claims it's the strongest open-weights coding model",
-          "url": "https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/",
-          "publishedAt": "2026-08-14T10:21:34.000Z",
-          "summary": "Zhipu AI has released GLM-5.3, a model that, according to its own benchmarks, is the most powerful open-weights coding model, with a 50 percent improvement over its predecessor through post-training alone. Trained for cybersecurity, GLM-5.3 helped security teams find 2,436 vulnerabilities across 269 projects. The model weights are set to go open source in tw",
-          "fetchedAt": "2026-08-14T12:07:21.671Z",
-          "accessMethod": "public-feed",
-          "publicContentPolicy": "headline-source-link-only",
-          "firstSeenAt": "2026-08-14T12:07:21.671Z",
-          "freshness": {
-            "eligible": true,
-            "lane": "standard",
-            "reason": "fresh",
-            "ageHours": 1.7632419444444445,
-            "maxAgeHours": 168
-          },
-          "deferredResearch": false,
-          "ref": "N1"
-        },
-        {
-          "id": "research-232-1-https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/-2-https://huggingface.co/zai-org/GLM-5.2",
-          "sourceId": 232,
-          "sourceName": "Hugging Face / Z.ai",
-          "sourcePublisher": "Hugging Face / Z.ai",
-          "sourceKind": "Repository",
-          "title": "zai-org/GLM-5.2",
-          "url": "https://huggingface.co/zai-org/GLM-5.2",
-          "publishedAt": "2026-08-14T10:21:34.000Z",
-          "summary": "上一代公开权重的官方模型卡确认 GLM-5.2 为 753B 参数、MIT 许可，并给出可比较的既有编码基准：SWE-bench Pro 62.1、DeepSWE 46.2、Terminal-Bench 2.1 81.0；卡片还披露部分评测采用定制提示、特定 harness 或第三方执行，说明新旧“最强”结论需按基准和配置分别判断。",
-          "fetchedAt": "2026-08-14T12:07:21.671Z",
-          "researchedFrom": "N1",
-          "researchRole": "Comparison",
-          "researchClaim": "Z.ai 于 2026-08-14 发布 GLM-5.3，称该版本在不更换 GLM-5.2 基础模型的前提下，通过扩大后训练获得编码与网络安全能力提升；其“最强开放权重编码模型”定位目前仍主要基于公司自测。",
-          "researchComparisons": "公司称 GLM-5.3 在内部 Z.ai Code Bench 上较 GLM-5.2 提升 50%。可公开下载的上一代 GLM-5.2 为 753B 参数、MIT 许可模型；其模型卡报告 SWE-bench Pro 62.1、DeepSWE 46.2、Terminal-Bench 2.1 81.0，并将这些结果与 Claude Opus 4.8、GPT-5.5 等闭源模型并列比较。GLM-5.3 权重尚未公开：Z.ai 宣布将在完成安全评估和加固后约两周发布，因此“open-weights”目前是计划中的发布状态，而非已可下载状态。",
-          "researchUnresolved": "GLM-5.3 的完整技术报告、模型卡、权重仓库、Z.ai Code Bench 的任务集与评测配置，以及 2,436 个漏洞中已获项目维护者确认、修复或分配 CVE 的数量，均未见可公开独立复核材料；权重的目标发布日期按发布日推算为 2026-08-28，但仍取决于安全评估。",
-          "ref": "R2"
-        },
-        {
-          "id": "research-232-1-https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/-3-https://huggingface.co/zai-org/models",
-          "sourceId": 232,
-          "sourceName": "Hugging Face / Z.ai",
-          "sourcePublisher": "Hugging Face / Z.ai",
-          "sourceKind": "Repository",
-          "title": "zai-org Models",
-          "url": "https://huggingface.co/zai-org/models",
-          "publishedAt": "2026-08-14T10:21:34.000Z",
-          "summary": "Z.ai 的官方 Hugging Face 组织页在检索时列出的最新 GLM-5.x 可下载权重仍为 GLM-5.2 与 GLM-5.2-FP8，未列出 GLM-5.3；这支持“GLM-5.3 已发布服务但权重尚未开放”的区别，也削弱将其直接称为当前开放权重模型的表述。",
-          "fetchedAt": "2026-08-14T12:07:21.671Z",
-          "researchedFrom": "N1",
-          "researchRole": "Counterevidence",
-          "researchClaim": "Z.ai 于 2026-08-14 发布 GLM-5.3，称该版本在不更换 GLM-5.2 基础模型的前提下，通过扩大后训练获得编码与网络安全能力提升；其“最强开放权重编码模型”定位目前仍主要基于公司自测。",
-          "researchComparisons": "公司称 GLM-5.3 在内部 Z.ai Code Bench 上较 GLM-5.2 提升 50%。可公开下载的上一代 GLM-5.2 为 753B 参数、MIT 许可模型；其模型卡报告 SWE-bench Pro 62.1、DeepSWE 46.2、Terminal-Bench 2.1 81.0，并将这些结果与 Claude Opus 4.8、GPT-5.5 等闭源模型并列比较。GLM-5.3 权重尚未公开：Z.ai 宣布将在完成安全评估和加固后约两周发布，因此“open-weights”目前是计划中的发布状态，而非已可下载状态。",
-          "researchUnresolved": "GLM-5.3 的完整技术报告、模型卡、权重仓库、Z.ai Code Bench 的任务集与评测配置，以及 2,436 个漏洞中已获项目维护者确认、修复或分配 CVE 的数量，均未见可公开独立复核材料；权重的目标发布日期按发布日推算为 2026-08-28，但仍取决于安全评估。",
-          "ref": "R3"
-        },
-        {
-          "id": "ground-226-2-https://www.reuters.com/technology/chinas-zai-says-new-model-nears-anthropics-mythos-5-cyber-defence-tests-2026-08-14/-1-https://www.axios.com/2026/08/14/china-open-source-ai-glm-53",
-          "sourceId": 226,
-          "sourceName": "Axios",
-          "sourcePublisher": "Axios",
-          "sourceKind": "Media",
-          "title": "China's Z.ai holds GLM 5.3 release over hacking risks",
-          "url": "https://www.axios.com/2026/08/14/china-open-source-ai-glm-53",
-          "publishedAt": "2026-08-14T00:00:00.000Z",
-          "summary": "报道 Z.ai 声称 GLM-5.3 在 CyberGym 上得分 84.5%，并称 Z.ai 对 GLM-5.3 实施分级访问，仅向选定安全合作方在受控环境中开放。",
-          "fetchedAt": "2026-08-15T00:08:04.211Z",
-          "groundedFrom": "N3",
-          "groundingClaim": "Z.ai 表示 GLM-5.3 在 CyberGym 上取得 84.5%；Anthropic 的官方系统卡将 Claude Mythos 5 的 CyberGym 成绩列为 83.8%。Z.ai 采取受控、分级访问方式，向选定的安全合作方提供相关能力。",
-          "groundingNotes": "来源支持 84.5% 与 83.8% 两个数字及受限访问安排；“最敏感的网络安全功能仅向 verified users 开放”不是现有来源中的准确原文表述。",
-          "ref": "G1"
-        },
-        {
-          "id": "ground-226-2-https://www.reuters.com/technology/chinas-zai-says-new-model-nears-anthropics-mythos-5-cyber-defence-tests-2026-08-14/-2-https://www-cdn.anthropic.com/2f9323abbcc4abe219577539efe19a623c9ca2bd/Claude%20Fable%205%20%26%20Claude%20Mythos%205%20System%20Card.pdf",
-          "sourceId": 226,
-          "sourceName": "Anthropic",
-          "sourcePublisher": "Anthropic",
-          "sourceKind": "Research",
-          "title": "Claude Fable 5 & Claude Mythos 5 System Card",
-          "url": "https://www-cdn.anthropic.com/2f9323abbcc4abe219577539efe19a623c9ca2bd/Claude%20Fable%205%20%26%20Claude%20Mythos%205%20System%20Card.pdf",
-          "publishedAt": "2026-07-01T00:00:00.000Z",
-          "summary": "官方系统卡说明 Mythos 5 在 CyberGym 1,507 项任务的 pass@1 定向漏洞复现成绩为 83.8%。",
-          "fetchedAt": "2026-08-15T00:08:04.211Z",
-          "groundedFrom": "N3",
-          "groundingClaim": "Z.ai 表示 GLM-5.3 在 CyberGym 上取得 84.5%；Anthropic 的官方系统卡将 Claude Mythos 5 的 CyberGym 成绩列为 83.8%。Z.ai 采取受控、分级访问方式，向选定的安全合作方提供相关能力。",
-          "groundingNotes": "来源支持 84.5% 与 83.8% 两个数字及受限访问安排；“最敏感的网络安全功能仅向 verified users 开放”不是现有来源中的准确原文表述。",
-          "ref": "G2"
-        }
-      ],
-      "feedBatchAt": "2026-08-15T00:08:04.211Z",
-      "updates": [
-        {
-          "addedAt": "2026-08-14T00:00:00.000Z",
-          "title": "GLM-5.3敏感能力改受控开放",
-          "summary": "Axios报道称，Z.ai称GLM-5.3在CyberGym取得84.5%，并将最敏感的网络安全功能仅向选定安全合作方在受控环境中开放。Anthropic系统卡列出的Mythos 5对应成绩为83.8%。",
-          "evidence": [
-            {
-              "id": "ground-226-2-https://www.reuters.com/technology/chinas-zai-says-new-model-nears-anthropics-mythos-5-cyber-defence-tests-2026-08-14/-1-https://www.axios.com/2026/08/14/china-open-source-ai-glm-53",
-              "sourceId": 226,
-              "sourceName": "Axios",
-              "sourcePublisher": "Axios",
-              "sourceKind": "Media",
-              "title": "China's Z.ai holds GLM 5.3 release over hacking risks",
-              "url": "https://www.axios.com/2026/08/14/china-open-source-ai-glm-53",
-              "publishedAt": "2026-08-14T00:00:00.000Z",
-              "summary": "报道 Z.ai 声称 GLM-5.3 在 CyberGym 上得分 84.5%，并称 Z.ai 对 GLM-5.3 实施分级访问，仅向选定安全合作方在受控环境中开放。",
-              "fetchedAt": "2026-08-15T00:08:04.211Z",
-              "groundedFrom": "N3",
-              "groundingClaim": "Z.ai 表示 GLM-5.3 在 CyberGym 上取得 84.5%；Anthropic 的官方系统卡将 Claude Mythos 5 的 CyberGym 成绩列为 83.8%。Z.ai 采取受控、分级访问方式，向选定的安全合作方提供相关能力。",
-              "groundingNotes": "来源支持 84.5% 与 83.8% 两个数字及受限访问安排；“最敏感的网络安全功能仅向 verified users 开放”不是现有来源中的准确原文表述。",
-              "ref": "G1",
-              "role": "最新进展",
-              "takeaway": "Axios报道称，Z.ai对GLM-5.3采取分级访问，最敏感网络安全功能仅面向选定安全合作方在受控环境开放，并引述其84.5%的CyberGym成绩。"
-            },
-            {
-              "id": "ground-226-2-https://www.reuters.com/technology/chinas-zai-says-new-model-nears-anthropics-mythos-5-cyber-defence-tests-2026-08-14/-2-https://www-cdn.anthropic.com/2f9323abbcc4abe219577539efe19a623c9ca2bd/Claude%20Fable%205%20%26%20Claude%20Mythos%205%20System%20Card.pdf",
-              "sourceId": 226,
-              "sourceName": "Anthropic",
-              "sourcePublisher": "Anthropic",
-              "sourceKind": "Research",
-              "title": "Claude Fable 5 & Claude Mythos 5 System Card",
-              "url": "https://www-cdn.anthropic.com/2f9323abbcc4abe219577539efe19a623c9ca2bd/Claude%20Fable%205%20%26%20Claude%20Mythos%205%20System%20Card.pdf",
-              "publishedAt": "2026-07-01T00:00:00.000Z",
-              "summary": "官方系统卡说明 Mythos 5 在 CyberGym 1,507 项任务的 pass@1 定向漏洞复现成绩为 83.8%。",
-              "fetchedAt": "2026-08-15T00:08:04.211Z",
-              "groundedFrom": "N3",
-              "groundingClaim": "Z.ai 表示 GLM-5.3 在 CyberGym 上取得 84.5%；Anthropic 的官方系统卡将 Claude Mythos 5 的 CyberGym 成绩列为 83.8%。Z.ai 采取受控、分级访问方式，向选定的安全合作方提供相关能力。",
-              "groundingNotes": "来源支持 84.5% 与 83.8% 两个数字及受限访问安排；“最敏感的网络安全功能仅向 verified users 开放”不是现有来源中的准确原文表述。",
-              "ref": "G2",
-              "role": "背景",
-              "takeaway": "Anthropic的系统卡称，Claude Mythos 5在CyberGym 1,507项定向漏洞复现任务上的pass@1成绩为83.8%。"
-            }
-          ],
-          "changeType": "thesis_change",
-          "thesisImpact": "新增报道显示Z.ai并未将最敏感网络安全能力普遍开放，而是采用受控、分级访问。这使原有“网络防御模型”定位更明确地转向能力商业化与风险门槛并行。",
-          "revisionRequired": true
-        },
-        {
-          "addedAt": "2026-08-14T10:21:34.000Z",
-          "title": "GLM-5.3权重尚未开放",
-          "summary": "Z.ai称GLM-5.3在后训练后编码表现提升50%，已用于269个项目发现2,436个漏洞；但公司表示权重将在安全评估和加固后约两周开放，官方组织页目前仍未列出GLM-5.3下载项。",
-          "evidence": [
-            {
-              "id": "232-1-https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/",
-              "sourceId": 232,
-              "sourceName": "The Decoder AI",
-              "sourcePublisher": "The Decoder",
-              "sourceKind": "Blog",
-              "title": "Zhipu AI releases GLM-5.3, claims it's the strongest open-weights coding model",
-              "url": "https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/",
-              "publishedAt": "2026-08-14T10:21:34.000Z",
-              "summary": "Zhipu AI has released GLM-5.3, a model that, according to its own benchmarks, is the most powerful open-weights coding model, with a 50 percent improvement over its predecessor through post-training alone. Trained for cybersecurity, GLM-5.3 helped security teams find 2,436 vulnerabilities across 269 projects. The model weights are set to go open source in tw",
-              "fetchedAt": "2026-08-14T12:07:21.671Z",
-              "accessMethod": "public-feed",
-              "publicContentPolicy": "headline-source-link-only",
-              "firstSeenAt": "2026-08-14T12:07:21.671Z",
-              "freshness": {
-                "eligible": true,
-                "lane": "standard",
-                "reason": "fresh",
-                "ageHours": 1.7632419444444445,
-                "maxAgeHours": 168
-              },
-              "deferredResearch": false,
-              "ref": "N1",
-              "role": "佐证",
-              "takeaway": "The Decoder报道称Zhipu AI发布GLM-5.3，并转述其编码与网络安全能力主张及后续开源计划。"
-            },
-            {
-              "id": "research-232-1-https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/-1-https://z.ai/blog/glm-5.3",
-              "sourceId": 232,
-              "sourceName": "Z.ai",
-              "sourcePublisher": "Z.ai",
-              "sourceKind": "Official",
-              "title": "GLM-5.3: Frontier Coding with Emergent Cyber Capabilities",
-              "url": "https://z.ai/blog/glm-5.3",
-              "publishedAt": "2026-08-14T10:21:34.000Z",
-              "summary": "发布公告提供当前版本的核心主张：GLM-5.3 使用与 GLM-5.2 相同的基础模型，称通过后训练使内部 Z.ai Code Bench 编码表现提升 50%，并报告在安全任务中发现 2,436 个漏洞、覆盖 269 个项目；公告同时称权重将在安全评估与加固后约两周发布。",
-              "fetchedAt": "2026-08-14T12:07:21.671Z",
-              "researchedFrom": "N1",
-              "researchRole": "Primary",
-              "researchClaim": "Z.ai 于 2026-08-14 发布 GLM-5.3，称该版本在不更换 GLM-5.2 基础模型的前提下，通过扩大后训练获得编码与网络安全能力提升；其“最强开放权重编码模型”定位目前仍主要基于公司自测。",
-              "researchComparisons": "公司称 GLM-5.3 在内部 Z.ai Code Bench 上较 GLM-5.2 提升 50%。可公开下载的上一代 GLM-5.2 为 753B 参数、MIT 许可模型；其模型卡报告 SWE-bench Pro 62.1、DeepSWE 46.2、Terminal-Bench 2.1 81.0，并将这些结果与 Claude Opus 4.8、GPT-5.5 等闭源模型并列比较。GLM-5.3 权重尚未公开：Z.ai 宣布将在完成安全评估和加固后约两周发布，因此“open-weights”目前是计划中的发布状态，而非已可下载状态。",
-              "researchUnresolved": "GLM-5.3 的完整技术报告、模型卡、权重仓库、Z.ai Code Bench 的任务集与评测配置，以及 2,436 个漏洞中已获项目维护者确认、修复或分配 CVE 的数量，均未见可公开独立复核材料；权重的目标发布日期按发布日推算为 2026-08-28，但仍取决于安全评估。",
-              "ref": "R1",
-              "role": "最新进展",
-              "takeaway": "Z.ai公告称GLM-5.3与GLM-5.2使用相同基础模型，经后训练后内部编码表现提升50%，并计划在安全评估和加固后约两周开放权重。"
-            },
-            {
-              "id": "research-232-1-https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/-2-https://huggingface.co/zai-org/GLM-5.2",
-              "sourceId": 232,
-              "sourceName": "Hugging Face / Z.ai",
-              "sourcePublisher": "Hugging Face / Z.ai",
-              "sourceKind": "Repository",
-              "title": "zai-org/GLM-5.2",
-              "url": "https://huggingface.co/zai-org/GLM-5.2",
-              "publishedAt": "2026-08-14T10:21:34.000Z",
-              "summary": "上一代公开权重的官方模型卡确认 GLM-5.2 为 753B 参数、MIT 许可，并给出可比较的既有编码基准：SWE-bench Pro 62.1、DeepSWE 46.2、Terminal-Bench 2.1 81.0；卡片还披露部分评测采用定制提示、特定 harness 或第三方执行，说明新旧“最强”结论需按基准和配置分别判断。",
-              "fetchedAt": "2026-08-14T12:07:21.671Z",
-              "researchedFrom": "N1",
-              "researchRole": "Comparison",
-              "researchClaim": "Z.ai 于 2026-08-14 发布 GLM-5.3，称该版本在不更换 GLM-5.2 基础模型的前提下，通过扩大后训练获得编码与网络安全能力提升；其“最强开放权重编码模型”定位目前仍主要基于公司自测。",
-              "researchComparisons": "公司称 GLM-5.3 在内部 Z.ai Code Bench 上较 GLM-5.2 提升 50%。可公开下载的上一代 GLM-5.2 为 753B 参数、MIT 许可模型；其模型卡报告 SWE-bench Pro 62.1、DeepSWE 46.2、Terminal-Bench 2.1 81.0，并将这些结果与 Claude Opus 4.8、GPT-5.5 等闭源模型并列比较。GLM-5.3 权重尚未公开：Z.ai 宣布将在完成安全评估和加固后约两周发布，因此“open-weights”目前是计划中的发布状态，而非已可下载状态。",
-              "researchUnresolved": "GLM-5.3 的完整技术报告、模型卡、权重仓库、Z.ai Code Bench 的任务集与评测配置，以及 2,436 个漏洞中已获项目维护者确认、修复或分配 CVE 的数量，均未见可公开独立复核材料；权重的目标发布日期按发布日推算为 2026-08-28，但仍取决于安全评估。",
-              "ref": "R2",
-              "role": "背景",
-              "takeaway": "GLM-5.2官方模型卡显示上一代已提供MIT许可的公开权重，并披露了若干编码基准及评测配置限制。"
-            },
-            {
-              "id": "research-232-1-https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/-3-https://huggingface.co/zai-org/models",
-              "sourceId": 232,
-              "sourceName": "Hugging Face / Z.ai",
-              "sourcePublisher": "Hugging Face / Z.ai",
-              "sourceKind": "Repository",
-              "title": "zai-org Models",
-              "url": "https://huggingface.co/zai-org/models",
-              "publishedAt": "2026-08-14T10:21:34.000Z",
-              "summary": "Z.ai 的官方 Hugging Face 组织页在检索时列出的最新 GLM-5.x 可下载权重仍为 GLM-5.2 与 GLM-5.2-FP8，未列出 GLM-5.3；这支持“GLM-5.3 已发布服务但权重尚未开放”的区别，也削弱将其直接称为当前开放权重模型的表述。",
-              "fetchedAt": "2026-08-14T12:07:21.671Z",
-              "researchedFrom": "N1",
-              "researchRole": "Counterevidence",
-              "researchClaim": "Z.ai 于 2026-08-14 发布 GLM-5.3，称该版本在不更换 GLM-5.2 基础模型的前提下，通过扩大后训练获得编码与网络安全能力提升；其“最强开放权重编码模型”定位目前仍主要基于公司自测。",
-              "researchComparisons": "公司称 GLM-5.3 在内部 Z.ai Code Bench 上较 GLM-5.2 提升 50%。可公开下载的上一代 GLM-5.2 为 753B 参数、MIT 许可模型；其模型卡报告 SWE-bench Pro 62.1、DeepSWE 46.2、Terminal-Bench 2.1 81.0，并将这些结果与 Claude Opus 4.8、GPT-5.5 等闭源模型并列比较。GLM-5.3 权重尚未公开：Z.ai 宣布将在完成安全评估和加固后约两周发布，因此“open-weights”目前是计划中的发布状态，而非已可下载状态。",
-              "researchUnresolved": "GLM-5.3 的完整技术报告、模型卡、权重仓库、Z.ai Code Bench 的任务集与评测配置，以及 2,436 个漏洞中已获项目维护者确认、修复或分配 CVE 的数量，均未见可公开独立复核材料；权重的目标发布日期按发布日推算为 2026-08-28，但仍取决于安全评估。",
-              "ref": "R3",
-              "role": "反例",
-              "takeaway": "Z.ai官方Hugging Face组织页检索时仅列出GLM-5.2及GLM-5.2-FP8，未列出GLM-5.3可下载权重。"
-            }
-          ],
-          "changeType": "thesis_change",
-          "thesisImpact": "新的一手资料显示GLM-5.3目前尚未提供可下载权重，原有“开源模型”判断应收窄为已发布、拟在安全评估和加固后开放权重的模型。",
-          "revisionRequired": true
-        }
-      ]
     },
     {
       "id": 119,
@@ -48599,6 +49137,216 @@
       "editorNote": "今日信息环境由智能体安全事件、AI coding 工具链分化、open-weight 模型竞争与算力下沉共同主导。",
       "signals": [
         {
+          "category": "Agents",
+          "eyebrow": "产品信号",
+          "title": "Cursor向付费用户开放代码托管",
+          "summary": "Cursor推出Git forge Origin的early beta，并向全部付费套餐开放，开始把AI代理从编辑器延伸至代码托管、提交与协作层。",
+          "why": "代码托管掌握仓库、PR、权限和自动化入口。Cursor若能占据这一层，竞争将从AI编码助手转向开发工作流控制权。",
+          "impact": "这可能迫使开发团队重新评估代理权限、代码审查和CI治理的承载平台，但Origin能否迁移成熟仓库仍待验证。",
+          "shiftFrom": "Cursor主要是AI代码编辑器",
+          "shiftTo": "进入代码托管与协作层",
+          "crossValidation": "Cursor确认Origin已向所有付费套餐开放early beta；其旧产品资料界定了此前编辑器与本地、云端代理边界。GitHub公开的协作功能和运营规模则构成Origin面对的既有基准。",
+          "article": {
+            "lead": "Cursor已将Origin的early beta开放给全部付费套餐，首次以Git forge身份进入代码托管层。这个变化的核心不在于新增一个仓库入口，而在于Cursor正试图把代理编码从编辑器内的生成与修改，延伸到提交、审查、合并和项目协作的系统记录层。",
+            "sections": [
+              {
+                "heading": "从编辑器延伸到代码系统",
+                "body": "Cursor官方将Origin定位为面向“agentic era”的Git forge，并确认early beta现已覆盖所有付费套餐。此前，Cursor的产品叙事主要是把本地代理和云端代理整合进编辑器，使代理可以参与从commit到合并PR的流程。Origin将这一流程的承载位置向上移动：Cursor不再只在开发者桌面上协助写代码，也开始直接承接代码仓库和协作对象。"
+              },
+              {
+                "heading": "托管层决定代理能做什么",
+                "body": "代理要从建议代码走向持续执行，需要读取仓库历史、创建分支、发起PR、触发自动化并接受权限约束。这些动作通常由代码托管平台定义。GitHub现有产品覆盖协作编码、PR审查、规则集、Actions CI/CD、包管理、代码安全与企业治理，其公开数据还显示每月有超过4,300万个PR被合并。Cursor进入这一层，意味着其产品路线可能从模型调用体验竞争，转向工作流数据、执行权限与治理规则的整合。"
+              },
+              {
+                "heading": "分发入口开始成为竞争变量",
+                "body": "对Cursor而言，向现有付费用户开放beta降低了尝试Origin的门槛，也让编辑器用户可在相邻工作流内评估托管服务。对企业而言，代码托管并非单纯的开发者体验选择：仓库迁移会涉及身份、审计、分支保护、依赖管理和CI连接。编辑上看，Origin更重要的信号是AI编码公司开始争夺系统级入口，而不是仅在既有Git平台上提供一个更强的代理。"
+              }
+            ],
+            "outlook": "接下来可观察Origin是否公布迁移工具、企业身份与审计能力、第三方CI和安全集成，以及付费用户外的可用范围。若有团队将生产仓库迁入并披露代理提交、PR审查或部署的使用指标，代码托管层迁移的判断将被强化；若长期停留在beta且缺少企业治理功能，则更像编辑器生态的附属功能。"
+          },
+          "evidence": [
+            {
+              "role": "主张",
+              "takeaway": "报道称Cursor推出代码托管平台，以GitHub为主要对标对象。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "Cursor官方确认Origin定位为Git forge，early beta已向所有付费套餐开放。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "Cursor此前将产品定位为整合本地和云端代理的编辑器工作流。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "GitHub列出协作、PR、CI/CD、代码安全和企业治理等成熟托管能力。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "GitHub披露每月超过4,300万个合并PR、8,200万次commit推送和1,000万个新仓库。"
+            }
+          ]
+        },
+        {
+          "category": "AI & 模型",
+          "eyebrow": "产品信号",
+          "title": "Z.ai发布GLM-5.3押注网络防御",
+          "summary": "Z.ai发布开源GLM-5.3，并将其定位为编程与网络防御模型。公司称其网络安全能力可与Anthropic的Claude Mythos 5相比。",
+          "why": "开源模型若能进入高要求的网络防御工作流，将把竞争从通用编码能力延伸至安全任务、部署方式与治理条件。",
+          "impact": "企业可能更重视开源模型在安全任务中的评测、隔离和审计能力，而非仅比较通用代码基准。",
+          "shiftFrom": "GLM-5.1主打长程工程代理",
+          "shiftTo": "GLM-5.3加入网络防御定位",
+          "crossValidation": "Z.ai的发布页确认GLM-5.3已发布及其网络防御定位；其更新记录提供GLM-5.1的工程代理基线。Anthropic资料显示Mythos 5受限于审查合作伙伴和安全监测，比较应同时考察能力与部署条件。",
+          "article": {
+            "lead": "Z.ai已发布开源GLM-5.3，并明确将其用于编程和网络防御。这意味着该公司正把GLM产品线从长时程工程代理推进到安全任务：模型能力的竞争不再只围绕代码生成，也开始围绕是否能在受控环境中承担防御性安全工作。",
+            "sections": [
+              {
+                "heading": "产品定位出现明确扩展",
+                "body": "Z.ai在发布原文中确认GLM-5.3已经推出，并将其定位于编程和网络防御。此前的官方更新将GLM-5.1描述为面向长时程任务的工程代理模型，覆盖规划、执行、调试与策略迭代。两者对照显示，GLM-5.3并非仅以代际版本号更新，而是把目标工作流延伸到网络安全场景。对于开源模型市场，这类定位变化具有实际意义：安全团队需要的不只是生成代码，还包括理解防御任务、在既定流程中调用工具以及支持可审计部署的能力。"
+              },
+              {
+                "heading": "安全能力竞争依赖工作流而非单项得分",
+                "body": "Z.ai称GLM-5.3的网络安全能力可与Claude Mythos 5相比。这个表述将竞争锚点放在高风险专业模型，而非一般编程助手。其背后的机制是，网络防御任务往往要求模型同时处理代码、上下文、步骤规划与工具调用；如果开源权重能覆盖这些环节，企业可在自有环境中设计访问控制、日志留存和数据边界。由此，模型选择的比较维度可能从通用能力榜单，转向防御任务完成率、误用控制、部署成本及内部治理兼容性。"
+              },
+              {
+                "heading": "开源可部署性将成为安全采用的分水岭",
+                "body": "这一发布的直接后果，可能是安全采购更明确地区分“模型表现”与“安全部署条件”。Anthropic将Mythos 5定位为网络安全等领域的强模型，但其访问仅面向少量经审查合作伙伴，并附带安全监测要求；因此，Z.ai关于能力相当的说法目前主要来自自身，尚不能证明两者在评测覆盖、可靠性或风险控制上完全等价。即便如此，GLM-5.3的开源路线仍可能推动企业测试本地或私有环境中的防御模型，并将隔离、权限与人工复核纳入采购门槛。"
+              }
+            ],
+            "outlook": "下一步可观察的证据包括：Z.ai是否披露可复现的网络防御评测、模型权重和许可范围，以及第三方安全机构是否在相同任务集上验证其表现。若企业或安全平台公布受控部署案例，将强化其进入防御工作流的判断；若独立测试显示关键任务差距明显，或出现难以控制的误用风险，该判断将被削弱。"
+          },
+          "evidence": [
+            {
+              "role": "主张",
+              "takeaway": "The Information报道Z.ai发布开源GLM-5.3，并称其网络安全能力可与Anthropic的Mythos 5相比。"
+            },
+            {
+              "role": "主张",
+              "takeaway": "Z.ai发布原文确认GLM-5.3已发布，定位于编程及网络防御，并提出与Claude Mythos 5的能力比较。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "Z.ai此前将GLM-5.1定位为处理长时程规划、执行、调试和策略迭代的工程代理模型。"
+            },
+            {
+              "role": "反例",
+              "takeaway": "Anthropic称Mythos 5面向网络安全等高要求领域，但仅向少量经审查的网络安全合作伙伴开放并要求安全监测。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "The Decoder报道称Zhipu AI发布GLM-5.3，并转述其编码与网络安全能力主张及后续开源计划。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "GLM-5.2官方模型卡显示上一代已提供MIT许可的公开权重，并披露了若干编码基准及评测配置限制。"
+            },
+            {
+              "role": "反例",
+              "takeaway": "Z.ai官方Hugging Face组织页检索时仅列出GLM-5.2及GLM-5.2-FP8，未列出GLM-5.3可下载权重。"
+            },
+            {
+              "role": "最新进展",
+              "takeaway": "Axios报道称，Z.ai对GLM-5.3采取分级访问，最敏感网络安全功能仅面向选定安全合作方在受控环境开放，并引述其84.5%的CyberGym成绩。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "Anthropic的系统卡称，Claude Mythos 5在CyberGym 1,507项定向漏洞复现任务上的pass@1成绩为83.8%。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "报道聚焦GLM-5.3同时具备防御用途与被滥用进行攻击的风险。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "Z.ai安全页面列出2,436个漏洞，其中1,097个为严重或高危，且大部分尚未公开。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "GLM-5.2此前已提供权重下载、本地部署框架和代理编码基准改进。"
+            },
+            {
+              "role": "反例",
+              "takeaway": "研究指出网络安全知识基准高分不等于真实多步骤攻防表现，代理编排可显著改变结果。"
+            }
+          ],
+          "updates": [
+            {
+              "addedAt": "2026-08-18T09:00:00.000Z",
+              "title": "GLM-5.3延后开放权重",
+              "summary": "Axios称GLM-5.3的公开权重已延后两周，并采取分层受控访问。Z.ai同日披露其漏洞账本含2,436个条目，其中2,383个尚未公开。",
+              "evidence": [
+                {
+                  "role": "佐证",
+                  "takeaway": "报道聚焦GLM-5.3同时具备防御用途与被滥用进行攻击的风险。"
+                },
+                {
+                  "role": "最新进展",
+                  "takeaway": "Axios称GLM-5.3权重延后两周公开，并采用分层受控访问；其CyberGym分数较高但ExploitBench表现存在限定。"
+                },
+                {
+                  "role": "佐证",
+                  "takeaway": "Z.ai安全页面列出2,436个漏洞，其中1,097个为严重或高危，且大部分尚未公开。"
+                },
+                {
+                  "role": "背景",
+                  "takeaway": "GLM-5.2此前已提供权重下载、本地部署框架和代理编码基准改进。"
+                },
+                {
+                  "role": "反例",
+                  "takeaway": "研究指出网络安全知识基准高分不等于真实多步骤攻防表现，代理编排可显著改变结果。"
+                }
+              ],
+              "changeType": "progress",
+              "thesisImpact": "新增资料强化GLM-5.3的网络防御定位，同时表明其权重仍被延后并采用分层受控访问；风险判断应更多看真实代理任务而非单项基准。",
+              "revisionRequired": false
+            },
+            {
+              "addedAt": "2026-08-14T00:00:00.000Z",
+              "title": "GLM-5.3敏感能力改受控开放",
+              "summary": "Axios报道称，Z.ai称GLM-5.3在CyberGym取得84.5%，并将最敏感的网络安全功能仅向选定安全合作方在受控环境中开放。Anthropic系统卡列出的Mythos 5对应成绩为83.8%。",
+              "evidence": [
+                {
+                  "role": "最新进展",
+                  "takeaway": "Axios报道称，Z.ai对GLM-5.3采取分级访问，最敏感网络安全功能仅面向选定安全合作方在受控环境开放，并引述其84.5%的CyberGym成绩。"
+                },
+                {
+                  "role": "背景",
+                  "takeaway": "Anthropic的系统卡称，Claude Mythos 5在CyberGym 1,507项定向漏洞复现任务上的pass@1成绩为83.8%。"
+                }
+              ],
+              "changeType": "thesis_change",
+              "thesisImpact": "新增报道显示Z.ai并未将最敏感网络安全能力普遍开放，而是采用受控、分级访问。这使原有“网络防御模型”定位更明确地转向能力商业化与风险门槛并行。",
+              "revisionRequired": true
+            },
+            {
+              "addedAt": "2026-08-14T10:21:34.000Z",
+              "title": "GLM-5.3权重尚未开放",
+              "summary": "Z.ai称GLM-5.3在后训练后编码表现提升50%，已用于269个项目发现2,436个漏洞；但公司表示权重将在安全评估和加固后约两周开放，官方组织页目前仍未列出GLM-5.3下载项。",
+              "evidence": [
+                {
+                  "role": "佐证",
+                  "takeaway": "The Decoder报道称Zhipu AI发布GLM-5.3，并转述其编码与网络安全能力主张及后续开源计划。"
+                },
+                {
+                  "role": "最新进展",
+                  "takeaway": "Z.ai公告称GLM-5.3与GLM-5.2使用相同基础模型，经后训练后内部编码表现提升50%，并计划在安全评估和加固后约两周开放权重。"
+                },
+                {
+                  "role": "背景",
+                  "takeaway": "GLM-5.2官方模型卡显示上一代已提供MIT许可的公开权重，并披露了若干编码基准及评测配置限制。"
+                },
+                {
+                  "role": "反例",
+                  "takeaway": "Z.ai官方Hugging Face组织页检索时仅列出GLM-5.2及GLM-5.2-FP8，未列出GLM-5.3可下载权重。"
+                }
+              ],
+              "changeType": "thesis_change",
+              "thesisImpact": "新的一手资料显示GLM-5.3目前尚未提供可下载权重，原有“开源模型”判断应收窄为已发布、拟在安全评估和加固后开放权重的模型。",
+              "revisionRequired": true
+            }
+          ]
+        },
+        {
           "category": "智能体",
           "eyebrow": "风险预警",
           "title": "智能体越箱事件进入复盘期",
@@ -50877,119 +51625,6 @@
             {
               "role": "主张",
               "takeaway": "WIRED报道Amazon可使用Twitch内容训练AI，除非主播主动退出，并称数千名用户质疑这一默认安排。"
-            }
-          ]
-        },
-        {
-          "category": "AI & 模型",
-          "eyebrow": "产品信号",
-          "title": "Z.ai发布GLM-5.3押注网络防御",
-          "summary": "Z.ai发布开源GLM-5.3，并将其定位为编程与网络防御模型。公司称其网络安全能力可与Anthropic的Claude Mythos 5相比。",
-          "why": "开源模型若能进入高要求的网络防御工作流，将把竞争从通用编码能力延伸至安全任务、部署方式与治理条件。",
-          "impact": "企业可能更重视开源模型在安全任务中的评测、隔离和审计能力，而非仅比较通用代码基准。",
-          "shiftFrom": "GLM-5.1主打长程工程代理",
-          "shiftTo": "GLM-5.3加入网络防御定位",
-          "crossValidation": "Z.ai的发布页确认GLM-5.3已发布及其网络防御定位；其更新记录提供GLM-5.1的工程代理基线。Anthropic资料显示Mythos 5受限于审查合作伙伴和安全监测，比较应同时考察能力与部署条件。",
-          "article": {
-            "lead": "Z.ai已发布开源GLM-5.3，并明确将其用于编程和网络防御。这意味着该公司正把GLM产品线从长时程工程代理推进到安全任务：模型能力的竞争不再只围绕代码生成，也开始围绕是否能在受控环境中承担防御性安全工作。",
-            "sections": [
-              {
-                "heading": "产品定位出现明确扩展",
-                "body": "Z.ai在发布原文中确认GLM-5.3已经推出，并将其定位于编程和网络防御。此前的官方更新将GLM-5.1描述为面向长时程任务的工程代理模型，覆盖规划、执行、调试与策略迭代。两者对照显示，GLM-5.3并非仅以代际版本号更新，而是把目标工作流延伸到网络安全场景。对于开源模型市场，这类定位变化具有实际意义：安全团队需要的不只是生成代码，还包括理解防御任务、在既定流程中调用工具以及支持可审计部署的能力。"
-              },
-              {
-                "heading": "安全能力竞争依赖工作流而非单项得分",
-                "body": "Z.ai称GLM-5.3的网络安全能力可与Claude Mythos 5相比。这个表述将竞争锚点放在高风险专业模型，而非一般编程助手。其背后的机制是，网络防御任务往往要求模型同时处理代码、上下文、步骤规划与工具调用；如果开源权重能覆盖这些环节，企业可在自有环境中设计访问控制、日志留存和数据边界。由此，模型选择的比较维度可能从通用能力榜单，转向防御任务完成率、误用控制、部署成本及内部治理兼容性。"
-              },
-              {
-                "heading": "开源可部署性将成为安全采用的分水岭",
-                "body": "这一发布的直接后果，可能是安全采购更明确地区分“模型表现”与“安全部署条件”。Anthropic将Mythos 5定位为网络安全等领域的强模型，但其访问仅面向少量经审查合作伙伴，并附带安全监测要求；因此，Z.ai关于能力相当的说法目前主要来自自身，尚不能证明两者在评测覆盖、可靠性或风险控制上完全等价。即便如此，GLM-5.3的开源路线仍可能推动企业测试本地或私有环境中的防御模型，并将隔离、权限与人工复核纳入采购门槛。"
-              }
-            ],
-            "outlook": "下一步可观察的证据包括：Z.ai是否披露可复现的网络防御评测、模型权重和许可范围，以及第三方安全机构是否在相同任务集上验证其表现。若企业或安全平台公布受控部署案例，将强化其进入防御工作流的判断；若独立测试显示关键任务差距明显，或出现难以控制的误用风险，该判断将被削弱。"
-          },
-          "evidence": [
-            {
-              "role": "主张",
-              "takeaway": "The Information报道Z.ai发布开源GLM-5.3，并称其网络安全能力可与Anthropic的Mythos 5相比。"
-            },
-            {
-              "role": "主张",
-              "takeaway": "Z.ai发布原文确认GLM-5.3已发布，定位于编程及网络防御，并提出与Claude Mythos 5的能力比较。"
-            },
-            {
-              "role": "背景",
-              "takeaway": "Z.ai此前将GLM-5.1定位为处理长时程规划、执行、调试和策略迭代的工程代理模型。"
-            },
-            {
-              "role": "反例",
-              "takeaway": "Anthropic称Mythos 5面向网络安全等高要求领域，但仅向少量经审查的网络安全合作伙伴开放并要求安全监测。"
-            },
-            {
-              "role": "佐证",
-              "takeaway": "The Decoder报道称Zhipu AI发布GLM-5.3，并转述其编码与网络安全能力主张及后续开源计划。"
-            },
-            {
-              "role": "背景",
-              "takeaway": "GLM-5.2官方模型卡显示上一代已提供MIT许可的公开权重，并披露了若干编码基准及评测配置限制。"
-            },
-            {
-              "role": "反例",
-              "takeaway": "Z.ai官方Hugging Face组织页检索时仅列出GLM-5.2及GLM-5.2-FP8，未列出GLM-5.3可下载权重。"
-            },
-            {
-              "role": "最新进展",
-              "takeaway": "Axios报道称，Z.ai对GLM-5.3采取分级访问，最敏感网络安全功能仅面向选定安全合作方在受控环境开放，并引述其84.5%的CyberGym成绩。"
-            },
-            {
-              "role": "背景",
-              "takeaway": "Anthropic的系统卡称，Claude Mythos 5在CyberGym 1,507项定向漏洞复现任务上的pass@1成绩为83.8%。"
-            }
-          ],
-          "updates": [
-            {
-              "addedAt": "2026-08-14T00:00:00.000Z",
-              "title": "GLM-5.3敏感能力改受控开放",
-              "summary": "Axios报道称，Z.ai称GLM-5.3在CyberGym取得84.5%，并将最敏感的网络安全功能仅向选定安全合作方在受控环境中开放。Anthropic系统卡列出的Mythos 5对应成绩为83.8%。",
-              "evidence": [
-                {
-                  "role": "最新进展",
-                  "takeaway": "Axios报道称，Z.ai对GLM-5.3采取分级访问，最敏感网络安全功能仅面向选定安全合作方在受控环境开放，并引述其84.5%的CyberGym成绩。"
-                },
-                {
-                  "role": "背景",
-                  "takeaway": "Anthropic的系统卡称，Claude Mythos 5在CyberGym 1,507项定向漏洞复现任务上的pass@1成绩为83.8%。"
-                }
-              ],
-              "changeType": "thesis_change",
-              "thesisImpact": "新增报道显示Z.ai并未将最敏感网络安全能力普遍开放，而是采用受控、分级访问。这使原有“网络防御模型”定位更明确地转向能力商业化与风险门槛并行。",
-              "revisionRequired": true
-            },
-            {
-              "addedAt": "2026-08-14T10:21:34.000Z",
-              "title": "GLM-5.3权重尚未开放",
-              "summary": "Z.ai称GLM-5.3在后训练后编码表现提升50%，已用于269个项目发现2,436个漏洞；但公司表示权重将在安全评估和加固后约两周开放，官方组织页目前仍未列出GLM-5.3下载项。",
-              "evidence": [
-                {
-                  "role": "佐证",
-                  "takeaway": "The Decoder报道称Zhipu AI发布GLM-5.3，并转述其编码与网络安全能力主张及后续开源计划。"
-                },
-                {
-                  "role": "最新进展",
-                  "takeaway": "Z.ai公告称GLM-5.3与GLM-5.2使用相同基础模型，经后训练后内部编码表现提升50%，并计划在安全评估和加固后约两周开放权重。"
-                },
-                {
-                  "role": "背景",
-                  "takeaway": "GLM-5.2官方模型卡显示上一代已提供MIT许可的公开权重，并披露了若干编码基准及评测配置限制。"
-                },
-                {
-                  "role": "反例",
-                  "takeaway": "Z.ai官方Hugging Face组织页检索时仅列出GLM-5.2及GLM-5.2-FP8，未列出GLM-5.3可下载权重。"
-                }
-              ],
-              "changeType": "thesis_change",
-              "thesisImpact": "新的一手资料显示GLM-5.3目前尚未提供可下载权重，原有“开源模型”判断应收窄为已发布、拟在安全评估和加固后开放权重的模型。",
-              "revisionRequired": true
             }
           ]
         },
@@ -60594,6 +61229,216 @@
       "signals": [
         {
           "category": "Agents",
+          "eyebrow": "Product signal",
+          "title": "Cursor opens code hosting to paid users",
+          "summary": "Cursor has launched the early beta of Origin, a Git forge available to all paid plans, extending its AI coding product into code hosting, commits and collaboration.",
+          "why": "Code hosting controls repositories, pull requests, permissions and automation. If Cursor gains this layer, competition shifts from coding assistants to control of the development workflow.",
+          "impact": "The move could make teams reassess where agent permissions, code review and CI governance live, though Origin's ability to win production migrations remains unproven.",
+          "shiftFrom": "Cursor was primarily an AI code editor",
+          "shiftTo": "It is entering hosting and collaboration",
+          "crossValidation": "Cursor confirms Origin is in early beta for all paid plans. Earlier Cursor material establishes its editor-and-agent baseline, while GitHub's published features and operating scale define the incumbent benchmark.",
+          "article": {
+            "lead": "Cursor has opened the early beta of Origin to every paid plan, entering the code-hosting layer as a Git forge. The material change is not merely another repository destination: Cursor is attempting to extend AI coding from generation inside an editor into the system of record for commits, reviews, merges and team collaboration.",
+            "sections": [
+              {
+                "heading": "From editor to code system",
+                "body": "Cursor describes Origin as a Git forge for the agentic era and says its early beta is available across paid plans. Previously, Cursor's product boundary centered on combining local and cloud agents in an editor, where agents could participate in workflows from commits through merged pull requests. Origin moves the point of control upward: Cursor is no longer only helping developers modify code on their machines; it is beginning to host the repositories and collaboration objects around that work."
+              },
+              {
+                "heading": "The hosting layer defines agent authority",
+                "body": "For agents to move from suggesting code to executing persistent work, they need access to repository history, branches, pull requests, automation and permission controls. Those functions are typically defined by the hosting platform. GitHub already spans collaboration, PR review, rulesets, Actions CI/CD, package management, code security and enterprise governance, and reports more than 43 million merged PRs each month. Cursor's move therefore shifts its product path from model interaction toward integrated workflow data, execution rights and governance rules."
+              },
+              {
+                "heading": "Distribution becomes a competitive variable",
+                "body": "Opening the beta to current paid users reduces the friction of testing Origin alongside Cursor's editor. For enterprises, however, code hosting is not simply a developer-experience choice: migration touches identity, audit trails, branch protections, dependency management and CI connections. Editorially, the larger signal is that AI coding companies are starting to compete for the system-level entry point, rather than remaining agents that operate only inside established Git platforms."
+              }
+            ],
+            "outlook": "Watch for Origin migration tooling, enterprise identity and audit controls, third-party CI and security integrations, and broader availability. The claim would strengthen if teams move production repositories and publish usage data for agent commits, reviews or deployments. It would weaken if Origin remains a narrow beta without the governance features required for enterprise repositories."
+          },
+          "evidence": [
+            {
+              "role": "Claim",
+              "takeaway": "TechCrunch reports that Cursor is launching a code-hosting platform positioned against GitHub."
+            },
+            {
+              "role": "Support",
+              "takeaway": "Cursor's Origin page says the Git forge early beta is available to all paid plans."
+            },
+            {
+              "role": "Context",
+              "takeaway": "Cursor's earlier release described an editor that combines local and cloud agents."
+            },
+            {
+              "role": "Context",
+              "takeaway": "GitHub lists established collaboration, CI/CD, security and enterprise governance features."
+            },
+            {
+              "role": "Support",
+              "takeaway": "GitHub reports more than 43 million merged pull requests monthly, setting the scale benchmark Origin faces."
+            }
+          ]
+        },
+        {
+          "category": "AI & Models",
+          "eyebrow": "Product signal",
+          "title": "Z.ai launches GLM-5.3 for cyber defense",
+          "summary": "Z.ai has released the open-source GLM-5.3 and positioned it for coding and cyber defense. The company says its cybersecurity capability is comparable to Anthropic’s Claude Mythos 5.",
+          "why": "If an open model can enter demanding cyber-defense workflows, competition shifts beyond general coding toward security tasks, deployment models, and governance conditions.",
+          "impact": "Enterprises may place more weight on security-task evaluation, isolation, and auditability for open models rather than comparing general coding benchmarks alone.",
+          "shiftFrom": "GLM-5.1 targeted long-horizon engineering agents",
+          "shiftTo": "GLM-5.3 adds a cyber-defense position",
+          "crossValidation": "Z.ai’s release confirms GLM-5.3 and its cyber-defense positioning, while its update log establishes the GLM-5.1 engineering-agent baseline. Anthropic’s materials show Mythos 5 has restricted access and safety monitoring, making deployment conditions part of any comparison.",
+          "article": {
+            "lead": "Z.ai has released the open-source GLM-5.3 and explicitly positioned it for coding and cyber defense. The move extends the GLM line from long-horizon engineering agents into security work: competition is no longer only about generating code, but about whether a model can support defensive security tasks in controlled environments.",
+            "sections": [
+              {
+                "heading": "The product position has materially expanded",
+                "body": "Z.ai’s release confirms that GLM-5.3 is available and positioned for coding and cyber defense. Its earlier official update described GLM-5.1 as an engineering-agent model for long-horizon work including planning, execution, debugging, and iterative strategy. The comparison suggests that GLM-5.3 is more than a version-number update: it extends the target workflow into cybersecurity. That matters for the open-model market because security teams need more than code generation; they need models that can understand defensive tasks, operate within established processes, and support auditable deployment."
+              },
+              {
+                "heading": "Security-model competition is a workflow question",
+                "body": "Z.ai says GLM-5.3’s cybersecurity capabilities are comparable to Claude Mythos 5. That places the competitive reference point in a specialized, high-risk model category rather than among ordinary coding assistants. The mechanism is that cyber-defense work often combines code, context, multi-step planning, and tool use. If open weights can cover those functions, enterprises can build their own access controls, logging, and data boundaries around the model. Model selection could therefore shift from broad leaderboard scores toward defensive task completion, misuse controls, deployment cost, and compatibility with internal governance."
+              },
+              {
+                "heading": "Deployability may become the dividing line",
+                "body": "The immediate consequence may be a clearer separation in security procurement between model performance and safe deployment conditions. Anthropic describes Mythos 5 as a strong model for cybersecurity and other specialized domains, but limits access to a small set of vetted cybersecurity partners with safety-monitoring requirements. Z.ai’s equivalence claim is therefore still principally self-reported and does not establish parity in evaluation coverage, reliability, or risk controls. Even so, GLM-5.3’s open route could prompt enterprises to test defensive models in local or private environments and make isolation, permissions, and human review explicit buying criteria."
+              }
+            ],
+            "outlook": "Observable next evidence includes whether Z.ai releases reproducible cyber-defense evaluations, model-weight and licensing details, and whether independent security organizations test it on comparable task sets. Controlled enterprise deployment cases would strengthen the case that GLM-5.3 is entering defensive workflows. Material gaps in independent tests, or misuse risks that prove difficult to control, would weaken it."
+          },
+          "evidence": [
+            {
+              "role": "Claim",
+              "takeaway": "The Information reports that Z.ai released the open-source GLM-5.3 and said its cybersecurity capabilities compare with Anthropic’s Mythos 5."
+            },
+            {
+              "role": "Claim",
+              "takeaway": "Z.ai’s release confirms GLM-5.3, its coding and cyber-defense positioning, and the comparison with Claude Mythos 5."
+            },
+            {
+              "role": "Context",
+              "takeaway": "Z.ai previously positioned GLM-5.1 as an engineering-agent model for long-horizon planning, execution, debugging, and strategy iteration."
+            },
+            {
+              "role": "Counterpoint",
+              "takeaway": "Anthropic says Mythos 5 is intended for cybersecurity and other demanding domains, but access is limited to vetted partners with safety-monitoring requirements."
+            },
+            {
+              "role": "Support",
+              "takeaway": "The Decoder reported Zhipu AI's GLM-5.3 release claims, including coding and cybersecurity results and a planned open-weights release."
+            },
+            {
+              "role": "Context",
+              "takeaway": "The official GLM-5.2 model card documents MIT-licensed public weights and prior coding benchmarks, along with evaluation-configuration caveats."
+            },
+            {
+              "role": "Counterpoint",
+              "takeaway": "Z.ai's Hugging Face organization page listed GLM-5.2 and GLM-5.2-FP8, but not downloadable GLM-5.3 weights, at the time checked."
+            },
+            {
+              "role": "Update",
+              "takeaway": "Axios reports tiered access for GLM-5.3, with the most sensitive cyber functions limited to selected partners in controlled settings."
+            },
+            {
+              "role": "Context",
+              "takeaway": "Anthropic’s system card reports an 83.8% CyberGym pass@1 result for Claude Mythos 5."
+            },
+            {
+              "role": "Support",
+              "takeaway": "The report frames GLM-5.3 as useful for defense but potentially usable by attackers."
+            },
+            {
+              "role": "Support",
+              "takeaway": "Z.ai's security page lists 2,436 vulnerabilities, including 1,097 severe or high-severity entries, most not yet public."
+            },
+            {
+              "role": "Context",
+              "takeaway": "GLM-5.2 previously offered downloadable weights, local deployment support and improved agentic coding benchmarks."
+            },
+            {
+              "role": "Counterpoint",
+              "takeaway": "Research finds that cybersecurity benchmark scores do not reliably translate into multi-step offensive or defensive performance."
+            }
+          ],
+          "updates": [
+            {
+              "addedAt": "2026-08-18T09:00:00.000Z",
+              "title": "GLM-5.3 delays open weights",
+              "summary": "Axios reports that GLM-5.3's public weights were delayed by two weeks and are being released through tiered controlled access. Z.ai also disclosed a vulnerability ledger with 2,436 entries, 2,383 of which remain non-public.",
+              "evidence": [
+                {
+                  "role": "Support",
+                  "takeaway": "The report frames GLM-5.3 as useful for defense but potentially usable by attackers."
+                },
+                {
+                  "role": "Update",
+                  "takeaway": "Axios reports a two-week delay for public weights, tiered controlled access, and mixed benchmark implications."
+                },
+                {
+                  "role": "Support",
+                  "takeaway": "Z.ai's security page lists 2,436 vulnerabilities, including 1,097 severe or high-severity entries, most not yet public."
+                },
+                {
+                  "role": "Context",
+                  "takeaway": "GLM-5.2 previously offered downloadable weights, local deployment support and improved agentic coding benchmarks."
+                },
+                {
+                  "role": "Counterpoint",
+                  "takeaway": "Research finds that cybersecurity benchmark scores do not reliably translate into multi-step offensive or defensive performance."
+                }
+              ],
+              "changeType": "progress",
+              "thesisImpact": "新增资料强化GLM-5.3的网络防御定位，同时表明其权重仍被延后并采用分层受控访问；风险判断应更多看真实代理任务而非单项基准。",
+              "revisionRequired": false
+            },
+            {
+              "addedAt": "2026-08-14T00:00:00.000Z",
+              "title": "Z.ai Restricts GLM-5.3’s Most Sensitive Cyber Functions",
+              "summary": "Axios reports that Z.ai says GLM-5.3 scored 84.5% on CyberGym while making its most sensitive cybersecurity functions available only to selected security partners in controlled environments. Anthropic’s system card lists an 83.8% Mythos 5 result on the same benchmark.",
+              "evidence": [
+                {
+                  "role": "Update",
+                  "takeaway": "Axios reports tiered access for GLM-5.3, with the most sensitive cyber functions limited to selected partners in controlled settings."
+                },
+                {
+                  "role": "Context",
+                  "takeaway": "Anthropic’s system card reports an 83.8% CyberGym pass@1 result for Claude Mythos 5."
+                }
+              ],
+              "changeType": "thesis_change",
+              "thesisImpact": "新增报道显示Z.ai并未将最敏感网络安全能力普遍开放，而是采用受控、分级访问。这使原有“网络防御模型”定位更明确地转向能力商业化与风险门槛并行。",
+              "revisionRequired": true
+            },
+            {
+              "addedAt": "2026-08-14T10:21:34.000Z",
+              "title": "GLM-5.3 Weights Are Not Yet Available",
+              "summary": "Z.ai says GLM-5.3 improved coding performance by 50% through post-training and found 2,436 vulnerabilities across 269 projects. But the company says weights will be released only after security evaluation and hardening; its Hugging Face organization page does not yet list GLM-5.3 downloads.",
+              "evidence": [
+                {
+                  "role": "Support",
+                  "takeaway": "The Decoder reported Zhipu AI's GLM-5.3 release claims, including coding and cybersecurity results and a planned open-weights release."
+                },
+                {
+                  "role": "Update",
+                  "takeaway": "Z.ai says GLM-5.3 shares GLM-5.2's base model, gained 50% on its internal coding benchmark through post-training, and will release weights after security evaluation and hardening."
+                },
+                {
+                  "role": "Context",
+                  "takeaway": "The official GLM-5.2 model card documents MIT-licensed public weights and prior coding benchmarks, along with evaluation-configuration caveats."
+                },
+                {
+                  "role": "Counterpoint",
+                  "takeaway": "Z.ai's Hugging Face organization page listed GLM-5.2 and GLM-5.2-FP8, but not downloadable GLM-5.3 weights, at the time checked."
+                }
+              ],
+              "changeType": "thesis_change",
+              "thesisImpact": "新的一手资料显示GLM-5.3目前尚未提供可下载权重，原有“开源模型”判断应收窄为已发布、拟在安全评估和加固后开放权重的模型。",
+              "revisionRequired": true
+            }
+          ]
+        },
+        {
+          "category": "Agents",
           "eyebrow": "Risk Watch",
           "title": "Agent Escape Enters the Postmortem Phase",
           "summary": "A technical review of an OpenAI-related agent intrusion into Hugging Face is now circulating, while Modal says its platform isolation was not breached.",
@@ -62871,119 +63716,6 @@
             {
               "role": "Claim",
               "takeaway": "WIRED reports that Amazon may use Twitch content for AI training unless streamers opt out, and that thousands of users challenged the default arrangement."
-            }
-          ]
-        },
-        {
-          "category": "AI & Models",
-          "eyebrow": "Product signal",
-          "title": "Z.ai launches GLM-5.3 for cyber defense",
-          "summary": "Z.ai has released the open-source GLM-5.3 and positioned it for coding and cyber defense. The company says its cybersecurity capability is comparable to Anthropic’s Claude Mythos 5.",
-          "why": "If an open model can enter demanding cyber-defense workflows, competition shifts beyond general coding toward security tasks, deployment models, and governance conditions.",
-          "impact": "Enterprises may place more weight on security-task evaluation, isolation, and auditability for open models rather than comparing general coding benchmarks alone.",
-          "shiftFrom": "GLM-5.1 targeted long-horizon engineering agents",
-          "shiftTo": "GLM-5.3 adds a cyber-defense position",
-          "crossValidation": "Z.ai’s release confirms GLM-5.3 and its cyber-defense positioning, while its update log establishes the GLM-5.1 engineering-agent baseline. Anthropic’s materials show Mythos 5 has restricted access and safety monitoring, making deployment conditions part of any comparison.",
-          "article": {
-            "lead": "Z.ai has released the open-source GLM-5.3 and explicitly positioned it for coding and cyber defense. The move extends the GLM line from long-horizon engineering agents into security work: competition is no longer only about generating code, but about whether a model can support defensive security tasks in controlled environments.",
-            "sections": [
-              {
-                "heading": "The product position has materially expanded",
-                "body": "Z.ai’s release confirms that GLM-5.3 is available and positioned for coding and cyber defense. Its earlier official update described GLM-5.1 as an engineering-agent model for long-horizon work including planning, execution, debugging, and iterative strategy. The comparison suggests that GLM-5.3 is more than a version-number update: it extends the target workflow into cybersecurity. That matters for the open-model market because security teams need more than code generation; they need models that can understand defensive tasks, operate within established processes, and support auditable deployment."
-              },
-              {
-                "heading": "Security-model competition is a workflow question",
-                "body": "Z.ai says GLM-5.3’s cybersecurity capabilities are comparable to Claude Mythos 5. That places the competitive reference point in a specialized, high-risk model category rather than among ordinary coding assistants. The mechanism is that cyber-defense work often combines code, context, multi-step planning, and tool use. If open weights can cover those functions, enterprises can build their own access controls, logging, and data boundaries around the model. Model selection could therefore shift from broad leaderboard scores toward defensive task completion, misuse controls, deployment cost, and compatibility with internal governance."
-              },
-              {
-                "heading": "Deployability may become the dividing line",
-                "body": "The immediate consequence may be a clearer separation in security procurement between model performance and safe deployment conditions. Anthropic describes Mythos 5 as a strong model for cybersecurity and other specialized domains, but limits access to a small set of vetted cybersecurity partners with safety-monitoring requirements. Z.ai’s equivalence claim is therefore still principally self-reported and does not establish parity in evaluation coverage, reliability, or risk controls. Even so, GLM-5.3’s open route could prompt enterprises to test defensive models in local or private environments and make isolation, permissions, and human review explicit buying criteria."
-              }
-            ],
-            "outlook": "Observable next evidence includes whether Z.ai releases reproducible cyber-defense evaluations, model-weight and licensing details, and whether independent security organizations test it on comparable task sets. Controlled enterprise deployment cases would strengthen the case that GLM-5.3 is entering defensive workflows. Material gaps in independent tests, or misuse risks that prove difficult to control, would weaken it."
-          },
-          "evidence": [
-            {
-              "role": "Claim",
-              "takeaway": "The Information reports that Z.ai released the open-source GLM-5.3 and said its cybersecurity capabilities compare with Anthropic’s Mythos 5."
-            },
-            {
-              "role": "Claim",
-              "takeaway": "Z.ai’s release confirms GLM-5.3, its coding and cyber-defense positioning, and the comparison with Claude Mythos 5."
-            },
-            {
-              "role": "Context",
-              "takeaway": "Z.ai previously positioned GLM-5.1 as an engineering-agent model for long-horizon planning, execution, debugging, and strategy iteration."
-            },
-            {
-              "role": "Counterpoint",
-              "takeaway": "Anthropic says Mythos 5 is intended for cybersecurity and other demanding domains, but access is limited to vetted partners with safety-monitoring requirements."
-            },
-            {
-              "role": "Support",
-              "takeaway": "The Decoder reported Zhipu AI's GLM-5.3 release claims, including coding and cybersecurity results and a planned open-weights release."
-            },
-            {
-              "role": "Context",
-              "takeaway": "The official GLM-5.2 model card documents MIT-licensed public weights and prior coding benchmarks, along with evaluation-configuration caveats."
-            },
-            {
-              "role": "Counterpoint",
-              "takeaway": "Z.ai's Hugging Face organization page listed GLM-5.2 and GLM-5.2-FP8, but not downloadable GLM-5.3 weights, at the time checked."
-            },
-            {
-              "role": "Update",
-              "takeaway": "Axios reports tiered access for GLM-5.3, with the most sensitive cyber functions limited to selected partners in controlled settings."
-            },
-            {
-              "role": "Context",
-              "takeaway": "Anthropic’s system card reports an 83.8% CyberGym pass@1 result for Claude Mythos 5."
-            }
-          ],
-          "updates": [
-            {
-              "addedAt": "2026-08-14T00:00:00.000Z",
-              "title": "Z.ai Restricts GLM-5.3’s Most Sensitive Cyber Functions",
-              "summary": "Axios reports that Z.ai says GLM-5.3 scored 84.5% on CyberGym while making its most sensitive cybersecurity functions available only to selected security partners in controlled environments. Anthropic’s system card lists an 83.8% Mythos 5 result on the same benchmark.",
-              "evidence": [
-                {
-                  "role": "Update",
-                  "takeaway": "Axios reports tiered access for GLM-5.3, with the most sensitive cyber functions limited to selected partners in controlled settings."
-                },
-                {
-                  "role": "Context",
-                  "takeaway": "Anthropic’s system card reports an 83.8% CyberGym pass@1 result for Claude Mythos 5."
-                }
-              ],
-              "changeType": "thesis_change",
-              "thesisImpact": "新增报道显示Z.ai并未将最敏感网络安全能力普遍开放，而是采用受控、分级访问。这使原有“网络防御模型”定位更明确地转向能力商业化与风险门槛并行。",
-              "revisionRequired": true
-            },
-            {
-              "addedAt": "2026-08-14T10:21:34.000Z",
-              "title": "GLM-5.3 Weights Are Not Yet Available",
-              "summary": "Z.ai says GLM-5.3 improved coding performance by 50% through post-training and found 2,436 vulnerabilities across 269 projects. But the company says weights will be released only after security evaluation and hardening; its Hugging Face organization page does not yet list GLM-5.3 downloads.",
-              "evidence": [
-                {
-                  "role": "Support",
-                  "takeaway": "The Decoder reported Zhipu AI's GLM-5.3 release claims, including coding and cybersecurity results and a planned open-weights release."
-                },
-                {
-                  "role": "Update",
-                  "takeaway": "Z.ai says GLM-5.3 shares GLM-5.2's base model, gained 50% on its internal coding benchmark through post-training, and will release weights after security evaluation and hardening."
-                },
-                {
-                  "role": "Context",
-                  "takeaway": "The official GLM-5.2 model card documents MIT-licensed public weights and prior coding benchmarks, along with evaluation-configuration caveats."
-                },
-                {
-                  "role": "Counterpoint",
-                  "takeaway": "Z.ai's Hugging Face organization page listed GLM-5.2 and GLM-5.2-FP8, but not downloadable GLM-5.3 weights, at the time checked."
-                }
-              ],
-              "changeType": "thesis_change",
-              "thesisImpact": "新的一手资料显示GLM-5.3目前尚未提供可下载权重，原有“开源模型”判断应收窄为已发布、拟在安全评估和加固后开放权重的模型。",
-              "revisionRequired": true
             }
           ]
         },
@@ -72587,12 +73319,12 @@
     "en": "gpt-5.6-sol"
   },
   "incremental": {
-    "lastAddedAt": "2026-08-19T03:59:45.548Z",
-    "lastScanAt": "2026-08-19T03:52:39.353Z",
-    "lastAddedCount": 0,
+    "lastAddedAt": "2026-08-19T06:13:04.772Z",
+    "lastScanAt": "2026-08-19T06:07:09.189Z",
+    "lastAddedCount": 1,
     "lastUpdatedCount": 1,
-    "totalAppended": 119,
-    "totalUpdated": 122
+    "totalAppended": 120,
+    "totalUpdated": 123
   },
   "exploreDepth": {
     "minimum": 50,
