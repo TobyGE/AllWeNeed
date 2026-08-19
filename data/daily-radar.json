@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-08-19T21:10:39.926Z",
-  "basedOnSnapshotAt": "2026-08-19T21:07:13.793Z",
+  "generatedAt": "2026-08-19T23:10:59.068Z",
+  "basedOnSnapshotAt": "2026-08-19T23:07:16.735Z",
   "model": "gpt-5.5",
   "analyzedItemCount": 180,
-  "totalFetchedItemCount": 2315,
+  "totalFetchedItemCount": 2328,
   "editorNote": "今日信息环境由代理安全事件、编码代理工具链分化、开放模型竞争和算力下沉共同主导。",
   "signalQuality": 86,
   "signalQualityChange": 8,
@@ -38,18 +38,22 @@
         ],
         "outlook": "下一步应观察Stripe与OpenRouter是否发布正式公告、披露交易完成时间及产品路线图。若后续出现统一账户、用量结算、模型路由或企业治理产品的实质整合，将强化路由层正在成为AI商业基础设施的判断；若交易未获确认，或平台维持完全独立运营，则会削弱这一判断。"
       },
-      "validationType": "多账号验证",
+      "validationType": "跨平台验证",
       "publishedAt": "2026-08-16T20:57:04.000Z",
-      "updatedAt": "2026-08-19T20:59:29.000Z",
+      "updatedAt": "2026-08-19T00:00:00.000Z",
       "sources": [
-        "Blog"
+        "Blog",
+        "Official",
+        "Media"
       ],
       "sourceNames": [
         "Bloomberg",
         "TechCrunch",
-        "The Information"
+        "The Information",
+        "Stripe",
+        "Axios"
       ],
-      "sourceCount": 3,
+      "sourceCount": 5,
       "age": "2 小时前",
       "score": 90,
       "tone": "orange",
@@ -132,6 +136,42 @@
           "ref": "N3",
           "role": "最新进展",
           "takeaway": "The Information报道称Stripe已确认同意收购OpenRouter，交易价格为75亿美元。"
+        },
+        {
+          "id": "ground-158-1-https://openrouter.ai/blog/announcements/openrouter-is-joining-stripe/-2-https://stripe.com/en-es/newsroom/news/stripe-agrees-to-acquire-openrouter",
+          "sourceId": 158,
+          "sourceName": "Stripe",
+          "sourcePublisher": "Stripe",
+          "sourceKind": "Official",
+          "title": "Stripe agrees to acquire OpenRouter to help businesses optimize token routing and usage",
+          "url": "https://stripe.com/en-es/newsroom/news/stripe-agrees-to-acquire-openrouter",
+          "publishedAt": "2026-08-19T00:00:00.000Z",
+          "summary": "Stripe 官方公告确认已同意收购 OpenRouter，并说明 OpenRouter 的模型路由和 token 优化业务。",
+          "fetchedAt": "2026-08-19T23:07:16.735Z",
+          "groundedFrom": "N2",
+          "groundingClaim": "Stripe 已同意收购 OpenRouter；Stripe 于 2026 年 8 月 19 日正式确认该交易，但未披露交易价格。",
+          "groundingNotes": "Axios 独立报道称交易金额超过 80 亿美元、主要以股票支付；Stripe 官方公告未确认金额，因此该金额不应视为官方披露。",
+          "ref": "G2",
+          "role": "最新进展",
+          "takeaway": "Stripe官方确认已同意收购OpenRouter，并将其模型路由与token优化能力定位为企业AI使用优化工具。"
+        },
+        {
+          "id": "ground-158-1-https://openrouter.ai/blog/announcements/openrouter-is-joining-stripe/-3-https://www.axios.com/2026/08/19/stripe-payments-openrouter-singularity",
+          "sourceId": 158,
+          "sourceName": "Axios",
+          "sourcePublisher": "Axios",
+          "sourceKind": "Media",
+          "title": "Scoop: Stripe says \"the singularity\" has begun",
+          "url": "https://www.axios.com/2026/08/19/stripe-payments-openrouter-singularity",
+          "publishedAt": "2026-08-19T00:00:00.000Z",
+          "summary": "Axios 报道 Stripe 已确认收购 OpenRouter，并称其独立获悉交易金额超过 80 亿美元；报道同时指出官方未披露价格。",
+          "fetchedAt": "2026-08-19T23:07:16.735Z",
+          "groundedFrom": "N2",
+          "groundingClaim": "Stripe 已同意收购 OpenRouter；Stripe 于 2026 年 8 月 19 日正式确认该交易，但未披露交易价格。",
+          "groundingNotes": "Axios 独立报道称交易金额超过 80 亿美元、主要以股票支付；Stripe 官方公告未确认金额，因此该金额不应视为官方披露。",
+          "ref": "G3",
+          "role": "佐证",
+          "takeaway": "Axios报道称Stripe确认收购OpenRouter，并称其独立获悉交易金额超过80亿美元；官方未公布价格。"
         }
       ],
       "references": [
@@ -207,10 +247,88 @@
           },
           "deferredResearch": false,
           "ref": "N3"
+        },
+        {
+          "id": "ground-158-1-https://openrouter.ai/blog/announcements/openrouter-is-joining-stripe/-2-https://stripe.com/en-es/newsroom/news/stripe-agrees-to-acquire-openrouter",
+          "sourceId": 158,
+          "sourceName": "Stripe",
+          "sourcePublisher": "Stripe",
+          "sourceKind": "Official",
+          "title": "Stripe agrees to acquire OpenRouter to help businesses optimize token routing and usage",
+          "url": "https://stripe.com/en-es/newsroom/news/stripe-agrees-to-acquire-openrouter",
+          "publishedAt": "2026-08-19T00:00:00.000Z",
+          "summary": "Stripe 官方公告确认已同意收购 OpenRouter，并说明 OpenRouter 的模型路由和 token 优化业务。",
+          "fetchedAt": "2026-08-19T23:07:16.735Z",
+          "groundedFrom": "N2",
+          "groundingClaim": "Stripe 已同意收购 OpenRouter；Stripe 于 2026 年 8 月 19 日正式确认该交易，但未披露交易价格。",
+          "groundingNotes": "Axios 独立报道称交易金额超过 80 亿美元、主要以股票支付；Stripe 官方公告未确认金额，因此该金额不应视为官方披露。",
+          "ref": "G2"
+        },
+        {
+          "id": "ground-158-1-https://openrouter.ai/blog/announcements/openrouter-is-joining-stripe/-3-https://www.axios.com/2026/08/19/stripe-payments-openrouter-singularity",
+          "sourceId": 158,
+          "sourceName": "Axios",
+          "sourcePublisher": "Axios",
+          "sourceKind": "Media",
+          "title": "Scoop: Stripe says \"the singularity\" has begun",
+          "url": "https://www.axios.com/2026/08/19/stripe-payments-openrouter-singularity",
+          "publishedAt": "2026-08-19T00:00:00.000Z",
+          "summary": "Axios 报道 Stripe 已确认收购 OpenRouter，并称其独立获悉交易金额超过 80 亿美元；报道同时指出官方未披露价格。",
+          "fetchedAt": "2026-08-19T23:07:16.735Z",
+          "groundedFrom": "N2",
+          "groundingClaim": "Stripe 已同意收购 OpenRouter；Stripe 于 2026 年 8 月 19 日正式确认该交易，但未披露交易价格。",
+          "groundingNotes": "Axios 独立报道称交易金额超过 80 亿美元、主要以股票支付；Stripe 官方公告未确认金额，因此该金额不应视为官方披露。",
+          "ref": "G3"
         }
       ],
-      "feedBatchAt": "2026-08-19T21:07:13.793Z",
+      "feedBatchAt": "2026-08-19T23:07:16.735Z",
       "updates": [
+        {
+          "addedAt": "2026-08-19T00:00:00.000Z",
+          "title": "Stripe确认收购OpenRouter",
+          "summary": "Stripe官方确认已同意收购OpenRouter，以帮助企业优化模型路由和token使用。Axios报道称交易金额超过80亿美元，官方未披露价格。",
+          "evidence": [
+            {
+              "id": "ground-158-1-https://openrouter.ai/blog/announcements/openrouter-is-joining-stripe/-2-https://stripe.com/en-es/newsroom/news/stripe-agrees-to-acquire-openrouter",
+              "sourceId": 158,
+              "sourceName": "Stripe",
+              "sourcePublisher": "Stripe",
+              "sourceKind": "Official",
+              "title": "Stripe agrees to acquire OpenRouter to help businesses optimize token routing and usage",
+              "url": "https://stripe.com/en-es/newsroom/news/stripe-agrees-to-acquire-openrouter",
+              "publishedAt": "2026-08-19T00:00:00.000Z",
+              "summary": "Stripe 官方公告确认已同意收购 OpenRouter，并说明 OpenRouter 的模型路由和 token 优化业务。",
+              "fetchedAt": "2026-08-19T23:07:16.735Z",
+              "groundedFrom": "N2",
+              "groundingClaim": "Stripe 已同意收购 OpenRouter；Stripe 于 2026 年 8 月 19 日正式确认该交易，但未披露交易价格。",
+              "groundingNotes": "Axios 独立报道称交易金额超过 80 亿美元、主要以股票支付；Stripe 官方公告未确认金额，因此该金额不应视为官方披露。",
+              "ref": "G2",
+              "role": "最新进展",
+              "takeaway": "Stripe官方确认已同意收购OpenRouter，并将其模型路由与token优化能力定位为企业AI使用优化工具。"
+            },
+            {
+              "id": "ground-158-1-https://openrouter.ai/blog/announcements/openrouter-is-joining-stripe/-3-https://www.axios.com/2026/08/19/stripe-payments-openrouter-singularity",
+              "sourceId": 158,
+              "sourceName": "Axios",
+              "sourcePublisher": "Axios",
+              "sourceKind": "Media",
+              "title": "Scoop: Stripe says \"the singularity\" has begun",
+              "url": "https://www.axios.com/2026/08/19/stripe-payments-openrouter-singularity",
+              "publishedAt": "2026-08-19T00:00:00.000Z",
+              "summary": "Axios 报道 Stripe 已确认收购 OpenRouter，并称其独立获悉交易金额超过 80 亿美元；报道同时指出官方未披露价格。",
+              "fetchedAt": "2026-08-19T23:07:16.735Z",
+              "groundedFrom": "N2",
+              "groundingClaim": "Stripe 已同意收购 OpenRouter；Stripe 于 2026 年 8 月 19 日正式确认该交易，但未披露交易价格。",
+              "groundingNotes": "Axios 独立报道称交易金额超过 80 亿美元、主要以股票支付；Stripe 官方公告未确认金额，因此该金额不应视为官方披露。",
+              "ref": "G3",
+              "role": "佐证",
+              "takeaway": "Axios报道称Stripe确认收购OpenRouter，并称其独立获悉交易金额超过80亿美元；官方未公布价格。"
+            }
+          ],
+          "changeType": "progress",
+          "thesisImpact": "Stripe已由媒体所称的拟收购转为官方确认同意收购OpenRouter；Axios称交易额超过80亿美元，强化模型路由层被视作基础设施资产的判断。",
+          "revisionRequired": false
+        },
         {
           "addedAt": "2026-08-19T20:59:29.000Z",
           "title": "Stripe确认75亿美元收购OpenRouter",
@@ -50450,9 +50568,35 @@
             {
               "role": "最新进展",
               "takeaway": "The Information报道称Stripe已确认同意收购OpenRouter，交易价格为75亿美元。"
+            },
+            {
+              "role": "最新进展",
+              "takeaway": "Stripe官方确认已同意收购OpenRouter，并将其模型路由与token优化能力定位为企业AI使用优化工具。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "Axios报道称Stripe确认收购OpenRouter，并称其独立获悉交易金额超过80亿美元；官方未公布价格。"
             }
           ],
           "updates": [
+            {
+              "addedAt": "2026-08-19T00:00:00.000Z",
+              "title": "Stripe确认收购OpenRouter",
+              "summary": "Stripe官方确认已同意收购OpenRouter，以帮助企业优化模型路由和token使用。Axios报道称交易金额超过80亿美元，官方未披露价格。",
+              "evidence": [
+                {
+                  "role": "最新进展",
+                  "takeaway": "Stripe官方确认已同意收购OpenRouter，并将其模型路由与token优化能力定位为企业AI使用优化工具。"
+                },
+                {
+                  "role": "佐证",
+                  "takeaway": "Axios报道称Stripe确认收购OpenRouter，并称其独立获悉交易金额超过80亿美元；官方未公布价格。"
+                }
+              ],
+              "changeType": "progress",
+              "thesisImpact": "Stripe已由媒体所称的拟收购转为官方确认同意收购OpenRouter；Axios称交易额超过80亿美元，强化模型路由层被视作基础设施资产的判断。",
+              "revisionRequired": false
+            },
             {
               "addedAt": "2026-08-19T20:59:29.000Z",
               "title": "Stripe确认75亿美元收购OpenRouter",
@@ -62795,9 +62939,35 @@
             {
               "role": "Update",
               "takeaway": "The Information reports that Stripe confirmed an agreement to acquire OpenRouter for $7.5 billion."
+            },
+            {
+              "role": "Update",
+              "takeaway": "Stripe officially confirmed that it has agreed to acquire OpenRouter and positioned its routing and token-optimization capabilities as tools for enterprise AI usage."
+            },
+            {
+              "role": "Support",
+              "takeaway": "Axios reported that Stripe confirmed the acquisition and that its independent reporting puts the transaction above $8 billion; Stripe did not disclose the price."
             }
           ],
           "updates": [
+            {
+              "addedAt": "2026-08-19T00:00:00.000Z",
+              "title": "Stripe confirms OpenRouter acquisition",
+              "summary": "Stripe has officially agreed to acquire OpenRouter to help businesses optimize model routing and token usage. Axios reports that the deal exceeds $8 billion, while Stripe has not disclosed a price.",
+              "evidence": [
+                {
+                  "role": "Update",
+                  "takeaway": "Stripe officially confirmed that it has agreed to acquire OpenRouter and positioned its routing and token-optimization capabilities as tools for enterprise AI usage."
+                },
+                {
+                  "role": "Support",
+                  "takeaway": "Axios reported that Stripe confirmed the acquisition and that its independent reporting puts the transaction above $8 billion; Stripe did not disclose the price."
+                }
+              ],
+              "changeType": "progress",
+              "thesisImpact": "Stripe已由媒体所称的拟收购转为官方确认同意收购OpenRouter；Axios称交易额超过80亿美元，强化模型路由层被视作基础设施资产的判断。",
+              "revisionRequired": false
+            },
             {
               "addedAt": "2026-08-19T20:59:29.000Z",
               "title": "Stripe Confirms $7.5 Billion OpenRouter Acquisition",
@@ -75101,12 +75271,12 @@
     "en": "gpt-5.6-sol"
   },
   "incremental": {
-    "lastAddedAt": "2026-08-19T21:10:39.926Z",
-    "lastScanAt": "2026-08-19T21:07:13.793Z",
+    "lastAddedAt": "2026-08-19T23:10:59.068Z",
+    "lastScanAt": "2026-08-19T23:07:16.735Z",
     "lastAddedCount": 0,
     "lastUpdatedCount": 1,
     "totalAppended": 122,
-    "totalUpdated": 128
+    "totalUpdated": 129
   },
   "exploreDepth": {
     "minimum": 50,

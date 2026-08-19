@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-19T21:07:13.793Z",
+  "generatedAt": "2026-08-19T23:07:16.735Z",
   "counts": {
-    "sources": 763,
-    "claims": 901,
+    "sources": 765,
+    "claims": 903,
     "events": 187,
     "articles": 187,
-    "updates": 128,
-    "edges": 2415,
+    "updates": 129,
+    "edges": 2422,
     "revisionsRequired": 10
   },
   "revisionQueue": [
@@ -121,7 +121,7 @@
       "bucket": "dynamic",
       "valueScore": 90,
       "publishedAt": "2026-08-16T20:57:04.000Z",
-      "updatedAt": "2026-08-19T20:59:29.000Z"
+      "updatedAt": "2026-08-19T00:00:00.000Z"
     },
     {
       "id": "article_5de12521caf29895",
@@ -129,7 +129,7 @@
       "signalId": 127,
       "title": "Stripe据报逾70亿美元收购OpenRouter",
       "version": 1,
-      "publishedAt": "2026-08-19T21:07:13.793Z"
+      "publishedAt": "2026-08-19T23:07:16.735Z"
     },
     {
       "id": "source_38aef9b52f3f0ef1",
@@ -144,7 +144,7 @@
       "type": "claim",
       "title": "Bloomberg报道称，Stripe已敲定以超过70亿美元收购帮助企业切换AI模型的OpenRouter。",
       "role": "主张",
-      "addedAt": "2026-08-19T21:07:13.793Z"
+      "addedAt": "2026-08-19T23:07:16.735Z"
     },
     {
       "id": "source_ce56f7c0b2ba7087",
@@ -159,7 +159,7 @@
       "type": "claim",
       "title": "TechCrunch报道称Stripe将以70亿美元以上收购OpenRouter，并提及其首席执行官将公司称为“Stripe for AI”。",
       "role": "佐证",
-      "addedAt": "2026-08-19T21:07:13.793Z"
+      "addedAt": "2026-08-19T23:07:16.735Z"
     },
     {
       "id": "source_091d6631d451f7a8",
@@ -174,7 +174,48 @@
       "type": "claim",
       "title": "The Information报道称Stripe已确认同意收购OpenRouter，交易价格为75亿美元。",
       "role": "最新进展",
-      "addedAt": "2026-08-19T21:07:13.793Z"
+      "addedAt": "2026-08-19T23:07:16.735Z"
+    },
+    {
+      "id": "source_c64197918906742d",
+      "type": "source",
+      "title": "Stripe",
+      "url": "https://stripe.com/en-es/newsroom/news/stripe-agrees-to-acquire-openrouter",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-19T00:00:00.000Z"
+    },
+    {
+      "id": "claim_a5788ea7269c0f1c",
+      "type": "claim",
+      "title": "Stripe官方确认已同意收购OpenRouter，并将其模型路由与token优化能力定位为企业AI使用优化工具。",
+      "role": "最新进展",
+      "addedAt": "2026-08-19T23:07:16.735Z"
+    },
+    {
+      "id": "source_8a8ae126b5289489",
+      "type": "source",
+      "title": "Axios",
+      "url": "https://www.axios.com/2026/08/19/stripe-payments-openrouter-singularity",
+      "sourceKind": "Media",
+      "publishedAt": "2026-08-19T00:00:00.000Z"
+    },
+    {
+      "id": "claim_2a97775f751dcc52",
+      "type": "claim",
+      "title": "Axios报道称Stripe确认收购OpenRouter，并称其独立获悉交易金额超过80亿美元；官方未公布价格。",
+      "role": "佐证",
+      "addedAt": "2026-08-19T23:07:16.735Z"
+    },
+    {
+      "id": "update_1b0b7fa00cf1d041",
+      "type": "update",
+      "signalId": 127,
+      "title": "Stripe确认收购OpenRouter",
+      "summary": "Stripe官方确认已同意收购OpenRouter，以帮助企业优化模型路由和token使用。Axios报道称交易金额超过80亿美元，官方未披露价格。",
+      "addedAt": "2026-08-19T00:00:00.000Z",
+      "changeType": "progress",
+      "thesisImpact": "Stripe已由媒体所称的拟收购转为官方确认同意收购OpenRouter；Axios称交易额超过80亿美元，强化模型路由层被视作基础设施资产的判断。",
+      "revisionRequired": false
     },
     {
       "id": "update_bdb76ffb35c44f61",
@@ -17230,6 +17271,52 @@
       "to": "event_42edff1db0e71bae",
       "relation": "evidence_for",
       "updateTitle": null
+    },
+    {
+      "id": "edge_7025258273c23cdf",
+      "from": "source_c64197918906742d",
+      "to": "claim_a5788ea7269c0f1c",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_dd4b93bf377c7d53",
+      "from": "claim_a5788ea7269c0f1c",
+      "to": "event_42edff1db0e71bae",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_712f5dc58a08064c",
+      "from": "source_8a8ae126b5289489",
+      "to": "claim_2a97775f751dcc52",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_cbd4985066c8e439",
+      "from": "claim_2a97775f751dcc52",
+      "to": "event_42edff1db0e71bae",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_803356ccfe2d52b1",
+      "from": "update_1b0b7fa00cf1d041",
+      "to": "event_42edff1db0e71bae",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_60f988801321e445",
+      "from": "claim_a5788ea7269c0f1c",
+      "to": "event_42edff1db0e71bae",
+      "relation": "update_evidence_for",
+      "updateTitle": "Stripe确认收购OpenRouter"
+    },
+    {
+      "id": "edge_2af983329291e3d9",
+      "from": "claim_2a97775f751dcc52",
+      "to": "event_42edff1db0e71bae",
+      "relation": "update_evidence_for",
+      "updateTitle": "Stripe确认收购OpenRouter"
     },
     {
       "id": "edge_f8eaf85ed0203a4c",
