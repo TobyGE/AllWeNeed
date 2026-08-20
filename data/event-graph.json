@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-20T13:08:13.513Z",
+  "generatedAt": "2026-08-20T16:08:02.984Z",
   "counts": {
-    "sources": 786,
-    "claims": 928,
-    "events": 195,
-    "articles": 195,
+    "sources": 790,
+    "claims": 933,
+    "events": 196,
+    "articles": 196,
     "updates": 134,
-    "edges": 2494,
+    "edges": 2505,
     "revisionsRequired": 11
   },
   "revisionQueue": [
@@ -123,6 +123,99 @@
     }
   ],
   "nodes": [
+    {
+      "id": "event_305b6069d1bafbe8",
+      "type": "event",
+      "signalId": 134,
+      "title": "Tesla奥斯汀Robotaxi疑似进入全无人运营",
+      "bucket": "explore",
+      "valueScore": 84,
+      "publishedAt": "2026-08-20T14:09:31.000Z",
+      "updatedAt": "2026-08-20T14:09:31.000Z"
+    },
+    {
+      "id": "article_8070b0d1fddd4e3d",
+      "type": "article",
+      "signalId": 134,
+      "title": "Tesla奥斯汀Robotaxi疑似进入全无人运营",
+      "version": 1,
+      "publishedAt": "2026-08-20T16:08:02.984Z"
+    },
+    {
+      "id": "source_4e8c57fee4755bb7",
+      "type": "source",
+      "title": "The Verge",
+      "url": "https://www.theverge.com/transportation/982759/tesla-robotaxi-unsupervised-austin-robotaxi-tracker",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-20T14:09:31.000Z"
+    },
+    {
+      "id": "claim_f5221b26951731f1",
+      "type": "claim",
+      "title": "The Verge援引Robotaxi Tracker创始人称，Austin近期追踪的170次Tesla Robotaxi行程均未配备车内安全员。",
+      "role": "主张",
+      "addedAt": "2026-08-20T16:08:02.984Z"
+    },
+    {
+      "id": "source_ff84ae0cf8703a05",
+      "type": "source",
+      "title": "Tesla",
+      "url": "https://www.tesla.com/robotaxi",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-20T14:09:31.000Z"
+    },
+    {
+      "id": "claim_70c33c82a26c89f1",
+      "type": "claim",
+      "title": "Tesla官方页面将Austin列为提供autonomous Robotaxi rides的城市，并将Cybercab描述为未来提供服务的专用车辆。",
+      "role": "佐证",
+      "addedAt": "2026-08-20T16:08:02.984Z"
+    },
+    {
+      "id": "source_f786a50cc38856ce",
+      "type": "source",
+      "title": "Tesla",
+      "url": "https://www.tesla.com/sites/default/files/downloads/TSLA-Q2-2025-Update.pdf",
+      "sourceKind": "IR",
+      "publishedAt": "2025-07-23T00:00:00.000Z"
+    },
+    {
+      "id": "claim_0ff3f0761896897a",
+      "type": "claim",
+      "title": "Tesla的2025 Q2材料称Austin服务曾以安全员启动，并计划最终取消安全员；Cybercab计划自2026年开始量产。",
+      "role": "背景",
+      "addedAt": "2026-08-20T16:08:02.984Z"
+    },
+    {
+      "id": "source_b58b31837c2f7b8d",
+      "type": "source",
+      "title": "Texas Department of Motor Vehicles",
+      "url": "https://www.txdmv.gov/AVprogram",
+      "sourceKind": "Regulator",
+      "publishedAt": "2026-08-20T14:09:31.000Z"
+    },
+    {
+      "id": "claim_31f41c4120df59df",
+      "type": "claim",
+      "title": "Texas Department of Motor Vehicles说明，自2026年5月28日起，得州商业无人工驾驶运营须取得授权并满足L4/L5等合规条件。",
+      "role": "佐证",
+      "addedAt": "2026-08-20T16:08:02.984Z"
+    },
+    {
+      "id": "source_4523010d4a15a6ed",
+      "type": "source",
+      "title": "National Highway Traffic Safety Administration",
+      "url": "https://static.nhtsa.gov/odi/inv/2025/INOA-PE25012-19171.pdf",
+      "sourceKind": "Regulator",
+      "publishedAt": "2025-10-07T00:00:00.000Z"
+    },
+    {
+      "id": "claim_daab8475bd9d34b4",
+      "type": "claim",
+      "title": "NHTSA初步评估PE25012审查Tesla FSD相关交通违规与碰撞伤害报告，不能直接裁定Austin Robotaxi安全性。",
+      "role": "反例",
+      "addedAt": "2026-08-20T16:08:02.984Z"
+    },
     {
       "id": "event_2ab9b53acd23d050",
       "type": "event",
@@ -13414,14 +13507,6 @@
       "addedAt": "2026-08-01T06:08:05.020Z"
     },
     {
-      "id": "source_f786a50cc38856ce",
-      "type": "source",
-      "title": "Tesla",
-      "url": "https://www.tesla.com/sites/default/files/downloads/TSLA-Q2-2025-Update.pdf",
-      "sourceKind": "IR",
-      "publishedAt": "2025-07-23T00:00:00.000Z"
-    },
-    {
       "id": "claim_23c7a4b694cd7b61",
       "type": "claim",
       "title": "Tesla 2025年第二季度文件显示，当时总交付及Model 3/Y交付同比下降，且库存天数上升。",
@@ -17769,6 +17854,77 @@
     }
   ],
   "edges": [
+    {
+      "id": "edge_81d7a8cea8c1744c",
+      "from": "event_305b6069d1bafbe8",
+      "to": "article_8070b0d1fddd4e3d",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_20c1f8c656526e8a",
+      "from": "source_4e8c57fee4755bb7",
+      "to": "claim_f5221b26951731f1",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_9039fc05df84bc48",
+      "from": "claim_f5221b26951731f1",
+      "to": "event_305b6069d1bafbe8",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_e18734e6aa6f8f01",
+      "from": "source_ff84ae0cf8703a05",
+      "to": "claim_70c33c82a26c89f1",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_4b9a050bf1759848",
+      "from": "claim_70c33c82a26c89f1",
+      "to": "event_305b6069d1bafbe8",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_d3bd8f6519c7d07d",
+      "from": "source_f786a50cc38856ce",
+      "to": "claim_0ff3f0761896897a",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_acc93f298846b239",
+      "from": "claim_0ff3f0761896897a",
+      "to": "event_305b6069d1bafbe8",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_0091f5722f066c78",
+      "from": "source_b58b31837c2f7b8d",
+      "to": "claim_31f41c4120df59df",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_646e6d53ec9163a7",
+      "from": "claim_31f41c4120df59df",
+      "to": "event_305b6069d1bafbe8",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_12a2a460e1343280",
+      "from": "source_4523010d4a15a6ed",
+      "to": "claim_daab8475bd9d34b4",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_0da7e86880f5d3e1",
+      "from": "claim_daab8475bd9d34b4",
+      "to": "event_305b6069d1bafbe8",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
     {
       "id": "edge_c259f48d693afb62",
       "from": "event_2ab9b53acd23d050",
