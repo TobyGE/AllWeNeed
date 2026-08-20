@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-20T16:08:02.984Z",
+  "generatedAt": "2026-08-20T19:06:44.472Z",
   "counts": {
-    "sources": 790,
-    "claims": 933,
-    "events": 196,
-    "articles": 196,
+    "sources": 791,
+    "claims": 934,
+    "events": 197,
+    "articles": 197,
     "updates": 134,
-    "edges": 2505,
+    "edges": 2508,
     "revisionsRequired": 11
   },
   "revisionQueue": [
@@ -123,6 +123,39 @@
     }
   ],
   "nodes": [
+    {
+      "id": "event_4387515311ad42bf",
+      "type": "event",
+      "signalId": 135,
+      "title": "AT&T用开源模型压低闭源账单",
+      "bucket": "explore",
+      "valueScore": 81,
+      "publishedAt": "2026-08-20T18:55:44.000Z",
+      "updatedAt": "2026-08-20T18:55:44.000Z"
+    },
+    {
+      "id": "article_7c8a7ca1ca2d44e0",
+      "type": "article",
+      "signalId": 135,
+      "title": "AT&T用开源模型压低闭源账单",
+      "version": 1,
+      "publishedAt": "2026-08-20T19:06:44.472Z"
+    },
+    {
+      "id": "source_715e58ec763e6590",
+      "type": "source",
+      "title": "The Information",
+      "url": "https://www.theinformation.com/articles/t-using-open-source-models-curb-anthropic-bills",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-20T18:55:44.000Z"
+    },
+    {
+      "id": "claim_d16f9ff719f463da",
+      "type": "claim",
+      "title": "The Information报道称，AT&T计划更多采用NVIDIA Nemotron等开源模型，以在未来几年维持对Anthropic和OpenAI模型的员工支出平稳。",
+      "role": "主张",
+      "addedAt": "2026-08-20T19:06:44.472Z"
+    },
     {
       "id": "event_305b6069d1bafbe8",
       "type": "event",
@@ -17854,6 +17887,25 @@
     }
   ],
   "edges": [
+    {
+      "id": "edge_95d731f0f3880ca0",
+      "from": "event_4387515311ad42bf",
+      "to": "article_7c8a7ca1ca2d44e0",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_8ec947e9ce6d9b87",
+      "from": "source_715e58ec763e6590",
+      "to": "claim_d16f9ff719f463da",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_be6717b0a5949cdc",
+      "from": "claim_d16f9ff719f463da",
+      "to": "event_4387515311ad42bf",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
     {
       "id": "edge_81d7a8cea8c1744c",
       "from": "event_305b6069d1bafbe8",

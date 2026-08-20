@@ -1,13 +1,112 @@
 {
-  "generatedAt": "2026-08-20T16:13:59.370Z",
-  "basedOnSnapshotAt": "2026-08-20T16:08:02.984Z",
+  "generatedAt": "2026-08-20T19:11:58.186Z",
+  "basedOnSnapshotAt": "2026-08-20T19:06:44.472Z",
   "model": "gpt-5.5",
   "analyzedItemCount": 180,
-  "totalFetchedItemCount": 2327,
+  "totalFetchedItemCount": 2314,
   "editorNote": "今日信息环境由代理安全事件、编码代理工具链分化、开放模型竞争和算力下沉共同主导。",
   "signalQuality": 86,
   "signalQualityChange": 8,
   "signals": [
+    {
+      "id": 135,
+      "editorialBucket": "explore",
+      "category": "AI & 模型",
+      "eyebrow": "趋势变化",
+      "title": "AT&T用开源模型压低闭源账单",
+      "summary": "据The Information报道，AT&T计划增加NVIDIA Nemotron等开源模型使用，以在未来几年维持对Anthropic和OpenAI模型的员工支出平稳。",
+      "why": "这将模型选型从单纯追逐能力，推向按任务管理闭源调用与自建开源供给的组合决策。",
+      "impact": "若更多大型企业采取类似路径，闭源模型供应商的企业收入增长将更受工作流分层、成本和替代性约束。",
+      "shiftFrom": "员工模型支出随闭源使用扩张",
+      "shiftTo": "以开源替代控制闭源支出增量",
+      "crossValidation": "The Information引述AT&T副总裁Mark Austin说明计划，并点名NVIDIA Nemotron及Anthropic、OpenAI；当前为单一来源报道。",
+      "article": {
+        "lead": "据The Information报道，AT&T计划在未来几年把员工对Anthropic和OpenAI模型的支出维持在平稳水平，方法是增加NVIDIA Nemotron等开源模型的使用。这个安排的信号不在于AT&T停止使用闭源模型，而在于大型企业可能开始把模型采购视为可按任务替代、配额控制和组合管理的成本结构。",
+        "sections": [
+          {
+            "heading": "变化是把模型支出设为可管理上限",
+            "body": "The Information报道称，AT&T计划更多使用开源模型，包括NVIDIA Nemotron，以避免未来几年员工对Anthropic和OpenAI模型的支出继续上升。该表述指向的是采购规则变化：闭源模型并未被描述为完全退出，而是被放进一个支出需要保持平稳的组合中。对于拥有大量员工和复杂内部工作流的企业，这种选择意味着模型使用开始被纳入预算约束，而不只是由部门自行扩张。"
+          },
+          {
+            "heading": "机制在于把任务分配给不同供给层",
+            "body": "开源模型为企业提供了不同于按调用付费的闭源API路径。企业可以将对性能、可靠性或安全要求更高的任务保留给外部前沿模型，同时将可标准化、成本敏感或可内部部署的任务转向开源模型。AT&T点名NVIDIA Nemotron，说明这一替代并不必然是从AI工作流撤退，而是通过模型路由和任务分层，控制高价闭源调用在总体使用中的占比。"
+          },
+          {
+            "heading": "企业模型市场或更像组合采购",
+            "body": "若这种做法被更多大型企业采用，闭源供应商面对的将不只是模型能力竞赛，也会是每项工作流是否值得保留在付费接口上的持续评估。最强的反面情况是，AT&T的计划可能源于其自身规模、技术团队和电信业务结构，未必能代表更广泛企业；而开源模型在复杂任务上能否稳定替代闭源模型，仍取决于实际部署结果。"
+          }
+        ],
+        "outlook": "下一步可验证的信号包括：AT&T是否披露开源模型的部署范围、成本目标或实际使用比例；其他大型企业是否公开将闭源模型预算封顶并采用类似路由策略；以及Anthropic、OpenAI或NVIDIA在企业客户材料中是否开始更频繁回应开源替代与任务级定价。这些证据将检验模型采购是否正在系统性转向组合化。"
+      },
+      "validationType": "单一来源",
+      "publishedAt": "2026-08-20T18:55:44.000Z",
+      "updatedAt": "2026-08-20T18:55:44.000Z",
+      "sources": [
+        "Blog"
+      ],
+      "sourceNames": [
+        "The Information"
+      ],
+      "sourceCount": 1,
+      "age": "刚刚",
+      "score": 81,
+      "tone": "green",
+      "evidence": [
+        {
+          "id": "236-0-https://www.theinformation.com/articles/t-using-open-source-models-curb-anthropic-bills",
+          "sourceId": 236,
+          "sourceName": "The Information",
+          "sourcePublisher": "The Information",
+          "sourceKind": "Blog",
+          "title": "AT&T is Using Open Source Models to Curb Anthropic Bills",
+          "url": "https://www.theinformation.com/articles/t-using-open-source-models-curb-anthropic-bills",
+          "publishedAt": "2026-08-20T18:55:44.000Z",
+          "summary": "Anthropic and OpenAI had better hope more companies don’t follow the example of AT&amp;T. The telecommunications firm plans to keep its employees’ spending on Anthropic and OpenAI models flat in the coming years by using more open-source models such as Nvidia’s Nemotron, according to Mark Austin, an AT&amp;T vice president.&nbsp;",
+          "fetchedAt": "2026-08-20T19:06:20.299Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-20T19:06:20.299Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "standard",
+            "reason": "fresh",
+            "ageHours": 0.18346444444444446,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N7",
+          "role": "主张",
+          "takeaway": "The Information报道称，AT&T计划更多采用NVIDIA Nemotron等开源模型，以在未来几年维持对Anthropic和OpenAI模型的员工支出平稳。"
+        }
+      ],
+      "references": [
+        {
+          "id": "236-0-https://www.theinformation.com/articles/t-using-open-source-models-curb-anthropic-bills",
+          "sourceId": 236,
+          "sourceName": "The Information",
+          "sourcePublisher": "The Information",
+          "sourceKind": "Blog",
+          "title": "AT&T is Using Open Source Models to Curb Anthropic Bills",
+          "url": "https://www.theinformation.com/articles/t-using-open-source-models-curb-anthropic-bills",
+          "publishedAt": "2026-08-20T18:55:44.000Z",
+          "summary": "Anthropic and OpenAI had better hope more companies don’t follow the example of AT&amp;T. The telecommunications firm plans to keep its employees’ spending on Anthropic and OpenAI models flat in the coming years by using more open-source models such as Nvidia’s Nemotron, according to Mark Austin, an AT&amp;T vice president.&nbsp;",
+          "fetchedAt": "2026-08-20T19:06:20.299Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-20T19:06:20.299Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "standard",
+            "reason": "fresh",
+            "ageHours": 0.18346444444444446,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N7"
+        }
+      ],
+      "feedBatchAt": "2026-08-20T19:06:44.472Z"
+    },
     {
       "id": 134,
       "editorialBucket": "explore",
@@ -51968,6 +52067,41 @@
       "editorNote": "今日信息环境由智能体安全事件、AI coding 工具链分化、open-weight 模型竞争与算力下沉共同主导。",
       "signals": [
         {
+          "category": "AI & 模型",
+          "eyebrow": "趋势变化",
+          "title": "AT&T用开源模型压低闭源账单",
+          "summary": "据The Information报道，AT&T计划增加NVIDIA Nemotron等开源模型使用，以在未来几年维持对Anthropic和OpenAI模型的员工支出平稳。",
+          "why": "这将模型选型从单纯追逐能力，推向按任务管理闭源调用与自建开源供给的组合决策。",
+          "impact": "若更多大型企业采取类似路径，闭源模型供应商的企业收入增长将更受工作流分层、成本和替代性约束。",
+          "shiftFrom": "员工模型支出随闭源使用扩张",
+          "shiftTo": "以开源替代控制闭源支出增量",
+          "crossValidation": "The Information引述AT&T副总裁Mark Austin说明计划，并点名NVIDIA Nemotron及Anthropic、OpenAI；当前为单一来源报道。",
+          "article": {
+            "lead": "据The Information报道，AT&T计划在未来几年把员工对Anthropic和OpenAI模型的支出维持在平稳水平，方法是增加NVIDIA Nemotron等开源模型的使用。这个安排的信号不在于AT&T停止使用闭源模型，而在于大型企业可能开始把模型采购视为可按任务替代、配额控制和组合管理的成本结构。",
+            "sections": [
+              {
+                "heading": "变化是把模型支出设为可管理上限",
+                "body": "The Information报道称，AT&T计划更多使用开源模型，包括NVIDIA Nemotron，以避免未来几年员工对Anthropic和OpenAI模型的支出继续上升。该表述指向的是采购规则变化：闭源模型并未被描述为完全退出，而是被放进一个支出需要保持平稳的组合中。对于拥有大量员工和复杂内部工作流的企业，这种选择意味着模型使用开始被纳入预算约束，而不只是由部门自行扩张。"
+              },
+              {
+                "heading": "机制在于把任务分配给不同供给层",
+                "body": "开源模型为企业提供了不同于按调用付费的闭源API路径。企业可以将对性能、可靠性或安全要求更高的任务保留给外部前沿模型，同时将可标准化、成本敏感或可内部部署的任务转向开源模型。AT&T点名NVIDIA Nemotron，说明这一替代并不必然是从AI工作流撤退，而是通过模型路由和任务分层，控制高价闭源调用在总体使用中的占比。"
+              },
+              {
+                "heading": "企业模型市场或更像组合采购",
+                "body": "若这种做法被更多大型企业采用，闭源供应商面对的将不只是模型能力竞赛，也会是每项工作流是否值得保留在付费接口上的持续评估。最强的反面情况是，AT&T的计划可能源于其自身规模、技术团队和电信业务结构，未必能代表更广泛企业；而开源模型在复杂任务上能否稳定替代闭源模型，仍取决于实际部署结果。"
+              }
+            ],
+            "outlook": "下一步可验证的信号包括：AT&T是否披露开源模型的部署范围、成本目标或实际使用比例；其他大型企业是否公开将闭源模型预算封顶并采用类似路由策略；以及Anthropic、OpenAI或NVIDIA在企业客户材料中是否开始更频繁回应开源替代与任务级定价。这些证据将检验模型采购是否正在系统性转向组合化。"
+          },
+          "evidence": [
+            {
+              "role": "主张",
+              "takeaway": "The Information报道称，AT&T计划更多采用NVIDIA Nemotron等开源模型，以在未来几年维持对Anthropic和OpenAI模型的员工支出平稳。"
+            }
+          ]
+        },
+        {
           "category": "Agents",
           "eyebrow": "最新进展",
           "title": "Tesla奥斯汀Robotaxi疑似进入全无人运营",
@@ -64650,6 +64784,41 @@
     "en": {
       "editorNote": "Today’s information environment is being shaped by agent security incidents, a split in coding-agent toolchains, open-model competition, and compute moving closer to the edge.",
       "signals": [
+        {
+          "category": "AI & Models",
+          "eyebrow": "Trend Shift",
+          "title": "AT&T Uses Open Models to Cap Closed-Model Bills",
+          "summary": "The Information reports that AT&T plans to use more open models, including NVIDIA Nemotron, to keep employee spending on Anthropic and OpenAI models flat in coming years.",
+          "why": "The move frames model selection as a portfolio decision across task fit, substitution, and cost control rather than a pure race for model capability.",
+          "impact": "If replicated by large enterprises, proprietary-model vendors could face greater constraints from workflow segmentation, cost discipline, and open-model substitution.",
+          "shiftFrom": "Closed-model spending rose with usage",
+          "shiftTo": "Open models are used to cap spending growth",
+          "crossValidation": "The Information cites AT&T VP Mark Austin on the plan and names NVIDIA Nemotron, Anthropic, and OpenAI. It is currently a single-source report.",
+          "article": {
+            "lead": "According to The Information, AT&T plans to keep employee spending on Anthropic and OpenAI models flat over the coming years by increasing use of open-source models such as NVIDIA Nemotron. The signal is not that AT&T is abandoning proprietary models, but that a large enterprise may be treating model procurement as a cost structure that can be segmented by task, substituted, and actively managed.",
+            "sections": [
+              {
+                "heading": "The change is a managed ceiling on model spending",
+                "body": "The Information reports that AT&T plans to use more open models, including NVIDIA Nemotron, to prevent employee spending on Anthropic and OpenAI models from rising in coming years. This points to a change in procurement rules: proprietary models are not described as being eliminated, but as one component within a spending pool intended to remain flat. For a company with many employees and complex internal workflows, that makes AI usage a budget-governed operating decision rather than an unconstrained departmental expansion."
+              },
+              {
+                "heading": "The mechanism is task allocation across supply layers",
+                "body": "Open models offer an alternative to proprietary APIs priced by use. Enterprises can retain frontier external models for tasks requiring higher performance, reliability, or security while moving standardized, cost-sensitive, or internally deployable work to open models. AT&T’s reference to NVIDIA Nemotron suggests that the choice need not mean retreating from AI workflows. Instead, model routing and task segmentation can limit the share of expensive proprietary calls within overall usage."
+              },
+              {
+                "heading": "Enterprise model markets may become portfolio markets",
+                "body": "If more large companies follow this approach, proprietary suppliers will face not only a capability contest but continuing scrutiny over whether each workflow should remain on a paid interface. The strongest countercase is that AT&T’s plan may reflect its own scale, technical resources, and telecom operating structure rather than a broader enterprise pattern. Whether open models can reliably substitute for proprietary ones on complex tasks will also depend on deployment outcomes."
+              }
+            ],
+            "outlook": "Next observable evidence includes whether AT&T discloses the scope, cost targets, or usage share of its open-model deployments; whether other large enterprises publicly cap proprietary-model budgets while adopting similar routing strategies; and whether Anthropic, OpenAI, or NVIDIA increasingly address open-model substitution and task-level pricing in enterprise materials. Those developments would test whether model procurement is systematically becoming more portfolio-based."
+          },
+          "evidence": [
+            {
+              "role": "Claim",
+              "takeaway": "The Information reports that AT&T plans to use more open models, including NVIDIA Nemotron, to keep employee spending on Anthropic and OpenAI models flat in com"
+            }
+          ]
+        },
         {
           "category": "Agents",
           "eyebrow": "Latest development",
@@ -77334,11 +77503,11 @@
     "en": "gpt-5.6-sol"
   },
   "incremental": {
-    "lastAddedAt": "2026-08-20T16:13:59.370Z",
-    "lastScanAt": "2026-08-20T16:08:02.984Z",
+    "lastAddedAt": "2026-08-20T19:11:58.186Z",
+    "lastScanAt": "2026-08-20T19:06:44.472Z",
     "lastAddedCount": 1,
     "lastUpdatedCount": 0,
-    "totalAppended": 126,
+    "totalAppended": 127,
     "totalUpdated": 134
   },
   "exploreDepth": {
