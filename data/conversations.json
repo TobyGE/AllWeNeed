@@ -1,8 +1,144 @@
 {
-  "generatedAt": "2026-08-19T06:07:09.189Z",
+  "generatedAt": "2026-08-20T08:06:48.102Z",
   "weekStart": "2026-07-24T00:00:00.000Z",
-  "model": "gpt-5.6-terra",
+  "model": "gpt-5.6-luna",
   "items": [
+    {
+      "id": "conversation-20260820080648-1",
+      "videoId": "",
+      "sourceName": "硅谷101播客",
+      "sourceKind": "YouTube",
+      "originalTitle": "E249｜Token经济转点：OpenClaw、Hermes到本地自研的Agent进化之路",
+      "url": "https://www.sv101.net/262",
+      "feedBatchAt": "2026-08-20T08:06:48.102Z",
+      "publishedAt": "2026-08-20T00:00:00.000Z",
+      "durationMinutes": 87,
+      "guest": "张宏江、黄东旭",
+      "categoryZh": "Agent基础设施与模型经济学",
+      "categoryEn": "Agent infrastructure and model economics",
+      "titleZh": "Agent 的下一场竞争，不是烧更多 Token，而是降低每次行动的成本",
+      "titleEn": "The Next Agent Race Is About Cost per Action, Not Maximum Token Use",
+      "dekZh": "黄东旭认为，Token Maxing 正从炫耀性支出转向成本工程：本地开源模型承担日常任务，前沿模型处理高难度环节，Agent 产品的价值将更多取决于推理成本与系统编排。",
+      "dekEn": "Huang Dongxu argues that Token Maxing is shifting from conspicuous spending to cost engineering: local open models handle routine work while frontier models tackle harder steps, making inference economics and orchestration central to Agent products.",
+      "whyListenZh": "这场对谈把 OpenClaw、Hermes、Agent 蜂群和本地模型放进同一条产品演化链路，也提供了从亲身账单到创业机会判断的连续视角。",
+      "whyListenEn": "The conversation connects OpenClaw, Hermes, Agent swarms, and local models into one product-evolution story, moving from Huang Dongxu's own spending experience to a view on where startups may still have room.",
+      "counterpointZh": "这套成本逻辑成立的前提，是本地模型在可靠性、长链路任务和维护成本上足以替代更昂贵的模型；Token 便宜并不自动等于任务完成质量更高。",
+      "counterpointEn": "The cost thesis depends on local models being reliable enough for long, multi-step tasks and inexpensive enough to maintain; lower token spend does not by itself mean better task completion.",
+      "takeawaysZh": [
+        "黄东旭把自己每天花费数百美元使用前沿模型的经历，视为 Token Maxing 转向的切入口。",
+        "在他的判断中，本地开源模型加前沿模型的组合，可以让大量日常 Agent 任务接近“只烧电费，不烧 Token”。",
+        "张宏江认为，Agent 的机会仍在，但创业者应避开容易被基础模型直接替代的应用，转向 toB 与 infra。"
+      ],
+      "takeawaysEn": [
+        "Huang Dongxu uses his experience spending hundreds of dollars a day on frontier models as the starting point for the Token Maxing reversal.",
+        "In his view, combining local open models with frontier models can make many routine Agent tasks cost little beyond electricity.",
+        "Zhang Hongjiang sees room for Agent startups, but advises founders to avoid applications that foundation models can easily absorb and look toward B2B and infrastructure."
+      ],
+      "articleZh": {
+        "lead": "张宏江与黄东旭把 Agent 的核心问题，从“模型能不能做”推进到“系统能否以可承受的成本持续做”。",
+        "sections": [
+          {
+            "heading": "从 Token Maxing 转向成本纪律",
+            "body": "黄东旭将 Token Maxing 描述为一场先追求最强、最贵模型的尝试：他曾每天花费数百美元，把前沿模型用于各种任务。但当高消耗带来成本失控和虚假生产力时，他的关注点转向了任务分层——不是所有步骤都值得调用最强模型。这个中心判断并非行业定论，而是黄东旭基于亲身使用经验提出的产品路线。"
+          },
+          {
+            "heading": "模型组合改变 Agent 的经济账",
+            "body": "对谈将 OpenClaw、Hermes 和 Agent 蜂群视为一条从研究实验走向工程系统的演化链路：Skill 可以沉淀经验，多个 Agent 可以用更多 Token 换取更深的探索，而本地开源模型则承担重复、低风险的日常工作。黄东旭据此主张用本地模型处理基础任务，再把前沿模型留给复杂环节；张宏江则把更复杂的 A2A 网络和持续增长的 Token 消耗视为下一阶段的系统变量。"
+          },
+          {
+            "heading": "低成本不等于低风险",
+            "body": "这套架构仍有一个关键限制：任务越长、参与的 Agent 越多，错误传播、上下文管理和评估成本也可能上升。即使本地模型把账单压低，如果它在复杂任务中的可靠性不足，人工返工和系统维护仍会吞掉节省下来的费用。对谈因此更像一套待检验的工程假设，而不是对 Agent 商业模式的结论。"
+          }
+        ],
+        "outlook": "下一步应观察本地与前沿模型混合架构在真实企业任务中的单位任务成本、成功率、返工率，以及 Agent 网络规模扩大后是否仍能保持可控。"
+      },
+      "articleEn": {
+        "lead": "Zhang Hongjiang and Huang Dongxu shift the Agent debate from whether models can perform a task to whether systems can perform it repeatedly at an acceptable cost.",
+        "sections": [
+          {
+            "heading": "From Token Maxing to cost discipline",
+            "body": "Huang Dongxu describes Token Maxing as an initial push to use the strongest and most expensive models for everything. He personally spent hundreds of dollars a day in that mode, but says uncontrolled costs and false productivity forced a change in emphasis: tasks need to be divided by difficulty rather than routed uniformly to the best model. This is Huang's product judgment from direct use, not an established industry fact."
+          },
+          {
+            "heading": "Model mixtures change Agent economics",
+            "body": "The discussion places OpenClaw, Hermes, and Agent swarms on a path from research experiments to engineered systems. Skills can preserve successful patterns, while multiple Agents can spend more tokens to explore a task in depth. Local open models can then handle repetitive, lower-risk work, with frontier models reserved for harder steps. Zhang Hongjiang adds that future A2A networks may make token consumption more complex rather than simply smaller."
+          },
+          {
+            "heading": "Lower cost does not remove operational risk",
+            "body": "The architecture has a central constraint: as tasks become longer and more Agents participate, error propagation, context management, and evaluation can become more expensive. A local model may reduce the bill, but insufficient reliability can replace inference cost with human rework and system maintenance. The conversation is therefore best read as an engineering hypothesis that still needs operational testing."
+          }
+        ],
+        "outlook": "Watch the unit cost, success rate, rework rate, and maintenance burden of hybrid local-frontier systems on real enterprise tasks, especially as Agent networks grow."
+      }
+    },
+    {
+      "id": "conversation-20260820080648-2",
+      "videoId": "",
+      "sourceName": "Eye On A.I.",
+      "sourceKind": "Podcast",
+      "originalTitle": "From Zero to 150 Robots in Just 20 Months | Mike LeBlanc, Foundation Future Industries",
+      "url": "https://aneyeonai.libsyn.com/from-zero-to-150-robots-in-just-20-months-mike-leblanc-foundation-future-industries",
+      "feedBatchAt": "2026-08-20T08:06:48.102Z",
+      "publishedAt": "2026-08-19T13:26:00.000Z",
+      "durationMinutes": 66,
+      "guest": "Mike LeBlanc",
+      "categoryZh": "人形机器人产业化",
+      "categoryEn": "Humanoid robotics deployment",
+      "titleZh": "人形机器人真正的分水岭，是进入生产线而不是完成演示",
+      "titleEn": "For Humanoids, the Real Test Is Production Deployment, Not a Demo",
+      "dekZh": "Mike LeBlanc 认为，人形机器人的竞争优势不在于复制环境中的漂亮演示，而在于能否用视频训练、适应真实工厂并快速部署；他将 Foundation Future Industries 的生产线进展视为这一方法的证明。",
+      "dekEn": "Mike LeBlanc argues that humanoid robotics will be won by systems that learn from video, adapt to real factories, and deploy quickly—not by polished demonstrations in replica environments. He presents Foundation Future Industries' production-line work as evidence for that approach.",
+      "whyListenZh": "对谈把人形机器人从形态争论拉回部署、训练和市场进入，并让 LeBlanc 的激进预测与主持人 Craig 的谨慎判断正面交锋。",
+      "whyListenEn": "The conversation moves humanoids away from abstract form-factor debates toward training, deployment, and go-to-market, while directly contrasting LeBlanc's aggressive forecast with Craig's caution.",
+      "counterpointZh": "150 台、生产线部署以及未来 12 个月达到 10,000 台，都是 LeBlanc 在节目中的陈述或预测；规模化能否跨越安全、维护、任务泛化和战场环境，仍是最直接的反证变量。",
+      "counterpointEn": "The figures of 150 robots, production-line deployment, and 10,000 within 12 months are LeBlanc's statements or forecast on the show; safety, maintenance, task generalization, and battlefield conditions remain direct tests of the claim.",
+      "takeawaysZh": [
+        "LeBlanc 认为，真实汽车生产线上的部署比复制环境中的演示更能说明机器人是否接近可用。",
+        "他主张用视频而非主要依赖仿真训练机器人，并把无法打开薯条袋的 fry-cook 机器人视为产品落地失败的象征。",
+        "他预计 Foundation Future Industries 将在 12 个月内把部署量从 150 台推进到 10,000 台，并接受 Craig 的反向怀疑。"
+      ],
+      "takeawaysEn": [
+        "LeBlanc says deployment on real automotive production lines is more meaningful than demonstrations in replica environments.",
+        "He favors training from video rather than relying primarily on simulation, using a fry-cook robot that could not open a bag of fries as a symbol of failed productization.",
+        "He predicts that Foundation Future Industries will move from 150 deployed robots to 10,000 within 12 months, a forecast Craig explicitly treats with caution."
+      ],
+      "articleZh": {
+        "lead": "Mike LeBlanc 的中心论点很明确：人形机器人行业的领先者，不是最会做演示的公司，而是最早把机器人放进真实工作流程的公司。",
+        "sections": [
+          {
+            "heading": "从复制场景走向真实生产",
+            "body": "LeBlanc 将 Foundation Future Industries 与仍在复制环境中演示的竞争者区分开来。他声称，公司已经让 150 台机器人运行在 Georgia 的真实汽车生产线上，并计划在今年前往 Ukraine 部署。按照他的判断，真实现场暴露出的物料、工具和流程变化，才是衡量机器人系统成熟度的主要标准。"
+          },
+          {
+            "heading": "训练方法与形态选择服务于部署",
+            "body": "他认为，视频训练能让机器人从人类已经完成的工作中学习，减少对精心构造仿真的依赖。对 LeBlanc 来说，人形也不是哲学偏好，而是由工厂现实倒推出的工程选择：人类仍在完成许多其他机器人无法完成的工作，因此现有环境本身就是对人形兼容性的需求证明。他还把打不开薯条袋的 fry-cook 机器人作为反例，说明单点演示与完整任务能力之间的距离。"
+          },
+          {
+            "heading": "激进部署必须经受规模化检验",
+            "body": "LeBlanc 以 1906 年《New York Times》低估飞行发展速度的文章作类比，认为人形机器人也处在被严重低估的时刻。他因此预计 12 个月内达到 10,000 台部署，并不担心 Boston Dynamics 与 Google DeepMind 的竞争。但 Craig 保持谨慎，这场分歧的关键不在愿景，而在机器人能否在更多任务、地点和安全约束下稳定复制当前成绩。"
+          }
+        ],
+        "outlook": "最值得观察的是 12 个月内的实际部署数量，以及这些机器人在不同工厂、任务和安全标准下的持续运行时间，而不只是新增演示。"
+      },
+      "articleEn": {
+        "lead": "Mike LeBlanc's central claim is straightforward: the leader in humanoid robotics will be the company that puts robots into real workflows first, not the company with the most impressive demo.",
+        "sections": [
+          {
+            "heading": "From replica sites to production lines",
+            "body": "LeBlanc distinguishes Foundation Future Industries from competitors he says are still demonstrating in replica environments. He says the company has 150 robots operating on real automotive production lines in Georgia and plans to deploy in Ukraine this year. In his frame, changing materials, tools, and workflows in the field provide a better test of maturity than a controlled demonstration."
+          },
+          {
+            "heading": "Training and form factor are deployment choices",
+            "body": "He favors learning from video of humans performing work, reducing dependence on carefully constructed simulation. For LeBlanc, the humanoid form is not a philosophical preference but an engineering conclusion drawn from factories: humans still perform many jobs that other robots cannot, making existing environments evidence of demand for human-compatible machines. He uses a fry-cook robot that could not open a bag of fries to show the gap between a narrow demo and complete task capability."
+          },
+          {
+            "heading": "Aggressive deployment still needs a scale test",
+            "body": "LeBlanc compares the current moment to a 1906 New York Times article that underestimated the arrival of human flight, and says humanoids are being underestimated in the same way. He therefore forecasts 10,000 deployed robots within 12 months and says he is not especially concerned about Boston Dynamics backed by Google DeepMind. Craig remains cautious; the decisive question is whether the claimed performance can be reproduced across tasks, sites, and safety constraints."
+          }
+        ],
+        "outlook": "The key test is the actual deployment count within 12 months, alongside sustained operating time across different factories, tasks, and safety requirements—not merely more demonstrations."
+      }
+    },
     {
       "id": "conversation-20260819060709-1",
       "videoId": "",
