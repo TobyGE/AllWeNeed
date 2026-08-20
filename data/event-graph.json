@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-20T19:06:44.472Z",
+  "generatedAt": "2026-08-20T22:06:17.636Z",
   "counts": {
-    "sources": 791,
-    "claims": 934,
+    "sources": 795,
+    "claims": 939,
     "events": 197,
     "articles": 197,
-    "updates": 134,
-    "edges": 2508,
+    "updates": 135,
+    "edges": 2523,
     "revisionsRequired": 11
   },
   "revisionQueue": [
@@ -6702,6 +6702,84 @@
       "title": "公司披露因中国客户出货和出口管制合规问题与美国商务部工业和安全局达成2.53亿美元和解，并提示相关限制可能压缩销售、利润率和可预测性。",
       "role": "反例",
       "addedAt": "2026-08-14T01:06:53.294Z"
+    },
+    {
+      "id": "source_b79863ea7b63f7fa",
+      "type": "source",
+      "title": "Applied Materials SEC Filings",
+      "url": "https://www.sec.gov/Archives/edgar/data/6951/000162828026058235/amat-20260726.htm",
+      "sourceKind": "SEC",
+      "publishedAt": "2026-08-20T16:01:46.000Z"
+    },
+    {
+      "id": "claim_e33c9acd00b58d95",
+      "type": "claim",
+      "title": "10-Q披露截至2026年7月26日季度收入91.2亿美元、净利润25.4亿美元、营业利润30.8亿美元及摊薄EPS 3.17美元。",
+      "role": "佐证",
+      "addedAt": "2026-08-14T01:06:53.294Z"
+    },
+    {
+      "id": "source_4a6cd676a8328b03",
+      "type": "source",
+      "title": "Applied Materials, Inc.",
+      "url": "https://ir.appliedmaterials.com/node/29551/pdf",
+      "sourceKind": "IR",
+      "publishedAt": "2026-08-13T00:00:00.000Z"
+    },
+    {
+      "id": "claim_16b99df1db745999",
+      "type": "claim",
+      "title": "公司第三财季收入同比增长25%至91.2亿美元，非GAAP EPS同比增长41%至3.50美元，并给出第四财季102.5亿美元收入和4.02美元非GAAP EPS的指引中值。",
+      "role": "最新进展",
+      "addedAt": "2026-08-14T01:06:53.294Z"
+    },
+    {
+      "id": "source_fbe8a01c883f1d78",
+      "type": "source",
+      "title": "Reuters",
+      "url": "https://finance.yahoo.com/technology/ai/articles/applied-materials-forecasts-quarterly-revenue-200500160.html",
+      "sourceKind": "Media",
+      "publishedAt": "2026-08-13T20:05:00.000Z"
+    },
+    {
+      "id": "claim_9be06aa2c7dcd1c0",
+      "type": "claim",
+      "title": "路透社援引LSEG称，分析师对第四财季收入的平均预期为95.4亿美元，低于公司102.5亿美元的指引中值。",
+      "role": "佐证",
+      "addedAt": "2026-08-14T01:06:53.294Z"
+    },
+    {
+      "id": "source_ebd78435fafcdce1",
+      "type": "source",
+      "title": "MT Newswires",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/applied-materials-fiscal-q3-adjusted-200644478.html",
+      "sourceKind": "Media",
+      "publishedAt": "2026-08-13T20:06:00.000Z"
+    },
+    {
+      "id": "claim_c31074dcc7ce590c",
+      "type": "claim",
+      "title": "FactSet调查的第三财季非GAAP EPS预期为3.40美元，实际为3.50美元；收入为91.2亿美元，上年同期为73.0亿美元。",
+      "role": "佐证",
+      "addedAt": "2026-08-14T01:06:53.294Z"
+    },
+    {
+      "id": "update_1df946c99ceb8f09",
+      "type": "update",
+      "signalId": 110,
+      "title": "Applied Materials上调四财季指引",
+      "summary": "Applied Materials第三财季收入91.2亿美元、同比增长25%，非GAAP EPS为3.50美元。公司给出第四财季收入102.5亿美元的指引中值；路透社援引LSEG称市场平均预期为95.4亿美元。",
+      "addedAt": "2026-08-20T16:01:46.000Z",
+      "changeType": "corroboration",
+      "thesisImpact": "强化原判断：官方财报确认第三财季增长，并将第四财季收入指引中值上调至102.5亿美元，高于路透社援引的市场平均预期。",
+      "revisionRequired": false
+    },
+    {
+      "id": "claim_bc97d49c624b2d69",
+      "type": "claim",
+      "title": "公司此前对第三财季的收入指引为89.5亿美元上下5亿美元，非GAAP EPS指引为3.36美元上下0.20美元。",
+      "role": "背景",
+      "addedAt": "2026-08-20T16:01:46.000Z"
     },
     {
       "id": "event_a21c186729e2ceec",
@@ -25198,6 +25276,105 @@
       "to": "event_0482f17cbad70891",
       "relation": "evidence_for",
       "updateTitle": null
+    },
+    {
+      "id": "edge_1f2dddb2dde657d1",
+      "from": "source_b79863ea7b63f7fa",
+      "to": "claim_e33c9acd00b58d95",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_e7e24e2b40f63f3b",
+      "from": "claim_e33c9acd00b58d95",
+      "to": "event_0482f17cbad70891",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_fd7a53df674047b3",
+      "from": "source_4a6cd676a8328b03",
+      "to": "claim_16b99df1db745999",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_6e1483a2189142b3",
+      "from": "claim_16b99df1db745999",
+      "to": "event_0482f17cbad70891",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_bb61c66223537e62",
+      "from": "source_fbe8a01c883f1d78",
+      "to": "claim_9be06aa2c7dcd1c0",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_9401d7665e903649",
+      "from": "claim_9be06aa2c7dcd1c0",
+      "to": "event_0482f17cbad70891",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_4d410dc51adfd95b",
+      "from": "source_ebd78435fafcdce1",
+      "to": "claim_c31074dcc7ce590c",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_f2a030005f36801e",
+      "from": "claim_c31074dcc7ce590c",
+      "to": "event_0482f17cbad70891",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_ec7492f307057899",
+      "from": "update_1df946c99ceb8f09",
+      "to": "event_0482f17cbad70891",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_258b6ab5f8d7a893",
+      "from": "claim_e33c9acd00b58d95",
+      "to": "event_0482f17cbad70891",
+      "relation": "update_evidence_for",
+      "updateTitle": "Applied Materials上调四财季指引"
+    },
+    {
+      "id": "edge_1f01871fe309fa3e",
+      "from": "claim_16b99df1db745999",
+      "to": "event_0482f17cbad70891",
+      "relation": "update_evidence_for",
+      "updateTitle": "Applied Materials上调四财季指引"
+    },
+    {
+      "id": "edge_abd634ba67af0d06",
+      "from": "source_3c4736ecc72e8c6e",
+      "to": "claim_bc97d49c624b2d69",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_17f906de7af2bdc4",
+      "from": "claim_bc97d49c624b2d69",
+      "to": "event_0482f17cbad70891",
+      "relation": "update_evidence_for",
+      "updateTitle": "Applied Materials上调四财季指引"
+    },
+    {
+      "id": "edge_e03a0faf078b50b7",
+      "from": "claim_9be06aa2c7dcd1c0",
+      "to": "event_0482f17cbad70891",
+      "relation": "update_evidence_for",
+      "updateTitle": "Applied Materials上调四财季指引"
+    },
+    {
+      "id": "edge_1285d67cc6f0580c",
+      "from": "claim_c31074dcc7ce590c",
+      "to": "event_0482f17cbad70891",
+      "relation": "update_evidence_for",
+      "updateTitle": "Applied Materials上调四财季指引"
     },
     {
       "id": "edge_e7ffb87e60286b30",
