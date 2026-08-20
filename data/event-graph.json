@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-20T08:06:48.102Z",
+  "generatedAt": "2026-08-20T11:06:46.453Z",
   "counts": {
-    "sources": 777,
-    "claims": 919,
-    "events": 190,
-    "articles": 190,
+    "sources": 779,
+    "claims": 921,
+    "events": 191,
+    "articles": 191,
     "updates": 134,
-    "edges": 2471,
+    "edges": 2476,
     "revisionsRequired": 11
   },
   "revisionQueue": [
@@ -123,6 +123,54 @@
     }
   ],
   "nodes": [
+    {
+      "id": "event_d4442a6d79120aa8",
+      "type": "event",
+      "signalId": 132,
+      "title": "Uber在萨格勒布接入自动驾驶叫车",
+      "bucket": "dynamic",
+      "valueScore": 84,
+      "publishedAt": "2026-08-19T14:29:00.000Z",
+      "updatedAt": "2026-08-19T14:29:00.000Z"
+    },
+    {
+      "id": "article_24c72809884659ba",
+      "type": "article",
+      "signalId": 132,
+      "title": "Uber在萨格勒布接入自动驾驶叫车",
+      "version": 1,
+      "publishedAt": "2026-08-20T11:06:46.453Z"
+    },
+    {
+      "id": "source_22f7ff25b2503b5c",
+      "type": "source",
+      "title": "Thomson Reuters",
+      "url": "https://krro.com/2026/08/19/uber-launches-autonomous-rides-in-zagreb-its-first-in-europe/",
+      "sourceKind": "Media",
+      "publishedAt": "2026-08-19T14:29:00.000Z"
+    },
+    {
+      "id": "claim_2130a6e864b41b47",
+      "type": "claim",
+      "title": "路透社报道Uber、Verne和Pony.ai已在萨格勒布推出自动驾驶 rides，用户可通过Uber App预约。",
+      "role": "主张",
+      "addedAt": "2026-08-20T11:06:46.453Z"
+    },
+    {
+      "id": "source_06a8e9db93488f32",
+      "type": "source",
+      "title": "Pony AI Inc.",
+      "url": "https://ir.pony.ai/news-releases/news-release-details/pony-ai-inc-advances-overseas-deployment-launch-europes-first",
+      "sourceKind": "IR",
+      "publishedAt": "2026-04-08T13:10:00.000Z"
+    },
+    {
+      "id": "claim_f059b94352e71dcb",
+      "type": "claim",
+      "title": "Pony.ai此前公告称萨格勒布商业Robotaxi服务初期经Verne App提供，Uber App接入将在随后推出。",
+      "role": "背景",
+      "addedAt": "2026-08-20T11:06:46.453Z"
+    },
     {
       "id": "event_5b00961d94d78d4e",
       "type": "event",
@@ -17550,6 +17598,38 @@
     }
   ],
   "edges": [
+    {
+      "id": "edge_a1b221143b4e3228",
+      "from": "event_d4442a6d79120aa8",
+      "to": "article_24c72809884659ba",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_e55e02375b04b5b3",
+      "from": "source_22f7ff25b2503b5c",
+      "to": "claim_2130a6e864b41b47",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_40b6e76410f46b7e",
+      "from": "claim_2130a6e864b41b47",
+      "to": "event_d4442a6d79120aa8",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_e6ec522943fcc38f",
+      "from": "source_06a8e9db93488f32",
+      "to": "claim_f059b94352e71dcb",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_ae50c84d5faeb82e",
+      "from": "claim_f059b94352e71dcb",
+      "to": "event_d4442a6d79120aa8",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
     {
       "id": "edge_a6ce6c1f1bef43c3",
       "from": "event_5b00961d94d78d4e",
