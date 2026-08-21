@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-21T11:06:17.165Z",
+  "generatedAt": "2026-08-21T14:07:27.416Z",
   "counts": {
-    "sources": 818,
-    "claims": 969,
-    "events": 200,
-    "articles": 200,
-    "updates": 138,
-    "edges": 2600,
+    "sources": 825,
+    "claims": 978,
+    "events": 201,
+    "articles": 201,
+    "updates": 139,
+    "edges": 2626,
     "revisionsRequired": 13
   },
   "revisionQueue": [
@@ -143,6 +143,748 @@
     }
   ],
   "nodes": [
+    {
+      "id": "event_fd6738bc4783b911",
+      "type": "event",
+      "signalId": 42,
+      "title": "DeepSeek V4 Flash走向完整部署",
+      "bucket": "dynamic",
+      "valueScore": 90,
+      "publishedAt": "2026-07-31T00:00:00.000Z",
+      "updatedAt": "2026-08-21T11:04:33.000Z"
+    },
+    {
+      "id": "article_b56f0e63c13abe3d",
+      "type": "article",
+      "signalId": 42,
+      "title": "DeepSeek V4 Flash走向完整部署",
+      "version": 1,
+      "publishedAt": "2026-08-21T14:07:27.416Z"
+    },
+    {
+      "id": "source_b6d1ad104292fa31",
+      "type": "source",
+      "title": "DeepSeek API Changelog",
+      "url": "https://api-docs.deepseek.com/updates/#date-2026-07-31",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-07-31T00:00:00.000Z"
+    },
+    {
+      "id": "claim_7c759721a54d0b85",
+      "type": "claim",
+      "title": "DeepSeek更新日志宣布V4 Flash API进入public beta，并公布Terminal Bench 2.1、Cybergym、DeepSWE等agent基准成绩。",
+      "role": "主张",
+      "addedAt": "2026-08-21T14:07:27.416Z"
+    },
+    {
+      "id": "source_57fb8eea07a5cdcc",
+      "type": "source",
+      "title": "DeepSeek API Docs",
+      "url": "https://api-docs.deepseek.com/news/news260424/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-04-24T00:00:00.000Z"
+    },
+    {
+      "id": "claim_00b6cfec5c35b87d",
+      "type": "claim",
+      "title": "4月Preview已通过API提供V4 Flash，支持1M context、OpenAI ChatCompletions与Anthropic API，构成本次比较基线。",
+      "role": "背景",
+      "addedAt": "2026-08-21T14:07:27.416Z"
+    },
+    {
+      "id": "source_280758cc57a6ef53",
+      "type": "source",
+      "title": "DeepSeek API Docs",
+      "url": "https://api-docs.deepseek.com/quick_start/pricing/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-07-31T00:00:00.000Z"
+    },
+    {
+      "id": "claim_d7cd891c054670f2",
+      "type": "claim",
+      "title": "当前API文档确认0731版本、价格、384K最高输出、2500并发上限以及Responses API和Tool Calls等规格。",
+      "role": "佐证",
+      "addedAt": "2026-08-21T14:07:27.416Z"
+    },
+    {
+      "id": "source_9d2c4f68b951191f",
+      "type": "source",
+      "title": "DeepSeek API Docs",
+      "url": "https://api-docs.deepseek.com/quick_start/agent_integrations/codex/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-07-31T00:00:00.000Z"
+    },
+    {
+      "id": "claim_014b56cdafa6590c",
+      "type": "claim",
+      "title": "Codex集成文档显示当前仅V4 Flash受支持，并通过Responses API提供reasoning effort、并行工具调用等配置。",
+      "role": "佐证",
+      "addedAt": "2026-08-21T14:07:27.416Z"
+    },
+    {
+      "id": "source_912947e504e3337f",
+      "type": "source",
+      "title": "Hugging Face / DeepSeek-AI",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash",
+      "sourceKind": "Repository",
+      "publishedAt": "2026-07-31T00:00:00.000Z"
+    },
+    {
+      "id": "claim_95aa2e1c5274b9b6",
+      "type": "claim",
+      "title": "官方Hugging Face仓库提供284B total、13B active的mixed-precision权重，采用MIT license并允许自托管。",
+      "role": "佐证",
+      "addedAt": "2026-08-21T14:07:27.416Z"
+    },
+    {
+      "id": "source_95185cf91586e5d4",
+      "type": "source",
+      "title": "Simon Willison",
+      "url": "https://simonwillison.net/2026/Jul/31/deepseek-v4-flash-0731/#atom-everything",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-07-31T23:59:44.000Z"
+    },
+    {
+      "id": "claim_8be9871973fc4efb",
+      "type": "claim",
+      "title": "Simon Willison注意到0731版本及其相对MiniMax-M3的独立评测表现，但所列输出价格为$0.27/百万token。",
+      "role": "背景",
+      "addedAt": "2026-08-21T14:07:27.416Z"
+    },
+    {
+      "id": "source_9485e4897bb097b7",
+      "type": "source",
+      "title": "Product Hunt",
+      "url": "https://www.producthunt.com/products/deepseek",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-07-31T13:38:23.000Z"
+    },
+    {
+      "id": "claim_0ef5347787e60a4c",
+      "type": "claim",
+      "title": "Product Hunt收录DeepSeek-V4-Flash-0731，并将其描述为面向agent任务的Flash价位模型。",
+      "role": "背景",
+      "addedAt": "2026-08-21T14:07:27.416Z"
+    },
+    {
+      "id": "source_a1a747f4e1222f58",
+      "type": "source",
+      "title": "DeepSeek",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731",
+      "sourceKind": "Repository",
+      "publishedAt": "2026-07-31T13:38:23.000Z"
+    },
+    {
+      "id": "claim_6d3065e474d19611",
+      "type": "claim",
+      "title": "DeepSeek模型卡确认0731替代Preview、采用MIT许可，并给出与多个模型的agent基准比较及内部评测披露。",
+      "role": "最新进展",
+      "addedAt": "2026-08-21T14:07:27.416Z"
+    },
+    {
+      "id": "source_5f55e1160c55ca96",
+      "type": "source",
+      "title": "Artificial Analysis",
+      "url": "https://artificialanalysis.ai/models/deepseek-v4-flash",
+      "sourceKind": "Research",
+      "publishedAt": "2026-07-31T13:38:23.000Z"
+    },
+    {
+      "id": "claim_88fa8b2570591cf7",
+      "type": "claim",
+      "title": "Artificial Analysis给出DeepSeek V4 Flash的独立指数，但未明确该成绩是否对应0731 SKU。",
+      "role": "反例",
+      "addedAt": "2026-08-21T14:07:27.416Z"
+    },
+    {
+      "id": "source_c625f40b55d19620",
+      "type": "source",
+      "title": "The Information",
+      "url": "https://www.theinformation.com/briefings/deepseek-makes-splash-small-affordable-v4-flash-model",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-02T04:10:31.000Z"
+    },
+    {
+      "id": "claim_6014f5103d03168a",
+      "type": "claim",
+      "title": "The Information将V4-Flash描述为更小、更便宜的V4版本，并称早期测试认为其能力可与更大模型竞争。",
+      "role": "佐证",
+      "addedAt": "2026-08-21T14:07:27.416Z"
+    },
+    {
+      "id": "source_e547d0d8cbe359a0",
+      "type": "source",
+      "title": "DeepSeek",
+      "url": "https://api-docs.deepseek.com/updates/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-07-31T00:00:00.000Z"
+    },
+    {
+      "id": "claim_46e9c3eae71061c8",
+      "type": "claim",
+      "title": "DeepSeek变更日志确认V4-Flash API公共测试版于7月31日上线，公布八项代理基准及测试设置，并说明APP、WEB和V4-Pro API未更新。",
+      "role": "最新进展",
+      "addedAt": "2026-08-21T14:07:27.416Z"
+    },
+    {
+      "id": "source_43d3190fc831ca70",
+      "type": "source",
+      "title": "DeepSeek API Changelog",
+      "url": "https://api-docs.deepseek.com/updates/#date-2026-08-13",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-13T00:00:00.000Z"
+    },
+    {
+      "id": "claim_eaff0798fbd99050",
+      "type": "claim",
+      "title": "DeepSeek宣布V4-Pro GA已在APP、Web和API推出，代理能力获得显著增强并公布多项评测结果。",
+      "role": "最新进展",
+      "addedAt": "2026-08-21T14:07:27.416Z"
+    },
+    {
+      "id": "source_2e7500712565c603",
+      "type": "source",
+      "title": "DeepSeek",
+      "url": "https://api-docs.deepseek.com/quick_start/pricing/?article_id=article_1779470751466_8",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-13T00:00:00.000Z"
+    },
+    {
+      "id": "claim_f4801ea58bb290df",
+      "type": "claim",
+      "title": "官方页面确认生产版本为DeepSeek-V4-Pro-0813，支持Responses API、1M context、384K最大输出，并列出当前及2026-08-16生效的API定价。",
+      "role": "佐证",
+      "addedAt": "2026-08-21T14:07:27.416Z"
+    },
+    {
+      "id": "source_64d97dbebd8f6ab1",
+      "type": "source",
+      "title": "National Institute of Standards and Technology",
+      "url": "https://www.nist.gov/news-events/news/2026/05/caisi-evaluation-deepseek-v4-pro",
+      "sourceKind": "Research",
+      "publishedAt": "2026-05-01T00:00:00.000Z"
+    },
+    {
+      "id": "claim_ba4f0611eaec4d99",
+      "type": "claim",
+      "title": "CAISI评估称DeepSeek V4在其测试中较美国前沿模型落后约8个月，并报告SWE-Bench Verified 74%、PortBench 44%和ARC-AGI-2 semi-private 46%。",
+      "role": "反例",
+      "addedAt": "2026-08-21T14:07:27.416Z"
+    },
+    {
+      "id": "source_a21d8ed6f8658b97",
+      "type": "source",
+      "title": "The Decoder AI",
+      "url": "https://the-decoder.com/deepseek-launches-an-improved-v4-pro-model-raises-api-prices-and-makes-its-agent-software-open-source/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-13T16:27:32.000Z"
+    },
+    {
+      "id": "claim_c1d0ca72ac81bb34",
+      "type": "claim",
+      "title": "报道指出DeepSeek将V4-Pro移出测试阶段、开源Harness v0.1，并同步上调部分API使用成本。",
+      "role": "最新进展",
+      "addedAt": "2026-08-21T14:07:27.416Z"
+    },
+    {
+      "id": "source_890a56b0d2aff0c9",
+      "type": "source",
+      "title": "DeepSeek",
+      "url": "https://github.com/deepseek-ai/deepseek-harness",
+      "sourceKind": "Repository",
+      "publishedAt": "2026-08-13T16:27:32.000Z"
+    },
+    {
+      "id": "claim_1da0e597c4c39473",
+      "type": "claim",
+      "title": "DeepSeek官方GitHub组织发布deepseek-harness仓库，采用MIT License并于8月13日更新。",
+      "role": "佐证",
+      "addedAt": "2026-08-21T14:07:27.416Z"
+    },
+    {
+      "id": "source_0dc56ff3a015f50d",
+      "type": "source",
+      "title": "The Information",
+      "url": "https://www.theinformation.com/briefings/deepseek-releases-flagship-v4-pro-model-challenge-kimi-k3",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-13T03:48:06.000Z"
+    },
+    {
+      "id": "claim_4da6c1d46e73d63a",
+      "type": "claim",
+      "title": "The Information报道称V4-Pro用户评价不一，并提及外部排行榜对其表现的不同说法。",
+      "role": "反例",
+      "addedAt": "2026-08-21T14:07:27.416Z"
+    },
+    {
+      "id": "source_a0d5aaf3b3e59dfb",
+      "type": "source",
+      "title": "DeepSeek",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro",
+      "sourceKind": "Repository",
+      "publishedAt": "2026-08-13T03:48:06.000Z"
+    },
+    {
+      "id": "claim_f55a221416ca2123",
+      "type": "claim",
+      "title": "官方模型卡给出相对V3.2-Base的部分指标提升，同时显示其在知识、推理和Agent基准上并非全面领先。",
+      "role": "佐证",
+      "addedAt": "2026-08-21T14:07:27.416Z"
+    },
+    {
+      "id": "source_2ede50bf019bc4ad",
+      "type": "source",
+      "title": "Vals AI",
+      "url": "https://www.vals.ai/models/deepseek_deepseek-v4-pro",
+      "sourceKind": "Research",
+      "publishedAt": "2026-08-13T03:48:06.000Z"
+    },
+    {
+      "id": "claim_dbe08bf891e79197",
+      "type": "claim",
+      "title": "Vals AI可访问页面将关联DeepSeek V4条目的Vals Index列为42.89%±1.19、总榜第24/43，不能支持“所有模型第二”的说法。",
+      "role": "反例",
+      "addedAt": "2026-08-21T14:07:27.416Z"
+    },
+    {
+      "id": "source_8d31cb94ef58321a",
+      "type": "source",
+      "title": "Simon Willison",
+      "url": "https://simonwillison.net/2026/Aug/12/deepseek-v4-pro-0813/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-12T23:59:23.000Z"
+    },
+    {
+      "id": "claim_c7a1a5dfe88d3154",
+      "type": "claim",
+      "title": "Simon Willison观察到DeepSeek V4 Pro 0813已通过OpenRouter提供API访问，但当时难以确认官方说明和权重发布状态。",
+      "role": "佐证",
+      "addedAt": "2026-08-21T14:07:27.416Z"
+    },
+    {
+      "id": "source_9b50d2133520c007",
+      "type": "source",
+      "title": "DeepSeek",
+      "url": "https://api-docs.deepseek.com/news/news260813/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-13T00:00:00.000Z"
+    },
+    {
+      "id": "claim_08d27fedd5d2f2f6",
+      "type": "claim",
+      "title": "DeepSeek官方确认V4-Pro于8月13日GA上线，覆盖app、web Expert Mode和API，并新增Agent、推理强度和Responses API相关能力。",
+      "role": "最新进展",
+      "addedAt": "2026-08-21T14:07:27.416Z"
+    },
+    {
+      "id": "source_8eb12065b9344787",
+      "type": "source",
+      "title": "DeepSeek",
+      "url": "https://api-docs.deepseek.com/quick_start/pricing",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-12T23:59:23.000Z"
+    },
+    {
+      "id": "claim_5a23de5daa33e0d3",
+      "type": "claim",
+      "title": "DeepSeek调用文档显示deepseek-v4-pro已更新为DeepSeek-V4-Pro-0813，端点模型名和调用方式保持不变。",
+      "role": "佐证",
+      "addedAt": "2026-08-21T14:07:27.416Z"
+    },
+    {
+      "id": "source_99657c12561f96a5",
+      "type": "source",
+      "title": "The Information",
+      "url": "https://www.theinformation.com/briefings/deepseek-announces-price-hikes-v4-models",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-14T06:02:28.000Z"
+    },
+    {
+      "id": "claim_9c9e03afe2a74e30",
+      "type": "claim",
+      "title": "The Information报道称，DeepSeek在发布V4-Pro后宣布上调模型API价格。",
+      "role": "最新进展",
+      "addedAt": "2026-08-21T14:07:27.416Z"
+    },
+    {
+      "id": "source_72c3e757e055faf7",
+      "type": "source",
+      "title": "Engadget",
+      "url": "https://www.engadget.com/2236912/deepseek-ai-models-get-four-times-pricier/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-14T10:58:24.000Z"
+    },
+    {
+      "id": "claim_2b41c0e66d9b1708",
+      "type": "claim",
+      "title": "Engadget报道称DeepSeek计划上调V4模型价格。",
+      "role": "佐证",
+      "addedAt": "2026-08-21T14:07:27.416Z"
+    },
+    {
+      "id": "source_5a08e099f805776a",
+      "type": "source",
+      "title": "腾讯云",
+      "url": "https://cloud.tencent.cn/announce/detail/2353",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-14T10:58:24.000Z"
+    },
+    {
+      "id": "claim_94ded09a79c9d3c7",
+      "type": "claim",
+      "title": "腾讯云针对DeepSeek-V4原厂直供服务公布平时和高峰两档费率，并说明高峰价格为平时两倍。",
+      "role": "佐证",
+      "addedAt": "2026-08-21T14:07:27.416Z"
+    },
+    {
+      "id": "source_2a6886f8c6561a9a",
+      "type": "source",
+      "title": "DeepSeek API Changelog",
+      "url": "https://api-docs.deepseek.com/updates/#date-2026-08-21",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-21T00:00:00.000Z"
+    },
+    {
+      "id": "claim_1943a23325379160",
+      "type": "claim",
+      "title": "DeepSeek发布可在API调用的DeepSeek-V4-Flash-Vision-Exp，并公布多项代理、代码和视觉评测结果。",
+      "role": "最新进展",
+      "addedAt": "2026-08-21T14:07:27.416Z"
+    },
+    {
+      "id": "source_74182da2c8516e1d",
+      "type": "source",
+      "title": "Terminal-Bench",
+      "url": "https://www.tbench.ai/docs/run-terminal-bench-2-1",
+      "sourceKind": "Research",
+      "publishedAt": "2026-08-21T00:00:00.000Z"
+    },
+    {
+      "id": "claim_e243ac4a92506c70",
+      "type": "claim",
+      "title": "Terminal-Bench官方文档规定标准运行与提交流程，而厂商披露的部分公共代码代理测试使用尚未公开的Harness设置。",
+      "role": "反例",
+      "addedAt": "2026-08-21T14:07:27.416Z"
+    },
+    {
+      "id": "source_f0d5609d1d9d915f",
+      "type": "source",
+      "title": "DeepSeek",
+      "url": "https://api-docs.deepseek.com/guides/files_api/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-21T00:00:00.000Z"
+    },
+    {
+      "id": "claim_fb9bb3065d8f479d",
+      "type": "claim",
+      "title": "官方 Files API 文档确认该模型可通过 file_id 使用上传图像，并列出支持格式、64 MiB单文件上限及兼容端点限制。",
+      "role": "佐证",
+      "addedAt": "2026-08-21T14:07:27.416Z"
+    },
+    {
+      "id": "source_2bf74f8ecb84f195",
+      "type": "source",
+      "title": "DeepSeek",
+      "url": "https://deepseek.com/en/news/v4-preview/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-04-24T00:00:00.000Z"
+    },
+    {
+      "id": "claim_e8c9404ee43951fa",
+      "type": "claim",
+      "title": "此前 V4-Flash 被定位为具备1M上下文的快速、成本效率型文本模型，可作为 Vision-Exp 前的产品基准。",
+      "role": "背景",
+      "addedAt": "2026-08-21T14:07:27.416Z"
+    },
+    {
+      "id": "source_6018c3939b674cce",
+      "type": "source",
+      "title": "Bloomberg Technology",
+      "url": "https://www.bloomberg.com/news/articles/2026-08-21/deepseek-unveils-test-model-to-rival-anthropic-s-opus-4-8",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-21T11:04:33.000Z"
+    },
+    {
+      "id": "claim_f79270f1d4f15da4",
+      "type": "claim",
+      "title": "Bloomberg 报道 DeepSeek 发布测试模型，并转述公司称其视觉提示理解能力接近 Anthropic Opus 4.8。",
+      "role": "佐证",
+      "addedAt": "2026-08-21T14:07:27.416Z"
+    },
+    {
+      "id": "source_289eaaa56b94bb30",
+      "type": "source",
+      "title": "DeepSeek",
+      "url": "https://api-docs.deepseek.com/zh-cn/updates/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-21T00:00:00.000Z"
+    },
+    {
+      "id": "claim_f0d1e32f832da9a3",
+      "type": "claim",
+      "title": "DeepSeek 更新日志确认 Vision-Exp 于8月21日上线，保留公司关于纯文本能力持平及多模态 Agent 能力接近 Opus-4.8的表述。",
+      "role": "最新进展",
+      "addedAt": "2026-08-21T14:07:27.416Z"
+    },
+    {
+      "id": "source_fa1f87c1d59d2670",
+      "type": "source",
+      "title": "DeepSeek",
+      "url": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-21T11:04:33.000Z"
+    },
+    {
+      "id": "claim_28a34ed23c639fd9",
+      "type": "claim",
+      "title": "官方模型与价格页面再次确认 Vision-Exp 与 V4-Flash 的上下文、价格和并发额度一致，图像按输入 token 计费。",
+      "role": "佐证",
+      "addedAt": "2026-08-21T14:07:27.416Z"
+    },
+    {
+      "id": "source_ca04723f81248a7f",
+      "type": "source",
+      "title": "DeepSeek",
+      "url": "https://api-docs.deepseek.com/zh-cn/guides/vision/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-21T11:04:33.000Z"
+    },
+    {
+      "id": "claim_b9c2b233e6750404",
+      "type": "claim",
+      "title": "官方图像文档限定图像仅可置于 user 消息、每张最多384 tokens且不支持 FIM，说明其能力范围仍有明确产品边界。",
+      "role": "反例",
+      "addedAt": "2026-08-21T14:07:27.416Z"
+    },
+    {
+      "id": "update_fd6ac9735608c7f7",
+      "type": "update",
+      "signalId": 42,
+      "title": "DeepSeek V4 Flash新增视觉实验模型",
+      "summary": "DeepSeek 已上线 DeepSeek-V4-Flash-Vision-Exp，支持通过聊天请求和 Files API 输入图像。公司将其多模态 Agent 能力定位为接近 Opus-4.8，同时维持与 V4-Flash 相同的文本价格和2,500并发限制。",
+      "addedAt": "2026-08-21T11:04:33.000Z",
+      "changeType": "progress",
+      "thesisImpact": "DeepSeek 将 V4 Flash 从纯文本 API 推进至可处理图像的实验模型，且维持相同文本定价与高并发额度，强化其以低成本扩展代理能力的部署路径。",
+      "revisionRequired": false
+    },
+    {
+      "id": "claim_15a6241f9cb2b9bd",
+      "type": "claim",
+      "title": "DeepSeek 宣布 DeepSeek-V4-Flash-Vision-Exp 在 API 平台上线，并公布多项代码与代理任务基准分数。",
+      "role": "最新进展",
+      "addedAt": "2026-08-21T11:04:33.000Z"
+    },
+    {
+      "id": "claim_5fd444ef0361d525",
+      "type": "claim",
+      "title": "官方价格页显示 Vision-Exp 拥有1M上下文、384K最大输出，文本 token 价格及2,500并发限制与 V4-Flash 相同。",
+      "role": "佐证",
+      "addedAt": "2026-08-21T11:04:33.000Z"
+    },
+    {
+      "id": "update_26f775dc2e41adca",
+      "type": "update",
+      "signalId": 42,
+      "title": "DeepSeek Flash新增视觉实验模型",
+      "summary": "DeepSeek在API上线DeepSeek-V4-Flash-Vision-Exp，可通过独立模型标识调用，并披露Terminal Bench 2.1为83.9、NL2Repo为57.7、DeepSWE为59.3等结果。官方定价页已列出该模型及图像输入token计费说明。",
+      "addedAt": "2026-08-21T09:22:09.000Z",
+      "changeType": "progress",
+      "thesisImpact": "DeepSeek将Flash从纯文本API产品线延伸至实验性视觉模型，并给出多项代理与视觉评测结果；这推进了其多模态部署，但厂商测试设置的可复现性仍有限。",
+      "revisionRequired": false
+    },
+    {
+      "id": "claim_b775c5fb0820fc27",
+      "type": "claim",
+      "title": "DeepSeek官方模型与定价页列出Vision-Exp、支持的API功能和图像输入token计费方式。",
+      "role": "佐证",
+      "addedAt": "2026-08-21T09:22:09.000Z"
+    },
+    {
+      "id": "claim_ef55963c45ed5f3a",
+      "type": "claim",
+      "title": "DeepSeek-V4-Flash-0731模型卡提供Flash-0731在多项代码代理基准上的先前成绩与测试参数。",
+      "role": "背景",
+      "addedAt": "2026-08-21T09:22:09.000Z"
+    },
+    {
+      "id": "claim_570689798763a1ae",
+      "type": "claim",
+      "title": "DeepSeek此前将V4-Flash定位为支持OpenAI ChatCompletions、Anthropic API、1M context及双模式的快速文本模型。",
+      "role": "背景",
+      "addedAt": "2026-08-21T09:22:09.000Z"
+    },
+    {
+      "id": "update_bdb49c233fa9ded2",
+      "type": "update",
+      "signalId": 42,
+      "title": "DeepSeek明确峰谷新费率",
+      "summary": "DeepSeek定价页列出V4-Flash-0731与V4-Pro-0813调整后的逐项API价格，计划于2026年8月16日16:00 UTC生效，并明确高峰价格为非高峰价格两倍。腾讯云的原厂直供通知也采用相同的峰谷双档机制。",
+      "addedAt": "2026-08-14T10:58:24.000Z",
+      "changeType": "corroboration",
+      "thesisImpact": "官方定价页补充了新费率的生效时间、峰谷时段和逐项价格；腾讯云的原厂直供通知独立佐证了峰谷双档计费机制。",
+      "revisionRequired": false
+    },
+    {
+      "id": "claim_a9e153161bd8abc9",
+      "type": "claim",
+      "title": "DeepSeek官方定价页列出V4-Flash-0731和V4-Pro-0813的新价格、2026年8月16日16:00 UTC生效时间及高峰价格为非高峰两倍的规则。",
+      "role": "最新进展",
+      "addedAt": "2026-08-14T10:58:24.000Z"
+    },
+    {
+      "id": "update_981741d07d52608f",
+      "type": "update",
+      "signalId": 42,
+      "title": "DeepSeek上调V4-Pro峰谷价格",
+      "summary": "DeepSeek官方页面显示，V4-Pro将于8月16日启用峰谷定价：输出每百万token在非高峰为1.98美元、高峰为3.96美元；调价前统一输出价为0.87美元。",
+      "addedAt": "2026-08-14T06:02:28.000Z",
+      "changeType": "progress",
+      "thesisImpact": "DeepSeek已公布V4-Pro新的峰谷API价格，输出价较调价前显著上升，说明其完整部署后的商业化条件同步收紧。",
+      "revisionRequired": false
+    },
+    {
+      "id": "claim_de8229fd091eb43f",
+      "type": "claim",
+      "title": "DeepSeek官方定价页列出调价前价格及8月16日生效的新峰谷价格和高峰时段定义。",
+      "role": "佐证",
+      "addedAt": "2026-08-14T06:02:28.000Z"
+    },
+    {
+      "id": "update_cc4cd671640b6455",
+      "type": "update",
+      "signalId": 42,
+      "title": "DeepSeek V4-Pro正式GA上线",
+      "summary": "DeepSeek于8月13日发布V4-Pro GA，已在app、web Expert Mode和API提供；新版本加入Agent升级、三档reasoning effort及原生OpenAI Responses API和Codex优化。",
+      "addedAt": "2026-08-13T00:00:00.000Z",
+      "changeType": "progress",
+      "thesisImpact": "DeepSeek V4-Pro已由预览状态进入正式上线，并补充原生Responses API、Codex优化、三档推理强度和新的峰谷定价，推进其完整部署判断。",
+      "revisionRequired": false
+    },
+    {
+      "id": "claim_2a69b29d1409eedb",
+      "type": "claim",
+      "title": "4月官方V4预览版已提供API、Web和开放权重，V4-Pro标注为1.6T总参数、49B激活参数并支持1M token上下文。",
+      "role": "背景",
+      "addedAt": "2026-08-13T00:00:00.000Z"
+    },
+    {
+      "id": "claim_2f4b1f2086e55b97",
+      "type": "claim",
+      "title": "官方V4-Pro仓库仍提供MIT许可的本地权重，但页面未证明0813版本权重已经发布。",
+      "role": "背景",
+      "addedAt": "2026-08-13T00:00:00.000Z"
+    },
+    {
+      "id": "update_1ee62de0965bc927",
+      "type": "update",
+      "signalId": 42,
+      "title": "DeepSeek V4-Pro完成GA部署",
+      "summary": "DeepSeek于8月13日将V4-Pro GA版本上线App、Web和API，新增原生OpenAI Responses API与三档思考强度；官方还开源MIT许可的DeepSeek Harness，并公布8月16日生效的峰谷定价与并发限制。",
+      "addedAt": "2026-08-13T16:27:32.000Z",
+      "changeType": "progress",
+      "thesisImpact": "DeepSeek V4-Pro已从此前待后续部署的状态进入App、Web和API正式可用，并补齐Responses API、思考强度、开源Harness及即将生效的定价变化。",
+      "revisionRequired": false
+    },
+    {
+      "id": "claim_2d75e6cef70c91b8",
+      "type": "claim",
+      "title": "DeepSeek变更日志确认V4-Pro GA已部署至App、Web和API，并列出Responses API、Codex和thinking effort更新。",
+      "role": "最新进展",
+      "addedAt": "2026-08-13T16:27:32.000Z"
+    },
+    {
+      "id": "claim_afc405f20a3cd9a6",
+      "type": "claim",
+      "title": "官方价格页披露V4-Pro-0813当前价格，以及8月16日起实施的峰谷定价、峰时区间和并发限制。",
+      "role": "最新进展",
+      "addedAt": "2026-08-13T16:27:32.000Z"
+    },
+    {
+      "id": "claim_f443f29bf880a6f2",
+      "type": "claim",
+      "title": "4月的V4-Pro预览版已上线并开放权重，确立本次GA前的预览状态。",
+      "role": "背景",
+      "addedAt": "2026-08-13T16:27:32.000Z"
+    },
+    {
+      "id": "update_bfdf35ffb64d5969",
+      "type": "update",
+      "signalId": 42,
+      "title": "DeepSeek V4 Pro正式进入生产部署",
+      "summary": "DeepSeek宣布V4-Pro GA已在APP、Web和API上线，当前生产版本为DeepSeek-V4-Pro-0813，并加入Responses API与1M context。",
+      "addedAt": "2026-08-13T00:00:00.000Z",
+      "changeType": "progress",
+      "thesisImpact": "DeepSeek V4 Flash的既有部署线索被更高阶的V4-Pro GA生产发布推进；新证据显示其从预览和有限API阶段进入APP、Web与API的正式版本。",
+      "revisionRequired": false
+    },
+    {
+      "id": "claim_0da798f32de62f71",
+      "type": "claim",
+      "title": "预览版此前已支持通过修改model名称接入，并兼容OpenAI ChatCompletions与Anthropic API。",
+      "role": "背景",
+      "addedAt": "2026-08-13T00:00:00.000Z"
+    },
+    {
+      "id": "update_192c392001bf4f2c",
+      "type": "update",
+      "signalId": 42,
+      "title": "V4-Flash补齐现行API参数",
+      "summary": "DeepSeek确认V4-Flash于7月31日进入API公共测试版，当前版本为DeepSeek-V4-Flash-0731，提供1M上下文、384K最大输出和2,500并发额度。公司同时披露峰时价格拟翻倍，但尚未公布生效日期。",
+      "addedAt": "2026-08-02T04:10:31.000Z",
+      "changeType": "corroboration",
+      "thesisImpact": "强化V4-Flash已从预览走向可用API版本的判断，并补齐当前版本、上下文、输出和并发参数；其低价优势仍受拟议峰时加价影响。",
+      "revisionRequired": false
+    },
+    {
+      "id": "claim_469cedfb97275d23",
+      "type": "claim",
+      "title": "此前V4-Flash Preview拥有284B总参数、13B激活参数，提供1M上下文和思考与非思考模式。",
+      "role": "背景",
+      "addedAt": "2026-08-02T04:10:31.000Z"
+    },
+    {
+      "id": "claim_108b98c0566bb236",
+      "type": "claim",
+      "title": "DeepSeek定价页确认当前API版本、1M上下文、384K最大输出和2,500并发额度，并称峰时价格拟翻倍但生效日期待公告。",
+      "role": "最新进展",
+      "addedAt": "2026-08-02T04:10:31.000Z"
+    },
+    {
+      "id": "update_246c8e37a8b48969",
+      "type": "update",
+      "signalId": 42,
+      "title": "0731正式版补齐长上下文接口",
+      "summary": "DeepSeek官方资料将V4 Flash-0731定位为替代Preview的正式版本，并披露MIT权重、1M context、384K最大输出、Responses API、2500并发限制及定价。独立评测页面尚未明确对应0731 SKU。",
+      "addedAt": "2026-07-31T13:38:23.000Z",
+      "changeType": "progress",
+      "thesisImpact": null,
+      "revisionRequired": false
+    },
+    {
+      "id": "claim_8f6e6e42ff80b642",
+      "type": "claim",
+      "title": "DeepSeek API文档列出0731版本的1M context、384K最大输出、Responses API、2500并发限制和可比token定价。",
+      "role": "最新进展",
+      "addedAt": "2026-07-31T13:38:23.000Z"
+    },
+    {
+      "id": "claim_77159c73eece9ac1",
+      "type": "claim",
+      "title": "DeepSeek在4月将V4-Flash以Preview形式发布，定位为快速低成本的V4变体，并已支持1M context。",
+      "role": "背景",
+      "addedAt": "2026-07-31T13:38:23.000Z"
+    },
+    {
+      "id": "update_198bb4b2435675fa",
+      "type": "update",
+      "signalId": 42,
+      "title": "V4 Flash补齐独立性能对照",
+      "summary": "Simon Willison补充了V4 Flash 0731的独立观察：Artificial Analysis将其排在MiniMax-M3之前，并记录304B参数与$0.14/$0.27每百万token的API价格；参数和输出价格与官方文档口径存在差异。",
+      "addedAt": "2026-07-31T23:59:44.000Z",
+      "changeType": "progress",
+      "thesisImpact": null,
+      "revisionRequired": false
+    },
     {
       "id": "event_460fa5f386f59e7a",
       "type": "event",
@@ -614,633 +1356,6 @@
       "addedAt": "2026-08-14T00:15:19.000Z",
       "changeType": "progress",
       "thesisImpact": "OpenAI在企业业务扩张阶段更换首席营收官，强化其商业化组织仍在调整的判断；新任者的公开履历更偏企业销售与运营，而非安全技术治理。",
-      "revisionRequired": false
-    },
-    {
-      "id": "event_fd6738bc4783b911",
-      "type": "event",
-      "signalId": 42,
-      "title": "DeepSeek V4 Flash走向完整部署",
-      "bucket": "dynamic",
-      "valueScore": 90,
-      "publishedAt": "2026-07-31T00:00:00.000Z",
-      "updatedAt": "2026-08-21T09:22:09.000Z"
-    },
-    {
-      "id": "article_b56f0e63c13abe3d",
-      "type": "article",
-      "signalId": 42,
-      "title": "DeepSeek V4 Flash走向完整部署",
-      "version": 1,
-      "publishedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_b6d1ad104292fa31",
-      "type": "source",
-      "title": "DeepSeek API Changelog",
-      "url": "https://api-docs.deepseek.com/updates/#date-2026-07-31",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-07-31T00:00:00.000Z"
-    },
-    {
-      "id": "claim_7c759721a54d0b85",
-      "type": "claim",
-      "title": "DeepSeek更新日志宣布V4 Flash API进入public beta，并公布Terminal Bench 2.1、Cybergym、DeepSWE等agent基准成绩。",
-      "role": "主张",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_57fb8eea07a5cdcc",
-      "type": "source",
-      "title": "DeepSeek API Docs",
-      "url": "https://api-docs.deepseek.com/news/news260424/",
-      "sourceKind": "Official",
-      "publishedAt": "2026-04-24T00:00:00.000Z"
-    },
-    {
-      "id": "claim_00b6cfec5c35b87d",
-      "type": "claim",
-      "title": "4月Preview已通过API提供V4 Flash，支持1M context、OpenAI ChatCompletions与Anthropic API，构成本次比较基线。",
-      "role": "背景",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_280758cc57a6ef53",
-      "type": "source",
-      "title": "DeepSeek API Docs",
-      "url": "https://api-docs.deepseek.com/quick_start/pricing/",
-      "sourceKind": "Official",
-      "publishedAt": "2026-07-31T00:00:00.000Z"
-    },
-    {
-      "id": "claim_d7cd891c054670f2",
-      "type": "claim",
-      "title": "当前API文档确认0731版本、价格、384K最高输出、2500并发上限以及Responses API和Tool Calls等规格。",
-      "role": "佐证",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_9d2c4f68b951191f",
-      "type": "source",
-      "title": "DeepSeek API Docs",
-      "url": "https://api-docs.deepseek.com/quick_start/agent_integrations/codex/",
-      "sourceKind": "Official",
-      "publishedAt": "2026-07-31T00:00:00.000Z"
-    },
-    {
-      "id": "claim_014b56cdafa6590c",
-      "type": "claim",
-      "title": "Codex集成文档显示当前仅V4 Flash受支持，并通过Responses API提供reasoning effort、并行工具调用等配置。",
-      "role": "佐证",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_912947e504e3337f",
-      "type": "source",
-      "title": "Hugging Face / DeepSeek-AI",
-      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash",
-      "sourceKind": "Repository",
-      "publishedAt": "2026-07-31T00:00:00.000Z"
-    },
-    {
-      "id": "claim_95aa2e1c5274b9b6",
-      "type": "claim",
-      "title": "官方Hugging Face仓库提供284B total、13B active的mixed-precision权重，采用MIT license并允许自托管。",
-      "role": "佐证",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_95185cf91586e5d4",
-      "type": "source",
-      "title": "Simon Willison",
-      "url": "https://simonwillison.net/2026/Jul/31/deepseek-v4-flash-0731/#atom-everything",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-07-31T23:59:44.000Z"
-    },
-    {
-      "id": "claim_8be9871973fc4efb",
-      "type": "claim",
-      "title": "Simon Willison注意到0731版本及其相对MiniMax-M3的独立评测表现，但所列输出价格为$0.27/百万token。",
-      "role": "背景",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_9485e4897bb097b7",
-      "type": "source",
-      "title": "Product Hunt",
-      "url": "https://www.producthunt.com/products/deepseek",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-07-31T13:38:23.000Z"
-    },
-    {
-      "id": "claim_0ef5347787e60a4c",
-      "type": "claim",
-      "title": "Product Hunt收录DeepSeek-V4-Flash-0731，并将其描述为面向agent任务的Flash价位模型。",
-      "role": "背景",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_a1a747f4e1222f58",
-      "type": "source",
-      "title": "DeepSeek",
-      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731",
-      "sourceKind": "Repository",
-      "publishedAt": "2026-07-31T13:38:23.000Z"
-    },
-    {
-      "id": "claim_6d3065e474d19611",
-      "type": "claim",
-      "title": "DeepSeek模型卡确认0731替代Preview、采用MIT许可，并给出与多个模型的agent基准比较及内部评测披露。",
-      "role": "最新进展",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_5f55e1160c55ca96",
-      "type": "source",
-      "title": "Artificial Analysis",
-      "url": "https://artificialanalysis.ai/models/deepseek-v4-flash",
-      "sourceKind": "Research",
-      "publishedAt": "2026-07-31T13:38:23.000Z"
-    },
-    {
-      "id": "claim_88fa8b2570591cf7",
-      "type": "claim",
-      "title": "Artificial Analysis给出DeepSeek V4 Flash的独立指数，但未明确该成绩是否对应0731 SKU。",
-      "role": "反例",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_c625f40b55d19620",
-      "type": "source",
-      "title": "The Information",
-      "url": "https://www.theinformation.com/briefings/deepseek-makes-splash-small-affordable-v4-flash-model",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-02T04:10:31.000Z"
-    },
-    {
-      "id": "claim_6014f5103d03168a",
-      "type": "claim",
-      "title": "The Information将V4-Flash描述为更小、更便宜的V4版本，并称早期测试认为其能力可与更大模型竞争。",
-      "role": "佐证",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_e547d0d8cbe359a0",
-      "type": "source",
-      "title": "DeepSeek",
-      "url": "https://api-docs.deepseek.com/updates/",
-      "sourceKind": "Official",
-      "publishedAt": "2026-07-31T00:00:00.000Z"
-    },
-    {
-      "id": "claim_46e9c3eae71061c8",
-      "type": "claim",
-      "title": "DeepSeek变更日志确认V4-Flash API公共测试版于7月31日上线，公布八项代理基准及测试设置，并说明APP、WEB和V4-Pro API未更新。",
-      "role": "最新进展",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_43d3190fc831ca70",
-      "type": "source",
-      "title": "DeepSeek API Changelog",
-      "url": "https://api-docs.deepseek.com/updates/#date-2026-08-13",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-13T00:00:00.000Z"
-    },
-    {
-      "id": "claim_eaff0798fbd99050",
-      "type": "claim",
-      "title": "DeepSeek宣布V4-Pro GA已在APP、Web和API推出，代理能力获得显著增强并公布多项评测结果。",
-      "role": "最新进展",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_2e7500712565c603",
-      "type": "source",
-      "title": "DeepSeek",
-      "url": "https://api-docs.deepseek.com/quick_start/pricing/?article_id=article_1779470751466_8",
-      "sourceKind": "Official",
-      "publishedAt": "2026-08-13T00:00:00.000Z"
-    },
-    {
-      "id": "claim_f4801ea58bb290df",
-      "type": "claim",
-      "title": "官方页面确认生产版本为DeepSeek-V4-Pro-0813，支持Responses API、1M context、384K最大输出，并列出当前及2026-08-16生效的API定价。",
-      "role": "佐证",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_64d97dbebd8f6ab1",
-      "type": "source",
-      "title": "National Institute of Standards and Technology",
-      "url": "https://www.nist.gov/news-events/news/2026/05/caisi-evaluation-deepseek-v4-pro",
-      "sourceKind": "Research",
-      "publishedAt": "2026-05-01T00:00:00.000Z"
-    },
-    {
-      "id": "claim_ba4f0611eaec4d99",
-      "type": "claim",
-      "title": "CAISI评估称DeepSeek V4在其测试中较美国前沿模型落后约8个月，并报告SWE-Bench Verified 74%、PortBench 44%和ARC-AGI-2 semi-private 46%。",
-      "role": "反例",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_a21d8ed6f8658b97",
-      "type": "source",
-      "title": "The Decoder AI",
-      "url": "https://the-decoder.com/deepseek-launches-an-improved-v4-pro-model-raises-api-prices-and-makes-its-agent-software-open-source/",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-13T16:27:32.000Z"
-    },
-    {
-      "id": "claim_c1d0ca72ac81bb34",
-      "type": "claim",
-      "title": "报道指出DeepSeek将V4-Pro移出测试阶段、开源Harness v0.1，并同步上调部分API使用成本。",
-      "role": "最新进展",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_890a56b0d2aff0c9",
-      "type": "source",
-      "title": "DeepSeek",
-      "url": "https://github.com/deepseek-ai/deepseek-harness",
-      "sourceKind": "Repository",
-      "publishedAt": "2026-08-13T16:27:32.000Z"
-    },
-    {
-      "id": "claim_1da0e597c4c39473",
-      "type": "claim",
-      "title": "DeepSeek官方GitHub组织发布deepseek-harness仓库，采用MIT License并于8月13日更新。",
-      "role": "佐证",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_0dc56ff3a015f50d",
-      "type": "source",
-      "title": "The Information",
-      "url": "https://www.theinformation.com/briefings/deepseek-releases-flagship-v4-pro-model-challenge-kimi-k3",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-13T03:48:06.000Z"
-    },
-    {
-      "id": "claim_4da6c1d46e73d63a",
-      "type": "claim",
-      "title": "The Information报道称V4-Pro用户评价不一，并提及外部排行榜对其表现的不同说法。",
-      "role": "反例",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_a0d5aaf3b3e59dfb",
-      "type": "source",
-      "title": "DeepSeek",
-      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro",
-      "sourceKind": "Repository",
-      "publishedAt": "2026-08-13T03:48:06.000Z"
-    },
-    {
-      "id": "claim_f55a221416ca2123",
-      "type": "claim",
-      "title": "官方模型卡给出相对V3.2-Base的部分指标提升，同时显示其在知识、推理和Agent基准上并非全面领先。",
-      "role": "佐证",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_2ede50bf019bc4ad",
-      "type": "source",
-      "title": "Vals AI",
-      "url": "https://www.vals.ai/models/deepseek_deepseek-v4-pro",
-      "sourceKind": "Research",
-      "publishedAt": "2026-08-13T03:48:06.000Z"
-    },
-    {
-      "id": "claim_dbe08bf891e79197",
-      "type": "claim",
-      "title": "Vals AI可访问页面将关联DeepSeek V4条目的Vals Index列为42.89%±1.19、总榜第24/43，不能支持“所有模型第二”的说法。",
-      "role": "反例",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_8d31cb94ef58321a",
-      "type": "source",
-      "title": "Simon Willison",
-      "url": "https://simonwillison.net/2026/Aug/12/deepseek-v4-pro-0813/",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-12T23:59:23.000Z"
-    },
-    {
-      "id": "claim_c7a1a5dfe88d3154",
-      "type": "claim",
-      "title": "Simon Willison观察到DeepSeek V4 Pro 0813已通过OpenRouter提供API访问，但当时难以确认官方说明和权重发布状态。",
-      "role": "佐证",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_9b50d2133520c007",
-      "type": "source",
-      "title": "DeepSeek",
-      "url": "https://api-docs.deepseek.com/news/news260813/",
-      "sourceKind": "Official",
-      "publishedAt": "2026-08-13T00:00:00.000Z"
-    },
-    {
-      "id": "claim_08d27fedd5d2f2f6",
-      "type": "claim",
-      "title": "DeepSeek官方确认V4-Pro于8月13日GA上线，覆盖app、web Expert Mode和API，并新增Agent、推理强度和Responses API相关能力。",
-      "role": "最新进展",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_8eb12065b9344787",
-      "type": "source",
-      "title": "DeepSeek",
-      "url": "https://api-docs.deepseek.com/quick_start/pricing",
-      "sourceKind": "Official",
-      "publishedAt": "2026-08-12T23:59:23.000Z"
-    },
-    {
-      "id": "claim_5a23de5daa33e0d3",
-      "type": "claim",
-      "title": "DeepSeek调用文档显示deepseek-v4-pro已更新为DeepSeek-V4-Pro-0813，端点模型名和调用方式保持不变。",
-      "role": "佐证",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_99657c12561f96a5",
-      "type": "source",
-      "title": "The Information",
-      "url": "https://www.theinformation.com/briefings/deepseek-announces-price-hikes-v4-models",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-14T06:02:28.000Z"
-    },
-    {
-      "id": "claim_9c9e03afe2a74e30",
-      "type": "claim",
-      "title": "The Information报道称，DeepSeek在发布V4-Pro后宣布上调模型API价格。",
-      "role": "最新进展",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_72c3e757e055faf7",
-      "type": "source",
-      "title": "Engadget",
-      "url": "https://www.engadget.com/2236912/deepseek-ai-models-get-four-times-pricier/",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-14T10:58:24.000Z"
-    },
-    {
-      "id": "claim_2b41c0e66d9b1708",
-      "type": "claim",
-      "title": "Engadget报道称DeepSeek计划上调V4模型价格。",
-      "role": "佐证",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_5a08e099f805776a",
-      "type": "source",
-      "title": "腾讯云",
-      "url": "https://cloud.tencent.cn/announce/detail/2353",
-      "sourceKind": "Official",
-      "publishedAt": "2026-08-14T10:58:24.000Z"
-    },
-    {
-      "id": "claim_94ded09a79c9d3c7",
-      "type": "claim",
-      "title": "腾讯云针对DeepSeek-V4原厂直供服务公布平时和高峰两档费率，并说明高峰价格为平时两倍。",
-      "role": "佐证",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_2a6886f8c6561a9a",
-      "type": "source",
-      "title": "DeepSeek API Changelog",
-      "url": "https://api-docs.deepseek.com/updates/#date-2026-08-21",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-21T00:00:00.000Z"
-    },
-    {
-      "id": "claim_1943a23325379160",
-      "type": "claim",
-      "title": "DeepSeek发布可在API调用的DeepSeek-V4-Flash-Vision-Exp，并公布多项代理、代码和视觉评测结果。",
-      "role": "最新进展",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_74182da2c8516e1d",
-      "type": "source",
-      "title": "Terminal-Bench",
-      "url": "https://www.tbench.ai/docs/run-terminal-bench-2-1",
-      "sourceKind": "Research",
-      "publishedAt": "2026-08-21T00:00:00.000Z"
-    },
-    {
-      "id": "claim_e243ac4a92506c70",
-      "type": "claim",
-      "title": "Terminal-Bench官方文档规定标准运行与提交流程，而厂商披露的部分公共代码代理测试使用尚未公开的Harness设置。",
-      "role": "反例",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "update_26f775dc2e41adca",
-      "type": "update",
-      "signalId": 42,
-      "title": "DeepSeek Flash新增视觉实验模型",
-      "summary": "DeepSeek在API上线DeepSeek-V4-Flash-Vision-Exp，可通过独立模型标识调用，并披露Terminal Bench 2.1为83.9、NL2Repo为57.7、DeepSWE为59.3等结果。官方定价页已列出该模型及图像输入token计费说明。",
-      "addedAt": "2026-08-21T09:22:09.000Z",
-      "changeType": "progress",
-      "thesisImpact": "DeepSeek将Flash从纯文本API产品线延伸至实验性视觉模型，并给出多项代理与视觉评测结果；这推进了其多模态部署，但厂商测试设置的可复现性仍有限。",
-      "revisionRequired": false
-    },
-    {
-      "id": "claim_b775c5fb0820fc27",
-      "type": "claim",
-      "title": "DeepSeek官方模型与定价页列出Vision-Exp、支持的API功能和图像输入token计费方式。",
-      "role": "佐证",
-      "addedAt": "2026-08-21T09:22:09.000Z"
-    },
-    {
-      "id": "claim_ef55963c45ed5f3a",
-      "type": "claim",
-      "title": "DeepSeek-V4-Flash-0731模型卡提供Flash-0731在多项代码代理基准上的先前成绩与测试参数。",
-      "role": "背景",
-      "addedAt": "2026-08-21T09:22:09.000Z"
-    },
-    {
-      "id": "claim_570689798763a1ae",
-      "type": "claim",
-      "title": "DeepSeek此前将V4-Flash定位为支持OpenAI ChatCompletions、Anthropic API、1M context及双模式的快速文本模型。",
-      "role": "背景",
-      "addedAt": "2026-08-21T09:22:09.000Z"
-    },
-    {
-      "id": "update_bdb49c233fa9ded2",
-      "type": "update",
-      "signalId": 42,
-      "title": "DeepSeek明确峰谷新费率",
-      "summary": "DeepSeek定价页列出V4-Flash-0731与V4-Pro-0813调整后的逐项API价格，计划于2026年8月16日16:00 UTC生效，并明确高峰价格为非高峰价格两倍。腾讯云的原厂直供通知也采用相同的峰谷双档机制。",
-      "addedAt": "2026-08-14T10:58:24.000Z",
-      "changeType": "corroboration",
-      "thesisImpact": "官方定价页补充了新费率的生效时间、峰谷时段和逐项价格；腾讯云的原厂直供通知独立佐证了峰谷双档计费机制。",
-      "revisionRequired": false
-    },
-    {
-      "id": "claim_a9e153161bd8abc9",
-      "type": "claim",
-      "title": "DeepSeek官方定价页列出V4-Flash-0731和V4-Pro-0813的新价格、2026年8月16日16:00 UTC生效时间及高峰价格为非高峰两倍的规则。",
-      "role": "最新进展",
-      "addedAt": "2026-08-14T10:58:24.000Z"
-    },
-    {
-      "id": "update_981741d07d52608f",
-      "type": "update",
-      "signalId": 42,
-      "title": "DeepSeek上调V4-Pro峰谷价格",
-      "summary": "DeepSeek官方页面显示，V4-Pro将于8月16日启用峰谷定价：输出每百万token在非高峰为1.98美元、高峰为3.96美元；调价前统一输出价为0.87美元。",
-      "addedAt": "2026-08-14T06:02:28.000Z",
-      "changeType": "progress",
-      "thesisImpact": "DeepSeek已公布V4-Pro新的峰谷API价格，输出价较调价前显著上升，说明其完整部署后的商业化条件同步收紧。",
-      "revisionRequired": false
-    },
-    {
-      "id": "claim_de8229fd091eb43f",
-      "type": "claim",
-      "title": "DeepSeek官方定价页列出调价前价格及8月16日生效的新峰谷价格和高峰时段定义。",
-      "role": "佐证",
-      "addedAt": "2026-08-14T06:02:28.000Z"
-    },
-    {
-      "id": "update_cc4cd671640b6455",
-      "type": "update",
-      "signalId": 42,
-      "title": "DeepSeek V4-Pro正式GA上线",
-      "summary": "DeepSeek于8月13日发布V4-Pro GA，已在app、web Expert Mode和API提供；新版本加入Agent升级、三档reasoning effort及原生OpenAI Responses API和Codex优化。",
-      "addedAt": "2026-08-13T00:00:00.000Z",
-      "changeType": "progress",
-      "thesisImpact": "DeepSeek V4-Pro已由预览状态进入正式上线，并补充原生Responses API、Codex优化、三档推理强度和新的峰谷定价，推进其完整部署判断。",
-      "revisionRequired": false
-    },
-    {
-      "id": "claim_2a69b29d1409eedb",
-      "type": "claim",
-      "title": "4月官方V4预览版已提供API、Web和开放权重，V4-Pro标注为1.6T总参数、49B激活参数并支持1M token上下文。",
-      "role": "背景",
-      "addedAt": "2026-08-13T00:00:00.000Z"
-    },
-    {
-      "id": "claim_2f4b1f2086e55b97",
-      "type": "claim",
-      "title": "官方V4-Pro仓库仍提供MIT许可的本地权重，但页面未证明0813版本权重已经发布。",
-      "role": "背景",
-      "addedAt": "2026-08-13T00:00:00.000Z"
-    },
-    {
-      "id": "update_1ee62de0965bc927",
-      "type": "update",
-      "signalId": 42,
-      "title": "DeepSeek V4-Pro完成GA部署",
-      "summary": "DeepSeek于8月13日将V4-Pro GA版本上线App、Web和API，新增原生OpenAI Responses API与三档思考强度；官方还开源MIT许可的DeepSeek Harness，并公布8月16日生效的峰谷定价与并发限制。",
-      "addedAt": "2026-08-13T16:27:32.000Z",
-      "changeType": "progress",
-      "thesisImpact": "DeepSeek V4-Pro已从此前待后续部署的状态进入App、Web和API正式可用，并补齐Responses API、思考强度、开源Harness及即将生效的定价变化。",
-      "revisionRequired": false
-    },
-    {
-      "id": "claim_2d75e6cef70c91b8",
-      "type": "claim",
-      "title": "DeepSeek变更日志确认V4-Pro GA已部署至App、Web和API，并列出Responses API、Codex和thinking effort更新。",
-      "role": "最新进展",
-      "addedAt": "2026-08-13T16:27:32.000Z"
-    },
-    {
-      "id": "claim_afc405f20a3cd9a6",
-      "type": "claim",
-      "title": "官方价格页披露V4-Pro-0813当前价格，以及8月16日起实施的峰谷定价、峰时区间和并发限制。",
-      "role": "最新进展",
-      "addedAt": "2026-08-13T16:27:32.000Z"
-    },
-    {
-      "id": "claim_f443f29bf880a6f2",
-      "type": "claim",
-      "title": "4月的V4-Pro预览版已上线并开放权重，确立本次GA前的预览状态。",
-      "role": "背景",
-      "addedAt": "2026-08-13T16:27:32.000Z"
-    },
-    {
-      "id": "update_bfdf35ffb64d5969",
-      "type": "update",
-      "signalId": 42,
-      "title": "DeepSeek V4 Pro正式进入生产部署",
-      "summary": "DeepSeek宣布V4-Pro GA已在APP、Web和API上线，当前生产版本为DeepSeek-V4-Pro-0813，并加入Responses API与1M context。",
-      "addedAt": "2026-08-13T00:00:00.000Z",
-      "changeType": "progress",
-      "thesisImpact": "DeepSeek V4 Flash的既有部署线索被更高阶的V4-Pro GA生产发布推进；新证据显示其从预览和有限API阶段进入APP、Web与API的正式版本。",
-      "revisionRequired": false
-    },
-    {
-      "id": "claim_0da798f32de62f71",
-      "type": "claim",
-      "title": "预览版此前已支持通过修改model名称接入，并兼容OpenAI ChatCompletions与Anthropic API。",
-      "role": "背景",
-      "addedAt": "2026-08-13T00:00:00.000Z"
-    },
-    {
-      "id": "update_192c392001bf4f2c",
-      "type": "update",
-      "signalId": 42,
-      "title": "V4-Flash补齐现行API参数",
-      "summary": "DeepSeek确认V4-Flash于7月31日进入API公共测试版，当前版本为DeepSeek-V4-Flash-0731，提供1M上下文、384K最大输出和2,500并发额度。公司同时披露峰时价格拟翻倍，但尚未公布生效日期。",
-      "addedAt": "2026-08-02T04:10:31.000Z",
-      "changeType": "corroboration",
-      "thesisImpact": "强化V4-Flash已从预览走向可用API版本的判断，并补齐当前版本、上下文、输出和并发参数；其低价优势仍受拟议峰时加价影响。",
-      "revisionRequired": false
-    },
-    {
-      "id": "claim_469cedfb97275d23",
-      "type": "claim",
-      "title": "此前V4-Flash Preview拥有284B总参数、13B激活参数，提供1M上下文和思考与非思考模式。",
-      "role": "背景",
-      "addedAt": "2026-08-02T04:10:31.000Z"
-    },
-    {
-      "id": "claim_108b98c0566bb236",
-      "type": "claim",
-      "title": "DeepSeek定价页确认当前API版本、1M上下文、384K最大输出和2,500并发额度，并称峰时价格拟翻倍但生效日期待公告。",
-      "role": "最新进展",
-      "addedAt": "2026-08-02T04:10:31.000Z"
-    },
-    {
-      "id": "update_246c8e37a8b48969",
-      "type": "update",
-      "signalId": 42,
-      "title": "0731正式版补齐长上下文接口",
-      "summary": "DeepSeek官方资料将V4 Flash-0731定位为替代Preview的正式版本，并披露MIT权重、1M context、384K最大输出、Responses API、2500并发限制及定价。独立评测页面尚未明确对应0731 SKU。",
-      "addedAt": "2026-07-31T13:38:23.000Z",
-      "changeType": "progress",
-      "thesisImpact": null,
-      "revisionRequired": false
-    },
-    {
-      "id": "claim_8f6e6e42ff80b642",
-      "type": "claim",
-      "title": "DeepSeek API文档列出0731版本的1M context、384K最大输出、Responses API、2500并发限制和可比token定价。",
-      "role": "最新进展",
-      "addedAt": "2026-07-31T13:38:23.000Z"
-    },
-    {
-      "id": "claim_77159c73eece9ac1",
-      "type": "claim",
-      "title": "DeepSeek在4月将V4-Flash以Preview形式发布，定位为快速低成本的V4变体，并已支持1M context。",
-      "role": "背景",
-      "addedAt": "2026-07-31T13:38:23.000Z"
-    },
-    {
-      "id": "update_198bb4b2435675fa",
-      "type": "update",
-      "signalId": 42,
-      "title": "V4 Flash补齐独立性能对照",
-      "summary": "Simon Willison补充了V4 Flash 0731的独立观察：Artificial Analysis将其排在MiniMax-M3之前，并记录304B参数与$0.14/$0.27每百万token的API价格；参数和输出价格与官方文档口径存在差异。",
-      "addedAt": "2026-07-31T23:59:44.000Z",
-      "changeType": "progress",
-      "thesisImpact": null,
       "revisionRequired": false
     },
     {
@@ -16567,6 +16682,37 @@
       "addedAt": "2026-07-29T13:02:22.855Z"
     },
     {
+      "id": "event_18b0ebd4d6d28ee6",
+      "type": "event",
+      "conversationId": "conversation-20260821140727-1",
+      "title": "当指数叙事替代证据：重审 Silicon Valley 的 AI 未来学",
+      "bucket": "conversation",
+      "publishedAt": "2026-08-20T20:03:58.000Z"
+    },
+    {
+      "id": "article_7c69c130c6975d7f",
+      "type": "article",
+      "conversationId": "conversation-20260821140727-1",
+      "title": "当指数叙事替代证据：重审 Silicon Valley 的 AI 未来学",
+      "version": 1,
+      "publishedAt": "2026-08-21T14:07:27.416Z"
+    },
+    {
+      "id": "source_81523f73b2d16c8e",
+      "type": "source",
+      "title": "Machine Learning Street Talk",
+      "url": "https://podcasters.spotify.com/pod/show/machinelearningstreettalk/episodes/Every-Exponential-Ends--Silicon-Valley-Forgot--Adam-Becker-e3nljal",
+      "sourceKind": "Podcast",
+      "publishedAt": "2026-08-20T20:03:58.000Z"
+    },
+    {
+      "id": "claim_e60c1d7fbf14aaa5",
+      "type": "claim",
+      "title": "天体物理学家 Adam Becker 认为，Singularity、意识上传、火星殖民与 AI 末日等流行未来叙事，并非单纯的技术预测，而是被资本和权力放大的世界观；真正应被追问的，是这些叙事依赖什么证据、服务谁的决策。",
+      "role": "对谈",
+      "addedAt": "2026-08-21T14:07:27.416Z"
+    },
+    {
       "id": "event_4ddbe95465e5d582",
       "type": "event",
       "conversationId": "conversation-20260820130813-1",
@@ -18467,6 +18613,918 @@
   ],
   "edges": [
     {
+      "id": "edge_105aa36c9e988d6e",
+      "from": "event_fd6738bc4783b911",
+      "to": "article_b56f0e63c13abe3d",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_129f1b197bbe9de6",
+      "from": "source_b6d1ad104292fa31",
+      "to": "claim_7c759721a54d0b85",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_b04a7e6bb96fe72c",
+      "from": "claim_7c759721a54d0b85",
+      "to": "event_fd6738bc4783b911",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_3c205bde6586e623",
+      "from": "source_57fb8eea07a5cdcc",
+      "to": "claim_00b6cfec5c35b87d",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_0c92a2182027bac3",
+      "from": "claim_00b6cfec5c35b87d",
+      "to": "event_fd6738bc4783b911",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_a2a37ac3fd1ecac7",
+      "from": "source_280758cc57a6ef53",
+      "to": "claim_d7cd891c054670f2",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_831e199d0cd1f2c8",
+      "from": "claim_d7cd891c054670f2",
+      "to": "event_fd6738bc4783b911",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_66159d822f711cd3",
+      "from": "source_9d2c4f68b951191f",
+      "to": "claim_014b56cdafa6590c",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_75f3b538936b4967",
+      "from": "claim_014b56cdafa6590c",
+      "to": "event_fd6738bc4783b911",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_f67bf6c6dc95276e",
+      "from": "source_912947e504e3337f",
+      "to": "claim_95aa2e1c5274b9b6",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_89896bf03976972f",
+      "from": "claim_95aa2e1c5274b9b6",
+      "to": "event_fd6738bc4783b911",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_01df044506f07735",
+      "from": "source_95185cf91586e5d4",
+      "to": "claim_8be9871973fc4efb",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_979bfebeecdaec69",
+      "from": "claim_8be9871973fc4efb",
+      "to": "event_fd6738bc4783b911",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_63e1ec91355a5fce",
+      "from": "source_9485e4897bb097b7",
+      "to": "claim_0ef5347787e60a4c",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_a239858072b9a297",
+      "from": "claim_0ef5347787e60a4c",
+      "to": "event_fd6738bc4783b911",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_93e081b1efb8783d",
+      "from": "source_a1a747f4e1222f58",
+      "to": "claim_6d3065e474d19611",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_a2c595efc22ed100",
+      "from": "claim_6d3065e474d19611",
+      "to": "event_fd6738bc4783b911",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_c80dfab48b59f125",
+      "from": "source_5f55e1160c55ca96",
+      "to": "claim_88fa8b2570591cf7",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_15f1a739bffe8ce5",
+      "from": "claim_88fa8b2570591cf7",
+      "to": "event_fd6738bc4783b911",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_eb927146d318b411",
+      "from": "source_c625f40b55d19620",
+      "to": "claim_6014f5103d03168a",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_3d6d0b053bbf8147",
+      "from": "claim_6014f5103d03168a",
+      "to": "event_fd6738bc4783b911",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_57a4b1fc75944607",
+      "from": "source_e547d0d8cbe359a0",
+      "to": "claim_46e9c3eae71061c8",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_c9814502b34ec3a6",
+      "from": "claim_46e9c3eae71061c8",
+      "to": "event_fd6738bc4783b911",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_4bccabf8ff5d21b9",
+      "from": "source_43d3190fc831ca70",
+      "to": "claim_eaff0798fbd99050",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_42d53f0a987bdf25",
+      "from": "claim_eaff0798fbd99050",
+      "to": "event_fd6738bc4783b911",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_41152e8d93faf497",
+      "from": "source_2e7500712565c603",
+      "to": "claim_f4801ea58bb290df",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_14cbf1e7ccf2d12b",
+      "from": "claim_f4801ea58bb290df",
+      "to": "event_fd6738bc4783b911",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_2ea16816218d591d",
+      "from": "source_64d97dbebd8f6ab1",
+      "to": "claim_ba4f0611eaec4d99",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_92c99d742a254965",
+      "from": "claim_ba4f0611eaec4d99",
+      "to": "event_fd6738bc4783b911",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_e7537d8b7436af50",
+      "from": "source_a21d8ed6f8658b97",
+      "to": "claim_c1d0ca72ac81bb34",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_eff32d09e47a4cde",
+      "from": "claim_c1d0ca72ac81bb34",
+      "to": "event_fd6738bc4783b911",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_247e0e72cd756574",
+      "from": "source_890a56b0d2aff0c9",
+      "to": "claim_1da0e597c4c39473",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_0a03a8a49831785f",
+      "from": "claim_1da0e597c4c39473",
+      "to": "event_fd6738bc4783b911",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_cfb418e9141de8a7",
+      "from": "source_0dc56ff3a015f50d",
+      "to": "claim_4da6c1d46e73d63a",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_735b0016e59262bd",
+      "from": "claim_4da6c1d46e73d63a",
+      "to": "event_fd6738bc4783b911",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_bcce080dd40c0c2b",
+      "from": "source_a0d5aaf3b3e59dfb",
+      "to": "claim_f55a221416ca2123",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_ab69681fa06fc84d",
+      "from": "claim_f55a221416ca2123",
+      "to": "event_fd6738bc4783b911",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_ea41158ef3dadee1",
+      "from": "source_2ede50bf019bc4ad",
+      "to": "claim_dbe08bf891e79197",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_8d5bb803e535c715",
+      "from": "claim_dbe08bf891e79197",
+      "to": "event_fd6738bc4783b911",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_696cba269490d234",
+      "from": "source_8d31cb94ef58321a",
+      "to": "claim_c7a1a5dfe88d3154",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_0028891968e50b55",
+      "from": "claim_c7a1a5dfe88d3154",
+      "to": "event_fd6738bc4783b911",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_95fbf86a76f9707c",
+      "from": "source_9b50d2133520c007",
+      "to": "claim_08d27fedd5d2f2f6",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_5a4fe3e1a9fe3c6e",
+      "from": "claim_08d27fedd5d2f2f6",
+      "to": "event_fd6738bc4783b911",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_f7a86a59bc183d3d",
+      "from": "source_8eb12065b9344787",
+      "to": "claim_5a23de5daa33e0d3",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_6461e382b6515811",
+      "from": "claim_5a23de5daa33e0d3",
+      "to": "event_fd6738bc4783b911",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_08e4d6c06048826a",
+      "from": "source_99657c12561f96a5",
+      "to": "claim_9c9e03afe2a74e30",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_58aad030c595c31a",
+      "from": "claim_9c9e03afe2a74e30",
+      "to": "event_fd6738bc4783b911",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_842c81696cc9e808",
+      "from": "source_72c3e757e055faf7",
+      "to": "claim_2b41c0e66d9b1708",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_1b8d7c9a21e6e74f",
+      "from": "claim_2b41c0e66d9b1708",
+      "to": "event_fd6738bc4783b911",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_399a182a1338c1d5",
+      "from": "source_5a08e099f805776a",
+      "to": "claim_94ded09a79c9d3c7",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_4076ac3736c8c1c6",
+      "from": "claim_94ded09a79c9d3c7",
+      "to": "event_fd6738bc4783b911",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_355601547d50ca6f",
+      "from": "source_2a6886f8c6561a9a",
+      "to": "claim_1943a23325379160",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_3760b9fe539f9f26",
+      "from": "claim_1943a23325379160",
+      "to": "event_fd6738bc4783b911",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_36aa159766d8659a",
+      "from": "source_74182da2c8516e1d",
+      "to": "claim_e243ac4a92506c70",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_fa607ff75d391125",
+      "from": "claim_e243ac4a92506c70",
+      "to": "event_fd6738bc4783b911",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_e01a926a920477fe",
+      "from": "source_f0d5609d1d9d915f",
+      "to": "claim_fb9bb3065d8f479d",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_ffc3884be0d3b159",
+      "from": "claim_fb9bb3065d8f479d",
+      "to": "event_fd6738bc4783b911",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_73b4a026bfe72830",
+      "from": "source_2bf74f8ecb84f195",
+      "to": "claim_e8c9404ee43951fa",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_1a876e59114b522e",
+      "from": "claim_e8c9404ee43951fa",
+      "to": "event_fd6738bc4783b911",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_486a591c0f733cef",
+      "from": "source_6018c3939b674cce",
+      "to": "claim_f79270f1d4f15da4",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_e8edeeede05b1503",
+      "from": "claim_f79270f1d4f15da4",
+      "to": "event_fd6738bc4783b911",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_eda8fddbd4e359e2",
+      "from": "source_289eaaa56b94bb30",
+      "to": "claim_f0d1e32f832da9a3",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_5172c31826229f50",
+      "from": "claim_f0d1e32f832da9a3",
+      "to": "event_fd6738bc4783b911",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_96994c8e1f6339fc",
+      "from": "source_fa1f87c1d59d2670",
+      "to": "claim_28a34ed23c639fd9",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_0d0274463fa4d049",
+      "from": "claim_28a34ed23c639fd9",
+      "to": "event_fd6738bc4783b911",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_c5c3a972a67d1740",
+      "from": "source_ca04723f81248a7f",
+      "to": "claim_b9c2b233e6750404",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_0446c595d5b3d52c",
+      "from": "claim_b9c2b233e6750404",
+      "to": "event_fd6738bc4783b911",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_4059a8971d95ada5",
+      "from": "update_fd6ac9735608c7f7",
+      "to": "event_fd6738bc4783b911",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_6c2c3b46c58489ca",
+      "from": "source_2a6886f8c6561a9a",
+      "to": "claim_15a6241f9cb2b9bd",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_2b5749991ff2e752",
+      "from": "claim_15a6241f9cb2b9bd",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "DeepSeek V4 Flash新增视觉实验模型"
+    },
+    {
+      "id": "edge_8b948aa8fbbf7258",
+      "from": "source_280758cc57a6ef53",
+      "to": "claim_5fd444ef0361d525",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_8252285c175419e4",
+      "from": "claim_5fd444ef0361d525",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "DeepSeek V4 Flash新增视觉实验模型"
+    },
+    {
+      "id": "edge_b33b79436e50ead3",
+      "from": "claim_fb9bb3065d8f479d",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "DeepSeek V4 Flash新增视觉实验模型"
+    },
+    {
+      "id": "edge_060aef7e57da4d1a",
+      "from": "claim_e8c9404ee43951fa",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "DeepSeek V4 Flash新增视觉实验模型"
+    },
+    {
+      "id": "edge_2ddc741972c259b9",
+      "from": "claim_f79270f1d4f15da4",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "DeepSeek V4 Flash新增视觉实验模型"
+    },
+    {
+      "id": "edge_d1609d454f0a28d7",
+      "from": "claim_f0d1e32f832da9a3",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "DeepSeek V4 Flash新增视觉实验模型"
+    },
+    {
+      "id": "edge_c8280f6eb46a469a",
+      "from": "claim_28a34ed23c639fd9",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "DeepSeek V4 Flash新增视觉实验模型"
+    },
+    {
+      "id": "edge_81cb4c786c359dd1",
+      "from": "claim_b9c2b233e6750404",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "DeepSeek V4 Flash新增视觉实验模型"
+    },
+    {
+      "id": "edge_5d1b01a3f92f773a",
+      "from": "update_26f775dc2e41adca",
+      "to": "event_fd6738bc4783b911",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_ca643f0931762b8f",
+      "from": "claim_1943a23325379160",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "DeepSeek Flash新增视觉实验模型"
+    },
+    {
+      "id": "edge_c28e2b4de8e9869e",
+      "from": "source_2e7500712565c603",
+      "to": "claim_b775c5fb0820fc27",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_3987f0bd0b71e2bc",
+      "from": "claim_b775c5fb0820fc27",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "DeepSeek Flash新增视觉实验模型"
+    },
+    {
+      "id": "edge_d93296fbfbbc68ca",
+      "from": "source_a1a747f4e1222f58",
+      "to": "claim_ef55963c45ed5f3a",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_74a8f881c61c29d9",
+      "from": "claim_ef55963c45ed5f3a",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "DeepSeek Flash新增视觉实验模型"
+    },
+    {
+      "id": "edge_e31c8db96a424f82",
+      "from": "source_57fb8eea07a5cdcc",
+      "to": "claim_570689798763a1ae",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_ebe178074cbd2697",
+      "from": "claim_570689798763a1ae",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "DeepSeek Flash新增视觉实验模型"
+    },
+    {
+      "id": "edge_0b298a4f01df45a7",
+      "from": "claim_e243ac4a92506c70",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "DeepSeek Flash新增视觉实验模型"
+    },
+    {
+      "id": "edge_bbb3c67c22eac40e",
+      "from": "update_bdb49c233fa9ded2",
+      "to": "event_fd6738bc4783b911",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_3d10b8c9fc5375d8",
+      "from": "claim_2b41c0e66d9b1708",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "DeepSeek明确峰谷新费率"
+    },
+    {
+      "id": "edge_d04d3829e1622437",
+      "from": "source_280758cc57a6ef53",
+      "to": "claim_a9e153161bd8abc9",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_45ed5f6a4f19f77e",
+      "from": "claim_a9e153161bd8abc9",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "DeepSeek明确峰谷新费率"
+    },
+    {
+      "id": "edge_4e083131ed5dd1cd",
+      "from": "claim_94ded09a79c9d3c7",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "DeepSeek明确峰谷新费率"
+    },
+    {
+      "id": "edge_3785ff63ed21382a",
+      "from": "update_981741d07d52608f",
+      "to": "event_fd6738bc4783b911",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_16d08eca59adec81",
+      "from": "claim_9c9e03afe2a74e30",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "DeepSeek上调V4-Pro峰谷价格"
+    },
+    {
+      "id": "edge_1d9070ca16a39d76",
+      "from": "source_280758cc57a6ef53",
+      "to": "claim_de8229fd091eb43f",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_f556bc76d3c579b3",
+      "from": "claim_de8229fd091eb43f",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "DeepSeek上调V4-Pro峰谷价格"
+    },
+    {
+      "id": "edge_34808a724001600a",
+      "from": "update_cc4cd671640b6455",
+      "to": "event_fd6738bc4783b911",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_74a854b1c882de72",
+      "from": "claim_c7a1a5dfe88d3154",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "DeepSeek V4-Pro正式GA上线"
+    },
+    {
+      "id": "edge_7188582145cbd749",
+      "from": "claim_08d27fedd5d2f2f6",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "DeepSeek V4-Pro正式GA上线"
+    },
+    {
+      "id": "edge_bb24d07b16c4f11c",
+      "from": "claim_5a23de5daa33e0d3",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "DeepSeek V4-Pro正式GA上线"
+    },
+    {
+      "id": "edge_aa26ba08ebf7a167",
+      "from": "source_57fb8eea07a5cdcc",
+      "to": "claim_2a69b29d1409eedb",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_ce09e4838230f26e",
+      "from": "claim_2a69b29d1409eedb",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "DeepSeek V4-Pro正式GA上线"
+    },
+    {
+      "id": "edge_403994cd63122a97",
+      "from": "source_a0d5aaf3b3e59dfb",
+      "to": "claim_2f4b1f2086e55b97",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_80ef1c97f8197a67",
+      "from": "claim_2f4b1f2086e55b97",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "DeepSeek V4-Pro正式GA上线"
+    },
+    {
+      "id": "edge_8bb6d9dfe3a65b94",
+      "from": "update_1ee62de0965bc927",
+      "to": "event_fd6738bc4783b911",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_0a48f61640b079c2",
+      "from": "claim_c1d0ca72ac81bb34",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "DeepSeek V4-Pro完成GA部署"
+    },
+    {
+      "id": "edge_41b096cfbb1a7200",
+      "from": "source_e547d0d8cbe359a0",
+      "to": "claim_2d75e6cef70c91b8",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_6269a7016ec303a0",
+      "from": "claim_2d75e6cef70c91b8",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "DeepSeek V4-Pro完成GA部署"
+    },
+    {
+      "id": "edge_d42c6dff8ef0420c",
+      "from": "source_280758cc57a6ef53",
+      "to": "claim_afc405f20a3cd9a6",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_47b50068cd908bcf",
+      "from": "claim_afc405f20a3cd9a6",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "DeepSeek V4-Pro完成GA部署"
+    },
+    {
+      "id": "edge_bc167a8361ca766e",
+      "from": "claim_1da0e597c4c39473",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "DeepSeek V4-Pro完成GA部署"
+    },
+    {
+      "id": "edge_a85a0b6ef7400a3a",
+      "from": "claim_4da6c1d46e73d63a",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "DeepSeek V4-Pro完成GA部署"
+    },
+    {
+      "id": "edge_237f80e3f14bfe84",
+      "from": "source_57fb8eea07a5cdcc",
+      "to": "claim_f443f29bf880a6f2",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_bf0c980ba1d3aa13",
+      "from": "claim_f443f29bf880a6f2",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "DeepSeek V4-Pro完成GA部署"
+    },
+    {
+      "id": "edge_492e12117118604a",
+      "from": "claim_f55a221416ca2123",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "DeepSeek V4-Pro完成GA部署"
+    },
+    {
+      "id": "edge_cf6fde628d0ff7b9",
+      "from": "claim_dbe08bf891e79197",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "DeepSeek V4-Pro完成GA部署"
+    },
+    {
+      "id": "edge_28005aca18f3532b",
+      "from": "update_bfdf35ffb64d5969",
+      "to": "event_fd6738bc4783b911",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_2d1cc582f2cc5791",
+      "from": "claim_eaff0798fbd99050",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "DeepSeek V4 Pro正式进入生产部署"
+    },
+    {
+      "id": "edge_ba3680db41b88f49",
+      "from": "claim_f4801ea58bb290df",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "DeepSeek V4 Pro正式进入生产部署"
+    },
+    {
+      "id": "edge_7ca6ac88e7f17f41",
+      "from": "source_57fb8eea07a5cdcc",
+      "to": "claim_0da798f32de62f71",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_7ef7f66b9646d8de",
+      "from": "claim_0da798f32de62f71",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "DeepSeek V4 Pro正式进入生产部署"
+    },
+    {
+      "id": "edge_e279514b45c54c04",
+      "from": "claim_ba4f0611eaec4d99",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "DeepSeek V4 Pro正式进入生产部署"
+    },
+    {
+      "id": "edge_f3454c65e0ee39de",
+      "from": "update_192c392001bf4f2c",
+      "to": "event_fd6738bc4783b911",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_a5f536f390ef9590",
+      "from": "claim_6014f5103d03168a",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "V4-Flash补齐现行API参数"
+    },
+    {
+      "id": "edge_7a222dd2c3005be7",
+      "from": "claim_46e9c3eae71061c8",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "V4-Flash补齐现行API参数"
+    },
+    {
+      "id": "edge_ca9d33a37d61c80e",
+      "from": "source_57fb8eea07a5cdcc",
+      "to": "claim_469cedfb97275d23",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_eb3eea349b3a7a52",
+      "from": "claim_469cedfb97275d23",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "V4-Flash补齐现行API参数"
+    },
+    {
+      "id": "edge_2ece406021b6baab",
+      "from": "source_280758cc57a6ef53",
+      "to": "claim_108b98c0566bb236",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_2754e05bb1d5b0f6",
+      "from": "claim_108b98c0566bb236",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "V4-Flash补齐现行API参数"
+    },
+    {
+      "id": "edge_1e298dbbe400f434",
+      "from": "update_246c8e37a8b48969",
+      "to": "event_fd6738bc4783b911",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_37f5ba57e0d585dc",
+      "from": "claim_0ef5347787e60a4c",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "0731正式版补齐长上下文接口"
+    },
+    {
+      "id": "edge_bcddfa9044d1a0ab",
+      "from": "claim_6d3065e474d19611",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "0731正式版补齐长上下文接口"
+    },
+    {
+      "id": "edge_f450218e72433d09",
+      "from": "source_280758cc57a6ef53",
+      "to": "claim_8f6e6e42ff80b642",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_13e0a49731de5be8",
+      "from": "claim_8f6e6e42ff80b642",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "0731正式版补齐长上下文接口"
+    },
+    {
+      "id": "edge_c2a0ea61d122b327",
+      "from": "source_57fb8eea07a5cdcc",
+      "to": "claim_77159c73eece9ac1",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_11632ab60c842831",
+      "from": "claim_77159c73eece9ac1",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "0731正式版补齐长上下文接口"
+    },
+    {
+      "id": "edge_bc87615f8ff8e289",
+      "from": "claim_88fa8b2570591cf7",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "0731正式版补齐长上下文接口"
+    },
+    {
+      "id": "edge_a7c11e9247dee476",
+      "from": "update_198bb4b2435675fa",
+      "to": "event_fd6738bc4783b911",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_ca9bff3f200bc99a",
+      "from": "claim_8be9871973fc4efb",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "V4 Flash补齐独立性能对照"
+    },
+    {
       "id": "edge_9a578627d7e0f73d",
       "from": "event_460fa5f386f59e7a",
       "to": "article_1edbba42bb2b9b14",
@@ -18950,766 +20008,6 @@
       "to": "event_a54424288d0d3cf5",
       "relation": "update_evidence_for",
       "updateTitle": "OpenAI更换首席营收官"
-    },
-    {
-      "id": "edge_105aa36c9e988d6e",
-      "from": "event_fd6738bc4783b911",
-      "to": "article_b56f0e63c13abe3d",
-      "relation": "rendered_as"
-    },
-    {
-      "id": "edge_129f1b197bbe9de6",
-      "from": "source_b6d1ad104292fa31",
-      "to": "claim_7c759721a54d0b85",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_b04a7e6bb96fe72c",
-      "from": "claim_7c759721a54d0b85",
-      "to": "event_fd6738bc4783b911",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_3c205bde6586e623",
-      "from": "source_57fb8eea07a5cdcc",
-      "to": "claim_00b6cfec5c35b87d",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_0c92a2182027bac3",
-      "from": "claim_00b6cfec5c35b87d",
-      "to": "event_fd6738bc4783b911",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_a2a37ac3fd1ecac7",
-      "from": "source_280758cc57a6ef53",
-      "to": "claim_d7cd891c054670f2",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_831e199d0cd1f2c8",
-      "from": "claim_d7cd891c054670f2",
-      "to": "event_fd6738bc4783b911",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_66159d822f711cd3",
-      "from": "source_9d2c4f68b951191f",
-      "to": "claim_014b56cdafa6590c",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_75f3b538936b4967",
-      "from": "claim_014b56cdafa6590c",
-      "to": "event_fd6738bc4783b911",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_f67bf6c6dc95276e",
-      "from": "source_912947e504e3337f",
-      "to": "claim_95aa2e1c5274b9b6",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_89896bf03976972f",
-      "from": "claim_95aa2e1c5274b9b6",
-      "to": "event_fd6738bc4783b911",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_01df044506f07735",
-      "from": "source_95185cf91586e5d4",
-      "to": "claim_8be9871973fc4efb",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_979bfebeecdaec69",
-      "from": "claim_8be9871973fc4efb",
-      "to": "event_fd6738bc4783b911",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_63e1ec91355a5fce",
-      "from": "source_9485e4897bb097b7",
-      "to": "claim_0ef5347787e60a4c",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_a239858072b9a297",
-      "from": "claim_0ef5347787e60a4c",
-      "to": "event_fd6738bc4783b911",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_93e081b1efb8783d",
-      "from": "source_a1a747f4e1222f58",
-      "to": "claim_6d3065e474d19611",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_a2c595efc22ed100",
-      "from": "claim_6d3065e474d19611",
-      "to": "event_fd6738bc4783b911",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_c80dfab48b59f125",
-      "from": "source_5f55e1160c55ca96",
-      "to": "claim_88fa8b2570591cf7",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_15f1a739bffe8ce5",
-      "from": "claim_88fa8b2570591cf7",
-      "to": "event_fd6738bc4783b911",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_eb927146d318b411",
-      "from": "source_c625f40b55d19620",
-      "to": "claim_6014f5103d03168a",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_3d6d0b053bbf8147",
-      "from": "claim_6014f5103d03168a",
-      "to": "event_fd6738bc4783b911",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_57a4b1fc75944607",
-      "from": "source_e547d0d8cbe359a0",
-      "to": "claim_46e9c3eae71061c8",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_c9814502b34ec3a6",
-      "from": "claim_46e9c3eae71061c8",
-      "to": "event_fd6738bc4783b911",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_4bccabf8ff5d21b9",
-      "from": "source_43d3190fc831ca70",
-      "to": "claim_eaff0798fbd99050",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_42d53f0a987bdf25",
-      "from": "claim_eaff0798fbd99050",
-      "to": "event_fd6738bc4783b911",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_41152e8d93faf497",
-      "from": "source_2e7500712565c603",
-      "to": "claim_f4801ea58bb290df",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_14cbf1e7ccf2d12b",
-      "from": "claim_f4801ea58bb290df",
-      "to": "event_fd6738bc4783b911",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_2ea16816218d591d",
-      "from": "source_64d97dbebd8f6ab1",
-      "to": "claim_ba4f0611eaec4d99",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_92c99d742a254965",
-      "from": "claim_ba4f0611eaec4d99",
-      "to": "event_fd6738bc4783b911",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_e7537d8b7436af50",
-      "from": "source_a21d8ed6f8658b97",
-      "to": "claim_c1d0ca72ac81bb34",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_eff32d09e47a4cde",
-      "from": "claim_c1d0ca72ac81bb34",
-      "to": "event_fd6738bc4783b911",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_247e0e72cd756574",
-      "from": "source_890a56b0d2aff0c9",
-      "to": "claim_1da0e597c4c39473",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_0a03a8a49831785f",
-      "from": "claim_1da0e597c4c39473",
-      "to": "event_fd6738bc4783b911",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_cfb418e9141de8a7",
-      "from": "source_0dc56ff3a015f50d",
-      "to": "claim_4da6c1d46e73d63a",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_735b0016e59262bd",
-      "from": "claim_4da6c1d46e73d63a",
-      "to": "event_fd6738bc4783b911",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_bcce080dd40c0c2b",
-      "from": "source_a0d5aaf3b3e59dfb",
-      "to": "claim_f55a221416ca2123",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_ab69681fa06fc84d",
-      "from": "claim_f55a221416ca2123",
-      "to": "event_fd6738bc4783b911",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_ea41158ef3dadee1",
-      "from": "source_2ede50bf019bc4ad",
-      "to": "claim_dbe08bf891e79197",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_8d5bb803e535c715",
-      "from": "claim_dbe08bf891e79197",
-      "to": "event_fd6738bc4783b911",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_696cba269490d234",
-      "from": "source_8d31cb94ef58321a",
-      "to": "claim_c7a1a5dfe88d3154",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_0028891968e50b55",
-      "from": "claim_c7a1a5dfe88d3154",
-      "to": "event_fd6738bc4783b911",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_95fbf86a76f9707c",
-      "from": "source_9b50d2133520c007",
-      "to": "claim_08d27fedd5d2f2f6",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_5a4fe3e1a9fe3c6e",
-      "from": "claim_08d27fedd5d2f2f6",
-      "to": "event_fd6738bc4783b911",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_f7a86a59bc183d3d",
-      "from": "source_8eb12065b9344787",
-      "to": "claim_5a23de5daa33e0d3",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_6461e382b6515811",
-      "from": "claim_5a23de5daa33e0d3",
-      "to": "event_fd6738bc4783b911",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_08e4d6c06048826a",
-      "from": "source_99657c12561f96a5",
-      "to": "claim_9c9e03afe2a74e30",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_58aad030c595c31a",
-      "from": "claim_9c9e03afe2a74e30",
-      "to": "event_fd6738bc4783b911",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_842c81696cc9e808",
-      "from": "source_72c3e757e055faf7",
-      "to": "claim_2b41c0e66d9b1708",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_1b8d7c9a21e6e74f",
-      "from": "claim_2b41c0e66d9b1708",
-      "to": "event_fd6738bc4783b911",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_399a182a1338c1d5",
-      "from": "source_5a08e099f805776a",
-      "to": "claim_94ded09a79c9d3c7",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_4076ac3736c8c1c6",
-      "from": "claim_94ded09a79c9d3c7",
-      "to": "event_fd6738bc4783b911",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_355601547d50ca6f",
-      "from": "source_2a6886f8c6561a9a",
-      "to": "claim_1943a23325379160",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_3760b9fe539f9f26",
-      "from": "claim_1943a23325379160",
-      "to": "event_fd6738bc4783b911",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_36aa159766d8659a",
-      "from": "source_74182da2c8516e1d",
-      "to": "claim_e243ac4a92506c70",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_fa607ff75d391125",
-      "from": "claim_e243ac4a92506c70",
-      "to": "event_fd6738bc4783b911",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_5d1b01a3f92f773a",
-      "from": "update_26f775dc2e41adca",
-      "to": "event_fd6738bc4783b911",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_ca643f0931762b8f",
-      "from": "claim_1943a23325379160",
-      "to": "event_fd6738bc4783b911",
-      "relation": "update_evidence_for",
-      "updateTitle": "DeepSeek Flash新增视觉实验模型"
-    },
-    {
-      "id": "edge_c28e2b4de8e9869e",
-      "from": "source_2e7500712565c603",
-      "to": "claim_b775c5fb0820fc27",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_3987f0bd0b71e2bc",
-      "from": "claim_b775c5fb0820fc27",
-      "to": "event_fd6738bc4783b911",
-      "relation": "update_evidence_for",
-      "updateTitle": "DeepSeek Flash新增视觉实验模型"
-    },
-    {
-      "id": "edge_d93296fbfbbc68ca",
-      "from": "source_a1a747f4e1222f58",
-      "to": "claim_ef55963c45ed5f3a",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_74a8f881c61c29d9",
-      "from": "claim_ef55963c45ed5f3a",
-      "to": "event_fd6738bc4783b911",
-      "relation": "update_evidence_for",
-      "updateTitle": "DeepSeek Flash新增视觉实验模型"
-    },
-    {
-      "id": "edge_e31c8db96a424f82",
-      "from": "source_57fb8eea07a5cdcc",
-      "to": "claim_570689798763a1ae",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_ebe178074cbd2697",
-      "from": "claim_570689798763a1ae",
-      "to": "event_fd6738bc4783b911",
-      "relation": "update_evidence_for",
-      "updateTitle": "DeepSeek Flash新增视觉实验模型"
-    },
-    {
-      "id": "edge_0b298a4f01df45a7",
-      "from": "claim_e243ac4a92506c70",
-      "to": "event_fd6738bc4783b911",
-      "relation": "update_evidence_for",
-      "updateTitle": "DeepSeek Flash新增视觉实验模型"
-    },
-    {
-      "id": "edge_bbb3c67c22eac40e",
-      "from": "update_bdb49c233fa9ded2",
-      "to": "event_fd6738bc4783b911",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_3d10b8c9fc5375d8",
-      "from": "claim_2b41c0e66d9b1708",
-      "to": "event_fd6738bc4783b911",
-      "relation": "update_evidence_for",
-      "updateTitle": "DeepSeek明确峰谷新费率"
-    },
-    {
-      "id": "edge_d04d3829e1622437",
-      "from": "source_280758cc57a6ef53",
-      "to": "claim_a9e153161bd8abc9",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_45ed5f6a4f19f77e",
-      "from": "claim_a9e153161bd8abc9",
-      "to": "event_fd6738bc4783b911",
-      "relation": "update_evidence_for",
-      "updateTitle": "DeepSeek明确峰谷新费率"
-    },
-    {
-      "id": "edge_4e083131ed5dd1cd",
-      "from": "claim_94ded09a79c9d3c7",
-      "to": "event_fd6738bc4783b911",
-      "relation": "update_evidence_for",
-      "updateTitle": "DeepSeek明确峰谷新费率"
-    },
-    {
-      "id": "edge_3785ff63ed21382a",
-      "from": "update_981741d07d52608f",
-      "to": "event_fd6738bc4783b911",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_16d08eca59adec81",
-      "from": "claim_9c9e03afe2a74e30",
-      "to": "event_fd6738bc4783b911",
-      "relation": "update_evidence_for",
-      "updateTitle": "DeepSeek上调V4-Pro峰谷价格"
-    },
-    {
-      "id": "edge_1d9070ca16a39d76",
-      "from": "source_280758cc57a6ef53",
-      "to": "claim_de8229fd091eb43f",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_f556bc76d3c579b3",
-      "from": "claim_de8229fd091eb43f",
-      "to": "event_fd6738bc4783b911",
-      "relation": "update_evidence_for",
-      "updateTitle": "DeepSeek上调V4-Pro峰谷价格"
-    },
-    {
-      "id": "edge_34808a724001600a",
-      "from": "update_cc4cd671640b6455",
-      "to": "event_fd6738bc4783b911",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_74a854b1c882de72",
-      "from": "claim_c7a1a5dfe88d3154",
-      "to": "event_fd6738bc4783b911",
-      "relation": "update_evidence_for",
-      "updateTitle": "DeepSeek V4-Pro正式GA上线"
-    },
-    {
-      "id": "edge_7188582145cbd749",
-      "from": "claim_08d27fedd5d2f2f6",
-      "to": "event_fd6738bc4783b911",
-      "relation": "update_evidence_for",
-      "updateTitle": "DeepSeek V4-Pro正式GA上线"
-    },
-    {
-      "id": "edge_bb24d07b16c4f11c",
-      "from": "claim_5a23de5daa33e0d3",
-      "to": "event_fd6738bc4783b911",
-      "relation": "update_evidence_for",
-      "updateTitle": "DeepSeek V4-Pro正式GA上线"
-    },
-    {
-      "id": "edge_aa26ba08ebf7a167",
-      "from": "source_57fb8eea07a5cdcc",
-      "to": "claim_2a69b29d1409eedb",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_ce09e4838230f26e",
-      "from": "claim_2a69b29d1409eedb",
-      "to": "event_fd6738bc4783b911",
-      "relation": "update_evidence_for",
-      "updateTitle": "DeepSeek V4-Pro正式GA上线"
-    },
-    {
-      "id": "edge_403994cd63122a97",
-      "from": "source_a0d5aaf3b3e59dfb",
-      "to": "claim_2f4b1f2086e55b97",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_80ef1c97f8197a67",
-      "from": "claim_2f4b1f2086e55b97",
-      "to": "event_fd6738bc4783b911",
-      "relation": "update_evidence_for",
-      "updateTitle": "DeepSeek V4-Pro正式GA上线"
-    },
-    {
-      "id": "edge_8bb6d9dfe3a65b94",
-      "from": "update_1ee62de0965bc927",
-      "to": "event_fd6738bc4783b911",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_0a48f61640b079c2",
-      "from": "claim_c1d0ca72ac81bb34",
-      "to": "event_fd6738bc4783b911",
-      "relation": "update_evidence_for",
-      "updateTitle": "DeepSeek V4-Pro完成GA部署"
-    },
-    {
-      "id": "edge_41b096cfbb1a7200",
-      "from": "source_e547d0d8cbe359a0",
-      "to": "claim_2d75e6cef70c91b8",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_6269a7016ec303a0",
-      "from": "claim_2d75e6cef70c91b8",
-      "to": "event_fd6738bc4783b911",
-      "relation": "update_evidence_for",
-      "updateTitle": "DeepSeek V4-Pro完成GA部署"
-    },
-    {
-      "id": "edge_d42c6dff8ef0420c",
-      "from": "source_280758cc57a6ef53",
-      "to": "claim_afc405f20a3cd9a6",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_47b50068cd908bcf",
-      "from": "claim_afc405f20a3cd9a6",
-      "to": "event_fd6738bc4783b911",
-      "relation": "update_evidence_for",
-      "updateTitle": "DeepSeek V4-Pro完成GA部署"
-    },
-    {
-      "id": "edge_bc167a8361ca766e",
-      "from": "claim_1da0e597c4c39473",
-      "to": "event_fd6738bc4783b911",
-      "relation": "update_evidence_for",
-      "updateTitle": "DeepSeek V4-Pro完成GA部署"
-    },
-    {
-      "id": "edge_a85a0b6ef7400a3a",
-      "from": "claim_4da6c1d46e73d63a",
-      "to": "event_fd6738bc4783b911",
-      "relation": "update_evidence_for",
-      "updateTitle": "DeepSeek V4-Pro完成GA部署"
-    },
-    {
-      "id": "edge_237f80e3f14bfe84",
-      "from": "source_57fb8eea07a5cdcc",
-      "to": "claim_f443f29bf880a6f2",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_bf0c980ba1d3aa13",
-      "from": "claim_f443f29bf880a6f2",
-      "to": "event_fd6738bc4783b911",
-      "relation": "update_evidence_for",
-      "updateTitle": "DeepSeek V4-Pro完成GA部署"
-    },
-    {
-      "id": "edge_492e12117118604a",
-      "from": "claim_f55a221416ca2123",
-      "to": "event_fd6738bc4783b911",
-      "relation": "update_evidence_for",
-      "updateTitle": "DeepSeek V4-Pro完成GA部署"
-    },
-    {
-      "id": "edge_cf6fde628d0ff7b9",
-      "from": "claim_dbe08bf891e79197",
-      "to": "event_fd6738bc4783b911",
-      "relation": "update_evidence_for",
-      "updateTitle": "DeepSeek V4-Pro完成GA部署"
-    },
-    {
-      "id": "edge_28005aca18f3532b",
-      "from": "update_bfdf35ffb64d5969",
-      "to": "event_fd6738bc4783b911",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_2d1cc582f2cc5791",
-      "from": "claim_eaff0798fbd99050",
-      "to": "event_fd6738bc4783b911",
-      "relation": "update_evidence_for",
-      "updateTitle": "DeepSeek V4 Pro正式进入生产部署"
-    },
-    {
-      "id": "edge_ba3680db41b88f49",
-      "from": "claim_f4801ea58bb290df",
-      "to": "event_fd6738bc4783b911",
-      "relation": "update_evidence_for",
-      "updateTitle": "DeepSeek V4 Pro正式进入生产部署"
-    },
-    {
-      "id": "edge_7ca6ac88e7f17f41",
-      "from": "source_57fb8eea07a5cdcc",
-      "to": "claim_0da798f32de62f71",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_7ef7f66b9646d8de",
-      "from": "claim_0da798f32de62f71",
-      "to": "event_fd6738bc4783b911",
-      "relation": "update_evidence_for",
-      "updateTitle": "DeepSeek V4 Pro正式进入生产部署"
-    },
-    {
-      "id": "edge_e279514b45c54c04",
-      "from": "claim_ba4f0611eaec4d99",
-      "to": "event_fd6738bc4783b911",
-      "relation": "update_evidence_for",
-      "updateTitle": "DeepSeek V4 Pro正式进入生产部署"
-    },
-    {
-      "id": "edge_f3454c65e0ee39de",
-      "from": "update_192c392001bf4f2c",
-      "to": "event_fd6738bc4783b911",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_a5f536f390ef9590",
-      "from": "claim_6014f5103d03168a",
-      "to": "event_fd6738bc4783b911",
-      "relation": "update_evidence_for",
-      "updateTitle": "V4-Flash补齐现行API参数"
-    },
-    {
-      "id": "edge_7a222dd2c3005be7",
-      "from": "claim_46e9c3eae71061c8",
-      "to": "event_fd6738bc4783b911",
-      "relation": "update_evidence_for",
-      "updateTitle": "V4-Flash补齐现行API参数"
-    },
-    {
-      "id": "edge_ca9d33a37d61c80e",
-      "from": "source_57fb8eea07a5cdcc",
-      "to": "claim_469cedfb97275d23",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_eb3eea349b3a7a52",
-      "from": "claim_469cedfb97275d23",
-      "to": "event_fd6738bc4783b911",
-      "relation": "update_evidence_for",
-      "updateTitle": "V4-Flash补齐现行API参数"
-    },
-    {
-      "id": "edge_2ece406021b6baab",
-      "from": "source_280758cc57a6ef53",
-      "to": "claim_108b98c0566bb236",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_2754e05bb1d5b0f6",
-      "from": "claim_108b98c0566bb236",
-      "to": "event_fd6738bc4783b911",
-      "relation": "update_evidence_for",
-      "updateTitle": "V4-Flash补齐现行API参数"
-    },
-    {
-      "id": "edge_1e298dbbe400f434",
-      "from": "update_246c8e37a8b48969",
-      "to": "event_fd6738bc4783b911",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_37f5ba57e0d585dc",
-      "from": "claim_0ef5347787e60a4c",
-      "to": "event_fd6738bc4783b911",
-      "relation": "update_evidence_for",
-      "updateTitle": "0731正式版补齐长上下文接口"
-    },
-    {
-      "id": "edge_bcddfa9044d1a0ab",
-      "from": "claim_6d3065e474d19611",
-      "to": "event_fd6738bc4783b911",
-      "relation": "update_evidence_for",
-      "updateTitle": "0731正式版补齐长上下文接口"
-    },
-    {
-      "id": "edge_f450218e72433d09",
-      "from": "source_280758cc57a6ef53",
-      "to": "claim_8f6e6e42ff80b642",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_13e0a49731de5be8",
-      "from": "claim_8f6e6e42ff80b642",
-      "to": "event_fd6738bc4783b911",
-      "relation": "update_evidence_for",
-      "updateTitle": "0731正式版补齐长上下文接口"
-    },
-    {
-      "id": "edge_c2a0ea61d122b327",
-      "from": "source_57fb8eea07a5cdcc",
-      "to": "claim_77159c73eece9ac1",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_11632ab60c842831",
-      "from": "claim_77159c73eece9ac1",
-      "to": "event_fd6738bc4783b911",
-      "relation": "update_evidence_for",
-      "updateTitle": "0731正式版补齐长上下文接口"
-    },
-    {
-      "id": "edge_bc87615f8ff8e289",
-      "from": "claim_88fa8b2570591cf7",
-      "to": "event_fd6738bc4783b911",
-      "relation": "update_evidence_for",
-      "updateTitle": "0731正式版补齐长上下文接口"
-    },
-    {
-      "id": "edge_a7c11e9247dee476",
-      "from": "update_198bb4b2435675fa",
-      "to": "event_fd6738bc4783b911",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_ca9bff3f200bc99a",
-      "from": "claim_8be9871973fc4efb",
-      "to": "event_fd6738bc4783b911",
-      "relation": "update_evidence_for",
-      "updateTitle": "V4 Flash补齐独立性能对照"
     },
     {
       "id": "edge_67e656e0fc9677f3",
@@ -34179,6 +34477,25 @@
       "from": "claim_6a91586fd2989c1a",
       "to": "event_cca4803f3ba7fbf7",
       "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_e248f6de8dfe87e3",
+      "from": "event_18b0ebd4d6d28ee6",
+      "to": "article_7c69c130c6975d7f",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_b533d2f150ba3fbc",
+      "from": "source_81523f73b2d16c8e",
+      "to": "claim_e60c1d7fbf14aaa5",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_df7c3b8490f56260",
+      "from": "claim_e60c1d7fbf14aaa5",
+      "to": "event_18b0ebd4d6d28ee6",
+      "relation": "conversation_source_for",
       "updateTitle": null
     },
     {
