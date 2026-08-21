@@ -1,16 +1,26 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-21T00:08:12.051Z",
+  "generatedAt": "2026-08-21T05:07:42.421Z",
   "counts": {
-    "sources": 800,
-    "claims": 944,
+    "sources": 803,
+    "claims": 949,
     "events": 198,
     "articles": 198,
-    "updates": 135,
-    "edges": 2534,
-    "revisionsRequired": 11
+    "updates": 136,
+    "edges": 2549,
+    "revisionsRequired": 12
   },
   "revisionQueue": [
+    {
+      "signalId": 124,
+      "eventId": "event_2e4dc22ace4148d1",
+      "updateId": "update_6b7ee9c42ae55dfa",
+      "title": "OpenAI的IPO筹备转向治理重组",
+      "updateTitle": "Brockman正式接掌产品战略",
+      "thesisImpact": "多名高管离开与Greg Brockman正式领导产品战略相互叠加，强化了OpenAI在IPO前把产品、基础设施与客户组织重新集中协调的判断；Fidji Simo仍任顾问，限制了“完全接管”的表述。",
+      "detectedAt": "2026-08-20T15:45:55.000Z",
+      "status": "needs_editorial_revision"
+    },
     {
       "signalId": 119,
       "eventId": "event_2daba3f21c28759e",
@@ -123,6 +133,132 @@
     }
   ],
   "nodes": [
+    {
+      "id": "event_2e4dc22ace4148d1",
+      "type": "event",
+      "signalId": 124,
+      "title": "OpenAI的IPO筹备转向治理重组",
+      "bucket": "explore",
+      "valueScore": 84,
+      "publishedAt": "2026-08-14T09:28:05.000Z",
+      "updatedAt": "2026-08-20T15:45:55.000Z"
+    },
+    {
+      "id": "article_a9c678ad388bb205",
+      "type": "article",
+      "signalId": 124,
+      "title": "OpenAI的IPO筹备转向治理重组",
+      "version": 1,
+      "publishedAt": "2026-08-21T05:07:42.421Z"
+    },
+    {
+      "id": "source_5ca3cdddb99f3998",
+      "type": "source",
+      "title": "Axios",
+      "url": "https://www.axios.com/2026/08/14/openai-executive-greg-brockman-ipo",
+      "sourceKind": "Media",
+      "publishedAt": "2026-08-14T09:28:05.000Z"
+    },
+    {
+      "id": "claim_9603d6f61cdad8e8",
+      "type": "claim",
+      "title": "Axios报道称，OpenAI约一个月内有高级副手、前COO及首席营收官等高管离任，公司正在为预期IPO重组领导层。",
+      "role": "主张",
+      "addedAt": "2026-08-21T05:07:42.421Z"
+    },
+    {
+      "id": "source_5fccadd991f2f940",
+      "type": "source",
+      "title": "Bloomberg Law",
+      "url": "https://news.bloomberglaw.com/financial-accounting/openai-names-bny-nubank-ceos-to-board-ahead-of-ipo",
+      "sourceKind": "Media",
+      "publishedAt": "2026-07-21T20:15:00.000Z"
+    },
+    {
+      "id": "claim_aae44a375b9f46ce",
+      "type": "claim",
+      "title": "Bloomberg Law报道称，OpenAI任命BNY和Nubank的CEO进入董事会，并将此举置于公司考虑IPO的准备背景下。",
+      "role": "佐证",
+      "addedAt": "2026-08-21T05:07:42.421Z"
+    },
+    {
+      "id": "source_08dde364f7c2aa81",
+      "type": "source",
+      "title": "The Verge",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/982774/greg-brockman-openai-role-expansion",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-20T15:45:55.000Z"
+    },
+    {
+      "id": "claim_748e311822e26579",
+      "type": "claim",
+      "title": "The Verge将近期高管变动、IPO筹备和Greg Brockman角色上升归纳为OpenAI最新组织调整。",
+      "role": "最新进展",
+      "addedAt": "2026-08-21T05:07:42.421Z"
+    },
+    {
+      "id": "source_453e94da7c995722",
+      "type": "source",
+      "title": "WIRED",
+      "url": "https://www.wired.com/story/openai-reorg-greg-brockman-product/",
+      "sourceKind": "Media",
+      "publishedAt": "2026-05-15T17:09:00.000Z"
+    },
+    {
+      "id": "claim_ebd353c549b736ac",
+      "type": "claim",
+      "title": "WIRED报道称，Brockman正式领导产品战略，同时继续负责AI基础设施，并覆盖ChatGPT等产品整合。",
+      "role": "佐证",
+      "addedAt": "2026-08-21T05:07:42.421Z"
+    },
+    {
+      "id": "source_defb5561f78861b8",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://openai.com/index/hugging-face-model-evaluation-security-incident/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-07-21T00:00:00.000Z"
+    },
+    {
+      "id": "claim_ff3002328688abfc",
+      "type": "claim",
+      "title": "OpenAI确认，在ExploitGym评测中发生的平台级安全事件涉及GPT-5.6 Sol和一款更强的未发布研究原型；后者已被停用并限制访问。",
+      "role": "背景",
+      "addedAt": "2026-08-21T05:07:42.421Z"
+    },
+    {
+      "id": "source_72127871636e51a0",
+      "type": "source",
+      "title": "AP News",
+      "url": "https://apnews.com/article/musk-openai-trial-verdict-0b9b0bfaffe96f2c930341f52dfe4f8c",
+      "sourceKind": "Media",
+      "publishedAt": "2026-05-18T17:46:26.000Z"
+    },
+    {
+      "id": "claim_6eced67ae48e01ea",
+      "type": "claim",
+      "title": "AP报道称，法院在陪审团咨询性裁决后驳回Elon Musk的请求，但未对其针对Sam Altman和Brockman的核心实体指控作出裁判。",
+      "role": "背景",
+      "addedAt": "2026-08-21T05:07:42.421Z"
+    },
+    {
+      "id": "update_6b7ee9c42ae55dfa",
+      "type": "update",
+      "signalId": 124,
+      "title": "Brockman正式接掌产品战略",
+      "summary": "Greg Brockman已从临时负责产品转为正式领导产品战略，并继续负责AI基础设施。近期高管离任背景下，他也更深介入公司、客户与领导团队建设。",
+      "addedAt": "2026-08-20T15:45:55.000Z",
+      "changeType": "thesis_change",
+      "thesisImpact": "多名高管离开与Greg Brockman正式领导产品战略相互叠加，强化了OpenAI在IPO前把产品、基础设施与客户组织重新集中协调的判断；Fidji Simo仍任顾问，限制了“完全接管”的表述。",
+      "revisionRequired": true
+    },
+    {
+      "id": "claim_1872e10a48007657",
+      "type": "claim",
+      "title": "Axios报道称，多名高级管理人员离开，Brockman更深参与公司、客户和领导团队建设；Fidji Simo离开管理岗位后仍担任顾问。",
+      "role": "佐证",
+      "addedAt": "2026-08-20T15:45:55.000Z"
+    },
     {
       "id": "event_75b1f8ddf91f7116",
       "type": "event",
@@ -1032,14 +1168,6 @@
       "title": "OpenAI将Critical定义为可能带来无现成先例的定性新严重伤害威胁，且要求开发期即部署充分保障。",
       "role": "背景",
       "addedAt": "2026-08-20T05:07:34.357Z"
-    },
-    {
-      "id": "source_defb5561f78861b8",
-      "type": "source",
-      "title": "OpenAI",
-      "url": "https://openai.com/index/hugging-face-model-evaluation-security-incident/",
-      "sourceKind": "Official",
-      "publishedAt": "2026-07-21T00:00:00.000Z"
     },
     {
       "id": "claim_e4d9bc1a6e9e8932",
@@ -5738,54 +5866,6 @@
       "changeType": "progress",
       "thesisImpact": "OpenAI现将GPT-5.6 Sol明确为系列旗舰，补齐了此前Luna与Terra降价之外的旗舰定价、上下文与网络安全能力边界，使价格曲线判断延伸至分层产品结构。",
       "revisionRequired": false
-    },
-    {
-      "id": "event_2e4dc22ace4148d1",
-      "type": "event",
-      "signalId": 124,
-      "title": "OpenAI的IPO筹备转向治理重组",
-      "bucket": "explore",
-      "valueScore": 81,
-      "publishedAt": "2026-08-14T09:28:05.000Z",
-      "updatedAt": "2026-08-14T09:28:05.000Z"
-    },
-    {
-      "id": "article_a9c678ad388bb205",
-      "type": "article",
-      "signalId": 124,
-      "title": "OpenAI的IPO筹备转向治理重组",
-      "version": 1,
-      "publishedAt": "2026-08-15T23:06:10.041Z"
-    },
-    {
-      "id": "source_5ca3cdddb99f3998",
-      "type": "source",
-      "title": "Axios",
-      "url": "https://www.axios.com/2026/08/14/openai-executive-greg-brockman-ipo",
-      "sourceKind": "Media",
-      "publishedAt": "2026-08-14T09:28:05.000Z"
-    },
-    {
-      "id": "claim_9603d6f61cdad8e8",
-      "type": "claim",
-      "title": "Axios报道称，OpenAI约一个月内有高级副手、前COO及首席营收官等高管离任，公司正在为预期IPO重组领导层。",
-      "role": "主张",
-      "addedAt": "2026-08-15T23:06:10.041Z"
-    },
-    {
-      "id": "source_5fccadd991f2f940",
-      "type": "source",
-      "title": "Bloomberg Law",
-      "url": "https://news.bloomberglaw.com/financial-accounting/openai-names-bny-nubank-ceos-to-board-ahead-of-ipo",
-      "sourceKind": "Media",
-      "publishedAt": "2026-07-21T20:15:00.000Z"
-    },
-    {
-      "id": "claim_aae44a375b9f46ce",
-      "type": "claim",
-      "title": "Bloomberg Law报道称，OpenAI任命BNY和Nubank的CEO进入董事会，并将此举置于公司考虑IPO的准备背景下。",
-      "role": "佐证",
-      "addedAt": "2026-08-15T23:06:10.041Z"
     },
     {
       "id": "event_8508d5105d4ed279",
@@ -18059,6 +18139,137 @@
   ],
   "edges": [
     {
+      "id": "edge_a78e8cdd49c1cfcf",
+      "from": "event_2e4dc22ace4148d1",
+      "to": "article_a9c678ad388bb205",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_656149c0813ef090",
+      "from": "source_5ca3cdddb99f3998",
+      "to": "claim_9603d6f61cdad8e8",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_d0ee499643696b39",
+      "from": "claim_9603d6f61cdad8e8",
+      "to": "event_2e4dc22ace4148d1",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_802d3438c4d97602",
+      "from": "source_5fccadd991f2f940",
+      "to": "claim_aae44a375b9f46ce",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_cb47690bf6e984ee",
+      "from": "claim_aae44a375b9f46ce",
+      "to": "event_2e4dc22ace4148d1",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_70d32b31738eb81f",
+      "from": "source_08dde364f7c2aa81",
+      "to": "claim_748e311822e26579",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_40b91beb4e4d51ea",
+      "from": "claim_748e311822e26579",
+      "to": "event_2e4dc22ace4148d1",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_baabab9ef66afb22",
+      "from": "source_453e94da7c995722",
+      "to": "claim_ebd353c549b736ac",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_36d63711ecc9aab6",
+      "from": "claim_ebd353c549b736ac",
+      "to": "event_2e4dc22ace4148d1",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_5c6b4d463a02e792",
+      "from": "source_defb5561f78861b8",
+      "to": "claim_ff3002328688abfc",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_0050e20db967fab8",
+      "from": "claim_ff3002328688abfc",
+      "to": "event_2e4dc22ace4148d1",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_52b3c158b3d878ef",
+      "from": "source_72127871636e51a0",
+      "to": "claim_6eced67ae48e01ea",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_30c94cfb4af13339",
+      "from": "claim_6eced67ae48e01ea",
+      "to": "event_2e4dc22ace4148d1",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_2b46aa8d196eb451",
+      "from": "update_6b7ee9c42ae55dfa",
+      "to": "event_2e4dc22ace4148d1",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_240e7ff44efd5ad5",
+      "from": "claim_748e311822e26579",
+      "to": "event_2e4dc22ace4148d1",
+      "relation": "update_evidence_for",
+      "updateTitle": "Brockman正式接掌产品战略"
+    },
+    {
+      "id": "edge_afb902214cf2e26e",
+      "from": "claim_ebd353c549b736ac",
+      "to": "event_2e4dc22ace4148d1",
+      "relation": "update_evidence_for",
+      "updateTitle": "Brockman正式接掌产品战略"
+    },
+    {
+      "id": "edge_ebd402226b6707e7",
+      "from": "source_5ca3cdddb99f3998",
+      "to": "claim_1872e10a48007657",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_e9b9230ec88675d7",
+      "from": "claim_1872e10a48007657",
+      "to": "event_2e4dc22ace4148d1",
+      "relation": "update_evidence_for",
+      "updateTitle": "Brockman正式接掌产品战略"
+    },
+    {
+      "id": "edge_c3734fd697be8c99",
+      "from": "claim_ff3002328688abfc",
+      "to": "event_2e4dc22ace4148d1",
+      "relation": "update_evidence_for",
+      "updateTitle": "Brockman正式接掌产品战略"
+    },
+    {
+      "id": "edge_b4c09c2a74b8d5be",
+      "from": "claim_6eced67ae48e01ea",
+      "to": "event_2e4dc22ace4148d1",
+      "relation": "update_evidence_for",
+      "updateTitle": "Brockman正式接掌产品战略"
+    },
+    {
       "id": "edge_8d91a7a807c764b7",
       "from": "event_75b1f8ddf91f7116",
       "to": "article_a2801dd694f7880f",
@@ -24405,38 +24616,6 @@
       "to": "event_ded79f4f58feab3e",
       "relation": "update_evidence_for",
       "updateTitle": "GPT-5.6 Sol成为旗舰层"
-    },
-    {
-      "id": "edge_a78e8cdd49c1cfcf",
-      "from": "event_2e4dc22ace4148d1",
-      "to": "article_a9c678ad388bb205",
-      "relation": "rendered_as"
-    },
-    {
-      "id": "edge_656149c0813ef090",
-      "from": "source_5ca3cdddb99f3998",
-      "to": "claim_9603d6f61cdad8e8",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_d0ee499643696b39",
-      "from": "claim_9603d6f61cdad8e8",
-      "to": "event_2e4dc22ace4148d1",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_802d3438c4d97602",
-      "from": "source_5fccadd991f2f940",
-      "to": "claim_aae44a375b9f46ce",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_cb47690bf6e984ee",
-      "from": "claim_aae44a375b9f46ce",
-      "to": "event_2e4dc22ace4148d1",
-      "relation": "evidence_for",
-      "updateTitle": null
     },
     {
       "id": "edge_9044ae8ac81a450c",
