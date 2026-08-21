@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-20T22:06:17.636Z",
+  "generatedAt": "2026-08-21T00:08:12.051Z",
   "counts": {
-    "sources": 795,
-    "claims": 939,
-    "events": 197,
-    "articles": 197,
+    "sources": 800,
+    "claims": 944,
+    "events": 198,
+    "articles": 198,
     "updates": 135,
-    "edges": 2523,
+    "edges": 2534,
     "revisionsRequired": 11
   },
   "revisionQueue": [
@@ -123,6 +123,99 @@
     }
   ],
   "nodes": [
+    {
+      "id": "event_75b1f8ddf91f7116",
+      "type": "event",
+      "signalId": 136,
+      "title": "企业模型采购仍未形成稳定忠诚度",
+      "bucket": "explore",
+      "valueScore": 81,
+      "publishedAt": "2026-08-20T22:36:37.000Z",
+      "updatedAt": "2026-08-20T22:36:37.000Z"
+    },
+    {
+      "id": "article_a2801dd694f7880f",
+      "type": "article",
+      "signalId": 136,
+      "title": "企业模型采购仍未形成稳定忠诚度",
+      "version": 1,
+      "publishedAt": "2026-08-21T00:08:12.051Z"
+    },
+    {
+      "id": "source_db0bf4cf36536a3c",
+      "type": "source",
+      "title": "TechCrunch AI",
+      "url": "https://techcrunch.com/2026/08/20/openai-is-gaining-on-anthropic-with-business-users-new-data-indicates/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-20T22:36:37.000Z"
+    },
+    {
+      "id": "claim_acfe129abd985645",
+      "type": "claim",
+      "title": "报道称企业会随不同实验室的新模型发布而在OpenAI和Anthropic之间切换，并质疑企业AI支出的黏性。",
+      "role": "主张",
+      "addedAt": "2026-08-21T00:08:12.051Z"
+    },
+    {
+      "id": "source_72aa60b6f0ffd1ec",
+      "type": "source",
+      "title": "Ramp",
+      "url": "https://ramp.com/data/ai-index-july-2026",
+      "sourceKind": "Official",
+      "publishedAt": "2026-07-08T00:00:00.000Z"
+    },
+    {
+      "id": "claim_c210421a1c4a060a",
+      "type": "claim",
+      "title": "Ramp的2026年6月数据称Anthropic企业采用率为42.4%，OpenAI为39.5%，前者领先2.9个百分点。",
+      "role": "背景",
+      "addedAt": "2026-08-21T00:08:12.051Z"
+    },
+    {
+      "id": "source_6864ee451c323758",
+      "type": "source",
+      "title": "Ramp",
+      "url": "https://ramp.com/vendors/categories/foundational-llms",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-11T00:00:00.000Z"
+    },
+    {
+      "id": "claim_d6473f96a1b0b369",
+      "type": "claim",
+      "title": "Ramp截至8月11日的目录显示，在过去12个月购买过基础LLM软件的企业中，Anthropic采用率79%，OpenAI为78%。",
+      "role": "佐证",
+      "addedAt": "2026-08-21T00:08:12.051Z"
+    },
+    {
+      "id": "source_5e7fe3e8c260552d",
+      "type": "source",
+      "title": "Slash",
+      "url": "https://www.slash.com/blog/ai-spend-trends-july-2026",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-06T00:00:00.000Z"
+    },
+    {
+      "id": "claim_f09a521e9cb495a2",
+      "type": "claim",
+      "title": "Slash的匿名企业卡数据称，Anthropic在7月占识别AI平台支出67.86%，OpenAI占29.97%；6月分别为47.59%和49.92%。",
+      "role": "佐证",
+      "addedAt": "2026-08-21T00:08:12.051Z"
+    },
+    {
+      "id": "source_e11fcea9cd94bb20",
+      "type": "source",
+      "title": "Anthropic",
+      "url": "https://www.anthropic.com/news/claude-fable-5-mythos-5",
+      "sourceKind": "Official",
+      "publishedAt": "2026-06-09T00:00:00.000Z"
+    },
+    {
+      "id": "claim_9e28f804c1077126",
+      "type": "claim",
+      "title": "Anthropic确认，对Fable 5、Mythos 5及类似或更高能力模型的业务流量实施30天保留以支持安全监测。",
+      "role": "背景",
+      "addedAt": "2026-08-21T00:08:12.051Z"
+    },
     {
       "id": "event_4387515311ad42bf",
       "type": "event",
@@ -17965,6 +18058,77 @@
     }
   ],
   "edges": [
+    {
+      "id": "edge_8d91a7a807c764b7",
+      "from": "event_75b1f8ddf91f7116",
+      "to": "article_a2801dd694f7880f",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_841407539a433d9c",
+      "from": "source_db0bf4cf36536a3c",
+      "to": "claim_acfe129abd985645",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_01a78b18ac218909",
+      "from": "claim_acfe129abd985645",
+      "to": "event_75b1f8ddf91f7116",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_081950d5d79f4f69",
+      "from": "source_72aa60b6f0ffd1ec",
+      "to": "claim_c210421a1c4a060a",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_5cb05fff4cbd3bcb",
+      "from": "claim_c210421a1c4a060a",
+      "to": "event_75b1f8ddf91f7116",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_8888fc449dc7831a",
+      "from": "source_6864ee451c323758",
+      "to": "claim_d6473f96a1b0b369",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_c25d570877993db3",
+      "from": "claim_d6473f96a1b0b369",
+      "to": "event_75b1f8ddf91f7116",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_281dcf79eb0ed0ae",
+      "from": "source_5e7fe3e8c260552d",
+      "to": "claim_f09a521e9cb495a2",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_a0f78c8e1d421710",
+      "from": "claim_f09a521e9cb495a2",
+      "to": "event_75b1f8ddf91f7116",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_2c2c5666dc5f2d5e",
+      "from": "source_e11fcea9cd94bb20",
+      "to": "claim_9e28f804c1077126",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_881e65554fd14e52",
+      "from": "claim_9e28f804c1077126",
+      "to": "event_75b1f8ddf91f7116",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
     {
       "id": "edge_95d731f0f3880ca0",
       "from": "event_4387515311ad42bf",
