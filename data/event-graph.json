@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-21T05:07:42.421Z",
+  "generatedAt": "2026-08-21T08:07:15.531Z",
   "counts": {
-    "sources": 803,
-    "claims": 949,
-    "events": 198,
-    "articles": 198,
+    "sources": 808,
+    "claims": 954,
+    "events": 199,
+    "articles": 199,
     "updates": 136,
-    "edges": 2549,
+    "edges": 2560,
     "revisionsRequired": 12
   },
   "revisionQueue": [
@@ -133,6 +133,99 @@
     }
   ],
   "nodes": [
+    {
+      "id": "event_b8e25cf6b0b5c2a9",
+      "type": "event",
+      "signalId": 137,
+      "title": "Starlink印度落地卡在安全合规",
+      "bucket": "explore",
+      "valueScore": 81,
+      "publishedAt": "2026-08-21T06:04:54.000Z",
+      "updatedAt": "2026-08-21T06:04:54.000Z"
+    },
+    {
+      "id": "article_d072f7214f6a35fb",
+      "type": "article",
+      "signalId": 137,
+      "title": "Starlink印度落地卡在安全合规",
+      "version": 1,
+      "publishedAt": "2026-08-21T08:07:15.531Z"
+    },
+    {
+      "id": "source_65fd855b8f00230b",
+      "type": "source",
+      "title": "Bloomberg Technology",
+      "url": "https://www.bloomberg.com/news/articles/2026-08-21/musk-touts-starlink-for-india-s-rural-users-as-rollout-stalled",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-21T06:04:54.000Z"
+    },
+    {
+      "id": "claim_3831631f3fc5e53c",
+      "type": "claim",
+      "title": "Bloomberg 报道称，Musk 推介 Starlink 服务印度农村用户之际，其在印度的启动仍因安全关切停滞。",
+      "role": "主张",
+      "addedAt": "2026-08-21T08:07:15.531Z"
+    },
+    {
+      "id": "source_2e4fa97dc2544b26",
+      "type": "source",
+      "title": "Press Information Bureau, Ministry of Communications, Government of India",
+      "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2220346&reg=48&lang=2",
+      "sourceKind": "Official",
+      "publishedAt": "2026-01-29T13:01:00.000Z"
+    },
+    {
+      "id": "claim_eaa9b9969c817523",
+      "type": "claim",
+      "title": "印度通信部确认 DoT 已向 Starlink Satellite Communications Private Limited 发出全国性 GMPCS 授权，并说明卫星通信适用于地面网络难覆盖地区。",
+      "role": "佐证",
+      "addedAt": "2026-08-21T08:07:15.531Z"
+    },
+    {
+      "id": "source_de6bb1eb46ba0a9f",
+      "type": "source",
+      "title": "Department of Telecommunications, Government of India",
+      "url": "https://www.eservices.dot.gov.in/gmpcs-global-mobile-personal-communication-satellite-service",
+      "sourceKind": "Regulator",
+      "publishedAt": "2026-08-21T06:04:54.000Z"
+    },
+    {
+      "id": "claim_51ba3bf7ee9799fc",
+      "type": "claim",
+      "title": "印度电信部列明 GMPCS 还须满足独立网关、隐私、合法监听、境内流量路由、技术标准和频率审批等条件。",
+      "role": "佐证",
+      "addedAt": "2026-08-21T08:07:15.531Z"
+    },
+    {
+      "id": "source_7b03bc6c5a164fe8",
+      "type": "source",
+      "title": "Press Information Bureau, Ministry of Communications, Government of India",
+      "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1775425&lang=2&reg=3",
+      "sourceKind": "Official",
+      "publishedAt": "2021-11-26T14:59:00.000Z"
+    },
+    {
+      "id": "claim_436ffabf9b6dbaad",
+      "type": "claim",
+      "title": "印度电信部在2021年称 Starlink 当时并非获牌运营商，并要求其停止预订和提供卫星互联网服务。",
+      "role": "背景",
+      "addedAt": "2026-08-21T08:07:15.531Z"
+    },
+    {
+      "id": "source_b3d430530d17eba4",
+      "type": "source",
+      "title": "Press Information Bureau, Ministry of Communications, Government of India",
+      "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2226569&lang=1&reg=3",
+      "sourceKind": "Official",
+      "publishedAt": "2026-02-11T12:43:00.000Z"
+    },
+    {
+      "id": "claim_97aab864f7f2633d",
+      "type": "claim",
+      "title": "印度政府称截至2025年9月，98.09%的村庄已有互联网接入，63.1834万个村庄已有4G。",
+      "role": "反例",
+      "addedAt": "2026-08-21T08:07:15.531Z"
+    },
     {
       "id": "event_2e4dc22ace4148d1",
       "type": "event",
@@ -18138,6 +18231,77 @@
     }
   ],
   "edges": [
+    {
+      "id": "edge_67e656e0fc9677f3",
+      "from": "event_b8e25cf6b0b5c2a9",
+      "to": "article_d072f7214f6a35fb",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_4b7b32d903767937",
+      "from": "source_65fd855b8f00230b",
+      "to": "claim_3831631f3fc5e53c",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_106691a373139e0f",
+      "from": "claim_3831631f3fc5e53c",
+      "to": "event_b8e25cf6b0b5c2a9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_16266d8533b6d50f",
+      "from": "source_2e4fa97dc2544b26",
+      "to": "claim_eaa9b9969c817523",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_7c445137c2f1dd28",
+      "from": "claim_eaa9b9969c817523",
+      "to": "event_b8e25cf6b0b5c2a9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_ed5d249b23d173f4",
+      "from": "source_de6bb1eb46ba0a9f",
+      "to": "claim_51ba3bf7ee9799fc",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_78a2e4e661091740",
+      "from": "claim_51ba3bf7ee9799fc",
+      "to": "event_b8e25cf6b0b5c2a9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_d5e2e291f65c7782",
+      "from": "source_7b03bc6c5a164fe8",
+      "to": "claim_436ffabf9b6dbaad",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_3798dffe7f03c630",
+      "from": "claim_436ffabf9b6dbaad",
+      "to": "event_b8e25cf6b0b5c2a9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_2be0ad54fdcb8f49",
+      "from": "source_b3d430530d17eba4",
+      "to": "claim_97aab864f7f2633d",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_18624cc5071136a5",
+      "from": "claim_97aab864f7f2633d",
+      "to": "event_b8e25cf6b0b5c2a9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
     {
       "id": "edge_a78e8cdd49c1cfcf",
       "from": "event_2e4dc22ace4148d1",
