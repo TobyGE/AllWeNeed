@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-21T14:12:52.519Z",
-  "basedOnSnapshotAt": "2026-08-21T14:07:27.416Z",
+  "generatedAt": "2026-08-21T21:11:50.145Z",
+  "basedOnSnapshotAt": "2026-08-21T21:07:17.385Z",
   "model": "gpt-5.5",
   "analyzedItemCount": 180,
   "totalFetchedItemCount": 2328,
@@ -773,6 +773,32 @@
           "ref": "R6",
           "role": "反例",
           "takeaway": "官方图像文档限定图像仅可置于 user 消息、每张最多384 tokens且不支持 FIM，说明其能力范围仍有明确产品边界。"
+        },
+        {
+          "id": "232-1-https://the-decoder.com/deepseek-releases-experimental-flash-vision-model-that-rivals-opus-4-8-on-agent-benchmarks/",
+          "sourceId": 232,
+          "sourceName": "The Decoder AI",
+          "sourcePublisher": "The Decoder",
+          "sourceKind": "Blog",
+          "title": "Deepseek releases experimental Flash vision model that rivals Opus 4.8 on agent benchmarks",
+          "url": "https://the-decoder.com/deepseek-releases-experimental-flash-vision-model-that-rivals-opus-4-8-on-agent-benchmarks/",
+          "publishedAt": "2026-08-21T19:08:27.000Z",
+          "summary": "Deepseek has released V4-Flash-Vision-Exp, an experimental multimodal model that adds image understanding to V4-Flash's text capabilities. On the company's own multimodal agent benchmarks, it approaches Opus 4.8 and sometimes beats it. The article Deepseek releases experimental Flash vision model that rivals Opus 4.8 on agent benchmarks appeared first on The",
+          "fetchedAt": "2026-08-21T21:06:50.786Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-21T21:06:50.786Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 1.9806625,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N1",
+          "role": "最新进展",
+          "takeaway": "The Decoder称DeepSeek发布实验性V4-Flash-Vision-Exp，为Flash系列增加视觉理解，并引用公司多模态代理基准比较。"
         }
       ],
       "references": [
@@ -1415,10 +1441,90 @@
           "researchComparisons": "此前，2026-07-31 发布的 DeepSeek-V4-Flash-0731 是文本模型；其官方披露的 Terminal Bench 2.1、NL2Repo、DeepSWE、DSBench-Hard 分别为 82.7、54.2、54.4、59.6。新 Vision-Exp 披露的对应分数为 83.9、57.7、59.3、63.6；但公司将新模型的纯文本能力表述为与 V4-Flash 正式版持平。产品层面，Vision-Exp 与 V4-Flash 使用相同的峰谷 API 单价和 2,500 并发上限，而 Vision-Exp 新增图像输入；图片按 token 计费、每张最多 384 tokens。",
           "researchUnresolved": "“接近 Opus-4.8”未披露与 Opus-4.8 在同一任务、相同 Agent 框架、提示词、推理预算及重复运行条件下的逐项对照结果；公布的部分基准使用 DeepSeek Harness 极简模式、max 档位、top-p 0.95、temperature 1.0，且 DSBench-Hard 为内部测试集。该模型仍为实验版，并有图像仅可置于 user 消息、单图经缩放后最多 384 tokens、FIM 不支持等产品限制。",
           "ref": "R6"
+        },
+        {
+          "id": "232-1-https://the-decoder.com/deepseek-releases-experimental-flash-vision-model-that-rivals-opus-4-8-on-agent-benchmarks/",
+          "sourceId": 232,
+          "sourceName": "The Decoder AI",
+          "sourcePublisher": "The Decoder",
+          "sourceKind": "Blog",
+          "title": "Deepseek releases experimental Flash vision model that rivals Opus 4.8 on agent benchmarks",
+          "url": "https://the-decoder.com/deepseek-releases-experimental-flash-vision-model-that-rivals-opus-4-8-on-agent-benchmarks/",
+          "publishedAt": "2026-08-21T19:08:27.000Z",
+          "summary": "Deepseek has released V4-Flash-Vision-Exp, an experimental multimodal model that adds image understanding to V4-Flash's text capabilities. On the company's own multimodal agent benchmarks, it approaches Opus 4.8 and sometimes beats it. The article Deepseek releases experimental Flash vision model that rivals Opus 4.8 on agent benchmarks appeared first on The",
+          "fetchedAt": "2026-08-21T21:06:50.786Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-21T21:06:50.786Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 1.9806625,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N1"
         }
       ],
       "feedBatchAt": "2026-08-21T14:07:27.416Z",
       "updates": [
+        {
+          "addedAt": "2026-08-21T19:08:27.000Z",
+          "title": "V4 Flash视觉实验版获媒体补充",
+          "summary": "The Decoder报道称，DeepSeek推出V4-Flash-Vision-Exp，为V4-Flash加入图像理解能力，并援引公司多模态代理基准比较。DeepSeek官方0731仓库披露的文本Flash基准则未显示其超过Opus-4.8。",
+          "evidence": [
+            {
+              "id": "232-1-https://the-decoder.com/deepseek-releases-experimental-flash-vision-model-that-rivals-opus-4-8-on-agent-benchmarks/",
+              "sourceId": 232,
+              "sourceName": "The Decoder AI",
+              "sourcePublisher": "The Decoder",
+              "sourceKind": "Blog",
+              "title": "Deepseek releases experimental Flash vision model that rivals Opus 4.8 on agent benchmarks",
+              "url": "https://the-decoder.com/deepseek-releases-experimental-flash-vision-model-that-rivals-opus-4-8-on-agent-benchmarks/",
+              "publishedAt": "2026-08-21T19:08:27.000Z",
+              "summary": "Deepseek has released V4-Flash-Vision-Exp, an experimental multimodal model that adds image understanding to V4-Flash's text capabilities. On the company's own multimodal agent benchmarks, it approaches Opus 4.8 and sometimes beats it. The article Deepseek releases experimental Flash vision model that rivals Opus 4.8 on agent benchmarks appeared first on The",
+              "fetchedAt": "2026-08-21T21:06:50.786Z",
+              "accessMethod": "public-feed",
+              "publicContentPolicy": "headline-source-link-only",
+              "firstSeenAt": "2026-08-21T21:06:50.786Z",
+              "freshness": {
+                "eligible": true,
+                "lane": "explore",
+                "reason": "fresh",
+                "ageHours": 1.9806625,
+                "maxAgeHours": 168
+              },
+              "deferredResearch": false,
+              "ref": "N1",
+              "role": "最新进展",
+              "takeaway": "The Decoder称DeepSeek发布实验性V4-Flash-Vision-Exp，为Flash系列增加视觉理解，并引用公司多模态代理基准比较。"
+            },
+            {
+              "id": "research-232-1-https://the-decoder.com/deepseek-releases-experimental-flash-vision-model-that-rivals-opus-4-8-on-agent-benchmarks/-1-https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731",
+              "sourceId": 232,
+              "sourceName": "DeepSeek",
+              "sourcePublisher": "DeepSeek",
+              "sourceKind": "Repository",
+              "title": "deepseek-ai/DeepSeek-V4-Flash-0731",
+              "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731",
+              "publishedAt": "2026-08-21T19:08:27.000Z",
+              "summary": "DeepSeek 官方模型库将 V4-Flash-0731 定义为取代预览版的正式 Flash 发布，并披露其与预览版、V4-Pro 预览版、GLM-5.2 和 Opus-4.8 的九项代理基准逐项分数；该表显示 0731 版较预览版显著提升，但在列出的九项中均低于 Opus-4.8，同时披露了评测配置和两项内部 DSBench 测试集限制。",
+              "fetchedAt": "2026-08-21T21:07:17.385Z",
+              "researchedFrom": "N1",
+              "researchRole": "Comparison",
+              "researchClaim": "可公开核验的基线显示，DeepSeek-V4-Flash-0731 相比预览版显著提升了代理任务表现；但未找到 DeepSeek 发布的 V4-Flash-Vision-Exp 模型卡、技术报告或可复现评测材料，因此“新增原生视觉能力”及其多模态代理表现尚不能以一手材料确认。",
+              "researchComparisons": "DeepSeek 的官方 V4-Flash-0731 表中，Terminal Bench 2.1 为 82.7，较 V4-Flash 预览版的 61.8 提升 20.9 分，但低于 Opus-4.8 的 85.0；NL2Repo 为 54.2，对比预览版 39.4 和 Opus-4.8 的 69.7。该表其余七项代理基准中，Opus-4.8 也均高于 V4-Flash-0731：Cybergym 83.1 vs 76.7、DeepSWE 58.0 vs 54.4、Toolathlon-Verified 76.2 vs 70.3、Agents' Last Exam 25.7 vs 25.2、AutomationBench Public 27.2 vs 25.1、DSBench-FullStack 71.6 vs 68.7、DSBench-Hard 71.7 vs 59.6。因候选所称为多模态代理评测，不能将这组文本/代码代理分数直接外推为视觉模型表现。",
+              "researchUnresolved": "需取得 V4-Flash-Vision-Exp 的 DeepSeek 原始发布页或模型卡、权重/API 可用性、视觉编码器与输入限制、逐项多模态基准分数、评测提示词与代理框架、推理预算/成本，以及独立复现结果。现有官方 Flash 评测采用 max 推理档、temperature 1.0、top_p 0.95；DSBench-FullStack 和 DSBench-Hard 为内部测试集，构成“接近或超过 Opus”主张的关键可比性限制。",
+              "ref": "R1",
+              "role": "反例",
+              "takeaway": "DeepSeek官方0731仓库显示该正式Flash版本较预览版提升，但披露的九项代理基准均低于Opus-4.8，并说明了内部测试集限制。"
+            }
+          ],
+          "changeType": "corroboration",
+          "thesisImpact": "媒体补充了V4-Flash-Vision-Exp的多模态代理定位；DeepSeek官方0731基准则显示文本Flash版本虽较预览版提升，但九项代理测试均低于Opus-4.8，强化了该产品仍处实验扩展阶段的判断。",
+          "revisionRequired": false
+        },
         {
           "addedAt": "2026-08-21T11:04:33.000Z",
           "title": "DeepSeek V4 Flash新增视觉实验模型",
@@ -54523,9 +54629,31 @@
             {
               "role": "反例",
               "takeaway": "官方图像文档限定图像仅可置于 user 消息、每张最多384 tokens且不支持 FIM，说明其能力范围仍有明确产品边界。"
+            },
+            {
+              "role": "最新进展",
+              "takeaway": "The Decoder称DeepSeek发布实验性V4-Flash-Vision-Exp，为Flash系列增加视觉理解，并引用公司多模态代理基准比较。"
             }
           ],
           "updates": [
+            {
+              "addedAt": "2026-08-21T19:08:27.000Z",
+              "title": "V4 Flash视觉实验版获媒体补充",
+              "summary": "The Decoder报道称，DeepSeek推出V4-Flash-Vision-Exp，为V4-Flash加入图像理解能力，并援引公司多模态代理基准比较。DeepSeek官方0731仓库披露的文本Flash基准则未显示其超过Opus-4.8。",
+              "evidence": [
+                {
+                  "role": "最新进展",
+                  "takeaway": "The Decoder称DeepSeek发布实验性V4-Flash-Vision-Exp，为Flash系列增加视觉理解，并引用公司多模态代理基准比较。"
+                },
+                {
+                  "role": "反例",
+                  "takeaway": "DeepSeek官方0731仓库显示该正式Flash版本较预览版提升，但披露的九项代理基准均低于Opus-4.8，并说明了内部测试集限制。"
+                }
+              ],
+              "changeType": "corroboration",
+              "thesisImpact": "媒体补充了V4-Flash-Vision-Exp的多模态代理定位；DeepSeek官方0731基准则显示文本Flash版本虽较预览版提升，但九项代理测试均低于Opus-4.8，强化了该产品仍处实验扩展阶段的判断。",
+              "revisionRequired": false
+            },
             {
               "addedAt": "2026-08-21T11:04:33.000Z",
               "title": "DeepSeek V4 Flash新增视觉实验模型",
@@ -67644,9 +67772,31 @@
             {
               "role": "Counterpoint",
               "takeaway": "Official image documentation limits images to user messages, caps each at 384 tokens and excludes FIM support, defining meaningful product constraints."
+            },
+            {
+              "role": "Update",
+              "takeaway": "The Decoder reports an experimental V4-Flash-Vision-Exp model with image understanding and company-provided multimodal agent benchmark comparisons."
             }
           ],
           "updates": [
+            {
+              "addedAt": "2026-08-21T19:08:27.000Z",
+              "title": "Media adds detail on V4 Flash vision experiment",
+              "summary": "The Decoder reports that DeepSeek introduced V4-Flash-Vision-Exp, adding image understanding to V4-Flash. DeepSeek’s official 0731 repository shows the text Flash release improved from preview but remained below Opus-4.8 on all nine disclosed agent benchmarks.",
+              "evidence": [
+                {
+                  "role": "Update",
+                  "takeaway": "The Decoder reports an experimental V4-Flash-Vision-Exp model with image understanding and company-provided multimodal agent benchmark comparisons."
+                },
+                {
+                  "role": "Counterpoint",
+                  "takeaway": "DeepSeek’s official 0731 repository reports gains over preview, but scores below Opus-4.8 across all nine disclosed agent benchmarks and notes internal-test limitations."
+                }
+              ],
+              "changeType": "corroboration",
+              "thesisImpact": "媒体补充了V4-Flash-Vision-Exp的多模态代理定位；DeepSeek官方0731基准则显示文本Flash版本虽较预览版提升，但九项代理测试均低于Opus-4.8，强化了该产品仍处实验扩展阶段的判断。",
+              "revisionRequired": false
+            },
             {
               "addedAt": "2026-08-21T11:04:33.000Z",
               "title": "DeepSeek V4 Flash Adds an Experimental Vision Model",
@@ -80606,12 +80756,12 @@
     "en": "gpt-5.6-sol"
   },
   "incremental": {
-    "lastAddedAt": "2026-08-21T14:12:52.519Z",
-    "lastScanAt": "2026-08-21T14:07:27.416Z",
+    "lastAddedAt": "2026-08-21T21:11:50.145Z",
+    "lastScanAt": "2026-08-21T21:07:17.385Z",
     "lastAddedCount": 0,
     "lastUpdatedCount": 1,
     "totalAppended": 130,
-    "totalUpdated": 139
+    "totalUpdated": 140
   },
   "exploreDepth": {
     "minimum": 50,

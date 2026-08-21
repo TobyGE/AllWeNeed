@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-21T14:07:27.416Z",
+  "generatedAt": "2026-08-21T21:07:17.385Z",
   "counts": {
-    "sources": 825,
-    "claims": 978,
+    "sources": 826,
+    "claims": 980,
     "events": 201,
     "articles": 201,
-    "updates": 139,
-    "edges": 2626,
+    "updates": 140,
+    "edges": 2632,
     "revisionsRequired": 13
   },
   "revisionQueue": [
@@ -655,6 +655,39 @@
       "title": "官方图像文档限定图像仅可置于 user 消息、每张最多384 tokens且不支持 FIM，说明其能力范围仍有明确产品边界。",
       "role": "反例",
       "addedAt": "2026-08-21T14:07:27.416Z"
+    },
+    {
+      "id": "source_8863673f827af7d1",
+      "type": "source",
+      "title": "The Decoder AI",
+      "url": "https://the-decoder.com/deepseek-releases-experimental-flash-vision-model-that-rivals-opus-4-8-on-agent-benchmarks/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-21T19:08:27.000Z"
+    },
+    {
+      "id": "claim_5392eaf30ee27869",
+      "type": "claim",
+      "title": "The Decoder称DeepSeek发布实验性V4-Flash-Vision-Exp，为Flash系列增加视觉理解，并引用公司多模态代理基准比较。",
+      "role": "最新进展",
+      "addedAt": "2026-08-21T14:07:27.416Z"
+    },
+    {
+      "id": "update_1fef7b8316495c01",
+      "type": "update",
+      "signalId": 42,
+      "title": "V4 Flash视觉实验版获媒体补充",
+      "summary": "The Decoder报道称，DeepSeek推出V4-Flash-Vision-Exp，为V4-Flash加入图像理解能力，并援引公司多模态代理基准比较。DeepSeek官方0731仓库披露的文本Flash基准则未显示其超过Opus-4.8。",
+      "addedAt": "2026-08-21T19:08:27.000Z",
+      "changeType": "corroboration",
+      "thesisImpact": "媒体补充了V4-Flash-Vision-Exp的多模态代理定位；DeepSeek官方0731基准则显示文本Flash版本虽较预览版提升，但九项代理测试均低于Opus-4.8，强化了该产品仍处实验扩展阶段的判断。",
+      "revisionRequired": false
+    },
+    {
+      "id": "claim_d0401a262bc49424",
+      "type": "claim",
+      "title": "DeepSeek官方0731仓库显示该正式Flash版本较预览版提升，但披露的九项代理基准均低于Opus-4.8，并说明了内部测试集限制。",
+      "role": "反例",
+      "addedAt": "2026-08-21T19:08:27.000Z"
     },
     {
       "id": "update_fd6ac9735608c7f7",
@@ -19046,6 +19079,45 @@
       "to": "event_fd6738bc4783b911",
       "relation": "evidence_for",
       "updateTitle": null
+    },
+    {
+      "id": "edge_2604eac7a6cba985",
+      "from": "source_8863673f827af7d1",
+      "to": "claim_5392eaf30ee27869",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_9e909523bef515af",
+      "from": "claim_5392eaf30ee27869",
+      "to": "event_fd6738bc4783b911",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_68e091e5c823b7c4",
+      "from": "update_1fef7b8316495c01",
+      "to": "event_fd6738bc4783b911",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_25135f5b00ba79aa",
+      "from": "claim_5392eaf30ee27869",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "V4 Flash视觉实验版获媒体补充"
+    },
+    {
+      "id": "edge_b6801c97e33bc248",
+      "from": "source_a1a747f4e1222f58",
+      "to": "claim_d0401a262bc49424",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_710ee1412fb9ea69",
+      "from": "claim_d0401a262bc49424",
+      "to": "event_fd6738bc4783b911",
+      "relation": "update_evidence_for",
+      "updateTitle": "V4 Flash视觉实验版获媒体补充"
     },
     {
       "id": "edge_4059a8971d95ada5",
