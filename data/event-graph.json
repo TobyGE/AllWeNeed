@@ -1,16 +1,26 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-22T05:07:51.087Z",
+  "generatedAt": "2026-08-22T12:07:50.193Z",
   "counts": {
-    "sources": 837,
-    "claims": 992,
+    "sources": 841,
+    "claims": 997,
     "events": 201,
     "articles": 201,
-    "updates": 144,
-    "edges": 2671,
+    "updates": 145,
+    "edges": 2686,
     "revisionsRequired": 14
   },
   "revisionQueue": [
+    {
+      "signalId": 120,
+      "eventId": "event_a54424288d0d3cf5",
+      "updateId": "update_c485b4ffb581d972",
+      "title": "OpenAI收入增长转向企业与Codex",
+      "updateTitle": "Sol消费份额高于Fable 5",
+      "thesisImpact": "Sol的模型消费表现强化了OpenAI企业变现的产品驱动，但最新Ramp数据并不支持其已重新夺回整体企业采用领先地位；收入激增仍主要来自单一媒体报道。",
+      "detectedAt": "2026-08-21T08:26:05.000Z",
+      "status": "needs_editorial_revision"
+    },
     {
       "signalId": 94,
       "eventId": "event_3bdbbc57db124526",
@@ -39,16 +49,6 @@
       "updateTitle": "Claude Sonnet 5永久降价",
       "thesisImpact": "Anthropic将Claude Sonnet 5优惠价永久化，且DeepSeek官方低价仍显著存在，强化了模型竞争从一次性降价转向持续价格分层的判断。",
       "detectedAt": "2026-08-14T14:27:14.000Z",
-      "status": "needs_editorial_revision"
-    },
-    {
-      "signalId": 120,
-      "eventId": "event_a54424288d0d3cf5",
-      "updateId": "update_c485b4ffb581d972",
-      "title": "OpenAI收入增长转向企业与Codex",
-      "updateTitle": "Sol消费份额高于Fable 5",
-      "thesisImpact": "Sol的模型消费表现强化了OpenAI企业变现的产品驱动，但最新Ramp数据并不支持其已重新夺回整体企业采用领先地位；收入激增仍主要来自单一媒体报道。",
-      "detectedAt": "2026-08-21T08:26:05.000Z",
       "status": "needs_editorial_revision"
     },
     {
@@ -153,6 +153,464 @@
     }
   ],
   "nodes": [
+    {
+      "id": "event_a54424288d0d3cf5",
+      "type": "event",
+      "signalId": 120,
+      "title": "OpenAI收入增长转向企业与Codex",
+      "bucket": "explore",
+      "valueScore": 85,
+      "publishedAt": "2026-08-14T17:55:40.000Z",
+      "updatedAt": "2026-08-22T00:00:00.000Z"
+    },
+    {
+      "id": "article_6e3f93f2bc7ed903",
+      "type": "article",
+      "signalId": 120,
+      "title": "OpenAI收入增长转向企业与Codex",
+      "version": 1,
+      "publishedAt": "2026-08-22T12:07:50.193Z"
+    },
+    {
+      "id": "source_a9cdba064460452b",
+      "type": "source",
+      "title": "Bloomberg Technology",
+      "url": "https://www.bloomberg.com/news/videos/2026-08-14/bloomberg-tech-8-14-2026-video",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-14T17:55:40.000Z"
+    },
+    {
+      "id": "claim_50a5eea8cc4dd89c",
+      "type": "claim",
+      "title": "Bloomberg节目称OpenAI年化收入运行率有望超过400亿美元，约为2025年末运行率的两倍。",
+      "role": "主张",
+      "addedAt": "2026-08-22T12:07:50.193Z"
+    },
+    {
+      "id": "source_70f9c56cad38ae84",
+      "type": "source",
+      "title": "Bloomberg Technology",
+      "url": "https://www.bloomberg.com/news/videos/2026-08-14/openai-on-track-to-double-revenue-ahead-of-ipo-video",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-14T17:48:35.000Z"
+    },
+    {
+      "id": "claim_355c6d1610719b86",
+      "type": "claim",
+      "title": "Bloomberg称付费ChatGPT用户、企业采用和Codex正在推动OpenAI收入运行率超过400亿美元，同时指出计算成本仍是挑战。",
+      "role": "佐证",
+      "addedAt": "2026-08-22T12:07:50.193Z"
+    },
+    {
+      "id": "source_ac4916ce25597d7e",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://openai.com/index/a-business-that-scales-with-the-value-of-intelligence/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-02-11T00:00:00.000Z"
+    },
+    {
+      "id": "claim_a02cd215fc5272f6",
+      "type": "claim",
+      "title": "OpenAI CFO披露ARR从2023年的20亿美元增至2024年的60亿美元、2025年的超过200亿美元；可用算力从0.2GW增至约1.9GW。",
+      "role": "背景",
+      "addedAt": "2026-08-22T12:07:50.193Z"
+    },
+    {
+      "id": "source_baca61f09ad04247",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://openai.com/index/accelerating-the-next-phase-ai/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-03-31T00:00:00.000Z"
+    },
+    {
+      "id": "claim_bf3f9acd1430cdfc",
+      "type": "claim",
+      "title": "OpenAI在3月称月度收入为20亿美元，约合240亿美元年化；企业业务占收入逾40%。",
+      "role": "背景",
+      "addedAt": "2026-08-22T12:07:50.193Z"
+    },
+    {
+      "id": "source_a54155c5488c7513",
+      "type": "source",
+      "title": "Ars Technica",
+      "url": "https://arstechnica.com/ai/2026/06/leaked-financial-docs-show-openai-is-losing-billions-of-dollars-a-year/",
+      "sourceKind": "Media",
+      "publishedAt": "2026-06-16T00:00:00.000Z"
+    },
+    {
+      "id": "claim_884abf44b70d11a5",
+      "type": "claim",
+      "title": "Ars Technica报道经审计泄露文件显示，OpenAI 2025年确认收入为130.7亿美元，总成本及费用为340亿美元。",
+      "role": "反例",
+      "addedAt": "2026-08-22T12:07:50.193Z"
+    },
+    {
+      "id": "source_4068d50cfab454be",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://openai.com/index/codex-flexible-pricing-for-teams/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-04-02T00:00:00.000Z"
+    },
+    {
+      "id": "claim_eb9485de5b1e742b",
+      "type": "claim",
+      "title": "OpenAI称超过900万付费商业用户使用ChatGPT办公，超过200万开发者每周使用Codex，企业版Codex用户数自1月增长6倍。",
+      "role": "佐证",
+      "addedAt": "2026-08-22T12:07:50.193Z"
+    },
+    {
+      "id": "source_f95f92064beb34ab",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://openai.com/index/scaling-codex-to-enterprises-worldwide/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-04-21T00:00:00.000Z"
+    },
+    {
+      "id": "claim_5a4972ead6f1794f",
+      "type": "claim",
+      "title": "OpenAI称Codex周活开发者在两周内由超过300万升至超过400万，并通过多家咨询合作伙伴推进企业生产部署。",
+      "role": "佐证",
+      "addedAt": "2026-08-22T12:07:50.193Z"
+    },
+    {
+      "id": "source_594cfc24c9eabfb8",
+      "type": "source",
+      "title": "Reuters",
+      "url": "https://www.reuters.com/technology/openai-tops-25-billion-annualized-revenue-last-month-information-reports-2026-03-05/",
+      "sourceKind": "Media",
+      "publishedAt": "2026-03-05T00:00:00.000Z"
+    },
+    {
+      "id": "claim_abcdda02cd34d421",
+      "type": "claim",
+      "title": "Reuters转述报道称，OpenAI在2月底年化收入运行率超过250亿美元，并提醒运行率不能单独证明盈利能力或计算支出的可持续性。",
+      "role": "背景",
+      "addedAt": "2026-08-22T12:07:50.193Z"
+    },
+    {
+      "id": "source_12f472b02c71ebb5",
+      "type": "source",
+      "title": "The Information",
+      "url": "https://www.theinformation.com/articles/openais-latest-hire-burnishes-cybersecurity-credentials",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-14T00:15:19.000Z"
+    },
+    {
+      "id": "claim_6c468d442dca5f15",
+      "type": "claim",
+      "title": "The Information报道Dresser离职，OpenAI聘请前Wiz高管Dali Rajic接任。",
+      "role": "最新进展",
+      "addedAt": "2026-08-22T12:07:50.193Z"
+    },
+    {
+      "id": "source_065a639be9487487",
+      "type": "source",
+      "title": "Axios",
+      "url": "https://www.axios.com/2026/08/13/openai-denise-dresser-replace-chief-revenue-officer",
+      "sourceKind": "Media",
+      "publishedAt": "2026-08-13T16:58:00.000Z"
+    },
+    {
+      "id": "claim_4085910109173f5d",
+      "type": "claim",
+      "title": "Axios报道称Dresser任职不足一年即离开，Rajic将接替其职位，并将变动置于企业业务扩张背景中。",
+      "role": "佐证",
+      "addedAt": "2026-08-22T12:07:50.193Z"
+    },
+    {
+      "id": "source_b4f37f6ea3094a8d",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://openai.com/index/openai-appoints-denise-dresser/",
+      "sourceKind": "Official",
+      "publishedAt": "2025-12-09T00:00:00.000Z"
+    },
+    {
+      "id": "claim_8a7f9633d1aa1eea",
+      "type": "claim",
+      "title": "OpenAI此前披露Dresser于2025年12月获任命，负责全球企业与客户成功营收战略。",
+      "role": "背景",
+      "addedAt": "2026-08-22T12:07:50.193Z"
+    },
+    {
+      "id": "source_3a61ccdcaf7af5af",
+      "type": "source",
+      "title": "Google",
+      "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/wiz-acquisition/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-03-11T00:00:00.000Z"
+    },
+    {
+      "id": "claim_6876ab2e5e533edb",
+      "type": "claim",
+      "title": "Google已于2026年3月完成对Wiz的收购，并将其定位为云与AI安全平台。",
+      "role": "背景",
+      "addedAt": "2026-08-22T12:07:50.193Z"
+    },
+    {
+      "id": "source_70f60781b77890a5",
+      "type": "source",
+      "title": "Zscaler",
+      "url": "https://www.zscaler.com/press/zscaler-names-dali-rajic-president-go-to-market-and-chief-revenue-officer",
+      "sourceKind": "IR",
+      "publishedAt": "2019-09-10T00:00:00.000Z"
+    },
+    {
+      "id": "claim_8ec75d04c0870c66",
+      "type": "claim",
+      "title": "Zscaler披露Rajic曾负责全球营收增长、市场进入战略与客户成功，其公开履历主要体现企业销售和商业运营经验。",
+      "role": "反例",
+      "addedAt": "2026-08-22T12:07:50.193Z"
+    },
+    {
+      "id": "source_6eaab463a55def87",
+      "type": "source",
+      "title": "OpenAI Blog",
+      "url": "https://openai.com/index/dali-rajic-chief-revenue-officer",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-13T09:00:00.000Z"
+    },
+    {
+      "id": "claim_a165f8188fb05250",
+      "type": "claim",
+      "title": "OpenAI宣布任命Dali Rajic为Chief Revenue Officer，负责全球营收组织。",
+      "role": "最新进展",
+      "addedAt": "2026-08-22T12:07:50.193Z"
+    },
+    {
+      "id": "source_e6e27fa533781467",
+      "type": "source",
+      "title": "Wiz",
+      "url": "https://www.wiz.io/events/ciso-club-tlv-exclusive-brunch-event",
+      "sourceKind": "Official",
+      "publishedAt": "2025-02-11T08:00:00.000Z"
+    },
+    {
+      "id": "claim_2400efe035f4c0e8",
+      "type": "claim",
+      "title": "Wiz活动页面将Dali Rajic列为总裁兼首席运营官，确认其加入OpenAI前的职务背景。",
+      "role": "背景",
+      "addedAt": "2026-08-22T12:07:50.193Z"
+    },
+    {
+      "id": "source_751a892e2ef7a354",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://openai.com/index/openai-launches-the-deployment-company/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-05-11T00:00:00.000Z"
+    },
+    {
+      "id": "claim_6d9ae64cde1149c8",
+      "type": "claim",
+      "title": "OpenAI于2026年5月推出Deployment Company，并称将以逾40亿美元初始投资扩展企业部署能力。",
+      "role": "背景",
+      "addedAt": "2026-08-22T12:07:50.193Z"
+    },
+    {
+      "id": "source_65e8cbc7b7c33a48",
+      "type": "source",
+      "title": "The Decoder AI",
+      "url": "https://the-decoder.com/gpt-5-6-sol-drives-openais-revenue-surge-as-it-regains-ground-on-anthropic/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-21T08:26:05.000Z"
+    },
+    {
+      "id": "claim_e422373128f34145",
+      "type": "claim",
+      "title": "The Decoder称Sol推出后OpenAI收入和企业收入加速，并称OpenAI在企业API支出上反超Anthropic。",
+      "role": "最新进展",
+      "addedAt": "2026-08-22T12:07:50.193Z"
+    },
+    {
+      "id": "source_238c8d8bf6e82e96",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://openai.com/index/previewing-gpt-5-6-sol/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-06-26T00:00:00.000Z"
+    },
+    {
+      "id": "claim_40df8749115f81d9",
+      "type": "claim",
+      "title": "OpenAI确认GPT-5.6 Sol于2026年6月26日开始有限预览，并披露其相对GPT-5.5的多项评测改进。",
+      "role": "背景",
+      "addedAt": "2026-08-22T12:07:50.193Z"
+    },
+    {
+      "id": "source_ab08538328542290",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://openai.com/index/next-phase-of-enterprise-ai/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-04-08T00:00:00.000Z"
+    },
+    {
+      "id": "claim_76aebf888f8fbf3d",
+      "type": "claim",
+      "title": "OpenAI此前称企业业务已占季度收入逾40%，并预计2026年底与消费者业务持平。",
+      "role": "背景",
+      "addedAt": "2026-08-22T12:07:50.193Z"
+    },
+    {
+      "id": "source_72aa60b6f0ffd1ec",
+      "type": "source",
+      "title": "Ramp Economics Lab",
+      "url": "https://ramp.com/data/ai-index-july-2026",
+      "sourceKind": "Research",
+      "publishedAt": "2026-07-08T00:00:00.000Z"
+    },
+    {
+      "id": "claim_e09cd560b9db84b6",
+      "type": "claim",
+      "title": "Ramp截至6月的企业支付数据中，Anthropic覆盖42.4%的付费美国企业，OpenAI为39.5%。",
+      "role": "背景",
+      "addedAt": "2026-08-22T12:07:50.193Z"
+    },
+    {
+      "id": "source_d79bba2bf0f2318c",
+      "type": "source",
+      "title": "Ramp Economics Lab",
+      "url": "https://ramp.com/data/ai-index-august-2026",
+      "sourceKind": "Research",
+      "publishedAt": "2026-08-12T00:00:00.000Z"
+    },
+    {
+      "id": "claim_0d38e962ab1cd467",
+      "type": "claim",
+      "title": "Ramp最新数据显示Anthropic在7月付费企业覆盖率仍为43.5%，高于OpenAI的39.7%；但Sol占OpenAI token量25%、模型支出23%。",
+      "role": "反例",
+      "addedAt": "2026-08-22T12:07:50.193Z"
+    },
+    {
+      "id": "source_ef3dcd054d129482",
+      "type": "source",
+      "title": "The Information",
+      "url": "https://www.theinformation.com/briefings/exclusive-key-openai-sales-executive-kaylin-voss-resigns",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-21T19:20:07.000Z"
+    },
+    {
+      "id": "claim_25c418b08423bf44",
+      "type": "claim",
+      "title": "报道称OpenAI Americas销售副总裁Kaylin Voss已辞职，时间在前任CRO Denise Dresser离任后一周。",
+      "role": "最新进展",
+      "addedAt": "2026-08-22T12:07:50.193Z"
+    },
+    {
+      "id": "source_a6c3a034d6aecb37",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://openai.com/index/dali-rajic-chief-revenue-officer/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-13T00:00:00.000Z"
+    },
+    {
+      "id": "claim_879aa50ca38c7022",
+      "type": "claim",
+      "title": "OpenAI已宣布Dali Rajic将领导全球收入组织，Dresser将在交接期后离任。",
+      "role": "背景",
+      "addedAt": "2026-08-22T12:07:50.193Z"
+    },
+    {
+      "id": "source_27764191dc35efbe",
+      "type": "source",
+      "title": "Salesforce",
+      "url": "https://www.salesforce.com/customer-stories/agentforce-for-sales/?bc=OTH&blaid=7627505",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-21T19:20:07.000Z"
+    },
+    {
+      "id": "claim_4666d11286f68f49",
+      "type": "claim",
+      "title": "Salesforce材料将Kaylin Voss列为Agentforce与Data 360销售执行副总裁，显示其曾在Salesforce核心AI和数据销售体系担任高级岗位。",
+      "role": "佐证",
+      "addedAt": "2026-08-22T12:07:50.193Z"
+    },
+    {
+      "id": "source_c8ba582cb7b523bd",
+      "type": "source",
+      "title": "Techmeme",
+      "url": "https://www.techmeme.com/",
+      "sourceKind": "Media",
+      "publishedAt": "2026-08-22T00:00:00.000Z"
+    },
+    {
+      "id": "claim_5dc66a03561b7379",
+      "type": "claim",
+      "title": "公开汇集的Marc Benioff帖文欢迎Kaylin Voss回归Salesforce，为其回归提供了公开交叉验证。",
+      "role": "佐证",
+      "addedAt": "2026-08-22T12:07:50.193Z"
+    },
+    {
+      "id": "update_02a39f1f28550a5c",
+      "type": "update",
+      "signalId": 120,
+      "title": "OpenAI再失北美销售高管",
+      "summary": "据报道，OpenAI Americas销售副总裁Kaylin Voss在CRO Denise Dresser离任后一周辞职并回归Salesforce。OpenAI此前已宣布由Dali Rajic接任全球收入组织负责人。",
+      "addedAt": "2026-08-22T00:00:00.000Z",
+      "changeType": "progress",
+      "thesisImpact": "OpenAI收入组织在更换CRO后又出现区域销售副总裁离任并回归Salesforce，强化其企业化扩张同时伴随商业领导层重组的判断。",
+      "revisionRequired": false
+    },
+    {
+      "id": "claim_e21679b8d1f68599",
+      "type": "claim",
+      "title": "OpenAI此前任命Denise Dresser担任CRO，负责企业与客户成功覆盖的全球收入战略。",
+      "role": "背景",
+      "addedAt": "2026-08-22T00:00:00.000Z"
+    },
+    {
+      "id": "update_c485b4ffb581d972",
+      "type": "update",
+      "signalId": 120,
+      "title": "Sol消费份额高于Fable 5",
+      "summary": "The Decoder称GPT-5.6 Sol推出后OpenAI季度收入增长35%、企业收入增长逾50%。Ramp最新数据则显示，Sol约占OpenAI token量25%和模型支出23%，但Anthropic仍在付费企业覆盖率上领先。",
+      "addedAt": "2026-08-21T08:26:05.000Z",
+      "changeType": "thesis_change",
+      "thesisImpact": "Sol的模型消费表现强化了OpenAI企业变现的产品驱动，但最新Ramp数据并不支持其已重新夺回整体企业采用领先地位；收入激增仍主要来自单一媒体报道。",
+      "revisionRequired": true
+    },
+    {
+      "id": "update_19505f6a6711e8d6",
+      "type": "update",
+      "signalId": 120,
+      "title": "OpenAI任命Dali Rajic为CRO",
+      "summary": "OpenAI任命前Wiz总裁兼COO Dali Rajic为Chief Revenue Officer，接替Denise Dresser。Axios报道称，OpenAI商业客户年化营收在7月环比增长32%，企业客户预计将在年末贡献总营收的50%。",
+      "addedAt": "2026-08-13T16:58:00.000Z",
+      "changeType": "progress",
+      "thesisImpact": "OpenAI任命Dali Rajic接替Denise Dresser，且外部报道补充企业客户收入增长，强化其商业化组织重整正服务企业收入扩张的判断。",
+      "revisionRequired": false
+    },
+    {
+      "id": "claim_5f6c6a3dcda77091",
+      "type": "claim",
+      "title": "OpenAI此前于2025年12月任命Denise Dresser为Chief Revenue Officer，并称其产品和API被超过100万家企业采用。",
+      "role": "背景",
+      "addedAt": "2026-08-13T16:58:00.000Z"
+    },
+    {
+      "id": "claim_4406c3c40ab57a2a",
+      "type": "claim",
+      "title": "Axios报道称Dresser将寻求其他机会，并称OpenAI商业客户年化营收在2026年7月环比增长32%。",
+      "role": "佐证",
+      "addedAt": "2026-08-13T16:58:00.000Z"
+    },
+    {
+      "id": "update_4b8c9eb2d14c921f",
+      "type": "update",
+      "signalId": 120,
+      "title": "OpenAI更换首席营收官",
+      "summary": "Denise Dresser将在任不足一年后离开，OpenAI任命前Wiz总裁兼首席运营官Dali Rajic接任。该任命发生在公司扩大企业业务之际。",
+      "addedAt": "2026-08-14T00:15:19.000Z",
+      "changeType": "progress",
+      "thesisImpact": "OpenAI在企业业务扩张阶段更换首席营收官，强化其商业化组织仍在调整的判断；新任者的公开履历更偏企业销售与运营，而非安全技术治理。",
+      "revisionRequired": false
+    },
     {
       "id": "event_d1c643b4a57ab552",
       "type": "event",
@@ -848,14 +1306,6 @@
       "title": "OpenAI宣布面向获授权漏洞研究、漏洞利用验证和安全测试的GPT-5.6-Cyber，并通过Daybreak Red提供。",
       "role": "最新进展",
       "addedAt": "2026-08-22T00:07:50.510Z"
-    },
-    {
-      "id": "source_238c8d8bf6e82e96",
-      "type": "source",
-      "title": "OpenAI",
-      "url": "https://openai.com/index/previewing-gpt-5-6-sol/",
-      "sourceKind": "Official",
-      "publishedAt": "2026-06-26T00:00:00.000Z"
     },
     {
       "id": "claim_fa6173ff6447d327",
@@ -2251,378 +2701,6 @@
       "title": "Stanford估算2025年美国私人AI投资为2,858.8亿美元，显著高于英国、法国和德国的对应规模。",
       "role": "反例",
       "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "event_a54424288d0d3cf5",
-      "type": "event",
-      "signalId": 120,
-      "title": "OpenAI收入增长转向企业与Codex",
-      "bucket": "explore",
-      "valueScore": 85,
-      "publishedAt": "2026-08-14T17:55:40.000Z",
-      "updatedAt": "2026-08-21T08:26:05.000Z"
-    },
-    {
-      "id": "article_6e3f93f2bc7ed903",
-      "type": "article",
-      "signalId": 120,
-      "title": "OpenAI收入增长转向企业与Codex",
-      "version": 1,
-      "publishedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_a9cdba064460452b",
-      "type": "source",
-      "title": "Bloomberg Technology",
-      "url": "https://www.bloomberg.com/news/videos/2026-08-14/bloomberg-tech-8-14-2026-video",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-14T17:55:40.000Z"
-    },
-    {
-      "id": "claim_50a5eea8cc4dd89c",
-      "type": "claim",
-      "title": "Bloomberg节目称OpenAI年化收入运行率有望超过400亿美元，约为2025年末运行率的两倍。",
-      "role": "主张",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_70f9c56cad38ae84",
-      "type": "source",
-      "title": "Bloomberg Technology",
-      "url": "https://www.bloomberg.com/news/videos/2026-08-14/openai-on-track-to-double-revenue-ahead-of-ipo-video",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-14T17:48:35.000Z"
-    },
-    {
-      "id": "claim_355c6d1610719b86",
-      "type": "claim",
-      "title": "Bloomberg称付费ChatGPT用户、企业采用和Codex正在推动OpenAI收入运行率超过400亿美元，同时指出计算成本仍是挑战。",
-      "role": "佐证",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_ac4916ce25597d7e",
-      "type": "source",
-      "title": "OpenAI",
-      "url": "https://openai.com/index/a-business-that-scales-with-the-value-of-intelligence/",
-      "sourceKind": "Official",
-      "publishedAt": "2026-02-11T00:00:00.000Z"
-    },
-    {
-      "id": "claim_a02cd215fc5272f6",
-      "type": "claim",
-      "title": "OpenAI CFO披露ARR从2023年的20亿美元增至2024年的60亿美元、2025年的超过200亿美元；可用算力从0.2GW增至约1.9GW。",
-      "role": "背景",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_baca61f09ad04247",
-      "type": "source",
-      "title": "OpenAI",
-      "url": "https://openai.com/index/accelerating-the-next-phase-ai/",
-      "sourceKind": "Official",
-      "publishedAt": "2026-03-31T00:00:00.000Z"
-    },
-    {
-      "id": "claim_bf3f9acd1430cdfc",
-      "type": "claim",
-      "title": "OpenAI在3月称月度收入为20亿美元，约合240亿美元年化；企业业务占收入逾40%。",
-      "role": "背景",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_a54155c5488c7513",
-      "type": "source",
-      "title": "Ars Technica",
-      "url": "https://arstechnica.com/ai/2026/06/leaked-financial-docs-show-openai-is-losing-billions-of-dollars-a-year/",
-      "sourceKind": "Media",
-      "publishedAt": "2026-06-16T00:00:00.000Z"
-    },
-    {
-      "id": "claim_884abf44b70d11a5",
-      "type": "claim",
-      "title": "Ars Technica报道经审计泄露文件显示，OpenAI 2025年确认收入为130.7亿美元，总成本及费用为340亿美元。",
-      "role": "反例",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_4068d50cfab454be",
-      "type": "source",
-      "title": "OpenAI",
-      "url": "https://openai.com/index/codex-flexible-pricing-for-teams/",
-      "sourceKind": "Official",
-      "publishedAt": "2026-04-02T00:00:00.000Z"
-    },
-    {
-      "id": "claim_eb9485de5b1e742b",
-      "type": "claim",
-      "title": "OpenAI称超过900万付费商业用户使用ChatGPT办公，超过200万开发者每周使用Codex，企业版Codex用户数自1月增长6倍。",
-      "role": "佐证",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_f95f92064beb34ab",
-      "type": "source",
-      "title": "OpenAI",
-      "url": "https://openai.com/index/scaling-codex-to-enterprises-worldwide/",
-      "sourceKind": "Official",
-      "publishedAt": "2026-04-21T00:00:00.000Z"
-    },
-    {
-      "id": "claim_5a4972ead6f1794f",
-      "type": "claim",
-      "title": "OpenAI称Codex周活开发者在两周内由超过300万升至超过400万，并通过多家咨询合作伙伴推进企业生产部署。",
-      "role": "佐证",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_594cfc24c9eabfb8",
-      "type": "source",
-      "title": "Reuters",
-      "url": "https://www.reuters.com/technology/openai-tops-25-billion-annualized-revenue-last-month-information-reports-2026-03-05/",
-      "sourceKind": "Media",
-      "publishedAt": "2026-03-05T00:00:00.000Z"
-    },
-    {
-      "id": "claim_abcdda02cd34d421",
-      "type": "claim",
-      "title": "Reuters转述报道称，OpenAI在2月底年化收入运行率超过250亿美元，并提醒运行率不能单独证明盈利能力或计算支出的可持续性。",
-      "role": "背景",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_12f472b02c71ebb5",
-      "type": "source",
-      "title": "The Information",
-      "url": "https://www.theinformation.com/articles/openais-latest-hire-burnishes-cybersecurity-credentials",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-14T00:15:19.000Z"
-    },
-    {
-      "id": "claim_6c468d442dca5f15",
-      "type": "claim",
-      "title": "The Information报道Dresser离职，OpenAI聘请前Wiz高管Dali Rajic接任。",
-      "role": "最新进展",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_065a639be9487487",
-      "type": "source",
-      "title": "Axios",
-      "url": "https://www.axios.com/2026/08/13/openai-denise-dresser-replace-chief-revenue-officer",
-      "sourceKind": "Media",
-      "publishedAt": "2026-08-13T16:58:00.000Z"
-    },
-    {
-      "id": "claim_4085910109173f5d",
-      "type": "claim",
-      "title": "Axios报道称Dresser任职不足一年即离开，Rajic将接替其职位，并将变动置于企业业务扩张背景中。",
-      "role": "佐证",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_b4f37f6ea3094a8d",
-      "type": "source",
-      "title": "OpenAI",
-      "url": "https://openai.com/index/openai-appoints-denise-dresser/",
-      "sourceKind": "Official",
-      "publishedAt": "2025-12-09T00:00:00.000Z"
-    },
-    {
-      "id": "claim_8a7f9633d1aa1eea",
-      "type": "claim",
-      "title": "OpenAI此前披露Dresser于2025年12月获任命，负责全球企业与客户成功营收战略。",
-      "role": "背景",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_3a61ccdcaf7af5af",
-      "type": "source",
-      "title": "Google",
-      "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/wiz-acquisition/",
-      "sourceKind": "Official",
-      "publishedAt": "2026-03-11T00:00:00.000Z"
-    },
-    {
-      "id": "claim_6876ab2e5e533edb",
-      "type": "claim",
-      "title": "Google已于2026年3月完成对Wiz的收购，并将其定位为云与AI安全平台。",
-      "role": "背景",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_70f60781b77890a5",
-      "type": "source",
-      "title": "Zscaler",
-      "url": "https://www.zscaler.com/press/zscaler-names-dali-rajic-president-go-to-market-and-chief-revenue-officer",
-      "sourceKind": "IR",
-      "publishedAt": "2019-09-10T00:00:00.000Z"
-    },
-    {
-      "id": "claim_8ec75d04c0870c66",
-      "type": "claim",
-      "title": "Zscaler披露Rajic曾负责全球营收增长、市场进入战略与客户成功，其公开履历主要体现企业销售和商业运营经验。",
-      "role": "反例",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_6eaab463a55def87",
-      "type": "source",
-      "title": "OpenAI Blog",
-      "url": "https://openai.com/index/dali-rajic-chief-revenue-officer",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-13T09:00:00.000Z"
-    },
-    {
-      "id": "claim_a165f8188fb05250",
-      "type": "claim",
-      "title": "OpenAI宣布任命Dali Rajic为Chief Revenue Officer，负责全球营收组织。",
-      "role": "最新进展",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_e6e27fa533781467",
-      "type": "source",
-      "title": "Wiz",
-      "url": "https://www.wiz.io/events/ciso-club-tlv-exclusive-brunch-event",
-      "sourceKind": "Official",
-      "publishedAt": "2025-02-11T08:00:00.000Z"
-    },
-    {
-      "id": "claim_2400efe035f4c0e8",
-      "type": "claim",
-      "title": "Wiz活动页面将Dali Rajic列为总裁兼首席运营官，确认其加入OpenAI前的职务背景。",
-      "role": "背景",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_751a892e2ef7a354",
-      "type": "source",
-      "title": "OpenAI",
-      "url": "https://openai.com/index/openai-launches-the-deployment-company/",
-      "sourceKind": "Official",
-      "publishedAt": "2026-05-11T00:00:00.000Z"
-    },
-    {
-      "id": "claim_6d9ae64cde1149c8",
-      "type": "claim",
-      "title": "OpenAI于2026年5月推出Deployment Company，并称将以逾40亿美元初始投资扩展企业部署能力。",
-      "role": "背景",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_65e8cbc7b7c33a48",
-      "type": "source",
-      "title": "The Decoder AI",
-      "url": "https://the-decoder.com/gpt-5-6-sol-drives-openais-revenue-surge-as-it-regains-ground-on-anthropic/",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-21T08:26:05.000Z"
-    },
-    {
-      "id": "claim_e422373128f34145",
-      "type": "claim",
-      "title": "The Decoder称Sol推出后OpenAI收入和企业收入加速，并称OpenAI在企业API支出上反超Anthropic。",
-      "role": "最新进展",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "claim_40df8749115f81d9",
-      "type": "claim",
-      "title": "OpenAI确认GPT-5.6 Sol于2026年6月26日开始有限预览，并披露其相对GPT-5.5的多项评测改进。",
-      "role": "背景",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_ab08538328542290",
-      "type": "source",
-      "title": "OpenAI",
-      "url": "https://openai.com/index/next-phase-of-enterprise-ai/",
-      "sourceKind": "Official",
-      "publishedAt": "2026-04-08T00:00:00.000Z"
-    },
-    {
-      "id": "claim_76aebf888f8fbf3d",
-      "type": "claim",
-      "title": "OpenAI此前称企业业务已占季度收入逾40%，并预计2026年底与消费者业务持平。",
-      "role": "背景",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_72aa60b6f0ffd1ec",
-      "type": "source",
-      "title": "Ramp Economics Lab",
-      "url": "https://ramp.com/data/ai-index-july-2026",
-      "sourceKind": "Research",
-      "publishedAt": "2026-07-08T00:00:00.000Z"
-    },
-    {
-      "id": "claim_e09cd560b9db84b6",
-      "type": "claim",
-      "title": "Ramp截至6月的企业支付数据中，Anthropic覆盖42.4%的付费美国企业，OpenAI为39.5%。",
-      "role": "背景",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_d79bba2bf0f2318c",
-      "type": "source",
-      "title": "Ramp Economics Lab",
-      "url": "https://ramp.com/data/ai-index-august-2026",
-      "sourceKind": "Research",
-      "publishedAt": "2026-08-12T00:00:00.000Z"
-    },
-    {
-      "id": "claim_0d38e962ab1cd467",
-      "type": "claim",
-      "title": "Ramp最新数据显示Anthropic在7月付费企业覆盖率仍为43.5%，高于OpenAI的39.7%；但Sol占OpenAI token量25%、模型支出23%。",
-      "role": "反例",
-      "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "update_c485b4ffb581d972",
-      "type": "update",
-      "signalId": 120,
-      "title": "Sol消费份额高于Fable 5",
-      "summary": "The Decoder称GPT-5.6 Sol推出后OpenAI季度收入增长35%、企业收入增长逾50%。Ramp最新数据则显示，Sol约占OpenAI token量25%和模型支出23%，但Anthropic仍在付费企业覆盖率上领先。",
-      "addedAt": "2026-08-21T08:26:05.000Z",
-      "changeType": "thesis_change",
-      "thesisImpact": "Sol的模型消费表现强化了OpenAI企业变现的产品驱动，但最新Ramp数据并不支持其已重新夺回整体企业采用领先地位；收入激增仍主要来自单一媒体报道。",
-      "revisionRequired": true
-    },
-    {
-      "id": "update_19505f6a6711e8d6",
-      "type": "update",
-      "signalId": 120,
-      "title": "OpenAI任命Dali Rajic为CRO",
-      "summary": "OpenAI任命前Wiz总裁兼COO Dali Rajic为Chief Revenue Officer，接替Denise Dresser。Axios报道称，OpenAI商业客户年化营收在7月环比增长32%，企业客户预计将在年末贡献总营收的50%。",
-      "addedAt": "2026-08-13T16:58:00.000Z",
-      "changeType": "progress",
-      "thesisImpact": "OpenAI任命Dali Rajic接替Denise Dresser，且外部报道补充企业客户收入增长，强化其商业化组织重整正服务企业收入扩张的判断。",
-      "revisionRequired": false
-    },
-    {
-      "id": "claim_5f6c6a3dcda77091",
-      "type": "claim",
-      "title": "OpenAI此前于2025年12月任命Denise Dresser为Chief Revenue Officer，并称其产品和API被超过100万家企业采用。",
-      "role": "背景",
-      "addedAt": "2026-08-13T16:58:00.000Z"
-    },
-    {
-      "id": "claim_4406c3c40ab57a2a",
-      "type": "claim",
-      "title": "Axios报道称Dresser将寻求其他机会，并称OpenAI商业客户年化营收在2026年7月环比增长32%。",
-      "role": "佐证",
-      "addedAt": "2026-08-13T16:58:00.000Z"
-    },
-    {
-      "id": "update_4b8c9eb2d14c921f",
-      "type": "update",
-      "signalId": 120,
-      "title": "OpenAI更换首席营收官",
-      "summary": "Denise Dresser将在任不足一年后离开，OpenAI任命前Wiz总裁兼首席运营官Dali Rajic接任。该任命发生在公司扩大企业业务之际。",
-      "addedAt": "2026-08-14T00:15:19.000Z",
-      "changeType": "progress",
-      "thesisImpact": "OpenAI在企业业务扩张阶段更换首席营收官，强化其商业化组织仍在调整的判断；新任者的公开履历更偏企业销售与运营，而非安全技术治理。",
-      "revisionRequired": false
     },
     {
       "id": "event_b8e25cf6b0b5c2a9",
@@ -18872,6 +18950,519 @@
   ],
   "edges": [
     {
+      "id": "edge_6f5f3f173fb19cd3",
+      "from": "event_a54424288d0d3cf5",
+      "to": "article_6e3f93f2bc7ed903",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_a3388d824afd8a86",
+      "from": "source_a9cdba064460452b",
+      "to": "claim_50a5eea8cc4dd89c",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_0eb9446d7047e23a",
+      "from": "claim_50a5eea8cc4dd89c",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_fd67f565003279f1",
+      "from": "source_70f9c56cad38ae84",
+      "to": "claim_355c6d1610719b86",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_dac669d390680546",
+      "from": "claim_355c6d1610719b86",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_f400b5a3d80dced0",
+      "from": "source_ac4916ce25597d7e",
+      "to": "claim_a02cd215fc5272f6",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_6cfeeab96f252c01",
+      "from": "claim_a02cd215fc5272f6",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_c415b5dc6bec0594",
+      "from": "source_baca61f09ad04247",
+      "to": "claim_bf3f9acd1430cdfc",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_f390b80a48679635",
+      "from": "claim_bf3f9acd1430cdfc",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_13c634e8de1d2d31",
+      "from": "source_a54155c5488c7513",
+      "to": "claim_884abf44b70d11a5",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_ea02e05bc00ae6a3",
+      "from": "claim_884abf44b70d11a5",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_aecf6b1a6a853e5b",
+      "from": "source_4068d50cfab454be",
+      "to": "claim_eb9485de5b1e742b",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_4935320caaa90f22",
+      "from": "claim_eb9485de5b1e742b",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_e7054af58150b8fd",
+      "from": "source_f95f92064beb34ab",
+      "to": "claim_5a4972ead6f1794f",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_4d4a0059cc2c7b65",
+      "from": "claim_5a4972ead6f1794f",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_982f58386a82625a",
+      "from": "source_594cfc24c9eabfb8",
+      "to": "claim_abcdda02cd34d421",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_cbded69a184fa60e",
+      "from": "claim_abcdda02cd34d421",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_4a766dbb1d981d32",
+      "from": "source_12f472b02c71ebb5",
+      "to": "claim_6c468d442dca5f15",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_51de402e0a7776de",
+      "from": "claim_6c468d442dca5f15",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_dcb5be10200dbfbe",
+      "from": "source_065a639be9487487",
+      "to": "claim_4085910109173f5d",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_c69af408718763d6",
+      "from": "claim_4085910109173f5d",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_4d976ded972fdff7",
+      "from": "source_b4f37f6ea3094a8d",
+      "to": "claim_8a7f9633d1aa1eea",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_ea06783db3415ba8",
+      "from": "claim_8a7f9633d1aa1eea",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_fba9606986f391e3",
+      "from": "source_3a61ccdcaf7af5af",
+      "to": "claim_6876ab2e5e533edb",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_dd637cc8e7058b50",
+      "from": "claim_6876ab2e5e533edb",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_1d8ee02f9bc72c9f",
+      "from": "source_70f60781b77890a5",
+      "to": "claim_8ec75d04c0870c66",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_23b92e50d21b2359",
+      "from": "claim_8ec75d04c0870c66",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_11d17bc10159e52d",
+      "from": "source_6eaab463a55def87",
+      "to": "claim_a165f8188fb05250",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_ddf7acf6e07c4617",
+      "from": "claim_a165f8188fb05250",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_e77dd1faf40b839a",
+      "from": "source_e6e27fa533781467",
+      "to": "claim_2400efe035f4c0e8",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_5d0651f5ae9c695c",
+      "from": "claim_2400efe035f4c0e8",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_3f99f0f17b829a13",
+      "from": "source_751a892e2ef7a354",
+      "to": "claim_6d9ae64cde1149c8",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_ae94341717442fca",
+      "from": "claim_6d9ae64cde1149c8",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_c3ce9d3787bcaf19",
+      "from": "source_65e8cbc7b7c33a48",
+      "to": "claim_e422373128f34145",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_e8be9af9af629ed0",
+      "from": "claim_e422373128f34145",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_e43f51c15347281f",
+      "from": "source_238c8d8bf6e82e96",
+      "to": "claim_40df8749115f81d9",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_c7ba654d2cc0e4ac",
+      "from": "claim_40df8749115f81d9",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_88af0206239ac943",
+      "from": "source_ab08538328542290",
+      "to": "claim_76aebf888f8fbf3d",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_0c3c8aadced91307",
+      "from": "claim_76aebf888f8fbf3d",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_7571a4b0315c3740",
+      "from": "source_72aa60b6f0ffd1ec",
+      "to": "claim_e09cd560b9db84b6",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_a2d6fe3b69e73d6b",
+      "from": "claim_e09cd560b9db84b6",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_0286a665c1b8fa79",
+      "from": "source_d79bba2bf0f2318c",
+      "to": "claim_0d38e962ab1cd467",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_2c02b96c089e2bfd",
+      "from": "claim_0d38e962ab1cd467",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_eceb2ee2b9573f3e",
+      "from": "source_ef3dcd054d129482",
+      "to": "claim_25c418b08423bf44",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_b7f896bec38b8a23",
+      "from": "claim_25c418b08423bf44",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_1391dfd134302c44",
+      "from": "source_a6c3a034d6aecb37",
+      "to": "claim_879aa50ca38c7022",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_1ea4ca4482431550",
+      "from": "claim_879aa50ca38c7022",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_74e3c916a112e6bd",
+      "from": "source_27764191dc35efbe",
+      "to": "claim_4666d11286f68f49",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_0cad8d545e227c3a",
+      "from": "claim_4666d11286f68f49",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_64ebc9e747802a64",
+      "from": "source_c8ba582cb7b523bd",
+      "to": "claim_5dc66a03561b7379",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_83ae3f791e3b0ba1",
+      "from": "claim_5dc66a03561b7379",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_4f40d4d4a9dd4fcf",
+      "from": "update_02a39f1f28550a5c",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_bd4031d36246babf",
+      "from": "claim_25c418b08423bf44",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "update_evidence_for",
+      "updateTitle": "OpenAI再失北美销售高管"
+    },
+    {
+      "id": "edge_04f8a9de52316e2c",
+      "from": "source_b4f37f6ea3094a8d",
+      "to": "claim_e21679b8d1f68599",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_69ed1620870891dc",
+      "from": "claim_e21679b8d1f68599",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "update_evidence_for",
+      "updateTitle": "OpenAI再失北美销售高管"
+    },
+    {
+      "id": "edge_ad1f12acbd1c899c",
+      "from": "claim_879aa50ca38c7022",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "update_evidence_for",
+      "updateTitle": "OpenAI再失北美销售高管"
+    },
+    {
+      "id": "edge_9fe2b609310283b2",
+      "from": "claim_4666d11286f68f49",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "update_evidence_for",
+      "updateTitle": "OpenAI再失北美销售高管"
+    },
+    {
+      "id": "edge_9ff5a407e90b08df",
+      "from": "claim_5dc66a03561b7379",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "update_evidence_for",
+      "updateTitle": "OpenAI再失北美销售高管"
+    },
+    {
+      "id": "edge_8014bab2ab68171b",
+      "from": "update_c485b4ffb581d972",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_78a9130c23bcf781",
+      "from": "claim_e422373128f34145",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "update_evidence_for",
+      "updateTitle": "Sol消费份额高于Fable 5"
+    },
+    {
+      "id": "edge_77729864eab7cb58",
+      "from": "claim_40df8749115f81d9",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "update_evidence_for",
+      "updateTitle": "Sol消费份额高于Fable 5"
+    },
+    {
+      "id": "edge_ad6ce8df7a12e0c3",
+      "from": "claim_76aebf888f8fbf3d",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "update_evidence_for",
+      "updateTitle": "Sol消费份额高于Fable 5"
+    },
+    {
+      "id": "edge_22ce3437b246ece2",
+      "from": "claim_e09cd560b9db84b6",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "update_evidence_for",
+      "updateTitle": "Sol消费份额高于Fable 5"
+    },
+    {
+      "id": "edge_73a8429ed2480f1d",
+      "from": "claim_0d38e962ab1cd467",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "update_evidence_for",
+      "updateTitle": "Sol消费份额高于Fable 5"
+    },
+    {
+      "id": "edge_dde5a7cf3a6008c9",
+      "from": "update_19505f6a6711e8d6",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_aa3d016acc51e29e",
+      "from": "claim_a165f8188fb05250",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "update_evidence_for",
+      "updateTitle": "OpenAI任命Dali Rajic为CRO"
+    },
+    {
+      "id": "edge_8dada586196235c6",
+      "from": "source_b4f37f6ea3094a8d",
+      "to": "claim_5f6c6a3dcda77091",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_91cbfc22fb27b30d",
+      "from": "claim_5f6c6a3dcda77091",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "update_evidence_for",
+      "updateTitle": "OpenAI任命Dali Rajic为CRO"
+    },
+    {
+      "id": "edge_fcb704ccc175585e",
+      "from": "claim_2400efe035f4c0e8",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "update_evidence_for",
+      "updateTitle": "OpenAI任命Dali Rajic为CRO"
+    },
+    {
+      "id": "edge_07293e379d3da086",
+      "from": "claim_6d9ae64cde1149c8",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "update_evidence_for",
+      "updateTitle": "OpenAI任命Dali Rajic为CRO"
+    },
+    {
+      "id": "edge_819bf537f56264f8",
+      "from": "source_065a639be9487487",
+      "to": "claim_4406c3c40ab57a2a",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_752c56cf33de4a18",
+      "from": "claim_4406c3c40ab57a2a",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "update_evidence_for",
+      "updateTitle": "OpenAI任命Dali Rajic为CRO"
+    },
+    {
+      "id": "edge_749a97dc15be1fc2",
+      "from": "update_4b8c9eb2d14c921f",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_f28947803913df93",
+      "from": "claim_6c468d442dca5f15",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "update_evidence_for",
+      "updateTitle": "OpenAI更换首席营收官"
+    },
+    {
+      "id": "edge_cfe995e4e68d3bca",
+      "from": "claim_4085910109173f5d",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "update_evidence_for",
+      "updateTitle": "OpenAI更换首席营收官"
+    },
+    {
+      "id": "edge_5a6a6288e881a94e",
+      "from": "claim_8a7f9633d1aa1eea",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "update_evidence_for",
+      "updateTitle": "OpenAI更换首席营收官"
+    },
+    {
+      "id": "edge_67ec311001d25ac6",
+      "from": "claim_6876ab2e5e533edb",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "update_evidence_for",
+      "updateTitle": "OpenAI更换首席营收官"
+    },
+    {
+      "id": "edge_2aafc39ae9310062",
+      "from": "claim_8ec75d04c0870c66",
+      "to": "event_a54424288d0d3cf5",
+      "relation": "update_evidence_for",
+      "updateTitle": "OpenAI更换首席营收官"
+    },
+    {
       "id": "edge_507323bbd33daf93",
       "from": "event_d1c643b4a57ab552",
       "to": "article_64dee3be595c7122",
@@ -21290,420 +21881,6 @@
       "to": "event_460fa5f386f59e7a",
       "relation": "evidence_for",
       "updateTitle": null
-    },
-    {
-      "id": "edge_6f5f3f173fb19cd3",
-      "from": "event_a54424288d0d3cf5",
-      "to": "article_6e3f93f2bc7ed903",
-      "relation": "rendered_as"
-    },
-    {
-      "id": "edge_a3388d824afd8a86",
-      "from": "source_a9cdba064460452b",
-      "to": "claim_50a5eea8cc4dd89c",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_0eb9446d7047e23a",
-      "from": "claim_50a5eea8cc4dd89c",
-      "to": "event_a54424288d0d3cf5",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_fd67f565003279f1",
-      "from": "source_70f9c56cad38ae84",
-      "to": "claim_355c6d1610719b86",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_dac669d390680546",
-      "from": "claim_355c6d1610719b86",
-      "to": "event_a54424288d0d3cf5",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_f400b5a3d80dced0",
-      "from": "source_ac4916ce25597d7e",
-      "to": "claim_a02cd215fc5272f6",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_6cfeeab96f252c01",
-      "from": "claim_a02cd215fc5272f6",
-      "to": "event_a54424288d0d3cf5",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_c415b5dc6bec0594",
-      "from": "source_baca61f09ad04247",
-      "to": "claim_bf3f9acd1430cdfc",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_f390b80a48679635",
-      "from": "claim_bf3f9acd1430cdfc",
-      "to": "event_a54424288d0d3cf5",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_13c634e8de1d2d31",
-      "from": "source_a54155c5488c7513",
-      "to": "claim_884abf44b70d11a5",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_ea02e05bc00ae6a3",
-      "from": "claim_884abf44b70d11a5",
-      "to": "event_a54424288d0d3cf5",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_aecf6b1a6a853e5b",
-      "from": "source_4068d50cfab454be",
-      "to": "claim_eb9485de5b1e742b",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_4935320caaa90f22",
-      "from": "claim_eb9485de5b1e742b",
-      "to": "event_a54424288d0d3cf5",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_e7054af58150b8fd",
-      "from": "source_f95f92064beb34ab",
-      "to": "claim_5a4972ead6f1794f",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_4d4a0059cc2c7b65",
-      "from": "claim_5a4972ead6f1794f",
-      "to": "event_a54424288d0d3cf5",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_982f58386a82625a",
-      "from": "source_594cfc24c9eabfb8",
-      "to": "claim_abcdda02cd34d421",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_cbded69a184fa60e",
-      "from": "claim_abcdda02cd34d421",
-      "to": "event_a54424288d0d3cf5",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_4a766dbb1d981d32",
-      "from": "source_12f472b02c71ebb5",
-      "to": "claim_6c468d442dca5f15",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_51de402e0a7776de",
-      "from": "claim_6c468d442dca5f15",
-      "to": "event_a54424288d0d3cf5",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_dcb5be10200dbfbe",
-      "from": "source_065a639be9487487",
-      "to": "claim_4085910109173f5d",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_c69af408718763d6",
-      "from": "claim_4085910109173f5d",
-      "to": "event_a54424288d0d3cf5",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_4d976ded972fdff7",
-      "from": "source_b4f37f6ea3094a8d",
-      "to": "claim_8a7f9633d1aa1eea",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_ea06783db3415ba8",
-      "from": "claim_8a7f9633d1aa1eea",
-      "to": "event_a54424288d0d3cf5",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_fba9606986f391e3",
-      "from": "source_3a61ccdcaf7af5af",
-      "to": "claim_6876ab2e5e533edb",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_dd637cc8e7058b50",
-      "from": "claim_6876ab2e5e533edb",
-      "to": "event_a54424288d0d3cf5",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_1d8ee02f9bc72c9f",
-      "from": "source_70f60781b77890a5",
-      "to": "claim_8ec75d04c0870c66",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_23b92e50d21b2359",
-      "from": "claim_8ec75d04c0870c66",
-      "to": "event_a54424288d0d3cf5",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_11d17bc10159e52d",
-      "from": "source_6eaab463a55def87",
-      "to": "claim_a165f8188fb05250",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_ddf7acf6e07c4617",
-      "from": "claim_a165f8188fb05250",
-      "to": "event_a54424288d0d3cf5",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_e77dd1faf40b839a",
-      "from": "source_e6e27fa533781467",
-      "to": "claim_2400efe035f4c0e8",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_5d0651f5ae9c695c",
-      "from": "claim_2400efe035f4c0e8",
-      "to": "event_a54424288d0d3cf5",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_3f99f0f17b829a13",
-      "from": "source_751a892e2ef7a354",
-      "to": "claim_6d9ae64cde1149c8",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_ae94341717442fca",
-      "from": "claim_6d9ae64cde1149c8",
-      "to": "event_a54424288d0d3cf5",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_c3ce9d3787bcaf19",
-      "from": "source_65e8cbc7b7c33a48",
-      "to": "claim_e422373128f34145",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_e8be9af9af629ed0",
-      "from": "claim_e422373128f34145",
-      "to": "event_a54424288d0d3cf5",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_e43f51c15347281f",
-      "from": "source_238c8d8bf6e82e96",
-      "to": "claim_40df8749115f81d9",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_c7ba654d2cc0e4ac",
-      "from": "claim_40df8749115f81d9",
-      "to": "event_a54424288d0d3cf5",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_88af0206239ac943",
-      "from": "source_ab08538328542290",
-      "to": "claim_76aebf888f8fbf3d",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_0c3c8aadced91307",
-      "from": "claim_76aebf888f8fbf3d",
-      "to": "event_a54424288d0d3cf5",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_7571a4b0315c3740",
-      "from": "source_72aa60b6f0ffd1ec",
-      "to": "claim_e09cd560b9db84b6",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_a2d6fe3b69e73d6b",
-      "from": "claim_e09cd560b9db84b6",
-      "to": "event_a54424288d0d3cf5",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_0286a665c1b8fa79",
-      "from": "source_d79bba2bf0f2318c",
-      "to": "claim_0d38e962ab1cd467",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_2c02b96c089e2bfd",
-      "from": "claim_0d38e962ab1cd467",
-      "to": "event_a54424288d0d3cf5",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_8014bab2ab68171b",
-      "from": "update_c485b4ffb581d972",
-      "to": "event_a54424288d0d3cf5",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_78a9130c23bcf781",
-      "from": "claim_e422373128f34145",
-      "to": "event_a54424288d0d3cf5",
-      "relation": "update_evidence_for",
-      "updateTitle": "Sol消费份额高于Fable 5"
-    },
-    {
-      "id": "edge_77729864eab7cb58",
-      "from": "claim_40df8749115f81d9",
-      "to": "event_a54424288d0d3cf5",
-      "relation": "update_evidence_for",
-      "updateTitle": "Sol消费份额高于Fable 5"
-    },
-    {
-      "id": "edge_ad6ce8df7a12e0c3",
-      "from": "claim_76aebf888f8fbf3d",
-      "to": "event_a54424288d0d3cf5",
-      "relation": "update_evidence_for",
-      "updateTitle": "Sol消费份额高于Fable 5"
-    },
-    {
-      "id": "edge_22ce3437b246ece2",
-      "from": "claim_e09cd560b9db84b6",
-      "to": "event_a54424288d0d3cf5",
-      "relation": "update_evidence_for",
-      "updateTitle": "Sol消费份额高于Fable 5"
-    },
-    {
-      "id": "edge_73a8429ed2480f1d",
-      "from": "claim_0d38e962ab1cd467",
-      "to": "event_a54424288d0d3cf5",
-      "relation": "update_evidence_for",
-      "updateTitle": "Sol消费份额高于Fable 5"
-    },
-    {
-      "id": "edge_dde5a7cf3a6008c9",
-      "from": "update_19505f6a6711e8d6",
-      "to": "event_a54424288d0d3cf5",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_aa3d016acc51e29e",
-      "from": "claim_a165f8188fb05250",
-      "to": "event_a54424288d0d3cf5",
-      "relation": "update_evidence_for",
-      "updateTitle": "OpenAI任命Dali Rajic为CRO"
-    },
-    {
-      "id": "edge_8dada586196235c6",
-      "from": "source_b4f37f6ea3094a8d",
-      "to": "claim_5f6c6a3dcda77091",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_91cbfc22fb27b30d",
-      "from": "claim_5f6c6a3dcda77091",
-      "to": "event_a54424288d0d3cf5",
-      "relation": "update_evidence_for",
-      "updateTitle": "OpenAI任命Dali Rajic为CRO"
-    },
-    {
-      "id": "edge_fcb704ccc175585e",
-      "from": "claim_2400efe035f4c0e8",
-      "to": "event_a54424288d0d3cf5",
-      "relation": "update_evidence_for",
-      "updateTitle": "OpenAI任命Dali Rajic为CRO"
-    },
-    {
-      "id": "edge_07293e379d3da086",
-      "from": "claim_6d9ae64cde1149c8",
-      "to": "event_a54424288d0d3cf5",
-      "relation": "update_evidence_for",
-      "updateTitle": "OpenAI任命Dali Rajic为CRO"
-    },
-    {
-      "id": "edge_819bf537f56264f8",
-      "from": "source_065a639be9487487",
-      "to": "claim_4406c3c40ab57a2a",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_752c56cf33de4a18",
-      "from": "claim_4406c3c40ab57a2a",
-      "to": "event_a54424288d0d3cf5",
-      "relation": "update_evidence_for",
-      "updateTitle": "OpenAI任命Dali Rajic为CRO"
-    },
-    {
-      "id": "edge_749a97dc15be1fc2",
-      "from": "update_4b8c9eb2d14c921f",
-      "to": "event_a54424288d0d3cf5",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_f28947803913df93",
-      "from": "claim_6c468d442dca5f15",
-      "to": "event_a54424288d0d3cf5",
-      "relation": "update_evidence_for",
-      "updateTitle": "OpenAI更换首席营收官"
-    },
-    {
-      "id": "edge_cfe995e4e68d3bca",
-      "from": "claim_4085910109173f5d",
-      "to": "event_a54424288d0d3cf5",
-      "relation": "update_evidence_for",
-      "updateTitle": "OpenAI更换首席营收官"
-    },
-    {
-      "id": "edge_5a6a6288e881a94e",
-      "from": "claim_8a7f9633d1aa1eea",
-      "to": "event_a54424288d0d3cf5",
-      "relation": "update_evidence_for",
-      "updateTitle": "OpenAI更换首席营收官"
-    },
-    {
-      "id": "edge_67ec311001d25ac6",
-      "from": "claim_6876ab2e5e533edb",
-      "to": "event_a54424288d0d3cf5",
-      "relation": "update_evidence_for",
-      "updateTitle": "OpenAI更换首席营收官"
-    },
-    {
-      "id": "edge_2aafc39ae9310062",
-      "from": "claim_8ec75d04c0870c66",
-      "to": "event_a54424288d0d3cf5",
-      "relation": "update_evidence_for",
-      "updateTitle": "OpenAI更换首席营收官"
     },
     {
       "id": "edge_67e656e0fc9677f3",
