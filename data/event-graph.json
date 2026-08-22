@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-22T18:06:30.139Z",
+  "generatedAt": "2026-08-22T20:07:53.799Z",
   "counts": {
-    "sources": 842,
-    "claims": 998,
-    "events": 202,
-    "articles": 202,
+    "sources": 843,
+    "claims": 999,
+    "events": 203,
+    "articles": 203,
     "updates": 145,
-    "edges": 2689,
+    "edges": 2692,
     "revisionsRequired": 14
   },
   "revisionQueue": [
@@ -153,6 +153,39 @@
     }
   ],
   "nodes": [
+    {
+      "id": "event_71ebfcf10c8d7916",
+      "type": "event",
+      "signalId": 139,
+      "title": "NVIDIA AI服务器报价上调逾15%",
+      "bucket": "dynamic",
+      "valueScore": 84,
+      "publishedAt": "2026-08-22T18:42:34.000Z",
+      "updatedAt": "2026-08-22T18:42:34.000Z"
+    },
+    {
+      "id": "article_6ff09d7b732e7205",
+      "type": "article",
+      "signalId": 139,
+      "title": "NVIDIA AI服务器报价上调逾15%",
+      "version": 1,
+      "publishedAt": "2026-08-22T20:07:53.799Z"
+    },
+    {
+      "id": "source_84d690b0efc17fb8",
+      "type": "source",
+      "title": "Bloomberg Technology",
+      "url": "https://www.bloomberg.com/news/articles/2026-08-22/nvidia-customers-notified-about-ai-related-price-hikes-above-15",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-22T18:42:34.000Z"
+    },
+    {
+      "id": "claim_b3a6dd81610c88e8",
+      "type": "claim",
+      "title": "Bloomberg报道称，NVIDIA部分大客户已被通知，含AI芯片的服务器在多种情况下将涨价逾15%，内存成本飙升是原因。",
+      "role": "主张",
+      "addedAt": "2026-08-22T20:07:53.799Z"
+    },
     {
       "id": "event_a54424288d0d3cf5",
       "type": "event",
@@ -18980,6 +19013,25 @@
     }
   ],
   "edges": [
+    {
+      "id": "edge_99981f8cc2409ee0",
+      "from": "event_71ebfcf10c8d7916",
+      "to": "article_6ff09d7b732e7205",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_b52dc37fe9191802",
+      "from": "source_84d690b0efc17fb8",
+      "to": "claim_b3a6dd81610c88e8",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_266c9de6438d0ddd",
+      "from": "claim_b3a6dd81610c88e8",
+      "to": "event_71ebfcf10c8d7916",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
     {
       "id": "edge_6f5f3f173fb19cd3",
       "from": "event_a54424288d0d3cf5",
