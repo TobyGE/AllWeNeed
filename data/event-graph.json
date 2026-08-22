@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-22T12:07:50.193Z",
+  "generatedAt": "2026-08-22T18:06:30.139Z",
   "counts": {
-    "sources": 841,
-    "claims": 997,
-    "events": 201,
-    "articles": 201,
+    "sources": 842,
+    "claims": 998,
+    "events": 202,
+    "articles": 202,
     "updates": 145,
-    "edges": 2686,
+    "edges": 2689,
     "revisionsRequired": 14
   },
   "revisionQueue": [
@@ -17017,6 +17017,37 @@
       "title": "Morgan Housel讨论AI财富流动带来的慈善制度变化。",
       "role": "背景",
       "addedAt": "2026-07-29T13:02:22.855Z"
+    },
+    {
+      "id": "event_a66a7a80505b2dd7",
+      "type": "event",
+      "conversationId": "conversation-20260822180630-1",
+      "title": "把人类行为当作可训练的模拟对象",
+      "bucket": "conversation",
+      "publishedAt": "2026-08-21T23:37:38.000Z"
+    },
+    {
+      "id": "article_d6624c9ca90b68b5",
+      "type": "article",
+      "conversationId": "conversation-20260822180630-1",
+      "title": "把人类行为当作可训练的模拟对象",
+      "version": 1,
+      "publishedAt": "2026-08-22T18:06:30.139Z"
+    },
+    {
+      "id": "source_a0c2a27482151869",
+      "type": "source",
+      "title": "Latent Space",
+      "url": "https://www.latent.space/p/simile",
+      "sourceKind": "YouTube",
+      "publishedAt": "2026-08-21T23:37:38.000Z"
+    },
+    {
+      "id": "claim_2e4064cffd9a4633",
+      "type": "claim",
+      "title": "Simile AI 联合创始人兼 CEO Joon Sung Park 认为，下一条值得追逐的 AI scaling law 不只是更强的通用推理，而是以访谈、交易、观察与实验数据训练能够复现人类偏差和决策机制的行为模型。",
+      "role": "对谈",
+      "addedAt": "2026-08-22T18:06:30.139Z"
     },
     {
       "id": "event_18b0ebd4d6d28ee6",
@@ -35209,6 +35240,25 @@
       "from": "claim_6a91586fd2989c1a",
       "to": "event_cca4803f3ba7fbf7",
       "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_3e0f5ddfd044e96b",
+      "from": "event_a66a7a80505b2dd7",
+      "to": "article_d6624c9ca90b68b5",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_9ddebacbadadf858",
+      "from": "source_a0c2a27482151869",
+      "to": "claim_2e4064cffd9a4633",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_1960a549e0fd58bb",
+      "from": "claim_2e4064cffd9a4633",
+      "to": "event_a66a7a80505b2dd7",
+      "relation": "conversation_source_for",
       "updateTitle": null
     },
     {

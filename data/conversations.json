@@ -1,8 +1,76 @@
 {
-  "generatedAt": "2026-08-21T14:07:27.416Z",
+  "generatedAt": "2026-08-22T18:06:30.139Z",
   "weekStart": "2026-07-24T00:00:00.000Z",
   "model": "gpt-5.6-terra",
   "items": [
+    {
+      "id": "conversation-20260822180630-1",
+      "videoId": "",
+      "sourceName": "Latent Space",
+      "sourceKind": "YouTube",
+      "originalTitle": "Simulation: the new Scaling Law — Joon Sung Park, Simile AI",
+      "url": "https://www.latent.space/p/simile",
+      "feedBatchAt": "2026-08-22T18:06:30.139Z",
+      "publishedAt": "2026-08-21T23:37:38.000Z",
+      "durationMinutes": 70,
+      "guest": "Joon Sung Park",
+      "categoryZh": "行为模拟与AI",
+      "categoryEn": "Behavioral simulation",
+      "titleZh": "把人类行为当作可训练的模拟对象",
+      "titleEn": "Training AI to Simulate Human Behavior",
+      "dekZh": "Simile AI 联合创始人兼 CEO Joon Sung Park 认为，下一条值得追逐的 AI scaling law 不只是更强的通用推理，而是以访谈、交易、观察与实验数据训练能够复现人类偏差和决策机制的行为模型。",
+      "dekEn": "Simile AI co-founder and CEO Joon Sung Park argues that the next meaningful AI scaling law may not be general reasoning alone, but behavioral models trained on interviews, transactions, observations, and experiments to reproduce how people actually make decisions.",
+      "whyListenZh": "这是一场少见地把生成式 agent、因果数据、数字孪生和市场研究放进同一技术框架的对谈。Park 没有把模拟定义为更会预测的聊天机器人，而是将其定位为一种在真实部署前测试产品、政策与群体互动的基础能力。",
+      "whyListenEn": "This is an unusually concrete conversation connecting generative agents, causal data, digital twins, and market research in one technical frame. Park does not define simulation as a better predictive chatbot, but as a capability for testing products, policies, and group interactions before real-world deployment.",
+      "counterpointZh": "一套模型即使能在问卷或有限任务上接近受访者的回答，也未必能在新情境、长期互动或高风险政策中保持有效。代表性数据、隐私授权、因果外推，以及多 agent 相互作用后的误差累积，都会决定“行为相似”能否变成可信的决策依据。",
+      "counterpointEn": "A model that matches respondents on surveys or bounded tasks may still fail in new settings, long-running interactions, or high-stakes policy choices. Representative data, privacy permissions, causal extrapolation, and error accumulation among interacting agents will determine whether behavioral resemblance becomes decision-grade evidence.",
+      "takeawaysZh": [
+        "Park 认为，能复现人的非理性、偏见与情境差异，比让模型给出“理性正确”的答案更接近有用的行为模拟。",
+        "他主张仅靠 prompt、记忆文件和公开网页数据不够；模拟需要引入访谈、行为记录、交易数据及随机对照试验等更接近因果机制的信号。",
+        "模拟的关键检验不应只是文本是否流畅，而是合成人群能否在具体决策任务中稳定复现个体与群体层面的行为模式。"
+      ],
+      "takeawaysEn": [
+        "Park argues that reproducing human irrationality, bias, and contextual variation matters more for simulation than producing a normatively rational answer.",
+        "He contends that prompts, memory files, and public web data are insufficient; simulation needs signals closer to causal mechanisms, including interviews, behavioral records, transactions, and randomized trials.",
+        "The central test is not whether synthetic agents sound convincing, but whether synthetic populations reliably reproduce individual and group behavior in specific decision settings."
+      ],
+      "articleZh": {
+        "lead": "Joon Sung Park 提出的不是“让 AI 预测人类”的普通产品命题，而是一种更高门槛的技术主张：如果模型能学习人们为何作出选择，而不只是复述人们说过什么，模拟就可能成为产品和政策部署前的实验层。",
+        "sections": [
+          {
+            "heading": "下一条 scaling law，可能是行为而非知识",
+            "body": "Park 将 Simile 的方向描述为构建人类行为的 foundation model。他的核心判断是，现有 frontier models 虽然掌握大量语言和知识，却不必然理解真实的人如何在偏见、约束、社会关系和局部信息下行动。因此，真正有价值的模拟不该把人优化成理性行动者，而应能保留其不一致、错误与情境依赖。若这一判断成立，模拟的价值将不止于生成虚构角色，而会延伸到在真实世界行动前比较不同方案的后果。"
+          },
+          {
+            "heading": "机制在于把“说法”换成“行为证据”",
+            "body": "Park 解释，其路径从 Smallville 和 Generative Agents 延续而来，但重点已从 agent 的记忆与对话，转向训练数据和评估方式。他提出结合长访谈、观察数据、交易数据与随机对照试验，并通过 post-training 学习决策背后的机制，而非仅以网页语料推断偏好。节目说明称，Simile 曾以 1,000 名真实参与者的数字孪生进行测试，并获得与参与者自我回答相比较的 85% 行为准确度；这一结果若能在不同任务中复现，才构成“合成人群”可替代部分传统研究流程的证据。"
+          },
+          {
+            "heading": "可用性取决于跨情境失效时如何暴露",
+            "body": "Park 对模拟规模化的设想很大，包括群体互动、市场研究以及对 UBI 等问题的探索；但规模不是有效性的替代品。行为数据常有样本偏差，随机试验覆盖的干预有限，而模型在未见过的人群、文化或制度环境中可能看似连贯却偏离现实。尤其当多个模拟个体彼此影响时，小偏差可能被反馈放大。最重要的约束不是模型是否能生成一个可信人物，而是它能否在预先设定、未参与训练的现实决策上持续通过检验。"
+          }
+        ],
+        "outlook": "观察 Simile 或同类团队是否公布跨行业、留出样本和真实干预结果的前瞻性验证：合成人群给出的结论，能否在随后发生的真实选择中优于传统问卷、专家判断或简单预测模型？"
+      },
+      "articleEn": {
+        "lead": "Joon Sung Park is not making the ordinary product claim that AI can predict people. His higher-bar proposition is that, if models can learn why people choose rather than merely repeat what they say, simulation could become an experimental layer before products and policies reach the real world.",
+        "sections": [
+          {
+            "heading": "The next scaling law may be behavior, not knowledge",
+            "body": "Park describes Simile’s direction as a foundation model of human behavior. His central view is that frontier models may possess broad language and factual knowledge without capturing how people act under bias, constraints, social relationships, and incomplete information. Useful simulation, in his framing, should not optimize people into rational actors; it should preserve inconsistency, error, and contextual dependence. If that view holds, simulation could move beyond fictional agents toward comparing the consequences of choices before acting in the world."
+          },
+          {
+            "heading": "The mechanism is replacing stated preference with behavioral evidence",
+            "body": "Park presents the work as an extension of Smallville and Generative Agents, but with the emphasis shifted from agent memory and dialogue to training signals and evaluation. He describes combining long-form interviews, observational and transaction data, and randomized controlled trials, then using post-training to capture mechanisms behind decisions rather than inferring preferences from web text alone. The episode description says Simile tested digital twins of 1,000 real people and reported 85% behavioral accuracy relative to participants reproducing their own answers. That result would become meaningful evidence only if it transfers across tasks."
+          },
+          {
+            "heading": "The falsifiable question is whether failure travels across contexts",
+            "body": "Park’s ambition extends to interacting populations, market research, and questions such as UBI, but scale is not a substitute for validity. Behavioral data can be unrepresentative, experiments cover only a limited set of interventions, and a model may remain persuasive while failing across new populations, cultures, or institutions. When simulated agents affect one another, small errors can also compound through feedback. The operative constraint is not whether a model can generate a plausible person, but whether it repeatedly passes pre-specified tests on real decisions it did not train on."
+          }
+        ],
+        "outlook": "Watch for prospective validation across industries, held-out populations, and real interventions: do conclusions from synthetic populations predict subsequent real choices better than conventional surveys, expert judgment, or simpler forecasting models?"
+      }
+    },
     {
       "id": "conversation-20260821140727-1",
       "videoId": "",
