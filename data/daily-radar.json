@@ -1,13 +1,456 @@
 {
-  "generatedAt": "2026-08-22T02:11:40.104Z",
-  "basedOnSnapshotAt": "2026-08-22T02:07:48.708Z",
+  "generatedAt": "2026-08-22T05:11:44.785Z",
+  "basedOnSnapshotAt": "2026-08-22T05:07:51.087Z",
   "model": "gpt-5.5",
   "analyzedItemCount": 180,
-  "totalFetchedItemCount": 2328,
+  "totalFetchedItemCount": 2337,
   "editorNote": "今日信息环境由代理安全事件、编码代理工具链分化、开放模型竞争和算力下沉共同主导。",
   "signalQuality": 86,
   "signalQualityChange": 8,
   "signals": [
+    {
+      "id": 118,
+      "editorialBucket": "explore",
+      "category": "AI & 模型",
+      "eyebrow": "趋势变化",
+      "title": "Anthropic将风险评级纳入发布闸门",
+      "summary": "Anthropic据报上调更强内部模型的misalignment风险评级，并暂不发布Model 2。前沿模型竞争的关键变量可能从能力展示转向能否通过内部风险闸门。",
+      "why": "若风险评级直接改变模型发布节奏，实验室的产品路线、收入兑现和客户迁移时间表都将更依赖安全治理决策。",
+      "impact": "这可能使外部市场更重视可部署能力而非内部能力上限，并放大安全评估、访问控制和分阶段发布的竞争价值。",
+      "shiftFrom": "能力提升通常对应更快发布",
+      "shiftTo": "风险评级可直接延后发布",
+      "crossValidation": "Axios报道了风险评级上调及不发布Model 2的决定；Anthropic较早的官方风险更新确认Claude Mythos Preview并未普遍开放，提供其分阶段访问模式的背景。",
+      "article": {
+        "lead": "Anthropic据报已将一款更强内部模型的misalignment风险评级从very low上调至low，并决定暂不对外发布Model 2。这一决定指向同一个变化：前沿实验室的内部能力进展不再必然自动转化为产品供给，风险评估正在成为影响发布节奏的实际闸门。",
+        "sections": [
+          {
+            "heading": "内部能力与市场可用性开始脱钩",
+            "body": "Axios报道，Anthropic上调了更强内部模型的misalignment风险判断，同时没有计划发布被称为Model 2的系统。报道所描述的并非单纯的模型命名变化，而是内部能力存在、却不进入公开产品线的状态。Anthropic在2026年4月发布的官方风险更新也显示，Claude Mythos Preview当时尚未向公众普遍开放。两项信息共同表明，该公司已经采用将能力开发、有限访问和广泛发布分开的路径。"
+          },
+          {
+            "heading": "风险评级为何会改变商业节奏",
+            "body": "模型发布不是只由基准成绩决定。若内部评估认为更强系统的失配风险上升，公司需要在训练后缓解、红队测试、权限设计、监控能力和事故响应之间完成配套，才能扩大访问范围。这个机制会把安全团队和治理流程从发布前的合规检查，推向产品排期的共同决定者。对企业客户而言，真正可采购的能力边界也将由模型性能与部署护栏共同定义，而不只是实验室内部的能力上限。"
+          },
+          {
+            "heading": "竞争焦点或转向可控部署能力",
+            "body": "若类似做法扩展至其他前沿实验室，市场比较可能更强调哪些模型能在明确权限、审计和风险控制下稳定上线，而非谁先披露更高的内部能力。最强的反面解释是，Model 2不发布也可能主要是产品定位、算力分配或商业时机选择，风险评级未必是唯一决定因素。但Anthropic将风险判断变化与暂不发布并列，至少使治理约束成为需要持续追踪的竞争变量。"
+          }
+        ],
+        "outlook": "接下来可观察Anthropic是否发布新的系统卡、访问分级政策或针对Model 2的缓解措施，也可观察其是否将更强能力先提供给受控企业客户或政府环境。若公司随后公布明确的发布条件、完成评估后开放模型，将强化“风险闸门决定节奏”的判断；若无新增护栏说明便直接广泛上线，则会削弱这一判断。"
+      },
+      "validationType": "跨平台验证",
+      "publishedAt": "2026-08-14T00:00:00.000Z",
+      "updatedAt": "2026-08-21T19:35:37.000Z",
+      "sources": [
+        "Media",
+        "Official",
+        "Blog",
+        "Research"
+      ],
+      "sourceNames": [
+        "Axios",
+        "Anthropic",
+        "The Decoder",
+        "UK AI Security Institute"
+      ],
+      "sourceCount": 4,
+      "age": "20 小时前",
+      "score": 88,
+      "tone": "orange",
+      "evidence": [
+        {
+          "id": "ground-226-1-https://www.axios.com/2026/08/14/anthropic-model-2-ai-risk-3-https://www.axios.com/2026/08/14/anthropic-model-2-ai-risk",
+          "sourceId": 226,
+          "sourceName": "Axios",
+          "sourcePublisher": "Axios",
+          "sourceKind": "Media",
+          "title": "Anthropic sees AI risks rising, no plan to release stronger “Model 2”",
+          "url": "https://www.axios.com/2026/08/14/anthropic-model-2-ai-risk",
+          "publishedAt": "2026-08-14T00:00:00.000Z",
+          "summary": "报道确认 Anthropic 将高风险 misalignment 评估从 very low 上调至 low，并称公司目前没有将 Model 2 对外发布的计划。",
+          "fetchedAt": "2026-08-14T20:07:23.684Z",
+          "groundedFrom": "N3",
+          "groundingClaim": "Anthropic 将高风险场景下的 misalignment 风险评估从“very low”上调为“low”，并表示目前没有将名为 Model 2 的内部模型对外发布的计划。",
+          "groundingNotes": "Axios 报道直接确认了该风险评级变化及 Model 2 暂无对外发布计划；Anthropic 的相关风险报告确认 Mythos Preview 属于未向公众开放的高能力模型。来源没有证明“Model 2 明显强于 Mythos”的更强表述。",
+          "ref": "G3",
+          "role": "主张",
+          "takeaway": "Axios报道称，Anthropic将更强内部模型的misalignment风险评级从very low上调至low，并无计划发布Model 2。"
+        },
+        {
+          "id": "ground-226-1-https://www.axios.com/2026/08/14/anthropic-model-2-ai-risk-4-https://www-cdn.anthropic.com/3edfc1a7f947aa81841cf88305cb513f184c36ae/Alignment%20Risk%20Update_%20Claude%20Mythos%20Preview%20%28Redacted%2C%20April%2010%29.pdf",
+          "sourceId": 226,
+          "sourceName": "Anthropic",
+          "sourcePublisher": "Anthropic",
+          "sourceKind": "Official",
+          "title": "Alignment Risk Update: Claude Mythos Preview (Redacted, April 10)",
+          "url": "https://www-cdn.anthropic.com/3edfc1a7f947aa81841cf88305cb513f184c36ae/Alignment%20Risk%20Update_%20Claude%20Mythos%20Preview%20%28Redacted%2C%20April%2010%29.pdf",
+          "publishedAt": "2026-04-10T00:00:00.000Z",
+          "summary": "Anthropic 风险报告说明 Claude Mythos Preview 尚未向公众普遍开放，并讨论其相较前代模型的能力与 alignment 风险评估。",
+          "fetchedAt": "2026-08-14T20:07:23.684Z",
+          "groundedFrom": "N3",
+          "groundingClaim": "Anthropic 将高风险场景下的 misalignment 风险评估从“very low”上调为“low”，并表示目前没有将名为 Model 2 的内部模型对外发布的计划。",
+          "groundingNotes": "Axios 报道直接确认了该风险评级变化及 Model 2 暂无对外发布计划；Anthropic 的相关风险报告确认 Mythos Preview 属于未向公众开放的高能力模型。来源没有证明“Model 2 明显强于 Mythos”的更强表述。",
+          "ref": "G4",
+          "role": "背景",
+          "takeaway": "Anthropic 2026年4月的风险更新说明Claude Mythos Preview当时尚未向公众普遍开放，并讨论其能力与alignment风险。"
+        },
+        {
+          "id": "232-0-https://the-decoder.com/anthropic-puts-its-most-powerful-model-claude-mythos-5-to-work-for-cyber-defense/",
+          "sourceId": 232,
+          "sourceName": "The Decoder AI",
+          "sourcePublisher": "The Decoder",
+          "sourceKind": "Blog",
+          "title": "Anthropic puts its most powerful model Claude Mythos 5 to work for cyber defense",
+          "url": "https://the-decoder.com/anthropic-puts-its-most-powerful-model-claude-mythos-5-to-work-for-cyber-defense/",
+          "publishedAt": "2026-08-21T19:35:37.000Z",
+          "summary": "Anthropic is now running its security scanner Claude Security on Claude Mythos 5. The tool scans codebases for vulnerabilities, provides severity ratings with CWE classifications, and suggests patches. Anthropic is also plugging Mythos 5 into partner security products protecting critical infrastructure. The article Anthropic puts its most powerful model Clau",
+          "fetchedAt": "2026-08-21T21:06:50.786Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-21T21:06:50.786Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 9.537246388888889,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N5",
+          "role": "佐证",
+          "takeaway": "报道指出Anthropic已将Claude Mythos 5用于Claude Security，并计划接入保护关键基础设施的伙伴产品。"
+        },
+        {
+          "id": "research-232-0-https://the-decoder.com/anthropic-puts-its-most-powerful-model-claude-mythos-5-to-work-for-cyber-defense/-1-https://claude.com/blog/bringing-claude-mythos-5-to-more-defenders",
+          "sourceId": 232,
+          "sourceName": "Anthropic",
+          "sourcePublisher": "Anthropic",
+          "sourceKind": "Official",
+          "title": "Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders",
+          "url": "https://claude.com/blog/bringing-claude-mythos-5-to-more-defenders",
+          "publishedAt": "2026-08-21T00:00:00.000Z",
+          "summary": "确认当前产品状态：Claude Enterprise公共测试中的Claude Security扫描现可运行Mythos 5，输出CWE分类、置信度、严重性及建议修复；所有补丁仍须人工审核。该文也明确合作方集成仍在建设中，终端用户仅获得特定防御性产物而非直接访问模型。",
+          "fetchedAt": "2026-08-22T05:07:51.087Z",
+          "researchedFrom": "N5",
+          "researchRole": "Primary",
+          "researchClaim": "Anthropic于2026年8月21日将Claude Security的代码库扫描切换为可使用Claude Mythos 5，面向Claude Enterprise公共测试用户提供漏洞发现、CWE分类、置信度与严重性评级及修复建议；但合作伙伴产品的Mythos 5集成仍被表述为“正在合作”和“即将推出”，并非已普遍上线。",
+          "researchComparisons": "此前，Claude Security使用Claude Opus 4.8等公开前沿模型；Mythos 5此前仅向Project Glasswing的受限伙伴直接开放。当前变化是把Mythos 5置于Enterprise扫描及合作方受控工作流的后台，而非向终端用户开放直接提示词访问。Project Glasswing在4月约有50家初始伙伴，6月拟新增约150家机构。独立AISI对较早的Mythos Preview评测显示：其在32步企业网络模拟“The Last Ones”中10次尝试有3次完成全链路、平均完成22步，Claude Opus 4.6平均16步；专家级CTF成功率为73%。这些不是Mythos 5在Claude Security中的生产效果或真实漏洞修复率。",
+          "researchUnresolved": "Anthropic未披露Claude Security上Mythos 5相对Opus 4.8的漏洞发现精度、误报率、修复采纳率、扫描成本或实际已上线的合作伙伴名单；也未披露合作方集成的上线时间。",
+          "ref": "R1",
+          "role": "最新进展",
+          "takeaway": "Anthropic确认Claude Security公共测试已运行Mythos 5；终端用户获得的是特定防御产品，而非模型直接访问。"
+        },
+        {
+          "id": "research-232-0-https://the-decoder.com/anthropic-puts-its-most-powerful-model-claude-mythos-5-to-work-for-cyber-defense/-2-https://www.anthropic.com/news/expanding-project-glasswing",
+          "sourceId": 232,
+          "sourceName": "Anthropic",
+          "sourcePublisher": "Anthropic",
+          "sourceKind": "Official",
+          "title": "Expanding Project Glasswing",
+          "url": "https://www.anthropic.com/news/expanding-project-glasswing",
+          "publishedAt": "2026-06-02T00:00:00.000Z",
+          "summary": "补齐此前状态与规模基准：4月约50个初始伙伴可使用Mythos Preview，6月计划向约150个新增机构扩展；当时Claude Security使用Opus 4.8等公开前沿模型扫描代码并建议修复。",
+          "fetchedAt": "2026-08-22T05:07:51.087Z",
+          "researchedFrom": "N5",
+          "researchRole": "Comparison",
+          "researchClaim": "Anthropic于2026年8月21日将Claude Security的代码库扫描切换为可使用Claude Mythos 5，面向Claude Enterprise公共测试用户提供漏洞发现、CWE分类、置信度与严重性评级及修复建议；但合作伙伴产品的Mythos 5集成仍被表述为“正在合作”和“即将推出”，并非已普遍上线。",
+          "researchComparisons": "此前，Claude Security使用Claude Opus 4.8等公开前沿模型；Mythos 5此前仅向Project Glasswing的受限伙伴直接开放。当前变化是把Mythos 5置于Enterprise扫描及合作方受控工作流的后台，而非向终端用户开放直接提示词访问。Project Glasswing在4月约有50家初始伙伴，6月拟新增约150家机构。独立AISI对较早的Mythos Preview评测显示：其在32步企业网络模拟“The Last Ones”中10次尝试有3次完成全链路、平均完成22步，Claude Opus 4.6平均16步；专家级CTF成功率为73%。这些不是Mythos 5在Claude Security中的生产效果或真实漏洞修复率。",
+          "researchUnresolved": "Anthropic未披露Claude Security上Mythos 5相对Opus 4.8的漏洞发现精度、误报率、修复采纳率、扫描成本或实际已上线的合作伙伴名单；也未披露合作方集成的上线时间。",
+          "ref": "R2",
+          "role": "背景",
+          "takeaway": "Anthropic此前计划将Project Glasswing从约50个初始伙伴扩大至约150个机构，当时安全扫描使用公开前沿模型。"
+        },
+        {
+          "id": "research-232-0-https://the-decoder.com/anthropic-puts-its-most-powerful-model-claude-mythos-5-to-work-for-cyber-defense/-3-https://www.aisi.gov.uk/blog/our-evaluation-of-claude-mythos-previews-cyber-capabilities",
+          "sourceId": 232,
+          "sourceName": "UK AI Security Institute",
+          "sourcePublisher": "UK AI Security Institute",
+          "sourceKind": "Research",
+          "title": "Our evaluation of Claude Mythos Preview’s cyber capabilities",
+          "url": "https://www.aisi.gov.uk/blog/our-evaluation-of-claude-mythos-previews-cyber-capabilities",
+          "publishedAt": "2026-08-21T19:35:37.000Z",
+          "summary": "提供独立能力基准及最强限制：Mythos Preview在32步TLO模拟中10次有3次全程完成、平均22步，对比Opus 4.6的16步，并在专家CTF中达到73%成功率；但AISI指出该环境缺少主动防御与防御工具、不会惩罚触发告警，因此不能据此断言模型能攻击防御严密的真实系统。",
+          "fetchedAt": "2026-08-22T05:07:51.087Z",
+          "researchedFrom": "N5",
+          "researchRole": "Counterevidence",
+          "researchClaim": "Anthropic于2026年8月21日将Claude Security的代码库扫描切换为可使用Claude Mythos 5，面向Claude Enterprise公共测试用户提供漏洞发现、CWE分类、置信度与严重性评级及修复建议；但合作伙伴产品的Mythos 5集成仍被表述为“正在合作”和“即将推出”，并非已普遍上线。",
+          "researchComparisons": "此前，Claude Security使用Claude Opus 4.8等公开前沿模型；Mythos 5此前仅向Project Glasswing的受限伙伴直接开放。当前变化是把Mythos 5置于Enterprise扫描及合作方受控工作流的后台，而非向终端用户开放直接提示词访问。Project Glasswing在4月约有50家初始伙伴，6月拟新增约150家机构。独立AISI对较早的Mythos Preview评测显示：其在32步企业网络模拟“The Last Ones”中10次尝试有3次完成全链路、平均完成22步，Claude Opus 4.6平均16步；专家级CTF成功率为73%。这些不是Mythos 5在Claude Security中的生产效果或真实漏洞修复率。",
+          "researchUnresolved": "Anthropic未披露Claude Security上Mythos 5相对Opus 4.8的漏洞发现精度、误报率、修复采纳率、扫描成本或实际已上线的合作伙伴名单；也未披露合作方集成的上线时间。",
+          "ref": "R3",
+          "role": "佐证",
+          "takeaway": "UK AI Security Institute评测显示Mythos Preview在模拟网络任务中能力提升，但测试环境不代表针对真实严密防御系统的攻击能力。"
+        },
+        {
+          "id": "research-232-0-https://the-decoder.com/anthropic-puts-its-most-powerful-model-claude-mythos-5-to-work-for-cyber-defense/-4-https://www.aisi.gov.uk/blog/our-evaluation-of-openais-gpt-5-5-cyber-capabilities",
+          "sourceId": 232,
+          "sourceName": "UK AI Security Institute",
+          "sourcePublisher": "UK AI Security Institute",
+          "sourceKind": "Research",
+          "title": "Our evaluation of OpenAI's GPT-5.5 cyber capabilities",
+          "url": "https://www.aisi.gov.uk/blog/our-evaluation-of-openais-gpt-5-5-cyber-capabilities",
+          "publishedAt": "2026-08-21T19:35:37.000Z",
+          "summary": "补充竞争性反例：AISI称GPT-5.5成为第二个端到端完成TLO的模型，10次中成功2次，而Mythos Preview为3次；这支持高端自主网络攻击能力正在成为跨厂商趋势，而非Mythos独有优势。",
+          "fetchedAt": "2026-08-22T05:07:51.087Z",
+          "researchedFrom": "N5",
+          "researchRole": "Counterevidence",
+          "researchClaim": "Anthropic于2026年8月21日将Claude Security的代码库扫描切换为可使用Claude Mythos 5，面向Claude Enterprise公共测试用户提供漏洞发现、CWE分类、置信度与严重性评级及修复建议；但合作伙伴产品的Mythos 5集成仍被表述为“正在合作”和“即将推出”，并非已普遍上线。",
+          "researchComparisons": "此前，Claude Security使用Claude Opus 4.8等公开前沿模型；Mythos 5此前仅向Project Glasswing的受限伙伴直接开放。当前变化是把Mythos 5置于Enterprise扫描及合作方受控工作流的后台，而非向终端用户开放直接提示词访问。Project Glasswing在4月约有50家初始伙伴，6月拟新增约150家机构。独立AISI对较早的Mythos Preview评测显示：其在32步企业网络模拟“The Last Ones”中10次尝试有3次完成全链路、平均完成22步，Claude Opus 4.6平均16步；专家级CTF成功率为73%。这些不是Mythos 5在Claude Security中的生产效果或真实漏洞修复率。",
+          "researchUnresolved": "Anthropic未披露Claude Security上Mythos 5相对Opus 4.8的漏洞发现精度、误报率、修复采纳率、扫描成本或实际已上线的合作伙伴名单；也未披露合作方集成的上线时间。",
+          "ref": "R4",
+          "role": "反例",
+          "takeaway": "UK AI Security Institute发现GPT-5.5也能端到端完成模拟任务，表明高端网络能力并非Mythos独有。"
+        }
+      ],
+      "references": [
+        {
+          "id": "ground-226-1-https://www.axios.com/2026/08/14/anthropic-model-2-ai-risk-3-https://www.axios.com/2026/08/14/anthropic-model-2-ai-risk",
+          "sourceId": 226,
+          "sourceName": "Axios",
+          "sourcePublisher": "Axios",
+          "sourceKind": "Media",
+          "title": "Anthropic sees AI risks rising, no plan to release stronger “Model 2”",
+          "url": "https://www.axios.com/2026/08/14/anthropic-model-2-ai-risk",
+          "publishedAt": "2026-08-14T00:00:00.000Z",
+          "summary": "报道确认 Anthropic 将高风险 misalignment 评估从 very low 上调至 low，并称公司目前没有将 Model 2 对外发布的计划。",
+          "fetchedAt": "2026-08-14T20:07:23.684Z",
+          "groundedFrom": "N3",
+          "groundingClaim": "Anthropic 将高风险场景下的 misalignment 风险评估从“very low”上调为“low”，并表示目前没有将名为 Model 2 的内部模型对外发布的计划。",
+          "groundingNotes": "Axios 报道直接确认了该风险评级变化及 Model 2 暂无对外发布计划；Anthropic 的相关风险报告确认 Mythos Preview 属于未向公众开放的高能力模型。来源没有证明“Model 2 明显强于 Mythos”的更强表述。",
+          "ref": "G3"
+        },
+        {
+          "id": "ground-226-1-https://www.axios.com/2026/08/14/anthropic-model-2-ai-risk-4-https://www-cdn.anthropic.com/3edfc1a7f947aa81841cf88305cb513f184c36ae/Alignment%20Risk%20Update_%20Claude%20Mythos%20Preview%20%28Redacted%2C%20April%2010%29.pdf",
+          "sourceId": 226,
+          "sourceName": "Anthropic",
+          "sourcePublisher": "Anthropic",
+          "sourceKind": "Official",
+          "title": "Alignment Risk Update: Claude Mythos Preview (Redacted, April 10)",
+          "url": "https://www-cdn.anthropic.com/3edfc1a7f947aa81841cf88305cb513f184c36ae/Alignment%20Risk%20Update_%20Claude%20Mythos%20Preview%20%28Redacted%2C%20April%2010%29.pdf",
+          "publishedAt": "2026-04-10T00:00:00.000Z",
+          "summary": "Anthropic 风险报告说明 Claude Mythos Preview 尚未向公众普遍开放，并讨论其相较前代模型的能力与 alignment 风险评估。",
+          "fetchedAt": "2026-08-14T20:07:23.684Z",
+          "groundedFrom": "N3",
+          "groundingClaim": "Anthropic 将高风险场景下的 misalignment 风险评估从“very low”上调为“low”，并表示目前没有将名为 Model 2 的内部模型对外发布的计划。",
+          "groundingNotes": "Axios 报道直接确认了该风险评级变化及 Model 2 暂无对外发布计划；Anthropic 的相关风险报告确认 Mythos Preview 属于未向公众开放的高能力模型。来源没有证明“Model 2 明显强于 Mythos”的更强表述。",
+          "ref": "G4"
+        },
+        {
+          "id": "232-0-https://the-decoder.com/anthropic-puts-its-most-powerful-model-claude-mythos-5-to-work-for-cyber-defense/",
+          "sourceId": 232,
+          "sourceName": "The Decoder AI",
+          "sourcePublisher": "The Decoder",
+          "sourceKind": "Blog",
+          "title": "Anthropic puts its most powerful model Claude Mythos 5 to work for cyber defense",
+          "url": "https://the-decoder.com/anthropic-puts-its-most-powerful-model-claude-mythos-5-to-work-for-cyber-defense/",
+          "publishedAt": "2026-08-21T19:35:37.000Z",
+          "summary": "Anthropic is now running its security scanner Claude Security on Claude Mythos 5. The tool scans codebases for vulnerabilities, provides severity ratings with CWE classifications, and suggests patches. Anthropic is also plugging Mythos 5 into partner security products protecting critical infrastructure. The article Anthropic puts its most powerful model Clau",
+          "fetchedAt": "2026-08-21T21:06:50.786Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-21T21:06:50.786Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 9.537246388888889,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N5"
+        },
+        {
+          "id": "research-232-0-https://the-decoder.com/anthropic-puts-its-most-powerful-model-claude-mythos-5-to-work-for-cyber-defense/-1-https://claude.com/blog/bringing-claude-mythos-5-to-more-defenders",
+          "sourceId": 232,
+          "sourceName": "Anthropic",
+          "sourcePublisher": "Anthropic",
+          "sourceKind": "Official",
+          "title": "Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders",
+          "url": "https://claude.com/blog/bringing-claude-mythos-5-to-more-defenders",
+          "publishedAt": "2026-08-21T00:00:00.000Z",
+          "summary": "确认当前产品状态：Claude Enterprise公共测试中的Claude Security扫描现可运行Mythos 5，输出CWE分类、置信度、严重性及建议修复；所有补丁仍须人工审核。该文也明确合作方集成仍在建设中，终端用户仅获得特定防御性产物而非直接访问模型。",
+          "fetchedAt": "2026-08-22T05:07:51.087Z",
+          "researchedFrom": "N5",
+          "researchRole": "Primary",
+          "researchClaim": "Anthropic于2026年8月21日将Claude Security的代码库扫描切换为可使用Claude Mythos 5，面向Claude Enterprise公共测试用户提供漏洞发现、CWE分类、置信度与严重性评级及修复建议；但合作伙伴产品的Mythos 5集成仍被表述为“正在合作”和“即将推出”，并非已普遍上线。",
+          "researchComparisons": "此前，Claude Security使用Claude Opus 4.8等公开前沿模型；Mythos 5此前仅向Project Glasswing的受限伙伴直接开放。当前变化是把Mythos 5置于Enterprise扫描及合作方受控工作流的后台，而非向终端用户开放直接提示词访问。Project Glasswing在4月约有50家初始伙伴，6月拟新增约150家机构。独立AISI对较早的Mythos Preview评测显示：其在32步企业网络模拟“The Last Ones”中10次尝试有3次完成全链路、平均完成22步，Claude Opus 4.6平均16步；专家级CTF成功率为73%。这些不是Mythos 5在Claude Security中的生产效果或真实漏洞修复率。",
+          "researchUnresolved": "Anthropic未披露Claude Security上Mythos 5相对Opus 4.8的漏洞发现精度、误报率、修复采纳率、扫描成本或实际已上线的合作伙伴名单；也未披露合作方集成的上线时间。",
+          "ref": "R1"
+        },
+        {
+          "id": "research-232-0-https://the-decoder.com/anthropic-puts-its-most-powerful-model-claude-mythos-5-to-work-for-cyber-defense/-2-https://www.anthropic.com/news/expanding-project-glasswing",
+          "sourceId": 232,
+          "sourceName": "Anthropic",
+          "sourcePublisher": "Anthropic",
+          "sourceKind": "Official",
+          "title": "Expanding Project Glasswing",
+          "url": "https://www.anthropic.com/news/expanding-project-glasswing",
+          "publishedAt": "2026-06-02T00:00:00.000Z",
+          "summary": "补齐此前状态与规模基准：4月约50个初始伙伴可使用Mythos Preview，6月计划向约150个新增机构扩展；当时Claude Security使用Opus 4.8等公开前沿模型扫描代码并建议修复。",
+          "fetchedAt": "2026-08-22T05:07:51.087Z",
+          "researchedFrom": "N5",
+          "researchRole": "Comparison",
+          "researchClaim": "Anthropic于2026年8月21日将Claude Security的代码库扫描切换为可使用Claude Mythos 5，面向Claude Enterprise公共测试用户提供漏洞发现、CWE分类、置信度与严重性评级及修复建议；但合作伙伴产品的Mythos 5集成仍被表述为“正在合作”和“即将推出”，并非已普遍上线。",
+          "researchComparisons": "此前，Claude Security使用Claude Opus 4.8等公开前沿模型；Mythos 5此前仅向Project Glasswing的受限伙伴直接开放。当前变化是把Mythos 5置于Enterprise扫描及合作方受控工作流的后台，而非向终端用户开放直接提示词访问。Project Glasswing在4月约有50家初始伙伴，6月拟新增约150家机构。独立AISI对较早的Mythos Preview评测显示：其在32步企业网络模拟“The Last Ones”中10次尝试有3次完成全链路、平均完成22步，Claude Opus 4.6平均16步；专家级CTF成功率为73%。这些不是Mythos 5在Claude Security中的生产效果或真实漏洞修复率。",
+          "researchUnresolved": "Anthropic未披露Claude Security上Mythos 5相对Opus 4.8的漏洞发现精度、误报率、修复采纳率、扫描成本或实际已上线的合作伙伴名单；也未披露合作方集成的上线时间。",
+          "ref": "R2"
+        },
+        {
+          "id": "research-232-0-https://the-decoder.com/anthropic-puts-its-most-powerful-model-claude-mythos-5-to-work-for-cyber-defense/-3-https://www.aisi.gov.uk/blog/our-evaluation-of-claude-mythos-previews-cyber-capabilities",
+          "sourceId": 232,
+          "sourceName": "UK AI Security Institute",
+          "sourcePublisher": "UK AI Security Institute",
+          "sourceKind": "Research",
+          "title": "Our evaluation of Claude Mythos Preview’s cyber capabilities",
+          "url": "https://www.aisi.gov.uk/blog/our-evaluation-of-claude-mythos-previews-cyber-capabilities",
+          "publishedAt": "2026-08-21T19:35:37.000Z",
+          "summary": "提供独立能力基准及最强限制：Mythos Preview在32步TLO模拟中10次有3次全程完成、平均22步，对比Opus 4.6的16步，并在专家CTF中达到73%成功率；但AISI指出该环境缺少主动防御与防御工具、不会惩罚触发告警，因此不能据此断言模型能攻击防御严密的真实系统。",
+          "fetchedAt": "2026-08-22T05:07:51.087Z",
+          "researchedFrom": "N5",
+          "researchRole": "Counterevidence",
+          "researchClaim": "Anthropic于2026年8月21日将Claude Security的代码库扫描切换为可使用Claude Mythos 5，面向Claude Enterprise公共测试用户提供漏洞发现、CWE分类、置信度与严重性评级及修复建议；但合作伙伴产品的Mythos 5集成仍被表述为“正在合作”和“即将推出”，并非已普遍上线。",
+          "researchComparisons": "此前，Claude Security使用Claude Opus 4.8等公开前沿模型；Mythos 5此前仅向Project Glasswing的受限伙伴直接开放。当前变化是把Mythos 5置于Enterprise扫描及合作方受控工作流的后台，而非向终端用户开放直接提示词访问。Project Glasswing在4月约有50家初始伙伴，6月拟新增约150家机构。独立AISI对较早的Mythos Preview评测显示：其在32步企业网络模拟“The Last Ones”中10次尝试有3次完成全链路、平均完成22步，Claude Opus 4.6平均16步；专家级CTF成功率为73%。这些不是Mythos 5在Claude Security中的生产效果或真实漏洞修复率。",
+          "researchUnresolved": "Anthropic未披露Claude Security上Mythos 5相对Opus 4.8的漏洞发现精度、误报率、修复采纳率、扫描成本或实际已上线的合作伙伴名单；也未披露合作方集成的上线时间。",
+          "ref": "R3"
+        },
+        {
+          "id": "research-232-0-https://the-decoder.com/anthropic-puts-its-most-powerful-model-claude-mythos-5-to-work-for-cyber-defense/-4-https://www.aisi.gov.uk/blog/our-evaluation-of-openais-gpt-5-5-cyber-capabilities",
+          "sourceId": 232,
+          "sourceName": "UK AI Security Institute",
+          "sourcePublisher": "UK AI Security Institute",
+          "sourceKind": "Research",
+          "title": "Our evaluation of OpenAI's GPT-5.5 cyber capabilities",
+          "url": "https://www.aisi.gov.uk/blog/our-evaluation-of-openais-gpt-5-5-cyber-capabilities",
+          "publishedAt": "2026-08-21T19:35:37.000Z",
+          "summary": "补充竞争性反例：AISI称GPT-5.5成为第二个端到端完成TLO的模型，10次中成功2次，而Mythos Preview为3次；这支持高端自主网络攻击能力正在成为跨厂商趋势，而非Mythos独有优势。",
+          "fetchedAt": "2026-08-22T05:07:51.087Z",
+          "researchedFrom": "N5",
+          "researchRole": "Counterevidence",
+          "researchClaim": "Anthropic于2026年8月21日将Claude Security的代码库扫描切换为可使用Claude Mythos 5，面向Claude Enterprise公共测试用户提供漏洞发现、CWE分类、置信度与严重性评级及修复建议；但合作伙伴产品的Mythos 5集成仍被表述为“正在合作”和“即将推出”，并非已普遍上线。",
+          "researchComparisons": "此前，Claude Security使用Claude Opus 4.8等公开前沿模型；Mythos 5此前仅向Project Glasswing的受限伙伴直接开放。当前变化是把Mythos 5置于Enterprise扫描及合作方受控工作流的后台，而非向终端用户开放直接提示词访问。Project Glasswing在4月约有50家初始伙伴，6月拟新增约150家机构。独立AISI对较早的Mythos Preview评测显示：其在32步企业网络模拟“The Last Ones”中10次尝试有3次完成全链路、平均完成22步，Claude Opus 4.6平均16步；专家级CTF成功率为73%。这些不是Mythos 5在Claude Security中的生产效果或真实漏洞修复率。",
+          "researchUnresolved": "Anthropic未披露Claude Security上Mythos 5相对Opus 4.8的漏洞发现精度、误报率、修复采纳率、扫描成本或实际已上线的合作伙伴名单；也未披露合作方集成的上线时间。",
+          "ref": "R4"
+        }
+      ],
+      "feedBatchAt": "2026-08-22T05:07:51.087Z",
+      "updates": [
+        {
+          "addedAt": "2026-08-21T19:35:37.000Z",
+          "title": "Mythos 5进入受控网络防御",
+          "summary": "Anthropic确认，Claude Security在Claude Enterprise公共测试中已运行Claude Mythos 5，为代码库输出CWE分类、严重性、置信度与修复建议；补丁仍须人工审核，伙伴集成仍在建设。",
+          "evidence": [
+            {
+              "id": "232-0-https://the-decoder.com/anthropic-puts-its-most-powerful-model-claude-mythos-5-to-work-for-cyber-defense/",
+              "sourceId": 232,
+              "sourceName": "The Decoder AI",
+              "sourcePublisher": "The Decoder",
+              "sourceKind": "Blog",
+              "title": "Anthropic puts its most powerful model Claude Mythos 5 to work for cyber defense",
+              "url": "https://the-decoder.com/anthropic-puts-its-most-powerful-model-claude-mythos-5-to-work-for-cyber-defense/",
+              "publishedAt": "2026-08-21T19:35:37.000Z",
+              "summary": "Anthropic is now running its security scanner Claude Security on Claude Mythos 5. The tool scans codebases for vulnerabilities, provides severity ratings with CWE classifications, and suggests patches. Anthropic is also plugging Mythos 5 into partner security products protecting critical infrastructure. The article Anthropic puts its most powerful model Clau",
+              "fetchedAt": "2026-08-21T21:06:50.786Z",
+              "accessMethod": "public-feed",
+              "publicContentPolicy": "headline-source-link-only",
+              "firstSeenAt": "2026-08-21T21:06:50.786Z",
+              "freshness": {
+                "eligible": true,
+                "lane": "explore",
+                "reason": "fresh",
+                "ageHours": 9.537246388888889,
+                "maxAgeHours": 168
+              },
+              "deferredResearch": false,
+              "ref": "N5",
+              "role": "佐证",
+              "takeaway": "报道指出Anthropic已将Claude Mythos 5用于Claude Security，并计划接入保护关键基础设施的伙伴产品。"
+            },
+            {
+              "id": "research-232-0-https://the-decoder.com/anthropic-puts-its-most-powerful-model-claude-mythos-5-to-work-for-cyber-defense/-1-https://claude.com/blog/bringing-claude-mythos-5-to-more-defenders",
+              "sourceId": 232,
+              "sourceName": "Anthropic",
+              "sourcePublisher": "Anthropic",
+              "sourceKind": "Official",
+              "title": "Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders",
+              "url": "https://claude.com/blog/bringing-claude-mythos-5-to-more-defenders",
+              "publishedAt": "2026-08-21T00:00:00.000Z",
+              "summary": "确认当前产品状态：Claude Enterprise公共测试中的Claude Security扫描现可运行Mythos 5，输出CWE分类、置信度、严重性及建议修复；所有补丁仍须人工审核。该文也明确合作方集成仍在建设中，终端用户仅获得特定防御性产物而非直接访问模型。",
+              "fetchedAt": "2026-08-22T05:07:51.087Z",
+              "researchedFrom": "N5",
+              "researchRole": "Primary",
+              "researchClaim": "Anthropic于2026年8月21日将Claude Security的代码库扫描切换为可使用Claude Mythos 5，面向Claude Enterprise公共测试用户提供漏洞发现、CWE分类、置信度与严重性评级及修复建议；但合作伙伴产品的Mythos 5集成仍被表述为“正在合作”和“即将推出”，并非已普遍上线。",
+              "researchComparisons": "此前，Claude Security使用Claude Opus 4.8等公开前沿模型；Mythos 5此前仅向Project Glasswing的受限伙伴直接开放。当前变化是把Mythos 5置于Enterprise扫描及合作方受控工作流的后台，而非向终端用户开放直接提示词访问。Project Glasswing在4月约有50家初始伙伴，6月拟新增约150家机构。独立AISI对较早的Mythos Preview评测显示：其在32步企业网络模拟“The Last Ones”中10次尝试有3次完成全链路、平均完成22步，Claude Opus 4.6平均16步；专家级CTF成功率为73%。这些不是Mythos 5在Claude Security中的生产效果或真实漏洞修复率。",
+              "researchUnresolved": "Anthropic未披露Claude Security上Mythos 5相对Opus 4.8的漏洞发现精度、误报率、修复采纳率、扫描成本或实际已上线的合作伙伴名单；也未披露合作方集成的上线时间。",
+              "ref": "R1",
+              "role": "最新进展",
+              "takeaway": "Anthropic确认Claude Security公共测试已运行Mythos 5；终端用户获得的是特定防御产品，而非模型直接访问。"
+            },
+            {
+              "id": "research-232-0-https://the-decoder.com/anthropic-puts-its-most-powerful-model-claude-mythos-5-to-work-for-cyber-defense/-2-https://www.anthropic.com/news/expanding-project-glasswing",
+              "sourceId": 232,
+              "sourceName": "Anthropic",
+              "sourcePublisher": "Anthropic",
+              "sourceKind": "Official",
+              "title": "Expanding Project Glasswing",
+              "url": "https://www.anthropic.com/news/expanding-project-glasswing",
+              "publishedAt": "2026-06-02T00:00:00.000Z",
+              "summary": "补齐此前状态与规模基准：4月约50个初始伙伴可使用Mythos Preview，6月计划向约150个新增机构扩展；当时Claude Security使用Opus 4.8等公开前沿模型扫描代码并建议修复。",
+              "fetchedAt": "2026-08-22T05:07:51.087Z",
+              "researchedFrom": "N5",
+              "researchRole": "Comparison",
+              "researchClaim": "Anthropic于2026年8月21日将Claude Security的代码库扫描切换为可使用Claude Mythos 5，面向Claude Enterprise公共测试用户提供漏洞发现、CWE分类、置信度与严重性评级及修复建议；但合作伙伴产品的Mythos 5集成仍被表述为“正在合作”和“即将推出”，并非已普遍上线。",
+              "researchComparisons": "此前，Claude Security使用Claude Opus 4.8等公开前沿模型；Mythos 5此前仅向Project Glasswing的受限伙伴直接开放。当前变化是把Mythos 5置于Enterprise扫描及合作方受控工作流的后台，而非向终端用户开放直接提示词访问。Project Glasswing在4月约有50家初始伙伴，6月拟新增约150家机构。独立AISI对较早的Mythos Preview评测显示：其在32步企业网络模拟“The Last Ones”中10次尝试有3次完成全链路、平均完成22步，Claude Opus 4.6平均16步；专家级CTF成功率为73%。这些不是Mythos 5在Claude Security中的生产效果或真实漏洞修复率。",
+              "researchUnresolved": "Anthropic未披露Claude Security上Mythos 5相对Opus 4.8的漏洞发现精度、误报率、修复采纳率、扫描成本或实际已上线的合作伙伴名单；也未披露合作方集成的上线时间。",
+              "ref": "R2",
+              "role": "背景",
+              "takeaway": "Anthropic此前计划将Project Glasswing从约50个初始伙伴扩大至约150个机构，当时安全扫描使用公开前沿模型。"
+            },
+            {
+              "id": "research-232-0-https://the-decoder.com/anthropic-puts-its-most-powerful-model-claude-mythos-5-to-work-for-cyber-defense/-3-https://www.aisi.gov.uk/blog/our-evaluation-of-claude-mythos-previews-cyber-capabilities",
+              "sourceId": 232,
+              "sourceName": "UK AI Security Institute",
+              "sourcePublisher": "UK AI Security Institute",
+              "sourceKind": "Research",
+              "title": "Our evaluation of Claude Mythos Preview’s cyber capabilities",
+              "url": "https://www.aisi.gov.uk/blog/our-evaluation-of-claude-mythos-previews-cyber-capabilities",
+              "publishedAt": "2026-08-21T19:35:37.000Z",
+              "summary": "提供独立能力基准及最强限制：Mythos Preview在32步TLO模拟中10次有3次全程完成、平均22步，对比Opus 4.6的16步，并在专家CTF中达到73%成功率；但AISI指出该环境缺少主动防御与防御工具、不会惩罚触发告警，因此不能据此断言模型能攻击防御严密的真实系统。",
+              "fetchedAt": "2026-08-22T05:07:51.087Z",
+              "researchedFrom": "N5",
+              "researchRole": "Counterevidence",
+              "researchClaim": "Anthropic于2026年8月21日将Claude Security的代码库扫描切换为可使用Claude Mythos 5，面向Claude Enterprise公共测试用户提供漏洞发现、CWE分类、置信度与严重性评级及修复建议；但合作伙伴产品的Mythos 5集成仍被表述为“正在合作”和“即将推出”，并非已普遍上线。",
+              "researchComparisons": "此前，Claude Security使用Claude Opus 4.8等公开前沿模型；Mythos 5此前仅向Project Glasswing的受限伙伴直接开放。当前变化是把Mythos 5置于Enterprise扫描及合作方受控工作流的后台，而非向终端用户开放直接提示词访问。Project Glasswing在4月约有50家初始伙伴，6月拟新增约150家机构。独立AISI对较早的Mythos Preview评测显示：其在32步企业网络模拟“The Last Ones”中10次尝试有3次完成全链路、平均完成22步，Claude Opus 4.6平均16步；专家级CTF成功率为73%。这些不是Mythos 5在Claude Security中的生产效果或真实漏洞修复率。",
+              "researchUnresolved": "Anthropic未披露Claude Security上Mythos 5相对Opus 4.8的漏洞发现精度、误报率、修复采纳率、扫描成本或实际已上线的合作伙伴名单；也未披露合作方集成的上线时间。",
+              "ref": "R3",
+              "role": "佐证",
+              "takeaway": "UK AI Security Institute评测显示Mythos Preview在模拟网络任务中能力提升，但测试环境不代表针对真实严密防御系统的攻击能力。"
+            },
+            {
+              "id": "research-232-0-https://the-decoder.com/anthropic-puts-its-most-powerful-model-claude-mythos-5-to-work-for-cyber-defense/-4-https://www.aisi.gov.uk/blog/our-evaluation-of-openais-gpt-5-5-cyber-capabilities",
+              "sourceId": 232,
+              "sourceName": "UK AI Security Institute",
+              "sourcePublisher": "UK AI Security Institute",
+              "sourceKind": "Research",
+              "title": "Our evaluation of OpenAI's GPT-5.5 cyber capabilities",
+              "url": "https://www.aisi.gov.uk/blog/our-evaluation-of-openais-gpt-5-5-cyber-capabilities",
+              "publishedAt": "2026-08-21T19:35:37.000Z",
+              "summary": "补充竞争性反例：AISI称GPT-5.5成为第二个端到端完成TLO的模型，10次中成功2次，而Mythos Preview为3次；这支持高端自主网络攻击能力正在成为跨厂商趋势，而非Mythos独有优势。",
+              "fetchedAt": "2026-08-22T05:07:51.087Z",
+              "researchedFrom": "N5",
+              "researchRole": "Counterevidence",
+              "researchClaim": "Anthropic于2026年8月21日将Claude Security的代码库扫描切换为可使用Claude Mythos 5，面向Claude Enterprise公共测试用户提供漏洞发现、CWE分类、置信度与严重性评级及修复建议；但合作伙伴产品的Mythos 5集成仍被表述为“正在合作”和“即将推出”，并非已普遍上线。",
+              "researchComparisons": "此前，Claude Security使用Claude Opus 4.8等公开前沿模型；Mythos 5此前仅向Project Glasswing的受限伙伴直接开放。当前变化是把Mythos 5置于Enterprise扫描及合作方受控工作流的后台，而非向终端用户开放直接提示词访问。Project Glasswing在4月约有50家初始伙伴，6月拟新增约150家机构。独立AISI对较早的Mythos Preview评测显示：其在32步企业网络模拟“The Last Ones”中10次尝试有3次完成全链路、平均完成22步，Claude Opus 4.6平均16步；专家级CTF成功率为73%。这些不是Mythos 5在Claude Security中的生产效果或真实漏洞修复率。",
+              "researchUnresolved": "Anthropic未披露Claude Security上Mythos 5相对Opus 4.8的漏洞发现精度、误报率、修复采纳率、扫描成本或实际已上线的合作伙伴名单；也未披露合作方集成的上线时间。",
+              "ref": "R4",
+              "role": "反例",
+              "takeaway": "UK AI Security Institute发现GPT-5.5也能端到端完成模拟任务，表明高端网络能力并非Mythos独有。"
+            }
+          ],
+          "changeType": "progress",
+          "thesisImpact": "强化原判断：Anthropic未直接发布更强模型，但已将Claude Mythos 5用于受控的防御性安全产品；能力部署正通过人工审核和伙伴边界推进。",
+          "revisionRequired": false
+        }
+      ]
+    },
     {
       "id": 94,
       "editorialBucket": "dynamic",
@@ -23277,125 +23720,6 @@
         }
       ],
       "feedBatchAt": "2026-08-15T09:06:39.261Z"
-    },
-    {
-      "id": 118,
-      "editorialBucket": "explore",
-      "category": "AI & 模型",
-      "eyebrow": "趋势变化",
-      "title": "Anthropic将风险评级纳入发布闸门",
-      "summary": "Anthropic据报上调更强内部模型的misalignment风险评级，并暂不发布Model 2。前沿模型竞争的关键变量可能从能力展示转向能否通过内部风险闸门。",
-      "why": "若风险评级直接改变模型发布节奏，实验室的产品路线、收入兑现和客户迁移时间表都将更依赖安全治理决策。",
-      "impact": "这可能使外部市场更重视可部署能力而非内部能力上限，并放大安全评估、访问控制和分阶段发布的竞争价值。",
-      "shiftFrom": "能力提升通常对应更快发布",
-      "shiftTo": "风险评级可直接延后发布",
-      "crossValidation": "Axios报道了风险评级上调及不发布Model 2的决定；Anthropic较早的官方风险更新确认Claude Mythos Preview并未普遍开放，提供其分阶段访问模式的背景。",
-      "article": {
-        "lead": "Anthropic据报已将一款更强内部模型的misalignment风险评级从very low上调至low，并决定暂不对外发布Model 2。这一决定指向同一个变化：前沿实验室的内部能力进展不再必然自动转化为产品供给，风险评估正在成为影响发布节奏的实际闸门。",
-        "sections": [
-          {
-            "heading": "内部能力与市场可用性开始脱钩",
-            "body": "Axios报道，Anthropic上调了更强内部模型的misalignment风险判断，同时没有计划发布被称为Model 2的系统。报道所描述的并非单纯的模型命名变化，而是内部能力存在、却不进入公开产品线的状态。Anthropic在2026年4月发布的官方风险更新也显示，Claude Mythos Preview当时尚未向公众普遍开放。两项信息共同表明，该公司已经采用将能力开发、有限访问和广泛发布分开的路径。"
-          },
-          {
-            "heading": "风险评级为何会改变商业节奏",
-            "body": "模型发布不是只由基准成绩决定。若内部评估认为更强系统的失配风险上升，公司需要在训练后缓解、红队测试、权限设计、监控能力和事故响应之间完成配套，才能扩大访问范围。这个机制会把安全团队和治理流程从发布前的合规检查，推向产品排期的共同决定者。对企业客户而言，真正可采购的能力边界也将由模型性能与部署护栏共同定义，而不只是实验室内部的能力上限。"
-          },
-          {
-            "heading": "竞争焦点或转向可控部署能力",
-            "body": "若类似做法扩展至其他前沿实验室，市场比较可能更强调哪些模型能在明确权限、审计和风险控制下稳定上线，而非谁先披露更高的内部能力。最强的反面解释是，Model 2不发布也可能主要是产品定位、算力分配或商业时机选择，风险评级未必是唯一决定因素。但Anthropic将风险判断变化与暂不发布并列，至少使治理约束成为需要持续追踪的竞争变量。"
-          }
-        ],
-        "outlook": "接下来可观察Anthropic是否发布新的系统卡、访问分级政策或针对Model 2的缓解措施，也可观察其是否将更强能力先提供给受控企业客户或政府环境。若公司随后公布明确的发布条件、完成评估后开放模型，将强化“风险闸门决定节奏”的判断；若无新增护栏说明便直接广泛上线，则会削弱这一判断。"
-      },
-      "validationType": "跨平台验证",
-      "publishedAt": "2026-08-14T00:00:00.000Z",
-      "updatedAt": "2026-08-14T00:00:00.000Z",
-      "sources": [
-        "Media",
-        "Official"
-      ],
-      "sourceNames": [
-        "Axios",
-        "Anthropic"
-      ],
-      "sourceCount": 2,
-      "age": "20 小时前",
-      "score": 80,
-      "tone": "orange",
-      "evidence": [
-        {
-          "id": "ground-226-1-https://www.axios.com/2026/08/14/anthropic-model-2-ai-risk-3-https://www.axios.com/2026/08/14/anthropic-model-2-ai-risk",
-          "sourceId": 226,
-          "sourceName": "Axios",
-          "sourcePublisher": "Axios",
-          "sourceKind": "Media",
-          "title": "Anthropic sees AI risks rising, no plan to release stronger “Model 2”",
-          "url": "https://www.axios.com/2026/08/14/anthropic-model-2-ai-risk",
-          "publishedAt": "2026-08-14T00:00:00.000Z",
-          "summary": "报道确认 Anthropic 将高风险 misalignment 评估从 very low 上调至 low，并称公司目前没有将 Model 2 对外发布的计划。",
-          "fetchedAt": "2026-08-14T20:07:23.684Z",
-          "groundedFrom": "N3",
-          "groundingClaim": "Anthropic 将高风险场景下的 misalignment 风险评估从“very low”上调为“low”，并表示目前没有将名为 Model 2 的内部模型对外发布的计划。",
-          "groundingNotes": "Axios 报道直接确认了该风险评级变化及 Model 2 暂无对外发布计划；Anthropic 的相关风险报告确认 Mythos Preview 属于未向公众开放的高能力模型。来源没有证明“Model 2 明显强于 Mythos”的更强表述。",
-          "ref": "G3",
-          "role": "主张",
-          "takeaway": "Axios报道称，Anthropic将更强内部模型的misalignment风险评级从very low上调至low，并无计划发布Model 2。"
-        },
-        {
-          "id": "ground-226-1-https://www.axios.com/2026/08/14/anthropic-model-2-ai-risk-4-https://www-cdn.anthropic.com/3edfc1a7f947aa81841cf88305cb513f184c36ae/Alignment%20Risk%20Update_%20Claude%20Mythos%20Preview%20%28Redacted%2C%20April%2010%29.pdf",
-          "sourceId": 226,
-          "sourceName": "Anthropic",
-          "sourcePublisher": "Anthropic",
-          "sourceKind": "Official",
-          "title": "Alignment Risk Update: Claude Mythos Preview (Redacted, April 10)",
-          "url": "https://www-cdn.anthropic.com/3edfc1a7f947aa81841cf88305cb513f184c36ae/Alignment%20Risk%20Update_%20Claude%20Mythos%20Preview%20%28Redacted%2C%20April%2010%29.pdf",
-          "publishedAt": "2026-04-10T00:00:00.000Z",
-          "summary": "Anthropic 风险报告说明 Claude Mythos Preview 尚未向公众普遍开放，并讨论其相较前代模型的能力与 alignment 风险评估。",
-          "fetchedAt": "2026-08-14T20:07:23.684Z",
-          "groundedFrom": "N3",
-          "groundingClaim": "Anthropic 将高风险场景下的 misalignment 风险评估从“very low”上调为“low”，并表示目前没有将名为 Model 2 的内部模型对外发布的计划。",
-          "groundingNotes": "Axios 报道直接确认了该风险评级变化及 Model 2 暂无对外发布计划；Anthropic 的相关风险报告确认 Mythos Preview 属于未向公众开放的高能力模型。来源没有证明“Model 2 明显强于 Mythos”的更强表述。",
-          "ref": "G4",
-          "role": "背景",
-          "takeaway": "Anthropic 2026年4月的风险更新说明Claude Mythos Preview当时尚未向公众普遍开放，并讨论其能力与alignment风险。"
-        }
-      ],
-      "references": [
-        {
-          "id": "ground-226-1-https://www.axios.com/2026/08/14/anthropic-model-2-ai-risk-3-https://www.axios.com/2026/08/14/anthropic-model-2-ai-risk",
-          "sourceId": 226,
-          "sourceName": "Axios",
-          "sourcePublisher": "Axios",
-          "sourceKind": "Media",
-          "title": "Anthropic sees AI risks rising, no plan to release stronger “Model 2”",
-          "url": "https://www.axios.com/2026/08/14/anthropic-model-2-ai-risk",
-          "publishedAt": "2026-08-14T00:00:00.000Z",
-          "summary": "报道确认 Anthropic 将高风险 misalignment 评估从 very low 上调至 low，并称公司目前没有将 Model 2 对外发布的计划。",
-          "fetchedAt": "2026-08-14T20:07:23.684Z",
-          "groundedFrom": "N3",
-          "groundingClaim": "Anthropic 将高风险场景下的 misalignment 风险评估从“very low”上调为“low”，并表示目前没有将名为 Model 2 的内部模型对外发布的计划。",
-          "groundingNotes": "Axios 报道直接确认了该风险评级变化及 Model 2 暂无对外发布计划；Anthropic 的相关风险报告确认 Mythos Preview 属于未向公众开放的高能力模型。来源没有证明“Model 2 明显强于 Mythos”的更强表述。",
-          "ref": "G3"
-        },
-        {
-          "id": "ground-226-1-https://www.axios.com/2026/08/14/anthropic-model-2-ai-risk-4-https://www-cdn.anthropic.com/3edfc1a7f947aa81841cf88305cb513f184c36ae/Alignment%20Risk%20Update_%20Claude%20Mythos%20Preview%20%28Redacted%2C%20April%2010%29.pdf",
-          "sourceId": 226,
-          "sourceName": "Anthropic",
-          "sourcePublisher": "Anthropic",
-          "sourceKind": "Official",
-          "title": "Alignment Risk Update: Claude Mythos Preview (Redacted, April 10)",
-          "url": "https://www-cdn.anthropic.com/3edfc1a7f947aa81841cf88305cb513f184c36ae/Alignment%20Risk%20Update_%20Claude%20Mythos%20Preview%20%28Redacted%2C%20April%2010%29.pdf",
-          "publishedAt": "2026-04-10T00:00:00.000Z",
-          "summary": "Anthropic 风险报告说明 Claude Mythos Preview 尚未向公众普遍开放，并讨论其相较前代模型的能力与 alignment 风险评估。",
-          "fetchedAt": "2026-08-14T20:07:23.684Z",
-          "groundedFrom": "N3",
-          "groundingClaim": "Anthropic 将高风险场景下的 misalignment 风险评估从“very low”上调为“low”，并表示目前没有将名为 Model 2 的内部模型对外发布的计划。",
-          "groundingNotes": "Axios 报道直接确认了该风险评级变化及 Model 2 暂无对外发布计划；Anthropic 的相关风险报告确认 Mythos Preview 属于未向公众开放的高能力模型。来源没有证明“Model 2 明显强于 Mythos”的更强表述。",
-          "ref": "G4"
-        }
-      ],
-      "feedBatchAt": "2026-08-14T20:07:23.684Z"
     },
     {
       "id": 113,
@@ -54905,6 +55229,97 @@
       "editorNote": "今日信息环境由智能体安全事件、AI coding 工具链分化、open-weight 模型竞争与算力下沉共同主导。",
       "signals": [
         {
+          "category": "AI & 模型",
+          "eyebrow": "趋势变化",
+          "title": "Anthropic将风险评级纳入发布闸门",
+          "summary": "Anthropic据报上调更强内部模型的misalignment风险评级，并暂不发布Model 2。前沿模型竞争的关键变量可能从能力展示转向能否通过内部风险闸门。",
+          "why": "若风险评级直接改变模型发布节奏，实验室的产品路线、收入兑现和客户迁移时间表都将更依赖安全治理决策。",
+          "impact": "这可能使外部市场更重视可部署能力而非内部能力上限，并放大安全评估、访问控制和分阶段发布的竞争价值。",
+          "shiftFrom": "能力提升通常对应更快发布",
+          "shiftTo": "风险评级可直接延后发布",
+          "crossValidation": "Axios报道了风险评级上调及不发布Model 2的决定；Anthropic较早的官方风险更新确认Claude Mythos Preview并未普遍开放，提供其分阶段访问模式的背景。",
+          "article": {
+            "lead": "Anthropic据报已将一款更强内部模型的misalignment风险评级从very low上调至low，并决定暂不对外发布Model 2。这一决定指向同一个变化：前沿实验室的内部能力进展不再必然自动转化为产品供给，风险评估正在成为影响发布节奏的实际闸门。",
+            "sections": [
+              {
+                "heading": "内部能力与市场可用性开始脱钩",
+                "body": "Axios报道，Anthropic上调了更强内部模型的misalignment风险判断，同时没有计划发布被称为Model 2的系统。报道所描述的并非单纯的模型命名变化，而是内部能力存在、却不进入公开产品线的状态。Anthropic在2026年4月发布的官方风险更新也显示，Claude Mythos Preview当时尚未向公众普遍开放。两项信息共同表明，该公司已经采用将能力开发、有限访问和广泛发布分开的路径。"
+              },
+              {
+                "heading": "风险评级为何会改变商业节奏",
+                "body": "模型发布不是只由基准成绩决定。若内部评估认为更强系统的失配风险上升，公司需要在训练后缓解、红队测试、权限设计、监控能力和事故响应之间完成配套，才能扩大访问范围。这个机制会把安全团队和治理流程从发布前的合规检查，推向产品排期的共同决定者。对企业客户而言，真正可采购的能力边界也将由模型性能与部署护栏共同定义，而不只是实验室内部的能力上限。"
+              },
+              {
+                "heading": "竞争焦点或转向可控部署能力",
+                "body": "若类似做法扩展至其他前沿实验室，市场比较可能更强调哪些模型能在明确权限、审计和风险控制下稳定上线，而非谁先披露更高的内部能力。最强的反面解释是，Model 2不发布也可能主要是产品定位、算力分配或商业时机选择，风险评级未必是唯一决定因素。但Anthropic将风险判断变化与暂不发布并列，至少使治理约束成为需要持续追踪的竞争变量。"
+              }
+            ],
+            "outlook": "接下来可观察Anthropic是否发布新的系统卡、访问分级政策或针对Model 2的缓解措施，也可观察其是否将更强能力先提供给受控企业客户或政府环境。若公司随后公布明确的发布条件、完成评估后开放模型，将强化“风险闸门决定节奏”的判断；若无新增护栏说明便直接广泛上线，则会削弱这一判断。"
+          },
+          "evidence": [
+            {
+              "role": "主张",
+              "takeaway": "Axios报道称，Anthropic将更强内部模型的misalignment风险评级从very low上调至low，并无计划发布Model 2。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "Anthropic 2026年4月的风险更新说明Claude Mythos Preview当时尚未向公众普遍开放，并讨论其能力与alignment风险。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "报道指出Anthropic已将Claude Mythos 5用于Claude Security，并计划接入保护关键基础设施的伙伴产品。"
+            },
+            {
+              "role": "最新进展",
+              "takeaway": "Anthropic确认Claude Security公共测试已运行Mythos 5；终端用户获得的是特定防御产品，而非模型直接访问。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "Anthropic此前计划将Project Glasswing从约50个初始伙伴扩大至约150个机构，当时安全扫描使用公开前沿模型。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "UK AI Security Institute评测显示Mythos Preview在模拟网络任务中能力提升，但测试环境不代表针对真实严密防御系统的攻击能力。"
+            },
+            {
+              "role": "反例",
+              "takeaway": "UK AI Security Institute发现GPT-5.5也能端到端完成模拟任务，表明高端网络能力并非Mythos独有。"
+            }
+          ],
+          "updates": [
+            {
+              "addedAt": "2026-08-21T19:35:37.000Z",
+              "title": "Mythos 5进入受控网络防御",
+              "summary": "Anthropic确认，Claude Security在Claude Enterprise公共测试中已运行Claude Mythos 5，为代码库输出CWE分类、严重性、置信度与修复建议；补丁仍须人工审核，伙伴集成仍在建设。",
+              "evidence": [
+                {
+                  "role": "佐证",
+                  "takeaway": "报道指出Anthropic已将Claude Mythos 5用于Claude Security，并计划接入保护关键基础设施的伙伴产品。"
+                },
+                {
+                  "role": "最新进展",
+                  "takeaway": "Anthropic确认Claude Security公共测试已运行Mythos 5；终端用户获得的是特定防御产品，而非模型直接访问。"
+                },
+                {
+                  "role": "背景",
+                  "takeaway": "Anthropic此前计划将Project Glasswing从约50个初始伙伴扩大至约150个机构，当时安全扫描使用公开前沿模型。"
+                },
+                {
+                  "role": "佐证",
+                  "takeaway": "UK AI Security Institute评测显示Mythos Preview在模拟网络任务中能力提升，但测试环境不代表针对真实严密防御系统的攻击能力。"
+                },
+                {
+                  "role": "反例",
+                  "takeaway": "UK AI Security Institute发现GPT-5.5也能端到端完成模拟任务，表明高端网络能力并非Mythos独有。"
+                }
+              ],
+              "changeType": "progress",
+              "thesisImpact": "强化原判断：Anthropic未直接发布更强模型，但已将Claude Mythos 5用于受控的防御性安全产品；能力部署正通过人工审核和伙伴边界推进。",
+              "revisionRequired": false
+            }
+          ]
+        },
+        {
           "category": "投资",
           "eyebrow": "资本信号",
           "title": "NVIDIA据报押注Stargate供电商",
@@ -59393,45 +59808,6 @@
             {
               "role": "主张",
               "takeaway": "WIRED报道Amazon可使用Twitch内容训练AI，除非主播主动退出，并称数千名用户质疑这一默认安排。"
-            }
-          ]
-        },
-        {
-          "category": "AI & 模型",
-          "eyebrow": "趋势变化",
-          "title": "Anthropic将风险评级纳入发布闸门",
-          "summary": "Anthropic据报上调更强内部模型的misalignment风险评级，并暂不发布Model 2。前沿模型竞争的关键变量可能从能力展示转向能否通过内部风险闸门。",
-          "why": "若风险评级直接改变模型发布节奏，实验室的产品路线、收入兑现和客户迁移时间表都将更依赖安全治理决策。",
-          "impact": "这可能使外部市场更重视可部署能力而非内部能力上限，并放大安全评估、访问控制和分阶段发布的竞争价值。",
-          "shiftFrom": "能力提升通常对应更快发布",
-          "shiftTo": "风险评级可直接延后发布",
-          "crossValidation": "Axios报道了风险评级上调及不发布Model 2的决定；Anthropic较早的官方风险更新确认Claude Mythos Preview并未普遍开放，提供其分阶段访问模式的背景。",
-          "article": {
-            "lead": "Anthropic据报已将一款更强内部模型的misalignment风险评级从very low上调至low，并决定暂不对外发布Model 2。这一决定指向同一个变化：前沿实验室的内部能力进展不再必然自动转化为产品供给，风险评估正在成为影响发布节奏的实际闸门。",
-            "sections": [
-              {
-                "heading": "内部能力与市场可用性开始脱钩",
-                "body": "Axios报道，Anthropic上调了更强内部模型的misalignment风险判断，同时没有计划发布被称为Model 2的系统。报道所描述的并非单纯的模型命名变化，而是内部能力存在、却不进入公开产品线的状态。Anthropic在2026年4月发布的官方风险更新也显示，Claude Mythos Preview当时尚未向公众普遍开放。两项信息共同表明，该公司已经采用将能力开发、有限访问和广泛发布分开的路径。"
-              },
-              {
-                "heading": "风险评级为何会改变商业节奏",
-                "body": "模型发布不是只由基准成绩决定。若内部评估认为更强系统的失配风险上升，公司需要在训练后缓解、红队测试、权限设计、监控能力和事故响应之间完成配套，才能扩大访问范围。这个机制会把安全团队和治理流程从发布前的合规检查，推向产品排期的共同决定者。对企业客户而言，真正可采购的能力边界也将由模型性能与部署护栏共同定义，而不只是实验室内部的能力上限。"
-              },
-              {
-                "heading": "竞争焦点或转向可控部署能力",
-                "body": "若类似做法扩展至其他前沿实验室，市场比较可能更强调哪些模型能在明确权限、审计和风险控制下稳定上线，而非谁先披露更高的内部能力。最强的反面解释是，Model 2不发布也可能主要是产品定位、算力分配或商业时机选择，风险评级未必是唯一决定因素。但Anthropic将风险判断变化与暂不发布并列，至少使治理约束成为需要持续追踪的竞争变量。"
-              }
-            ],
-            "outlook": "接下来可观察Anthropic是否发布新的系统卡、访问分级政策或针对Model 2的缓解措施，也可观察其是否将更强能力先提供给受控企业客户或政府环境。若公司随后公布明确的发布条件、完成评估后开放模型，将强化“风险闸门决定节奏”的判断；若无新增护栏说明便直接广泛上线，则会削弱这一判断。"
-          },
-          "evidence": [
-            {
-              "role": "主张",
-              "takeaway": "Axios报道称，Anthropic将更强内部模型的misalignment风险评级从very low上调至low，并无计划发布Model 2。"
-            },
-            {
-              "role": "背景",
-              "takeaway": "Anthropic 2026年4月的风险更新说明Claude Mythos Preview当时尚未向公众普遍开放，并讨论其能力与alignment风险。"
             }
           ]
         },
@@ -68132,6 +68508,97 @@
       "editorNote": "Today’s information environment is being shaped by agent security incidents, a split in coding-agent toolchains, open-model competition, and compute moving closer to the edge.",
       "signals": [
         {
+          "category": "AI & Models",
+          "eyebrow": "Trend Shift",
+          "title": "Anthropic makes risk ratings a release gate",
+          "summary": "Anthropic reportedly raised the misalignment-risk rating for a stronger internal model and does not plan to release Model 2. Frontier-model competition may increasingly hinge on passing internal risk gates, not just demonstrating capability.",
+          "why": "If risk ratings directly alter release timing, lab roadmaps, revenue realization and customer migration timelines become more dependent on governance decisions.",
+          "impact": "The market may place more value on deployable capability than internal capability ceilings, elevating evaluation, access controls and staged-release systems.",
+          "shiftFrom": "Capability gains usually implied faster releases",
+          "shiftTo": "Risk ratings can delay public release",
+          "crossValidation": "Axios reported the higher risk rating and decision not to release Model 2. An earlier Anthropic risk update confirmed that Claude Mythos Preview was not broadly public, providing context for staged access.",
+          "article": {
+            "lead": "Anthropic reportedly raised the misalignment-risk rating for a stronger internal model from very low to low and does not plan to release Model 2. The combined signal is that frontier capability progress no longer necessarily converts into public product supply: risk assessment is becoming an operational release gate.",
+            "sections": [
+              {
+                "heading": "Internal capability can diverge from public availability",
+                "body": "Axios reported both the higher misalignment-risk assessment and Anthropic's decision not to release the system described as Model 2. This is more than a naming change: it describes a state in which stronger internal capability may exist without entering the public product line. Anthropic's April 2026 official risk update also said Claude Mythos Preview was not broadly available to the public. Together, these signals point to a model in which capability development, limited access and broad release are distinct stages."
+              },
+              {
+                "heading": "Why risk ratings can change commercial timing",
+                "body": "Model release is not determined by benchmark performance alone. If internal assessment finds higher misalignment risk, a company may need post-training mitigations, red-teaming, permissions design, monitoring and incident response before expanding access. That makes safety and governance teams co-determinants of product schedules rather than final compliance reviewers. For enterprise buyers, the meaningful capability boundary becomes the combination of model performance and deployable safeguards, not the lab's internal capability ceiling."
+              },
+              {
+                "heading": "Competition may shift toward controlled deployment",
+                "body": "If comparable practices spread across frontier labs, market comparisons may increasingly focus on which systems can be deployed reliably with explicit permissions, auditability and risk controls, rather than which lab first discloses the highest internal capability. The strongest alternative explanation is that Model 2 could be held back mainly for product positioning, compute allocation or commercial timing. Still, Anthropic's reported pairing of a changed risk judgment with a non-release decision makes governance a variable worth tracking."
+              }
+            ],
+            "outlook": "Watch for Anthropic system cards, tiered-access policies or specific mitigation disclosures related to Model 2, as well as whether stronger capabilities first appear in controlled enterprise or government settings. Explicit release criteria and later access following evaluation would strengthen the release-gate thesis. Broad release without new safeguard disclosures would weaken it."
+          },
+          "evidence": [
+            {
+              "role": "Claim",
+              "takeaway": "Axios reported that Anthropic raised a stronger internal model's misalignment-risk rating from very low to low and does not plan to release Model 2."
+            },
+            {
+              "role": "Context",
+              "takeaway": "Anthropic's April 2026 risk update said Claude Mythos Preview was not broadly available to the public and discussed its capability and alignment risk."
+            },
+            {
+              "role": "Support",
+              "takeaway": "Reporting says Anthropic is using Claude Mythos 5 in Claude Security and plans integrations with partner security products."
+            },
+            {
+              "role": "Update",
+              "takeaway": "Anthropic confirms that the public-beta Claude Security scanner runs Mythos 5, while users receive a bounded defensive product rather than direct model access."
+            },
+            {
+              "role": "Context",
+              "takeaway": "Project Glasswing previously planned to expand from roughly 50 initial partners to about 150 institutions using public frontier models for security scanning."
+            },
+            {
+              "role": "Support",
+              "takeaway": "The UK AI Security Institute found stronger simulated cyber-task performance from Mythos Preview, while cautioning that its environment did not model active defenses."
+            },
+            {
+              "role": "Counterpoint",
+              "takeaway": "The UK AI Security Institute also found GPT-5.5 capable of end-to-end simulated task completion, indicating that advanced cyber capability is not unique to Mythos."
+            }
+          ],
+          "updates": [
+            {
+              "addedAt": "2026-08-21T19:35:37.000Z",
+              "title": "Mythos 5 moves into controlled cyber defense",
+              "summary": "Anthropic confirmed that Claude Security, in public beta for Claude Enterprise, now runs Claude Mythos 5 to produce CWE classifications, severity ratings, confidence scores and patch suggestions. Human review remains required, while partner integrations are still under construction.",
+              "evidence": [
+                {
+                  "role": "Support",
+                  "takeaway": "Reporting says Anthropic is using Claude Mythos 5 in Claude Security and plans integrations with partner security products."
+                },
+                {
+                  "role": "Update",
+                  "takeaway": "Anthropic confirms that the public-beta Claude Security scanner runs Mythos 5, while users receive a bounded defensive product rather than direct model access."
+                },
+                {
+                  "role": "Context",
+                  "takeaway": "Project Glasswing previously planned to expand from roughly 50 initial partners to about 150 institutions using public frontier models for security scanning."
+                },
+                {
+                  "role": "Support",
+                  "takeaway": "The UK AI Security Institute found stronger simulated cyber-task performance from Mythos Preview, while cautioning that its environment did not model active defenses."
+                },
+                {
+                  "role": "Counterpoint",
+                  "takeaway": "The UK AI Security Institute also found GPT-5.5 capable of end-to-end simulated task completion, indicating that advanced cyber capability is not unique to Mythos."
+                }
+              ],
+              "changeType": "progress",
+              "thesisImpact": "强化原判断：Anthropic未直接发布更强模型，但已将Claude Mythos 5用于受控的防御性安全产品；能力部署正通过人工审核和伙伴边界推进。",
+              "revisionRequired": false
+            }
+          ]
+        },
+        {
           "category": "Investment",
           "eyebrow": "Capital signal",
           "title": "NVIDIA reportedly backs Stargate power developer",
@@ -72620,45 +73087,6 @@
             {
               "role": "Claim",
               "takeaway": "WIRED reports that Amazon may use Twitch content for AI training unless streamers opt out, and that thousands of users challenged the default arrangement."
-            }
-          ]
-        },
-        {
-          "category": "AI & Models",
-          "eyebrow": "Trend Shift",
-          "title": "Anthropic makes risk ratings a release gate",
-          "summary": "Anthropic reportedly raised the misalignment-risk rating for a stronger internal model and does not plan to release Model 2. Frontier-model competition may increasingly hinge on passing internal risk gates, not just demonstrating capability.",
-          "why": "If risk ratings directly alter release timing, lab roadmaps, revenue realization and customer migration timelines become more dependent on governance decisions.",
-          "impact": "The market may place more value on deployable capability than internal capability ceilings, elevating evaluation, access controls and staged-release systems.",
-          "shiftFrom": "Capability gains usually implied faster releases",
-          "shiftTo": "Risk ratings can delay public release",
-          "crossValidation": "Axios reported the higher risk rating and decision not to release Model 2. An earlier Anthropic risk update confirmed that Claude Mythos Preview was not broadly public, providing context for staged access.",
-          "article": {
-            "lead": "Anthropic reportedly raised the misalignment-risk rating for a stronger internal model from very low to low and does not plan to release Model 2. The combined signal is that frontier capability progress no longer necessarily converts into public product supply: risk assessment is becoming an operational release gate.",
-            "sections": [
-              {
-                "heading": "Internal capability can diverge from public availability",
-                "body": "Axios reported both the higher misalignment-risk assessment and Anthropic's decision not to release the system described as Model 2. This is more than a naming change: it describes a state in which stronger internal capability may exist without entering the public product line. Anthropic's April 2026 official risk update also said Claude Mythos Preview was not broadly available to the public. Together, these signals point to a model in which capability development, limited access and broad release are distinct stages."
-              },
-              {
-                "heading": "Why risk ratings can change commercial timing",
-                "body": "Model release is not determined by benchmark performance alone. If internal assessment finds higher misalignment risk, a company may need post-training mitigations, red-teaming, permissions design, monitoring and incident response before expanding access. That makes safety and governance teams co-determinants of product schedules rather than final compliance reviewers. For enterprise buyers, the meaningful capability boundary becomes the combination of model performance and deployable safeguards, not the lab's internal capability ceiling."
-              },
-              {
-                "heading": "Competition may shift toward controlled deployment",
-                "body": "If comparable practices spread across frontier labs, market comparisons may increasingly focus on which systems can be deployed reliably with explicit permissions, auditability and risk controls, rather than which lab first discloses the highest internal capability. The strongest alternative explanation is that Model 2 could be held back mainly for product positioning, compute allocation or commercial timing. Still, Anthropic's reported pairing of a changed risk judgment with a non-release decision makes governance a variable worth tracking."
-              }
-            ],
-            "outlook": "Watch for Anthropic system cards, tiered-access policies or specific mitigation disclosures related to Model 2, as well as whether stronger capabilities first appear in controlled enterprise or government settings. Explicit release criteria and later access following evaluation would strengthen the release-gate thesis. Broad release without new safeguard disclosures would weaken it."
-          },
-          "evidence": [
-            {
-              "role": "Claim",
-              "takeaway": "Axios reported that Anthropic raised a stronger internal model's misalignment-risk rating from very low to low and does not plan to release Model 2."
-            },
-            {
-              "role": "Context",
-              "takeaway": "Anthropic's April 2026 risk update said Claude Mythos Preview was not broadly available to the public and discussed its capability and alignment risk."
             }
           ]
         },
@@ -81359,12 +81787,12 @@
     "en": "gpt-5.6-sol"
   },
   "incremental": {
-    "lastAddedAt": "2026-08-22T02:11:40.104Z",
-    "lastScanAt": "2026-08-22T02:07:48.708Z",
+    "lastAddedAt": "2026-08-22T05:11:44.785Z",
+    "lastScanAt": "2026-08-22T05:07:51.087Z",
     "lastAddedCount": 0,
     "lastUpdatedCount": 1,
     "totalAppended": 130,
-    "totalUpdated": 143
+    "totalUpdated": 144
   },
   "exploreDepth": {
     "minimum": 50,

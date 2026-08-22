@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-22T02:07:48.708Z",
+  "generatedAt": "2026-08-22T05:07:51.087Z",
   "counts": {
-    "sources": 832,
-    "claims": 987,
+    "sources": 837,
+    "claims": 992,
     "events": 201,
     "articles": 201,
-    "updates": 143,
-    "edges": 2655,
+    "updates": 144,
+    "edges": 2671,
     "revisionsRequired": 14
   },
   "revisionQueue": [
@@ -153,6 +153,140 @@
     }
   ],
   "nodes": [
+    {
+      "id": "event_d1c643b4a57ab552",
+      "type": "event",
+      "signalId": 118,
+      "title": "Anthropic将风险评级纳入发布闸门",
+      "bucket": "explore",
+      "valueScore": 88,
+      "publishedAt": "2026-08-14T00:00:00.000Z",
+      "updatedAt": "2026-08-21T19:35:37.000Z"
+    },
+    {
+      "id": "article_64dee3be595c7122",
+      "type": "article",
+      "signalId": 118,
+      "title": "Anthropic将风险评级纳入发布闸门",
+      "version": 1,
+      "publishedAt": "2026-08-22T05:07:51.087Z"
+    },
+    {
+      "id": "source_c9eb27f95a84f8c2",
+      "type": "source",
+      "title": "Axios",
+      "url": "https://www.axios.com/2026/08/14/anthropic-model-2-ai-risk",
+      "sourceKind": "Media",
+      "publishedAt": "2026-08-14T00:00:00.000Z"
+    },
+    {
+      "id": "claim_b21547de6ecce6b6",
+      "type": "claim",
+      "title": "Axios报道称，Anthropic将更强内部模型的misalignment风险评级从very low上调至low，并无计划发布Model 2。",
+      "role": "主张",
+      "addedAt": "2026-08-22T05:07:51.087Z"
+    },
+    {
+      "id": "source_21868c13a5de9089",
+      "type": "source",
+      "title": "Anthropic",
+      "url": "https://www-cdn.anthropic.com/3edfc1a7f947aa81841cf88305cb513f184c36ae/Alignment%20Risk%20Update_%20Claude%20Mythos%20Preview%20%28Redacted%2C%20April%2010%29.pdf",
+      "sourceKind": "Official",
+      "publishedAt": "2026-04-10T00:00:00.000Z"
+    },
+    {
+      "id": "claim_c7bedf22055318d1",
+      "type": "claim",
+      "title": "Anthropic 2026年4月的风险更新说明Claude Mythos Preview当时尚未向公众普遍开放，并讨论其能力与alignment风险。",
+      "role": "背景",
+      "addedAt": "2026-08-22T05:07:51.087Z"
+    },
+    {
+      "id": "source_3c3830d0d7602a0f",
+      "type": "source",
+      "title": "The Decoder AI",
+      "url": "https://the-decoder.com/anthropic-puts-its-most-powerful-model-claude-mythos-5-to-work-for-cyber-defense/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-21T19:35:37.000Z"
+    },
+    {
+      "id": "claim_198f170c07e50dba",
+      "type": "claim",
+      "title": "报道指出Anthropic已将Claude Mythos 5用于Claude Security，并计划接入保护关键基础设施的伙伴产品。",
+      "role": "佐证",
+      "addedAt": "2026-08-22T05:07:51.087Z"
+    },
+    {
+      "id": "source_f034ee1587ce0876",
+      "type": "source",
+      "title": "Anthropic",
+      "url": "https://claude.com/blog/bringing-claude-mythos-5-to-more-defenders",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-21T00:00:00.000Z"
+    },
+    {
+      "id": "claim_676421ed020a156e",
+      "type": "claim",
+      "title": "Anthropic确认Claude Security公共测试已运行Mythos 5；终端用户获得的是特定防御产品，而非模型直接访问。",
+      "role": "最新进展",
+      "addedAt": "2026-08-22T05:07:51.087Z"
+    },
+    {
+      "id": "source_fd9b87df1fe1b911",
+      "type": "source",
+      "title": "Anthropic",
+      "url": "https://www.anthropic.com/news/expanding-project-glasswing",
+      "sourceKind": "Official",
+      "publishedAt": "2026-06-02T00:00:00.000Z"
+    },
+    {
+      "id": "claim_93698522afc5dfbb",
+      "type": "claim",
+      "title": "Anthropic此前计划将Project Glasswing从约50个初始伙伴扩大至约150个机构，当时安全扫描使用公开前沿模型。",
+      "role": "背景",
+      "addedAt": "2026-08-22T05:07:51.087Z"
+    },
+    {
+      "id": "source_cd4873063e4a465d",
+      "type": "source",
+      "title": "UK AI Security Institute",
+      "url": "https://www.aisi.gov.uk/blog/our-evaluation-of-claude-mythos-previews-cyber-capabilities",
+      "sourceKind": "Research",
+      "publishedAt": "2026-08-21T19:35:37.000Z"
+    },
+    {
+      "id": "claim_3d35bf24be3afb71",
+      "type": "claim",
+      "title": "UK AI Security Institute评测显示Mythos Preview在模拟网络任务中能力提升，但测试环境不代表针对真实严密防御系统的攻击能力。",
+      "role": "佐证",
+      "addedAt": "2026-08-22T05:07:51.087Z"
+    },
+    {
+      "id": "source_c164e6ce44e9406a",
+      "type": "source",
+      "title": "UK AI Security Institute",
+      "url": "https://www.aisi.gov.uk/blog/our-evaluation-of-openais-gpt-5-5-cyber-capabilities",
+      "sourceKind": "Research",
+      "publishedAt": "2026-08-21T19:35:37.000Z"
+    },
+    {
+      "id": "claim_b1a529039e2ea405",
+      "type": "claim",
+      "title": "UK AI Security Institute发现GPT-5.5也能端到端完成模拟任务，表明高端网络能力并非Mythos独有。",
+      "role": "反例",
+      "addedAt": "2026-08-22T05:07:51.087Z"
+    },
+    {
+      "id": "update_ff33078f5628d5f5",
+      "type": "update",
+      "signalId": 118,
+      "title": "Mythos 5进入受控网络防御",
+      "summary": "Anthropic确认，Claude Security在Claude Enterprise公共测试中已运行Claude Mythos 5，为代码库输出CWE分类、严重性、置信度与修复建议；补丁仍须人工审核，伙伴集成仍在建设。",
+      "addedAt": "2026-08-21T19:35:37.000Z",
+      "changeType": "progress",
+      "thesisImpact": "强化原判断：Anthropic未直接发布更强模型，但已将Claude Mythos 5用于受控的防御性安全产品；能力部署正通过人工审核和伙伴边界推进。",
+      "revisionRequired": false
+    },
     {
       "id": "event_3bdbbc57db124526",
       "type": "event",
@@ -7242,54 +7376,6 @@
       "title": "WIRED报道Amazon可使用Twitch内容训练AI，除非主播主动退出，并称数千名用户质疑这一默认安排。",
       "role": "主张",
       "addedAt": "2026-08-15T09:06:39.261Z"
-    },
-    {
-      "id": "event_d1c643b4a57ab552",
-      "type": "event",
-      "signalId": 118,
-      "title": "Anthropic将风险评级纳入发布闸门",
-      "bucket": "explore",
-      "valueScore": 80,
-      "publishedAt": "2026-08-14T00:00:00.000Z",
-      "updatedAt": "2026-08-14T00:00:00.000Z"
-    },
-    {
-      "id": "article_64dee3be595c7122",
-      "type": "article",
-      "signalId": 118,
-      "title": "Anthropic将风险评级纳入发布闸门",
-      "version": 1,
-      "publishedAt": "2026-08-14T20:07:23.684Z"
-    },
-    {
-      "id": "source_c9eb27f95a84f8c2",
-      "type": "source",
-      "title": "Axios",
-      "url": "https://www.axios.com/2026/08/14/anthropic-model-2-ai-risk",
-      "sourceKind": "Media",
-      "publishedAt": "2026-08-14T00:00:00.000Z"
-    },
-    {
-      "id": "claim_b21547de6ecce6b6",
-      "type": "claim",
-      "title": "Axios报道称，Anthropic将更强内部模型的misalignment风险评级从very low上调至low，并无计划发布Model 2。",
-      "role": "主张",
-      "addedAt": "2026-08-14T20:07:23.684Z"
-    },
-    {
-      "id": "source_21868c13a5de9089",
-      "type": "source",
-      "title": "Anthropic",
-      "url": "https://www-cdn.anthropic.com/3edfc1a7f947aa81841cf88305cb513f184c36ae/Alignment%20Risk%20Update_%20Claude%20Mythos%20Preview%20%28Redacted%2C%20April%2010%29.pdf",
-      "sourceKind": "Official",
-      "publishedAt": "2026-04-10T00:00:00.000Z"
-    },
-    {
-      "id": "claim_c7bedf22055318d1",
-      "type": "claim",
-      "title": "Anthropic 2026年4月的风险更新说明Claude Mythos Preview当时尚未向公众普遍开放，并讨论其能力与alignment风险。",
-      "role": "背景",
-      "addedAt": "2026-08-14T20:07:23.684Z"
     },
     {
       "id": "event_d2c13030f4079705",
@@ -18786,6 +18872,144 @@
   ],
   "edges": [
     {
+      "id": "edge_507323bbd33daf93",
+      "from": "event_d1c643b4a57ab552",
+      "to": "article_64dee3be595c7122",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_dd3f097ebd0039f5",
+      "from": "source_c9eb27f95a84f8c2",
+      "to": "claim_b21547de6ecce6b6",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_bb591f40d90cf7ab",
+      "from": "claim_b21547de6ecce6b6",
+      "to": "event_d1c643b4a57ab552",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_22c1ff8ae909f805",
+      "from": "source_21868c13a5de9089",
+      "to": "claim_c7bedf22055318d1",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_0947c77568ae54c1",
+      "from": "claim_c7bedf22055318d1",
+      "to": "event_d1c643b4a57ab552",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_c39ddd7cb6c489ac",
+      "from": "source_3c3830d0d7602a0f",
+      "to": "claim_198f170c07e50dba",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_cadfe5bfa10732ab",
+      "from": "claim_198f170c07e50dba",
+      "to": "event_d1c643b4a57ab552",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_d322755c5a1f9675",
+      "from": "source_f034ee1587ce0876",
+      "to": "claim_676421ed020a156e",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_1c55eaaa417e1986",
+      "from": "claim_676421ed020a156e",
+      "to": "event_d1c643b4a57ab552",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_06509bb426ec03d5",
+      "from": "source_fd9b87df1fe1b911",
+      "to": "claim_93698522afc5dfbb",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_3aaca436096b712b",
+      "from": "claim_93698522afc5dfbb",
+      "to": "event_d1c643b4a57ab552",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_1754d7cdc6bf58da",
+      "from": "source_cd4873063e4a465d",
+      "to": "claim_3d35bf24be3afb71",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_5a0ac9aaca506f5b",
+      "from": "claim_3d35bf24be3afb71",
+      "to": "event_d1c643b4a57ab552",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_9245a43ee2b659b9",
+      "from": "source_c164e6ce44e9406a",
+      "to": "claim_b1a529039e2ea405",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_a46309e778a23f3b",
+      "from": "claim_b1a529039e2ea405",
+      "to": "event_d1c643b4a57ab552",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_61a0bf7a00c33d07",
+      "from": "update_ff33078f5628d5f5",
+      "to": "event_d1c643b4a57ab552",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_253bfb67f6f12194",
+      "from": "claim_198f170c07e50dba",
+      "to": "event_d1c643b4a57ab552",
+      "relation": "update_evidence_for",
+      "updateTitle": "Mythos 5进入受控网络防御"
+    },
+    {
+      "id": "edge_329ab3823e45999b",
+      "from": "claim_676421ed020a156e",
+      "to": "event_d1c643b4a57ab552",
+      "relation": "update_evidence_for",
+      "updateTitle": "Mythos 5进入受控网络防御"
+    },
+    {
+      "id": "edge_3128ac950be8c1ec",
+      "from": "claim_93698522afc5dfbb",
+      "to": "event_d1c643b4a57ab552",
+      "relation": "update_evidence_for",
+      "updateTitle": "Mythos 5进入受控网络防御"
+    },
+    {
+      "id": "edge_d1705b889c123d66",
+      "from": "claim_3d35bf24be3afb71",
+      "to": "event_d1c643b4a57ab552",
+      "relation": "update_evidence_for",
+      "updateTitle": "Mythos 5进入受控网络防御"
+    },
+    {
+      "id": "edge_247583dc58179c90",
+      "from": "claim_b1a529039e2ea405",
+      "to": "event_d1c643b4a57ab552",
+      "relation": "update_evidence_for",
+      "updateTitle": "Mythos 5进入受控网络防御"
+    },
+    {
       "id": "edge_ad29c56cd69b10ba",
       "from": "event_3bdbbc57db124526",
       "to": "article_741bdedfa57a5957",
@@ -26752,38 +26976,6 @@
       "id": "edge_1b94fb461f3f88cf",
       "from": "claim_c9642222284fd9c2",
       "to": "event_50e21af75af5faf8",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_507323bbd33daf93",
-      "from": "event_d1c643b4a57ab552",
-      "to": "article_64dee3be595c7122",
-      "relation": "rendered_as"
-    },
-    {
-      "id": "edge_dd3f097ebd0039f5",
-      "from": "source_c9eb27f95a84f8c2",
-      "to": "claim_b21547de6ecce6b6",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_bb591f40d90cf7ab",
-      "from": "claim_b21547de6ecce6b6",
-      "to": "event_d1c643b4a57ab552",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_22c1ff8ae909f805",
-      "from": "source_21868c13a5de9089",
-      "to": "claim_c7bedf22055318d1",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_0947c77568ae54c1",
-      "from": "claim_c7bedf22055318d1",
-      "to": "event_d1c643b4a57ab552",
       "relation": "evidence_for",
       "updateTitle": null
     },
