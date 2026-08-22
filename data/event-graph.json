@@ -1,16 +1,36 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-21T21:07:17.385Z",
+  "generatedAt": "2026-08-22T00:07:50.510Z",
   "counts": {
-    "sources": 826,
-    "claims": 980,
+    "sources": 828,
+    "claims": 983,
     "events": 201,
     "articles": 201,
-    "updates": 140,
-    "edges": 2632,
+    "updates": 142,
+    "edges": 2642,
     "revisionsRequired": 13
   },
   "revisionQueue": [
+    {
+      "signalId": 102,
+      "eventId": "event_1c0e52d26f417ac9",
+      "updateId": "update_40425cc133455c1a",
+      "title": "NVIDIA联手资本巨头扩展算力融资",
+      "updateTitle": "NVIDIA收缩OpenAI项目担保",
+      "thesisImpact": "新增报道把算力融资平台的宏观承诺推进到具体项目担保规模，并显示公开讨论中的规模已收缩；这使风险分担和资本约束成为判断AI基础设施扩张的重要变量。",
+      "detectedAt": "2026-08-15T15:41:02.000Z",
+      "status": "needs_editorial_revision"
+    },
+    {
+      "signalId": 37,
+      "eventId": "event_ded79f4f58feab3e",
+      "updateId": "update_0107adde250d2cac",
+      "title": "GPT-5.6重画模型价格曲线",
+      "updateTitle": "Claude Sonnet 5永久降价",
+      "thesisImpact": "Anthropic将Claude Sonnet 5优惠价永久化，且DeepSeek官方低价仍显著存在，强化了模型竞争从一次性降价转向持续价格分层的判断。",
+      "detectedAt": "2026-08-14T14:27:14.000Z",
+      "status": "needs_editorial_revision"
+    },
     {
       "signalId": 120,
       "eventId": "event_a54424288d0d3cf5",
@@ -39,16 +59,6 @@
       "updateTitle": "Anthropic运行率据报反超OpenAI",
       "thesisImpact": "新证据把Anthropic的高速增长进一步推进为运行率口径下对OpenAI的据报领先；但该比较来自私营公司运行率估算，而非两家公司正式同期财报。",
       "detectedAt": "2026-08-19T12:45:02.000Z",
-      "status": "needs_editorial_revision"
-    },
-    {
-      "signalId": 102,
-      "eventId": "event_1c0e52d26f417ac9",
-      "updateId": "update_40425cc133455c1a",
-      "title": "NVIDIA联手资本巨头扩展算力融资",
-      "updateTitle": "NVIDIA收缩OpenAI项目担保",
-      "thesisImpact": "新增报道把算力融资平台的宏观承诺推进到具体项目担保规模，并显示公开讨论中的规模已收缩；这使风险分担和资本约束成为判断AI基础设施扩张的重要变量。",
-      "detectedAt": "2026-08-15T15:41:02.000Z",
       "status": "needs_editorial_revision"
     },
     {
@@ -112,16 +122,6 @@
       "status": "needs_editorial_revision"
     },
     {
-      "signalId": 37,
-      "eventId": "event_ded79f4f58feab3e",
-      "updateId": "update_0107adde250d2cac",
-      "title": "GPT-5.6重画模型价格曲线",
-      "updateTitle": "Claude Sonnet 5永久降价",
-      "thesisImpact": "Anthropic将Claude Sonnet 5优惠价永久化，且DeepSeek官方低价仍显著存在，强化了模型竞争从一次性降价转向持续价格分层的判断。",
-      "detectedAt": "2026-08-14T14:27:14.000Z",
-      "status": "needs_editorial_revision"
-    },
-    {
       "signalId": 70,
       "eventId": "event_0d44a0f6406a45f3",
       "updateId": "update_3779ab6ebc379026",
@@ -143,6 +143,1007 @@
     }
   ],
   "nodes": [
+    {
+      "id": "event_1c0e52d26f417ac9",
+      "type": "event",
+      "signalId": 102,
+      "title": "NVIDIA联手资本巨头扩展算力融资",
+      "bucket": "dynamic",
+      "valueScore": 88,
+      "publishedAt": "2026-08-10T20:01:00.000Z",
+      "updatedAt": "2026-08-21T21:40:11.000Z"
+    },
+    {
+      "id": "article_6154bfc5759e6911",
+      "type": "article",
+      "signalId": 102,
+      "title": "NVIDIA联手资本巨头扩展算力融资",
+      "version": 1,
+      "publishedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "source_0122ec2217c08ff3",
+      "type": "source",
+      "title": "NVIDIA Newsroom",
+      "url": "https://nvidianews.nvidia.com/news/nvidia-partners-with-apollo-blackrock-blackstone-brookfield-goldman-sachs-and-kkr-to-establish-ai-compute-infrastructure-financing-platforms-to-mobilize-over-500-billion-of-third-party-capital",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-10T20:01:00.000Z"
+    },
+    {
+      "id": "claim_b63375fbf9193803",
+      "type": "claim",
+      "title": "NVIDIA宣布与Apollo、BlackRock、Blackstone、Brookfield、Goldman Sachs和KKR建立AI算力基础设施融资平台，目标动员超过5000亿美元第三方资本。",
+      "role": "主张",
+      "addedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "source_95824baa8e354aed",
+      "type": "source",
+      "title": "BBC Technology",
+      "url": "https://www.bbc.co.uk/news/articles/c78gr0jv0mdo?at_medium=RSS&at_campaign=rss",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-11T08:44:52.000Z"
+    },
+    {
+      "id": "claim_e1973cd23f275af9",
+      "type": "claim",
+      "title": "BBC报道称，华尔街大型机构提供5000亿美元支持AI项目，资金将用于建设、运行和冷却容纳大量AI芯片的数据中心。",
+      "role": "佐证",
+      "addedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "source_8010a95ae63d6168",
+      "type": "source",
+      "title": "The Decoder AI",
+      "url": "https://the-decoder.com/nvidia-guarantees-its-own-chips-value-to-unlock-500-billion-in-ai-infrastructure-financing/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-11T09:41:03.000Z"
+    },
+    {
+      "id": "claim_201df8160502d32a",
+      "type": "claim",
+      "title": "The Decoder报道称，NVIDIA在与大型资管机构建立的AI基础设施融资安排中，为自家芯片提供最高25%的残值保障。",
+      "role": "佐证",
+      "addedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "source_251e738970217249",
+      "type": "source",
+      "title": "The Decoder AI",
+      "url": "https://the-decoder.com/investor-pressure-forces-nvidia-to-shrink-its-openai-bet-just-as-anthropics-numbers-defy-bubble-warnings/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-15T15:41:02.000Z"
+    },
+    {
+      "id": "claim_74d35ff4c3a0f2f2",
+      "type": "claim",
+      "title": "报道指NVIDIA对俄亥俄州OpenAI数据中心的担保规模不足1200亿美元，相比此前约2500亿美元的讨论规模明显收缩，并称投资者压力促成调整。",
+      "role": "最新进展",
+      "addedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "source_bd2e1b0a3e1a96ee",
+      "type": "source",
+      "title": "Reuters",
+      "url": "https://www.reuters.com/business/media-telecom/nvidia-scales-back-funding-guarantee-ohio-openai-data-center-wsj-reports-2026-08-14/",
+      "sourceKind": "Media",
+      "publishedAt": "2026-08-14T00:00:00.000Z"
+    },
+    {
+      "id": "claim_9c7cafdad778259c",
+      "type": "claim",
+      "title": "Reuters转述《华尔街日报》称，NVIDIA拟为俄亥俄州OpenAI数据中心提供较低规模的初始融资担保。",
+      "role": "佐证",
+      "addedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "source_6544a97b36dc6167",
+      "type": "source",
+      "title": "Reuters",
+      "url": "https://www.reuters.com/business/media-telecom/nvidia-talks-with-openai-guarantee-250-billion-financing-data-center-wsj-reports-2026-07-26/",
+      "sourceKind": "Media",
+      "publishedAt": "2026-07-26T00:00:00.000Z"
+    },
+    {
+      "id": "claim_494f6a15f4695eb2",
+      "type": "claim",
+      "title": "此前报道曾称NVIDIA讨论为俄亥俄州项目提供大额融资担保，但当时无法独立核实。",
+      "role": "背景",
+      "addedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "source_af67c54c62f39511",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://openai.com/index/openai-nvidia-systems-partnership/",
+      "sourceKind": "Official",
+      "publishedAt": "2025-09-22T00:00:00.000Z"
+    },
+    {
+      "id": "claim_ba75213e2337de6a",
+      "type": "claim",
+      "title": "OpenAI与NVIDIA此前公开宣布至少10GW系统部署意向，NVIDIA拟按每GW部署进度最多投资1000亿美元；该意向不等同于媒体所述项目担保。",
+      "role": "背景",
+      "addedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "source_ec9a222d8ad39ae8",
+      "type": "source",
+      "title": "The Information",
+      "url": "https://www.theinformation.com/articles/nvidia-talks-invest-3-billion-sb-energy-part-openai-data-center-deal",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-15T19:12:18.000Z"
+    },
+    {
+      "id": "claim_f3b42132d04805c4",
+      "type": "claim",
+      "title": "报道称NVIDIA正讨论对SB Energy最高30亿美元投资，该项目关联OpenAI在俄亥俄州规划中的大型数据中心及芯片融资安排。",
+      "role": "最新进展",
+      "addedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "source_924b421a0abaae18",
+      "type": "source",
+      "title": "The Information",
+      "url": "https://www.theinformation.com/briefings/nvidia-nears-deal-guarantee-roughly-100-billion-credit-openai",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-16T21:04:33.000Z"
+    },
+    {
+      "id": "claim_590f7a5977c02569",
+      "type": "claim",
+      "title": "The Information报道称，NVIDIA接近达成约1000亿美元信用支持协议，以支持OpenAI租赁俄亥俄大型数据中心。",
+      "role": "最新进展",
+      "addedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "source_1f075c4afaa90ac5",
+      "type": "source",
+      "title": "The Information",
+      "url": "https://www.theinformation.com/briefings/nvidia-talks-invest-3-billion-sb-energy",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-16T21:03:15.000Z"
+    },
+    {
+      "id": "claim_bf601259bc0c00a2",
+      "type": "claim",
+      "title": "The Information报道称，NVIDIA正洽谈向SoftBank Group支持的SB Energy投资最高30亿美元，后者开发OpenAI俄亥俄数据中心项目。",
+      "role": "最新进展",
+      "addedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "source_14f10bd390e866e7",
+      "type": "source",
+      "title": "NVIDIA Newsroom",
+      "url": "https://nvidianews.nvidia.com/news/nvidia-guarantees-sb-energy-s-ports-pike-technology-campus-in-ohio-to-exclusively-host-nvidia-ai-compute",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-17T12:33:00.000Z"
+    },
+    {
+      "id": "claim_e1d87ad7353a356c",
+      "type": "claim",
+      "title": "NVIDIA称已通过SB Energy合作获得俄亥俄PORTS-Pike园区的土地、电力和机房壳体容量，用于专属承载NVIDIA AI compute。",
+      "role": "最新进展",
+      "addedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "source_4c1cb37464fd1da3",
+      "type": "source",
+      "title": "The Information",
+      "url": "https://www.theinformation.com/articles/nvidia-using-land-electricity-deals-lock-hardware-bundle",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-21T21:40:11.000Z"
+    },
+    {
+      "id": "claim_d25e6ae42f71aadd",
+      "type": "claim",
+      "title": "The Information报道称，NVIDIA取得Cloverleaf Infrastructure少数股权，并将其描述为近期连续投资美国数据中心土地和电力资源企业的第三笔布局。",
+      "role": "最新进展",
+      "addedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "update_8fd8bbed07e0913d",
+      "type": "update",
+      "signalId": 102,
+      "title": "NVIDIA再投数据中心资源商",
+      "summary": "The Information称，NVIDIA已取得Cloverleaf Infrastructure少数股权。这是其近期连续布局美国数据中心土地与电力资源企业的又一动作。",
+      "addedAt": "2026-08-21T21:40:11.000Z",
+      "changeType": "progress",
+      "thesisImpact": "The Information称，NVIDIA已取得Cloverleaf Infrastructure少数股权；这为其通过资本绑定土地和电力资源、延伸算力生态融资与供给控制的路径增加了新进展。",
+      "revisionRequired": false
+    },
+    {
+      "id": "update_541ab29136cdd945",
+      "type": "update",
+      "signalId": 102,
+      "title": "NVIDIA锁定俄亥俄算力园区",
+      "summary": "NVIDIA宣布通过SB Energy合作锁定俄亥俄PORTS-Pike园区的土地、电力和机房壳体容量，并将由该园区专门承载NVIDIA AI compute。",
+      "addedAt": "2026-08-17T12:33:00.000Z",
+      "changeType": "progress",
+      "thesisImpact": "NVIDIA已将与SB Energy的合作从拟投资和融资讨论推进至锁定俄亥俄园区土地、电力和机房壳体容量，强化其直接介入算力供给组织的判断。",
+      "revisionRequired": false
+    },
+    {
+      "id": "update_2700c096455f480f",
+      "type": "update",
+      "signalId": 102,
+      "title": "NVIDIA收缩OpenAI担保规模",
+      "summary": "The Information称，NVIDIA接近敲定为OpenAI俄亥俄数据中心租赁计划提供约1000亿美元信用支持的协议，低于此前报道称的2500亿美元；公司另据报洽谈向SB Energy投资最高30亿美元。",
+      "addedAt": "2026-08-16T21:04:33.000Z",
+      "changeType": "progress",
+      "thesisImpact": "两项谈判中的具体金额使NVIDIA以信用支持和股权投资介入OpenAI算力项目的融资路径更清晰，强化其将资本工具嵌入算力扩张的判断。",
+      "revisionRequired": false
+    },
+    {
+      "id": "update_0ceb7a6d9cbd3424",
+      "type": "update",
+      "signalId": 102,
+      "title": "NVIDIA据报拟投SB Energy",
+      "summary": "The Information报道称，NVIDIA正洽谈向SoftBank支持的SB Energy投资最高30亿美元，作为其为OpenAI俄亥俄数据中心提供约1000亿美元芯片信贷谈判的一部分。",
+      "addedAt": "2026-08-15T19:12:18.000Z",
+      "changeType": "progress",
+      "thesisImpact": "The Information称NVIDIA正讨论向SB Energy投资最高30亿美元，并把该安排纳入OpenAI俄亥俄数据中心的芯片融资谈判，强化了NVIDIA将资本支持延伸至供电与项目开发环节的判断。",
+      "revisionRequired": false
+    },
+    {
+      "id": "update_40425cc133455c1a",
+      "type": "update",
+      "signalId": 102,
+      "title": "NVIDIA收缩OpenAI项目担保",
+      "summary": "新增报道显示，NVIDIA拟为俄亥俄州OpenAI数据中心提供的初始担保规模低于此前讨论水平；公开基准仍是双方关于系统部署和按部署进度投资的意向。",
+      "addedAt": "2026-08-15T15:41:02.000Z",
+      "changeType": "thesis_change",
+      "thesisImpact": "新增报道把算力融资平台的宏观承诺推进到具体项目担保规模，并显示公开讨论中的规模已收缩；这使风险分担和资本约束成为判断AI基础设施扩张的重要变量。",
+      "revisionRequired": true
+    },
+    {
+      "id": "update_06712410f23a1697",
+      "type": "update",
+      "signalId": 102,
+      "title": "NVIDIA补充硬件残值保障",
+      "summary": "The Decoder报道称，NVIDIA为其AI硬件提供最高25%的残值保障，以帮助撬动逾5000亿美元AI基础设施融资。该安排为此前公布的第三方资本动员平台补充了风险分担机制。",
+      "addedAt": "2026-08-11T09:41:03.000Z",
+      "changeType": "corroboration",
+      "thesisImpact": "新增报道补充称NVIDIA以硬件残值保障帮助吸引基础设施资本，强化了该融资平台正把设备资产价值与大规模外部融资直接绑定的判断。",
+      "revisionRequired": false
+    },
+    {
+      "id": "update_e787822bc31fa533",
+      "type": "update",
+      "signalId": 102,
+      "title": "BBC佐证5000亿美元算力融资",
+      "summary": "BBC报道华尔街机构向NVIDIA支持的AI项目提供5000亿美元资金，用于建设、运营和冷却承载AI芯片的数据中心。",
+      "addedAt": "2026-08-11T08:44:52.000Z",
+      "changeType": "corroboration",
+      "thesisImpact": "BBC对逾5000亿美元AI算力融资平台的报道提供独立媒体佐证，强化了AI基础设施融资正在向大型资产管理机构扩展的既有判断。",
+      "revisionRequired": false
+    },
+    {
+      "id": "event_ded79f4f58feab3e",
+      "type": "event",
+      "signalId": 37,
+      "title": "GPT-5.6重画模型价格曲线",
+      "bucket": "dynamic",
+      "valueScore": 89,
+      "publishedAt": "2026-07-30T23:58:42.000Z",
+      "updatedAt": "2026-08-21T22:15:03.000Z"
+    },
+    {
+      "id": "article_6fe3700cec641a0d",
+      "type": "article",
+      "signalId": 37,
+      "title": "GPT-5.6重画模型价格曲线",
+      "version": 1,
+      "publishedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "source_dca7adc62d79fe1c",
+      "type": "source",
+      "title": "OpenAI Blog",
+      "url": "https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-07-30T10:00:00.000Z"
+    },
+    {
+      "id": "claim_ed4ddf169b2b9266",
+      "type": "claim",
+      "title": "OpenAI官方宣布降低GPT-5.6 Luna与Terra价格，并称更高效的模型可帮助企业规模化部署AI workflow。",
+      "role": "主张",
+      "addedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "source_7bc027728ff8ee44",
+      "type": "source",
+      "title": "Simon Willison",
+      "url": "https://simonwillison.net/2026/Jul/30/luna-price-drop/#atom-everything",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-07-30T23:58:42.000Z"
+    },
+    {
+      "id": "claim_5f33eeb99ba6243b",
+      "type": "claim",
+      "title": "Simon Willison记录Luna降价80%、Terra降价20%，并援引OpenAI说明称GPT-5.6 Sol参与优化负载均衡。",
+      "role": "佐证",
+      "addedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "source_857d7c4ab2ba1304",
+      "type": "source",
+      "title": "Hacker News",
+      "url": "https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-07-30T17:15:51.000Z"
+    },
+    {
+      "id": "claim_fbd95a786f5a6ac4",
+      "type": "claim",
+      "title": "OpenAI降价文章在Hacker News候选抓取时获得493分和325条评论，反映开发者关注度，但不构成采用证据。",
+      "role": "背景",
+      "addedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "source_eb2b47d50db42393",
+      "type": "source",
+      "title": "Simon Willison",
+      "url": "https://simonwillison.net/2026/Aug/2/july-newsletter/#atom-everything",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-02T04:12:41.000Z"
+    },
+    {
+      "id": "claim_1f65c1e091d3e370",
+      "type": "claim",
+      "title": "Simon Willison的月度通讯汇总了GPT-5.6 Sol、Terra与Luna等近期模型动态。",
+      "role": "背景",
+      "addedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "source_258cade2cefa3253",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://developers.openai.com/api/docs/models/gpt-5.6-sol",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-02T04:12:41.000Z"
+    },
+    {
+      "id": "claim_972dc74cc20064ea",
+      "type": "claim",
+      "title": "OpenAI将GPT-5.6 Sol列为旗舰层级，确认别名、上下文、最大输出及输入、缓存输入和输出定价。",
+      "role": "最新进展",
+      "addedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "source_2d8a643762c51828",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://deploymentsafety.openai.com/gpt-5-6",
+      "sourceKind": "Official",
+      "publishedAt": "2026-07-09T00:00:00.000Z"
+    },
+    {
+      "id": "claim_dbc450cf7fa4b5f6",
+      "type": "claim",
+      "title": "OpenAI系统卡显示，Sol在Irregular FrontierCyber评估中的总体完成数高于GPT-5.5，但仍被定为高网络能力、低于关键级别。",
+      "role": "佐证",
+      "addedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "source_f86f68dff2cfb3c8",
+      "type": "source",
+      "title": "The Decoder AI",
+      "url": "https://the-decoder.com/openai-launches-gpt-5-6-cyber-to-help-defenders-find-vulnerabilities-before-attackers-do/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-10T18:01:30.000Z"
+    },
+    {
+      "id": "claim_8f8a740c3417c8e8",
+      "type": "claim",
+      "title": "OpenAI推出GPT-5.6-Cyber，称其可回答98.5%的原本会被拦截的安全查询，并发现两个此前未知的Chrome漏洞。",
+      "role": "最新进展",
+      "addedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "source_649d3e805e1f6bca",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://openai.com/index/putting-frontier-cyber-models-in-more-trusted-hands/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "claim_249980007163e45b",
+      "type": "claim",
+      "title": "OpenAI扩大Daybreak Cyber Partner计划，获批伙伴可使用Daybreak Blue或Red，模型访问权不直接转给客户。",
+      "role": "最新进展",
+      "addedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "source_66c169853eb67829",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://openai.com/index/scaling-trusted-access-for-cyber-defense/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-04-14T00:00:00.000Z"
+    },
+    {
+      "id": "claim_bfa9d2e56923018e",
+      "type": "claim",
+      "title": "OpenAI此前已通过身份验证向防御者和团队提供更少限制的GPT-5.4-Cyber访问。",
+      "role": "背景",
+      "addedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "source_88ca535a278fef4f",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://openai.com/index/daybreak-securing-the-world/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-07-15T00:00:00.000Z"
+    },
+    {
+      "id": "claim_fff7f89ce8715d2a",
+      "type": "claim",
+      "title": "OpenAI此前公布GPT-5.5-Cyber在CyberGym、ExploitGym和SEC-bench Pro上优于GPT-5.5的测试结果。",
+      "role": "佐证",
+      "addedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "source_081601c279be28d3",
+      "type": "source",
+      "title": "OpenAI Blog",
+      "url": "https://openai.com/index/expanding-daybreak-as-the-cyber-defense-window-narrows",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "id": "claim_bda11b0acb276148",
+      "type": "claim",
+      "title": "OpenAI宣布面向获授权漏洞研究、漏洞利用验证和安全测试的GPT-5.6-Cyber，并通过Daybreak Red提供。",
+      "role": "最新进展",
+      "addedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "source_238c8d8bf6e82e96",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://openai.com/index/previewing-gpt-5-6-sol/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-06-26T00:00:00.000Z"
+    },
+    {
+      "id": "claim_fa6173ff6447d327",
+      "type": "claim",
+      "title": "OpenAI此前称GPT-5.6 Sol仅向少量可信伙伴预览，且未达到网络安全Critical阈值。",
+      "role": "背景",
+      "addedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "source_7df1ce629ccbc108",
+      "type": "source",
+      "title": "Google Chrome",
+      "url": "https://chromereleases.googleblog.com/2026/07/stable-channel-update-for-desktop_049796704.html",
+      "sourceKind": "Official",
+      "publishedAt": "2026-07-16T00:00:00.000Z"
+    },
+    {
+      "id": "claim_8d5d1d88ab117d43",
+      "type": "claim",
+      "title": "Google修复V8高危漏洞CVE-2026-15903，并将报告者列为OpenAI Codex Security，显示OpenAI相关安全工作已有成果进入厂商修复流程，但未将该漏洞归因于GPT-5.6-Cyber。",
+      "role": "佐证",
+      "addedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "source_605b54423210186e",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://openai.com/index/responding-next-frontier-critical-cyber-capabilities/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-07T00:00:00.000Z"
+    },
+    {
+      "id": "claim_910a1b8d87a40e78",
+      "type": "claim",
+      "title": "OpenAI称对即将推出的Astra已无法排除Critical网络能力，因此加强隔离环境、网络和工具访问限制、权重保护及监控。",
+      "role": "反例",
+      "addedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "source_0212f9770ddac1d8",
+      "type": "source",
+      "title": "TechCrunch AI",
+      "url": "https://techcrunch.com/2026/08/10/as-ai-led-attacks-multiply-openai-launches-a-new-cyber-model/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-10T23:56:15.000Z"
+    },
+    {
+      "id": "claim_8a0f8f76f5de6b7e",
+      "type": "claim",
+      "title": "TechCrunch报道称OpenAI扩展Daybreak网络防御项目，并推出新的网络安全训练模型。",
+      "role": "佐证",
+      "addedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "source_1d9bb896d76302f3",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://openai.com/index/expanding-daybreak-as-the-cyber-defense-window-narrows/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "claim_739ef14db503ee11",
+      "type": "claim",
+      "title": "OpenAI确认Daybreak Red提供GPT-5.6-Cyber、Blue调整GPT-5.6 Sol护栏，并公布完成率及与Sol的内部评测对照。",
+      "role": "最新进展",
+      "addedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "source_970979cb607942aa",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://openai.com/index/gpt-5-5-with-trusted-access-for-cyber/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-05-07T00:00:00.000Z"
+    },
+    {
+      "id": "claim_8d185d575e3c3ddb",
+      "type": "claim",
+      "title": "OpenAI此前将GPT-5.5-Cyber限量提供给关键基础设施防御者，并称其不预期在每项网络安全评测中领先。",
+      "role": "背景",
+      "addedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "source_ec5d8e7d6a1b2c7c",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://cdn.openai.com/pdf/18a02b5d-6b67-4cec-ab64-68cdfbddebcd/preparedness-framework-v2.pdf",
+      "sourceKind": "Research",
+      "publishedAt": "2026-08-10T23:56:15.000Z"
+    },
+    {
+      "id": "claim_ac2afefdedced930",
+      "type": "claim",
+      "title": "OpenAI的Preparedness Framework定义了High与Critical网络安全能力门槛，表明High认定不等同于Critical能力。",
+      "role": "背景",
+      "addedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "source_53d5659816e88377",
+      "type": "source",
+      "title": "Engadget",
+      "url": "https://www.engadget.com/2234335/openai-daybreak-model-less-likely-to-refuse-higher-risk-tasks/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-11T09:40:15.000Z"
+    },
+    {
+      "id": "claim_acb97dc3db209ba8",
+      "type": "claim",
+      "title": "Engadget报道称，OpenAI将Daybreak划分为两个层级，高级层向伙伴提供更强的网络安全模型。",
+      "role": "最新进展",
+      "addedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "source_ed34f8e5d3e7ba50",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://help.openai.com/en/articles/20001258-openai-daybreak-trusted-access-for-cyber-overview",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-11T09:40:15.000Z"
+    },
+    {
+      "id": "claim_e32644b06abf238b",
+      "type": "claim",
+      "title": "OpenAI规定Daybreak Red须单独审批，访问仅限获批内部用户和内部工作流，禁止转售、代理、嵌入或向第三方提供。",
+      "role": "最新进展",
+      "addedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "source_5d3aff0aba5d0b8a",
+      "type": "source",
+      "title": "OpenAI Blog",
+      "url": "https://openai.com/index/daybreak-models-are-now-available-on-aws",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-11T10:00:00.000Z"
+    },
+    {
+      "id": "claim_4c6d98fbbab6f13b",
+      "type": "claim",
+      "title": "OpenAI宣布与AWS合作，将Daybreak网络安全能力提供至Amazon Bedrock，用于企业安全工作流。",
+      "role": "最新进展",
+      "addedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "source_b4c2c75e8fc382c7",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://openai.com/index/openai-frontier-models-and-codex-are-now-available-on-aws/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-06-01T00:00:00.000Z"
+    },
+    {
+      "id": "claim_cc17648aaa8266bf",
+      "type": "claim",
+      "title": "OpenAI此前将Daybreak描述为未来AWS可用能力，覆盖cyber models、Codex Security及安全代码审查、威胁建模等工作流。",
+      "role": "背景",
+      "addedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "source_8810c478932a8769",
+      "type": "source",
+      "title": "Amazon Web Services",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-cards-openai.html",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-11T10:00:00.000Z"
+    },
+    {
+      "id": "claim_9c25e1ce7b0a49ea",
+      "type": "claim",
+      "title": "AWS当前模型卡列出GPT-5.x、GPT-OSS与Safeguard模型，但未列出Daybreak独立模型卡、型号或性能指标。",
+      "role": "反例",
+      "addedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "source_6f1bf72c97e7993e",
+      "type": "source",
+      "title": "TechCrunch AI",
+      "url": "https://techcrunch.com/2026/08/13/openai-introduces-ultrafast-a-new-mode-that-makes-gpt-5-6-sol-work-at-14x-the-speed/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-13T19:22:40.000Z"
+    },
+    {
+      "id": "claim_3ba7ff30b574aa6c",
+      "type": "claim",
+      "title": "TechCrunch报道称OpenAI推出Ultrafast模式，以更高速度运行GPT-5.6 Sol，目标是吸引企业用户。",
+      "role": "最新进展",
+      "addedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "source_743bfa6f4f42d6af",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://openai.com/index/previewing-ultrafast/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-13T19:22:40.000Z"
+    },
+    {
+      "id": "claim_e6e066f0ab2a3211",
+      "type": "claim",
+      "title": "OpenAI确认Ultrafast是GPT-5.6 Sol的新服务层，首先在API有限预览，最高为Standard processing的14倍、最高750 output tokens/s，并由Cerebras支持。",
+      "role": "最新进展",
+      "addedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "source_caaa735c832bdb26",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://openai.com/index/gpt-5-6/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-13T19:22:40.000Z"
+    },
+    {
+      "id": "claim_6d3647c583d2fd59",
+      "type": "claim",
+      "title": "GPT-5.6 Sol此前已通用可用，API价格为每百万输入token 5美元、每百万输出token 30美元；页面区分了ultra设置与模型服务供给。",
+      "role": "背景",
+      "addedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "source_f20a72ef4371b0a4",
+      "type": "source",
+      "title": "Cerebras",
+      "url": "https://www.cerebras.ai/blog/getting-the-most-out-of-gpt-5-6-sol-terra-and-luna",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-13T19:22:40.000Z"
+    },
+    {
+      "id": "claim_090b839106343c78",
+      "type": "claim",
+      "title": "Cerebras此前已披露Sol可达750 tokens/s、相对常规Sol最高快10倍，说明此次14倍使用的是OpenAI定义的Standard基线。",
+      "role": "佐证",
+      "addedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "source_3868a8d41a043ac9",
+      "type": "source",
+      "title": "Cerebras",
+      "url": "https://www.cerebras.ai/blog/accelerating-gpt-5-6-sol-ultrafast-with-openai",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-13T00:00:00.000Z"
+    },
+    {
+      "id": "claim_a634af83b204adc3",
+      "type": "claim",
+      "title": "Cerebras确认其与OpenAI共享早期信息，并称服务首发于OpenAI API，最高可达每秒750个输出token。",
+      "role": "佐证",
+      "addedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "source_0778f93b3ef227dd",
+      "type": "source",
+      "title": "Ars Technica",
+      "url": "https://arstechnica.com/ai/2026/08/openai-and-anthropic-in-price-war-as-chinese-ai-rivals-gain-ground/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-14T14:27:14.000Z"
+    },
+    {
+      "id": "claim_ee5bf5bfca5beadb",
+      "type": "claim",
+      "title": "Ars Technica将OpenAI、Anthropic降价与中国模型竞争加剧联系起来。",
+      "role": "最新进展",
+      "addedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "source_4307222bc7e5f2e4",
+      "type": "source",
+      "title": "Anthropic",
+      "url": "https://www.anthropic.com/news/claude-sonnet-5",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-14T14:27:14.000Z"
+    },
+    {
+      "id": "claim_689fdd2e778867cb",
+      "type": "claim",
+      "title": "Anthropic确认Claude Sonnet 5的输入2美元、输出10美元价格已由限时优惠改为永久价格。",
+      "role": "最新进展",
+      "addedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "source_8eb12065b9344787",
+      "type": "source",
+      "title": "DeepSeek",
+      "url": "https://api-docs.deepseek.com/quick_start/pricing",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-14T14:27:14.000Z"
+    },
+    {
+      "id": "claim_4ecb365abc1a570f",
+      "type": "claim",
+      "title": "DeepSeek官方价目显示V4-Flash和V4-Pro的当前API价格较低，但未证明性能或份额变化。",
+      "role": "佐证",
+      "addedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "source_29b0e61ec6cd1ed3",
+      "type": "source",
+      "title": "OpenAI Blog",
+      "url": "https://openai.com/index/putting-frontier-cyber-models-in-more-trusted-hands",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "id": "claim_6851c3803425dd32",
+      "type": "claim",
+      "title": "OpenAI宣布获批Daybreak合作伙伴可用其前沿网络模型提供经授权、受治理的网络安全服务。",
+      "role": "最新进展",
+      "addedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "source_c6e65b0c21ea1dd8",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://openai.com/daybreak/partners/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "id": "claim_c0d9f45c6fdc8965",
+      "type": "claim",
+      "title": "Daybreak页面列出20家合作伙伴，并规定有边界产品集成和托管服务两种交付方式，后者要求受训团队操作并接受监控和人工复核。",
+      "role": "最新进展",
+      "addedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "source_4f7f9f2682d47c8a",
+      "type": "source",
+      "title": "Reuters via Boursorama",
+      "url": "https://www.boursorama.com/bourse/actualites/openai-reduit-de-plus-de-20-les-tarifs-reserves-aux-developpeurs-pour-le-modele-de-pointe-gpt-5-6-sol-426f1d75efebf2769b45f125f68780bc",
+      "sourceKind": "Media",
+      "publishedAt": "2026-08-21T21:27:00.000Z"
+    },
+    {
+      "id": "claim_cbb13f3c18a47a50",
+      "type": "claim",
+      "title": "Reuters报道称，OpenAI将GPT-5.6 Sol开发者价格下调逾20%，新价格适用于API及符合条件的相关信用计划。",
+      "role": "佐证",
+      "addedAt": "2026-08-22T00:07:50.510Z"
+    },
+    {
+      "id": "update_be3662f9f28c3855",
+      "type": "update",
+      "signalId": 37,
+      "title": "GPT-5.6 Sol降价至少延至11月",
+      "summary": "OpenAI将GPT-5.6 Sol降至每百万输入token 4美元、输出token 20美元，较此前分别低20%和33%；促销至少持续至2026年11月21日。",
+      "addedAt": "2026-08-21T22:15:03.000Z",
+      "changeType": "progress",
+      "thesisImpact": "OpenAI已将GPT-5.6 Sol价格降至每百万输入token 4美元、输出token 20美元，且至少持续至11月21日，进一步强化旗舰模型价格下行的判断。",
+      "revisionRequired": false
+    },
+    {
+      "id": "claim_9bf2269feac5e837",
+      "type": "claim",
+      "title": "OpenAI官方模型页确认GPT-5.6 Sol输入与输出价格分别为每百万token 4美元和20美元，分别较5美元和30美元降低20%和33%，且至少持续至2026年11月21日。",
+      "role": "最新进展",
+      "addedAt": "2026-08-21T22:15:03.000Z"
+    },
+    {
+      "id": "update_5154656724ad2b62",
+      "type": "update",
+      "signalId": 37,
+      "title": "OpenAI向受信伙伴开放网络模型",
+      "summary": "OpenAI将前沿网络模型交给获批Daybreak合作伙伴，用于有边界产品集成或托管服务；GPT-5.5-Cyber在CyberGym得分85.6%，高于GPT-5.5的81.8%，当前合作伙伴名单为20家。",
+      "addedAt": "2026-08-10T10:00:00.000Z",
+      "changeType": "progress",
+      "thesisImpact": "OpenAI从受控试用推进到面向经核验合作伙伴的网络安全交付，但访问仍由审批、监控和人工复核约束；这一进展强化了模型分发治理比单纯开放更关键的判断。",
+      "revisionRequired": false
+    },
+    {
+      "id": "claim_4c9d69efe848c7cb",
+      "type": "claim",
+      "title": "GPT-5.5 with Trusted Access for Cyber面向经核验防御者，GPT-5.5-Cyber当时仍为关键基础设施防御者的有限预览。",
+      "role": "背景",
+      "addedAt": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "id": "claim_8e667d00282a8ab8",
+      "type": "claim",
+      "title": "OpenAI称合作伙伴可在客户产品和服务中使用GPT-5.5 with Trusted Access，并披露GPT-5.5-Cyber在CyberGym达到85.6%，GPT-5.5为81.8%。",
+      "role": "佐证",
+      "addedAt": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "id": "claim_e645f30fc0b95c81",
+      "type": "claim",
+      "title": "普通Trusted Access不允许向第三方客户或外部用户转售、代理或嵌入访问，面向外部交付需进入Partner Program。",
+      "role": "反例",
+      "addedAt": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "id": "update_0107adde250d2cac",
+      "type": "update",
+      "signalId": 37,
+      "title": "Claude Sonnet 5永久降价",
+      "summary": "Anthropic将Claude Sonnet 5原定限时优惠改为永久价格：输入每百万token 2美元、输出10美元。OpenAI此前已下调GPT-5.6 Luna与Terra价格，DeepSeek当前价目仍显著更低。",
+      "addedAt": "2026-08-14T14:27:14.000Z",
+      "changeType": "thesis_change",
+      "thesisImpact": "Anthropic将Claude Sonnet 5优惠价永久化，且DeepSeek官方低价仍显著存在，强化了模型竞争从一次性降价转向持续价格分层的判断。",
+      "revisionRequired": true
+    },
+    {
+      "id": "claim_ffc3bf8179d5d8a0",
+      "type": "claim",
+      "title": "OpenAI自7月30日起将GPT-5.6 Luna价格下调80%、Terra下调20%。",
+      "role": "背景",
+      "addedAt": "2026-08-14T14:27:14.000Z"
+    },
+    {
+      "id": "claim_1be13f855aa923db",
+      "type": "claim",
+      "title": "OpenAI披露GPT-5.6 Terra和Luna降价前的挂牌价格及后续更新。",
+      "role": "背景",
+      "addedAt": "2026-08-14T14:27:14.000Z"
+    },
+    {
+      "id": "update_a5c6ffd14b18df1b",
+      "type": "update",
+      "signalId": 37,
+      "title": "GPT-5.6 Sol上线Ultrafast预览",
+      "summary": "OpenAI确认GPT-5.6 Sol新增Ultrafast服务层，由Cerebras支持，最高750个输出token/秒，已在OpenAI API向选定客户限量预览。",
+      "addedAt": "2026-08-13T00:00:00.000Z",
+      "changeType": "progress",
+      "thesisImpact": "OpenAI与Cerebras正式确认GPT-5.6 Sol Ultrafast的预览上线、最高750输出token/秒及首发范围，强化了原有价格曲线之外的速度分层判断。",
+      "revisionRequired": false
+    },
+    {
+      "id": "claim_b42b6513086cc58e",
+      "type": "claim",
+      "title": "OpenAI确认Ultrafast是GPT-5.6 Sol的新服务层，最高每秒750个输出token，由Cerebras支持并向选定客户限量预览。",
+      "role": "最新进展",
+      "addedAt": "2026-08-13T00:00:00.000Z"
+    },
+    {
+      "id": "update_8a229cd5e21c179f",
+      "type": "update",
+      "signalId": 37,
+      "title": "OpenAI为GPT-5.6 Sol推出Ultrafast",
+      "summary": "OpenAI推出Ultrafast预览服务层，首先在API向部分客户开放，最高速度达到Standard processing的14倍。",
+      "addedAt": "2026-08-13T19:22:40.000Z",
+      "changeType": "progress",
+      "thesisImpact": "Ultrafast把GPT-5.6 Sol的变化从价格扩展到服务层性能与分发方式，强化了OpenAI围绕企业延迟需求构建差异化供给的判断。",
+      "revisionRequired": false
+    },
+    {
+      "id": "update_d0ab00fc4414eede",
+      "type": "update",
+      "signalId": 37,
+      "title": "Daybreak接入Amazon Bedrock",
+      "summary": "OpenAI宣布Daybreak网络安全能力现可通过Amazon Bedrock支持企业安全工作流，这是其从此前AWS预告走向实际云分发的进展。",
+      "addedAt": "2026-08-11T10:00:00.000Z",
+      "changeType": "progress",
+      "thesisImpact": "Daybreak从此前预告的未来AWS能力进入Amazon Bedrock分发，但当前公开信息仍未披露独立型号、价格、区域或性能指标。",
+      "revisionRequired": false
+    },
+    {
+      "id": "update_8a0fa3c68bc59ad5",
+      "type": "update",
+      "signalId": 37,
+      "title": "Daybreak补齐分层与访问边界",
+      "summary": "OpenAI明确Daybreak Blue使用GPT-5.6 Sol，Red使用GPT-5.6-Cyber；Red须单独获批，仅限获批内部用户和工作流。官方同时披露Cyber模型在内部高级网络安全请求上的完成率为95.0%。",
+      "addedAt": "2026-08-11T09:40:15.000Z",
+      "changeType": "progress",
+      "thesisImpact": "最新官方材料明确了Daybreak Blue与Red的模型分层、Red的单独审批边界及GPT-5.6-Cyber在高级网络安全任务上的完成率，推进了其作为受控高能力网络安全产品层的判断。",
+      "revisionRequired": false
+    },
+    {
+      "id": "claim_8310a467c061a556",
+      "type": "claim",
+      "title": "OpenAI称Daybreak Blue使用GPT-5.6 Sol、Red使用GPT-5.6-Cyber；后者在内部高级网络安全请求完成率为95.0%，但在部分漏洞发现、报告写作和token效率评测中不及GPT-5.6 Sol。",
+      "role": "佐证",
+      "addedAt": "2026-08-11T09:40:15.000Z"
+    },
+    {
+      "id": "claim_b50af1d3f1c6838c",
+      "type": "claim",
+      "title": "OpenAI此前将GPT-5.5 with Trusted Access for Cyber定位为多数防御者入口，并将GPT-5.5-Cyber限于经核验的高阶授权工作。",
+      "role": "背景",
+      "addedAt": "2026-08-11T09:40:15.000Z"
+    },
+    {
+      "id": "update_4eca18d8c048cc01",
+      "type": "update",
+      "signalId": 37,
+      "title": "GPT-5.6-Cyber纳入Daybreak",
+      "summary": "OpenAI宣布Daybreak扩展：Red向可信防御伙伴提供GPT-5.6-Cyber，Blue则移除GPT-5.6 Sol的系统级网络安全护栏。官方披露Red任务完成率为95.0%，并说明Cyber在一项内部漏洞发现与报告评测中低于Sol。",
+      "addedAt": "2026-08-10T23:56:15.000Z",
+      "changeType": "progress",
+      "thesisImpact": "OpenAI已把GPT-5.6-Cyber纳入Daybreak Red，并推出护栏调整后的Daybreak Blue；新披露的任务完成率和模型对照使其网络防御分发路径更具体，但也显示专项模型并非在所有防御任务上领先。",
+      "revisionRequired": false
+    },
+    {
+      "id": "update_096a9dc1e4574cc1",
+      "type": "update",
+      "signalId": 37,
+      "title": "GPT-5.6-Cyber接入Daybreak Red",
+      "summary": "OpenAI宣布GPT-5.6-Cyber通过Daybreak Red向获授权的漏洞研究、漏洞利用验证和安全测试开放；公司同时强调该能力处于更高的网络安全风险门槛附近。",
+      "addedAt": "2026-08-10T10:00:00.000Z",
+      "changeType": "progress",
+      "thesisImpact": "OpenAI已将GPT-5.6-Cyber通过Daybreak Red提供给获授权防御研究者，原有“可信伙伴访问扩大”的判断从计划性开放推进至具名模型和受控使用范围。",
+      "revisionRequired": false
+    },
+    {
+      "id": "claim_34c93c743fbfa3fc",
+      "type": "claim",
+      "title": "OpenAI此前将GPT-5.5-Cyber从预览推进至面向可信防御者的有限发布，并披露CyberGym、ExploitGym和SEC-bench Pro的对比结果及使用护栏。",
+      "role": "背景",
+      "addedAt": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "id": "update_262da49d62318098",
+      "type": "update",
+      "signalId": 37,
+      "title": "GPT-5.6-Cyber扩大可信伙伴访问",
+      "summary": "OpenAI推出GPT-5.6-Cyber，并扩大Daybreak Cyber Partner计划；获批伙伴可按工作需求使用Blue或Red，但访问权不直接转给客户。",
+      "addedAt": "2026-08-10T18:01:30.000Z",
+      "changeType": "progress",
+      "thesisImpact": "新证据把GPT-5.6从价格和旗舰身份变化推进到网络安全专用模型及可信伙伴分发，强化了其面向防御工作流的产品化判断。",
+      "revisionRequired": false
+    },
+    {
+      "id": "claim_c6db15281b1fb98e",
+      "type": "claim",
+      "title": "独立评估认为GPT-5.6 Sol的网络攻击能力仍受行动安全限制，测试环境也远小于真实企业网络。",
+      "role": "反例",
+      "addedAt": "2026-08-10T18:01:30.000Z"
+    },
+    {
+      "id": "update_4225c33731b80fdc",
+      "type": "update",
+      "signalId": 37,
+      "title": "GPT-5.6 Sol成为旗舰层",
+      "summary": "OpenAI页面确认GPT-5.6 Sol为系列旗舰，gpt-5.6别名指向Sol；其提供105万token上下文、12.8万token最大输出，并列出每百万token输入5美元、缓存输入0.50美元、输出30美元的价格。",
+      "addedAt": "2026-08-02T04:12:41.000Z",
+      "changeType": "progress",
+      "thesisImpact": "OpenAI现将GPT-5.6 Sol明确为系列旗舰，补齐了此前Luna与Terra降价之外的旗舰定价、上下文与网络安全能力边界，使价格曲线判断延伸至分层产品结构。",
+      "revisionRequired": false
+    },
     {
       "id": "event_fd6738bc4783b911",
       "type": "event",
@@ -475,14 +1476,6 @@
       "title": "DeepSeek官方确认V4-Pro于8月13日GA上线，覆盖app、web Expert Mode和API，并新增Agent、推理强度和Responses API相关能力。",
       "role": "最新进展",
       "addedAt": "2026-08-21T14:07:27.416Z"
-    },
-    {
-      "id": "source_8eb12065b9344787",
-      "type": "source",
-      "title": "DeepSeek",
-      "url": "https://api-docs.deepseek.com/quick_start/pricing",
-      "sourceKind": "Official",
-      "publishedAt": "2026-08-12T23:59:23.000Z"
     },
     {
       "id": "claim_5a23de5daa33e0d3",
@@ -1283,14 +2276,6 @@
       "title": "The Decoder称Sol推出后OpenAI收入和企业收入加速，并称OpenAI在企业API支出上反超Anthropic。",
       "role": "最新进展",
       "addedAt": "2026-08-21T11:06:17.165Z"
-    },
-    {
-      "id": "source_238c8d8bf6e82e96",
-      "type": "source",
-      "title": "OpenAI",
-      "url": "https://openai.com/index/previewing-gpt-5-6-sol/",
-      "sourceKind": "Official",
-      "publishedAt": "2026-06-26T00:00:00.000Z"
     },
     {
       "id": "claim_40df8749115f81d9",
@@ -2460,14 +3445,6 @@
       "addedAt": "2026-08-20T05:07:34.357Z"
     },
     {
-      "id": "source_605b54423210186e",
-      "type": "source",
-      "title": "OpenAI",
-      "url": "https://openai.com/index/responding-next-frontier-critical-cyber-capabilities/",
-      "sourceKind": "Official",
-      "publishedAt": "2026-08-07T00:00:00.000Z"
-    },
-    {
       "id": "claim_5698c0df1a320a3c",
       "type": "claim",
       "title": "OpenAI称Astra可能具备关键网络能力，已扩大测试、加强安全控制、暂停不符合要求的内部活动，并对其代理应用实施普遍监控。",
@@ -2488,14 +3465,6 @@
       "title": "报道披露OpenAI因Astra可能触及其最高网络安全风险等级而暂停部分开发活动。",
       "role": "最新进展",
       "addedAt": "2026-08-20T05:07:34.357Z"
-    },
-    {
-      "id": "source_ec5d8e7d6a1b2c7c",
-      "type": "source",
-      "title": "OpenAI",
-      "url": "https://cdn.openai.com/pdf/18a02b5d-6b67-4cec-ab64-68cdfbddebcd/preparedness-framework-v2.pdf",
-      "sourceKind": "Official",
-      "publishedAt": "2026-08-07T19:41:06.000Z"
     },
     {
       "id": "claim_4e6c4327315261e2",
@@ -2707,14 +3676,6 @@
       "addedAt": "2026-08-20T05:07:34.357Z"
     },
     {
-      "id": "source_2d8a643762c51828",
-      "type": "source",
-      "title": "OpenAI",
-      "url": "https://deploymentsafety.openai.com/gpt-5-6",
-      "sourceKind": "Official",
-      "publishedAt": "2026-08-10T09:19:11.000Z"
-    },
-    {
       "id": "claim_b2fe7a5756e6fc21",
       "type": "claim",
       "title": "OpenAI此前将GPT-5.6 Sol、Terra和Luna评为网络安全High，明确称其未达到Critical。",
@@ -2765,14 +3726,6 @@
       "title": "Axios称，OpenAI暂停两周面向部署的强化学习训练，最大计划中的前沿强化学习运行仍处于搁置状态，并在重写Preparedness Framework。",
       "role": "最新进展",
       "addedAt": "2026-08-20T05:07:34.357Z"
-    },
-    {
-      "id": "source_1d9bb896d76302f3",
-      "type": "source",
-      "title": "OpenAI",
-      "url": "https://openai.com/index/expanding-daybreak-as-the-cyber-defense-window-narrows/",
-      "sourceKind": "Official",
-      "publishedAt": "2026-08-10T00:00:00.000Z"
     },
     {
       "id": "claim_de832dec6284282c",
@@ -3058,255 +4011,6 @@
       "addedAt": "2026-08-01T00:00:00.000Z",
       "changeType": "corroboration",
       "thesisImpact": "OpenAI于8月1日发布的官方页面逐项列出十项数学与理论计算机科学研究结果，强化了Astra已被公开命名并展示实质能力证据的判断。",
-      "revisionRequired": false
-    },
-    {
-      "id": "event_1c0e52d26f417ac9",
-      "type": "event",
-      "signalId": 102,
-      "title": "NVIDIA联手资本巨头扩展算力融资",
-      "bucket": "dynamic",
-      "valueScore": 88,
-      "publishedAt": "2026-08-10T20:01:00.000Z",
-      "updatedAt": "2026-08-17T12:33:00.000Z"
-    },
-    {
-      "id": "article_6154bfc5759e6911",
-      "type": "article",
-      "signalId": 102,
-      "title": "NVIDIA联手资本巨头扩展算力融资",
-      "version": 1,
-      "publishedAt": "2026-08-20T02:07:47.206Z"
-    },
-    {
-      "id": "source_0122ec2217c08ff3",
-      "type": "source",
-      "title": "NVIDIA Newsroom",
-      "url": "https://nvidianews.nvidia.com/news/nvidia-partners-with-apollo-blackrock-blackstone-brookfield-goldman-sachs-and-kkr-to-establish-ai-compute-infrastructure-financing-platforms-to-mobilize-over-500-billion-of-third-party-capital",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-10T20:01:00.000Z"
-    },
-    {
-      "id": "claim_b63375fbf9193803",
-      "type": "claim",
-      "title": "NVIDIA宣布与Apollo、BlackRock、Blackstone、Brookfield、Goldman Sachs和KKR建立AI算力基础设施融资平台，目标动员超过5000亿美元第三方资本。",
-      "role": "主张",
-      "addedAt": "2026-08-20T02:07:47.206Z"
-    },
-    {
-      "id": "source_95824baa8e354aed",
-      "type": "source",
-      "title": "BBC Technology",
-      "url": "https://www.bbc.co.uk/news/articles/c78gr0jv0mdo?at_medium=RSS&at_campaign=rss",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-11T08:44:52.000Z"
-    },
-    {
-      "id": "claim_e1973cd23f275af9",
-      "type": "claim",
-      "title": "BBC报道称，华尔街大型机构提供5000亿美元支持AI项目，资金将用于建设、运行和冷却容纳大量AI芯片的数据中心。",
-      "role": "佐证",
-      "addedAt": "2026-08-20T02:07:47.206Z"
-    },
-    {
-      "id": "source_8010a95ae63d6168",
-      "type": "source",
-      "title": "The Decoder AI",
-      "url": "https://the-decoder.com/nvidia-guarantees-its-own-chips-value-to-unlock-500-billion-in-ai-infrastructure-financing/",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-11T09:41:03.000Z"
-    },
-    {
-      "id": "claim_201df8160502d32a",
-      "type": "claim",
-      "title": "The Decoder报道称，NVIDIA在与大型资管机构建立的AI基础设施融资安排中，为自家芯片提供最高25%的残值保障。",
-      "role": "佐证",
-      "addedAt": "2026-08-20T02:07:47.206Z"
-    },
-    {
-      "id": "source_251e738970217249",
-      "type": "source",
-      "title": "The Decoder AI",
-      "url": "https://the-decoder.com/investor-pressure-forces-nvidia-to-shrink-its-openai-bet-just-as-anthropics-numbers-defy-bubble-warnings/",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-15T15:41:02.000Z"
-    },
-    {
-      "id": "claim_74d35ff4c3a0f2f2",
-      "type": "claim",
-      "title": "报道指NVIDIA对俄亥俄州OpenAI数据中心的担保规模不足1200亿美元，相比此前约2500亿美元的讨论规模明显收缩，并称投资者压力促成调整。",
-      "role": "最新进展",
-      "addedAt": "2026-08-20T02:07:47.206Z"
-    },
-    {
-      "id": "source_bd2e1b0a3e1a96ee",
-      "type": "source",
-      "title": "Reuters",
-      "url": "https://www.reuters.com/business/media-telecom/nvidia-scales-back-funding-guarantee-ohio-openai-data-center-wsj-reports-2026-08-14/",
-      "sourceKind": "Media",
-      "publishedAt": "2026-08-14T00:00:00.000Z"
-    },
-    {
-      "id": "claim_9c7cafdad778259c",
-      "type": "claim",
-      "title": "Reuters转述《华尔街日报》称，NVIDIA拟为俄亥俄州OpenAI数据中心提供较低规模的初始融资担保。",
-      "role": "佐证",
-      "addedAt": "2026-08-20T02:07:47.206Z"
-    },
-    {
-      "id": "source_6544a97b36dc6167",
-      "type": "source",
-      "title": "Reuters",
-      "url": "https://www.reuters.com/business/media-telecom/nvidia-talks-with-openai-guarantee-250-billion-financing-data-center-wsj-reports-2026-07-26/",
-      "sourceKind": "Media",
-      "publishedAt": "2026-07-26T00:00:00.000Z"
-    },
-    {
-      "id": "claim_494f6a15f4695eb2",
-      "type": "claim",
-      "title": "此前报道曾称NVIDIA讨论为俄亥俄州项目提供大额融资担保，但当时无法独立核实。",
-      "role": "背景",
-      "addedAt": "2026-08-20T02:07:47.206Z"
-    },
-    {
-      "id": "source_af67c54c62f39511",
-      "type": "source",
-      "title": "OpenAI",
-      "url": "https://openai.com/index/openai-nvidia-systems-partnership/",
-      "sourceKind": "Official",
-      "publishedAt": "2025-09-22T00:00:00.000Z"
-    },
-    {
-      "id": "claim_ba75213e2337de6a",
-      "type": "claim",
-      "title": "OpenAI与NVIDIA此前公开宣布至少10GW系统部署意向，NVIDIA拟按每GW部署进度最多投资1000亿美元；该意向不等同于媒体所述项目担保。",
-      "role": "背景",
-      "addedAt": "2026-08-20T02:07:47.206Z"
-    },
-    {
-      "id": "source_ec9a222d8ad39ae8",
-      "type": "source",
-      "title": "The Information",
-      "url": "https://www.theinformation.com/articles/nvidia-talks-invest-3-billion-sb-energy-part-openai-data-center-deal",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-15T19:12:18.000Z"
-    },
-    {
-      "id": "claim_f3b42132d04805c4",
-      "type": "claim",
-      "title": "报道称NVIDIA正讨论对SB Energy最高30亿美元投资，该项目关联OpenAI在俄亥俄州规划中的大型数据中心及芯片融资安排。",
-      "role": "最新进展",
-      "addedAt": "2026-08-20T02:07:47.206Z"
-    },
-    {
-      "id": "source_924b421a0abaae18",
-      "type": "source",
-      "title": "The Information",
-      "url": "https://www.theinformation.com/briefings/nvidia-nears-deal-guarantee-roughly-100-billion-credit-openai",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-16T21:04:33.000Z"
-    },
-    {
-      "id": "claim_590f7a5977c02569",
-      "type": "claim",
-      "title": "The Information报道称，NVIDIA接近达成约1000亿美元信用支持协议，以支持OpenAI租赁俄亥俄大型数据中心。",
-      "role": "最新进展",
-      "addedAt": "2026-08-20T02:07:47.206Z"
-    },
-    {
-      "id": "source_1f075c4afaa90ac5",
-      "type": "source",
-      "title": "The Information",
-      "url": "https://www.theinformation.com/briefings/nvidia-talks-invest-3-billion-sb-energy",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-16T21:03:15.000Z"
-    },
-    {
-      "id": "claim_bf601259bc0c00a2",
-      "type": "claim",
-      "title": "The Information报道称，NVIDIA正洽谈向SoftBank Group支持的SB Energy投资最高30亿美元，后者开发OpenAI俄亥俄数据中心项目。",
-      "role": "最新进展",
-      "addedAt": "2026-08-20T02:07:47.206Z"
-    },
-    {
-      "id": "source_14f10bd390e866e7",
-      "type": "source",
-      "title": "NVIDIA Newsroom",
-      "url": "https://nvidianews.nvidia.com/news/nvidia-guarantees-sb-energy-s-ports-pike-technology-campus-in-ohio-to-exclusively-host-nvidia-ai-compute",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-17T12:33:00.000Z"
-    },
-    {
-      "id": "claim_e1d87ad7353a356c",
-      "type": "claim",
-      "title": "NVIDIA称已通过SB Energy合作获得俄亥俄PORTS-Pike园区的土地、电力和机房壳体容量，用于专属承载NVIDIA AI compute。",
-      "role": "最新进展",
-      "addedAt": "2026-08-20T02:07:47.206Z"
-    },
-    {
-      "id": "update_541ab29136cdd945",
-      "type": "update",
-      "signalId": 102,
-      "title": "NVIDIA锁定俄亥俄算力园区",
-      "summary": "NVIDIA宣布通过SB Energy合作锁定俄亥俄PORTS-Pike园区的土地、电力和机房壳体容量，并将由该园区专门承载NVIDIA AI compute。",
-      "addedAt": "2026-08-17T12:33:00.000Z",
-      "changeType": "progress",
-      "thesisImpact": "NVIDIA已将与SB Energy的合作从拟投资和融资讨论推进至锁定俄亥俄园区土地、电力和机房壳体容量，强化其直接介入算力供给组织的判断。",
-      "revisionRequired": false
-    },
-    {
-      "id": "update_2700c096455f480f",
-      "type": "update",
-      "signalId": 102,
-      "title": "NVIDIA收缩OpenAI担保规模",
-      "summary": "The Information称，NVIDIA接近敲定为OpenAI俄亥俄数据中心租赁计划提供约1000亿美元信用支持的协议，低于此前报道称的2500亿美元；公司另据报洽谈向SB Energy投资最高30亿美元。",
-      "addedAt": "2026-08-16T21:04:33.000Z",
-      "changeType": "progress",
-      "thesisImpact": "两项谈判中的具体金额使NVIDIA以信用支持和股权投资介入OpenAI算力项目的融资路径更清晰，强化其将资本工具嵌入算力扩张的判断。",
-      "revisionRequired": false
-    },
-    {
-      "id": "update_0ceb7a6d9cbd3424",
-      "type": "update",
-      "signalId": 102,
-      "title": "NVIDIA据报拟投SB Energy",
-      "summary": "The Information报道称，NVIDIA正洽谈向SoftBank支持的SB Energy投资最高30亿美元，作为其为OpenAI俄亥俄数据中心提供约1000亿美元芯片信贷谈判的一部分。",
-      "addedAt": "2026-08-15T19:12:18.000Z",
-      "changeType": "progress",
-      "thesisImpact": "The Information称NVIDIA正讨论向SB Energy投资最高30亿美元，并把该安排纳入OpenAI俄亥俄数据中心的芯片融资谈判，强化了NVIDIA将资本支持延伸至供电与项目开发环节的判断。",
-      "revisionRequired": false
-    },
-    {
-      "id": "update_40425cc133455c1a",
-      "type": "update",
-      "signalId": 102,
-      "title": "NVIDIA收缩OpenAI项目担保",
-      "summary": "新增报道显示，NVIDIA拟为俄亥俄州OpenAI数据中心提供的初始担保规模低于此前讨论水平；公开基准仍是双方关于系统部署和按部署进度投资的意向。",
-      "addedAt": "2026-08-15T15:41:02.000Z",
-      "changeType": "thesis_change",
-      "thesisImpact": "新增报道把算力融资平台的宏观承诺推进到具体项目担保规模，并显示公开讨论中的规模已收缩；这使风险分担和资本约束成为判断AI基础设施扩张的重要变量。",
-      "revisionRequired": true
-    },
-    {
-      "id": "update_06712410f23a1697",
-      "type": "update",
-      "signalId": 102,
-      "title": "NVIDIA补充硬件残值保障",
-      "summary": "The Decoder报道称，NVIDIA为其AI硬件提供最高25%的残值保障，以帮助撬动逾5000亿美元AI基础设施融资。该安排为此前公布的第三方资本动员平台补充了风险分担机制。",
-      "addedAt": "2026-08-11T09:41:03.000Z",
-      "changeType": "corroboration",
-      "thesisImpact": "新增报道补充称NVIDIA以硬件残值保障帮助吸引基础设施资本，强化了该融资平台正把设备资产价值与大规模外部融资直接绑定的判断。",
-      "revisionRequired": false
-    },
-    {
-      "id": "update_e787822bc31fa533",
-      "type": "update",
-      "signalId": 102,
-      "title": "BBC佐证5000亿美元算力融资",
-      "summary": "BBC报道华尔街机构向NVIDIA支持的AI项目提供5000亿美元资金，用于建设、运营和冷却承载AI芯片的数据中心。",
-      "addedAt": "2026-08-11T08:44:52.000Z",
-      "changeType": "corroboration",
-      "thesisImpact": "BBC对逾5000亿美元AI算力融资平台的报道提供独立媒体佐证，强化了AI基础设施融资正在向大型资产管理机构扩展的既有判断。",
       "revisionRequired": false
     },
     {
@@ -6254,651 +6958,6 @@
       "title": "SEC文件显示双方于2026年6月16日签署合并协议，当时交易仍待交割条件和监管批准，预计第三季度完成。",
       "role": "背景",
       "addedAt": "2026-08-15T12:51:33.000Z"
-    },
-    {
-      "id": "event_ded79f4f58feab3e",
-      "type": "event",
-      "signalId": 37,
-      "title": "GPT-5.6重画模型价格曲线",
-      "bucket": "dynamic",
-      "valueScore": 89,
-      "publishedAt": "2026-07-30T23:58:42.000Z",
-      "updatedAt": "2026-08-10T10:00:00.000Z"
-    },
-    {
-      "id": "article_6fe3700cec641a0d",
-      "type": "article",
-      "signalId": 37,
-      "title": "GPT-5.6重画模型价格曲线",
-      "version": 1,
-      "publishedAt": "2026-08-16T05:10:15.610Z"
-    },
-    {
-      "id": "source_dca7adc62d79fe1c",
-      "type": "source",
-      "title": "OpenAI Blog",
-      "url": "https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-07-30T10:00:00.000Z"
-    },
-    {
-      "id": "claim_ed4ddf169b2b9266",
-      "type": "claim",
-      "title": "OpenAI官方宣布降低GPT-5.6 Luna与Terra价格，并称更高效的模型可帮助企业规模化部署AI workflow。",
-      "role": "主张",
-      "addedAt": "2026-08-16T05:10:15.610Z"
-    },
-    {
-      "id": "source_7bc027728ff8ee44",
-      "type": "source",
-      "title": "Simon Willison",
-      "url": "https://simonwillison.net/2026/Jul/30/luna-price-drop/#atom-everything",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-07-30T23:58:42.000Z"
-    },
-    {
-      "id": "claim_5f33eeb99ba6243b",
-      "type": "claim",
-      "title": "Simon Willison记录Luna降价80%、Terra降价20%，并援引OpenAI说明称GPT-5.6 Sol参与优化负载均衡。",
-      "role": "佐证",
-      "addedAt": "2026-08-16T05:10:15.610Z"
-    },
-    {
-      "id": "source_857d7c4ab2ba1304",
-      "type": "source",
-      "title": "Hacker News",
-      "url": "https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-07-30T17:15:51.000Z"
-    },
-    {
-      "id": "claim_fbd95a786f5a6ac4",
-      "type": "claim",
-      "title": "OpenAI降价文章在Hacker News候选抓取时获得493分和325条评论，反映开发者关注度，但不构成采用证据。",
-      "role": "背景",
-      "addedAt": "2026-08-16T05:10:15.610Z"
-    },
-    {
-      "id": "source_eb2b47d50db42393",
-      "type": "source",
-      "title": "Simon Willison",
-      "url": "https://simonwillison.net/2026/Aug/2/july-newsletter/#atom-everything",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-02T04:12:41.000Z"
-    },
-    {
-      "id": "claim_1f65c1e091d3e370",
-      "type": "claim",
-      "title": "Simon Willison的月度通讯汇总了GPT-5.6 Sol、Terra与Luna等近期模型动态。",
-      "role": "背景",
-      "addedAt": "2026-08-16T05:10:15.610Z"
-    },
-    {
-      "id": "source_258cade2cefa3253",
-      "type": "source",
-      "title": "OpenAI",
-      "url": "https://developers.openai.com/api/docs/models/gpt-5.6-sol",
-      "sourceKind": "Official",
-      "publishedAt": "2026-08-02T04:12:41.000Z"
-    },
-    {
-      "id": "claim_972dc74cc20064ea",
-      "type": "claim",
-      "title": "OpenAI将GPT-5.6 Sol列为旗舰层级，确认别名、上下文、最大输出及输入、缓存输入和输出定价。",
-      "role": "最新进展",
-      "addedAt": "2026-08-16T05:10:15.610Z"
-    },
-    {
-      "id": "claim_dbc450cf7fa4b5f6",
-      "type": "claim",
-      "title": "OpenAI系统卡显示，Sol在Irregular FrontierCyber评估中的总体完成数高于GPT-5.5，但仍被定为高网络能力、低于关键级别。",
-      "role": "佐证",
-      "addedAt": "2026-08-16T05:10:15.610Z"
-    },
-    {
-      "id": "source_f86f68dff2cfb3c8",
-      "type": "source",
-      "title": "The Decoder AI",
-      "url": "https://the-decoder.com/openai-launches-gpt-5-6-cyber-to-help-defenders-find-vulnerabilities-before-attackers-do/",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-10T18:01:30.000Z"
-    },
-    {
-      "id": "claim_8f8a740c3417c8e8",
-      "type": "claim",
-      "title": "OpenAI推出GPT-5.6-Cyber，称其可回答98.5%的原本会被拦截的安全查询，并发现两个此前未知的Chrome漏洞。",
-      "role": "最新进展",
-      "addedAt": "2026-08-16T05:10:15.610Z"
-    },
-    {
-      "id": "source_649d3e805e1f6bca",
-      "type": "source",
-      "title": "OpenAI",
-      "url": "https://openai.com/index/putting-frontier-cyber-models-in-more-trusted-hands/",
-      "sourceKind": "Official",
-      "publishedAt": "2026-08-10T00:00:00.000Z"
-    },
-    {
-      "id": "claim_249980007163e45b",
-      "type": "claim",
-      "title": "OpenAI扩大Daybreak Cyber Partner计划，获批伙伴可使用Daybreak Blue或Red，模型访问权不直接转给客户。",
-      "role": "最新进展",
-      "addedAt": "2026-08-16T05:10:15.610Z"
-    },
-    {
-      "id": "source_66c169853eb67829",
-      "type": "source",
-      "title": "OpenAI",
-      "url": "https://openai.com/index/scaling-trusted-access-for-cyber-defense/",
-      "sourceKind": "Official",
-      "publishedAt": "2026-04-14T00:00:00.000Z"
-    },
-    {
-      "id": "claim_bfa9d2e56923018e",
-      "type": "claim",
-      "title": "OpenAI此前已通过身份验证向防御者和团队提供更少限制的GPT-5.4-Cyber访问。",
-      "role": "背景",
-      "addedAt": "2026-08-16T05:10:15.610Z"
-    },
-    {
-      "id": "source_88ca535a278fef4f",
-      "type": "source",
-      "title": "OpenAI",
-      "url": "https://openai.com/index/daybreak-securing-the-world/",
-      "sourceKind": "Official",
-      "publishedAt": "2026-07-15T00:00:00.000Z"
-    },
-    {
-      "id": "claim_fff7f89ce8715d2a",
-      "type": "claim",
-      "title": "OpenAI此前公布GPT-5.5-Cyber在CyberGym、ExploitGym和SEC-bench Pro上优于GPT-5.5的测试结果。",
-      "role": "佐证",
-      "addedAt": "2026-08-16T05:10:15.610Z"
-    },
-    {
-      "id": "source_081601c279be28d3",
-      "type": "source",
-      "title": "OpenAI Blog",
-      "url": "https://openai.com/index/expanding-daybreak-as-the-cyber-defense-window-narrows",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-10T10:00:00.000Z"
-    },
-    {
-      "id": "claim_bda11b0acb276148",
-      "type": "claim",
-      "title": "OpenAI宣布面向获授权漏洞研究、漏洞利用验证和安全测试的GPT-5.6-Cyber，并通过Daybreak Red提供。",
-      "role": "最新进展",
-      "addedAt": "2026-08-16T05:10:15.610Z"
-    },
-    {
-      "id": "claim_fa6173ff6447d327",
-      "type": "claim",
-      "title": "OpenAI此前称GPT-5.6 Sol仅向少量可信伙伴预览，且未达到网络安全Critical阈值。",
-      "role": "背景",
-      "addedAt": "2026-08-16T05:10:15.610Z"
-    },
-    {
-      "id": "source_7df1ce629ccbc108",
-      "type": "source",
-      "title": "Google Chrome",
-      "url": "https://chromereleases.googleblog.com/2026/07/stable-channel-update-for-desktop_049796704.html",
-      "sourceKind": "Official",
-      "publishedAt": "2026-07-16T00:00:00.000Z"
-    },
-    {
-      "id": "claim_8d5d1d88ab117d43",
-      "type": "claim",
-      "title": "Google修复V8高危漏洞CVE-2026-15903，并将报告者列为OpenAI Codex Security，显示OpenAI相关安全工作已有成果进入厂商修复流程，但未将该漏洞归因于GPT-5.6-Cyber。",
-      "role": "佐证",
-      "addedAt": "2026-08-16T05:10:15.610Z"
-    },
-    {
-      "id": "claim_910a1b8d87a40e78",
-      "type": "claim",
-      "title": "OpenAI称对即将推出的Astra已无法排除Critical网络能力，因此加强隔离环境、网络和工具访问限制、权重保护及监控。",
-      "role": "反例",
-      "addedAt": "2026-08-16T05:10:15.610Z"
-    },
-    {
-      "id": "source_0212f9770ddac1d8",
-      "type": "source",
-      "title": "TechCrunch AI",
-      "url": "https://techcrunch.com/2026/08/10/as-ai-led-attacks-multiply-openai-launches-a-new-cyber-model/",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-10T23:56:15.000Z"
-    },
-    {
-      "id": "claim_8a0f8f76f5de6b7e",
-      "type": "claim",
-      "title": "TechCrunch报道称OpenAI扩展Daybreak网络防御项目，并推出新的网络安全训练模型。",
-      "role": "佐证",
-      "addedAt": "2026-08-16T05:10:15.610Z"
-    },
-    {
-      "id": "claim_739ef14db503ee11",
-      "type": "claim",
-      "title": "OpenAI确认Daybreak Red提供GPT-5.6-Cyber、Blue调整GPT-5.6 Sol护栏，并公布完成率及与Sol的内部评测对照。",
-      "role": "最新进展",
-      "addedAt": "2026-08-16T05:10:15.610Z"
-    },
-    {
-      "id": "source_970979cb607942aa",
-      "type": "source",
-      "title": "OpenAI",
-      "url": "https://openai.com/index/gpt-5-5-with-trusted-access-for-cyber/",
-      "sourceKind": "Official",
-      "publishedAt": "2026-05-07T00:00:00.000Z"
-    },
-    {
-      "id": "claim_8d185d575e3c3ddb",
-      "type": "claim",
-      "title": "OpenAI此前将GPT-5.5-Cyber限量提供给关键基础设施防御者，并称其不预期在每项网络安全评测中领先。",
-      "role": "背景",
-      "addedAt": "2026-08-16T05:10:15.610Z"
-    },
-    {
-      "id": "claim_ac2afefdedced930",
-      "type": "claim",
-      "title": "OpenAI的Preparedness Framework定义了High与Critical网络安全能力门槛，表明High认定不等同于Critical能力。",
-      "role": "背景",
-      "addedAt": "2026-08-16T05:10:15.610Z"
-    },
-    {
-      "id": "source_53d5659816e88377",
-      "type": "source",
-      "title": "Engadget",
-      "url": "https://www.engadget.com/2234335/openai-daybreak-model-less-likely-to-refuse-higher-risk-tasks/",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-11T09:40:15.000Z"
-    },
-    {
-      "id": "claim_acb97dc3db209ba8",
-      "type": "claim",
-      "title": "Engadget报道称，OpenAI将Daybreak划分为两个层级，高级层向伙伴提供更强的网络安全模型。",
-      "role": "最新进展",
-      "addedAt": "2026-08-16T05:10:15.610Z"
-    },
-    {
-      "id": "source_ed34f8e5d3e7ba50",
-      "type": "source",
-      "title": "OpenAI",
-      "url": "https://help.openai.com/en/articles/20001258-openai-daybreak-trusted-access-for-cyber-overview",
-      "sourceKind": "Official",
-      "publishedAt": "2026-08-11T09:40:15.000Z"
-    },
-    {
-      "id": "claim_e32644b06abf238b",
-      "type": "claim",
-      "title": "OpenAI规定Daybreak Red须单独审批，访问仅限获批内部用户和内部工作流，禁止转售、代理、嵌入或向第三方提供。",
-      "role": "最新进展",
-      "addedAt": "2026-08-16T05:10:15.610Z"
-    },
-    {
-      "id": "source_5d3aff0aba5d0b8a",
-      "type": "source",
-      "title": "OpenAI Blog",
-      "url": "https://openai.com/index/daybreak-models-are-now-available-on-aws",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-11T10:00:00.000Z"
-    },
-    {
-      "id": "claim_4c6d98fbbab6f13b",
-      "type": "claim",
-      "title": "OpenAI宣布与AWS合作，将Daybreak网络安全能力提供至Amazon Bedrock，用于企业安全工作流。",
-      "role": "最新进展",
-      "addedAt": "2026-08-16T05:10:15.610Z"
-    },
-    {
-      "id": "source_b4c2c75e8fc382c7",
-      "type": "source",
-      "title": "OpenAI",
-      "url": "https://openai.com/index/openai-frontier-models-and-codex-are-now-available-on-aws/",
-      "sourceKind": "Official",
-      "publishedAt": "2026-06-01T00:00:00.000Z"
-    },
-    {
-      "id": "claim_cc17648aaa8266bf",
-      "type": "claim",
-      "title": "OpenAI此前将Daybreak描述为未来AWS可用能力，覆盖cyber models、Codex Security及安全代码审查、威胁建模等工作流。",
-      "role": "背景",
-      "addedAt": "2026-08-16T05:10:15.610Z"
-    },
-    {
-      "id": "source_8810c478932a8769",
-      "type": "source",
-      "title": "Amazon Web Services",
-      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-cards-openai.html",
-      "sourceKind": "Official",
-      "publishedAt": "2026-08-11T10:00:00.000Z"
-    },
-    {
-      "id": "claim_9c25e1ce7b0a49ea",
-      "type": "claim",
-      "title": "AWS当前模型卡列出GPT-5.x、GPT-OSS与Safeguard模型，但未列出Daybreak独立模型卡、型号或性能指标。",
-      "role": "反例",
-      "addedAt": "2026-08-16T05:10:15.610Z"
-    },
-    {
-      "id": "source_6f1bf72c97e7993e",
-      "type": "source",
-      "title": "TechCrunch AI",
-      "url": "https://techcrunch.com/2026/08/13/openai-introduces-ultrafast-a-new-mode-that-makes-gpt-5-6-sol-work-at-14x-the-speed/",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-13T19:22:40.000Z"
-    },
-    {
-      "id": "claim_3ba7ff30b574aa6c",
-      "type": "claim",
-      "title": "TechCrunch报道称OpenAI推出Ultrafast模式，以更高速度运行GPT-5.6 Sol，目标是吸引企业用户。",
-      "role": "最新进展",
-      "addedAt": "2026-08-16T05:10:15.610Z"
-    },
-    {
-      "id": "source_743bfa6f4f42d6af",
-      "type": "source",
-      "title": "OpenAI",
-      "url": "https://openai.com/index/previewing-ultrafast/",
-      "sourceKind": "Official",
-      "publishedAt": "2026-08-13T19:22:40.000Z"
-    },
-    {
-      "id": "claim_e6e066f0ab2a3211",
-      "type": "claim",
-      "title": "OpenAI确认Ultrafast是GPT-5.6 Sol的新服务层，首先在API有限预览，最高为Standard processing的14倍、最高750 output tokens/s，并由Cerebras支持。",
-      "role": "最新进展",
-      "addedAt": "2026-08-16T05:10:15.610Z"
-    },
-    {
-      "id": "source_caaa735c832bdb26",
-      "type": "source",
-      "title": "OpenAI",
-      "url": "https://openai.com/index/gpt-5-6/",
-      "sourceKind": "Official",
-      "publishedAt": "2026-08-13T19:22:40.000Z"
-    },
-    {
-      "id": "claim_6d3647c583d2fd59",
-      "type": "claim",
-      "title": "GPT-5.6 Sol此前已通用可用，API价格为每百万输入token 5美元、每百万输出token 30美元；页面区分了ultra设置与模型服务供给。",
-      "role": "背景",
-      "addedAt": "2026-08-16T05:10:15.610Z"
-    },
-    {
-      "id": "source_f20a72ef4371b0a4",
-      "type": "source",
-      "title": "Cerebras",
-      "url": "https://www.cerebras.ai/blog/getting-the-most-out-of-gpt-5-6-sol-terra-and-luna",
-      "sourceKind": "Official",
-      "publishedAt": "2026-08-13T19:22:40.000Z"
-    },
-    {
-      "id": "claim_090b839106343c78",
-      "type": "claim",
-      "title": "Cerebras此前已披露Sol可达750 tokens/s、相对常规Sol最高快10倍，说明此次14倍使用的是OpenAI定义的Standard基线。",
-      "role": "佐证",
-      "addedAt": "2026-08-16T05:10:15.610Z"
-    },
-    {
-      "id": "source_3868a8d41a043ac9",
-      "type": "source",
-      "title": "Cerebras",
-      "url": "https://www.cerebras.ai/blog/accelerating-gpt-5-6-sol-ultrafast-with-openai",
-      "sourceKind": "Official",
-      "publishedAt": "2026-08-13T00:00:00.000Z"
-    },
-    {
-      "id": "claim_a634af83b204adc3",
-      "type": "claim",
-      "title": "Cerebras确认其与OpenAI共享早期信息，并称服务首发于OpenAI API，最高可达每秒750个输出token。",
-      "role": "佐证",
-      "addedAt": "2026-08-16T05:10:15.610Z"
-    },
-    {
-      "id": "source_0778f93b3ef227dd",
-      "type": "source",
-      "title": "Ars Technica",
-      "url": "https://arstechnica.com/ai/2026/08/openai-and-anthropic-in-price-war-as-chinese-ai-rivals-gain-ground/",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-14T14:27:14.000Z"
-    },
-    {
-      "id": "claim_ee5bf5bfca5beadb",
-      "type": "claim",
-      "title": "Ars Technica将OpenAI、Anthropic降价与中国模型竞争加剧联系起来。",
-      "role": "最新进展",
-      "addedAt": "2026-08-16T05:10:15.610Z"
-    },
-    {
-      "id": "source_4307222bc7e5f2e4",
-      "type": "source",
-      "title": "Anthropic",
-      "url": "https://www.anthropic.com/news/claude-sonnet-5",
-      "sourceKind": "Official",
-      "publishedAt": "2026-08-14T14:27:14.000Z"
-    },
-    {
-      "id": "claim_689fdd2e778867cb",
-      "type": "claim",
-      "title": "Anthropic确认Claude Sonnet 5的输入2美元、输出10美元价格已由限时优惠改为永久价格。",
-      "role": "最新进展",
-      "addedAt": "2026-08-16T05:10:15.610Z"
-    },
-    {
-      "id": "claim_4ecb365abc1a570f",
-      "type": "claim",
-      "title": "DeepSeek官方价目显示V4-Flash和V4-Pro的当前API价格较低，但未证明性能或份额变化。",
-      "role": "佐证",
-      "addedAt": "2026-08-16T05:10:15.610Z"
-    },
-    {
-      "id": "source_29b0e61ec6cd1ed3",
-      "type": "source",
-      "title": "OpenAI Blog",
-      "url": "https://openai.com/index/putting-frontier-cyber-models-in-more-trusted-hands",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-10T10:00:00.000Z"
-    },
-    {
-      "id": "claim_6851c3803425dd32",
-      "type": "claim",
-      "title": "OpenAI宣布获批Daybreak合作伙伴可用其前沿网络模型提供经授权、受治理的网络安全服务。",
-      "role": "最新进展",
-      "addedAt": "2026-08-16T05:10:15.610Z"
-    },
-    {
-      "id": "source_c6e65b0c21ea1dd8",
-      "type": "source",
-      "title": "OpenAI",
-      "url": "https://openai.com/daybreak/partners/",
-      "sourceKind": "Official",
-      "publishedAt": "2026-08-10T10:00:00.000Z"
-    },
-    {
-      "id": "claim_c0d9f45c6fdc8965",
-      "type": "claim",
-      "title": "Daybreak页面列出20家合作伙伴，并规定有边界产品集成和托管服务两种交付方式，后者要求受训团队操作并接受监控和人工复核。",
-      "role": "最新进展",
-      "addedAt": "2026-08-16T05:10:15.610Z"
-    },
-    {
-      "id": "update_5154656724ad2b62",
-      "type": "update",
-      "signalId": 37,
-      "title": "OpenAI向受信伙伴开放网络模型",
-      "summary": "OpenAI将前沿网络模型交给获批Daybreak合作伙伴，用于有边界产品集成或托管服务；GPT-5.5-Cyber在CyberGym得分85.6%，高于GPT-5.5的81.8%，当前合作伙伴名单为20家。",
-      "addedAt": "2026-08-10T10:00:00.000Z",
-      "changeType": "progress",
-      "thesisImpact": "OpenAI从受控试用推进到面向经核验合作伙伴的网络安全交付，但访问仍由审批、监控和人工复核约束；这一进展强化了模型分发治理比单纯开放更关键的判断。",
-      "revisionRequired": false
-    },
-    {
-      "id": "claim_4c9d69efe848c7cb",
-      "type": "claim",
-      "title": "GPT-5.5 with Trusted Access for Cyber面向经核验防御者，GPT-5.5-Cyber当时仍为关键基础设施防御者的有限预览。",
-      "role": "背景",
-      "addedAt": "2026-08-10T10:00:00.000Z"
-    },
-    {
-      "id": "claim_8e667d00282a8ab8",
-      "type": "claim",
-      "title": "OpenAI称合作伙伴可在客户产品和服务中使用GPT-5.5 with Trusted Access，并披露GPT-5.5-Cyber在CyberGym达到85.6%，GPT-5.5为81.8%。",
-      "role": "佐证",
-      "addedAt": "2026-08-10T10:00:00.000Z"
-    },
-    {
-      "id": "claim_e645f30fc0b95c81",
-      "type": "claim",
-      "title": "普通Trusted Access不允许向第三方客户或外部用户转售、代理或嵌入访问，面向外部交付需进入Partner Program。",
-      "role": "反例",
-      "addedAt": "2026-08-10T10:00:00.000Z"
-    },
-    {
-      "id": "update_0107adde250d2cac",
-      "type": "update",
-      "signalId": 37,
-      "title": "Claude Sonnet 5永久降价",
-      "summary": "Anthropic将Claude Sonnet 5原定限时优惠改为永久价格：输入每百万token 2美元、输出10美元。OpenAI此前已下调GPT-5.6 Luna与Terra价格，DeepSeek当前价目仍显著更低。",
-      "addedAt": "2026-08-14T14:27:14.000Z",
-      "changeType": "thesis_change",
-      "thesisImpact": "Anthropic将Claude Sonnet 5优惠价永久化，且DeepSeek官方低价仍显著存在，强化了模型竞争从一次性降价转向持续价格分层的判断。",
-      "revisionRequired": true
-    },
-    {
-      "id": "claim_ffc3bf8179d5d8a0",
-      "type": "claim",
-      "title": "OpenAI自7月30日起将GPT-5.6 Luna价格下调80%、Terra下调20%。",
-      "role": "背景",
-      "addedAt": "2026-08-14T14:27:14.000Z"
-    },
-    {
-      "id": "claim_1be13f855aa923db",
-      "type": "claim",
-      "title": "OpenAI披露GPT-5.6 Terra和Luna降价前的挂牌价格及后续更新。",
-      "role": "背景",
-      "addedAt": "2026-08-14T14:27:14.000Z"
-    },
-    {
-      "id": "update_a5c6ffd14b18df1b",
-      "type": "update",
-      "signalId": 37,
-      "title": "GPT-5.6 Sol上线Ultrafast预览",
-      "summary": "OpenAI确认GPT-5.6 Sol新增Ultrafast服务层，由Cerebras支持，最高750个输出token/秒，已在OpenAI API向选定客户限量预览。",
-      "addedAt": "2026-08-13T00:00:00.000Z",
-      "changeType": "progress",
-      "thesisImpact": "OpenAI与Cerebras正式确认GPT-5.6 Sol Ultrafast的预览上线、最高750输出token/秒及首发范围，强化了原有价格曲线之外的速度分层判断。",
-      "revisionRequired": false
-    },
-    {
-      "id": "claim_b42b6513086cc58e",
-      "type": "claim",
-      "title": "OpenAI确认Ultrafast是GPT-5.6 Sol的新服务层，最高每秒750个输出token，由Cerebras支持并向选定客户限量预览。",
-      "role": "最新进展",
-      "addedAt": "2026-08-13T00:00:00.000Z"
-    },
-    {
-      "id": "update_8a229cd5e21c179f",
-      "type": "update",
-      "signalId": 37,
-      "title": "OpenAI为GPT-5.6 Sol推出Ultrafast",
-      "summary": "OpenAI推出Ultrafast预览服务层，首先在API向部分客户开放，最高速度达到Standard processing的14倍。",
-      "addedAt": "2026-08-13T19:22:40.000Z",
-      "changeType": "progress",
-      "thesisImpact": "Ultrafast把GPT-5.6 Sol的变化从价格扩展到服务层性能与分发方式，强化了OpenAI围绕企业延迟需求构建差异化供给的判断。",
-      "revisionRequired": false
-    },
-    {
-      "id": "update_d0ab00fc4414eede",
-      "type": "update",
-      "signalId": 37,
-      "title": "Daybreak接入Amazon Bedrock",
-      "summary": "OpenAI宣布Daybreak网络安全能力现可通过Amazon Bedrock支持企业安全工作流，这是其从此前AWS预告走向实际云分发的进展。",
-      "addedAt": "2026-08-11T10:00:00.000Z",
-      "changeType": "progress",
-      "thesisImpact": "Daybreak从此前预告的未来AWS能力进入Amazon Bedrock分发，但当前公开信息仍未披露独立型号、价格、区域或性能指标。",
-      "revisionRequired": false
-    },
-    {
-      "id": "update_8a0fa3c68bc59ad5",
-      "type": "update",
-      "signalId": 37,
-      "title": "Daybreak补齐分层与访问边界",
-      "summary": "OpenAI明确Daybreak Blue使用GPT-5.6 Sol，Red使用GPT-5.6-Cyber；Red须单独获批，仅限获批内部用户和工作流。官方同时披露Cyber模型在内部高级网络安全请求上的完成率为95.0%。",
-      "addedAt": "2026-08-11T09:40:15.000Z",
-      "changeType": "progress",
-      "thesisImpact": "最新官方材料明确了Daybreak Blue与Red的模型分层、Red的单独审批边界及GPT-5.6-Cyber在高级网络安全任务上的完成率，推进了其作为受控高能力网络安全产品层的判断。",
-      "revisionRequired": false
-    },
-    {
-      "id": "claim_8310a467c061a556",
-      "type": "claim",
-      "title": "OpenAI称Daybreak Blue使用GPT-5.6 Sol、Red使用GPT-5.6-Cyber；后者在内部高级网络安全请求完成率为95.0%，但在部分漏洞发现、报告写作和token效率评测中不及GPT-5.6 Sol。",
-      "role": "佐证",
-      "addedAt": "2026-08-11T09:40:15.000Z"
-    },
-    {
-      "id": "claim_b50af1d3f1c6838c",
-      "type": "claim",
-      "title": "OpenAI此前将GPT-5.5 with Trusted Access for Cyber定位为多数防御者入口，并将GPT-5.5-Cyber限于经核验的高阶授权工作。",
-      "role": "背景",
-      "addedAt": "2026-08-11T09:40:15.000Z"
-    },
-    {
-      "id": "update_4eca18d8c048cc01",
-      "type": "update",
-      "signalId": 37,
-      "title": "GPT-5.6-Cyber纳入Daybreak",
-      "summary": "OpenAI宣布Daybreak扩展：Red向可信防御伙伴提供GPT-5.6-Cyber，Blue则移除GPT-5.6 Sol的系统级网络安全护栏。官方披露Red任务完成率为95.0%，并说明Cyber在一项内部漏洞发现与报告评测中低于Sol。",
-      "addedAt": "2026-08-10T23:56:15.000Z",
-      "changeType": "progress",
-      "thesisImpact": "OpenAI已把GPT-5.6-Cyber纳入Daybreak Red，并推出护栏调整后的Daybreak Blue；新披露的任务完成率和模型对照使其网络防御分发路径更具体，但也显示专项模型并非在所有防御任务上领先。",
-      "revisionRequired": false
-    },
-    {
-      "id": "update_096a9dc1e4574cc1",
-      "type": "update",
-      "signalId": 37,
-      "title": "GPT-5.6-Cyber接入Daybreak Red",
-      "summary": "OpenAI宣布GPT-5.6-Cyber通过Daybreak Red向获授权的漏洞研究、漏洞利用验证和安全测试开放；公司同时强调该能力处于更高的网络安全风险门槛附近。",
-      "addedAt": "2026-08-10T10:00:00.000Z",
-      "changeType": "progress",
-      "thesisImpact": "OpenAI已将GPT-5.6-Cyber通过Daybreak Red提供给获授权防御研究者，原有“可信伙伴访问扩大”的判断从计划性开放推进至具名模型和受控使用范围。",
-      "revisionRequired": false
-    },
-    {
-      "id": "claim_34c93c743fbfa3fc",
-      "type": "claim",
-      "title": "OpenAI此前将GPT-5.5-Cyber从预览推进至面向可信防御者的有限发布，并披露CyberGym、ExploitGym和SEC-bench Pro的对比结果及使用护栏。",
-      "role": "背景",
-      "addedAt": "2026-08-10T10:00:00.000Z"
-    },
-    {
-      "id": "update_262da49d62318098",
-      "type": "update",
-      "signalId": 37,
-      "title": "GPT-5.6-Cyber扩大可信伙伴访问",
-      "summary": "OpenAI推出GPT-5.6-Cyber，并扩大Daybreak Cyber Partner计划；获批伙伴可按工作需求使用Blue或Red，但访问权不直接转给客户。",
-      "addedAt": "2026-08-10T18:01:30.000Z",
-      "changeType": "progress",
-      "thesisImpact": "新证据把GPT-5.6从价格和旗舰身份变化推进到网络安全专用模型及可信伙伴分发，强化了其面向防御工作流的产品化判断。",
-      "revisionRequired": false
-    },
-    {
-      "id": "claim_c6db15281b1fb98e",
-      "type": "claim",
-      "title": "独立评估认为GPT-5.6 Sol的网络攻击能力仍受行动安全限制，测试环境也远小于真实企业网络。",
-      "role": "反例",
-      "addedAt": "2026-08-10T18:01:30.000Z"
-    },
-    {
-      "id": "update_4225c33731b80fdc",
-      "type": "update",
-      "signalId": 37,
-      "title": "GPT-5.6 Sol成为旗舰层",
-      "summary": "OpenAI页面确认GPT-5.6 Sol为系列旗舰，gpt-5.6别名指向Sol；其提供105万token上下文、12.8万token最大输出，并列出每百万token输入5美元、缓存输入0.50美元、输出30美元的价格。",
-      "addedAt": "2026-08-02T04:12:41.000Z",
-      "changeType": "progress",
-      "thesisImpact": "OpenAI现将GPT-5.6 Sol明确为系列旗舰，补齐了此前Luna与Terra降价之外的旗舰定价、上下文与网络安全能力边界，使价格曲线判断延伸至分层产品结构。",
-      "revisionRequired": false
     },
     {
       "id": "event_8508d5105d4ed279",
@@ -18646,6 +18705,1161 @@
   ],
   "edges": [
     {
+      "id": "edge_11afeea28290e859",
+      "from": "event_1c0e52d26f417ac9",
+      "to": "article_6154bfc5759e6911",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_047be5075d8b7966",
+      "from": "source_0122ec2217c08ff3",
+      "to": "claim_b63375fbf9193803",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_a9f0c02570fbf5d3",
+      "from": "claim_b63375fbf9193803",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_3d14aa2f70722f03",
+      "from": "source_95824baa8e354aed",
+      "to": "claim_e1973cd23f275af9",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_c64e836ce0a8700f",
+      "from": "claim_e1973cd23f275af9",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_0d7dbdec686a3c36",
+      "from": "source_8010a95ae63d6168",
+      "to": "claim_201df8160502d32a",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_4bbec55b45ba7674",
+      "from": "claim_201df8160502d32a",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_ad2d4fa81d05d207",
+      "from": "source_251e738970217249",
+      "to": "claim_74d35ff4c3a0f2f2",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_81b542536eaad700",
+      "from": "claim_74d35ff4c3a0f2f2",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_27e02053656eae8d",
+      "from": "source_bd2e1b0a3e1a96ee",
+      "to": "claim_9c7cafdad778259c",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_70b72e566972e161",
+      "from": "claim_9c7cafdad778259c",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_453f595bd29ae853",
+      "from": "source_6544a97b36dc6167",
+      "to": "claim_494f6a15f4695eb2",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_118e8d39b046362c",
+      "from": "claim_494f6a15f4695eb2",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_eebc0a3841498c9a",
+      "from": "source_af67c54c62f39511",
+      "to": "claim_ba75213e2337de6a",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_fb6a4d832a82fec6",
+      "from": "claim_ba75213e2337de6a",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_7cbd4f43b42f2595",
+      "from": "source_ec9a222d8ad39ae8",
+      "to": "claim_f3b42132d04805c4",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_e63cd7bca71a1692",
+      "from": "claim_f3b42132d04805c4",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_8dc054247bdfd844",
+      "from": "source_924b421a0abaae18",
+      "to": "claim_590f7a5977c02569",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_c2c38ce730f31039",
+      "from": "claim_590f7a5977c02569",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_8b2adb8e00d72ba9",
+      "from": "source_1f075c4afaa90ac5",
+      "to": "claim_bf601259bc0c00a2",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_a2b072f22b67aa57",
+      "from": "claim_bf601259bc0c00a2",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_8e4f3080fd4cdfb3",
+      "from": "source_14f10bd390e866e7",
+      "to": "claim_e1d87ad7353a356c",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_efdb3b51503db286",
+      "from": "claim_e1d87ad7353a356c",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_4af99502666c582c",
+      "from": "source_4c1cb37464fd1da3",
+      "to": "claim_d25e6ae42f71aadd",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_559930e4d59a855e",
+      "from": "claim_d25e6ae42f71aadd",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_f59fd1df7072a1d9",
+      "from": "update_8fd8bbed07e0913d",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_aa3aee0d98f82900",
+      "from": "claim_d25e6ae42f71aadd",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "update_evidence_for",
+      "updateTitle": "NVIDIA再投数据中心资源商"
+    },
+    {
+      "id": "edge_3a21131425c7c2bc",
+      "from": "update_541ab29136cdd945",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_7de25fd4a0856902",
+      "from": "claim_e1d87ad7353a356c",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "update_evidence_for",
+      "updateTitle": "NVIDIA锁定俄亥俄算力园区"
+    },
+    {
+      "id": "edge_0ae820d7a5e68679",
+      "from": "update_2700c096455f480f",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_129047fa057a4969",
+      "from": "claim_590f7a5977c02569",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "update_evidence_for",
+      "updateTitle": "NVIDIA收缩OpenAI担保规模"
+    },
+    {
+      "id": "edge_32d4bfff562b8aa2",
+      "from": "claim_bf601259bc0c00a2",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "update_evidence_for",
+      "updateTitle": "NVIDIA收缩OpenAI担保规模"
+    },
+    {
+      "id": "edge_095e368676b50fff",
+      "from": "update_0ceb7a6d9cbd3424",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_40378c1ae36ae86c",
+      "from": "claim_f3b42132d04805c4",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "update_evidence_for",
+      "updateTitle": "NVIDIA据报拟投SB Energy"
+    },
+    {
+      "id": "edge_bb780e8879fc6b9b",
+      "from": "update_40425cc133455c1a",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_2b69c9c3bfcf677d",
+      "from": "claim_74d35ff4c3a0f2f2",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "update_evidence_for",
+      "updateTitle": "NVIDIA收缩OpenAI项目担保"
+    },
+    {
+      "id": "edge_02c37a93ea0aff00",
+      "from": "claim_9c7cafdad778259c",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "update_evidence_for",
+      "updateTitle": "NVIDIA收缩OpenAI项目担保"
+    },
+    {
+      "id": "edge_f5b1ffa4708429c0",
+      "from": "claim_494f6a15f4695eb2",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "update_evidence_for",
+      "updateTitle": "NVIDIA收缩OpenAI项目担保"
+    },
+    {
+      "id": "edge_05fa4d5aeb4a5835",
+      "from": "claim_ba75213e2337de6a",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "update_evidence_for",
+      "updateTitle": "NVIDIA收缩OpenAI项目担保"
+    },
+    {
+      "id": "edge_210188a21e080d83",
+      "from": "update_06712410f23a1697",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_b99c2467d9f45d87",
+      "from": "claim_201df8160502d32a",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "update_evidence_for",
+      "updateTitle": "NVIDIA补充硬件残值保障"
+    },
+    {
+      "id": "edge_44e9c74f8ac41646",
+      "from": "update_e787822bc31fa533",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_7aa62020db35a648",
+      "from": "claim_e1973cd23f275af9",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "update_evidence_for",
+      "updateTitle": "BBC佐证5000亿美元算力融资"
+    },
+    {
+      "id": "edge_0d53b26b270e0716",
+      "from": "event_ded79f4f58feab3e",
+      "to": "article_6fe3700cec641a0d",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_4b848737a20d3572",
+      "from": "source_dca7adc62d79fe1c",
+      "to": "claim_ed4ddf169b2b9266",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_6686b81a8288957d",
+      "from": "claim_ed4ddf169b2b9266",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_6a36bf39a212ef16",
+      "from": "source_7bc027728ff8ee44",
+      "to": "claim_5f33eeb99ba6243b",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_1fb523485cb535af",
+      "from": "claim_5f33eeb99ba6243b",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_dfd33044e4b486e5",
+      "from": "source_857d7c4ab2ba1304",
+      "to": "claim_fbd95a786f5a6ac4",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_f4129e5cffedcc4d",
+      "from": "claim_fbd95a786f5a6ac4",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_fb74e8d85b295ef0",
+      "from": "source_eb2b47d50db42393",
+      "to": "claim_1f65c1e091d3e370",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_9e43506309f24c09",
+      "from": "claim_1f65c1e091d3e370",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_f1c617559f698869",
+      "from": "source_258cade2cefa3253",
+      "to": "claim_972dc74cc20064ea",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_0560109e31c1a2b3",
+      "from": "claim_972dc74cc20064ea",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_52e7e7192127bdba",
+      "from": "source_2d8a643762c51828",
+      "to": "claim_dbc450cf7fa4b5f6",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_2bf0b8ac2f9f8395",
+      "from": "claim_dbc450cf7fa4b5f6",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_bd9e451a96d1701c",
+      "from": "source_f86f68dff2cfb3c8",
+      "to": "claim_8f8a740c3417c8e8",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_bdd4a6ad924977be",
+      "from": "claim_8f8a740c3417c8e8",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_22422900901d0048",
+      "from": "source_649d3e805e1f6bca",
+      "to": "claim_249980007163e45b",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_94c1df53577e1f24",
+      "from": "claim_249980007163e45b",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_edd8e1ab5c71d6c5",
+      "from": "source_66c169853eb67829",
+      "to": "claim_bfa9d2e56923018e",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_e03e402df294e5dd",
+      "from": "claim_bfa9d2e56923018e",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_27b02fe50eb0b9f7",
+      "from": "source_88ca535a278fef4f",
+      "to": "claim_fff7f89ce8715d2a",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_3c8662bc6a21c2f4",
+      "from": "claim_fff7f89ce8715d2a",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_5ffd705abaa1aecb",
+      "from": "source_081601c279be28d3",
+      "to": "claim_bda11b0acb276148",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_9911e6382fcd2fdd",
+      "from": "claim_bda11b0acb276148",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_5a3e3de7bad1b343",
+      "from": "source_238c8d8bf6e82e96",
+      "to": "claim_fa6173ff6447d327",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_f62e7287d18ec689",
+      "from": "claim_fa6173ff6447d327",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_a61fa4759d8d409f",
+      "from": "source_7df1ce629ccbc108",
+      "to": "claim_8d5d1d88ab117d43",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_41b2a1aab2d797c8",
+      "from": "claim_8d5d1d88ab117d43",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_1aac3f0d2ad436cc",
+      "from": "source_605b54423210186e",
+      "to": "claim_910a1b8d87a40e78",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_74971431787e7d85",
+      "from": "claim_910a1b8d87a40e78",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_70a561960f4165b2",
+      "from": "source_0212f9770ddac1d8",
+      "to": "claim_8a0f8f76f5de6b7e",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_fa298942d7d8bb93",
+      "from": "claim_8a0f8f76f5de6b7e",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_98ec7199eee70251",
+      "from": "source_1d9bb896d76302f3",
+      "to": "claim_739ef14db503ee11",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_692f3270e3389fd8",
+      "from": "claim_739ef14db503ee11",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_111bde75fba67846",
+      "from": "source_970979cb607942aa",
+      "to": "claim_8d185d575e3c3ddb",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_ba381408c88b6adc",
+      "from": "claim_8d185d575e3c3ddb",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_aee914f72265146d",
+      "from": "source_ec5d8e7d6a1b2c7c",
+      "to": "claim_ac2afefdedced930",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_79e0022a59f7ca26",
+      "from": "claim_ac2afefdedced930",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_526189e8a105704e",
+      "from": "source_53d5659816e88377",
+      "to": "claim_acb97dc3db209ba8",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_00775ff37071cd6b",
+      "from": "claim_acb97dc3db209ba8",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_6d9c4874a5c3fb9d",
+      "from": "source_ed34f8e5d3e7ba50",
+      "to": "claim_e32644b06abf238b",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_29d78b33058c0096",
+      "from": "claim_e32644b06abf238b",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_7f68b6b324589253",
+      "from": "source_5d3aff0aba5d0b8a",
+      "to": "claim_4c6d98fbbab6f13b",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_3bc8d67d08799a2d",
+      "from": "claim_4c6d98fbbab6f13b",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_a4af72439a99bb74",
+      "from": "source_b4c2c75e8fc382c7",
+      "to": "claim_cc17648aaa8266bf",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_7c7c0cad73349ac6",
+      "from": "claim_cc17648aaa8266bf",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_e2089566f95e657d",
+      "from": "source_8810c478932a8769",
+      "to": "claim_9c25e1ce7b0a49ea",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_eb963bf1f9b38cf9",
+      "from": "claim_9c25e1ce7b0a49ea",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_8baf2df75c047808",
+      "from": "source_6f1bf72c97e7993e",
+      "to": "claim_3ba7ff30b574aa6c",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_db8992445c3b2de6",
+      "from": "claim_3ba7ff30b574aa6c",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_e1b3950846b56835",
+      "from": "source_743bfa6f4f42d6af",
+      "to": "claim_e6e066f0ab2a3211",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_6818793840687b7a",
+      "from": "claim_e6e066f0ab2a3211",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_2db4561846f250be",
+      "from": "source_caaa735c832bdb26",
+      "to": "claim_6d3647c583d2fd59",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_079e1853985c49df",
+      "from": "claim_6d3647c583d2fd59",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_43ca5b5657eba5cc",
+      "from": "source_f20a72ef4371b0a4",
+      "to": "claim_090b839106343c78",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_42892234c6c90396",
+      "from": "claim_090b839106343c78",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_78903527e5e3451b",
+      "from": "source_3868a8d41a043ac9",
+      "to": "claim_a634af83b204adc3",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_d5b541a3d6ead610",
+      "from": "claim_a634af83b204adc3",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_221208e3fb5bb6e4",
+      "from": "source_0778f93b3ef227dd",
+      "to": "claim_ee5bf5bfca5beadb",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_50166696b7010d27",
+      "from": "claim_ee5bf5bfca5beadb",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_28c0c29fb301cefd",
+      "from": "source_4307222bc7e5f2e4",
+      "to": "claim_689fdd2e778867cb",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_f97ecaa556c03ba8",
+      "from": "claim_689fdd2e778867cb",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_a62ba3bce9113b5c",
+      "from": "source_8eb12065b9344787",
+      "to": "claim_4ecb365abc1a570f",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_8fc02ad6612698a2",
+      "from": "claim_4ecb365abc1a570f",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_05620fe501134885",
+      "from": "source_29b0e61ec6cd1ed3",
+      "to": "claim_6851c3803425dd32",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_cf81130b7ac1542a",
+      "from": "claim_6851c3803425dd32",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_96b277676715348d",
+      "from": "source_c6e65b0c21ea1dd8",
+      "to": "claim_c0d9f45c6fdc8965",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_b4cea4aaff62f527",
+      "from": "claim_c0d9f45c6fdc8965",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_ba4449e50b2c15e1",
+      "from": "source_4f7f9f2682d47c8a",
+      "to": "claim_cbb13f3c18a47a50",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_bab435d68d6553f0",
+      "from": "claim_cbb13f3c18a47a50",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_6149fdf6979e4685",
+      "from": "update_be3662f9f28c3855",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_2816b45b536cfa9c",
+      "from": "source_258cade2cefa3253",
+      "to": "claim_9bf2269feac5e837",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_0e0fae3a7f49ad8c",
+      "from": "claim_9bf2269feac5e837",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "update_evidence_for",
+      "updateTitle": "GPT-5.6 Sol降价至少延至11月"
+    },
+    {
+      "id": "edge_e530c696e6da1167",
+      "from": "claim_cbb13f3c18a47a50",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "update_evidence_for",
+      "updateTitle": "GPT-5.6 Sol降价至少延至11月"
+    },
+    {
+      "id": "edge_57f8d4ef95b8a8cf",
+      "from": "update_5154656724ad2b62",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_49ca558bad2ee1b6",
+      "from": "claim_6851c3803425dd32",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "update_evidence_for",
+      "updateTitle": "OpenAI向受信伙伴开放网络模型"
+    },
+    {
+      "id": "edge_25d39ab0e783ad44",
+      "from": "source_970979cb607942aa",
+      "to": "claim_4c9d69efe848c7cb",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_81e0a3c3a14e1274",
+      "from": "claim_4c9d69efe848c7cb",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "update_evidence_for",
+      "updateTitle": "OpenAI向受信伙伴开放网络模型"
+    },
+    {
+      "id": "edge_3a1ffb8c67ebd53e",
+      "from": "source_88ca535a278fef4f",
+      "to": "claim_8e667d00282a8ab8",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_a9ce4a83e787bbe9",
+      "from": "claim_8e667d00282a8ab8",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "update_evidence_for",
+      "updateTitle": "OpenAI向受信伙伴开放网络模型"
+    },
+    {
+      "id": "edge_5cf8a09cf027638f",
+      "from": "claim_c0d9f45c6fdc8965",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "update_evidence_for",
+      "updateTitle": "OpenAI向受信伙伴开放网络模型"
+    },
+    {
+      "id": "edge_a3ed48c0f11d7847",
+      "from": "source_ed34f8e5d3e7ba50",
+      "to": "claim_e645f30fc0b95c81",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_0241d2cf737a9dff",
+      "from": "claim_e645f30fc0b95c81",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "update_evidence_for",
+      "updateTitle": "OpenAI向受信伙伴开放网络模型"
+    },
+    {
+      "id": "edge_7bd31f6eda5bf901",
+      "from": "update_0107adde250d2cac",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_2153e340c9048041",
+      "from": "claim_ee5bf5bfca5beadb",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "update_evidence_for",
+      "updateTitle": "Claude Sonnet 5永久降价"
+    },
+    {
+      "id": "edge_1d8599661f37b4b9",
+      "from": "source_857d7c4ab2ba1304",
+      "to": "claim_ffc3bf8179d5d8a0",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_184bef2f12cf705f",
+      "from": "claim_ffc3bf8179d5d8a0",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "update_evidence_for",
+      "updateTitle": "Claude Sonnet 5永久降价"
+    },
+    {
+      "id": "edge_015377125bcc1736",
+      "from": "source_caaa735c832bdb26",
+      "to": "claim_1be13f855aa923db",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_b083d9ecc8028564",
+      "from": "claim_1be13f855aa923db",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "update_evidence_for",
+      "updateTitle": "Claude Sonnet 5永久降价"
+    },
+    {
+      "id": "edge_8b627debd1970d2a",
+      "from": "claim_689fdd2e778867cb",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "update_evidence_for",
+      "updateTitle": "Claude Sonnet 5永久降价"
+    },
+    {
+      "id": "edge_d5c1e68a92513ce4",
+      "from": "claim_4ecb365abc1a570f",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "update_evidence_for",
+      "updateTitle": "Claude Sonnet 5永久降价"
+    },
+    {
+      "id": "edge_2438d4c99f72e93a",
+      "from": "update_a5c6ffd14b18df1b",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_3b978835827b8a0f",
+      "from": "source_743bfa6f4f42d6af",
+      "to": "claim_b42b6513086cc58e",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_944c021e01327daf",
+      "from": "claim_b42b6513086cc58e",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "update_evidence_for",
+      "updateTitle": "GPT-5.6 Sol上线Ultrafast预览"
+    },
+    {
+      "id": "edge_a881d0e331228e40",
+      "from": "claim_a634af83b204adc3",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "update_evidence_for",
+      "updateTitle": "GPT-5.6 Sol上线Ultrafast预览"
+    },
+    {
+      "id": "edge_cb06b3bdf167d306",
+      "from": "update_8a229cd5e21c179f",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_268b6d98b975faf4",
+      "from": "claim_3ba7ff30b574aa6c",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "update_evidence_for",
+      "updateTitle": "OpenAI为GPT-5.6 Sol推出Ultrafast"
+    },
+    {
+      "id": "edge_5afcdfe48f65b2ee",
+      "from": "claim_e6e066f0ab2a3211",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "update_evidence_for",
+      "updateTitle": "OpenAI为GPT-5.6 Sol推出Ultrafast"
+    },
+    {
+      "id": "edge_894e879540c45d46",
+      "from": "claim_6d3647c583d2fd59",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "update_evidence_for",
+      "updateTitle": "OpenAI为GPT-5.6 Sol推出Ultrafast"
+    },
+    {
+      "id": "edge_6b3ad5b1d5989769",
+      "from": "claim_090b839106343c78",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "update_evidence_for",
+      "updateTitle": "OpenAI为GPT-5.6 Sol推出Ultrafast"
+    },
+    {
+      "id": "edge_61fc36e5926bf65f",
+      "from": "update_d0ab00fc4414eede",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_8b19720da0c4f2a0",
+      "from": "claim_4c6d98fbbab6f13b",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "update_evidence_for",
+      "updateTitle": "Daybreak接入Amazon Bedrock"
+    },
+    {
+      "id": "edge_d8ecd253006aa5b1",
+      "from": "claim_cc17648aaa8266bf",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "update_evidence_for",
+      "updateTitle": "Daybreak接入Amazon Bedrock"
+    },
+    {
+      "id": "edge_fbe23745c7380902",
+      "from": "claim_9c25e1ce7b0a49ea",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "update_evidence_for",
+      "updateTitle": "Daybreak接入Amazon Bedrock"
+    },
+    {
+      "id": "edge_ce2a36c6dab8dba4",
+      "from": "update_8a0fa3c68bc59ad5",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_dbd4d135407fc28d",
+      "from": "claim_acb97dc3db209ba8",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "update_evidence_for",
+      "updateTitle": "Daybreak补齐分层与访问边界"
+    },
+    {
+      "id": "edge_b09a1f90de052483",
+      "from": "source_1d9bb896d76302f3",
+      "to": "claim_8310a467c061a556",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_9331adcfaadda050",
+      "from": "claim_8310a467c061a556",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "update_evidence_for",
+      "updateTitle": "Daybreak补齐分层与访问边界"
+    },
+    {
+      "id": "edge_a38c2cdd4bfd0519",
+      "from": "claim_e32644b06abf238b",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "update_evidence_for",
+      "updateTitle": "Daybreak补齐分层与访问边界"
+    },
+    {
+      "id": "edge_c63dfc95aeaf2d6a",
+      "from": "source_88ca535a278fef4f",
+      "to": "claim_b50af1d3f1c6838c",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_1beaf6647e9b9b73",
+      "from": "claim_b50af1d3f1c6838c",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "update_evidence_for",
+      "updateTitle": "Daybreak补齐分层与访问边界"
+    },
+    {
+      "id": "edge_194f96048c130670",
+      "from": "update_4eca18d8c048cc01",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_efa978fb85668e82",
+      "from": "claim_8a0f8f76f5de6b7e",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "update_evidence_for",
+      "updateTitle": "GPT-5.6-Cyber纳入Daybreak"
+    },
+    {
+      "id": "edge_4bce36cca8e5a227",
+      "from": "claim_739ef14db503ee11",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "update_evidence_for",
+      "updateTitle": "GPT-5.6-Cyber纳入Daybreak"
+    },
+    {
+      "id": "edge_0b5b25354a5fab41",
+      "from": "claim_8d185d575e3c3ddb",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "update_evidence_for",
+      "updateTitle": "GPT-5.6-Cyber纳入Daybreak"
+    },
+    {
+      "id": "edge_8202defe692aa753",
+      "from": "claim_ac2afefdedced930",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "update_evidence_for",
+      "updateTitle": "GPT-5.6-Cyber纳入Daybreak"
+    },
+    {
+      "id": "edge_a677d733e324ae8d",
+      "from": "update_096a9dc1e4574cc1",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_57a92659b2932cb9",
+      "from": "claim_bda11b0acb276148",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "update_evidence_for",
+      "updateTitle": "GPT-5.6-Cyber接入Daybreak Red"
+    },
+    {
+      "id": "edge_62b97507740a0f85",
+      "from": "source_88ca535a278fef4f",
+      "to": "claim_34c93c743fbfa3fc",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_0c3d4cafd3b4ad25",
+      "from": "claim_34c93c743fbfa3fc",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "update_evidence_for",
+      "updateTitle": "GPT-5.6-Cyber接入Daybreak Red"
+    },
+    {
+      "id": "edge_c4bebb3d0519ba0e",
+      "from": "claim_fa6173ff6447d327",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "update_evidence_for",
+      "updateTitle": "GPT-5.6-Cyber接入Daybreak Red"
+    },
+    {
+      "id": "edge_b82b8c44575fa1f1",
+      "from": "claim_8d5d1d88ab117d43",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "update_evidence_for",
+      "updateTitle": "GPT-5.6-Cyber接入Daybreak Red"
+    },
+    {
+      "id": "edge_dd97bc74c19ab135",
+      "from": "claim_910a1b8d87a40e78",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "update_evidence_for",
+      "updateTitle": "GPT-5.6-Cyber接入Daybreak Red"
+    },
+    {
+      "id": "edge_5bbb59eea0105f33",
+      "from": "update_262da49d62318098",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_497917256a6dc887",
+      "from": "claim_8f8a740c3417c8e8",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "update_evidence_for",
+      "updateTitle": "GPT-5.6-Cyber扩大可信伙伴访问"
+    },
+    {
+      "id": "edge_1718f1ce1f346fab",
+      "from": "claim_249980007163e45b",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "update_evidence_for",
+      "updateTitle": "GPT-5.6-Cyber扩大可信伙伴访问"
+    },
+    {
+      "id": "edge_33b40b16aec3920c",
+      "from": "claim_bfa9d2e56923018e",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "update_evidence_for",
+      "updateTitle": "GPT-5.6-Cyber扩大可信伙伴访问"
+    },
+    {
+      "id": "edge_166c55de4df86356",
+      "from": "claim_fff7f89ce8715d2a",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "update_evidence_for",
+      "updateTitle": "GPT-5.6-Cyber扩大可信伙伴访问"
+    },
+    {
+      "id": "edge_0f9fce3e5371064e",
+      "from": "source_2d8a643762c51828",
+      "to": "claim_c6db15281b1fb98e",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_6bdcfbd3ac449c7f",
+      "from": "claim_c6db15281b1fb98e",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "update_evidence_for",
+      "updateTitle": "GPT-5.6-Cyber扩大可信伙伴访问"
+    },
+    {
+      "id": "edge_2ec5b58502f00493",
+      "from": "update_4225c33731b80fdc",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_279243c4e907e0af",
+      "from": "claim_1f65c1e091d3e370",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "update_evidence_for",
+      "updateTitle": "GPT-5.6 Sol成为旗舰层"
+    },
+    {
+      "id": "edge_fb690d5ab3248ab4",
+      "from": "claim_972dc74cc20064ea",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "update_evidence_for",
+      "updateTitle": "GPT-5.6 Sol成为旗舰层"
+    },
+    {
+      "id": "edge_a8f501cad7ccfeff",
+      "from": "claim_dbc450cf7fa4b5f6",
+      "to": "event_ded79f4f58feab3e",
+      "relation": "update_evidence_for",
+      "updateTitle": "GPT-5.6 Sol成为旗舰层"
+    },
+    {
       "id": "edge_105aa36c9e988d6e",
       "from": "event_fd6738bc4783b911",
       "to": "article_b56f0e63c13abe3d",
@@ -21869,261 +23083,6 @@
       "to": "event_a55c7b236981d2db",
       "relation": "update_evidence_for",
       "updateTitle": "官方页面列出十项研究结果"
-    },
-    {
-      "id": "edge_11afeea28290e859",
-      "from": "event_1c0e52d26f417ac9",
-      "to": "article_6154bfc5759e6911",
-      "relation": "rendered_as"
-    },
-    {
-      "id": "edge_047be5075d8b7966",
-      "from": "source_0122ec2217c08ff3",
-      "to": "claim_b63375fbf9193803",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_a9f0c02570fbf5d3",
-      "from": "claim_b63375fbf9193803",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_3d14aa2f70722f03",
-      "from": "source_95824baa8e354aed",
-      "to": "claim_e1973cd23f275af9",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_c64e836ce0a8700f",
-      "from": "claim_e1973cd23f275af9",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_0d7dbdec686a3c36",
-      "from": "source_8010a95ae63d6168",
-      "to": "claim_201df8160502d32a",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_4bbec55b45ba7674",
-      "from": "claim_201df8160502d32a",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_ad2d4fa81d05d207",
-      "from": "source_251e738970217249",
-      "to": "claim_74d35ff4c3a0f2f2",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_81b542536eaad700",
-      "from": "claim_74d35ff4c3a0f2f2",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_27e02053656eae8d",
-      "from": "source_bd2e1b0a3e1a96ee",
-      "to": "claim_9c7cafdad778259c",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_70b72e566972e161",
-      "from": "claim_9c7cafdad778259c",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_453f595bd29ae853",
-      "from": "source_6544a97b36dc6167",
-      "to": "claim_494f6a15f4695eb2",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_118e8d39b046362c",
-      "from": "claim_494f6a15f4695eb2",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_eebc0a3841498c9a",
-      "from": "source_af67c54c62f39511",
-      "to": "claim_ba75213e2337de6a",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_fb6a4d832a82fec6",
-      "from": "claim_ba75213e2337de6a",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_7cbd4f43b42f2595",
-      "from": "source_ec9a222d8ad39ae8",
-      "to": "claim_f3b42132d04805c4",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_e63cd7bca71a1692",
-      "from": "claim_f3b42132d04805c4",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_8dc054247bdfd844",
-      "from": "source_924b421a0abaae18",
-      "to": "claim_590f7a5977c02569",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_c2c38ce730f31039",
-      "from": "claim_590f7a5977c02569",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_8b2adb8e00d72ba9",
-      "from": "source_1f075c4afaa90ac5",
-      "to": "claim_bf601259bc0c00a2",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_a2b072f22b67aa57",
-      "from": "claim_bf601259bc0c00a2",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_8e4f3080fd4cdfb3",
-      "from": "source_14f10bd390e866e7",
-      "to": "claim_e1d87ad7353a356c",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_efdb3b51503db286",
-      "from": "claim_e1d87ad7353a356c",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_3a21131425c7c2bc",
-      "from": "update_541ab29136cdd945",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_7de25fd4a0856902",
-      "from": "claim_e1d87ad7353a356c",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "update_evidence_for",
-      "updateTitle": "NVIDIA锁定俄亥俄算力园区"
-    },
-    {
-      "id": "edge_0ae820d7a5e68679",
-      "from": "update_2700c096455f480f",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_129047fa057a4969",
-      "from": "claim_590f7a5977c02569",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "update_evidence_for",
-      "updateTitle": "NVIDIA收缩OpenAI担保规模"
-    },
-    {
-      "id": "edge_32d4bfff562b8aa2",
-      "from": "claim_bf601259bc0c00a2",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "update_evidence_for",
-      "updateTitle": "NVIDIA收缩OpenAI担保规模"
-    },
-    {
-      "id": "edge_095e368676b50fff",
-      "from": "update_0ceb7a6d9cbd3424",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_40378c1ae36ae86c",
-      "from": "claim_f3b42132d04805c4",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "update_evidence_for",
-      "updateTitle": "NVIDIA据报拟投SB Energy"
-    },
-    {
-      "id": "edge_bb780e8879fc6b9b",
-      "from": "update_40425cc133455c1a",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_2b69c9c3bfcf677d",
-      "from": "claim_74d35ff4c3a0f2f2",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "update_evidence_for",
-      "updateTitle": "NVIDIA收缩OpenAI项目担保"
-    },
-    {
-      "id": "edge_02c37a93ea0aff00",
-      "from": "claim_9c7cafdad778259c",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "update_evidence_for",
-      "updateTitle": "NVIDIA收缩OpenAI项目担保"
-    },
-    {
-      "id": "edge_f5b1ffa4708429c0",
-      "from": "claim_494f6a15f4695eb2",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "update_evidence_for",
-      "updateTitle": "NVIDIA收缩OpenAI项目担保"
-    },
-    {
-      "id": "edge_05fa4d5aeb4a5835",
-      "from": "claim_ba75213e2337de6a",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "update_evidence_for",
-      "updateTitle": "NVIDIA收缩OpenAI项目担保"
-    },
-    {
-      "id": "edge_210188a21e080d83",
-      "from": "update_06712410f23a1697",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_b99c2467d9f45d87",
-      "from": "claim_201df8160502d32a",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "update_evidence_for",
-      "updateTitle": "NVIDIA补充硬件残值保障"
-    },
-    {
-      "id": "edge_44e9c74f8ac41646",
-      "from": "update_e787822bc31fa533",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_7aa62020db35a648",
-      "from": "claim_e1973cd23f275af9",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "update_evidence_for",
-      "updateTitle": "BBC佐证5000亿美元算力融资"
     },
     {
       "id": "edge_f9017e7aa2a33677",
@@ -25487,841 +26446,6 @@
       "to": "event_12699b275732ac05",
       "relation": "update_evidence_for",
       "updateTitle": "SpaceX正式完成收购Cursor"
-    },
-    {
-      "id": "edge_0d53b26b270e0716",
-      "from": "event_ded79f4f58feab3e",
-      "to": "article_6fe3700cec641a0d",
-      "relation": "rendered_as"
-    },
-    {
-      "id": "edge_4b848737a20d3572",
-      "from": "source_dca7adc62d79fe1c",
-      "to": "claim_ed4ddf169b2b9266",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_6686b81a8288957d",
-      "from": "claim_ed4ddf169b2b9266",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_6a36bf39a212ef16",
-      "from": "source_7bc027728ff8ee44",
-      "to": "claim_5f33eeb99ba6243b",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_1fb523485cb535af",
-      "from": "claim_5f33eeb99ba6243b",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_dfd33044e4b486e5",
-      "from": "source_857d7c4ab2ba1304",
-      "to": "claim_fbd95a786f5a6ac4",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_f4129e5cffedcc4d",
-      "from": "claim_fbd95a786f5a6ac4",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_fb74e8d85b295ef0",
-      "from": "source_eb2b47d50db42393",
-      "to": "claim_1f65c1e091d3e370",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_9e43506309f24c09",
-      "from": "claim_1f65c1e091d3e370",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_f1c617559f698869",
-      "from": "source_258cade2cefa3253",
-      "to": "claim_972dc74cc20064ea",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_0560109e31c1a2b3",
-      "from": "claim_972dc74cc20064ea",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_52e7e7192127bdba",
-      "from": "source_2d8a643762c51828",
-      "to": "claim_dbc450cf7fa4b5f6",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_2bf0b8ac2f9f8395",
-      "from": "claim_dbc450cf7fa4b5f6",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_bd9e451a96d1701c",
-      "from": "source_f86f68dff2cfb3c8",
-      "to": "claim_8f8a740c3417c8e8",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_bdd4a6ad924977be",
-      "from": "claim_8f8a740c3417c8e8",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_22422900901d0048",
-      "from": "source_649d3e805e1f6bca",
-      "to": "claim_249980007163e45b",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_94c1df53577e1f24",
-      "from": "claim_249980007163e45b",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_edd8e1ab5c71d6c5",
-      "from": "source_66c169853eb67829",
-      "to": "claim_bfa9d2e56923018e",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_e03e402df294e5dd",
-      "from": "claim_bfa9d2e56923018e",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_27b02fe50eb0b9f7",
-      "from": "source_88ca535a278fef4f",
-      "to": "claim_fff7f89ce8715d2a",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_3c8662bc6a21c2f4",
-      "from": "claim_fff7f89ce8715d2a",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_5ffd705abaa1aecb",
-      "from": "source_081601c279be28d3",
-      "to": "claim_bda11b0acb276148",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_9911e6382fcd2fdd",
-      "from": "claim_bda11b0acb276148",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_5a3e3de7bad1b343",
-      "from": "source_238c8d8bf6e82e96",
-      "to": "claim_fa6173ff6447d327",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_f62e7287d18ec689",
-      "from": "claim_fa6173ff6447d327",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_a61fa4759d8d409f",
-      "from": "source_7df1ce629ccbc108",
-      "to": "claim_8d5d1d88ab117d43",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_41b2a1aab2d797c8",
-      "from": "claim_8d5d1d88ab117d43",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_1aac3f0d2ad436cc",
-      "from": "source_605b54423210186e",
-      "to": "claim_910a1b8d87a40e78",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_74971431787e7d85",
-      "from": "claim_910a1b8d87a40e78",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_70a561960f4165b2",
-      "from": "source_0212f9770ddac1d8",
-      "to": "claim_8a0f8f76f5de6b7e",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_fa298942d7d8bb93",
-      "from": "claim_8a0f8f76f5de6b7e",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_98ec7199eee70251",
-      "from": "source_1d9bb896d76302f3",
-      "to": "claim_739ef14db503ee11",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_692f3270e3389fd8",
-      "from": "claim_739ef14db503ee11",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_111bde75fba67846",
-      "from": "source_970979cb607942aa",
-      "to": "claim_8d185d575e3c3ddb",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_ba381408c88b6adc",
-      "from": "claim_8d185d575e3c3ddb",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_aee914f72265146d",
-      "from": "source_ec5d8e7d6a1b2c7c",
-      "to": "claim_ac2afefdedced930",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_79e0022a59f7ca26",
-      "from": "claim_ac2afefdedced930",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_526189e8a105704e",
-      "from": "source_53d5659816e88377",
-      "to": "claim_acb97dc3db209ba8",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_00775ff37071cd6b",
-      "from": "claim_acb97dc3db209ba8",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_6d9c4874a5c3fb9d",
-      "from": "source_ed34f8e5d3e7ba50",
-      "to": "claim_e32644b06abf238b",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_29d78b33058c0096",
-      "from": "claim_e32644b06abf238b",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_7f68b6b324589253",
-      "from": "source_5d3aff0aba5d0b8a",
-      "to": "claim_4c6d98fbbab6f13b",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_3bc8d67d08799a2d",
-      "from": "claim_4c6d98fbbab6f13b",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_a4af72439a99bb74",
-      "from": "source_b4c2c75e8fc382c7",
-      "to": "claim_cc17648aaa8266bf",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_7c7c0cad73349ac6",
-      "from": "claim_cc17648aaa8266bf",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_e2089566f95e657d",
-      "from": "source_8810c478932a8769",
-      "to": "claim_9c25e1ce7b0a49ea",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_eb963bf1f9b38cf9",
-      "from": "claim_9c25e1ce7b0a49ea",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_8baf2df75c047808",
-      "from": "source_6f1bf72c97e7993e",
-      "to": "claim_3ba7ff30b574aa6c",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_db8992445c3b2de6",
-      "from": "claim_3ba7ff30b574aa6c",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_e1b3950846b56835",
-      "from": "source_743bfa6f4f42d6af",
-      "to": "claim_e6e066f0ab2a3211",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_6818793840687b7a",
-      "from": "claim_e6e066f0ab2a3211",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_2db4561846f250be",
-      "from": "source_caaa735c832bdb26",
-      "to": "claim_6d3647c583d2fd59",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_079e1853985c49df",
-      "from": "claim_6d3647c583d2fd59",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_43ca5b5657eba5cc",
-      "from": "source_f20a72ef4371b0a4",
-      "to": "claim_090b839106343c78",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_42892234c6c90396",
-      "from": "claim_090b839106343c78",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_78903527e5e3451b",
-      "from": "source_3868a8d41a043ac9",
-      "to": "claim_a634af83b204adc3",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_d5b541a3d6ead610",
-      "from": "claim_a634af83b204adc3",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_221208e3fb5bb6e4",
-      "from": "source_0778f93b3ef227dd",
-      "to": "claim_ee5bf5bfca5beadb",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_50166696b7010d27",
-      "from": "claim_ee5bf5bfca5beadb",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_28c0c29fb301cefd",
-      "from": "source_4307222bc7e5f2e4",
-      "to": "claim_689fdd2e778867cb",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_f97ecaa556c03ba8",
-      "from": "claim_689fdd2e778867cb",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_a62ba3bce9113b5c",
-      "from": "source_8eb12065b9344787",
-      "to": "claim_4ecb365abc1a570f",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_8fc02ad6612698a2",
-      "from": "claim_4ecb365abc1a570f",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_05620fe501134885",
-      "from": "source_29b0e61ec6cd1ed3",
-      "to": "claim_6851c3803425dd32",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_cf81130b7ac1542a",
-      "from": "claim_6851c3803425dd32",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_96b277676715348d",
-      "from": "source_c6e65b0c21ea1dd8",
-      "to": "claim_c0d9f45c6fdc8965",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_b4cea4aaff62f527",
-      "from": "claim_c0d9f45c6fdc8965",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_57f8d4ef95b8a8cf",
-      "from": "update_5154656724ad2b62",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_49ca558bad2ee1b6",
-      "from": "claim_6851c3803425dd32",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "update_evidence_for",
-      "updateTitle": "OpenAI向受信伙伴开放网络模型"
-    },
-    {
-      "id": "edge_25d39ab0e783ad44",
-      "from": "source_970979cb607942aa",
-      "to": "claim_4c9d69efe848c7cb",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_81e0a3c3a14e1274",
-      "from": "claim_4c9d69efe848c7cb",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "update_evidence_for",
-      "updateTitle": "OpenAI向受信伙伴开放网络模型"
-    },
-    {
-      "id": "edge_3a1ffb8c67ebd53e",
-      "from": "source_88ca535a278fef4f",
-      "to": "claim_8e667d00282a8ab8",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_a9ce4a83e787bbe9",
-      "from": "claim_8e667d00282a8ab8",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "update_evidence_for",
-      "updateTitle": "OpenAI向受信伙伴开放网络模型"
-    },
-    {
-      "id": "edge_5cf8a09cf027638f",
-      "from": "claim_c0d9f45c6fdc8965",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "update_evidence_for",
-      "updateTitle": "OpenAI向受信伙伴开放网络模型"
-    },
-    {
-      "id": "edge_a3ed48c0f11d7847",
-      "from": "source_ed34f8e5d3e7ba50",
-      "to": "claim_e645f30fc0b95c81",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_0241d2cf737a9dff",
-      "from": "claim_e645f30fc0b95c81",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "update_evidence_for",
-      "updateTitle": "OpenAI向受信伙伴开放网络模型"
-    },
-    {
-      "id": "edge_7bd31f6eda5bf901",
-      "from": "update_0107adde250d2cac",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_2153e340c9048041",
-      "from": "claim_ee5bf5bfca5beadb",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "update_evidence_for",
-      "updateTitle": "Claude Sonnet 5永久降价"
-    },
-    {
-      "id": "edge_1d8599661f37b4b9",
-      "from": "source_857d7c4ab2ba1304",
-      "to": "claim_ffc3bf8179d5d8a0",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_184bef2f12cf705f",
-      "from": "claim_ffc3bf8179d5d8a0",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "update_evidence_for",
-      "updateTitle": "Claude Sonnet 5永久降价"
-    },
-    {
-      "id": "edge_015377125bcc1736",
-      "from": "source_caaa735c832bdb26",
-      "to": "claim_1be13f855aa923db",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_b083d9ecc8028564",
-      "from": "claim_1be13f855aa923db",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "update_evidence_for",
-      "updateTitle": "Claude Sonnet 5永久降价"
-    },
-    {
-      "id": "edge_8b627debd1970d2a",
-      "from": "claim_689fdd2e778867cb",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "update_evidence_for",
-      "updateTitle": "Claude Sonnet 5永久降价"
-    },
-    {
-      "id": "edge_d5c1e68a92513ce4",
-      "from": "claim_4ecb365abc1a570f",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "update_evidence_for",
-      "updateTitle": "Claude Sonnet 5永久降价"
-    },
-    {
-      "id": "edge_2438d4c99f72e93a",
-      "from": "update_a5c6ffd14b18df1b",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_3b978835827b8a0f",
-      "from": "source_743bfa6f4f42d6af",
-      "to": "claim_b42b6513086cc58e",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_944c021e01327daf",
-      "from": "claim_b42b6513086cc58e",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "update_evidence_for",
-      "updateTitle": "GPT-5.6 Sol上线Ultrafast预览"
-    },
-    {
-      "id": "edge_a881d0e331228e40",
-      "from": "claim_a634af83b204adc3",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "update_evidence_for",
-      "updateTitle": "GPT-5.6 Sol上线Ultrafast预览"
-    },
-    {
-      "id": "edge_cb06b3bdf167d306",
-      "from": "update_8a229cd5e21c179f",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_268b6d98b975faf4",
-      "from": "claim_3ba7ff30b574aa6c",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "update_evidence_for",
-      "updateTitle": "OpenAI为GPT-5.6 Sol推出Ultrafast"
-    },
-    {
-      "id": "edge_5afcdfe48f65b2ee",
-      "from": "claim_e6e066f0ab2a3211",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "update_evidence_for",
-      "updateTitle": "OpenAI为GPT-5.6 Sol推出Ultrafast"
-    },
-    {
-      "id": "edge_894e879540c45d46",
-      "from": "claim_6d3647c583d2fd59",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "update_evidence_for",
-      "updateTitle": "OpenAI为GPT-5.6 Sol推出Ultrafast"
-    },
-    {
-      "id": "edge_6b3ad5b1d5989769",
-      "from": "claim_090b839106343c78",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "update_evidence_for",
-      "updateTitle": "OpenAI为GPT-5.6 Sol推出Ultrafast"
-    },
-    {
-      "id": "edge_61fc36e5926bf65f",
-      "from": "update_d0ab00fc4414eede",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_8b19720da0c4f2a0",
-      "from": "claim_4c6d98fbbab6f13b",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "update_evidence_for",
-      "updateTitle": "Daybreak接入Amazon Bedrock"
-    },
-    {
-      "id": "edge_d8ecd253006aa5b1",
-      "from": "claim_cc17648aaa8266bf",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "update_evidence_for",
-      "updateTitle": "Daybreak接入Amazon Bedrock"
-    },
-    {
-      "id": "edge_fbe23745c7380902",
-      "from": "claim_9c25e1ce7b0a49ea",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "update_evidence_for",
-      "updateTitle": "Daybreak接入Amazon Bedrock"
-    },
-    {
-      "id": "edge_ce2a36c6dab8dba4",
-      "from": "update_8a0fa3c68bc59ad5",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_dbd4d135407fc28d",
-      "from": "claim_acb97dc3db209ba8",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "update_evidence_for",
-      "updateTitle": "Daybreak补齐分层与访问边界"
-    },
-    {
-      "id": "edge_b09a1f90de052483",
-      "from": "source_1d9bb896d76302f3",
-      "to": "claim_8310a467c061a556",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_9331adcfaadda050",
-      "from": "claim_8310a467c061a556",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "update_evidence_for",
-      "updateTitle": "Daybreak补齐分层与访问边界"
-    },
-    {
-      "id": "edge_a38c2cdd4bfd0519",
-      "from": "claim_e32644b06abf238b",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "update_evidence_for",
-      "updateTitle": "Daybreak补齐分层与访问边界"
-    },
-    {
-      "id": "edge_c63dfc95aeaf2d6a",
-      "from": "source_88ca535a278fef4f",
-      "to": "claim_b50af1d3f1c6838c",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_1beaf6647e9b9b73",
-      "from": "claim_b50af1d3f1c6838c",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "update_evidence_for",
-      "updateTitle": "Daybreak补齐分层与访问边界"
-    },
-    {
-      "id": "edge_194f96048c130670",
-      "from": "update_4eca18d8c048cc01",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_efa978fb85668e82",
-      "from": "claim_8a0f8f76f5de6b7e",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "update_evidence_for",
-      "updateTitle": "GPT-5.6-Cyber纳入Daybreak"
-    },
-    {
-      "id": "edge_4bce36cca8e5a227",
-      "from": "claim_739ef14db503ee11",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "update_evidence_for",
-      "updateTitle": "GPT-5.6-Cyber纳入Daybreak"
-    },
-    {
-      "id": "edge_0b5b25354a5fab41",
-      "from": "claim_8d185d575e3c3ddb",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "update_evidence_for",
-      "updateTitle": "GPT-5.6-Cyber纳入Daybreak"
-    },
-    {
-      "id": "edge_8202defe692aa753",
-      "from": "claim_ac2afefdedced930",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "update_evidence_for",
-      "updateTitle": "GPT-5.6-Cyber纳入Daybreak"
-    },
-    {
-      "id": "edge_a677d733e324ae8d",
-      "from": "update_096a9dc1e4574cc1",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_57a92659b2932cb9",
-      "from": "claim_bda11b0acb276148",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "update_evidence_for",
-      "updateTitle": "GPT-5.6-Cyber接入Daybreak Red"
-    },
-    {
-      "id": "edge_62b97507740a0f85",
-      "from": "source_88ca535a278fef4f",
-      "to": "claim_34c93c743fbfa3fc",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_0c3d4cafd3b4ad25",
-      "from": "claim_34c93c743fbfa3fc",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "update_evidence_for",
-      "updateTitle": "GPT-5.6-Cyber接入Daybreak Red"
-    },
-    {
-      "id": "edge_c4bebb3d0519ba0e",
-      "from": "claim_fa6173ff6447d327",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "update_evidence_for",
-      "updateTitle": "GPT-5.6-Cyber接入Daybreak Red"
-    },
-    {
-      "id": "edge_b82b8c44575fa1f1",
-      "from": "claim_8d5d1d88ab117d43",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "update_evidence_for",
-      "updateTitle": "GPT-5.6-Cyber接入Daybreak Red"
-    },
-    {
-      "id": "edge_dd97bc74c19ab135",
-      "from": "claim_910a1b8d87a40e78",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "update_evidence_for",
-      "updateTitle": "GPT-5.6-Cyber接入Daybreak Red"
-    },
-    {
-      "id": "edge_5bbb59eea0105f33",
-      "from": "update_262da49d62318098",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_497917256a6dc887",
-      "from": "claim_8f8a740c3417c8e8",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "update_evidence_for",
-      "updateTitle": "GPT-5.6-Cyber扩大可信伙伴访问"
-    },
-    {
-      "id": "edge_1718f1ce1f346fab",
-      "from": "claim_249980007163e45b",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "update_evidence_for",
-      "updateTitle": "GPT-5.6-Cyber扩大可信伙伴访问"
-    },
-    {
-      "id": "edge_33b40b16aec3920c",
-      "from": "claim_bfa9d2e56923018e",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "update_evidence_for",
-      "updateTitle": "GPT-5.6-Cyber扩大可信伙伴访问"
-    },
-    {
-      "id": "edge_166c55de4df86356",
-      "from": "claim_fff7f89ce8715d2a",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "update_evidence_for",
-      "updateTitle": "GPT-5.6-Cyber扩大可信伙伴访问"
-    },
-    {
-      "id": "edge_0f9fce3e5371064e",
-      "from": "source_2d8a643762c51828",
-      "to": "claim_c6db15281b1fb98e",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_6bdcfbd3ac449c7f",
-      "from": "claim_c6db15281b1fb98e",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "update_evidence_for",
-      "updateTitle": "GPT-5.6-Cyber扩大可信伙伴访问"
-    },
-    {
-      "id": "edge_2ec5b58502f00493",
-      "from": "update_4225c33731b80fdc",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_279243c4e907e0af",
-      "from": "claim_1f65c1e091d3e370",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "update_evidence_for",
-      "updateTitle": "GPT-5.6 Sol成为旗舰层"
-    },
-    {
-      "id": "edge_fb690d5ab3248ab4",
-      "from": "claim_972dc74cc20064ea",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "update_evidence_for",
-      "updateTitle": "GPT-5.6 Sol成为旗舰层"
-    },
-    {
-      "id": "edge_a8f501cad7ccfeff",
-      "from": "claim_dbc450cf7fa4b5f6",
-      "to": "event_ded79f4f58feab3e",
-      "relation": "update_evidence_for",
-      "updateTitle": "GPT-5.6 Sol成为旗舰层"
     },
     {
       "id": "edge_9044ae8ac81a450c",
