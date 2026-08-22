@@ -1,16 +1,26 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-22T00:07:50.510Z",
+  "generatedAt": "2026-08-22T02:07:48.708Z",
   "counts": {
-    "sources": 828,
-    "claims": 983,
+    "sources": 832,
+    "claims": 987,
     "events": 201,
     "articles": 201,
-    "updates": 142,
-    "edges": 2642,
-    "revisionsRequired": 13
+    "updates": 143,
+    "edges": 2655,
+    "revisionsRequired": 14
   },
   "revisionQueue": [
+    {
+      "signalId": 94,
+      "eventId": "event_3bdbbc57db124526",
+      "updateId": "update_6cfa9ce505ebd824",
+      "title": "NVIDIA据报押注Stargate供电商",
+      "updateTitle": "OpenAI曾探索持股Lancium",
+      "thesisImpact": "OpenAI据报曾探索入股或收购Lancium，表明Stargate相关电力开发商可能不只是NVIDIA的供电投资标的，也成为模型公司的潜在战略控制点。",
+      "detectedAt": "2026-08-21T23:32:58.000Z",
+      "status": "needs_editorial_revision"
+    },
     {
       "signalId": 102,
       "eventId": "event_1c0e52d26f417ac9",
@@ -143,6 +153,110 @@
     }
   ],
   "nodes": [
+    {
+      "id": "event_3bdbbc57db124526",
+      "type": "event",
+      "signalId": 94,
+      "title": "NVIDIA据报押注Stargate供电商",
+      "bucket": "dynamic",
+      "valueScore": 84,
+      "publishedAt": "2026-08-08T01:23:14.000Z",
+      "updatedAt": "2026-08-21T23:32:58.000Z"
+    },
+    {
+      "id": "article_741bdedfa57a5957",
+      "type": "article",
+      "signalId": 94,
+      "title": "NVIDIA据报押注Stargate供电商",
+      "version": 1,
+      "publishedAt": "2026-08-22T02:07:48.708Z"
+    },
+    {
+      "id": "source_c346c84ebf587101",
+      "type": "source",
+      "title": "The Information",
+      "url": "https://www.theinformation.com/articles/nvidia-invest-3-billion-blackstone-backed-power-firm-behind-stargate",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-08T01:23:14.000Z"
+    },
+    {
+      "id": "claim_a99efbe99e6063e7",
+      "type": "claim",
+      "title": "报道称NVIDIA同意向Lancium投资20亿美元，并在其取得更多规划电力时额外承诺10亿美元，交易对Lancium及其资产估值约100亿美元。",
+      "role": "主张",
+      "addedAt": "2026-08-22T02:07:48.708Z"
+    },
+    {
+      "id": "source_ebd8cd2265dd691d",
+      "type": "source",
+      "title": "The Information",
+      "url": "https://www.theinformation.com/briefings/exclusive-openai-explored-stake-stargate-power-developer-lancium",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-21T23:32:58.000Z"
+    },
+    {
+      "id": "claim_4453449f985a1a9f",
+      "type": "claim",
+      "title": "报道称OpenAI上季度曾探索投资或收购Lancium，最终由NVIDIA推进数十亿美元投资。",
+      "role": "最新进展",
+      "addedAt": "2026-08-22T02:07:48.708Z"
+    },
+    {
+      "id": "source_205b650ac199dfdf",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://openai.com/index/stargate-community/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-01-20T05:00:00.000Z"
+    },
+    {
+      "id": "claim_3847be7aabd49a00",
+      "type": "claim",
+      "title": "OpenAI确认Abilene为首个已训练和服务前沿AI系统的Stargate站点，但公开材料未披露其持有Lancium股权或进行收购。",
+      "role": "背景",
+      "addedAt": "2026-08-22T02:07:48.708Z"
+    },
+    {
+      "id": "source_b736aac4cf5d8c33",
+      "type": "source",
+      "title": "Lancium",
+      "url": "https://lancium.com/2026/07/15/crusoe-and-lancium-announce-1-0-gigawatt-ai-data-center-campus-in-childress-texas/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-07-15T04:00:00.000Z"
+    },
+    {
+      "id": "claim_b091597442fc9453",
+      "type": "claim",
+      "title": "Lancium在德州项目中负责土地、电力互连和能源系统管理，其Childress园区规划与在建规模合计超过2GW。",
+      "role": "佐证",
+      "addedAt": "2026-08-22T02:07:48.708Z"
+    },
+    {
+      "id": "source_661ba2ed241343f5",
+      "type": "source",
+      "title": "Reuters",
+      "url": "https://m.investing.com/news/stock-market-news/nvidia-to-invest-up-to-3-billion-in-lancium-the-information-reports-4847578?ampMode=1",
+      "sourceKind": "Media",
+      "publishedAt": "2026-08-07T04:00:00.000Z"
+    },
+    {
+      "id": "claim_f44a111864f6d552",
+      "type": "claim",
+      "title": "路透社转述NVIDIA对Lancium的据报投资条款，包括20亿美元初始投资及最多10亿美元追加承诺；交易当时未获双方确认。",
+      "role": "佐证",
+      "addedAt": "2026-08-22T02:07:48.708Z"
+    },
+    {
+      "id": "update_6cfa9ce505ebd824",
+      "type": "update",
+      "signalId": 94,
+      "title": "OpenAI曾探索持股Lancium",
+      "summary": "The Information报道称，OpenAI上季度曾探索投资或收购Lancium；该公司是Abilene Stargate项目背后的电力开发商。NVIDIA随后据报推进对Lancium的数十亿美元投资。",
+      "addedAt": "2026-08-21T23:32:58.000Z",
+      "changeType": "thesis_change",
+      "thesisImpact": "OpenAI据报曾探索入股或收购Lancium，表明Stargate相关电力开发商可能不只是NVIDIA的供电投资标的，也成为模型公司的潜在战略控制点。",
+      "revisionRequired": true
+    },
     {
       "id": "event_1c0e52d26f417ac9",
       "type": "event",
@@ -9400,39 +9514,6 @@
       "type": "claim",
       "title": "Arcee AI确认其与美国能源部共同宣布开发Genesis-Science-1，并将其定位为科学研究用开放权重模型。",
       "role": "佐证",
-      "addedAt": "2026-08-08T12:06:52.180Z"
-    },
-    {
-      "id": "event_3bdbbc57db124526",
-      "type": "event",
-      "signalId": 94,
-      "title": "NVIDIA据报押注Stargate供电商",
-      "bucket": "dynamic",
-      "valueScore": 84,
-      "publishedAt": "2026-08-08T01:23:14.000Z",
-      "updatedAt": "2026-08-08T01:23:14.000Z"
-    },
-    {
-      "id": "article_741bdedfa57a5957",
-      "type": "article",
-      "signalId": 94,
-      "title": "NVIDIA据报押注Stargate供电商",
-      "version": 1,
-      "publishedAt": "2026-08-08T12:06:52.180Z"
-    },
-    {
-      "id": "source_c346c84ebf587101",
-      "type": "source",
-      "title": "The Information",
-      "url": "https://www.theinformation.com/articles/nvidia-invest-3-billion-blackstone-backed-power-firm-behind-stargate",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-08T01:23:14.000Z"
-    },
-    {
-      "id": "claim_a99efbe99e6063e7",
-      "type": "claim",
-      "title": "报道称NVIDIA同意向Lancium投资20亿美元，并在其取得更多规划电力时额外承诺10亿美元，交易对Lancium及其资产估值约100亿美元。",
-      "role": "主张",
       "addedAt": "2026-08-08T12:06:52.180Z"
     },
     {
@@ -18704,6 +18785,111 @@
     }
   ],
   "edges": [
+    {
+      "id": "edge_ad29c56cd69b10ba",
+      "from": "event_3bdbbc57db124526",
+      "to": "article_741bdedfa57a5957",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_4e0f36abfa1ee4cf",
+      "from": "source_c346c84ebf587101",
+      "to": "claim_a99efbe99e6063e7",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_b56bbf8e71a50406",
+      "from": "claim_a99efbe99e6063e7",
+      "to": "event_3bdbbc57db124526",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_625983ea8a3b79b4",
+      "from": "source_ebd8cd2265dd691d",
+      "to": "claim_4453449f985a1a9f",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_ec656f3bf4b4e717",
+      "from": "claim_4453449f985a1a9f",
+      "to": "event_3bdbbc57db124526",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_2092bcb29721de29",
+      "from": "source_205b650ac199dfdf",
+      "to": "claim_3847be7aabd49a00",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_f734319a8f99a721",
+      "from": "claim_3847be7aabd49a00",
+      "to": "event_3bdbbc57db124526",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_d35fa39375a1e1b0",
+      "from": "source_b736aac4cf5d8c33",
+      "to": "claim_b091597442fc9453",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_e1958e621196ce94",
+      "from": "claim_b091597442fc9453",
+      "to": "event_3bdbbc57db124526",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_52e01374ac0c69f3",
+      "from": "source_661ba2ed241343f5",
+      "to": "claim_f44a111864f6d552",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_cdbed38b69ad93e1",
+      "from": "claim_f44a111864f6d552",
+      "to": "event_3bdbbc57db124526",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_7f8e52f1c66fed7a",
+      "from": "update_6cfa9ce505ebd824",
+      "to": "event_3bdbbc57db124526",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_acb13f24cb54a65a",
+      "from": "claim_4453449f985a1a9f",
+      "to": "event_3bdbbc57db124526",
+      "relation": "update_evidence_for",
+      "updateTitle": "OpenAI曾探索持股Lancium"
+    },
+    {
+      "id": "edge_a28786dc3e0b6948",
+      "from": "claim_3847be7aabd49a00",
+      "to": "event_3bdbbc57db124526",
+      "relation": "update_evidence_for",
+      "updateTitle": "OpenAI曾探索持股Lancium"
+    },
+    {
+      "id": "edge_7ca3e108bce15caf",
+      "from": "claim_b091597442fc9453",
+      "to": "event_3bdbbc57db124526",
+      "relation": "update_evidence_for",
+      "updateTitle": "OpenAI曾探索持股Lancium"
+    },
+    {
+      "id": "edge_0a4b22755f53f538",
+      "from": "claim_f44a111864f6d552",
+      "to": "event_3bdbbc57db124526",
+      "relation": "update_evidence_for",
+      "updateTitle": "OpenAI曾探索持股Lancium"
+    },
     {
       "id": "edge_11afeea28290e859",
       "from": "event_1c0e52d26f417ac9",
@@ -28620,25 +28806,6 @@
       "id": "edge_1b4d61f3f0dacf30",
       "from": "claim_c13b0394b5d08e44",
       "to": "event_fe35441f6f44df2d",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_ad29c56cd69b10ba",
-      "from": "event_3bdbbc57db124526",
-      "to": "article_741bdedfa57a5957",
-      "relation": "rendered_as"
-    },
-    {
-      "id": "edge_4e0f36abfa1ee4cf",
-      "from": "source_c346c84ebf587101",
-      "to": "claim_a99efbe99e6063e7",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_b56bbf8e71a50406",
-      "from": "claim_a99efbe99e6063e7",
-      "to": "event_3bdbbc57db124526",
       "relation": "evidence_for",
       "updateTitle": null
     },
