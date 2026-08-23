@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-22T23:06:24.641Z",
+  "generatedAt": "2026-08-23T03:06:23.409Z",
   "counts": {
-    "sources": 845,
-    "claims": 1005,
-    "events": 203,
-    "articles": 203,
-    "updates": 146,
-    "edges": 2708,
+    "sources": 848,
+    "claims": 1008,
+    "events": 204,
+    "articles": 204,
+    "updates": 147,
+    "edges": 2717,
     "revisionsRequired": 14
   },
   "revisionQueue": [
@@ -153,6 +153,54 @@
     }
   ],
   "nodes": [
+    {
+      "id": "event_84161566701e5520",
+      "type": "event",
+      "signalId": 140,
+      "title": "Meta儿童隐私案进入设计责任测试",
+      "bucket": "explore",
+      "valueScore": 82,
+      "publishedAt": "2026-08-18T00:00:00.000Z",
+      "updatedAt": "2026-08-18T00:00:00.000Z"
+    },
+    {
+      "id": "article_0c9f748ee302bcdf",
+      "type": "article",
+      "signalId": 140,
+      "title": "Meta儿童隐私案进入设计责任测试",
+      "version": 1,
+      "publishedAt": "2026-08-23T03:06:23.409Z"
+    },
+    {
+      "id": "source_8de2d9807e2e2e89",
+      "type": "source",
+      "title": "Associated Press",
+      "url": "https://apnews.com/article/2b617764a8ddc4846f74f59d0c4516b8",
+      "sourceKind": "Media",
+      "publishedAt": "2026-08-18T00:00:00.000Z"
+    },
+    {
+      "id": "claim_b5dad95b9e8b9951",
+      "type": "claim",
+      "title": "Associated Press报道Meta联邦审判于2026年8月18日在加州开始，首批涉及四个州，并概述成瘾设计、儿童安全和隐私相关指控。",
+      "role": "主张",
+      "addedAt": "2026-08-23T03:06:23.409Z"
+    },
+    {
+      "id": "source_68ce9464b73b3511",
+      "type": "source",
+      "title": "California Office of the Attorney General",
+      "url": "https://oag.ca.gov/system/files/attachments/press-docs/Less-redacted%20complaint%20-%20released.pdf",
+      "sourceKind": "Regulator",
+      "publishedAt": "2023-10-24T00:00:00.000Z"
+    },
+    {
+      "id": "claim_666414431f68cd0f",
+      "type": "claim",
+      "title": "California Office of the Attorney General的多州起诉书指控Meta违反儿童隐私与消费者保护法律，包括涉及13岁以下用户的义务。",
+      "role": "背景",
+      "addedAt": "2026-08-23T03:06:23.409Z"
+    },
     {
       "id": "event_a55c7b236981d2db",
       "type": "event",
@@ -1084,6 +1132,32 @@
       "title": "Bloomberg报道称，NVIDIA部分大客户已被通知，含AI芯片的服务器在多种情况下将涨价逾15%，内存成本飙升是原因。",
       "role": "主张",
       "addedAt": "2026-08-22T20:07:53.799Z"
+    },
+    {
+      "id": "source_8f7e89838ad2cad9",
+      "type": "source",
+      "title": "The Information",
+      "url": "https://www.theinformation.com/articles/nvidia-ai-chip-prices-rise-17-server-makers-tell-customers",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-22T23:45:39.000Z"
+    },
+    {
+      "id": "claim_875fae3c99b9a81e",
+      "type": "claim",
+      "title": "The Information援引两名获服务器厂商通知的人士称，部分Grace Blackwell 300和Vera Rubin 200系统价格将上涨约17%，交付时间主要在明年。",
+      "role": "佐证",
+      "addedAt": "2026-08-22T20:07:53.799Z"
+    },
+    {
+      "id": "update_d84db00444e54a42",
+      "type": "update",
+      "signalId": 139,
+      "title": "报价上调约17%获补充",
+      "summary": "The Information称，服务器厂商已向客户传达，部分NVIDIA旗舰AI服务器芯片系统价格将上涨约17%，主要涉及明年交付的Grace Blackwell 300和Vera Rubin 200系统。",
+      "addedAt": "2026-08-22T23:45:39.000Z",
+      "changeType": "corroboration",
+      "thesisImpact": "The Information称部分NVIDIA旗舰AI服务器芯片系统报价将上调约17%，为既有超过15%的涨价判断提供了更具体的产品范围与幅度佐证。",
+      "revisionRequired": false
     },
     {
       "id": "event_a54424288d0d3cf5",
@@ -19083,6 +19157,38 @@
   ],
   "edges": [
     {
+      "id": "edge_dfb1bf5974b73ba4",
+      "from": "event_84161566701e5520",
+      "to": "article_0c9f748ee302bcdf",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_fece993e2cb37f13",
+      "from": "source_8de2d9807e2e2e89",
+      "to": "claim_b5dad95b9e8b9951",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_9acac035d8fd5347",
+      "from": "claim_b5dad95b9e8b9951",
+      "to": "event_84161566701e5520",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_4ca41de423e3d9f3",
+      "from": "source_68ce9464b73b3511",
+      "to": "claim_666414431f68cd0f",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_0482d1417fc984dd",
+      "from": "claim_666414431f68cd0f",
+      "to": "event_84161566701e5520",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
       "id": "edge_6fed68f54bfc5931",
       "from": "event_a55c7b236981d2db",
       "to": "article_f4fbed83924b3281",
@@ -20221,6 +20327,32 @@
       "to": "event_71ebfcf10c8d7916",
       "relation": "evidence_for",
       "updateTitle": null
+    },
+    {
+      "id": "edge_80a0a0d837254dd6",
+      "from": "source_8f7e89838ad2cad9",
+      "to": "claim_875fae3c99b9a81e",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_8c456eba3c80bcca",
+      "from": "claim_875fae3c99b9a81e",
+      "to": "event_71ebfcf10c8d7916",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_da3cac91ea228584",
+      "from": "update_d84db00444e54a42",
+      "to": "event_71ebfcf10c8d7916",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_31385d3ace4c2c7a",
+      "from": "claim_875fae3c99b9a81e",
+      "to": "event_71ebfcf10c8d7916",
+      "relation": "update_evidence_for",
+      "updateTitle": "报价上调约17%获补充"
     },
     {
       "id": "edge_6f5f3f173fb19cd3",
