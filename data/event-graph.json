@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-23T12:06:34.685Z",
+  "generatedAt": "2026-08-23T15:07:30.353Z",
   "counts": {
-    "sources": 862,
-    "claims": 1024,
-    "events": 206,
-    "articles": 206,
+    "sources": 864,
+    "claims": 1026,
+    "events": 207,
+    "articles": 207,
     "updates": 150,
-    "edges": 2762,
+    "edges": 2767,
     "revisionsRequired": 14
   },
   "revisionQueue": [
@@ -153,6 +153,54 @@
     }
   ],
   "nodes": [
+    {
+      "id": "event_9fb8d65026ef69a6",
+      "type": "event",
+      "signalId": 143,
+      "title": "AMD在收缩市场扩大CPU份额",
+      "bucket": "explore",
+      "valueScore": 81,
+      "publishedAt": "2026-08-23T11:51:08.000Z",
+      "updatedAt": "2026-08-23T11:51:08.000Z"
+    },
+    {
+      "id": "article_1c7722fe0e074b31",
+      "type": "article",
+      "signalId": 143,
+      "title": "AMD在收缩市场扩大CPU份额",
+      "version": 1,
+      "publishedAt": "2026-08-23T15:07:30.353Z"
+    },
+    {
+      "id": "source_7c01736ab08749e0",
+      "type": "source",
+      "title": "Tom's Hardware",
+      "url": "https://www.tomshardware.com/pc-components/cpus/desktop-cpu-shipments-crater-20-percent-amid-high-component-costs-but-amd-gains-record-share-despite-ugly-desktop-processor-market-intel-floods-laptop-market-with-millions-of-cpus-but-amd-still-sets-all-time-share-records",
+      "sourceKind": "Media",
+      "publishedAt": "2026-08-23T11:51:08.000Z"
+    },
+    {
+      "id": "claim_47d5eb6474b80713",
+      "type": "claim",
+      "title": "Tom's Hardware援引Mercury Research称，AMD二季度桌面份额为34.9%、服务器份额为34.5%，桌面CPU出货量下滑20%。",
+      "role": "主张",
+      "addedAt": "2026-08-23T15:07:30.353Z"
+    },
+    {
+      "id": "source_efffde5986f348c6",
+      "type": "source",
+      "title": "TweakTown",
+      "url": "https://www.tweaktown.com/news/113200/amd-claws-back-ground-against-intel-in-the-cpu-market-climbs-to-35-percent-share-in-desktop-cpus/index.html",
+      "sourceKind": "Media",
+      "publishedAt": "2026-08-22T19:40:00.000Z"
+    },
+    {
+      "id": "claim_50db810af8efbaa4",
+      "type": "claim",
+      "title": "TweakTown确认AMD二季度桌面份额34.9%、服务器份额34.5%，并称桌面份额环比增加1.8个百分点。",
+      "role": "佐证",
+      "addedAt": "2026-08-23T15:07:30.353Z"
+    },
     {
       "id": "event_0c9d4afc6715e91b",
       "type": "event",
@@ -19449,6 +19497,38 @@
     }
   ],
   "edges": [
+    {
+      "id": "edge_bc3327d7c2de4d51",
+      "from": "event_9fb8d65026ef69a6",
+      "to": "article_1c7722fe0e074b31",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_bec2a4784498a492",
+      "from": "source_7c01736ab08749e0",
+      "to": "claim_47d5eb6474b80713",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_ae965a4aff0d40ea",
+      "from": "claim_47d5eb6474b80713",
+      "to": "event_9fb8d65026ef69a6",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_c2ac08b431b42071",
+      "from": "source_efffde5986f348c6",
+      "to": "claim_50db810af8efbaa4",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_6a6dcef019070839",
+      "from": "claim_50db810af8efbaa4",
+      "to": "event_9fb8d65026ef69a6",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
     {
       "id": "edge_e14ac870acaf4a93",
       "from": "event_0c9d4afc6715e91b",
