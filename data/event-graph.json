@@ -1,16 +1,26 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-24T03:07:01.314Z",
+  "generatedAt": "2026-08-24T06:06:36.014Z",
   "counts": {
-    "sources": 881,
-    "claims": 1045,
+    "sources": 887,
+    "claims": 1051,
     "events": 211,
     "articles": 211,
-    "updates": 155,
-    "edges": 2824,
+    "updates": 157,
+    "edges": 2844,
     "revisionsRequired": 15
   },
   "revisionQueue": [
+    {
+      "signalId": 102,
+      "eventId": "event_1c0e52d26f417ac9",
+      "updateId": "update_40425cc133455c1a",
+      "title": "NVIDIA联手资本巨头扩展算力融资",
+      "updateTitle": "NVIDIA收缩OpenAI项目担保",
+      "thesisImpact": "新增报道把算力融资平台的宏观承诺推进到具体项目担保规模，并显示公开讨论中的规模已收缩；这使风险分担和资本约束成为判断AI基础设施扩张的重要变量。",
+      "detectedAt": "2026-08-15T15:41:02.000Z",
+      "status": "needs_editorial_revision"
+    },
     {
       "signalId": 136,
       "eventId": "event_75b1f8ddf91f7116",
@@ -69,16 +79,6 @@
       "updateTitle": "OpenAI曾探索持股Lancium",
       "thesisImpact": "OpenAI据报曾探索入股或收购Lancium，表明Stargate相关电力开发商可能不只是NVIDIA的供电投资标的，也成为模型公司的潜在战略控制点。",
       "detectedAt": "2026-08-21T23:32:58.000Z",
-      "status": "needs_editorial_revision"
-    },
-    {
-      "signalId": 102,
-      "eventId": "event_1c0e52d26f417ac9",
-      "updateId": "update_40425cc133455c1a",
-      "title": "NVIDIA联手资本巨头扩展算力融资",
-      "updateTitle": "NVIDIA收缩OpenAI项目担保",
-      "thesisImpact": "新增报道把算力融资平台的宏观承诺推进到具体项目担保规模，并显示公开讨论中的规模已收缩；这使风险分担和资本约束成为判断AI基础设施扩张的重要变量。",
-      "detectedAt": "2026-08-15T15:41:02.000Z",
       "status": "needs_editorial_revision"
     },
     {
@@ -163,6 +163,367 @@
     }
   ],
   "nodes": [
+    {
+      "id": "event_1c0e52d26f417ac9",
+      "type": "event",
+      "signalId": 102,
+      "title": "NVIDIA联手资本巨头扩展算力融资",
+      "bucket": "dynamic",
+      "valueScore": 88,
+      "publishedAt": "2026-08-10T20:01:00.000Z",
+      "updatedAt": "2026-08-24T06:03:06.000Z"
+    },
+    {
+      "id": "article_6154bfc5759e6911",
+      "type": "article",
+      "signalId": 102,
+      "title": "NVIDIA联手资本巨头扩展算力融资",
+      "version": 1,
+      "publishedAt": "2026-08-24T06:06:36.014Z"
+    },
+    {
+      "id": "source_0122ec2217c08ff3",
+      "type": "source",
+      "title": "NVIDIA Newsroom",
+      "url": "https://nvidianews.nvidia.com/news/nvidia-partners-with-apollo-blackrock-blackstone-brookfield-goldman-sachs-and-kkr-to-establish-ai-compute-infrastructure-financing-platforms-to-mobilize-over-500-billion-of-third-party-capital",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-10T20:01:00.000Z"
+    },
+    {
+      "id": "claim_b63375fbf9193803",
+      "type": "claim",
+      "title": "NVIDIA宣布与Apollo、BlackRock、Blackstone、Brookfield、Goldman Sachs和KKR建立AI算力基础设施融资平台，目标动员超过5000亿美元第三方资本。",
+      "role": "主张",
+      "addedAt": "2026-08-24T06:06:36.014Z"
+    },
+    {
+      "id": "source_95824baa8e354aed",
+      "type": "source",
+      "title": "BBC Technology",
+      "url": "https://www.bbc.co.uk/news/articles/c78gr0jv0mdo?at_medium=RSS&at_campaign=rss",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-11T08:44:52.000Z"
+    },
+    {
+      "id": "claim_e1973cd23f275af9",
+      "type": "claim",
+      "title": "BBC报道称，华尔街大型机构提供5000亿美元支持AI项目，资金将用于建设、运行和冷却容纳大量AI芯片的数据中心。",
+      "role": "佐证",
+      "addedAt": "2026-08-24T06:06:36.014Z"
+    },
+    {
+      "id": "source_8010a95ae63d6168",
+      "type": "source",
+      "title": "The Decoder AI",
+      "url": "https://the-decoder.com/nvidia-guarantees-its-own-chips-value-to-unlock-500-billion-in-ai-infrastructure-financing/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-11T09:41:03.000Z"
+    },
+    {
+      "id": "claim_201df8160502d32a",
+      "type": "claim",
+      "title": "The Decoder报道称，NVIDIA在与大型资管机构建立的AI基础设施融资安排中，为自家芯片提供最高25%的残值保障。",
+      "role": "佐证",
+      "addedAt": "2026-08-24T06:06:36.014Z"
+    },
+    {
+      "id": "source_251e738970217249",
+      "type": "source",
+      "title": "The Decoder AI",
+      "url": "https://the-decoder.com/investor-pressure-forces-nvidia-to-shrink-its-openai-bet-just-as-anthropics-numbers-defy-bubble-warnings/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-15T15:41:02.000Z"
+    },
+    {
+      "id": "claim_74d35ff4c3a0f2f2",
+      "type": "claim",
+      "title": "报道指NVIDIA对俄亥俄州OpenAI数据中心的担保规模不足1200亿美元，相比此前约2500亿美元的讨论规模明显收缩，并称投资者压力促成调整。",
+      "role": "最新进展",
+      "addedAt": "2026-08-24T06:06:36.014Z"
+    },
+    {
+      "id": "source_bd2e1b0a3e1a96ee",
+      "type": "source",
+      "title": "Reuters",
+      "url": "https://www.reuters.com/business/media-telecom/nvidia-scales-back-funding-guarantee-ohio-openai-data-center-wsj-reports-2026-08-14/",
+      "sourceKind": "Media",
+      "publishedAt": "2026-08-14T00:00:00.000Z"
+    },
+    {
+      "id": "claim_9c7cafdad778259c",
+      "type": "claim",
+      "title": "Reuters转述《华尔街日报》称，NVIDIA拟为俄亥俄州OpenAI数据中心提供较低规模的初始融资担保。",
+      "role": "佐证",
+      "addedAt": "2026-08-24T06:06:36.014Z"
+    },
+    {
+      "id": "source_6544a97b36dc6167",
+      "type": "source",
+      "title": "Reuters",
+      "url": "https://www.reuters.com/business/media-telecom/nvidia-talks-with-openai-guarantee-250-billion-financing-data-center-wsj-reports-2026-07-26/",
+      "sourceKind": "Media",
+      "publishedAt": "2026-07-26T00:00:00.000Z"
+    },
+    {
+      "id": "claim_494f6a15f4695eb2",
+      "type": "claim",
+      "title": "此前报道曾称NVIDIA讨论为俄亥俄州项目提供大额融资担保，但当时无法独立核实。",
+      "role": "背景",
+      "addedAt": "2026-08-24T06:06:36.014Z"
+    },
+    {
+      "id": "source_af67c54c62f39511",
+      "type": "source",
+      "title": "OpenAI",
+      "url": "https://openai.com/index/openai-nvidia-systems-partnership/",
+      "sourceKind": "Official",
+      "publishedAt": "2025-09-22T00:00:00.000Z"
+    },
+    {
+      "id": "claim_ba75213e2337de6a",
+      "type": "claim",
+      "title": "OpenAI与NVIDIA此前公开宣布至少10GW系统部署意向，NVIDIA拟按每GW部署进度最多投资1000亿美元；该意向不等同于媒体所述项目担保。",
+      "role": "背景",
+      "addedAt": "2026-08-24T06:06:36.014Z"
+    },
+    {
+      "id": "source_ec9a222d8ad39ae8",
+      "type": "source",
+      "title": "The Information",
+      "url": "https://www.theinformation.com/articles/nvidia-talks-invest-3-billion-sb-energy-part-openai-data-center-deal",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-15T19:12:18.000Z"
+    },
+    {
+      "id": "claim_f3b42132d04805c4",
+      "type": "claim",
+      "title": "报道称NVIDIA正讨论对SB Energy最高30亿美元投资，该项目关联OpenAI在俄亥俄州规划中的大型数据中心及芯片融资安排。",
+      "role": "最新进展",
+      "addedAt": "2026-08-24T06:06:36.014Z"
+    },
+    {
+      "id": "source_924b421a0abaae18",
+      "type": "source",
+      "title": "The Information",
+      "url": "https://www.theinformation.com/briefings/nvidia-nears-deal-guarantee-roughly-100-billion-credit-openai",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-16T21:04:33.000Z"
+    },
+    {
+      "id": "claim_590f7a5977c02569",
+      "type": "claim",
+      "title": "The Information报道称，NVIDIA接近达成约1000亿美元信用支持协议，以支持OpenAI租赁俄亥俄大型数据中心。",
+      "role": "最新进展",
+      "addedAt": "2026-08-24T06:06:36.014Z"
+    },
+    {
+      "id": "source_1f075c4afaa90ac5",
+      "type": "source",
+      "title": "The Information",
+      "url": "https://www.theinformation.com/briefings/nvidia-talks-invest-3-billion-sb-energy",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-16T21:03:15.000Z"
+    },
+    {
+      "id": "claim_bf601259bc0c00a2",
+      "type": "claim",
+      "title": "The Information报道称，NVIDIA正洽谈向SoftBank Group支持的SB Energy投资最高30亿美元，后者开发OpenAI俄亥俄数据中心项目。",
+      "role": "最新进展",
+      "addedAt": "2026-08-24T06:06:36.014Z"
+    },
+    {
+      "id": "source_14f10bd390e866e7",
+      "type": "source",
+      "title": "NVIDIA Newsroom",
+      "url": "https://nvidianews.nvidia.com/news/nvidia-guarantees-sb-energy-s-ports-pike-technology-campus-in-ohio-to-exclusively-host-nvidia-ai-compute",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-17T12:33:00.000Z"
+    },
+    {
+      "id": "claim_e1d87ad7353a356c",
+      "type": "claim",
+      "title": "NVIDIA称已通过SB Energy合作获得俄亥俄PORTS-Pike园区的土地、电力和机房壳体容量，用于专属承载NVIDIA AI compute。",
+      "role": "最新进展",
+      "addedAt": "2026-08-24T06:06:36.014Z"
+    },
+    {
+      "id": "source_4c1cb37464fd1da3",
+      "type": "source",
+      "title": "The Information",
+      "url": "https://www.theinformation.com/articles/nvidia-using-land-electricity-deals-lock-hardware-bundle",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-21T21:40:11.000Z"
+    },
+    {
+      "id": "claim_d25e6ae42f71aadd",
+      "type": "claim",
+      "title": "The Information报道称，NVIDIA取得Cloverleaf Infrastructure少数股权，并将其描述为近期连续投资美国数据中心土地和电力资源企业的第三笔布局。",
+      "role": "最新进展",
+      "addedAt": "2026-08-24T06:06:36.014Z"
+    },
+    {
+      "id": "source_52d1c5f1ea896123",
+      "type": "source",
+      "title": "The Information",
+      "url": "https://www.theinformation.com/briefings/nvidia-invests-data-center-power-firm-preps-multibillion-dollar-perplexity-deal",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-24T06:03:06.000Z"
+    },
+    {
+      "id": "claim_1492e788915fc871",
+      "type": "claim",
+      "title": "The Information报道称，NVIDIA取得Cloverleaf Infrastructure少数股权，并在讨论参与Perplexity融资。",
+      "role": "最新进展",
+      "addedAt": "2026-08-24T06:06:36.014Z"
+    },
+    {
+      "id": "source_a0bc3548d3705cbe",
+      "type": "source",
+      "title": "Cloverleaf Infrastructure",
+      "url": "https://www.prnewswire.com/news-releases/cloverleaf-infrastructure-forms-strategic-partnership-with-nvidia-to-accelerate-data-center-infrastructure-development-302857329.html",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-21T00:00:00.000Z"
+    },
+    {
+      "id": "claim_f9e1092c812a46d1",
+      "type": "claim",
+      "title": "Cloverleaf官方确认已与NVIDIA建立战略合作，且NVIDIA已完成少数股权投资，合作覆盖美国数字基础设施开发。",
+      "role": "佐证",
+      "addedAt": "2026-08-24T06:06:36.014Z"
+    },
+    {
+      "id": "source_fb6f14d9768831f7",
+      "type": "source",
+      "title": "SB Energy",
+      "url": "https://sbenergy.com/nvidia-ai-compute-ports-pike-ohio/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-17T00:00:00.000Z"
+    },
+    {
+      "id": "claim_7e65a5adbcd35ee0",
+      "type": "claim",
+      "title": "SB Energy此前披露，NVIDIA向PORTS-Pike项目投资15亿美元并提供首期4.25 IT-GW建设信用支持，另持有剩余容量选择权。",
+      "role": "背景",
+      "addedAt": "2026-08-24T06:06:36.014Z"
+    },
+    {
+      "id": "source_5514041be03e64ae",
+      "type": "source",
+      "title": "NVIDIA",
+      "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Partners-With-Apollo-BlackRock-Blackstone-Brookfield-Goldman-Sachs-and-KKR-to-Establish-AI-Compute-Infrastructure-Financing-Platforms-to-Mobilize-Over-500-Billion-of-Third-Party-Capital/default.aspx",
+      "sourceKind": "IR",
+      "publishedAt": "2026-08-10T00:00:00.000Z"
+    },
+    {
+      "id": "claim_ad80f06603a8ebc5",
+      "type": "claim",
+      "title": "NVIDIA此前宣布与大型资产管理机构建立AI算力基础设施融资平台，目标长期动员逾5000亿美元第三方资本。",
+      "role": "背景",
+      "addedAt": "2026-08-24T06:06:36.014Z"
+    },
+    {
+      "id": "source_ecb770cca081f8a0",
+      "type": "source",
+      "title": "Reuters",
+      "url": "https://www.investing.com/news/stock-market-news/nvidia-discusses-perplexity-investment-at-30-billionplus-valuation-the-information-reports-4872594",
+      "sourceKind": "Media",
+      "publishedAt": "2026-08-23T00:00:00.000Z"
+    },
+    {
+      "id": "claim_cce92cfaa5fa4772",
+      "type": "claim",
+      "title": "路透社报道称NVIDIA正讨论参与Perplexity一轮估值逾300亿美元的融资，但未能立即独立核实，因此不能视为已完成交易。",
+      "role": "反例",
+      "addedAt": "2026-08-24T06:06:36.014Z"
+    },
+    {
+      "id": "update_a656ac5bac5e6a66",
+      "type": "update",
+      "signalId": 102,
+      "title": "NVIDIA入股Cloverleaf锁定基建",
+      "summary": "Cloverleaf确认NVIDIA已完成少数股权投资，双方将推进美国数字基础设施开发。The Information同时称NVIDIA正筹备参与Perplexity融资，但路透社指出该交易尚未获独立确认。",
+      "addedAt": "2026-08-24T06:03:06.000Z",
+      "changeType": "progress",
+      "thesisImpact": "NVIDIA已确认入股Cloverleaf Infrastructure，显示其以股权和合作绑定美国电力、土地与数字基础设施资源的路径仍在推进；Perplexity交易尚停留在讨论阶段。",
+      "revisionRequired": false
+    },
+    {
+      "id": "update_8fd8bbed07e0913d",
+      "type": "update",
+      "signalId": 102,
+      "title": "NVIDIA再投数据中心资源商",
+      "summary": "The Information称，NVIDIA已取得Cloverleaf Infrastructure少数股权。这是其近期连续布局美国数据中心土地与电力资源企业的又一动作。",
+      "addedAt": "2026-08-21T21:40:11.000Z",
+      "changeType": "progress",
+      "thesisImpact": "The Information称，NVIDIA已取得Cloverleaf Infrastructure少数股权；这为其通过资本绑定土地和电力资源、延伸算力生态融资与供给控制的路径增加了新进展。",
+      "revisionRequired": false
+    },
+    {
+      "id": "update_541ab29136cdd945",
+      "type": "update",
+      "signalId": 102,
+      "title": "NVIDIA锁定俄亥俄算力园区",
+      "summary": "NVIDIA宣布通过SB Energy合作锁定俄亥俄PORTS-Pike园区的土地、电力和机房壳体容量，并将由该园区专门承载NVIDIA AI compute。",
+      "addedAt": "2026-08-17T12:33:00.000Z",
+      "changeType": "progress",
+      "thesisImpact": "NVIDIA已将与SB Energy的合作从拟投资和融资讨论推进至锁定俄亥俄园区土地、电力和机房壳体容量，强化其直接介入算力供给组织的判断。",
+      "revisionRequired": false
+    },
+    {
+      "id": "update_2700c096455f480f",
+      "type": "update",
+      "signalId": 102,
+      "title": "NVIDIA收缩OpenAI担保规模",
+      "summary": "The Information称，NVIDIA接近敲定为OpenAI俄亥俄数据中心租赁计划提供约1000亿美元信用支持的协议，低于此前报道称的2500亿美元；公司另据报洽谈向SB Energy投资最高30亿美元。",
+      "addedAt": "2026-08-16T21:04:33.000Z",
+      "changeType": "progress",
+      "thesisImpact": "两项谈判中的具体金额使NVIDIA以信用支持和股权投资介入OpenAI算力项目的融资路径更清晰，强化其将资本工具嵌入算力扩张的判断。",
+      "revisionRequired": false
+    },
+    {
+      "id": "update_0ceb7a6d9cbd3424",
+      "type": "update",
+      "signalId": 102,
+      "title": "NVIDIA据报拟投SB Energy",
+      "summary": "The Information报道称，NVIDIA正洽谈向SoftBank支持的SB Energy投资最高30亿美元，作为其为OpenAI俄亥俄数据中心提供约1000亿美元芯片信贷谈判的一部分。",
+      "addedAt": "2026-08-15T19:12:18.000Z",
+      "changeType": "progress",
+      "thesisImpact": "The Information称NVIDIA正讨论向SB Energy投资最高30亿美元，并把该安排纳入OpenAI俄亥俄数据中心的芯片融资谈判，强化了NVIDIA将资本支持延伸至供电与项目开发环节的判断。",
+      "revisionRequired": false
+    },
+    {
+      "id": "update_40425cc133455c1a",
+      "type": "update",
+      "signalId": 102,
+      "title": "NVIDIA收缩OpenAI项目担保",
+      "summary": "新增报道显示，NVIDIA拟为俄亥俄州OpenAI数据中心提供的初始担保规模低于此前讨论水平；公开基准仍是双方关于系统部署和按部署进度投资的意向。",
+      "addedAt": "2026-08-15T15:41:02.000Z",
+      "changeType": "thesis_change",
+      "thesisImpact": "新增报道把算力融资平台的宏观承诺推进到具体项目担保规模，并显示公开讨论中的规模已收缩；这使风险分担和资本约束成为判断AI基础设施扩张的重要变量。",
+      "revisionRequired": true
+    },
+    {
+      "id": "update_06712410f23a1697",
+      "type": "update",
+      "signalId": 102,
+      "title": "NVIDIA补充硬件残值保障",
+      "summary": "The Decoder报道称，NVIDIA为其AI硬件提供最高25%的残值保障，以帮助撬动逾5000亿美元AI基础设施融资。该安排为此前公布的第三方资本动员平台补充了风险分担机制。",
+      "addedAt": "2026-08-11T09:41:03.000Z",
+      "changeType": "corroboration",
+      "thesisImpact": "新增报道补充称NVIDIA以硬件残值保障帮助吸引基础设施资本，强化了该融资平台正把设备资产价值与大规模外部融资直接绑定的判断。",
+      "revisionRequired": false
+    },
+    {
+      "id": "update_e787822bc31fa533",
+      "type": "update",
+      "signalId": 102,
+      "title": "BBC佐证5000亿美元算力融资",
+      "summary": "BBC报道华尔街机构向NVIDIA支持的AI项目提供5000亿美元资金，用于建设、运营和冷却承载AI芯片的数据中心。",
+      "addedAt": "2026-08-11T08:44:52.000Z",
+      "changeType": "corroboration",
+      "thesisImpact": "BBC对逾5000亿美元AI算力融资平台的报道提供独立媒体佐证，强化了AI基础设施融资正在向大型资产管理机构扩展的既有判断。",
+      "revisionRequired": false
+    },
     {
       "id": "event_d2a245d746f21d6b",
       "type": "event",
@@ -4300,6 +4661,32 @@
       "addedAt": "2026-08-22T20:07:53.799Z"
     },
     {
+      "id": "source_74bcfcfe68dc1377",
+      "type": "source",
+      "title": "The Information",
+      "url": "https://www.theinformation.com/briefings/nvidia-raise-flagship-ai-chip-prices-17-server-makers-say",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-24T06:06:02.000Z"
+    },
+    {
+      "id": "claim_2bab4b6db89b473a",
+      "type": "claim",
+      "title": "The Information报道称，Grace Blackwell和Vera Rubin芯片系统价格预计上涨约17%，并提及云与数据中心项目面对更多成本压力。",
+      "role": "佐证",
+      "addedAt": "2026-08-22T20:07:53.799Z"
+    },
+    {
+      "id": "update_d257f18bd6781049",
+      "type": "update",
+      "signalId": 139,
+      "title": "NVIDIA旗舰系统据报涨价17%",
+      "summary": "The Information报道称，NVIDIA Grace Blackwell与Vera Rubin芯片系统价格预计上涨约17%，并将电力延迟等因素列为云服务商和数据中心开发商面临的新增成本压力。",
+      "addedAt": "2026-08-24T06:06:02.000Z",
+      "changeType": "corroboration",
+      "thesisImpact": "The Information将NVIDIA旗舰AI芯片系统的涨价幅度具体化为约17%，强化了内存与基础设施成本正在传导至AI服务器报价的判断。",
+      "revisionRequired": false
+    },
+    {
       "id": "update_2e8db8d4a6b8acc0",
       "type": "update",
       "signalId": 139,
@@ -4995,281 +5382,6 @@
       "changeType": "thesis_change",
       "thesisImpact": "OpenAI据报曾探索入股或收购Lancium，表明Stargate相关电力开发商可能不只是NVIDIA的供电投资标的，也成为模型公司的潜在战略控制点。",
       "revisionRequired": true
-    },
-    {
-      "id": "event_1c0e52d26f417ac9",
-      "type": "event",
-      "signalId": 102,
-      "title": "NVIDIA联手资本巨头扩展算力融资",
-      "bucket": "dynamic",
-      "valueScore": 88,
-      "publishedAt": "2026-08-10T20:01:00.000Z",
-      "updatedAt": "2026-08-21T21:40:11.000Z"
-    },
-    {
-      "id": "article_6154bfc5759e6911",
-      "type": "article",
-      "signalId": 102,
-      "title": "NVIDIA联手资本巨头扩展算力融资",
-      "version": 1,
-      "publishedAt": "2026-08-22T00:07:50.510Z"
-    },
-    {
-      "id": "source_0122ec2217c08ff3",
-      "type": "source",
-      "title": "NVIDIA Newsroom",
-      "url": "https://nvidianews.nvidia.com/news/nvidia-partners-with-apollo-blackrock-blackstone-brookfield-goldman-sachs-and-kkr-to-establish-ai-compute-infrastructure-financing-platforms-to-mobilize-over-500-billion-of-third-party-capital",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-10T20:01:00.000Z"
-    },
-    {
-      "id": "claim_b63375fbf9193803",
-      "type": "claim",
-      "title": "NVIDIA宣布与Apollo、BlackRock、Blackstone、Brookfield、Goldman Sachs和KKR建立AI算力基础设施融资平台，目标动员超过5000亿美元第三方资本。",
-      "role": "主张",
-      "addedAt": "2026-08-22T00:07:50.510Z"
-    },
-    {
-      "id": "source_95824baa8e354aed",
-      "type": "source",
-      "title": "BBC Technology",
-      "url": "https://www.bbc.co.uk/news/articles/c78gr0jv0mdo?at_medium=RSS&at_campaign=rss",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-11T08:44:52.000Z"
-    },
-    {
-      "id": "claim_e1973cd23f275af9",
-      "type": "claim",
-      "title": "BBC报道称，华尔街大型机构提供5000亿美元支持AI项目，资金将用于建设、运行和冷却容纳大量AI芯片的数据中心。",
-      "role": "佐证",
-      "addedAt": "2026-08-22T00:07:50.510Z"
-    },
-    {
-      "id": "source_8010a95ae63d6168",
-      "type": "source",
-      "title": "The Decoder AI",
-      "url": "https://the-decoder.com/nvidia-guarantees-its-own-chips-value-to-unlock-500-billion-in-ai-infrastructure-financing/",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-11T09:41:03.000Z"
-    },
-    {
-      "id": "claim_201df8160502d32a",
-      "type": "claim",
-      "title": "The Decoder报道称，NVIDIA在与大型资管机构建立的AI基础设施融资安排中，为自家芯片提供最高25%的残值保障。",
-      "role": "佐证",
-      "addedAt": "2026-08-22T00:07:50.510Z"
-    },
-    {
-      "id": "source_251e738970217249",
-      "type": "source",
-      "title": "The Decoder AI",
-      "url": "https://the-decoder.com/investor-pressure-forces-nvidia-to-shrink-its-openai-bet-just-as-anthropics-numbers-defy-bubble-warnings/",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-15T15:41:02.000Z"
-    },
-    {
-      "id": "claim_74d35ff4c3a0f2f2",
-      "type": "claim",
-      "title": "报道指NVIDIA对俄亥俄州OpenAI数据中心的担保规模不足1200亿美元，相比此前约2500亿美元的讨论规模明显收缩，并称投资者压力促成调整。",
-      "role": "最新进展",
-      "addedAt": "2026-08-22T00:07:50.510Z"
-    },
-    {
-      "id": "source_bd2e1b0a3e1a96ee",
-      "type": "source",
-      "title": "Reuters",
-      "url": "https://www.reuters.com/business/media-telecom/nvidia-scales-back-funding-guarantee-ohio-openai-data-center-wsj-reports-2026-08-14/",
-      "sourceKind": "Media",
-      "publishedAt": "2026-08-14T00:00:00.000Z"
-    },
-    {
-      "id": "claim_9c7cafdad778259c",
-      "type": "claim",
-      "title": "Reuters转述《华尔街日报》称，NVIDIA拟为俄亥俄州OpenAI数据中心提供较低规模的初始融资担保。",
-      "role": "佐证",
-      "addedAt": "2026-08-22T00:07:50.510Z"
-    },
-    {
-      "id": "source_6544a97b36dc6167",
-      "type": "source",
-      "title": "Reuters",
-      "url": "https://www.reuters.com/business/media-telecom/nvidia-talks-with-openai-guarantee-250-billion-financing-data-center-wsj-reports-2026-07-26/",
-      "sourceKind": "Media",
-      "publishedAt": "2026-07-26T00:00:00.000Z"
-    },
-    {
-      "id": "claim_494f6a15f4695eb2",
-      "type": "claim",
-      "title": "此前报道曾称NVIDIA讨论为俄亥俄州项目提供大额融资担保，但当时无法独立核实。",
-      "role": "背景",
-      "addedAt": "2026-08-22T00:07:50.510Z"
-    },
-    {
-      "id": "source_af67c54c62f39511",
-      "type": "source",
-      "title": "OpenAI",
-      "url": "https://openai.com/index/openai-nvidia-systems-partnership/",
-      "sourceKind": "Official",
-      "publishedAt": "2025-09-22T00:00:00.000Z"
-    },
-    {
-      "id": "claim_ba75213e2337de6a",
-      "type": "claim",
-      "title": "OpenAI与NVIDIA此前公开宣布至少10GW系统部署意向，NVIDIA拟按每GW部署进度最多投资1000亿美元；该意向不等同于媒体所述项目担保。",
-      "role": "背景",
-      "addedAt": "2026-08-22T00:07:50.510Z"
-    },
-    {
-      "id": "source_ec9a222d8ad39ae8",
-      "type": "source",
-      "title": "The Information",
-      "url": "https://www.theinformation.com/articles/nvidia-talks-invest-3-billion-sb-energy-part-openai-data-center-deal",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-15T19:12:18.000Z"
-    },
-    {
-      "id": "claim_f3b42132d04805c4",
-      "type": "claim",
-      "title": "报道称NVIDIA正讨论对SB Energy最高30亿美元投资，该项目关联OpenAI在俄亥俄州规划中的大型数据中心及芯片融资安排。",
-      "role": "最新进展",
-      "addedAt": "2026-08-22T00:07:50.510Z"
-    },
-    {
-      "id": "source_924b421a0abaae18",
-      "type": "source",
-      "title": "The Information",
-      "url": "https://www.theinformation.com/briefings/nvidia-nears-deal-guarantee-roughly-100-billion-credit-openai",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-16T21:04:33.000Z"
-    },
-    {
-      "id": "claim_590f7a5977c02569",
-      "type": "claim",
-      "title": "The Information报道称，NVIDIA接近达成约1000亿美元信用支持协议，以支持OpenAI租赁俄亥俄大型数据中心。",
-      "role": "最新进展",
-      "addedAt": "2026-08-22T00:07:50.510Z"
-    },
-    {
-      "id": "source_1f075c4afaa90ac5",
-      "type": "source",
-      "title": "The Information",
-      "url": "https://www.theinformation.com/briefings/nvidia-talks-invest-3-billion-sb-energy",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-16T21:03:15.000Z"
-    },
-    {
-      "id": "claim_bf601259bc0c00a2",
-      "type": "claim",
-      "title": "The Information报道称，NVIDIA正洽谈向SoftBank Group支持的SB Energy投资最高30亿美元，后者开发OpenAI俄亥俄数据中心项目。",
-      "role": "最新进展",
-      "addedAt": "2026-08-22T00:07:50.510Z"
-    },
-    {
-      "id": "source_14f10bd390e866e7",
-      "type": "source",
-      "title": "NVIDIA Newsroom",
-      "url": "https://nvidianews.nvidia.com/news/nvidia-guarantees-sb-energy-s-ports-pike-technology-campus-in-ohio-to-exclusively-host-nvidia-ai-compute",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-17T12:33:00.000Z"
-    },
-    {
-      "id": "claim_e1d87ad7353a356c",
-      "type": "claim",
-      "title": "NVIDIA称已通过SB Energy合作获得俄亥俄PORTS-Pike园区的土地、电力和机房壳体容量，用于专属承载NVIDIA AI compute。",
-      "role": "最新进展",
-      "addedAt": "2026-08-22T00:07:50.510Z"
-    },
-    {
-      "id": "source_4c1cb37464fd1da3",
-      "type": "source",
-      "title": "The Information",
-      "url": "https://www.theinformation.com/articles/nvidia-using-land-electricity-deals-lock-hardware-bundle",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-21T21:40:11.000Z"
-    },
-    {
-      "id": "claim_d25e6ae42f71aadd",
-      "type": "claim",
-      "title": "The Information报道称，NVIDIA取得Cloverleaf Infrastructure少数股权，并将其描述为近期连续投资美国数据中心土地和电力资源企业的第三笔布局。",
-      "role": "最新进展",
-      "addedAt": "2026-08-22T00:07:50.510Z"
-    },
-    {
-      "id": "update_8fd8bbed07e0913d",
-      "type": "update",
-      "signalId": 102,
-      "title": "NVIDIA再投数据中心资源商",
-      "summary": "The Information称，NVIDIA已取得Cloverleaf Infrastructure少数股权。这是其近期连续布局美国数据中心土地与电力资源企业的又一动作。",
-      "addedAt": "2026-08-21T21:40:11.000Z",
-      "changeType": "progress",
-      "thesisImpact": "The Information称，NVIDIA已取得Cloverleaf Infrastructure少数股权；这为其通过资本绑定土地和电力资源、延伸算力生态融资与供给控制的路径增加了新进展。",
-      "revisionRequired": false
-    },
-    {
-      "id": "update_541ab29136cdd945",
-      "type": "update",
-      "signalId": 102,
-      "title": "NVIDIA锁定俄亥俄算力园区",
-      "summary": "NVIDIA宣布通过SB Energy合作锁定俄亥俄PORTS-Pike园区的土地、电力和机房壳体容量，并将由该园区专门承载NVIDIA AI compute。",
-      "addedAt": "2026-08-17T12:33:00.000Z",
-      "changeType": "progress",
-      "thesisImpact": "NVIDIA已将与SB Energy的合作从拟投资和融资讨论推进至锁定俄亥俄园区土地、电力和机房壳体容量，强化其直接介入算力供给组织的判断。",
-      "revisionRequired": false
-    },
-    {
-      "id": "update_2700c096455f480f",
-      "type": "update",
-      "signalId": 102,
-      "title": "NVIDIA收缩OpenAI担保规模",
-      "summary": "The Information称，NVIDIA接近敲定为OpenAI俄亥俄数据中心租赁计划提供约1000亿美元信用支持的协议，低于此前报道称的2500亿美元；公司另据报洽谈向SB Energy投资最高30亿美元。",
-      "addedAt": "2026-08-16T21:04:33.000Z",
-      "changeType": "progress",
-      "thesisImpact": "两项谈判中的具体金额使NVIDIA以信用支持和股权投资介入OpenAI算力项目的融资路径更清晰，强化其将资本工具嵌入算力扩张的判断。",
-      "revisionRequired": false
-    },
-    {
-      "id": "update_0ceb7a6d9cbd3424",
-      "type": "update",
-      "signalId": 102,
-      "title": "NVIDIA据报拟投SB Energy",
-      "summary": "The Information报道称，NVIDIA正洽谈向SoftBank支持的SB Energy投资最高30亿美元，作为其为OpenAI俄亥俄数据中心提供约1000亿美元芯片信贷谈判的一部分。",
-      "addedAt": "2026-08-15T19:12:18.000Z",
-      "changeType": "progress",
-      "thesisImpact": "The Information称NVIDIA正讨论向SB Energy投资最高30亿美元，并把该安排纳入OpenAI俄亥俄数据中心的芯片融资谈判，强化了NVIDIA将资本支持延伸至供电与项目开发环节的判断。",
-      "revisionRequired": false
-    },
-    {
-      "id": "update_40425cc133455c1a",
-      "type": "update",
-      "signalId": 102,
-      "title": "NVIDIA收缩OpenAI项目担保",
-      "summary": "新增报道显示，NVIDIA拟为俄亥俄州OpenAI数据中心提供的初始担保规模低于此前讨论水平；公开基准仍是双方关于系统部署和按部署进度投资的意向。",
-      "addedAt": "2026-08-15T15:41:02.000Z",
-      "changeType": "thesis_change",
-      "thesisImpact": "新增报道把算力融资平台的宏观承诺推进到具体项目担保规模，并显示公开讨论中的规模已收缩；这使风险分担和资本约束成为判断AI基础设施扩张的重要变量。",
-      "revisionRequired": true
-    },
-    {
-      "id": "update_06712410f23a1697",
-      "type": "update",
-      "signalId": 102,
-      "title": "NVIDIA补充硬件残值保障",
-      "summary": "The Decoder报道称，NVIDIA为其AI硬件提供最高25%的残值保障，以帮助撬动逾5000亿美元AI基础设施融资。该安排为此前公布的第三方资本动员平台补充了风险分担机制。",
-      "addedAt": "2026-08-11T09:41:03.000Z",
-      "changeType": "corroboration",
-      "thesisImpact": "新增报道补充称NVIDIA以硬件残值保障帮助吸引基础设施资本，强化了该融资平台正把设备资产价值与大规模外部融资直接绑定的判断。",
-      "revisionRequired": false
-    },
-    {
-      "id": "update_e787822bc31fa533",
-      "type": "update",
-      "signalId": 102,
-      "title": "BBC佐证5000亿美元算力融资",
-      "summary": "BBC报道华尔街机构向NVIDIA支持的AI项目提供5000亿美元资金，用于建设、运营和冷却承载AI芯片的数据中心。",
-      "addedAt": "2026-08-11T08:44:52.000Z",
-      "changeType": "corroboration",
-      "thesisImpact": "BBC对逾5000亿美元AI算力融资平台的报道提供独立媒体佐证，强化了AI基础设施融资正在向大型资产管理机构扩展的既有判断。",
-      "revisionRequired": false
     },
     {
       "id": "event_ded79f4f58feab3e",
@@ -19900,6 +20012,393 @@
   ],
   "edges": [
     {
+      "id": "edge_11afeea28290e859",
+      "from": "event_1c0e52d26f417ac9",
+      "to": "article_6154bfc5759e6911",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_047be5075d8b7966",
+      "from": "source_0122ec2217c08ff3",
+      "to": "claim_b63375fbf9193803",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_a9f0c02570fbf5d3",
+      "from": "claim_b63375fbf9193803",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_3d14aa2f70722f03",
+      "from": "source_95824baa8e354aed",
+      "to": "claim_e1973cd23f275af9",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_c64e836ce0a8700f",
+      "from": "claim_e1973cd23f275af9",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_0d7dbdec686a3c36",
+      "from": "source_8010a95ae63d6168",
+      "to": "claim_201df8160502d32a",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_4bbec55b45ba7674",
+      "from": "claim_201df8160502d32a",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_ad2d4fa81d05d207",
+      "from": "source_251e738970217249",
+      "to": "claim_74d35ff4c3a0f2f2",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_81b542536eaad700",
+      "from": "claim_74d35ff4c3a0f2f2",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_27e02053656eae8d",
+      "from": "source_bd2e1b0a3e1a96ee",
+      "to": "claim_9c7cafdad778259c",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_70b72e566972e161",
+      "from": "claim_9c7cafdad778259c",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_453f595bd29ae853",
+      "from": "source_6544a97b36dc6167",
+      "to": "claim_494f6a15f4695eb2",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_118e8d39b046362c",
+      "from": "claim_494f6a15f4695eb2",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_eebc0a3841498c9a",
+      "from": "source_af67c54c62f39511",
+      "to": "claim_ba75213e2337de6a",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_fb6a4d832a82fec6",
+      "from": "claim_ba75213e2337de6a",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_7cbd4f43b42f2595",
+      "from": "source_ec9a222d8ad39ae8",
+      "to": "claim_f3b42132d04805c4",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_e63cd7bca71a1692",
+      "from": "claim_f3b42132d04805c4",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_8dc054247bdfd844",
+      "from": "source_924b421a0abaae18",
+      "to": "claim_590f7a5977c02569",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_c2c38ce730f31039",
+      "from": "claim_590f7a5977c02569",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_8b2adb8e00d72ba9",
+      "from": "source_1f075c4afaa90ac5",
+      "to": "claim_bf601259bc0c00a2",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_a2b072f22b67aa57",
+      "from": "claim_bf601259bc0c00a2",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_8e4f3080fd4cdfb3",
+      "from": "source_14f10bd390e866e7",
+      "to": "claim_e1d87ad7353a356c",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_efdb3b51503db286",
+      "from": "claim_e1d87ad7353a356c",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_4af99502666c582c",
+      "from": "source_4c1cb37464fd1da3",
+      "to": "claim_d25e6ae42f71aadd",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_559930e4d59a855e",
+      "from": "claim_d25e6ae42f71aadd",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_7868babdfd4b5536",
+      "from": "source_52d1c5f1ea896123",
+      "to": "claim_1492e788915fc871",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_ec167f3c3b361f8c",
+      "from": "claim_1492e788915fc871",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_0ae4b32012a48327",
+      "from": "source_a0bc3548d3705cbe",
+      "to": "claim_f9e1092c812a46d1",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_8dd5ae2d9599dab6",
+      "from": "claim_f9e1092c812a46d1",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_97b8b77674f2bbf0",
+      "from": "source_fb6f14d9768831f7",
+      "to": "claim_7e65a5adbcd35ee0",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_386c6f4cefe8c809",
+      "from": "claim_7e65a5adbcd35ee0",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_683d7c4c0206caa3",
+      "from": "source_5514041be03e64ae",
+      "to": "claim_ad80f06603a8ebc5",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_de53265d4f0f605a",
+      "from": "claim_ad80f06603a8ebc5",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_d45b1a5878463c06",
+      "from": "source_ecb770cca081f8a0",
+      "to": "claim_cce92cfaa5fa4772",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_9f57b273ae5e67f0",
+      "from": "claim_cce92cfaa5fa4772",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_29cf50d14659886c",
+      "from": "update_a656ac5bac5e6a66",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_2a3252e6fb5e449d",
+      "from": "claim_1492e788915fc871",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "update_evidence_for",
+      "updateTitle": "NVIDIA入股Cloverleaf锁定基建"
+    },
+    {
+      "id": "edge_c8a1b6a7d40aa73a",
+      "from": "claim_f9e1092c812a46d1",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "update_evidence_for",
+      "updateTitle": "NVIDIA入股Cloverleaf锁定基建"
+    },
+    {
+      "id": "edge_e1118d6fc5434b53",
+      "from": "claim_7e65a5adbcd35ee0",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "update_evidence_for",
+      "updateTitle": "NVIDIA入股Cloverleaf锁定基建"
+    },
+    {
+      "id": "edge_5603d96a237f56ef",
+      "from": "claim_ad80f06603a8ebc5",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "update_evidence_for",
+      "updateTitle": "NVIDIA入股Cloverleaf锁定基建"
+    },
+    {
+      "id": "edge_4979541a41751d4d",
+      "from": "claim_cce92cfaa5fa4772",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "update_evidence_for",
+      "updateTitle": "NVIDIA入股Cloverleaf锁定基建"
+    },
+    {
+      "id": "edge_f59fd1df7072a1d9",
+      "from": "update_8fd8bbed07e0913d",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_aa3aee0d98f82900",
+      "from": "claim_d25e6ae42f71aadd",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "update_evidence_for",
+      "updateTitle": "NVIDIA再投数据中心资源商"
+    },
+    {
+      "id": "edge_3a21131425c7c2bc",
+      "from": "update_541ab29136cdd945",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_7de25fd4a0856902",
+      "from": "claim_e1d87ad7353a356c",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "update_evidence_for",
+      "updateTitle": "NVIDIA锁定俄亥俄算力园区"
+    },
+    {
+      "id": "edge_0ae820d7a5e68679",
+      "from": "update_2700c096455f480f",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_129047fa057a4969",
+      "from": "claim_590f7a5977c02569",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "update_evidence_for",
+      "updateTitle": "NVIDIA收缩OpenAI担保规模"
+    },
+    {
+      "id": "edge_32d4bfff562b8aa2",
+      "from": "claim_bf601259bc0c00a2",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "update_evidence_for",
+      "updateTitle": "NVIDIA收缩OpenAI担保规模"
+    },
+    {
+      "id": "edge_095e368676b50fff",
+      "from": "update_0ceb7a6d9cbd3424",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_40378c1ae36ae86c",
+      "from": "claim_f3b42132d04805c4",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "update_evidence_for",
+      "updateTitle": "NVIDIA据报拟投SB Energy"
+    },
+    {
+      "id": "edge_bb780e8879fc6b9b",
+      "from": "update_40425cc133455c1a",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_2b69c9c3bfcf677d",
+      "from": "claim_74d35ff4c3a0f2f2",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "update_evidence_for",
+      "updateTitle": "NVIDIA收缩OpenAI项目担保"
+    },
+    {
+      "id": "edge_02c37a93ea0aff00",
+      "from": "claim_9c7cafdad778259c",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "update_evidence_for",
+      "updateTitle": "NVIDIA收缩OpenAI项目担保"
+    },
+    {
+      "id": "edge_f5b1ffa4708429c0",
+      "from": "claim_494f6a15f4695eb2",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "update_evidence_for",
+      "updateTitle": "NVIDIA收缩OpenAI项目担保"
+    },
+    {
+      "id": "edge_05fa4d5aeb4a5835",
+      "from": "claim_ba75213e2337de6a",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "update_evidence_for",
+      "updateTitle": "NVIDIA收缩OpenAI项目担保"
+    },
+    {
+      "id": "edge_210188a21e080d83",
+      "from": "update_06712410f23a1697",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_b99c2467d9f45d87",
+      "from": "claim_201df8160502d32a",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "update_evidence_for",
+      "updateTitle": "NVIDIA补充硬件残值保障"
+    },
+    {
+      "id": "edge_44e9c74f8ac41646",
+      "from": "update_e787822bc31fa533",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_7aa62020db35a648",
+      "from": "claim_e1973cd23f275af9",
+      "to": "event_1c0e52d26f417ac9",
+      "relation": "update_evidence_for",
+      "updateTitle": "BBC佐证5000亿美元算力融资"
+    },
+    {
       "id": "edge_47ae7ebabb31a122",
       "from": "event_d2a245d746f21d6b",
       "to": "article_94a8572149df3a9e",
@@ -24827,6 +25326,32 @@
       "updateTitle": null
     },
     {
+      "id": "edge_205304cfc578ef15",
+      "from": "source_74bcfcfe68dc1377",
+      "to": "claim_2bab4b6db89b473a",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_e40829a956c5e163",
+      "from": "claim_2bab4b6db89b473a",
+      "to": "event_71ebfcf10c8d7916",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_a87770ccd71c9a0e",
+      "from": "update_d257f18bd6781049",
+      "to": "event_71ebfcf10c8d7916",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_d7675d74dbe07b06",
+      "from": "claim_2bab4b6db89b473a",
+      "to": "event_71ebfcf10c8d7916",
+      "relation": "update_evidence_for",
+      "updateTitle": "NVIDIA旗舰系统据报涨价17%"
+    },
+    {
       "id": "edge_e9277b56c841947e",
       "from": "update_2e8db8d4a6b8acc0",
       "to": "event_71ebfcf10c8d7916",
@@ -25620,287 +26145,6 @@
       "to": "event_3bdbbc57db124526",
       "relation": "update_evidence_for",
       "updateTitle": "OpenAI曾探索持股Lancium"
-    },
-    {
-      "id": "edge_11afeea28290e859",
-      "from": "event_1c0e52d26f417ac9",
-      "to": "article_6154bfc5759e6911",
-      "relation": "rendered_as"
-    },
-    {
-      "id": "edge_047be5075d8b7966",
-      "from": "source_0122ec2217c08ff3",
-      "to": "claim_b63375fbf9193803",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_a9f0c02570fbf5d3",
-      "from": "claim_b63375fbf9193803",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_3d14aa2f70722f03",
-      "from": "source_95824baa8e354aed",
-      "to": "claim_e1973cd23f275af9",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_c64e836ce0a8700f",
-      "from": "claim_e1973cd23f275af9",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_0d7dbdec686a3c36",
-      "from": "source_8010a95ae63d6168",
-      "to": "claim_201df8160502d32a",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_4bbec55b45ba7674",
-      "from": "claim_201df8160502d32a",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_ad2d4fa81d05d207",
-      "from": "source_251e738970217249",
-      "to": "claim_74d35ff4c3a0f2f2",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_81b542536eaad700",
-      "from": "claim_74d35ff4c3a0f2f2",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_27e02053656eae8d",
-      "from": "source_bd2e1b0a3e1a96ee",
-      "to": "claim_9c7cafdad778259c",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_70b72e566972e161",
-      "from": "claim_9c7cafdad778259c",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_453f595bd29ae853",
-      "from": "source_6544a97b36dc6167",
-      "to": "claim_494f6a15f4695eb2",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_118e8d39b046362c",
-      "from": "claim_494f6a15f4695eb2",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_eebc0a3841498c9a",
-      "from": "source_af67c54c62f39511",
-      "to": "claim_ba75213e2337de6a",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_fb6a4d832a82fec6",
-      "from": "claim_ba75213e2337de6a",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_7cbd4f43b42f2595",
-      "from": "source_ec9a222d8ad39ae8",
-      "to": "claim_f3b42132d04805c4",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_e63cd7bca71a1692",
-      "from": "claim_f3b42132d04805c4",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_8dc054247bdfd844",
-      "from": "source_924b421a0abaae18",
-      "to": "claim_590f7a5977c02569",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_c2c38ce730f31039",
-      "from": "claim_590f7a5977c02569",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_8b2adb8e00d72ba9",
-      "from": "source_1f075c4afaa90ac5",
-      "to": "claim_bf601259bc0c00a2",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_a2b072f22b67aa57",
-      "from": "claim_bf601259bc0c00a2",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_8e4f3080fd4cdfb3",
-      "from": "source_14f10bd390e866e7",
-      "to": "claim_e1d87ad7353a356c",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_efdb3b51503db286",
-      "from": "claim_e1d87ad7353a356c",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_4af99502666c582c",
-      "from": "source_4c1cb37464fd1da3",
-      "to": "claim_d25e6ae42f71aadd",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_559930e4d59a855e",
-      "from": "claim_d25e6ae42f71aadd",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_f59fd1df7072a1d9",
-      "from": "update_8fd8bbed07e0913d",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_aa3aee0d98f82900",
-      "from": "claim_d25e6ae42f71aadd",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "update_evidence_for",
-      "updateTitle": "NVIDIA再投数据中心资源商"
-    },
-    {
-      "id": "edge_3a21131425c7c2bc",
-      "from": "update_541ab29136cdd945",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_7de25fd4a0856902",
-      "from": "claim_e1d87ad7353a356c",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "update_evidence_for",
-      "updateTitle": "NVIDIA锁定俄亥俄算力园区"
-    },
-    {
-      "id": "edge_0ae820d7a5e68679",
-      "from": "update_2700c096455f480f",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_129047fa057a4969",
-      "from": "claim_590f7a5977c02569",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "update_evidence_for",
-      "updateTitle": "NVIDIA收缩OpenAI担保规模"
-    },
-    {
-      "id": "edge_32d4bfff562b8aa2",
-      "from": "claim_bf601259bc0c00a2",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "update_evidence_for",
-      "updateTitle": "NVIDIA收缩OpenAI担保规模"
-    },
-    {
-      "id": "edge_095e368676b50fff",
-      "from": "update_0ceb7a6d9cbd3424",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_40378c1ae36ae86c",
-      "from": "claim_f3b42132d04805c4",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "update_evidence_for",
-      "updateTitle": "NVIDIA据报拟投SB Energy"
-    },
-    {
-      "id": "edge_bb780e8879fc6b9b",
-      "from": "update_40425cc133455c1a",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_2b69c9c3bfcf677d",
-      "from": "claim_74d35ff4c3a0f2f2",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "update_evidence_for",
-      "updateTitle": "NVIDIA收缩OpenAI项目担保"
-    },
-    {
-      "id": "edge_02c37a93ea0aff00",
-      "from": "claim_9c7cafdad778259c",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "update_evidence_for",
-      "updateTitle": "NVIDIA收缩OpenAI项目担保"
-    },
-    {
-      "id": "edge_f5b1ffa4708429c0",
-      "from": "claim_494f6a15f4695eb2",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "update_evidence_for",
-      "updateTitle": "NVIDIA收缩OpenAI项目担保"
-    },
-    {
-      "id": "edge_05fa4d5aeb4a5835",
-      "from": "claim_ba75213e2337de6a",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "update_evidence_for",
-      "updateTitle": "NVIDIA收缩OpenAI项目担保"
-    },
-    {
-      "id": "edge_210188a21e080d83",
-      "from": "update_06712410f23a1697",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_b99c2467d9f45d87",
-      "from": "claim_201df8160502d32a",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "update_evidence_for",
-      "updateTitle": "NVIDIA补充硬件残值保障"
-    },
-    {
-      "id": "edge_44e9c74f8ac41646",
-      "from": "update_e787822bc31fa533",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_7aa62020db35a648",
-      "from": "claim_e1973cd23f275af9",
-      "to": "event_1c0e52d26f417ac9",
-      "relation": "update_evidence_for",
-      "updateTitle": "BBC佐证5000亿美元算力融资"
     },
     {
       "id": "edge_0d53b26b270e0716",
