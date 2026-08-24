@@ -1,8 +1,280 @@
 {
-  "generatedAt": "2026-08-23T18:07:24.127Z",
+  "generatedAt": "2026-08-24T20:07:36.763Z",
   "weekStart": "2026-07-24T00:00:00.000Z",
   "model": "gpt-5.6-terra",
   "items": [
+    {
+      "id": "conversation-20260824200736-1",
+      "videoId": "HHsuXYcBW7U",
+      "sourceName": "SAIR Foundation",
+      "sourceKind": "YouTube",
+      "originalTitle": "Sid Sijbrandij and Jacob Stern: Founder Mode for Cancer and AI-Guided Personalized Care",
+      "url": "https://www.youtube.com/watch?v=HHsuXYcBW7U",
+      "feedBatchAt": "2026-08-24T20:07:36.763Z",
+      "publishedAt": "2026-08-24T05:06:02.000Z",
+      "durationMinutes": 26,
+      "guest": "Sid Sijbrandij and Jacob Stern",
+      "categoryZh": "AI 与精准医疗",
+      "categoryEn": "AI and precision medicine",
+      "titleZh": "把癌症治疗变成持续生成选项的工程循环",
+      "titleEn": "Turning Cancer Care into an Iterative Option-Creation Loop",
+      "dekZh": "Sid Sijbrandij 与 Jacob Stern 的核心主张是：当标准治疗路径耗尽后，个体化癌症治疗不应被理解为寻找一次性“治愈”，而应是一套围绕患者数据持续提出、筛选、测试和更新治疗选项的迭代系统。",
+      "dekEn": "Sid Sijbrandij and Jacob Stern argue that once standard care is exhausted, personalized cancer treatment should not be framed as a search for one curative intervention, but as an iterative system for generating, prioritizing, testing, and revising options around a patient's data.",
+      "whyListenZh": "这段对谈难得地把 AI、单细胞测序、影像、功能性药物测试与细胞治疗放进同一条临床决策链。它的价值不在于承诺某种疗法已经成功，而在于具体展示了“单个患者数据闭环”可能如何改变研发与治疗的组织方式。",
+      "whyListenEn": "This conversation puts AI, single-cell sequencing, imaging, functional drug testing, and cell therapy into one clinical decision chain. Its value is not a claim that any intervention has succeeded, but a concrete account of how a data loop around one patient could reshape care and drug development.",
+      "counterpointZh": "这是一条高度资源密集、以单一患者为中心的路径。即使某些检测或干预带来有价值的信号，也不能据此推断其临床获益、可复制性或可及性；真正的检验是这些迭代能否在更多患者中形成可比较的结果。",
+      "counterpointEn": "This is a highly resource-intensive, single-patient-centered pathway. Even if individual tests or interventions yield useful signals, that does not establish clinical benefit, reproducibility, or access; the real test is whether these iterations can produce comparable outcomes across more patients.",
+      "takeawaysZh": [
+        "Sijbrandij 认为，治疗选择耗尽后的关键工作是主动建立新选项，而不是把现有临床路径视为终点。",
+        "Stern 描述的流程以肿瘤测序、公共图谱、影像和治疗后监测为输入，持续更新靶点与干预优先级。",
+        "B7-H3 CAR-T 的肝脏表达担忧说明，个体化治疗的难点不仅是发现靶点，也包括将安全约束写入治疗设计。"
+      ],
+      "takeawaysEn": [
+        "Sijbrandij argues that the work after standard options run out is to actively build new options, rather than treat the existing clinical pathway as final.",
+        "Stern describes a process that uses tumor sequencing, public atlases, imaging, and post-treatment monitoring to continually revise targets and intervention priorities.",
+        "The liver-expression concern around B7-H3 CAR-T illustrates that personalized treatment is not only about finding targets, but also about encoding safety constraints into treatment design."
+      ],
+      "articleZh": {
+        "lead": "这场对谈提出了一个比“AI 找到新药”更具体的命题：在治疗选择有限的情形下，AI 的角色或许是帮助临床团队把患者视为持续产生证据的系统，而非一次诊断后等待固定方案执行的对象。",
+        "sections": [
+          {
+            "heading": "从寻找答案转向持续制造选择",
+            "body": "Sijbrandij 回顾骨肉瘤复发、医生没有推荐药物或试验时，将自己的治疗转入“founder mode”的经历。他与 Stern 所描述的中心逻辑并非某一种疗法足以取代标准医疗，而是通过建立团队、收集更深的数据、探索试验性路径，让可行动的选择不至于随既有路径结束而消失。这个框架把治疗决策理解为一个持续更新的投资组合。"
+          },
+          {
+            "heading": "数据闭环如何连接靶点与干预",
+            "body": "Stern 描述，团队将单细胞 RNA 测序、公共图谱和肿瘤分析用于识别 FAP，并据此支持试验性放射性配体治疗；后续再以成像、组织采集和免疫监测观察肿瘤内部发生的变化。对谈还涉及由肿瘤突变与 AlphaFold-informed constructs 参与设计的 mRNA 疫苗、Pathfinder Oncology 的个体化 TCR-T、Travera 的功能性药物反应测试，以及指向 MDM2 和 PANX3 的深度测序线索。其机制是让每次干预既是治疗尝试，也是为下一轮排序补充信息的测量。"
+          },
+          {
+            "heading": "可证伪点在于临床结果，而非数据丰富度",
+            "body": "更多测序、更细监测和更多候选靶点不自动等于更好的治疗。尤其是 CAR-T 项目中，B7-H3 的肝脏表达担忧迫使团队考虑要求 B7-H3 与 FAP 同时满足才激活的 SNIPR-style AND gate，这说明安全性会直接重写设计空间。若这种模式无法在时间、成本和风险可接受的条件下，稳定地产生优于替代方案的患者结果，它就仍是高度定制化的探索，而不是可扩展的临床范式。"
+          }
+        ],
+        "outlook": "关注 Future of Cancer Care Today 及类似项目是否开始公开跨患者的决策记录：哪些靶点在何种数据支持下被优先选择、哪些干预被否决，以及这些选择最终对应怎样的临床结局。"
+      },
+      "articleEn": {
+        "lead": "This conversation advances a more specific proposition than “AI discovers drugs”: when treatment options are scarce, AI may help a clinical team treat a patient as a system that continuously generates evidence, rather than as a diagnosis awaiting execution of a fixed plan.",
+        "sections": [
+          {
+            "heading": "From finding an answer to continually creating options",
+            "body": "Sijbrandij recounts moving into “founder mode” after his osteosarcoma recurred and his oncologist had no recommended drugs or trials. The logic he and Stern describe is not that one therapy replaces standard medicine. It is that teams can keep actionable options from disappearing with the end of an established pathway by organizing expertise, collecting deeper data, and exploring experimental routes. Treatment becomes a continuously revised portfolio of possibilities."
+          },
+          {
+            "heading": "How a data loop connects targets to interventions",
+            "body": "Stern says the team used single-cell RNA sequencing, public atlases, and tumor profiling to identify FAP and support an experimental radioligand approach, then used imaging, tissue collection, and immune monitoring to study what followed. The discussion also covers an mRNA vaccine informed by tumor mutations and AlphaFold-informed constructs, personalized TCR-T with Pathfinder Oncology, functional drug-response testing through Travera, and deep-sequencing signals around MDM2 and PANX3. In this model, each intervention is both a treatment attempt and a measurement that informs the next prioritization."
+          },
+          {
+            "heading": "The falsifiable question is clinical outcome, not data richness",
+            "body": "More sequencing, denser monitoring, and more candidate targets do not automatically produce better care. The concern over B7-H3 expression in the liver pushed the team to consider a SNIPR-style AND gate requiring both B7-H3 and FAP for activation, showing how safety constraints can rewrite the design space. If this approach cannot reliably produce patient outcomes better than alternatives within acceptable time, cost, and risk, it remains a bespoke exploration rather than a scalable clinical model."
+          }
+        ],
+        "outlook": "Watch whether Future of Cancer Care Today and comparable efforts begin publishing cross-patient decision records: which targets were prioritized on what evidence, which interventions were rejected, and what clinical outcomes followed."
+      }
+    },
+    {
+      "id": "conversation-20260824200736-2",
+      "videoId": "",
+      "sourceName": "ChinaTalk Podcast",
+      "sourceKind": "Podcast",
+      "originalTitle": "How AI Becomes a Political Crisis",
+      "url": "https://feeds.megaphone.fm/8a618968-9cd8-11f1-8a84-df8443ed8ad3",
+      "feedBatchAt": "2026-08-24T20:07:36.763Z",
+      "publishedAt": "2026-08-24T07:58:00.000Z",
+      "durationMinutes": 69,
+      "guest": "Anton Leicht",
+      "categoryZh": "AI 政治经济",
+      "categoryEn": "AI political economy",
+      "titleZh": "AI 的政治风险，可能先来自职业阶梯断裂",
+      "titleEn": "AI’s Political Risk May Begin with a Broken Career Ladder",
+      "dekZh": "Anton Leicht 的判断是，AI 引发的政治危机未必需要大规模失业：如果 agent 优先替代初级白领岗位并切断职业进入路径，较小但集中的冲击也可能迅速转化为劳工、基础设施和国家安全层面的政治反弹。",
+      "dekEn": "Anton Leicht argues that AI need not cause mass unemployment to become a political crisis: if agents disproportionately replace junior white-collar roles and sever entry paths into careers, a smaller but concentrated shock could quickly become a backlash spanning labor, infrastructure, and national security.",
+      "whyListenZh": "这不是一场泛泛讨论“AI 会不会取代工作”的对谈，而是把问题定位到职业管道、政策数据、数据中心选址和开放权重之间的相互作用。它为判断 AI 采用的社会摩擦提供了比总就业数字更可操作的框架。",
+      "whyListenEn": "Rather than broadly asking whether AI will replace jobs, this conversation locates the issue in career pipelines, policy data, data-center siting, and open weights. It offers a more actionable framework than aggregate employment numbers for assessing social friction around AI adoption.",
+      "counterpointZh": "职业入口是否被 AI 实质性削弱、以及削弱是否会净减少机会，仍需按行业、地区和资历层级测量。企业也可能重构初级岗位，而不是简单删除它们；政治反应的速度同样取决于住房、能源和总体经济环境。",
+      "counterpointEn": "Whether AI materially weakens career entry points, and whether that produces a net loss of opportunity, still requires measurement by industry, geography, and seniority. Employers may redesign junior work rather than simply remove it, while the speed of political reaction also depends on housing, energy, and broader economic conditions.",
+      "takeawaysZh": [
+        "Leicht 认为，初级岗位减少的政治影响可能大于其在总就业中的占比，因为这些岗位承担了训练与晋升入口的功能。",
+        "他主张政策应先改善对 AI 与劳动力影响的观测，并讨论保护初级招聘而不让经济结构僵化的办法。",
+        "数据中心反对、开放模型与国家安全政策并非孤立议题；它们共同决定公众是否接受 AI 扩张。"
+      ],
+      "takeawaysEn": [
+        "Leicht argues that cuts to junior roles may matter politically more than their share of total employment because those roles serve as training and advancement entry points.",
+        "He argues for better measurement of AI’s labor effects and discusses ways to protect junior hiring without freezing the economy.",
+        "Data-center opposition, open models, and national-security policy are not separate issues; together they shape public acceptance of AI expansion."
+      ],
+      "articleZh": {
+        "lead": "AI 的政治约束未必会在失业率突然跃升时才出现。Leicht 提出的更早预警信号是：当 agent 开始压缩初级白领工作的训练与晋升功能，技术扩张可能先失去的是制度合法性。",
+        "sections": [
+          {
+            "heading": "职业管道比岗位总数更早暴露冲击",
+            "body": "Leicht 在对谈中把注意力放在初级白领工作，而非抽象的“就业被替代”。他的观点是，即便 AI 驱动的失业规模较小，只要集中在承担入行训练、经验积累和向上流动功能的岗位，也可能放大政治后果。问题因此不只是企业能节省多少人力成本，而是新一代劳动者还能否获得进入专业职业的第一段经历。"
+          },
+          {
+            "heading": "治理的机制是测量、过渡与分配",
+            "body": "围绕这一诊断，Leicht 讨论了更好地收集 AI 与劳动数据、是否补贴初级招聘，以及如何在保护劳动者时避免把经济结构固化。他还提出以企业所得税而非 token tax 为转型筹资的思路，并对政府持有 AI 企业股权或“golden shares”表示担忧。对谈的共同线索是：若没有能被公众理解的过渡安排，模型能力的提升会先被感知为风险分配不均。"
+          },
+          {
+            "heading": "基础设施许可与开放权重是压力测试",
+            "body": "Leicht 将数据中心抗议、friendshoring、协调放缓与开放权重同国家安全体系的张力并列讨论。这些议题构成同一项可证伪测试：政治系统能否在不简单暂停发展、也不把成本完全转嫁给地方社区与初级劳动者的条件下，维持部署授权。若局部反对持续阻断电力与数据中心建设，或开放模型争议演变为跨党派安全冲突，技术供给本身将成为政治瓶颈。"
+          }
+        ],
+        "outlook": "观察企业招聘数据中初级分析、运营、客服和软件岗位的变化，尤其是同一行业里 AI 部署较快企业与较慢企业之间，是否开始出现持续的入门岗位缺口。"
+      },
+      "articleEn": {
+        "lead": "AI’s political constraint may not first appear as a sudden rise in unemployment. Leicht offers an earlier warning signal: if agents compress the training and advancement functions of junior white-collar work, technological expansion may lose institutional legitimacy before it loses economic momentum.",
+        "sections": [
+          {
+            "heading": "Career pipelines may reveal the shock before job totals do",
+            "body": "Leicht focuses on junior white-collar work rather than abstract claims about job displacement. His view is that even a modest amount of AI-driven unemployment could have outsized political effects if it is concentrated in roles that provide entry, training, experience, and upward mobility. The issue is therefore not only how much labor cost a company can remove, but whether the next cohort can still obtain its first meaningful professional experience."
+          },
+          {
+            "heading": "The governing mechanism is measurement, transition, and distribution",
+            "body": "Against that diagnosis, Leicht discusses collecting better data on AI and labor, subsidizing junior hiring, and protecting workers without calcifying the economy. He also raises funding the transition through corporate income taxes rather than a token tax, while warning against government AI equity or “golden shares.” The thread connecting these proposals is that model progress may be experienced as unfairly distributed risk unless there is a transition arrangement the public can understand."
+          },
+          {
+            "heading": "Infrastructure permits and open weights are the stress test",
+            "body": "Leicht places data-center protests, friendshoring, coordinated slowdowns, and the tension between open weights and the national-security state in the same discussion. Together they test whether a political system can sustain permission to deploy without simply pausing development or shifting costs onto local communities and junior workers. If local opposition repeatedly blocks power and data-center buildout, or open-model disputes become a cross-party security conflict, the political system itself becomes a supply bottleneck."
+          }
+        ],
+        "outlook": "Watch hiring data for junior analyst, operations, support, and software roles—especially whether firms deploying AI faster than peers begin showing a persistent entry-level hiring gap."
+      }
+    },
+    {
+      "id": "conversation-20260824200736-3",
+      "videoId": "",
+      "sourceName": "Eye On A.I.",
+      "sourceKind": "Podcast",
+      "originalTitle": "95% of AI Agent Projects Fail to Reach Production. Here's Why | Manoj Saxena, TrustWise",
+      "url": "https://aneyeonai.libsyn.com/95-of-ai-agent-projects-fail-to-reach-production-heres-why-manoj-saxena-trustwise",
+      "feedBatchAt": "2026-08-24T20:07:36.763Z",
+      "publishedAt": "2026-08-24T15:07:00.000Z",
+      "durationMinutes": 62,
+      "guest": "Manoj Saxena",
+      "categoryZh": "企业 AI 基础设施",
+      "categoryEn": "Enterprise AI infrastructure",
+      "titleZh": "Agent 落地的瓶颈，可能是运行时控制而非模型能力",
+      "titleEn": "The Agent Bottleneck May Be Runtime Control, Not Model Capability",
+      "dekZh": "Manoj Saxena 的主张是，企业 agent 从试点走向生产的主要障碍不是底层模型不够强，而是企业缺少能在运行时对工具调用、行动与输出持续施加政策、风险和服务约束的控制层。",
+      "dekEn": "Manoj Saxena argues that the principal barrier to moving enterprise agents from pilots into production is not inadequate base-model capability, but the lack of a control layer that can apply policy, risk, and service constraints continuously to tool calls, actions, and outputs at runtime.",
+      "whyListenZh": "Saxena 把“agent 可靠性”从提示词和模型评测，推进到企业系统中的实时授权、审计与责任边界。即使 TrustWise 的具体性能与市场判断仍需独立验证，这段对谈仍清楚提出了一个值得检验的基础设施命题。",
+      "whyListenEn": "Saxena moves the question of agent reliability beyond prompts and model evaluations toward real-time authorization, auditability, and accountability inside enterprise systems. TrustWise’s specific performance and market claims require independent validation, but the conversation presents a clear infrastructure thesis worth testing.",
+      "counterpointZh": "控制层本身可能引入延迟、误拦截、集成复杂度和新的集中式故障点。节目说明中的 95%、83%、40% 以及 10 至 300 毫秒等数字属于 Saxena 和 TrustWise 在对谈中提出的说法；其可推广性取决于独立基准、真实部署和长期责任结果。",
+      "counterpointEn": "A control layer can itself introduce latency, false blocks, integration complexity, and new centralized failure points. The figures of 95%, 83%, 40%, and 10 to 300 milliseconds are claims made by Saxena and TrustWise in the episode; their generality depends on independent benchmarks, real deployments, and long-term accountability outcomes.",
+      "takeawaysZh": [
+        "Saxena 认为，能生成回答不等于能被授权执行行动；生产环境需要针对每一次工具调用和输出的运行时判断。",
+        "他将控制层描述为跨模型供应商和 agent framework 的基础设施，而不是绑定某个模型的安全功能。",
+        "他所说的 token 消耗悖论意味着，agent 的经济性取决于完整任务链的成本与失败率，而不只是单个 token 的价格。"
+      ],
+      "takeawaysEn": [
+        "Saxena argues that generating an answer is not the same as being authorized to take an action; production use requires runtime decisions on every tool call and output.",
+        "He describes the control layer as infrastructure that spans model vendors and agent frameworks, rather than a safety feature tied to one model.",
+        "His token-consumption paradox implies that agent economics depend on the cost and failure rate of an entire task chain, not only the price of an individual token."
+      ],
+      "articleZh": {
+        "lead": "企业 AI 的问题正在从“模型能不能完成任务”转向“谁能允许它在何种条件下完成任务”。Saxena 的论点是，agent 的生产化需要一层接近企业权限系统的实时控制，而不只是更强的模型或更多的提示词工程。",
+        "sections": [
+          {
+            "heading": "从试点到生产，缺的是行动授权",
+            "body": "Saxena 将企业 agent 的停滞归因于控制缺口，而非底层智能不足。他认为，agent 一旦可以调用工具、访问数据、触发工作流或代表企业作出动作，组织面对的就不再只是回答质量，而是权限、合规、客户 SLA 和可追责性。按他的表述，企业需要能够决定某一次具体行动是否被允许的机制，而不是仅在上线前对模型做一次静态评估。"
+          },
+          {
+            "heading": "控制层要在运行时覆盖完整行动链",
+            "body": "TrustWise 的 AI Control Tower 被 Saxena 描述为可在 live、sidecar、batch 或 simulation 模式运行，并跨不同供应商和 agent framework 工作的系统。他称其可将从 UN Human Rights frameworks 到客户 SLA 的六层要求，应用于每一次决策。无论其具体实现表现如何，这一定义抓住了 agent 基础设施与传统内容审核的差别：控制对象不只是文本输出，而是由上下文、工具调用和后续影响组成的行动链。"
+          },
+          {
+            "heading": "控制不能只增加摩擦",
+            "body": "这一主张能否成立，取决于控制系统是否既能减少高成本错误，又不会让自动化失去速度和经济价值。Saxena 所称的成本降低与安全改善，以及他关于 agent 流量超过人类流量的判断，都不足以单独证明控制层已成为普遍瓶颈。若控制规则频繁误拦截、难以解释，或必须为每个系统重做集成，企业可能选择收窄 agent 的权限，而不是部署一套新的横向平台。"
+          }
+        ],
+        "outlook": "观察大型企业是否开始把 agent 的运行时策略执行、工具调用审计和可回放决策记录列为采购要求，而非仅要求模型评测、数据隔离和人工审批。"
+      },
+      "articleEn": {
+        "lead": "The enterprise AI question is shifting from “can the model complete the task?” to “who can authorize it to complete the task, and under what conditions?” Saxena argues that production agents require a real-time control layer close to an enterprise permission system, not merely stronger models or more prompt engineering.",
+        "sections": [
+          {
+            "heading": "The missing step from pilot to production is action authorization",
+            "body": "Saxena attributes enterprise-agent stagnation to a control gap rather than a lack of underlying intelligence. Once an agent can call tools, access data, trigger workflows, or act on a company’s behalf, the organization faces questions of permissions, compliance, customer SLAs, and accountability—not merely answer quality. In his framing, enterprises need a mechanism that can decide whether a specific action is permitted, rather than relying on a one-time static evaluation before launch."
+          },
+          {
+            "heading": "A control layer must cover the full action chain at runtime",
+            "body": "Saxena describes TrustWise’s AI Control Tower as operating in live, sidecar, batch, or simulation modes across vendors and agent frameworks. He says it can apply six layers of requirements, from UN Human Rights frameworks to customer SLAs, to each decision. Whatever its specific implementation achieves, this framing identifies the difference between agent infrastructure and conventional content moderation: the object of control is not just text output, but an action chain shaped by context, tool calls, and downstream effects."
+          },
+          {
+            "heading": "Control cannot merely add friction",
+            "body": "The thesis depends on whether a control system can reduce costly failures without stripping automation of speed and economic value. Saxena’s stated cost and safety gains, along with his claim about agent traffic exceeding human traffic, do not by themselves establish that runtime control is a universal bottleneck. If controls block acceptable actions too often, are hard to explain, or require bespoke integration for every system, enterprises may narrow agent permissions instead of adopting a new horizontal platform."
+          }
+        ],
+        "outlook": "Watch whether large enterprises begin requiring runtime policy enforcement, tool-call audit trails, and replayable agent decision records in procurement—not just model evaluations, data isolation, and human approval."
+      }
+    },
+    {
+      "id": "conversation-20260824200736-4",
+      "videoId": "",
+      "sourceName": "The Twenty Minute VC (20VC)",
+      "sourceKind": "YouTube",
+      "originalTitle": "20VC: Inside Sequoia's Investment Committee: Lessons from Don Valentine, Doug Leone and Alfred Lin | How the SpaceX and Citadel Deals Went Down | What Sequoia Specifically Looks for in Founders with Julien Bek",
+      "url": "https://thetwentyminutevc.libsyn.com/20vc-inside-sequoias-investment-committee-lessons-from-don-valentine-doug-leone-and-alfred-lin-how-the-spacex-and-citadel-deals-went-down-what-sequoia-specifically-looks-for-in-founders-with-julien-bek",
+      "feedBatchAt": "2026-08-24T20:07:36.763Z",
+      "publishedAt": "2026-08-24T07:07:00.000Z",
+      "durationMinutes": 79,
+      "guest": "Julien Bek",
+      "categoryZh": "科技投资方法论",
+      "categoryEn": "Technology investing",
+      "titleZh": "Agent 成为客户后，投资判断要重做分发与护城河",
+      "titleEn": "When Agents Become Customers, Investors Must Reassess Distribution and Moats",
+      "dekZh": "Julien Bek 在对谈中提出的关键判断是：若 AI agents 开始参与采购和服务交付，软件公司的竞争结构将不再只由传统 UI、品牌和席位定价决定，投资人需要重新评估分发、利润率、服务边界与创始人能力。",
+      "dekEn": "Julien Bek’s central proposition is that if AI agents begin participating in purchasing and service delivery, software competition will no longer be determined only by traditional UI, brand, and seat-based pricing, forcing investors to reassess distribution, margins, service boundaries, and founder capability.",
+      "whyListenZh": "这段对谈把 Sequoia 的投资委员会、创始人判断和 AI 市场结构放在同一个框架中。它特别适合想理解投资人为何会同时讨论 agent、服务化、软件利润率和早期团队规模的人。",
+      "whyListenEn": "This conversation puts Sequoia’s investment committee process, founder assessment, and AI market structure in one frame. It is especially useful for understanding why investors discuss agents, services, software margins, and early team size together.",
+      "counterpointZh": "agent 是否会成为有实质采购权的客户，仍取决于企业授权、责任归属和数据接入。UI、品牌与传统渠道未必消失，而可能在 agent 选择、人工复核和复杂采购中继续发挥作用；Bek 的市场判断应被视为投资视角，而非既成行业结果。",
+      "counterpointEn": "Whether agents become customers with meaningful purchasing authority still depends on enterprise authorization, liability allocation, and data access. UI, brand, and traditional channels may persist in agent selection, human review, and complex procurement; Bek’s market view is an investing perspective, not an established industry outcome.",
+      "takeawaysZh": [
+        "Bek 将投资判断的一部分放在创始人叙事的真实性、逆境反应与独特性上，而不只看一场完成度很高的 pitch。",
+        "他讨论“agents become the new customer”时，隐含的变化是产品发现、采购和品牌触达可能从面向人类界面转向面向机器可读性与执行结果。",
+        "他认为 AI 可能让某些高价值公司以服务业务形态出现，这要求投资人区分过渡性人工交付与可规模化的软件能力。"
+      ],
+      "takeawaysEn": [
+        "Bek places part of investment judgment in the authenticity of a founder’s narrative, response to adversity, and distinctiveness—not only in a highly polished pitch.",
+        "In discussing “agents become the new customer,” he implies that product discovery, purchasing, and brand access may shift from human-facing interfaces toward machine readability and execution outcomes.",
+        "He argues that some valuable AI companies may initially resemble services businesses, requiring investors to distinguish transitional human delivery from scalable software capability."
+      ],
+      "articleZh": {
+        "lead": "Julien Bek 的对谈将两个常被分开讨论的问题连在一起：怎样判断创始人，以及当 agent 介入购买和交付时，怎样判断一家软件公司的护城河。连接二者的是不确定环境下的适应能力。",
+        "sections": [
+          {
+            "heading": "投资决策不是把增长表格机械外推",
+            "body": "Bek 介绍 Sequoia 的投资过程，并讨论投资人如何在有限时间内判断创始人、为何过于无瑕的 pitch 反而可能成为警讯，以及合伙人在内部意见不一致时如何行动。他的隐含论点是，在市场结构变化快的阶段，投资判断不能只依赖既有增长模型或所有权目标；创始人是否能够讲出真实经历、处理反对意见并在不确定中调整，构成另一类关键证据。"
+          },
+          {
+            "heading": "Agent 改变的是软件的分发与交付链",
+            "body": "在 AI 部分，Bek 讨论了“agents become the new customer”、UI 是否变得不重要、answer-engine optimisation 是否会超过 SEO，以及 agent 对软件利润率和品牌忠诚度的影响。这些问题指向同一机制：若软件发现、比较、采购甚至部分服务执行由 agent 参与，产品不只需要说服最终用户，也需要在机器可读的价格、能力、可靠性和结果指标上被选择。由此，传统 SaaS 与服务业务之间的边界也可能重画。"
+          },
+          {
+            "heading": "服务外观不等于软件护城河",
+            "body": "Bek 讨论下一家万亿美元公司可能伪装成服务业务，以及企业对 AI 实施帮助的需求。但这一判断有明确的反证条件：若每个客户都需要大量定制集成、人工例外处理和持续咨询，服务收入未必会转化为软件规模效应；若 agent 的采购权迟迟未被企业开放，UI、品牌和传统销售仍可能保有主导地位。投资上的关键不是公司是否使用 AI，而是其交付过程能否随着客户增长而标准化。"
+          }
+        ],
+        "outlook": "观察企业采购流程中是否出现可审计的 agent 授权：哪些预算、品类和续约决策开始由 agent 提出或执行，以及供应商是否为此公开机器可读的价格、权限和服务质量承诺。"
+      },
+      "articleEn": {
+        "lead": "Julien Bek connects two questions often treated separately: how to judge founders, and how to judge a software moat when agents participate in purchasing and delivery. The link is adaptability under an uncertain market structure.",
+        "sections": [
+          {
+            "heading": "Investment decisions are not mechanical extrapolations of growth tables",
+            "body": "Bek discusses Sequoia’s investment process, how investors assess founders in limited time, why an overly flawless pitch can be a warning sign, and how partners act amid internal disagreement. His implicit argument is that when market structure is changing quickly, investment judgment cannot rest only on established growth models or ownership targets. Whether a founder can tell a genuine story, respond to challenge, and adapt under uncertainty becomes another important form of evidence."
+          },
+          {
+            "heading": "Agents change the distribution and delivery chain of software",
+            "body": "In the AI portion, Bek discusses “agents become the new customer,” whether UI becomes less important, whether answer-engine optimisation can surpass SEO, and what agents might do to software margins and brand loyalty. These questions point to one mechanism: if discovery, comparison, purchasing, and parts of service delivery involve agents, a product must be selected not only by end users but on machine-readable price, capability, reliability, and outcome measures. The boundary between conventional SaaS and services may then be redrawn."
+          },
+          {
+            "heading": "Looking like a service does not establish a software moat",
+            "body": "Bek considers whether the next trillion-dollar company could masquerade as a services business and notes enterprise demand for AI implementation help. But the claim has clear disconfirming conditions. If every customer requires extensive custom integration, manual exception handling, and continuing consulting, service revenue may not become software-scale economics. If enterprises do not delegate meaningful purchasing authority to agents, UI, brands, and traditional sales channels may remain dominant. The investment question is not whether a company uses AI, but whether its delivery can standardize as customers grow."
+          }
+        ],
+        "outlook": "Watch for auditable agent authorization in enterprise procurement: which budgets, categories, and renewal decisions agents begin proposing or executing, and whether vendors respond with machine-readable pricing, permissions, and service-quality commitments."
+      }
+    },
     {
       "id": "conversation-20260823180724-1",
       "videoId": "",
