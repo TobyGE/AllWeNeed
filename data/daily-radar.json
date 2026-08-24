@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-24T08:12:33.092Z",
-  "basedOnSnapshotAt": "2026-08-24T08:08:19.425Z",
+  "generatedAt": "2026-08-24T11:12:12.246Z",
+  "basedOnSnapshotAt": "2026-08-24T11:06:38.042Z",
   "model": "gpt-5.5",
   "analyzedItemCount": 180,
   "totalFetchedItemCount": 2330,
@@ -8,6 +8,384 @@
   "signalQuality": 86,
   "signalQualityChange": 8,
   "signals": [
+    {
+      "id": 146,
+      "editorialBucket": "dynamic",
+      "category": "AI & 模型",
+      "eyebrow": "产品信号",
+      "title": "Alibaba上线Wan 3.0视频模型",
+      "summary": "Alibaba Cloud正式推出Wan 3.0，支持从文档、表格、幻灯片和网页输入生成最长30秒视频，把视频生成的输入范围从提示词和素材进一步扩展到企业工作文件。",
+      "why": "这是一项已落地的模型与产品能力变化，可能降低企业将既有业务资料转成视频内容的制作门槛。",
+      "impact": "若能力稳定并进入更多Alibaba产品与渠道，视频生成竞争可能更快转向工作流接入、素材理解和企业分发。",
+      "shiftFrom": "视频生成主要依赖提示词与素材",
+      "shiftTo": "业务文件可直接成为视频输入",
+      "crossValidation": "Alibaba Cloud产品页确认Wan 3.0及其输入和时长能力；Reuters确认该模型于8月24日正式推出，形成官方发布与独立媒体报道的交叉验证。",
+      "article": {
+        "lead": "Alibaba Cloud已正式推出Wan 3.0视频生成模型，并将文档、电子表格、幻灯片和网页纳入输入范围。官方页面称，模型可生成最长30秒的视频。这意味着视频模型的产品边界正从单纯的创意生成，向把企业既有信息资产转化为可分发内容的工作流延伸。",
+        "sections": [
+          {
+            "heading": "输入层从素材转向工作文件",
+            "body": "Alibaba Cloud的产品页面将Wan 3.0定位为视频生成服务，并明确列出文档、表格、幻灯片和网页等输入形式，同时标注原生最长30秒生成能力。Reuters报道称，Alibaba于8月24日正式推出该模型。相较于主要依赖文本提示、图片或短视频素材的生成路径，这次上线的可观察变化是：结构化和半结构化的业务文件可以直接进入视频生成链路。"
+          },
+          {
+            "heading": "文件理解决定产品价值上限",
+            "body": "将网页和办公文件接入视频生成，并不只是增加上传入口。模型需要识别表格中的重点数据、幻灯片的叙事顺序、文档中的层级关系，以及网页内容的视觉与文本结构，才能把信息压缩为连贯的视频表达。因此，Wan 3.0的竞争重点可能不止于画面质量，还在于其是否能稳定提取关键信息、维持事实一致性，并减少用户为生成结果反复重写提示词的成本。"
+          },
+          {
+            "heading": "企业内容生产或出现新接入点",
+            "body": "这一能力若在实际使用中可靠，企业可把报告、产品介绍、销售材料和站点内容更直接地转为培训、营销或内部沟通视频，减少人工脚本整理与素材编排环节。最强的反例是，30秒生成和多格式输入本身并不证明输出适合生产环境：表格数据的准确呈现、网页版权边界、品牌控制和审核流程仍可能限制实际部署。"
+          }
+        ],
+        "outlook": "接下来可验证的信号包括：Alibaba是否公布Wan 3.0的API价格、并发限制、可用地区和企业客户案例；模型是否进入其云产品或办公、营销等应用的默认工作流；以及独立测试能否检验其对复杂表格、长文档和动态网页的事实保真度。若这些指标缺位或输出错误率偏高，文件到视频的产品扩展价值将被削弱。"
+      },
+      "validationType": "跨平台验证",
+      "publishedAt": "2026-08-24T10:01:28.000Z",
+      "updatedAt": "2026-08-24T10:01:28.000Z",
+      "sources": [
+        "Official",
+        "Media"
+      ],
+      "sourceNames": [
+        "Alibaba Cloud Model Studio",
+        "Reuters"
+      ],
+      "sourceCount": 2,
+      "age": "1 小时前",
+      "score": 85,
+      "tone": "blue",
+      "evidence": [
+        {
+          "id": "ground-226-6-https://www.reuters.com/business/retail-consumer/alibaba-launches-wan30-ai-video-model-after-10-billion-share-sale-2026-08-24/-1-https://modelstudio.console.alibabacloud.com/model-releases/wan3.0-video",
+          "sourceId": 226,
+          "sourceName": "Alibaba Cloud Model Studio",
+          "sourcePublisher": "Alibaba Cloud Model Studio",
+          "sourceKind": "Official",
+          "title": "Wan 3.0 Video Generation",
+          "url": "https://modelstudio.console.alibabacloud.com/model-releases/wan3.0-video",
+          "publishedAt": "2026-08-24T10:01:28.000Z",
+          "summary": "Official Alibaba Cloud product page announcing Wan 3.0, including native 30-second generation and document, spreadsheet, slide and web-page inputs.",
+          "fetchedAt": "2026-08-24T11:06:38.042Z",
+          "groundedFrom": "N1",
+          "groundingClaim": "Alibaba officially rolled out Wan3.0 on August 24, 2026. Alibaba Cloud says it can generate videos of up to 30 seconds from documents, spreadsheets, slides and web pages.",
+          "groundingNotes": "The Reuters report matches Alibaba Cloud’s official product pages. The official product page describes the capability as up to 30 seconds and lists DOC, XLS, PPT, PDF, MD and web-page inputs.",
+          "ref": "G1",
+          "role": "主张",
+          "takeaway": "Alibaba Cloud官方产品页发布Wan 3.0，并说明其支持文档、表格、幻灯片和网页输入，以及原生最长30秒视频生成。"
+        },
+        {
+          "id": "ground-226-6-https://www.reuters.com/business/retail-consumer/alibaba-launches-wan30-ai-video-model-after-10-billion-share-sale-2026-08-24/-2-https://www.investing.com/news/stock-market-news/alibaba-launches-wan30-ai-video-model-after-10-billionshare-sale-4872821",
+          "sourceId": 226,
+          "sourceName": "Reuters",
+          "sourcePublisher": "Reuters",
+          "sourceKind": "Media",
+          "title": "Alibaba launches Wan3.0 AI video model after $10 billion share sale",
+          "url": "https://www.investing.com/news/stock-market-news/alibaba-launches-wan30-ai-video-model-after-10-billionshare-sale-4872821",
+          "publishedAt": "2026-08-24T04:15:00.000Z",
+          "summary": "Reuters reports Alibaba officially rolled out Wan3.0 on August 24, 2026, and that it can generate 30-second videos from documents, spreadsheets, slides and web pages.",
+          "fetchedAt": "2026-08-24T11:06:38.042Z",
+          "groundedFrom": "N1",
+          "groundingClaim": "Alibaba officially rolled out Wan3.0 on August 24, 2026. Alibaba Cloud says it can generate videos of up to 30 seconds from documents, spreadsheets, slides and web pages.",
+          "groundingNotes": "The Reuters report matches Alibaba Cloud’s official product pages. The official product page describes the capability as up to 30 seconds and lists DOC, XLS, PPT, PDF, MD and web-page inputs.",
+          "ref": "G2",
+          "role": "佐证",
+          "takeaway": "Reuters报道称Alibaba于2026年8月24日正式推出Wan 3.0，并确认其可由多种业务文件生成30秒视频。"
+        }
+      ],
+      "references": [
+        {
+          "id": "ground-226-6-https://www.reuters.com/business/retail-consumer/alibaba-launches-wan30-ai-video-model-after-10-billion-share-sale-2026-08-24/-1-https://modelstudio.console.alibabacloud.com/model-releases/wan3.0-video",
+          "sourceId": 226,
+          "sourceName": "Alibaba Cloud Model Studio",
+          "sourcePublisher": "Alibaba Cloud Model Studio",
+          "sourceKind": "Official",
+          "title": "Wan 3.0 Video Generation",
+          "url": "https://modelstudio.console.alibabacloud.com/model-releases/wan3.0-video",
+          "publishedAt": "2026-08-24T10:01:28.000Z",
+          "summary": "Official Alibaba Cloud product page announcing Wan 3.0, including native 30-second generation and document, spreadsheet, slide and web-page inputs.",
+          "fetchedAt": "2026-08-24T11:06:38.042Z",
+          "groundedFrom": "N1",
+          "groundingClaim": "Alibaba officially rolled out Wan3.0 on August 24, 2026. Alibaba Cloud says it can generate videos of up to 30 seconds from documents, spreadsheets, slides and web pages.",
+          "groundingNotes": "The Reuters report matches Alibaba Cloud’s official product pages. The official product page describes the capability as up to 30 seconds and lists DOC, XLS, PPT, PDF, MD and web-page inputs.",
+          "ref": "G1"
+        },
+        {
+          "id": "ground-226-6-https://www.reuters.com/business/retail-consumer/alibaba-launches-wan30-ai-video-model-after-10-billion-share-sale-2026-08-24/-2-https://www.investing.com/news/stock-market-news/alibaba-launches-wan30-ai-video-model-after-10-billionshare-sale-4872821",
+          "sourceId": 226,
+          "sourceName": "Reuters",
+          "sourcePublisher": "Reuters",
+          "sourceKind": "Media",
+          "title": "Alibaba launches Wan3.0 AI video model after $10 billion share sale",
+          "url": "https://www.investing.com/news/stock-market-news/alibaba-launches-wan30-ai-video-model-after-10-billionshare-sale-4872821",
+          "publishedAt": "2026-08-24T04:15:00.000Z",
+          "summary": "Reuters reports Alibaba officially rolled out Wan3.0 on August 24, 2026, and that it can generate 30-second videos from documents, spreadsheets, slides and web pages.",
+          "fetchedAt": "2026-08-24T11:06:38.042Z",
+          "groundedFrom": "N1",
+          "groundingClaim": "Alibaba officially rolled out Wan3.0 on August 24, 2026. Alibaba Cloud says it can generate videos of up to 30 seconds from documents, spreadsheets, slides and web pages.",
+          "groundingNotes": "The Reuters report matches Alibaba Cloud’s official product pages. The official product page describes the capability as up to 30 seconds and lists DOC, XLS, PPT, PDF, MD and web-page inputs.",
+          "ref": "G2"
+        }
+      ],
+      "feedBatchAt": "2026-08-24T11:06:38.042Z"
+    },
+    {
+      "id": 147,
+      "editorialBucket": "dynamic",
+      "category": "semiconductor",
+      "eyebrow": "产品信号",
+      "title": "Xiaomi发布O3自研旗舰芯片",
+      "summary": "Xiaomi发布第二款高端旗舰SoC O3，报道称该芯片采用3nm、拥有240亿晶体管，并计划随小米18 Fold首发。自研芯片从O1的首次验证推进到下一代旗舰产品。",
+      "why": "旗舰SoC迭代是Xiaomi在高端终端供应链与软硬件协同上的明确进展，也为中国手机芯片设计竞争增加了新变量。",
+      "impact": "若量产、性能和终端采用兑现，Xiaomi可扩大自研平台在旗舰机中的份额；但其对Qualcomm的依赖短期内并未消失。",
+      "shiftFrom": "O1完成首款旗舰处理器验证",
+      "shiftTo": "O3进入下一代旗舰机导入阶段",
+      "crossValidation": "Bloomberg首先报道Xiaomi推出自研移动处理器；Reuters补充O3发布、3nm代工与首发计划；Xiaomi和Qualcomm的既有官方披露分别提供O1基准与持续合作的约束。",
+      "article": {
+        "lead": "Xiaomi已发布自研旗舰移动处理器O3。Reuters报道称，该芯片拟采用3nm工艺生产，并计划于9月随小米18 Fold首发；新浪科技报道称，Xiaomi在技术沟通会上披露O3为第二款高端旗舰SoC。对Xiaomi而言，这不是一次单点芯片展示，而是自研旗舰平台进入第二代产品导入。",
+        "sections": [
+          {
+            "heading": "O3把自研路线推进至第二代旗舰",
+            "body": "Bloomberg报道称，Xiaomi推出用于其旗舰设备的移动处理器，直接进入长期由Qualcomm和MediaTek供应的核心部件领域。新浪科技报道称，O3是Xiaomi第二款高端旗舰SoC，采用3nm工艺、拥有240亿晶体管，并计划随小米18 Fold首发。Reuters同样报道称O3已经发布，并援引知情人士称其目标用于旗舰折叠机。这使自研芯片从首代产品验证进入下一代旗舰导入。"
+          },
+          {
+            "heading": "芯片迭代服务于终端协同与供应链控制",
+            "body": "旗舰SoC的价值不只由单项跑分决定。自研平台可让手机厂商围绕影像、端侧AI、功耗、散热和操作系统调度进行更深的协同，并在产品节奏上减少对外部芯片路线图的被动适配。Xiaomi此前官方披露，O1是其首款旗舰处理器，采用第二代3nm工艺、190亿晶体管和44 TOPS六核NPU。O3的发布表明，公司正在持续投入这一设计能力，而非将O1停留在一次性试水。"
+          },
+          {
+            "heading": "替代外部供应商仍取决于量产规模",
+            "body": "Reuters援引消息人士称，O3目标出货量为20万至30万颗，相关代工与数量尚未获Xiaomi或TSMC公开确认。更重要的是，Qualcomm在2025年宣布与Xiaomi签署多年协议，称小米多代高端手机将继续使用Snapdragon 8系列平台且年度使用量增长。因此，O3更可能首先提高Xiaomi的旗舰产品选择权，而非立即构成对Qualcomm供应关系的实质替代。"
+          }
+        ],
+        "outlook": "下一步应观察小米18 Fold是否按计划搭载O3、芯片的正式制程与量产信息是否由Xiaomi或TSMC确认，以及其实际功耗、影像、端侧AI和良率表现。若O3从单款折叠机扩展至更多高端机型，并出现持续的出货与开发者支持数据，将强化Xiaomi正在建立可规模化旗舰平台的判断；反之，有限导入将削弱这一信号。"
+      },
+      "validationType": "跨平台验证",
+      "publishedAt": "2026-08-24T09:36:09.000Z",
+      "updatedAt": "2026-08-24T09:36:09.000Z",
+      "sources": [
+        "Blog",
+        "Media",
+        "Official"
+      ],
+      "sourceNames": [
+        "Bloomberg",
+        "新浪科技",
+        "Reuters via Euronext",
+        "Xiaomi Corporation",
+        "Qualcomm"
+      ],
+      "sourceCount": 5,
+      "age": "2 小时前",
+      "score": 83,
+      "tone": "green",
+      "evidence": [
+        {
+          "id": "233-7-https://www.bloomberg.com/news/articles/2026-08-24/xiaomi-develops-its-own-ai-mobile-chip-in-challenge-to-qualcomm",
+          "sourceId": 233,
+          "sourceName": "Bloomberg Technology",
+          "sourcePublisher": "Bloomberg",
+          "sourceKind": "Blog",
+          "title": "Xiaomi Develops Its Own AI Mobile Chip in Challenge to Qualcomm",
+          "url": "https://www.bloomberg.com/news/articles/2026-08-24/xiaomi-develops-its-own-ai-mobile-chip-in-challenge-to-qualcomm",
+          "publishedAt": "2026-08-24T09:36:09.000Z",
+          "summary": "Xiaomi Corp. launched a mobile processor for its marquee devices, putting pressure on Qualcomm Inc. and MediaTek Inc., which for years supplied the key component to the Chinese company.",
+          "fetchedAt": "2026-08-24T11:06:11.584Z",
+          "discoveredThroughCluster": true,
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-24T11:06:11.584Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "standard",
+            "reason": "fresh",
+            "ageHours": 1.5080672222222222,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N2",
+          "role": "主张",
+          "takeaway": "Bloomberg报道称Xiaomi推出用于旗舰设备的自研移动处理器，对Qualcomm和MediaTek构成新的竞争变量。"
+        },
+        {
+          "id": "research-233-7-https://www.bloomberg.com/news/articles/2026-08-24/xiaomi-develops-its-own-ai-mobile-chip-in-challenge-to-qualcomm-1-https://finance.sina.com.cn/jjxw/2026-08-24/doc-inipmhfp0031892.shtml",
+          "sourceId": 233,
+          "sourceName": "新浪科技",
+          "sourcePublisher": "新浪科技",
+          "sourceKind": "Media",
+          "title": "小米发布三款玄戒自研芯片，覆盖AI手机、高带宽计算与智驾领域",
+          "url": "https://finance.sina.com.cn/jjxw/2026-08-24/doc-inipmhfp0031892.shtml",
+          "publishedAt": "2026-08-24T00:00:00.000Z",
+          "summary": "报道小米8月24日技术沟通会公布O3、O100、D100三芯片；称O3为第二款高端旗舰SoC，采用3nm、240亿晶体管，实验室安兔兔成绩5,228,014，CPU较O1提升60%、GPU传统图形性能提升85%，并计划于9月随小米18 Fold首发。",
+          "fetchedAt": "2026-08-24T11:06:38.042Z",
+          "researchedFrom": "N2",
+          "researchRole": "Primary",
+          "researchClaim": "小米于2026年8月24日发布第二代自研旗舰手机SoC玄戒O3，并同时公布面向端侧AI的玄戒O100和面向智能驾驶的玄戒D100；这意味着其自研芯片计划已从2025年仅在手机、平板和手表落地的O1，扩展至手机、AI与汽车算力三条产品线。",
+          "researchComparisons": "小米称玄戒O3为3nm、十核全大核AI旗舰SoC，实验室安兔兔综合分为5,228,014，较O1的CPU性能提升60%、传统图形性能提升85%、LPDDR6带宽提升48%；作为此前基准，O1于2025年5月发布，采用第二代3nm工艺、190亿晶体管、10核CPU、16核GPU和44 TOPS NPU，并首先用于小米15S Pro和Pad 7 Ultra。商业化规模仍有限：路透社报道称，小米在业绩电话会上称O1设备累计出货已超过100万台，但知情人士称其中O1手机约15万台。更关键的反向比较是，高通与小米2025年签署的多年协议明确，小米多代高端机仍将使用骁龙8系平台，且年度采购量将增长。",
+          "researchUnresolved": "O3的5,228,014安兔兔分数为小米实验室口径，尚缺独立零售设备复测、测试配置及与同期骁龙和天玑旗舰平台的同条件能效比较；O3实际代工厂、首发机型后的量产良率、出货量与对外部SoC采购的替代比例也未获小米或台积电一手披露。",
+          "ref": "R1",
+          "role": "佐证",
+          "takeaway": "新浪科技报道称Xiaomi公布O3、O100和D100三款芯片，并称O3为第二款高端旗舰SoC，计划于9月随小米18 Fold首发。"
+        },
+        {
+          "id": "research-233-7-https://www.bloomberg.com/news/articles/2026-08-24/xiaomi-develops-its-own-ai-mobile-chip-in-challenge-to-qualcomm-3-https://live.euronext.com/en/financial-news/xiaomi-launches-new-xring-chip-partners-tsmc-production-sources-say",
+          "sourceId": 233,
+          "sourceName": "Reuters via Euronext",
+          "sourcePublisher": "Reuters via Euronext",
+          "sourceKind": "Media",
+          "title": "Xiaomi launches new Xring chip, partners with TSMC for production, sources say",
+          "url": "https://live.euronext.com/en/financial-news/xiaomi-launches-new-xring-chip-partners-tsmc-production-sources-say",
+          "publishedAt": "2026-08-24T00:00:00.000Z",
+          "summary": "报道称O3已发布，援引知情人士称其拟由台积电以3nm生产、目标用于旗舰折叠机且目标出货20万至30万颗；并报道小米称O1设备累计出货超过100万台、知情人士估计其中O1手机约15万部。这些产量与代工细节未获小米和台积电公开确认。",
+          "fetchedAt": "2026-08-24T11:06:38.042Z",
+          "researchedFrom": "N2",
+          "researchRole": "Context",
+          "researchClaim": "小米于2026年8月24日发布第二代自研旗舰手机SoC玄戒O3，并同时公布面向端侧AI的玄戒O100和面向智能驾驶的玄戒D100；这意味着其自研芯片计划已从2025年仅在手机、平板和手表落地的O1，扩展至手机、AI与汽车算力三条产品线。",
+          "researchComparisons": "小米称玄戒O3为3nm、十核全大核AI旗舰SoC，实验室安兔兔综合分为5,228,014，较O1的CPU性能提升60%、传统图形性能提升85%、LPDDR6带宽提升48%；作为此前基准，O1于2025年5月发布，采用第二代3nm工艺、190亿晶体管、10核CPU、16核GPU和44 TOPS NPU，并首先用于小米15S Pro和Pad 7 Ultra。商业化规模仍有限：路透社报道称，小米在业绩电话会上称O1设备累计出货已超过100万台，但知情人士称其中O1手机约15万台。更关键的反向比较是，高通与小米2025年签署的多年协议明确，小米多代高端机仍将使用骁龙8系平台，且年度采购量将增长。",
+          "researchUnresolved": "O3的5,228,014安兔兔分数为小米实验室口径，尚缺独立零售设备复测、测试配置及与同期骁龙和天玑旗舰平台的同条件能效比较；O3实际代工厂、首发机型后的量产良率、出货量与对外部SoC采购的替代比例也未获小米或台积电一手披露。",
+          "ref": "R3",
+          "role": "佐证",
+          "takeaway": "Reuters报道称O3已发布，并援引知情人士称其拟由TSMC以3nm生产、面向旗舰折叠机，目标出货20万至30万颗。"
+        },
+        {
+          "id": "research-233-7-https://www.bloomberg.com/news/articles/2026-08-24/xiaomi-develops-its-own-ai-mobile-chip-in-challenge-to-qualcomm-2-https://www.mi.com/global/discover/article?hl=en-GB&id=4926",
+          "sourceId": 233,
+          "sourceName": "Xiaomi Corporation",
+          "sourcePublisher": "Xiaomi Corporation",
+          "sourceKind": "Official",
+          "title": "Xiaomi Unveils Xiaomi XRING Chips, Xiaomi 15S Pro, Xiaomi Pad 7 Ultra and Multiple AIoT Products in Beijing Launch Event",
+          "url": "https://www.mi.com/global/discover/article?hl=en-GB&id=4926",
+          "publishedAt": "2025-05-22T00:00:00.000Z",
+          "summary": "小米一手确认O1是其首款旗舰处理器：第二代3nm、190亿晶体管、10核CPU、16核Immortalis-G925 GPU及44 TOPS六核NPU，并在中国首先搭载于小米15S Pro和Pad 7 Ultra，提供O3的前代产品与规格基准。",
+          "fetchedAt": "2026-08-24T11:06:38.042Z",
+          "researchedFrom": "N2",
+          "researchRole": "Comparison",
+          "researchClaim": "小米于2026年8月24日发布第二代自研旗舰手机SoC玄戒O3，并同时公布面向端侧AI的玄戒O100和面向智能驾驶的玄戒D100；这意味着其自研芯片计划已从2025年仅在手机、平板和手表落地的O1，扩展至手机、AI与汽车算力三条产品线。",
+          "researchComparisons": "小米称玄戒O3为3nm、十核全大核AI旗舰SoC，实验室安兔兔综合分为5,228,014，较O1的CPU性能提升60%、传统图形性能提升85%、LPDDR6带宽提升48%；作为此前基准，O1于2025年5月发布，采用第二代3nm工艺、190亿晶体管、10核CPU、16核GPU和44 TOPS NPU，并首先用于小米15S Pro和Pad 7 Ultra。商业化规模仍有限：路透社报道称，小米在业绩电话会上称O1设备累计出货已超过100万台，但知情人士称其中O1手机约15万台。更关键的反向比较是，高通与小米2025年签署的多年协议明确，小米多代高端机仍将使用骁龙8系平台，且年度采购量将增长。",
+          "researchUnresolved": "O3的5,228,014安兔兔分数为小米实验室口径，尚缺独立零售设备复测、测试配置及与同期骁龙和天玑旗舰平台的同条件能效比较；O3实际代工厂、首发机型后的量产良率、出货量与对外部SoC采购的替代比例也未获小米或台积电一手披露。",
+          "ref": "R2",
+          "role": "背景",
+          "takeaway": "Xiaomi此前官方确认O1为首款旗舰处理器，采用第二代3nm工艺、190亿晶体管和44 TOPS六核NPU。"
+        },
+        {
+          "id": "research-233-7-https://www.bloomberg.com/news/articles/2026-08-24/xiaomi-develops-its-own-ai-mobile-chip-in-challenge-to-qualcomm-4-https://www.qualcomm.com/news/releases/2025/05/qualcomm-and-xiaomi-expand-collaboration-with-multi-year-agreeme",
+          "sourceId": 233,
+          "sourceName": "Qualcomm",
+          "sourcePublisher": "Qualcomm",
+          "sourceKind": "Official",
+          "title": "Qualcomm and Xiaomi Expand Collaboration with Multi-Year Agreement",
+          "url": "https://www.qualcomm.com/news/releases/2025/05/qualcomm-and-xiaomi-expand-collaboration-with-multi-year-agreeme",
+          "publishedAt": "2025-05-20T00:00:00.000Z",
+          "summary": "高通一手披露双方已签署多年合作协议：小米多代高端智能手机将继续使用骁龙8系平台，在中国和全球市场销售，且每年使用量将增长；这直接限制了“自研芯片已对高通形成实质替代压力”的结论。",
+          "fetchedAt": "2026-08-24T11:06:38.042Z",
+          "researchedFrom": "N2",
+          "researchRole": "Counterevidence",
+          "researchClaim": "小米于2026年8月24日发布第二代自研旗舰手机SoC玄戒O3，并同时公布面向端侧AI的玄戒O100和面向智能驾驶的玄戒D100；这意味着其自研芯片计划已从2025年仅在手机、平板和手表落地的O1，扩展至手机、AI与汽车算力三条产品线。",
+          "researchComparisons": "小米称玄戒O3为3nm、十核全大核AI旗舰SoC，实验室安兔兔综合分为5,228,014，较O1的CPU性能提升60%、传统图形性能提升85%、LPDDR6带宽提升48%；作为此前基准，O1于2025年5月发布，采用第二代3nm工艺、190亿晶体管、10核CPU、16核GPU和44 TOPS NPU，并首先用于小米15S Pro和Pad 7 Ultra。商业化规模仍有限：路透社报道称，小米在业绩电话会上称O1设备累计出货已超过100万台，但知情人士称其中O1手机约15万台。更关键的反向比较是，高通与小米2025年签署的多年协议明确，小米多代高端机仍将使用骁龙8系平台，且年度采购量将增长。",
+          "researchUnresolved": "O3的5,228,014安兔兔分数为小米实验室口径，尚缺独立零售设备复测、测试配置及与同期骁龙和天玑旗舰平台的同条件能效比较；O3实际代工厂、首发机型后的量产良率、出货量与对外部SoC采购的替代比例也未获小米或台积电一手披露。",
+          "ref": "R4",
+          "role": "反例",
+          "takeaway": "Qualcomm此前官方披露与Xiaomi的多年协议，小米多代高端手机将继续使用Snapdragon 8系列平台，且年度使用量将增长。"
+        }
+      ],
+      "references": [
+        {
+          "id": "233-7-https://www.bloomberg.com/news/articles/2026-08-24/xiaomi-develops-its-own-ai-mobile-chip-in-challenge-to-qualcomm",
+          "sourceId": 233,
+          "sourceName": "Bloomberg Technology",
+          "sourcePublisher": "Bloomberg",
+          "sourceKind": "Blog",
+          "title": "Xiaomi Develops Its Own AI Mobile Chip in Challenge to Qualcomm",
+          "url": "https://www.bloomberg.com/news/articles/2026-08-24/xiaomi-develops-its-own-ai-mobile-chip-in-challenge-to-qualcomm",
+          "publishedAt": "2026-08-24T09:36:09.000Z",
+          "summary": "Xiaomi Corp. launched a mobile processor for its marquee devices, putting pressure on Qualcomm Inc. and MediaTek Inc., which for years supplied the key component to the Chinese company.",
+          "fetchedAt": "2026-08-24T11:06:11.584Z",
+          "discoveredThroughCluster": true,
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-24T11:06:11.584Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "standard",
+            "reason": "fresh",
+            "ageHours": 1.5080672222222222,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N2"
+        },
+        {
+          "id": "research-233-7-https://www.bloomberg.com/news/articles/2026-08-24/xiaomi-develops-its-own-ai-mobile-chip-in-challenge-to-qualcomm-1-https://finance.sina.com.cn/jjxw/2026-08-24/doc-inipmhfp0031892.shtml",
+          "sourceId": 233,
+          "sourceName": "新浪科技",
+          "sourcePublisher": "新浪科技",
+          "sourceKind": "Media",
+          "title": "小米发布三款玄戒自研芯片，覆盖AI手机、高带宽计算与智驾领域",
+          "url": "https://finance.sina.com.cn/jjxw/2026-08-24/doc-inipmhfp0031892.shtml",
+          "publishedAt": "2026-08-24T00:00:00.000Z",
+          "summary": "报道小米8月24日技术沟通会公布O3、O100、D100三芯片；称O3为第二款高端旗舰SoC，采用3nm、240亿晶体管，实验室安兔兔成绩5,228,014，CPU较O1提升60%、GPU传统图形性能提升85%，并计划于9月随小米18 Fold首发。",
+          "fetchedAt": "2026-08-24T11:06:38.042Z",
+          "researchedFrom": "N2",
+          "researchRole": "Primary",
+          "researchClaim": "小米于2026年8月24日发布第二代自研旗舰手机SoC玄戒O3，并同时公布面向端侧AI的玄戒O100和面向智能驾驶的玄戒D100；这意味着其自研芯片计划已从2025年仅在手机、平板和手表落地的O1，扩展至手机、AI与汽车算力三条产品线。",
+          "researchComparisons": "小米称玄戒O3为3nm、十核全大核AI旗舰SoC，实验室安兔兔综合分为5,228,014，较O1的CPU性能提升60%、传统图形性能提升85%、LPDDR6带宽提升48%；作为此前基准，O1于2025年5月发布，采用第二代3nm工艺、190亿晶体管、10核CPU、16核GPU和44 TOPS NPU，并首先用于小米15S Pro和Pad 7 Ultra。商业化规模仍有限：路透社报道称，小米在业绩电话会上称O1设备累计出货已超过100万台，但知情人士称其中O1手机约15万台。更关键的反向比较是，高通与小米2025年签署的多年协议明确，小米多代高端机仍将使用骁龙8系平台，且年度采购量将增长。",
+          "researchUnresolved": "O3的5,228,014安兔兔分数为小米实验室口径，尚缺独立零售设备复测、测试配置及与同期骁龙和天玑旗舰平台的同条件能效比较；O3实际代工厂、首发机型后的量产良率、出货量与对外部SoC采购的替代比例也未获小米或台积电一手披露。",
+          "ref": "R1"
+        },
+        {
+          "id": "research-233-7-https://www.bloomberg.com/news/articles/2026-08-24/xiaomi-develops-its-own-ai-mobile-chip-in-challenge-to-qualcomm-3-https://live.euronext.com/en/financial-news/xiaomi-launches-new-xring-chip-partners-tsmc-production-sources-say",
+          "sourceId": 233,
+          "sourceName": "Reuters via Euronext",
+          "sourcePublisher": "Reuters via Euronext",
+          "sourceKind": "Media",
+          "title": "Xiaomi launches new Xring chip, partners with TSMC for production, sources say",
+          "url": "https://live.euronext.com/en/financial-news/xiaomi-launches-new-xring-chip-partners-tsmc-production-sources-say",
+          "publishedAt": "2026-08-24T00:00:00.000Z",
+          "summary": "报道称O3已发布，援引知情人士称其拟由台积电以3nm生产、目标用于旗舰折叠机且目标出货20万至30万颗；并报道小米称O1设备累计出货超过100万台、知情人士估计其中O1手机约15万部。这些产量与代工细节未获小米和台积电公开确认。",
+          "fetchedAt": "2026-08-24T11:06:38.042Z",
+          "researchedFrom": "N2",
+          "researchRole": "Context",
+          "researchClaim": "小米于2026年8月24日发布第二代自研旗舰手机SoC玄戒O3，并同时公布面向端侧AI的玄戒O100和面向智能驾驶的玄戒D100；这意味着其自研芯片计划已从2025年仅在手机、平板和手表落地的O1，扩展至手机、AI与汽车算力三条产品线。",
+          "researchComparisons": "小米称玄戒O3为3nm、十核全大核AI旗舰SoC，实验室安兔兔综合分为5,228,014，较O1的CPU性能提升60%、传统图形性能提升85%、LPDDR6带宽提升48%；作为此前基准，O1于2025年5月发布，采用第二代3nm工艺、190亿晶体管、10核CPU、16核GPU和44 TOPS NPU，并首先用于小米15S Pro和Pad 7 Ultra。商业化规模仍有限：路透社报道称，小米在业绩电话会上称O1设备累计出货已超过100万台，但知情人士称其中O1手机约15万台。更关键的反向比较是，高通与小米2025年签署的多年协议明确，小米多代高端机仍将使用骁龙8系平台，且年度采购量将增长。",
+          "researchUnresolved": "O3的5,228,014安兔兔分数为小米实验室口径，尚缺独立零售设备复测、测试配置及与同期骁龙和天玑旗舰平台的同条件能效比较；O3实际代工厂、首发机型后的量产良率、出货量与对外部SoC采购的替代比例也未获小米或台积电一手披露。",
+          "ref": "R3"
+        },
+        {
+          "id": "research-233-7-https://www.bloomberg.com/news/articles/2026-08-24/xiaomi-develops-its-own-ai-mobile-chip-in-challenge-to-qualcomm-2-https://www.mi.com/global/discover/article?hl=en-GB&id=4926",
+          "sourceId": 233,
+          "sourceName": "Xiaomi Corporation",
+          "sourcePublisher": "Xiaomi Corporation",
+          "sourceKind": "Official",
+          "title": "Xiaomi Unveils Xiaomi XRING Chips, Xiaomi 15S Pro, Xiaomi Pad 7 Ultra and Multiple AIoT Products in Beijing Launch Event",
+          "url": "https://www.mi.com/global/discover/article?hl=en-GB&id=4926",
+          "publishedAt": "2025-05-22T00:00:00.000Z",
+          "summary": "小米一手确认O1是其首款旗舰处理器：第二代3nm、190亿晶体管、10核CPU、16核Immortalis-G925 GPU及44 TOPS六核NPU，并在中国首先搭载于小米15S Pro和Pad 7 Ultra，提供O3的前代产品与规格基准。",
+          "fetchedAt": "2026-08-24T11:06:38.042Z",
+          "researchedFrom": "N2",
+          "researchRole": "Comparison",
+          "researchClaim": "小米于2026年8月24日发布第二代自研旗舰手机SoC玄戒O3，并同时公布面向端侧AI的玄戒O100和面向智能驾驶的玄戒D100；这意味着其自研芯片计划已从2025年仅在手机、平板和手表落地的O1，扩展至手机、AI与汽车算力三条产品线。",
+          "researchComparisons": "小米称玄戒O3为3nm、十核全大核AI旗舰SoC，实验室安兔兔综合分为5,228,014，较O1的CPU性能提升60%、传统图形性能提升85%、LPDDR6带宽提升48%；作为此前基准，O1于2025年5月发布，采用第二代3nm工艺、190亿晶体管、10核CPU、16核GPU和44 TOPS NPU，并首先用于小米15S Pro和Pad 7 Ultra。商业化规模仍有限：路透社报道称，小米在业绩电话会上称O1设备累计出货已超过100万台，但知情人士称其中O1手机约15万台。更关键的反向比较是，高通与小米2025年签署的多年协议明确，小米多代高端机仍将使用骁龙8系平台，且年度采购量将增长。",
+          "researchUnresolved": "O3的5,228,014安兔兔分数为小米实验室口径，尚缺独立零售设备复测、测试配置及与同期骁龙和天玑旗舰平台的同条件能效比较；O3实际代工厂、首发机型后的量产良率、出货量与对外部SoC采购的替代比例也未获小米或台积电一手披露。",
+          "ref": "R2"
+        },
+        {
+          "id": "research-233-7-https://www.bloomberg.com/news/articles/2026-08-24/xiaomi-develops-its-own-ai-mobile-chip-in-challenge-to-qualcomm-4-https://www.qualcomm.com/news/releases/2025/05/qualcomm-and-xiaomi-expand-collaboration-with-multi-year-agreeme",
+          "sourceId": 233,
+          "sourceName": "Qualcomm",
+          "sourcePublisher": "Qualcomm",
+          "sourceKind": "Official",
+          "title": "Qualcomm and Xiaomi Expand Collaboration with Multi-Year Agreement",
+          "url": "https://www.qualcomm.com/news/releases/2025/05/qualcomm-and-xiaomi-expand-collaboration-with-multi-year-agreeme",
+          "publishedAt": "2025-05-20T00:00:00.000Z",
+          "summary": "高通一手披露双方已签署多年合作协议：小米多代高端智能手机将继续使用骁龙8系平台，在中国和全球市场销售，且每年使用量将增长；这直接限制了“自研芯片已对高通形成实质替代压力”的结论。",
+          "fetchedAt": "2026-08-24T11:06:38.042Z",
+          "researchedFrom": "N2",
+          "researchRole": "Counterevidence",
+          "researchClaim": "小米于2026年8月24日发布第二代自研旗舰手机SoC玄戒O3，并同时公布面向端侧AI的玄戒O100和面向智能驾驶的玄戒D100；这意味着其自研芯片计划已从2025年仅在手机、平板和手表落地的O1，扩展至手机、AI与汽车算力三条产品线。",
+          "researchComparisons": "小米称玄戒O3为3nm、十核全大核AI旗舰SoC，实验室安兔兔综合分为5,228,014，较O1的CPU性能提升60%、传统图形性能提升85%、LPDDR6带宽提升48%；作为此前基准，O1于2025年5月发布，采用第二代3nm工艺、190亿晶体管、10核CPU、16核GPU和44 TOPS NPU，并首先用于小米15S Pro和Pad 7 Ultra。商业化规模仍有限：路透社报道称，小米在业绩电话会上称O1设备累计出货已超过100万台，但知情人士称其中O1手机约15万台。更关键的反向比较是，高通与小米2025年签署的多年协议明确，小米多代高端机仍将使用骁龙8系平台，且年度采购量将增长。",
+          "researchUnresolved": "O3的5,228,014安兔兔分数为小米实验室口径，尚缺独立零售设备复测、测试配置及与同期骁龙和天玑旗舰平台的同条件能效比较；O3实际代工厂、首发机型后的量产良率、出货量与对外部SoC采购的替代比例也未获小米或台积电一手披露。",
+          "ref": "R4"
+        }
+      ],
+      "feedBatchAt": "2026-08-24T11:06:38.042Z"
+    },
     {
       "id": 102,
       "editorialBucket": "dynamic",
@@ -45,7 +423,8 @@
         "Blog",
         "Media",
         "Official",
-        "IR"
+        "IR",
+        "SEC"
       ],
       "sourceNames": [
         "NVIDIA Corporation",
@@ -490,6 +869,72 @@
           "ref": "N5",
           "role": "最新进展",
           "takeaway": "The Information报道称，NVIDIA正讨论参与Perplexity融资，该轮融资规模或达数十亿美元，投后估值超过300亿美元。"
+        },
+        {
+          "id": "232-2-https://the-decoder.com/nvidia-in-talks-to-invest-in-perplexity-at-30-billion-plus-valuation/",
+          "sourceId": 232,
+          "sourceName": "The Decoder AI",
+          "sourcePublisher": "The Decoder",
+          "sourceKind": "Blog",
+          "title": "Nvidia in talks to invest in Perplexity at $30 billion-plus valuation",
+          "url": "https://the-decoder.com/nvidia-in-talks-to-invest-in-perplexity-at-30-billion-plus-valuation/",
+          "publishedAt": "2026-08-24T08:44:48.000Z",
+          "summary": "Nvidia is negotiating an investment in Perplexity at a valuation above $30 billion, more than 50 percent higher than its last funding round, The Information reports. Perplexity's annualized revenue has tripled to over $750 million. Much of Nvidia's investment money tends to flow back as revenue when portfolio companies buy its chips. The article Nvidia in ta",
+          "fetchedAt": "2026-08-24T11:06:11.584Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-24T11:06:11.584Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 2.3639005555555554,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N6",
+          "role": "佐证",
+          "takeaway": "The Decoder转述报道称NVIDIA正洽谈以逾300亿美元估值投资Perplexity，并称其年化收入超过7.5亿美元。"
+        },
+        {
+          "id": "research-232-2-https://the-decoder.com/nvidia-in-talks-to-invest-in-perplexity-at-30-billion-plus-valuation/-2-https://nvidianews.nvidia.com/news/rubin-platform-ai-supercomputer",
+          "sourceId": 232,
+          "sourceName": "NVIDIA",
+          "sourcePublisher": "NVIDIA",
+          "sourceKind": "Official",
+          "title": "NVIDIA Kicks Off the Next Generation of AI With Rubin — Six New Chips, One Incredible AI Supercomputer",
+          "url": "https://nvidianews.nvidia.com/news/rubin-platform-ai-supercomputer",
+          "publishedAt": "2026-01-05T00:00:00.000Z",
+          "summary": "补齐此前状态：英伟达在官方Rubin平台发布中将Perplexity列为预期采用Vera Rubin平台的AI实验室之一，证明双方在传出融资讨论前已存在公开的技术生态联系。",
+          "fetchedAt": "2026-08-24T11:06:38.042Z",
+          "researchedFrom": "N6",
+          "researchRole": "Comparison",
+          "researchClaim": "英伟达据报正讨论参与一轮对 Perplexity 估值超过300亿美元的股权融资；若完成，这将把两家公司既有的技术生态合作进一步延伸为更深的资本关系，但截至2026年8月24日尚无双方正式公告确认交易。",
+          "researchComparisons": "报道称 Perplexity 的年化收入已从2026年初不足2.5亿美元升至超过7.5亿美元，即至少增长两倍；按300亿美元估值与7.5亿美元年化收入的下限计算，隐含收入倍数低于或约为40倍。该估值也较一年前上一轮融资的估值高逾50%，意味着此前估值低于约200亿美元。英伟达此前已将 Perplexity 列为预期采用其 Vera Rubin 平台的AI实验室之一，说明技术供应关系早于此次传出的股权融资讨论。",
+          "researchUnresolved": "融资金额、最终估值口径（投前或投后）、英伟达拟投金额与持股比例、是否签署约束性协议、Perplexity年化收入是否为经审计或可复核的ARR，以及是否存在公开、明确署名的分析师一致预期，均未获公开文件确认。",
+          "ref": "R6",
+          "role": "背景",
+          "takeaway": "NVIDIA此前在Rubin平台发布中将Perplexity列为预期采用Vera Rubin平台的AI实验室之一。"
+        },
+        {
+          "id": "research-232-2-https://the-decoder.com/nvidia-in-talks-to-invest-in-perplexity-at-30-billion-plus-valuation/-3-https://investor.nvidia.com/files/doc_financials/2026/q3/13e6981b-95ed-4aac-a602-ebc5865d0590.pdf",
+          "sourceId": 232,
+          "sourceName": "NVIDIA",
+          "sourcePublisher": "NVIDIA",
+          "sourceKind": "SEC",
+          "title": "NVIDIA Corporation Quarterly Report on Form 10-Q",
+          "url": "https://investor.nvidia.com/files/doc_financials/2026/q3/13e6981b-95ed-4aac-a602-ebc5865d0590.pdf",
+          "publishedAt": "2026-08-24T08:44:48.000Z",
+          "summary": "补齐最强反例和风险基准：英伟达在其10-Q中称，战略投资未必能实现预期收益，私营公司投资可能减值或损失全部或部分本金；并明确表示，对若干潜在战略投资不存在达成最终协议或按预期条款完成交易的保证。这不能否定Perplexity交易传闻，但支持将其视为未确认、未完成的讨论而非既成交易。",
+          "fetchedAt": "2026-08-24T11:06:38.042Z",
+          "researchedFrom": "N6",
+          "researchRole": "Counterevidence",
+          "researchClaim": "英伟达据报正讨论参与一轮对 Perplexity 估值超过300亿美元的股权融资；若完成，这将把两家公司既有的技术生态合作进一步延伸为更深的资本关系，但截至2026年8月24日尚无双方正式公告确认交易。",
+          "researchComparisons": "报道称 Perplexity 的年化收入已从2026年初不足2.5亿美元升至超过7.5亿美元，即至少增长两倍；按300亿美元估值与7.5亿美元年化收入的下限计算，隐含收入倍数低于或约为40倍。该估值也较一年前上一轮融资的估值高逾50%，意味着此前估值低于约200亿美元。英伟达此前已将 Perplexity 列为预期采用其 Vera Rubin 平台的AI实验室之一，说明技术供应关系早于此次传出的股权融资讨论。",
+          "researchUnresolved": "融资金额、最终估值口径（投前或投后）、英伟达拟投金额与持股比例、是否签署约束性协议、Perplexity年化收入是否为经审计或可复核的ARR，以及是否存在公开、明确署名的分析师一致预期，均未获公开文件确认。",
+          "ref": "R7",
+          "role": "反例",
+          "takeaway": "NVIDIA在10-Q中表示，潜在战略投资未必达成最终协议，私营公司投资可能减值或损失本金。"
         }
       ],
       "references": [
@@ -884,10 +1329,166 @@
           },
           "deferredResearch": false,
           "ref": "N5"
+        },
+        {
+          "id": "232-2-https://the-decoder.com/nvidia-in-talks-to-invest-in-perplexity-at-30-billion-plus-valuation/",
+          "sourceId": 232,
+          "sourceName": "The Decoder AI",
+          "sourcePublisher": "The Decoder",
+          "sourceKind": "Blog",
+          "title": "Nvidia in talks to invest in Perplexity at $30 billion-plus valuation",
+          "url": "https://the-decoder.com/nvidia-in-talks-to-invest-in-perplexity-at-30-billion-plus-valuation/",
+          "publishedAt": "2026-08-24T08:44:48.000Z",
+          "summary": "Nvidia is negotiating an investment in Perplexity at a valuation above $30 billion, more than 50 percent higher than its last funding round, The Information reports. Perplexity's annualized revenue has tripled to over $750 million. Much of Nvidia's investment money tends to flow back as revenue when portfolio companies buy its chips. The article Nvidia in ta",
+          "fetchedAt": "2026-08-24T11:06:11.584Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-24T11:06:11.584Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 2.3639005555555554,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N6"
+        },
+        {
+          "id": "research-232-2-https://the-decoder.com/nvidia-in-talks-to-invest-in-perplexity-at-30-billion-plus-valuation/-2-https://nvidianews.nvidia.com/news/rubin-platform-ai-supercomputer",
+          "sourceId": 232,
+          "sourceName": "NVIDIA",
+          "sourcePublisher": "NVIDIA",
+          "sourceKind": "Official",
+          "title": "NVIDIA Kicks Off the Next Generation of AI With Rubin — Six New Chips, One Incredible AI Supercomputer",
+          "url": "https://nvidianews.nvidia.com/news/rubin-platform-ai-supercomputer",
+          "publishedAt": "2026-01-05T00:00:00.000Z",
+          "summary": "补齐此前状态：英伟达在官方Rubin平台发布中将Perplexity列为预期采用Vera Rubin平台的AI实验室之一，证明双方在传出融资讨论前已存在公开的技术生态联系。",
+          "fetchedAt": "2026-08-24T11:06:38.042Z",
+          "researchedFrom": "N6",
+          "researchRole": "Comparison",
+          "researchClaim": "英伟达据报正讨论参与一轮对 Perplexity 估值超过300亿美元的股权融资；若完成，这将把两家公司既有的技术生态合作进一步延伸为更深的资本关系，但截至2026年8月24日尚无双方正式公告确认交易。",
+          "researchComparisons": "报道称 Perplexity 的年化收入已从2026年初不足2.5亿美元升至超过7.5亿美元，即至少增长两倍；按300亿美元估值与7.5亿美元年化收入的下限计算，隐含收入倍数低于或约为40倍。该估值也较一年前上一轮融资的估值高逾50%，意味着此前估值低于约200亿美元。英伟达此前已将 Perplexity 列为预期采用其 Vera Rubin 平台的AI实验室之一，说明技术供应关系早于此次传出的股权融资讨论。",
+          "researchUnresolved": "融资金额、最终估值口径（投前或投后）、英伟达拟投金额与持股比例、是否签署约束性协议、Perplexity年化收入是否为经审计或可复核的ARR，以及是否存在公开、明确署名的分析师一致预期，均未获公开文件确认。",
+          "ref": "R6"
+        },
+        {
+          "id": "research-232-2-https://the-decoder.com/nvidia-in-talks-to-invest-in-perplexity-at-30-billion-plus-valuation/-3-https://investor.nvidia.com/files/doc_financials/2026/q3/13e6981b-95ed-4aac-a602-ebc5865d0590.pdf",
+          "sourceId": 232,
+          "sourceName": "NVIDIA",
+          "sourcePublisher": "NVIDIA",
+          "sourceKind": "SEC",
+          "title": "NVIDIA Corporation Quarterly Report on Form 10-Q",
+          "url": "https://investor.nvidia.com/files/doc_financials/2026/q3/13e6981b-95ed-4aac-a602-ebc5865d0590.pdf",
+          "publishedAt": "2026-08-24T08:44:48.000Z",
+          "summary": "补齐最强反例和风险基准：英伟达在其10-Q中称，战略投资未必能实现预期收益，私营公司投资可能减值或损失全部或部分本金；并明确表示，对若干潜在战略投资不存在达成最终协议或按预期条款完成交易的保证。这不能否定Perplexity交易传闻，但支持将其视为未确认、未完成的讨论而非既成交易。",
+          "fetchedAt": "2026-08-24T11:06:38.042Z",
+          "researchedFrom": "N6",
+          "researchRole": "Counterevidence",
+          "researchClaim": "英伟达据报正讨论参与一轮对 Perplexity 估值超过300亿美元的股权融资；若完成，这将把两家公司既有的技术生态合作进一步延伸为更深的资本关系，但截至2026年8月24日尚无双方正式公告确认交易。",
+          "researchComparisons": "报道称 Perplexity 的年化收入已从2026年初不足2.5亿美元升至超过7.5亿美元，即至少增长两倍；按300亿美元估值与7.5亿美元年化收入的下限计算，隐含收入倍数低于或约为40倍。该估值也较一年前上一轮融资的估值高逾50%，意味着此前估值低于约200亿美元。英伟达此前已将 Perplexity 列为预期采用其 Vera Rubin 平台的AI实验室之一，说明技术供应关系早于此次传出的股权融资讨论。",
+          "researchUnresolved": "融资金额、最终估值口径（投前或投后）、英伟达拟投金额与持股比例、是否签署约束性协议、Perplexity年化收入是否为经审计或可复核的ARR，以及是否存在公开、明确署名的分析师一致预期，均未获公开文件确认。",
+          "ref": "R7"
         }
       ],
       "feedBatchAt": "2026-08-24T08:08:19.425Z",
       "updates": [
+        {
+          "addedAt": "2026-08-24T08:44:48.000Z",
+          "title": "NVIDIA据报讨论投资Perplexity",
+          "summary": "The Information报道称，NVIDIA正讨论参与Perplexity估值逾300亿美元的融资；报道还称其年化收入已升至逾7.5亿美元。NVIDIA的10-Q提示潜在战略投资未必达成或实现预期收益。",
+          "evidence": [
+            {
+              "id": "232-2-https://the-decoder.com/nvidia-in-talks-to-invest-in-perplexity-at-30-billion-plus-valuation/",
+              "sourceId": 232,
+              "sourceName": "The Decoder AI",
+              "sourcePublisher": "The Decoder",
+              "sourceKind": "Blog",
+              "title": "Nvidia in talks to invest in Perplexity at $30 billion-plus valuation",
+              "url": "https://the-decoder.com/nvidia-in-talks-to-invest-in-perplexity-at-30-billion-plus-valuation/",
+              "publishedAt": "2026-08-24T08:44:48.000Z",
+              "summary": "Nvidia is negotiating an investment in Perplexity at a valuation above $30 billion, more than 50 percent higher than its last funding round, The Information reports. Perplexity's annualized revenue has tripled to over $750 million. Much of Nvidia's investment money tends to flow back as revenue when portfolio companies buy its chips. The article Nvidia in ta",
+              "fetchedAt": "2026-08-24T11:06:11.584Z",
+              "accessMethod": "public-feed",
+              "publicContentPolicy": "headline-source-link-only",
+              "firstSeenAt": "2026-08-24T11:06:11.584Z",
+              "freshness": {
+                "eligible": true,
+                "lane": "explore",
+                "reason": "fresh",
+                "ageHours": 2.3639005555555554,
+                "maxAgeHours": 168
+              },
+              "deferredResearch": false,
+              "ref": "N6",
+              "role": "佐证",
+              "takeaway": "The Decoder转述报道称NVIDIA正洽谈以逾300亿美元估值投资Perplexity，并称其年化收入超过7.5亿美元。"
+            },
+            {
+              "id": "research-232-2-https://the-decoder.com/nvidia-in-talks-to-invest-in-perplexity-at-30-billion-plus-valuation/-1-https://www.theinformation.com/articles/nvidia-discusses-perplexity-investment-30-billion-plus-valuation-considered-tech-licensing-deal",
+              "sourceId": 232,
+              "sourceName": "The Information",
+              "sourcePublisher": "The Information",
+              "sourceKind": "Media",
+              "title": "Nvidia Discusses Perplexity Investment at $30 Billion-Plus Valuation, Considered Tech Licensing Deal",
+              "url": "https://www.theinformation.com/articles/nvidia-discusses-perplexity-investment-30-billion-plus-valuation-considered-tech-licensing-deal",
+              "publishedAt": "2026-08-23T00:00:00.000Z",
+              "summary": "补齐交易当前状态：报道称英伟达正讨论参与估值逾300亿美元的Perplexity股权轮融资；同时给出上一轮融资估值增幅逾50%、年化收入由年初不足2.5亿美元升至逾7.5亿美元，以及此前还讨论过技术授权和人员安排等事实。",
+              "fetchedAt": "2026-08-24T11:06:38.042Z",
+              "researchedFrom": "N6",
+              "researchRole": "Primary",
+              "researchClaim": "英伟达据报正讨论参与一轮对 Perplexity 估值超过300亿美元的股权融资；若完成，这将把两家公司既有的技术生态合作进一步延伸为更深的资本关系，但截至2026年8月24日尚无双方正式公告确认交易。",
+              "researchComparisons": "报道称 Perplexity 的年化收入已从2026年初不足2.5亿美元升至超过7.5亿美元，即至少增长两倍；按300亿美元估值与7.5亿美元年化收入的下限计算，隐含收入倍数低于或约为40倍。该估值也较一年前上一轮融资的估值高逾50%，意味着此前估值低于约200亿美元。英伟达此前已将 Perplexity 列为预期采用其 Vera Rubin 平台的AI实验室之一，说明技术供应关系早于此次传出的股权融资讨论。",
+              "researchUnresolved": "融资金额、最终估值口径（投前或投后）、英伟达拟投金额与持股比例、是否签署约束性协议、Perplexity年化收入是否为经审计或可复核的ARR，以及是否存在公开、明确署名的分析师一致预期，均未获公开文件确认。",
+              "ref": "R5",
+              "role": "最新进展",
+              "takeaway": "The Information报道称NVIDIA正讨论参与Perplexity融资，并补充其估值较上一轮增长逾50%、年化收入从年初不足2.5亿美元升至逾7.5亿美元。"
+            },
+            {
+              "id": "research-232-2-https://the-decoder.com/nvidia-in-talks-to-invest-in-perplexity-at-30-billion-plus-valuation/-2-https://nvidianews.nvidia.com/news/rubin-platform-ai-supercomputer",
+              "sourceId": 232,
+              "sourceName": "NVIDIA",
+              "sourcePublisher": "NVIDIA",
+              "sourceKind": "Official",
+              "title": "NVIDIA Kicks Off the Next Generation of AI With Rubin — Six New Chips, One Incredible AI Supercomputer",
+              "url": "https://nvidianews.nvidia.com/news/rubin-platform-ai-supercomputer",
+              "publishedAt": "2026-01-05T00:00:00.000Z",
+              "summary": "补齐此前状态：英伟达在官方Rubin平台发布中将Perplexity列为预期采用Vera Rubin平台的AI实验室之一，证明双方在传出融资讨论前已存在公开的技术生态联系。",
+              "fetchedAt": "2026-08-24T11:06:38.042Z",
+              "researchedFrom": "N6",
+              "researchRole": "Comparison",
+              "researchClaim": "英伟达据报正讨论参与一轮对 Perplexity 估值超过300亿美元的股权融资；若完成，这将把两家公司既有的技术生态合作进一步延伸为更深的资本关系，但截至2026年8月24日尚无双方正式公告确认交易。",
+              "researchComparisons": "报道称 Perplexity 的年化收入已从2026年初不足2.5亿美元升至超过7.5亿美元，即至少增长两倍；按300亿美元估值与7.5亿美元年化收入的下限计算，隐含收入倍数低于或约为40倍。该估值也较一年前上一轮融资的估值高逾50%，意味着此前估值低于约200亿美元。英伟达此前已将 Perplexity 列为预期采用其 Vera Rubin 平台的AI实验室之一，说明技术供应关系早于此次传出的股权融资讨论。",
+              "researchUnresolved": "融资金额、最终估值口径（投前或投后）、英伟达拟投金额与持股比例、是否签署约束性协议、Perplexity年化收入是否为经审计或可复核的ARR，以及是否存在公开、明确署名的分析师一致预期，均未获公开文件确认。",
+              "ref": "R6",
+              "role": "背景",
+              "takeaway": "NVIDIA此前在Rubin平台发布中将Perplexity列为预期采用Vera Rubin平台的AI实验室之一。"
+            },
+            {
+              "id": "research-232-2-https://the-decoder.com/nvidia-in-talks-to-invest-in-perplexity-at-30-billion-plus-valuation/-3-https://investor.nvidia.com/files/doc_financials/2026/q3/13e6981b-95ed-4aac-a602-ebc5865d0590.pdf",
+              "sourceId": 232,
+              "sourceName": "NVIDIA",
+              "sourcePublisher": "NVIDIA",
+              "sourceKind": "SEC",
+              "title": "NVIDIA Corporation Quarterly Report on Form 10-Q",
+              "url": "https://investor.nvidia.com/files/doc_financials/2026/q3/13e6981b-95ed-4aac-a602-ebc5865d0590.pdf",
+              "publishedAt": "2026-08-24T08:44:48.000Z",
+              "summary": "补齐最强反例和风险基准：英伟达在其10-Q中称，战略投资未必能实现预期收益，私营公司投资可能减值或损失全部或部分本金；并明确表示，对若干潜在战略投资不存在达成最终协议或按预期条款完成交易的保证。这不能否定Perplexity交易传闻，但支持将其视为未确认、未完成的讨论而非既成交易。",
+              "fetchedAt": "2026-08-24T11:06:38.042Z",
+              "researchedFrom": "N6",
+              "researchRole": "Counterevidence",
+              "researchClaim": "英伟达据报正讨论参与一轮对 Perplexity 估值超过300亿美元的股权融资；若完成，这将把两家公司既有的技术生态合作进一步延伸为更深的资本关系，但截至2026年8月24日尚无双方正式公告确认交易。",
+              "researchComparisons": "报道称 Perplexity 的年化收入已从2026年初不足2.5亿美元升至超过7.5亿美元，即至少增长两倍；按300亿美元估值与7.5亿美元年化收入的下限计算，隐含收入倍数低于或约为40倍。该估值也较一年前上一轮融资的估值高逾50%，意味着此前估值低于约200亿美元。英伟达此前已将 Perplexity 列为预期采用其 Vera Rubin 平台的AI实验室之一，说明技术供应关系早于此次传出的股权融资讨论。",
+              "researchUnresolved": "融资金额、最终估值口径（投前或投后）、英伟达拟投金额与持股比例、是否签署约束性协议、Perplexity年化收入是否为经审计或可复核的ARR，以及是否存在公开、明确署名的分析师一致预期，均未获公开文件确认。",
+              "ref": "R7",
+              "role": "反例",
+              "takeaway": "NVIDIA在10-Q中表示，潜在战略投资未必达成最终协议，私营公司投资可能减值或损失本金。"
+            }
+          ],
+          "changeType": "corroboration",
+          "thesisImpact": "新报道补充Perplexity融资讨论的估值和收入规模，但交易仍处于未确认的讨论阶段，强化而未改变NVIDIA扩展资本与生态敞口的判断。",
+          "revisionRequired": false
+        },
         {
           "addedAt": "2026-08-24T03:06:58.000Z",
           "title": "NVIDIA据报洽谈投资Perplexity",
@@ -58704,6 +59305,96 @@
       "editorNote": "今日信息环境由智能体安全事件、AI coding 工具链分化、open-weight 模型竞争与算力下沉共同主导。",
       "signals": [
         {
+          "category": "AI & 模型",
+          "eyebrow": "产品信号",
+          "title": "Alibaba上线Wan 3.0视频模型",
+          "summary": "Alibaba Cloud正式推出Wan 3.0，支持从文档、表格、幻灯片和网页输入生成最长30秒视频，把视频生成的输入范围从提示词和素材进一步扩展到企业工作文件。",
+          "why": "这是一项已落地的模型与产品能力变化，可能降低企业将既有业务资料转成视频内容的制作门槛。",
+          "impact": "若能力稳定并进入更多Alibaba产品与渠道，视频生成竞争可能更快转向工作流接入、素材理解和企业分发。",
+          "shiftFrom": "视频生成主要依赖提示词与素材",
+          "shiftTo": "业务文件可直接成为视频输入",
+          "crossValidation": "Alibaba Cloud产品页确认Wan 3.0及其输入和时长能力；Reuters确认该模型于8月24日正式推出，形成官方发布与独立媒体报道的交叉验证。",
+          "article": {
+            "lead": "Alibaba Cloud已正式推出Wan 3.0视频生成模型，并将文档、电子表格、幻灯片和网页纳入输入范围。官方页面称，模型可生成最长30秒的视频。这意味着视频模型的产品边界正从单纯的创意生成，向把企业既有信息资产转化为可分发内容的工作流延伸。",
+            "sections": [
+              {
+                "heading": "输入层从素材转向工作文件",
+                "body": "Alibaba Cloud的产品页面将Wan 3.0定位为视频生成服务，并明确列出文档、表格、幻灯片和网页等输入形式，同时标注原生最长30秒生成能力。Reuters报道称，Alibaba于8月24日正式推出该模型。相较于主要依赖文本提示、图片或短视频素材的生成路径，这次上线的可观察变化是：结构化和半结构化的业务文件可以直接进入视频生成链路。"
+              },
+              {
+                "heading": "文件理解决定产品价值上限",
+                "body": "将网页和办公文件接入视频生成，并不只是增加上传入口。模型需要识别表格中的重点数据、幻灯片的叙事顺序、文档中的层级关系，以及网页内容的视觉与文本结构，才能把信息压缩为连贯的视频表达。因此，Wan 3.0的竞争重点可能不止于画面质量，还在于其是否能稳定提取关键信息、维持事实一致性，并减少用户为生成结果反复重写提示词的成本。"
+              },
+              {
+                "heading": "企业内容生产或出现新接入点",
+                "body": "这一能力若在实际使用中可靠，企业可把报告、产品介绍、销售材料和站点内容更直接地转为培训、营销或内部沟通视频，减少人工脚本整理与素材编排环节。最强的反例是，30秒生成和多格式输入本身并不证明输出适合生产环境：表格数据的准确呈现、网页版权边界、品牌控制和审核流程仍可能限制实际部署。"
+              }
+            ],
+            "outlook": "接下来可验证的信号包括：Alibaba是否公布Wan 3.0的API价格、并发限制、可用地区和企业客户案例；模型是否进入其云产品或办公、营销等应用的默认工作流；以及独立测试能否检验其对复杂表格、长文档和动态网页的事实保真度。若这些指标缺位或输出错误率偏高，文件到视频的产品扩展价值将被削弱。"
+          },
+          "evidence": [
+            {
+              "role": "主张",
+              "takeaway": "Alibaba Cloud官方产品页发布Wan 3.0，并说明其支持文档、表格、幻灯片和网页输入，以及原生最长30秒视频生成。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "Reuters报道称Alibaba于2026年8月24日正式推出Wan 3.0，并确认其可由多种业务文件生成30秒视频。"
+            }
+          ]
+        },
+        {
+          "category": "semiconductor",
+          "eyebrow": "产品信号",
+          "title": "Xiaomi发布O3自研旗舰芯片",
+          "summary": "Xiaomi发布第二款高端旗舰SoC O3，报道称该芯片采用3nm、拥有240亿晶体管，并计划随小米18 Fold首发。自研芯片从O1的首次验证推进到下一代旗舰产品。",
+          "why": "旗舰SoC迭代是Xiaomi在高端终端供应链与软硬件协同上的明确进展，也为中国手机芯片设计竞争增加了新变量。",
+          "impact": "若量产、性能和终端采用兑现，Xiaomi可扩大自研平台在旗舰机中的份额；但其对Qualcomm的依赖短期内并未消失。",
+          "shiftFrom": "O1完成首款旗舰处理器验证",
+          "shiftTo": "O3进入下一代旗舰机导入阶段",
+          "crossValidation": "Bloomberg首先报道Xiaomi推出自研移动处理器；Reuters补充O3发布、3nm代工与首发计划；Xiaomi和Qualcomm的既有官方披露分别提供O1基准与持续合作的约束。",
+          "article": {
+            "lead": "Xiaomi已发布自研旗舰移动处理器O3。Reuters报道称，该芯片拟采用3nm工艺生产，并计划于9月随小米18 Fold首发；新浪科技报道称，Xiaomi在技术沟通会上披露O3为第二款高端旗舰SoC。对Xiaomi而言，这不是一次单点芯片展示，而是自研旗舰平台进入第二代产品导入。",
+            "sections": [
+              {
+                "heading": "O3把自研路线推进至第二代旗舰",
+                "body": "Bloomberg报道称，Xiaomi推出用于其旗舰设备的移动处理器，直接进入长期由Qualcomm和MediaTek供应的核心部件领域。新浪科技报道称，O3是Xiaomi第二款高端旗舰SoC，采用3nm工艺、拥有240亿晶体管，并计划随小米18 Fold首发。Reuters同样报道称O3已经发布，并援引知情人士称其目标用于旗舰折叠机。这使自研芯片从首代产品验证进入下一代旗舰导入。"
+              },
+              {
+                "heading": "芯片迭代服务于终端协同与供应链控制",
+                "body": "旗舰SoC的价值不只由单项跑分决定。自研平台可让手机厂商围绕影像、端侧AI、功耗、散热和操作系统调度进行更深的协同，并在产品节奏上减少对外部芯片路线图的被动适配。Xiaomi此前官方披露，O1是其首款旗舰处理器，采用第二代3nm工艺、190亿晶体管和44 TOPS六核NPU。O3的发布表明，公司正在持续投入这一设计能力，而非将O1停留在一次性试水。"
+              },
+              {
+                "heading": "替代外部供应商仍取决于量产规模",
+                "body": "Reuters援引消息人士称，O3目标出货量为20万至30万颗，相关代工与数量尚未获Xiaomi或TSMC公开确认。更重要的是，Qualcomm在2025年宣布与Xiaomi签署多年协议，称小米多代高端手机将继续使用Snapdragon 8系列平台且年度使用量增长。因此，O3更可能首先提高Xiaomi的旗舰产品选择权，而非立即构成对Qualcomm供应关系的实质替代。"
+              }
+            ],
+            "outlook": "下一步应观察小米18 Fold是否按计划搭载O3、芯片的正式制程与量产信息是否由Xiaomi或TSMC确认，以及其实际功耗、影像、端侧AI和良率表现。若O3从单款折叠机扩展至更多高端机型，并出现持续的出货与开发者支持数据，将强化Xiaomi正在建立可规模化旗舰平台的判断；反之，有限导入将削弱这一信号。"
+          },
+          "evidence": [
+            {
+              "role": "主张",
+              "takeaway": "Bloomberg报道称Xiaomi推出用于旗舰设备的自研移动处理器，对Qualcomm和MediaTek构成新的竞争变量。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "新浪科技报道称Xiaomi公布O3、O100和D100三款芯片，并称O3为第二款高端旗舰SoC，计划于9月随小米18 Fold首发。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "Reuters报道称O3已发布，并援引知情人士称其拟由TSMC以3nm生产、面向旗舰折叠机，目标出货20万至30万颗。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "Xiaomi此前官方确认O1为首款旗舰处理器，采用第二代3nm工艺、190亿晶体管和44 TOPS六核NPU。"
+            },
+            {
+              "role": "反例",
+              "takeaway": "Qualcomm此前官方披露与Xiaomi的多年协议，小米多代高端手机将继续使用Snapdragon 8系列平台，且年度使用量将增长。"
+            }
+          ]
+        },
+        {
           "category": "算力",
           "eyebrow": "资本信号",
           "title": "NVIDIA联手资本巨头扩展算力融资",
@@ -58803,9 +59494,47 @@
             {
               "role": "最新进展",
               "takeaway": "The Information报道称，NVIDIA正讨论参与Perplexity融资，该轮融资规模或达数十亿美元，投后估值超过300亿美元。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "The Decoder转述报道称NVIDIA正洽谈以逾300亿美元估值投资Perplexity，并称其年化收入超过7.5亿美元。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "NVIDIA此前在Rubin平台发布中将Perplexity列为预期采用Vera Rubin平台的AI实验室之一。"
+            },
+            {
+              "role": "反例",
+              "takeaway": "NVIDIA在10-Q中表示，潜在战略投资未必达成最终协议，私营公司投资可能减值或损失本金。"
             }
           ],
           "updates": [
+            {
+              "addedAt": "2026-08-24T08:44:48.000Z",
+              "title": "NVIDIA据报讨论投资Perplexity",
+              "summary": "The Information报道称，NVIDIA正讨论参与Perplexity估值逾300亿美元的融资；报道还称其年化收入已升至逾7.5亿美元。NVIDIA的10-Q提示潜在战略投资未必达成或实现预期收益。",
+              "evidence": [
+                {
+                  "role": "佐证",
+                  "takeaway": "The Decoder转述报道称NVIDIA正洽谈以逾300亿美元估值投资Perplexity，并称其年化收入超过7.5亿美元。"
+                },
+                {
+                  "role": "最新进展",
+                  "takeaway": "The Information报道称NVIDIA正讨论参与Perplexity融资，并补充其估值较上一轮增长逾50%、年化收入从年初不足2.5亿美元升至逾7.5亿美元。"
+                },
+                {
+                  "role": "背景",
+                  "takeaway": "NVIDIA此前在Rubin平台发布中将Perplexity列为预期采用Vera Rubin平台的AI实验室之一。"
+                },
+                {
+                  "role": "反例",
+                  "takeaway": "NVIDIA在10-Q中表示，潜在战略投资未必达成最终协议，私营公司投资可能减值或损失本金。"
+                }
+              ],
+              "changeType": "corroboration",
+              "thesisImpact": "新报道补充Perplexity融资讨论的估值和收入规模，但交易仍处于未确认的讨论阶段，强化而未改变NVIDIA扩展资本与生态敞口的判断。",
+              "revisionRequired": false
+            },
             {
               "addedAt": "2026-08-24T03:06:58.000Z",
               "title": "NVIDIA据报洽谈投资Perplexity",
@@ -72706,6 +73435,96 @@
       "editorNote": "Today’s information environment is being shaped by agent security incidents, a split in coding-agent toolchains, open-model competition, and compute moving closer to the edge.",
       "signals": [
         {
+          "category": "AI & Models",
+          "eyebrow": "Product Signal",
+          "title": "Alibaba Launches Wan 3.0 Video Model",
+          "summary": "Alibaba Cloud has launched Wan 3.0, which can generate videos of up to 30 seconds from documents, spreadsheets, slides and web pages, extending video generation into enterprise work files.",
+          "why": "This is a deployed model and product change that could lower the cost of turning existing business materials into video content.",
+          "impact": "If the capability proves reliable and reaches more Alibaba channels, competition in video generation may shift toward workflow integration, source understanding and enterprise distribution.",
+          "shiftFrom": "Video generation relied mainly on prompts and assets",
+          "shiftTo": "Business files can directly feed video generation",
+          "crossValidation": "Alibaba Cloud confirms the launch and the model's inputs and duration; Reuters independently reports the August 24 rollout.",
+          "article": {
+            "lead": "Alibaba Cloud has formally launched the Wan 3.0 video-generation model, accepting documents, spreadsheets, slides and web pages as inputs. Its product page says it can generate native videos up to 30 seconds long. The change extends video models beyond creative prompting toward converting existing enterprise information into distributable media.",
+            "sections": [
+              {
+                "heading": "Work files become model inputs",
+                "body": "Alibaba Cloud lists documents, spreadsheets, presentations and web pages among Wan 3.0's supported input types, alongside native generation of videos up to 30 seconds. Reuters reports that Alibaba formally rolled out the model on August 24. The observable shift is that structured and semi-structured business materials can now enter the video-generation pipeline directly, rather than first being manually reduced to prompts or creative assets."
+              },
+              {
+                "heading": "Source understanding is the key mechanism",
+                "body": "Accepting office files and web pages is more than an upload feature. The system must identify important data in tables, narrative order in slides, hierarchy in documents and the visual-text structure of web pages to turn information into a coherent video. Wan 3.0's practical differentiation may therefore depend not only on visual quality, but also on factual fidelity, extraction accuracy and whether it reduces repeated prompt rewriting."
+              },
+              {
+                "heading": "A new enterprise content-production entry point",
+                "body": "If reliable in production, the capability could let companies turn reports, product material, sales decks and web content into training, marketing or internal communications videos with less manual scripting and asset assembly. The strongest countercase is that multi-format input and 30-second output do not by themselves establish production readiness: data accuracy, copyright boundaries, brand control and review requirements could still constrain deployment."
+              }
+            ],
+            "outlook": "Observable next evidence includes Wan 3.0 API pricing, concurrency limits, geographic availability and named enterprise deployments; whether Alibaba makes it a default feature in cloud, office or marketing workflows; and independent tests of factual fidelity on complex tables, long documents and dynamic web pages. Missing commercial details or high error rates would weaken the case for a meaningful workflow shift."
+          },
+          "evidence": [
+            {
+              "role": "Claim",
+              "takeaway": "Alibaba Cloud's official product page announces Wan 3.0, its document, spreadsheet, slide and web-page inputs, and native generation of videos up to 30 seconds."
+            },
+            {
+              "role": "Support",
+              "takeaway": "Reuters reports that Alibaba formally rolled out Wan 3.0 on August 24, 2026 and describes the same multi-file video-generation capability."
+            }
+          ]
+        },
+        {
+          "category": "Semiconductors",
+          "eyebrow": "Product Signal",
+          "title": "Xiaomi Launches Its O3 Flagship Chip",
+          "summary": "Xiaomi has released its second high-end flagship SoC, O3. Reports say it uses a 3nm process, has 24 billion transistors and is planned to debut in the Xiaomi 18 Fold, advancing the company's in-house chip program beyond O1.",
+          "why": "A second-generation flagship SoC is a concrete step in Xiaomi's control of premium-device supply chains and hardware-software integration.",
+          "impact": "If volume production, performance and handset adoption materialize, Xiaomi could expand its in-house platform footprint in premium phones, though dependence on Qualcomm remains.",
+          "shiftFrom": "O1 validated Xiaomi's first flagship processor",
+          "shiftTo": "O3 enters next-generation flagship integration",
+          "crossValidation": "Bloomberg reports the in-house processor launch; Reuters adds O3's release, prospective 3nm production and debut plan; prior Xiaomi and Qualcomm disclosures establish the O1 baseline and continuing supplier constraint.",
+          "article": {
+            "lead": "Xiaomi has released its in-house O3 flagship mobile processor. Reuters reports that the chip is intended for 3nm production and is planned to debut in the Xiaomi 18 Fold in September, while Sina Tech reports that Xiaomi presented O3 as its second high-end flagship SoC. This is not merely a chip demonstration: it moves Xiaomi's flagship silicon effort into a second product-generation cycle.",
+            "sections": [
+              {
+                "heading": "A second flagship silicon generation",
+                "body": "Bloomberg reports that Xiaomi has launched a mobile processor for marquee devices, entering a component category long supplied to the company by Qualcomm and MediaTek. Sina Tech reports that O3 is Xiaomi's second high-end flagship SoC, built on 3nm with 24 billion transistors and planned for the Xiaomi 18 Fold. Reuters also reports the O3 launch and says sources expect it to be used in a flagship foldable. The program has therefore moved from first-product validation into next-generation flagship integration."
+              },
+              {
+                "heading": "The mechanism is device-level integration",
+                "body": "The strategic value of a flagship SoC is not limited to a benchmark result. An in-house platform can allow deeper integration across imaging, on-device AI, power management, thermals and operating-system scheduling, while reducing dependence on an outside vendor's product timetable. Xiaomi previously confirmed that O1, its first flagship processor, used second-generation 3nm technology, 19 billion transistors and a 44-TOPS six-core NPU. O3 indicates ongoing investment in that design capability rather than a one-off experiment."
+              },
+              {
+                "heading": "Scale determines whether substitution follows",
+                "body": "Reuters, citing sources, says O3 is targeted for 200,000 to 300,000 units, though Xiaomi and TSMC have not publicly confirmed the production and volume details. More importantly, Qualcomm said in 2025 that its multiyear agreement with Xiaomi would keep Snapdragon 8 platforms in multiple generations of Xiaomi premium phones, with annual volumes growing. O3 is thus more likely to expand Xiaomi's product optionality first than to immediately displace Qualcomm materially."
+              }
+            ],
+            "outlook": "The next observable evidence will be whether Xiaomi 18 Fold launches with O3 as planned; whether Xiaomi or TSMC confirms process and volume production; and how the chip performs in power, imaging, on-device AI and yield. Expansion from one foldable to multiple premium models, together with shipment and developer-support data, would strengthen the case for a scalable Xiaomi flagship platform. Limited deployment would weaken it."
+          },
+          "evidence": [
+            {
+              "role": "Claim",
+              "takeaway": "Bloomberg reports that Xiaomi launched an in-house mobile processor for its marquee devices, creating a new competitive variable for Qualcomm and MediaTek."
+            },
+            {
+              "role": "Support",
+              "takeaway": "Sina Tech reports that Xiaomi presented O3 as its second high-end flagship SoC and plans to debut it in the Xiaomi 18 Fold."
+            },
+            {
+              "role": "Support",
+              "takeaway": "Reuters reports that O3 has launched and cites sources on prospective 3nm TSMC production, flagship-foldable use and targeted volume."
+            },
+            {
+              "role": "Context",
+              "takeaway": "Xiaomi previously confirmed O1 as its first flagship processor, with second-generation 3nm technology, 19 billion transistors and a 44-TOPS NPU."
+            },
+            {
+              "role": "Counterpoint",
+              "takeaway": "Qualcomm's prior official disclosure says Xiaomi will continue using Snapdragon 8 platforms across multiple premium-phone generations under a multiyear agreemen"
+            }
+          ]
+        },
+        {
           "category": "Compute Infrastructure",
           "eyebrow": "Capital Signal",
           "title": "NVIDIA Brings Major Capital Firms Into Compute Finance",
@@ -72805,9 +73624,47 @@
             {
               "role": "Update",
               "takeaway": "The Information reports that NVIDIA is discussing participation in Perplexity’s funding round at a valuation above $30 billion."
+            },
+            {
+              "role": "Support",
+              "takeaway": "The Decoder relays reporting that NVIDIA is discussing an investment in Perplexity at a valuation above $30 billion and cites annualized revenue above $750 million."
+            },
+            {
+              "role": "Context",
+              "takeaway": "NVIDIA previously listed Perplexity among AI labs expected to adopt its Vera Rubin platform."
+            },
+            {
+              "role": "Counterpoint",
+              "takeaway": "NVIDIA's 10-Q says potential strategic investments may not reach final agreement and private-company investments can lose value or principal."
             }
           ],
           "updates": [
+            {
+              "addedAt": "2026-08-24T08:44:48.000Z",
+              "title": "NVIDIA Reportedly Discusses Perplexity Investment",
+              "summary": "The Information reports that NVIDIA is discussing participation in a Perplexity financing at a valuation above $30 billion, while reporting annualized revenue above $750 million. NVIDIA's 10-Q cautions that potential strategic investments may not close or generate expected returns.",
+              "evidence": [
+                {
+                  "role": "Support",
+                  "takeaway": "The Decoder relays reporting that NVIDIA is discussing an investment in Perplexity at a valuation above $30 billion and cites annualized revenue above $750 million."
+                },
+                {
+                  "role": "Update",
+                  "takeaway": "The Information reports that NVIDIA is discussing participation in Perplexity's financing and adds valuation-growth and annualized-revenue details."
+                },
+                {
+                  "role": "Context",
+                  "takeaway": "NVIDIA previously listed Perplexity among AI labs expected to adopt its Vera Rubin platform."
+                },
+                {
+                  "role": "Counterpoint",
+                  "takeaway": "NVIDIA's 10-Q says potential strategic investments may not reach final agreement and private-company investments can lose value or principal."
+                }
+              ],
+              "changeType": "corroboration",
+              "thesisImpact": "新报道补充Perplexity融资讨论的估值和收入规模，但交易仍处于未确认的讨论阶段，强化而未改变NVIDIA扩展资本与生态敞口的判断。",
+              "revisionRequired": false
+            },
             {
               "addedAt": "2026-08-24T03:06:58.000Z",
               "title": "NVIDIA Reportedly Discusses Perplexity Investment",
@@ -86708,12 +87565,12 @@
     "en": "gpt-5.6-sol"
   },
   "incremental": {
-    "lastAddedAt": "2026-08-24T08:12:33.092Z",
-    "lastScanAt": "2026-08-24T08:08:19.425Z",
-    "lastAddedCount": 0,
+    "lastAddedAt": "2026-08-24T11:12:12.246Z",
+    "lastScanAt": "2026-08-24T11:06:38.042Z",
+    "lastAddedCount": 2,
     "lastUpdatedCount": 1,
-    "totalAppended": 137,
-    "totalUpdated": 158
+    "totalAppended": 139,
+    "totalUpdated": 159
   },
   "exploreDepth": {
     "minimum": 50,
