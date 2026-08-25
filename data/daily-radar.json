@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-08-25T18:12:07.544Z",
-  "basedOnSnapshotAt": "2026-08-25T18:07:39.851Z",
+  "generatedAt": "2026-08-25T21:13:24.456Z",
+  "basedOnSnapshotAt": "2026-08-25T21:07:03.949Z",
   "model": "gpt-5.5",
   "analyzedItemCount": 180,
-  "totalFetchedItemCount": 2315,
+  "totalFetchedItemCount": 2317,
   "editorNote": "今日信息环境由代理安全事件、编码代理工具链分化、开放模型竞争和算力下沉共同主导。",
   "signalQuality": 86,
   "signalQualityChange": 8,
@@ -16172,13 +16172,16 @@
       "updatedAt": "2026-08-18T00:00:00.000Z",
       "sources": [
         "Media",
-        "Regulator"
+        "Regulator",
+        "Official"
       ],
       "sourceNames": [
         "Associated Press",
-        "California Office of the Attorney General"
+        "California Office of the Attorney General",
+        "The Next Web",
+        "Meta"
       ],
-      "sourceCount": 2,
+      "sourceCount": 4,
       "age": "5 天前",
       "score": 82,
       "tone": "blue",
@@ -16218,6 +16221,42 @@
           "ref": "G4",
           "role": "背景",
           "takeaway": "California Office of the Attorney General的多州起诉书指控Meta违反儿童隐私与消费者保护法律，包括涉及13岁以下用户的义务。"
+        },
+        {
+          "id": "ground-226-3-https://www.bloomberg.com/news/articles/2026-08-25/ex-meta-staffer-says-99-of-teens-shunned-early-safety-tool-1-https://thenextweb.com/news/meta-trial-volichenko-take-a-break-default-rejected",
+          "sourceId": 226,
+          "sourceName": "The Next Web",
+          "sourcePublisher": "The Next Web",
+          "sourceKind": "Media",
+          "title": "Meta refused to switch a teen safety tool on by default, jury told",
+          "url": "https://thenextweb.com/news/meta-trial-volichenko-take-a-break-default-rejected",
+          "publishedAt": "2026-08-25T20:05:00.000Z",
+          "summary": "报道 George Volichenko 的法庭证词：Take a Break 当时要求用户主动启用，少于 0.165% 的青少年开启工具并实际休息；报道还称 Meta 后来的 Teen Accounts 默认启用 Take a Break 等工具。",
+          "fetchedAt": "2026-08-25T21:07:03.949Z",
+          "groundedFrom": "N2",
+          "groundingClaim": "前 Meta 数据科学家 George Volichenko 在法庭作证称，Instagram 的“Take a Break”工具早期使用率低于 1%；该工具当时需要用户主动启用，而 Meta 后来将面向青少年的离开应用提醒及相关 Teen Account 保护默认启用。",
+          "groundingNotes": "独立法庭报道给出的具体数字包括低于 0.165% 的用户开启并实际休息，以及约 0.2% 的后续复核结果，均低于 1%。Meta 官方确认 Teen Accounts 默认包含 60 分钟后提醒离开应用，但未在该页面明确将该提醒称为“Take a Break”。",
+          "ref": "G1",
+          "role": "最新进展",
+          "takeaway": "报道庭审证词称，早期需主动开启的Take a Break在青少年中的实际使用率不足0.165%，Meta后来将其纳入默认保护。"
+        },
+        {
+          "id": "ground-226-3-https://www.bloomberg.com/news/articles/2026-08-25/ex-meta-staffer-says-99-of-teens-shunned-early-safety-tool-2-https://about.fb.com/news/2025/04/introducing-new-built-in-restrictions-instagram-teen-accounts-expanding-facebook-messenger/",
+          "sourceId": 226,
+          "sourceName": "Meta",
+          "sourcePublisher": "Meta",
+          "sourceKind": "Official",
+          "title": "Teen Accounts Expand to Facebook and Messenger with New Protections",
+          "url": "https://about.fb.com/news/2025/04/introducing-new-built-in-restrictions-instagram-teen-accounts-expanding-facebook-messenger/",
+          "publishedAt": "2025-04-08T00:00:00.000Z",
+          "summary": "Meta 官方确认 Teen Accounts 会自动配置默认保护，包括关闭夜间通知以及使用 60 分钟后提醒青少年离开应用。",
+          "fetchedAt": "2026-08-25T21:07:03.949Z",
+          "groundedFrom": "N2",
+          "groundingClaim": "前 Meta 数据科学家 George Volichenko 在法庭作证称，Instagram 的“Take a Break”工具早期使用率低于 1%；该工具当时需要用户主动启用，而 Meta 后来将面向青少年的离开应用提醒及相关 Teen Account 保护默认启用。",
+          "groundingNotes": "独立法庭报道给出的具体数字包括低于 0.165% 的用户开启并实际休息，以及约 0.2% 的后续复核结果，均低于 1%。Meta 官方确认 Teen Accounts 默认包含 60 分钟后提醒离开应用，但未在该页面明确将该提醒称为“Take a Break”。",
+          "ref": "G2",
+          "role": "背景",
+          "takeaway": "Meta官方2025年说明，Teen Accounts会默认配置夜间通知关闭及60分钟使用提醒等保护措施。"
         }
       ],
       "references": [
@@ -16252,9 +16291,89 @@
           "groundingClaim": "A federal trial involving Meta began in Oakland, California, on August 18, 2026. California, Colorado, Kentucky, and New Jersey are the four states participating in the initial trial from a 29-state case alleging that Meta designed platforms that harmed children, collected data from users under 13, and violated child-protection and privacy laws.",
           "groundingNotes": "The supplied Guardian article URL was not used as a source. The article’s precise framing and engagement figures were not independently verified, but the underlying trial, date, participating states, and allegations are corroborated.",
           "ref": "G4"
+        },
+        {
+          "id": "ground-226-3-https://www.bloomberg.com/news/articles/2026-08-25/ex-meta-staffer-says-99-of-teens-shunned-early-safety-tool-1-https://thenextweb.com/news/meta-trial-volichenko-take-a-break-default-rejected",
+          "sourceId": 226,
+          "sourceName": "The Next Web",
+          "sourcePublisher": "The Next Web",
+          "sourceKind": "Media",
+          "title": "Meta refused to switch a teen safety tool on by default, jury told",
+          "url": "https://thenextweb.com/news/meta-trial-volichenko-take-a-break-default-rejected",
+          "publishedAt": "2026-08-25T20:05:00.000Z",
+          "summary": "报道 George Volichenko 的法庭证词：Take a Break 当时要求用户主动启用，少于 0.165% 的青少年开启工具并实际休息；报道还称 Meta 后来的 Teen Accounts 默认启用 Take a Break 等工具。",
+          "fetchedAt": "2026-08-25T21:07:03.949Z",
+          "groundedFrom": "N2",
+          "groundingClaim": "前 Meta 数据科学家 George Volichenko 在法庭作证称，Instagram 的“Take a Break”工具早期使用率低于 1%；该工具当时需要用户主动启用，而 Meta 后来将面向青少年的离开应用提醒及相关 Teen Account 保护默认启用。",
+          "groundingNotes": "独立法庭报道给出的具体数字包括低于 0.165% 的用户开启并实际休息，以及约 0.2% 的后续复核结果，均低于 1%。Meta 官方确认 Teen Accounts 默认包含 60 分钟后提醒离开应用，但未在该页面明确将该提醒称为“Take a Break”。",
+          "ref": "G1"
+        },
+        {
+          "id": "ground-226-3-https://www.bloomberg.com/news/articles/2026-08-25/ex-meta-staffer-says-99-of-teens-shunned-early-safety-tool-2-https://about.fb.com/news/2025/04/introducing-new-built-in-restrictions-instagram-teen-accounts-expanding-facebook-messenger/",
+          "sourceId": 226,
+          "sourceName": "Meta",
+          "sourcePublisher": "Meta",
+          "sourceKind": "Official",
+          "title": "Teen Accounts Expand to Facebook and Messenger with New Protections",
+          "url": "https://about.fb.com/news/2025/04/introducing-new-built-in-restrictions-instagram-teen-accounts-expanding-facebook-messenger/",
+          "publishedAt": "2025-04-08T00:00:00.000Z",
+          "summary": "Meta 官方确认 Teen Accounts 会自动配置默认保护，包括关闭夜间通知以及使用 60 分钟后提醒青少年离开应用。",
+          "fetchedAt": "2026-08-25T21:07:03.949Z",
+          "groundedFrom": "N2",
+          "groundingClaim": "前 Meta 数据科学家 George Volichenko 在法庭作证称，Instagram 的“Take a Break”工具早期使用率低于 1%；该工具当时需要用户主动启用，而 Meta 后来将面向青少年的离开应用提醒及相关 Teen Account 保护默认启用。",
+          "groundingNotes": "独立法庭报道给出的具体数字包括低于 0.165% 的用户开启并实际休息，以及约 0.2% 的后续复核结果，均低于 1%。Meta 官方确认 Teen Accounts 默认包含 60 分钟后提醒离开应用，但未在该页面明确将该提醒称为“Take a Break”。",
+          "ref": "G2"
         }
       ],
-      "feedBatchAt": "2026-08-23T03:06:23.409Z"
+      "feedBatchAt": "2026-08-23T03:06:23.409Z",
+      "updates": [
+        {
+          "addedAt": "2026-08-25T20:05:00.000Z",
+          "title": "庭审补充Meta安全工具低采用率",
+          "summary": "前Meta数据科学家证称，Instagram的“Take a Break”最初需用户主动开启，实际开启并休息的青少年不足0.165%；Meta后续Teen Accounts已将相关保护设为默认。",
+          "evidence": [
+            {
+              "id": "ground-226-3-https://www.bloomberg.com/news/articles/2026-08-25/ex-meta-staffer-says-99-of-teens-shunned-early-safety-tool-1-https://thenextweb.com/news/meta-trial-volichenko-take-a-break-default-rejected",
+              "sourceId": 226,
+              "sourceName": "The Next Web",
+              "sourcePublisher": "The Next Web",
+              "sourceKind": "Media",
+              "title": "Meta refused to switch a teen safety tool on by default, jury told",
+              "url": "https://thenextweb.com/news/meta-trial-volichenko-take-a-break-default-rejected",
+              "publishedAt": "2026-08-25T20:05:00.000Z",
+              "summary": "报道 George Volichenko 的法庭证词：Take a Break 当时要求用户主动启用，少于 0.165% 的青少年开启工具并实际休息；报道还称 Meta 后来的 Teen Accounts 默认启用 Take a Break 等工具。",
+              "fetchedAt": "2026-08-25T21:07:03.949Z",
+              "groundedFrom": "N2",
+              "groundingClaim": "前 Meta 数据科学家 George Volichenko 在法庭作证称，Instagram 的“Take a Break”工具早期使用率低于 1%；该工具当时需要用户主动启用，而 Meta 后来将面向青少年的离开应用提醒及相关 Teen Account 保护默认启用。",
+              "groundingNotes": "独立法庭报道给出的具体数字包括低于 0.165% 的用户开启并实际休息，以及约 0.2% 的后续复核结果，均低于 1%。Meta 官方确认 Teen Accounts 默认包含 60 分钟后提醒离开应用，但未在该页面明确将该提醒称为“Take a Break”。",
+              "ref": "G1",
+              "role": "最新进展",
+              "takeaway": "报道庭审证词称，早期需主动开启的Take a Break在青少年中的实际使用率不足0.165%，Meta后来将其纳入默认保护。"
+            },
+            {
+              "id": "ground-226-3-https://www.bloomberg.com/news/articles/2026-08-25/ex-meta-staffer-says-99-of-teens-shunned-early-safety-tool-2-https://about.fb.com/news/2025/04/introducing-new-built-in-restrictions-instagram-teen-accounts-expanding-facebook-messenger/",
+              "sourceId": 226,
+              "sourceName": "Meta",
+              "sourcePublisher": "Meta",
+              "sourceKind": "Official",
+              "title": "Teen Accounts Expand to Facebook and Messenger with New Protections",
+              "url": "https://about.fb.com/news/2025/04/introducing-new-built-in-restrictions-instagram-teen-accounts-expanding-facebook-messenger/",
+              "publishedAt": "2025-04-08T00:00:00.000Z",
+              "summary": "Meta 官方确认 Teen Accounts 会自动配置默认保护，包括关闭夜间通知以及使用 60 分钟后提醒青少年离开应用。",
+              "fetchedAt": "2026-08-25T21:07:03.949Z",
+              "groundedFrom": "N2",
+              "groundingClaim": "前 Meta 数据科学家 George Volichenko 在法庭作证称，Instagram 的“Take a Break”工具早期使用率低于 1%；该工具当时需要用户主动启用，而 Meta 后来将面向青少年的离开应用提醒及相关 Teen Account 保护默认启用。",
+              "groundingNotes": "独立法庭报道给出的具体数字包括低于 0.165% 的用户开启并实际休息，以及约 0.2% 的后续复核结果，均低于 1%。Meta 官方确认 Teen Accounts 默认包含 60 分钟后提醒离开应用，但未在该页面明确将该提醒称为“Take a Break”。",
+              "ref": "G2",
+              "role": "背景",
+              "takeaway": "Meta官方2025年说明，Teen Accounts会默认配置夜间通知关闭及60分钟使用提醒等保护措施。"
+            }
+          ],
+          "changeType": "corroboration",
+          "thesisImpact": "法庭证词补充了默认关闭安全工具的实际采用率，强化了案件对Meta产品设计责任而非抽象保护承诺的审视。",
+          "revisionRequired": false
+        }
+      ]
     },
     {
       "id": 48,
@@ -65404,6 +65523,34 @@
             {
               "role": "背景",
               "takeaway": "California Office of the Attorney General的多州起诉书指控Meta违反儿童隐私与消费者保护法律，包括涉及13岁以下用户的义务。"
+            },
+            {
+              "role": "最新进展",
+              "takeaway": "报道庭审证词称，早期需主动开启的Take a Break在青少年中的实际使用率不足0.165%，Meta后来将其纳入默认保护。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "Meta官方2025年说明，Teen Accounts会默认配置夜间通知关闭及60分钟使用提醒等保护措施。"
+            }
+          ],
+          "updates": [
+            {
+              "addedAt": "2026-08-25T20:05:00.000Z",
+              "title": "庭审补充Meta安全工具低采用率",
+              "summary": "前Meta数据科学家证称，Instagram的“Take a Break”最初需用户主动开启，实际开启并休息的青少年不足0.165%；Meta后续Teen Accounts已将相关保护设为默认。",
+              "evidence": [
+                {
+                  "role": "最新进展",
+                  "takeaway": "报道庭审证词称，早期需主动开启的Take a Break在青少年中的实际使用率不足0.165%，Meta后来将其纳入默认保护。"
+                },
+                {
+                  "role": "背景",
+                  "takeaway": "Meta官方2025年说明，Teen Accounts会默认配置夜间通知关闭及60分钟使用提醒等保护措施。"
+                }
+              ],
+              "changeType": "corroboration",
+              "thesisImpact": "法庭证词补充了默认关闭安全工具的实际采用率，强化了案件对Meta产品设计责任而非抽象保护承诺的审视。",
+              "revisionRequired": false
             }
           ]
         },
@@ -80166,6 +80313,34 @@
             {
               "role": "Context",
               "takeaway": "The California Attorney General’s multistate complaint alleges violations of child-privacy and consumer-protection laws, including obligations involving users u"
+            },
+            {
+              "role": "Update",
+              "takeaway": "Court testimony described extremely low real-world use of the originally opt-in feature and Meta’s later move to default protections."
+            },
+            {
+              "role": "Context",
+              "takeaway": "Meta’s 2025 announcement says Teen Accounts automatically apply protections including nighttime notification limits and usage reminders."
+            }
+          ],
+          "updates": [
+            {
+              "addedAt": "2026-08-25T20:05:00.000Z",
+              "title": "Trial adds evidence of low uptake for Meta safety tool",
+              "summary": "A former Meta data scientist testified that fewer than 0.165% of teens both enabled and took a break using Instagram’s originally opt-in Take a Break feature; Meta later made related protections default in Teen Accounts.",
+              "evidence": [
+                {
+                  "role": "Update",
+                  "takeaway": "Court testimony described extremely low real-world use of the originally opt-in feature and Meta’s later move to default protections."
+                },
+                {
+                  "role": "Context",
+                  "takeaway": "Meta’s 2025 announcement says Teen Accounts automatically apply protections including nighttime notification limits and usage reminders."
+                }
+              ],
+              "changeType": "corroboration",
+              "thesisImpact": "法庭证词补充了默认关闭安全工具的实际采用率，强化了案件对Meta产品设计责任而非抽象保护承诺的审视。",
+              "revisionRequired": false
             }
           ]
         },
@@ -91780,12 +91955,12 @@
     "en": "gpt-5.6-sol"
   },
   "incremental": {
-    "lastAddedAt": "2026-08-25T18:12:07.544Z",
-    "lastScanAt": "2026-08-25T18:07:39.851Z",
-    "lastAddedCount": 1,
-    "lastUpdatedCount": 0,
+    "lastAddedAt": "2026-08-25T21:13:24.456Z",
+    "lastScanAt": "2026-08-25T21:07:03.949Z",
+    "lastAddedCount": 0,
+    "lastUpdatedCount": 1,
     "totalAppended": 147,
-    "totalUpdated": 168
+    "totalUpdated": 169
   },
   "exploreDepth": {
     "minimum": 50,
