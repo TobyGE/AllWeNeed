@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-25T15:06:41.319Z",
+  "generatedAt": "2026-08-25T18:07:39.851Z",
   "counts": {
-    "sources": 944,
-    "claims": 1120,
-    "events": 224,
-    "articles": 224,
+    "sources": 947,
+    "claims": 1123,
+    "events": 225,
+    "articles": 225,
     "updates": 168,
-    "edges": 3026,
+    "edges": 3033,
     "revisionsRequired": 16
   },
   "revisionQueue": [
@@ -173,6 +173,69 @@
     }
   ],
   "nodes": [
+    {
+      "id": "event_3d69fb3942e69aee",
+      "type": "event",
+      "signalId": 155,
+      "title": "SpaceX承诺千亿美元建路州星舰基地",
+      "bucket": "dynamic",
+      "valueScore": 89,
+      "publishedAt": "2026-08-25T17:27:57.000Z",
+      "updatedAt": "2026-08-25T17:27:57.000Z"
+    },
+    {
+      "id": "article_8c16bb28df320b2b",
+      "type": "article",
+      "signalId": 155,
+      "title": "SpaceX承诺千亿美元建路州星舰基地",
+      "version": 1,
+      "publishedAt": "2026-08-25T18:07:39.851Z"
+    },
+    {
+      "id": "source_837ef9c8b91f418e",
+      "type": "source",
+      "title": "The Information",
+      "url": "https://www.theinformation.com/briefings/spacex-announces-100-billion-starship-launch-site-louisiana",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-25T17:27:57.000Z"
+    },
+    {
+      "id": "claim_f1cbd704c23dd998",
+      "type": "claim",
+      "title": "The Information报道称，SpaceX宣布将在Louisiana建设1000亿美元Starship发射场，计划2027年施工、目标2029年首次发射。",
+      "role": "主张",
+      "addedAt": "2026-08-25T18:07:39.851Z"
+    },
+    {
+      "id": "source_8dec7b57ad75cbf2",
+      "type": "source",
+      "title": "Louisiana Economic Development",
+      "url": "https://www.opportunitylouisiana.gov/news/spacex-launches-new-era-of-commercial-spaceflight-with-100-billion-louisiana-campus",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-25T00:00:00.000Z"
+    },
+    {
+      "id": "claim_a68bdabef6162b72",
+      "type": "claim",
+      "title": "Louisiana Economic Development披露项目投资额、3000个十年期直接岗位、5个发射综合体、10个发射台及最快2029年首飞目标。",
+      "role": "佐证",
+      "addedAt": "2026-08-25T18:07:39.851Z"
+    },
+    {
+      "id": "source_a0d77098929857c4",
+      "type": "source",
+      "title": "Federal Aviation Administration",
+      "url": "https://www.faa.gov/space/stakeholder_engagement/spacex_starship",
+      "sourceKind": "Regulator",
+      "publishedAt": "2026-08-25T17:27:57.000Z"
+    },
+    {
+      "id": "claim_0d65b45dd4406243",
+      "type": "claim",
+      "title": "FAA文件显示，Boca Chica许可修改涉及每年最高25次Starship/Super Heavy轨道发射及相应着陆，且运营仍需FAA许可。",
+      "role": "背景",
+      "addedAt": "2026-08-25T18:07:39.851Z"
+    },
     {
       "id": "event_c702c068cc89d083",
       "type": "event",
@@ -21307,6 +21370,51 @@
     }
   ],
   "edges": [
+    {
+      "id": "edge_8ce253c6e708a137",
+      "from": "event_3d69fb3942e69aee",
+      "to": "article_8c16bb28df320b2b",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_6258667266fc9c4d",
+      "from": "source_837ef9c8b91f418e",
+      "to": "claim_f1cbd704c23dd998",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_6a2ad0a2c62a9637",
+      "from": "claim_f1cbd704c23dd998",
+      "to": "event_3d69fb3942e69aee",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_361b654ea2d367b6",
+      "from": "source_8dec7b57ad75cbf2",
+      "to": "claim_a68bdabef6162b72",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_7ab4ade41811b29f",
+      "from": "claim_a68bdabef6162b72",
+      "to": "event_3d69fb3942e69aee",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_8b3bfbfcb431b8e5",
+      "from": "source_a0d77098929857c4",
+      "to": "claim_0d65b45dd4406243",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_0ff43857df61759d",
+      "from": "claim_0d65b45dd4406243",
+      "to": "event_3d69fb3942e69aee",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
     {
       "id": "edge_34afc0e8d288e6a2",
       "from": "event_c702c068cc89d083",
