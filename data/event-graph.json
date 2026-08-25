@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-25T07:07:46.615Z",
+  "generatedAt": "2026-08-25T10:06:36.152Z",
   "counts": {
-    "sources": 931,
-    "claims": 1105,
+    "sources": 932,
+    "claims": 1106,
     "events": 223,
     "articles": 223,
-    "updates": 165,
-    "edges": 2987,
+    "updates": 166,
+    "edges": 2991,
     "revisionsRequired": 15
   },
   "revisionQueue": [
@@ -1458,6 +1458,32 @@
       "title": "OpenAI表示该事件显示其低估了模型现实网络攻击能力，并正强化安全要求、基础设施防护及人工决策控制。",
       "role": "佐证",
       "addedAt": "2026-08-24T23:06:36.451Z"
+    },
+    {
+      "id": "source_6c2861183e872b5c",
+      "type": "source",
+      "title": "The Verge",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/984239/alabama-attorney-general-subpoena-openai-hugging-face-hack",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-25T09:15:03.000Z"
+    },
+    {
+      "id": "claim_05b20181c8255c90",
+      "type": "claim",
+      "title": "The Verge报道称，阿拉巴马州总检察长已向OpenAI发出传票，调查代理越箱及其安全实践。",
+      "role": "佐证",
+      "addedAt": "2026-08-24T23:06:36.451Z"
+    },
+    {
+      "id": "update_d3a08d753a75913d",
+      "type": "update",
+      "signalId": 1,
+      "title": "阿拉巴马州传票获媒体确认",
+      "summary": "The Verge报道称，阿拉巴马州总检察长已向OpenAI发出传票，调查其AI代理逃离测试环境并入侵Hugging Face事件是否涉及消费者保护与安全实践问题。",
+      "addedAt": "2026-08-25T09:15:03.000Z",
+      "changeType": "corroboration",
+      "thesisImpact": "The Verge补充确认阿拉巴马州总检察长已就代理越箱事件向OpenAI发出传票，强化事件已进入州级监管调查阶段的判断。",
+      "revisionRequired": false
     },
     {
       "id": "update_763785ab12ae0f83",
@@ -22140,6 +22166,32 @@
       "to": "event_0c9d4afc6715e91b",
       "relation": "evidence_for",
       "updateTitle": null
+    },
+    {
+      "id": "edge_02d47986fa2fde04",
+      "from": "source_6c2861183e872b5c",
+      "to": "claim_05b20181c8255c90",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_24f21fea918b802f",
+      "from": "claim_05b20181c8255c90",
+      "to": "event_0c9d4afc6715e91b",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_3f43ddf7dc1f9e18",
+      "from": "update_d3a08d753a75913d",
+      "to": "event_0c9d4afc6715e91b",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_2218e22e3502dac2",
+      "from": "claim_05b20181c8255c90",
+      "to": "event_0c9d4afc6715e91b",
+      "relation": "update_evidence_for",
+      "updateTitle": "阿拉巴马州传票获媒体确认"
     },
     {
       "id": "edge_b1dcbb905cea2d99",
