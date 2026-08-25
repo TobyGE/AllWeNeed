@@ -1,13 +1,422 @@
 {
-  "generatedAt": "2026-08-25T12:13:14.190Z",
-  "basedOnSnapshotAt": "2026-08-25T12:08:15.028Z",
+  "generatedAt": "2026-08-25T15:12:29.791Z",
+  "basedOnSnapshotAt": "2026-08-25T15:06:41.319Z",
   "model": "gpt-5.5",
   "analyzedItemCount": 180,
-  "totalFetchedItemCount": 2315,
+  "totalFetchedItemCount": 2311,
   "editorNote": "今日信息环境由代理安全事件、编码代理工具链分化、开放模型竞争和算力下沉共同主导。",
   "signalQuality": 86,
   "signalQualityChange": 8,
   "signals": [
+    {
+      "id": 154,
+      "editorialBucket": "dynamic",
+      "category": "科技",
+      "eyebrow": "产品信号",
+      "title": "Apple以M6与M5 Ultra重排桌面Mac",
+      "summary": "Apple发布搭载M6或M5 Pro的Mac mini，以及搭载M5 Max或M5 Ultra的Mac Studio。新机将设备端AI性能、内存带宽和专业工作流能力推高，同时Mac mini美国起售价较2024年M4机型上升300美元。",
+      "why": "Apple把Mac桌面产品线同时推向2nm芯片、设备端AI和更高定价，影响本地模型推理与创意工作站的性能成本边界。",
+      "impact": "若开发者与专业用户接受更高价格，本地AI设备的竞争或更集中于统一内存容量、带宽和软件生态，而非单纯GPU核心数。",
+      "shiftFrom": "Mac mini为M4/M4 Pro，Studio为M4 Max/M3 Ultra",
+      "shiftTo": "Mac mini转向M6，Studio引入M5 Ultra",
+      "crossValidation": "Apple的Mac mini与Mac Studio发布材料确认型号、性能说法和发售安排；MacRumors补充美国定价及与2024年M4 Mac mini的差额。部分媒体对产品组合的表述由官方页面校正。",
+      "article": {
+        "lead": "Apple正式更新两条桌面Mac产品线：Mac mini改用M6或M5 Pro，Mac Studio则提供M5 Max和M5 Ultra。此次变化不只是常规芯片代际替换，而是把Apple的桌面端本地AI定位推向更高内存带宽与更高价格区间，尤其面向运行大型模型、视频制作和复杂开发工作流的用户。",
+        "sections": [
+          {
+            "heading": "桌面产品线完成新一轮分层",
+            "body": "Apple称，新Mac mini提供M6和M5 Pro两种配置，并将在中国大陆于8月27日开启预购、9月22日发售。Mac Studio则升级为M5 Max或M5 Ultra版本，其中M5 Ultra最高配备36核CPU、80核GPU、512GB统一内存与1.2TB/s内存带宽，512GB统一内存版本预计10月下旬上市。相较2025款Mac Studio的M3 Ultra，Apple强调新旗舰的重点并非GPU核心数量翻倍，而是CPU、内存带宽和架构的综合升级。"
+          },
+          {
+            "heading": "设备端AI的约束转向内存与带宽",
+            "body": "Apple将M5 Ultra定位为设备端AI和极繁重专业工作流的桌面芯片，并称其相对M3 Ultra的峰值AI性能最高提升4.3倍。公司还以LM Studio测试称，新系统的提示词处理速度最高可达前代的4倍。对本地模型用户而言，512GB统一内存与1.2TB/s带宽意味着可容纳和驱动更大模型，但实际收益仍取决于模型量化方式、推理软件优化及具体工作负载。Mac mini的M6升级则把这一能力梯度向更小型桌面设备延伸。"
+          },
+          {
+            "heading": "性能升级也改变了入门价格锚点",
+            "body": "新一代M6 Mac mini美国起售价为899美元，MacRumors报道称，这较2024年M4版599美元的起售价高出300美元；M5 Pro机型起价为1,699美元，M5 Max Mac Studio起价为2,499美元。价格变化意味着Apple并未仅以更低门槛扩展本地AI设备覆盖面，而是在提高性能上限的同时抬升桌面产品的进入成本。Apple披露的性能比较主要来自自测，跨平台性价比仍需独立测试验证。"
+          }
+        ],
+        "outlook": "接下来可观察三类证据：第三方对M6、M5 Ultra在本地模型吞吐、长上下文和能耗上的实测；512GB Mac Studio的交付节奏及企业采购反馈；以及Apple是否把这些芯片能力进一步接入开发工具、Apple Intelligence或面向代理工作流的系统功能。若实测提升明显但高价配置需求疲弱，性能升级对本地AI市场的拉动将受限。"
+      },
+      "validationType": "跨平台验证",
+      "publishedAt": "2026-08-25T13:22:13.000Z",
+      "updatedAt": "2026-08-25T13:22:13.000Z",
+      "sources": [
+        "Blog",
+        "Official"
+      ],
+      "sourceNames": [
+        "Engadget",
+        "The Verge",
+        "Bloomberg",
+        "Apple"
+      ],
+      "sourceCount": 4,
+      "age": "2 小时前",
+      "score": 87,
+      "tone": "orange",
+      "evidence": [
+        {
+          "id": "235-7-https://www.engadget.com/2243405/apple-m5-ultra-with-80-core-gpu-ai-models-8k-video/",
+          "sourceId": 235,
+          "sourceName": "Engadget",
+          "sourcePublisher": "Engadget",
+          "sourceKind": "Blog",
+          "title": "Apple's M5 Ultra with an 80-core GPU will power through your AI models and 8K video",
+          "url": "https://www.engadget.com/2243405/apple-m5-ultra-with-80-core-gpu-ai-models-8k-video/",
+          "publishedAt": "2026-08-25T13:00:00.000Z",
+          "summary": "With the launch of the latest Mac mini and Mac Studio computers, Apple introduced new chips with cutting-edge technology.",
+          "fetchedAt": "2026-08-25T15:06:16.690Z",
+          "discoveredThroughCluster": true,
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-25T15:06:16.690Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 2.1114775,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N3",
+          "role": "佐证",
+          "takeaway": "Engadget报道Apple发布采用M5 Ultra的Mac Studio，并强调其面向AI模型与8K视频工作负载。"
+        },
+        {
+          "id": "227-6-https://www.theverge.com/tech/984118/apple-m6-m5-ultra-chip-mac-mini-studio",
+          "sourceId": 227,
+          "sourceName": "The Verge",
+          "sourcePublisher": "The Verge",
+          "sourceKind": "Blog",
+          "title": "Apple’s new M6 chip gets more cores and more AI compute",
+          "url": "https://www.theverge.com/tech/984118/apple-m6-m5-ultra-chip-mac-mini-studio",
+          "publishedAt": "2026-08-25T13:00:00.000Z",
+          "summary": "Apple has announced a new M6 chip for Macs, along with an M5 Ultra that it says is its \"most powerful chip ever,\" designed for tasks like 3D rendering and running frontier AI models. The M6 is Apple's first 2nm chip, which Apple says will bring improvements in performance and power efficiency, and it also […]",
+          "fetchedAt": "2026-08-25T15:06:16.690Z",
+          "discoveredThroughCluster": true,
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-25T15:06:16.690Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "standard",
+            "reason": "fresh",
+            "ageHours": 2.1114775,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N6",
+          "role": "佐证",
+          "takeaway": "The Verge报道Apple发布M6芯片，并称其为Mac带来更多核心和AI算力。"
+        },
+        {
+          "id": "227-7-https://www.theverge.com/tech/984190/apple-mac-mini-m6-m5-pro-price-specs",
+          "sourceId": 227,
+          "sourceName": "The Verge",
+          "sourcePublisher": "The Verge",
+          "sourceKind": "Blog",
+          "title": "Apple’s new Mac Mini has fresh M6 and M5 Pro chip offerings — and higher prices",
+          "url": "https://www.theverge.com/tech/984190/apple-mac-mini-m6-m5-pro-price-specs",
+          "publishedAt": "2026-08-25T13:00:00.000Z",
+          "summary": "Apple is announcing a new generation of the Mac Mini, once again offering two models: one with a new M6 chip and a higher-end model with the M5 Pro found in this year's MacBook Pro. The new Minis have the same tiny design and footprint as the 2024 M4 / M4 Pro models, but with […]",
+          "fetchedAt": "2026-08-25T15:06:16.690Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-25T15:06:16.690Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "standard",
+            "reason": "fresh",
+            "ageHours": 2.1114775,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N7",
+          "role": "佐证",
+          "takeaway": "The Verge报道新Mac mini采用M6或M5 Pro，并提到价格上调。"
+        },
+        {
+          "id": "233-4-https://www.bloomberg.com/news/articles/2026-08-25/apple-unveils-new-mac-mini-mac-studio-with-major-chip-upgrades",
+          "sourceId": 233,
+          "sourceName": "Bloomberg Technology",
+          "sourcePublisher": "Bloomberg",
+          "sourceKind": "Blog",
+          "title": "Apple Launches Desktop Upgrades as Mac Mini, Studio Return to Stores Sept. 22",
+          "url": "https://www.bloomberg.com/news/articles/2026-08-25/apple-unveils-new-mac-mini-mac-studio-with-major-chip-upgrades",
+          "publishedAt": "2026-08-25T13:22:13.000Z",
+          "summary": "Apple Inc. announced upgraded Mac mini and Mac Studio desktop computers, giving the in-demand machines major processor upgrades.",
+          "fetchedAt": "2026-08-25T15:06:16.690Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-25T15:06:16.690Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 1.7411997222222222,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N8",
+          "role": "佐证",
+          "takeaway": "Bloomberg报道Apple更新Mac mini和Mac Studio，并安排其于9月22日重新在零售渠道销售。"
+        },
+        {
+          "id": "research-235-7-https://www.engadget.com/2243405/apple-m5-ultra-with-80-core-gpu-ai-models-8k-video/-1-https://www.apple.com.cn/newsroom/2026/08/apple-introduces-mac-studio-with-m5-max-and-m5-ultra/",
+          "sourceId": 235,
+          "sourceName": "Apple",
+          "sourcePublisher": "Apple",
+          "sourceKind": "Official",
+          "title": "Apple 推出搭载 M5 Max 和 M5 Ultra 芯片的 Mac Studio，造就为设备端 AI 和极繁重专业工作流而生的终极桌面电脑",
+          "url": "https://www.apple.com.cn/newsroom/2026/08/apple-introduces-mac-studio-with-m5-max-and-m5-ultra/",
+          "publishedAt": "2026-08-25T00:00:00.000Z",
+          "summary": "确认 M5 Ultra Mac Studio 的最高 36 核 CPU、80 核 GPU、512GB 统一内存和 1.2TB/s 内存带宽，以及 9 月 22 日发售、512GB 配置预计 10 月下旬上市；同时给出 Apple 自测的 4.3 倍峰值 AI、1.8 倍图形、1.3 倍 CPU 和 LM Studio 4 倍提示词处理比较。",
+          "fetchedAt": "2026-08-25T15:06:41.319Z",
+          "researchedFrom": "N3",
+          "researchRole": "Primary",
+          "researchClaim": "Apple 于 2026 年 8 月 25 日发布搭载 M5 Ultra 的 Mac Studio：最高 36 核 CPU、80 核 GPU、512GB 统一内存及 1.2TB/s 内存带宽；同日更新的 Mac mini 使用的是 M6 或 M5 Pro，而非 M5 Ultra。",
+          "researchComparisons": "相对上一代 M3 Ultra Mac Studio，M5 Ultra 的最高 GPU 核心数仍为 80 核，但 CPU 从最高 32 核升至 36 核、内存带宽从 819GB/s 升至 1.2TB/s（约增加 46%）。Apple 的受控测试声称，M5 Ultra 的峰值 AI 计算最高为 M3 Ultra 的 4.3 倍、图形性能最高为 1.8 倍、CPU 性能最高为 1.3 倍；在 LM Studio 提示词处理测试中最高为 4 倍。",
+          "researchUnresolved": "Apple 披露的性能均为“最高”结果，测试由 Apple 于 2026 年 7 月进行；尚未见可公开复核的第三方基准、完整模型/参数配置及零售机实测，因此不能将这些结果概括为所有 AI 模型或 8K 工作流的普遍加速幅度。",
+          "ref": "R5",
+          "role": "主张",
+          "takeaway": "Apple确认M5 Ultra Mac Studio最高配置为36核CPU、80核GPU、512GB统一内存和1.2TB/s内存带宽，并披露性能比较与发售时间。"
+        },
+        {
+          "id": "research-235-7-https://www.engadget.com/2243405/apple-m5-ultra-with-80-core-gpu-ai-models-8k-video/-2-https://support.apple.com/en-au/122211",
+          "sourceId": 235,
+          "sourceName": "Apple",
+          "sourcePublisher": "Apple",
+          "sourceKind": "Official",
+          "title": "Mac Studio (2025) - Tech Specs",
+          "url": "https://support.apple.com/en-au/122211",
+          "publishedAt": "2026-08-25T13:00:00.000Z",
+          "summary": "记录前代 M3 Ultra Mac Studio 的最高 32 核 CPU、80 核 GPU、32 核神经网络引擎和 819GB/s 内存带宽，说明新款的 80 核 GPU 不是核心数量翻倍，主要可比升级是 CPU 核数、内存带宽和架构。",
+          "fetchedAt": "2026-08-25T15:06:41.319Z",
+          "researchedFrom": "N3",
+          "researchRole": "Comparison",
+          "researchClaim": "Apple 于 2026 年 8 月 25 日发布搭载 M5 Ultra 的 Mac Studio：最高 36 核 CPU、80 核 GPU、512GB 统一内存及 1.2TB/s 内存带宽；同日更新的 Mac mini 使用的是 M6 或 M5 Pro，而非 M5 Ultra。",
+          "researchComparisons": "相对上一代 M3 Ultra Mac Studio，M5 Ultra 的最高 GPU 核心数仍为 80 核，但 CPU 从最高 32 核升至 36 核、内存带宽从 819GB/s 升至 1.2TB/s（约增加 46%）。Apple 的受控测试声称，M5 Ultra 的峰值 AI 计算最高为 M3 Ultra 的 4.3 倍、图形性能最高为 1.8 倍、CPU 性能最高为 1.3 倍；在 LM Studio 提示词处理测试中最高为 4 倍。",
+          "researchUnresolved": "Apple 披露的性能均为“最高”结果，测试由 Apple 于 2026 年 7 月进行；尚未见可公开复核的第三方基准、完整模型/参数配置及零售机实测，因此不能将这些结果概括为所有 AI 模型或 8K 工作流的普遍加速幅度。",
+          "ref": "R6",
+          "role": "背景",
+          "takeaway": "Apple前代Mac Studio规格显示，M3 Ultra最高为32核CPU、80核GPU和819GB/s内存带宽。"
+        },
+        {
+          "id": "research-235-7-https://www.engadget.com/2243405/apple-m5-ultra-with-80-core-gpu-ai-models-8k-video/-3-https://www.apple.com.cn/newsroom/2026/08/apple-unveils-powerful-mac-mini-with-m6-and-m5-pro/",
+          "sourceId": 235,
+          "sourceName": "Apple",
+          "sourcePublisher": "Apple",
+          "sourceKind": "Official",
+          "title": "Apple 发布搭载 M6 和 M5 Pro 芯片的强大 Mac mini",
+          "url": "https://www.apple.com.cn/newsroom/2026/08/apple-unveils-powerful-mac-mini-with-m6-and-m5-pro/",
+          "publishedAt": "2026-08-25T00:00:00.000Z",
+          "summary": "纠正“新 Mac mini 与 Mac Studio 都引入 M5 Ultra”的表述：Apple 表示新 Mac mini 搭载 M6 或 M5 Pro；M5 Ultra 对应的是 Mac Studio。",
+          "fetchedAt": "2026-08-25T15:06:41.319Z",
+          "researchedFrom": "N3",
+          "researchRole": "Context",
+          "researchClaim": "Apple 于 2026 年 8 月 25 日发布搭载 M5 Ultra 的 Mac Studio：最高 36 核 CPU、80 核 GPU、512GB 统一内存及 1.2TB/s 内存带宽；同日更新的 Mac mini 使用的是 M6 或 M5 Pro，而非 M5 Ultra。",
+          "researchComparisons": "相对上一代 M3 Ultra Mac Studio，M5 Ultra 的最高 GPU 核心数仍为 80 核，但 CPU 从最高 32 核升至 36 核、内存带宽从 819GB/s 升至 1.2TB/s（约增加 46%）。Apple 的受控测试声称，M5 Ultra 的峰值 AI 计算最高为 M3 Ultra 的 4.3 倍、图形性能最高为 1.8 倍、CPU 性能最高为 1.3 倍；在 LM Studio 提示词处理测试中最高为 4 倍。",
+          "researchUnresolved": "Apple 披露的性能均为“最高”结果，测试由 Apple 于 2026 年 7 月进行；尚未见可公开复核的第三方基准、完整模型/参数配置及零售机实测，因此不能将这些结果概括为所有 AI 模型或 8K 工作流的普遍加速幅度。",
+          "ref": "R7",
+          "role": "佐证",
+          "takeaway": "Apple确认新Mac mini搭载M6或M5 Pro，M5 Ultra仅用于Mac Studio。"
+        },
+        {
+          "id": "research-233-4-https://www.bloomberg.com/news/articles/2026-08-25/apple-unveils-new-mac-mini-mac-studio-with-major-chip-upgrades-3-https://www.apple.com/newsroom/2024/10/apples-new-mac-mini-is-more-mighty-more-mini-and-built-for-apple-intelligence/",
+          "sourceId": 233,
+          "sourceName": "Apple",
+          "sourcePublisher": "Apple",
+          "sourceKind": "Official",
+          "title": "Apple’s new Mac mini is more mighty, more mini, and built for Apple Intelligence",
+          "url": "https://www.apple.com/newsroom/2024/10/apples-new-mac-mini-is-more-mighty-more-mini-and-built-for-apple-intelligence/",
+          "publishedAt": "2024-10-29T00:00:00.000Z",
+          "summary": "提供 Mac mini 的可比前代基准：M4/M4 Pro 版本于 2024 年 10 月发布，M4 机型美国起售价为 599 美元。",
+          "fetchedAt": "2026-08-25T15:06:41.319Z",
+          "researchedFrom": "N8",
+          "researchRole": "Comparison",
+          "researchClaim": "Apple 将 Mac mini 升级至 M6 与 M5 Pro、Mac Studio 升级至 M5 Max 与 M5 Ultra，并把两条桌面产品线定位为本地 AI 推理和高负载专业工作流设备；首批机型计划于 2026 年 9 月 22 日发售。",
+          "researchComparisons": "Mac mini 方面，Apple 称 M6 机型相对前代 AI 性能最高提升 4 倍、CPU 提升 40%、图形和存储速度最高翻倍；其前代 M4 Mac mini 于 2024 年 10 月起售价为 599 美元。Mac Studio 方面，Apple 称 M5 Ultra 相对 M3 Ultra 的峰值 AI 性能最高提升 4.3 倍、图形最高提升 1.8 倍、多线程 CPU 最高提升 1.3 倍；但独立报道显示，美国新 Mac mini 起价为 899 美元、M5 Pro 为 1,699 美元、M5 Max Mac Studio 为 2,499 美元，意味着性能升级同时伴随较此前起售价更高的进入门槛。",
+          "researchUnresolved": "Apple 的性能数字基于其指定测试和“最高可达”口径，尚缺少独立第三方基准测试验证；不同国家和配置的定价、预购日期及发货节奏并不完全一致。",
+          "ref": "R14",
+          "role": "背景",
+          "takeaway": "Apple确认2024年M4 Mac mini美国起售价为599美元。"
+        }
+      ],
+      "references": [
+        {
+          "id": "235-7-https://www.engadget.com/2243405/apple-m5-ultra-with-80-core-gpu-ai-models-8k-video/",
+          "sourceId": 235,
+          "sourceName": "Engadget",
+          "sourcePublisher": "Engadget",
+          "sourceKind": "Blog",
+          "title": "Apple's M5 Ultra with an 80-core GPU will power through your AI models and 8K video",
+          "url": "https://www.engadget.com/2243405/apple-m5-ultra-with-80-core-gpu-ai-models-8k-video/",
+          "publishedAt": "2026-08-25T13:00:00.000Z",
+          "summary": "With the launch of the latest Mac mini and Mac Studio computers, Apple introduced new chips with cutting-edge technology.",
+          "fetchedAt": "2026-08-25T15:06:16.690Z",
+          "discoveredThroughCluster": true,
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-25T15:06:16.690Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 2.1114775,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N3"
+        },
+        {
+          "id": "227-6-https://www.theverge.com/tech/984118/apple-m6-m5-ultra-chip-mac-mini-studio",
+          "sourceId": 227,
+          "sourceName": "The Verge",
+          "sourcePublisher": "The Verge",
+          "sourceKind": "Blog",
+          "title": "Apple’s new M6 chip gets more cores and more AI compute",
+          "url": "https://www.theverge.com/tech/984118/apple-m6-m5-ultra-chip-mac-mini-studio",
+          "publishedAt": "2026-08-25T13:00:00.000Z",
+          "summary": "Apple has announced a new M6 chip for Macs, along with an M5 Ultra that it says is its \"most powerful chip ever,\" designed for tasks like 3D rendering and running frontier AI models. The M6 is Apple's first 2nm chip, which Apple says will bring improvements in performance and power efficiency, and it also […]",
+          "fetchedAt": "2026-08-25T15:06:16.690Z",
+          "discoveredThroughCluster": true,
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-25T15:06:16.690Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "standard",
+            "reason": "fresh",
+            "ageHours": 2.1114775,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N6"
+        },
+        {
+          "id": "227-7-https://www.theverge.com/tech/984190/apple-mac-mini-m6-m5-pro-price-specs",
+          "sourceId": 227,
+          "sourceName": "The Verge",
+          "sourcePublisher": "The Verge",
+          "sourceKind": "Blog",
+          "title": "Apple’s new Mac Mini has fresh M6 and M5 Pro chip offerings — and higher prices",
+          "url": "https://www.theverge.com/tech/984190/apple-mac-mini-m6-m5-pro-price-specs",
+          "publishedAt": "2026-08-25T13:00:00.000Z",
+          "summary": "Apple is announcing a new generation of the Mac Mini, once again offering two models: one with a new M6 chip and a higher-end model with the M5 Pro found in this year's MacBook Pro. The new Minis have the same tiny design and footprint as the 2024 M4 / M4 Pro models, but with […]",
+          "fetchedAt": "2026-08-25T15:06:16.690Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-25T15:06:16.690Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "standard",
+            "reason": "fresh",
+            "ageHours": 2.1114775,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N7"
+        },
+        {
+          "id": "233-4-https://www.bloomberg.com/news/articles/2026-08-25/apple-unveils-new-mac-mini-mac-studio-with-major-chip-upgrades",
+          "sourceId": 233,
+          "sourceName": "Bloomberg Technology",
+          "sourcePublisher": "Bloomberg",
+          "sourceKind": "Blog",
+          "title": "Apple Launches Desktop Upgrades as Mac Mini, Studio Return to Stores Sept. 22",
+          "url": "https://www.bloomberg.com/news/articles/2026-08-25/apple-unveils-new-mac-mini-mac-studio-with-major-chip-upgrades",
+          "publishedAt": "2026-08-25T13:22:13.000Z",
+          "summary": "Apple Inc. announced upgraded Mac mini and Mac Studio desktop computers, giving the in-demand machines major processor upgrades.",
+          "fetchedAt": "2026-08-25T15:06:16.690Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-25T15:06:16.690Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 1.7411997222222222,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N8"
+        },
+        {
+          "id": "research-235-7-https://www.engadget.com/2243405/apple-m5-ultra-with-80-core-gpu-ai-models-8k-video/-1-https://www.apple.com.cn/newsroom/2026/08/apple-introduces-mac-studio-with-m5-max-and-m5-ultra/",
+          "sourceId": 235,
+          "sourceName": "Apple",
+          "sourcePublisher": "Apple",
+          "sourceKind": "Official",
+          "title": "Apple 推出搭载 M5 Max 和 M5 Ultra 芯片的 Mac Studio，造就为设备端 AI 和极繁重专业工作流而生的终极桌面电脑",
+          "url": "https://www.apple.com.cn/newsroom/2026/08/apple-introduces-mac-studio-with-m5-max-and-m5-ultra/",
+          "publishedAt": "2026-08-25T00:00:00.000Z",
+          "summary": "确认 M5 Ultra Mac Studio 的最高 36 核 CPU、80 核 GPU、512GB 统一内存和 1.2TB/s 内存带宽，以及 9 月 22 日发售、512GB 配置预计 10 月下旬上市；同时给出 Apple 自测的 4.3 倍峰值 AI、1.8 倍图形、1.3 倍 CPU 和 LM Studio 4 倍提示词处理比较。",
+          "fetchedAt": "2026-08-25T15:06:41.319Z",
+          "researchedFrom": "N3",
+          "researchRole": "Primary",
+          "researchClaim": "Apple 于 2026 年 8 月 25 日发布搭载 M5 Ultra 的 Mac Studio：最高 36 核 CPU、80 核 GPU、512GB 统一内存及 1.2TB/s 内存带宽；同日更新的 Mac mini 使用的是 M6 或 M5 Pro，而非 M5 Ultra。",
+          "researchComparisons": "相对上一代 M3 Ultra Mac Studio，M5 Ultra 的最高 GPU 核心数仍为 80 核，但 CPU 从最高 32 核升至 36 核、内存带宽从 819GB/s 升至 1.2TB/s（约增加 46%）。Apple 的受控测试声称，M5 Ultra 的峰值 AI 计算最高为 M3 Ultra 的 4.3 倍、图形性能最高为 1.8 倍、CPU 性能最高为 1.3 倍；在 LM Studio 提示词处理测试中最高为 4 倍。",
+          "researchUnresolved": "Apple 披露的性能均为“最高”结果，测试由 Apple 于 2026 年 7 月进行；尚未见可公开复核的第三方基准、完整模型/参数配置及零售机实测，因此不能将这些结果概括为所有 AI 模型或 8K 工作流的普遍加速幅度。",
+          "ref": "R5"
+        },
+        {
+          "id": "research-235-7-https://www.engadget.com/2243405/apple-m5-ultra-with-80-core-gpu-ai-models-8k-video/-2-https://support.apple.com/en-au/122211",
+          "sourceId": 235,
+          "sourceName": "Apple",
+          "sourcePublisher": "Apple",
+          "sourceKind": "Official",
+          "title": "Mac Studio (2025) - Tech Specs",
+          "url": "https://support.apple.com/en-au/122211",
+          "publishedAt": "2026-08-25T13:00:00.000Z",
+          "summary": "记录前代 M3 Ultra Mac Studio 的最高 32 核 CPU、80 核 GPU、32 核神经网络引擎和 819GB/s 内存带宽，说明新款的 80 核 GPU 不是核心数量翻倍，主要可比升级是 CPU 核数、内存带宽和架构。",
+          "fetchedAt": "2026-08-25T15:06:41.319Z",
+          "researchedFrom": "N3",
+          "researchRole": "Comparison",
+          "researchClaim": "Apple 于 2026 年 8 月 25 日发布搭载 M5 Ultra 的 Mac Studio：最高 36 核 CPU、80 核 GPU、512GB 统一内存及 1.2TB/s 内存带宽；同日更新的 Mac mini 使用的是 M6 或 M5 Pro，而非 M5 Ultra。",
+          "researchComparisons": "相对上一代 M3 Ultra Mac Studio，M5 Ultra 的最高 GPU 核心数仍为 80 核，但 CPU 从最高 32 核升至 36 核、内存带宽从 819GB/s 升至 1.2TB/s（约增加 46%）。Apple 的受控测试声称，M5 Ultra 的峰值 AI 计算最高为 M3 Ultra 的 4.3 倍、图形性能最高为 1.8 倍、CPU 性能最高为 1.3 倍；在 LM Studio 提示词处理测试中最高为 4 倍。",
+          "researchUnresolved": "Apple 披露的性能均为“最高”结果，测试由 Apple 于 2026 年 7 月进行；尚未见可公开复核的第三方基准、完整模型/参数配置及零售机实测，因此不能将这些结果概括为所有 AI 模型或 8K 工作流的普遍加速幅度。",
+          "ref": "R6"
+        },
+        {
+          "id": "research-235-7-https://www.engadget.com/2243405/apple-m5-ultra-with-80-core-gpu-ai-models-8k-video/-3-https://www.apple.com.cn/newsroom/2026/08/apple-unveils-powerful-mac-mini-with-m6-and-m5-pro/",
+          "sourceId": 235,
+          "sourceName": "Apple",
+          "sourcePublisher": "Apple",
+          "sourceKind": "Official",
+          "title": "Apple 发布搭载 M6 和 M5 Pro 芯片的强大 Mac mini",
+          "url": "https://www.apple.com.cn/newsroom/2026/08/apple-unveils-powerful-mac-mini-with-m6-and-m5-pro/",
+          "publishedAt": "2026-08-25T00:00:00.000Z",
+          "summary": "纠正“新 Mac mini 与 Mac Studio 都引入 M5 Ultra”的表述：Apple 表示新 Mac mini 搭载 M6 或 M5 Pro；M5 Ultra 对应的是 Mac Studio。",
+          "fetchedAt": "2026-08-25T15:06:41.319Z",
+          "researchedFrom": "N3",
+          "researchRole": "Context",
+          "researchClaim": "Apple 于 2026 年 8 月 25 日发布搭载 M5 Ultra 的 Mac Studio：最高 36 核 CPU、80 核 GPU、512GB 统一内存及 1.2TB/s 内存带宽；同日更新的 Mac mini 使用的是 M6 或 M5 Pro，而非 M5 Ultra。",
+          "researchComparisons": "相对上一代 M3 Ultra Mac Studio，M5 Ultra 的最高 GPU 核心数仍为 80 核，但 CPU 从最高 32 核升至 36 核、内存带宽从 819GB/s 升至 1.2TB/s（约增加 46%）。Apple 的受控测试声称，M5 Ultra 的峰值 AI 计算最高为 M3 Ultra 的 4.3 倍、图形性能最高为 1.8 倍、CPU 性能最高为 1.3 倍；在 LM Studio 提示词处理测试中最高为 4 倍。",
+          "researchUnresolved": "Apple 披露的性能均为“最高”结果，测试由 Apple 于 2026 年 7 月进行；尚未见可公开复核的第三方基准、完整模型/参数配置及零售机实测，因此不能将这些结果概括为所有 AI 模型或 8K 工作流的普遍加速幅度。",
+          "ref": "R7"
+        },
+        {
+          "id": "research-233-4-https://www.bloomberg.com/news/articles/2026-08-25/apple-unveils-new-mac-mini-mac-studio-with-major-chip-upgrades-3-https://www.apple.com/newsroom/2024/10/apples-new-mac-mini-is-more-mighty-more-mini-and-built-for-apple-intelligence/",
+          "sourceId": 233,
+          "sourceName": "Apple",
+          "sourcePublisher": "Apple",
+          "sourceKind": "Official",
+          "title": "Apple’s new Mac mini is more mighty, more mini, and built for Apple Intelligence",
+          "url": "https://www.apple.com/newsroom/2024/10/apples-new-mac-mini-is-more-mighty-more-mini-and-built-for-apple-intelligence/",
+          "publishedAt": "2024-10-29T00:00:00.000Z",
+          "summary": "提供 Mac mini 的可比前代基准：M4/M4 Pro 版本于 2024 年 10 月发布，M4 机型美国起售价为 599 美元。",
+          "fetchedAt": "2026-08-25T15:06:41.319Z",
+          "researchedFrom": "N8",
+          "researchRole": "Comparison",
+          "researchClaim": "Apple 将 Mac mini 升级至 M6 与 M5 Pro、Mac Studio 升级至 M5 Max 与 M5 Ultra，并把两条桌面产品线定位为本地 AI 推理和高负载专业工作流设备；首批机型计划于 2026 年 9 月 22 日发售。",
+          "researchComparisons": "Mac mini 方面，Apple 称 M6 机型相对前代 AI 性能最高提升 4 倍、CPU 提升 40%、图形和存储速度最高翻倍；其前代 M4 Mac mini 于 2024 年 10 月起售价为 599 美元。Mac Studio 方面，Apple 称 M5 Ultra 相对 M3 Ultra 的峰值 AI 性能最高提升 4.3 倍、图形最高提升 1.8 倍、多线程 CPU 最高提升 1.3 倍；但独立报道显示，美国新 Mac mini 起价为 899 美元、M5 Pro 为 1,699 美元、M5 Max Mac Studio 为 2,499 美元，意味着性能升级同时伴随较此前起售价更高的进入门槛。",
+          "researchUnresolved": "Apple 的性能数字基于其指定测试和“最高可达”口径，尚缺少独立第三方基准测试验证；不同国家和配置的定价、预购日期及发货节奏并不完全一致。",
+          "ref": "R14"
+        }
+      ],
+      "feedBatchAt": "2026-08-25T15:06:41.319Z"
+    },
     {
       "id": 147,
       "editorialBucket": "dynamic",
@@ -61668,6 +62077,69 @@
       "editorNote": "今日信息环境由智能体安全事件、AI coding 工具链分化、open-weight 模型竞争与算力下沉共同主导。",
       "signals": [
         {
+          "category": "科技",
+          "eyebrow": "产品信号",
+          "title": "Apple以M6与M5 Ultra重排桌面Mac",
+          "summary": "Apple发布搭载M6或M5 Pro的Mac mini，以及搭载M5 Max或M5 Ultra的Mac Studio。新机将设备端AI性能、内存带宽和专业工作流能力推高，同时Mac mini美国起售价较2024年M4机型上升300美元。",
+          "why": "Apple把Mac桌面产品线同时推向2nm芯片、设备端AI和更高定价，影响本地模型推理与创意工作站的性能成本边界。",
+          "impact": "若开发者与专业用户接受更高价格，本地AI设备的竞争或更集中于统一内存容量、带宽和软件生态，而非单纯GPU核心数。",
+          "shiftFrom": "Mac mini为M4/M4 Pro，Studio为M4 Max/M3 Ultra",
+          "shiftTo": "Mac mini转向M6，Studio引入M5 Ultra",
+          "crossValidation": "Apple的Mac mini与Mac Studio发布材料确认型号、性能说法和发售安排；MacRumors补充美国定价及与2024年M4 Mac mini的差额。部分媒体对产品组合的表述由官方页面校正。",
+          "article": {
+            "lead": "Apple正式更新两条桌面Mac产品线：Mac mini改用M6或M5 Pro，Mac Studio则提供M5 Max和M5 Ultra。此次变化不只是常规芯片代际替换，而是把Apple的桌面端本地AI定位推向更高内存带宽与更高价格区间，尤其面向运行大型模型、视频制作和复杂开发工作流的用户。",
+            "sections": [
+              {
+                "heading": "桌面产品线完成新一轮分层",
+                "body": "Apple称，新Mac mini提供M6和M5 Pro两种配置，并将在中国大陆于8月27日开启预购、9月22日发售。Mac Studio则升级为M5 Max或M5 Ultra版本，其中M5 Ultra最高配备36核CPU、80核GPU、512GB统一内存与1.2TB/s内存带宽，512GB统一内存版本预计10月下旬上市。相较2025款Mac Studio的M3 Ultra，Apple强调新旗舰的重点并非GPU核心数量翻倍，而是CPU、内存带宽和架构的综合升级。"
+              },
+              {
+                "heading": "设备端AI的约束转向内存与带宽",
+                "body": "Apple将M5 Ultra定位为设备端AI和极繁重专业工作流的桌面芯片，并称其相对M3 Ultra的峰值AI性能最高提升4.3倍。公司还以LM Studio测试称，新系统的提示词处理速度最高可达前代的4倍。对本地模型用户而言，512GB统一内存与1.2TB/s带宽意味着可容纳和驱动更大模型，但实际收益仍取决于模型量化方式、推理软件优化及具体工作负载。Mac mini的M6升级则把这一能力梯度向更小型桌面设备延伸。"
+              },
+              {
+                "heading": "性能升级也改变了入门价格锚点",
+                "body": "新一代M6 Mac mini美国起售价为899美元，MacRumors报道称，这较2024年M4版599美元的起售价高出300美元；M5 Pro机型起价为1,699美元，M5 Max Mac Studio起价为2,499美元。价格变化意味着Apple并未仅以更低门槛扩展本地AI设备覆盖面，而是在提高性能上限的同时抬升桌面产品的进入成本。Apple披露的性能比较主要来自自测，跨平台性价比仍需独立测试验证。"
+              }
+            ],
+            "outlook": "接下来可观察三类证据：第三方对M6、M5 Ultra在本地模型吞吐、长上下文和能耗上的实测；512GB Mac Studio的交付节奏及企业采购反馈；以及Apple是否把这些芯片能力进一步接入开发工具、Apple Intelligence或面向代理工作流的系统功能。若实测提升明显但高价配置需求疲弱，性能升级对本地AI市场的拉动将受限。"
+          },
+          "evidence": [
+            {
+              "role": "佐证",
+              "takeaway": "Engadget报道Apple发布采用M5 Ultra的Mac Studio，并强调其面向AI模型与8K视频工作负载。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "The Verge报道Apple发布M6芯片，并称其为Mac带来更多核心和AI算力。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "The Verge报道新Mac mini采用M6或M5 Pro，并提到价格上调。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "Bloomberg报道Apple更新Mac mini和Mac Studio，并安排其于9月22日重新在零售渠道销售。"
+            },
+            {
+              "role": "主张",
+              "takeaway": "Apple确认M5 Ultra Mac Studio最高配置为36核CPU、80核GPU、512GB统一内存和1.2TB/s内存带宽，并披露性能比较与发售时间。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "Apple前代Mac Studio规格显示，M3 Ultra最高为32核CPU、80核GPU和819GB/s内存带宽。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "Apple确认新Mac mini搭载M6或M5 Pro，M5 Ultra仅用于Mac Studio。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "Apple确认2024年M4 Mac mini美国起售价为599美元。"
+            }
+          ]
+        },
+        {
           "category": "semiconductor",
           "eyebrow": "产品信号",
           "title": "Xiaomi发布O3自研旗舰芯片",
@@ -76323,6 +76795,69 @@
     "en": {
       "editorNote": "Today’s information environment is being shaped by agent security incidents, a split in coding-agent toolchains, open-model competition, and compute moving closer to the edge.",
       "signals": [
+        {
+          "category": "Technology",
+          "eyebrow": "Product signal",
+          "title": "Apple reshapes desktop Macs with M6 and M5 Ultra",
+          "summary": "Apple has launched Mac mini models with M6 or M5 Pro chips and Mac Studio models with M5 Max or M5 Ultra. The refresh raises local-AI performance and memory-bandwidth ceilings while also lifting the Mac mini’s U.S. starting price by $300 versus the 2024 M4 model.",
+          "why": "Apple is moving its desktop lineup toward 2nm silicon, on-device AI and higher price points, changing the performance-cost boundary for local inference and professional workstations.",
+          "impact": "If developers and professional users accept the higher prices, competition in local AI hardware may turn more on unified-memory capacity, bandwidth and software ecosystems than on GPU core counts alone.",
+          "shiftFrom": "Mac mini used M4/M4 Pro; Studio used M4 Max/M3 Ultra",
+          "shiftTo": "Mac mini moves to M6; Studio gains M5 Ultra",
+          "crossValidation": "Apple’s launch materials confirm the models, performance claims and availability. MacRumors adds U.S. pricing and the comparison with the 2024 M4 Mac mini. Official product materials correct parts of the media product-lineup description.",
+          "article": {
+            "lead": "Apple has formally refreshed both desktop Mac lines: Mac mini now comes with M6 or M5 Pro, while Mac Studio offers M5 Max and M5 Ultra. This is more than a routine silicon update. It moves Apple’s desktop local-AI proposition toward higher memory bandwidth and a higher price tier, particularly for users running large models, video production and complex development workflows.",
+            "sections": [
+              {
+                "heading": "A new desktop segmentation takes shape",
+                "body": "Apple says the new Mac mini comes in M6 and M5 Pro configurations, with preorders in mainland China beginning August 27 and sales starting September 22. Mac Studio now comes with M5 Max or M5 Ultra. The top M5 Ultra configuration reaches a 36-core CPU, 80-core GPU, 512GB of unified memory and 1.2TB/s of memory bandwidth; the 512GB version is expected in late October. Compared with the 2025 Mac Studio’s M3 Ultra, the headline change is not a doubling of GPU core counts, but a combined advance in CPU resources, memory bandwidth and architecture."
+              },
+              {
+                "heading": "Local AI shifts toward memory and bandwidth constraints",
+                "body": "Apple positions M5 Ultra for on-device AI and exceptionally demanding professional workflows, claiming up to 4.3 times the peak AI performance of M3 Ultra. It also cites LM Studio testing in which prompt processing can be up to four times faster than the prior generation. For local-model users, 512GB of unified memory and 1.2TB/s of bandwidth expand the size of models that can be accommodated and driven efficiently. The actual benefit, however, will depend on model quantization, inference-software optimization and workload characteristics. The M6 Mac mini extends this performance ladder to smaller desktop systems."
+              },
+              {
+                "heading": "The performance update also resets the entry price",
+                "body": "The new M6 Mac mini starts at $899 in the U.S. MacRumors reports that this is $300 above the $599 starting price of the 2024 M4 version; the M5 Pro model starts at $1,699 and the M5 Max Mac Studio at $2,499. The shift means Apple is not expanding local-AI desktop access solely through a lower entry point. It is raising the ceiling while increasing the cost of entry. Apple’s performance comparisons are primarily company measurements, so cross-platform value will still require independent testing."
+              }
+            ],
+            "outlook": "The next evidence to watch is independent testing of M6 and M5 Ultra on local-model throughput, long-context workloads and energy use; delivery timing and enterprise demand for the 512GB Mac Studio; and whether Apple connects these capabilities more deeply to developer tools, Apple Intelligence or agent-oriented system functions. Strong benchmark gains paired with weak demand for high-priced configurations would limit the refresh’s broader effect on local AI."
+          },
+          "evidence": [
+            {
+              "role": "Support",
+              "takeaway": "Engadget reports Apple’s M5 Ultra Mac Studio launch and its positioning for AI-model and 8K-video workloads."
+            },
+            {
+              "role": "Support",
+              "takeaway": "The Verge reports Apple’s M6 launch and additional AI compute for Macs."
+            },
+            {
+              "role": "Support",
+              "takeaway": "The Verge reports that the new Mac mini uses M6 or M5 Pro and carries higher prices."
+            },
+            {
+              "role": "Support",
+              "takeaway": "Bloomberg reports upgraded Mac mini and Mac Studio systems returning to stores on September 22."
+            },
+            {
+              "role": "Claim",
+              "takeaway": "Apple confirms the M5 Ultra Mac Studio’s top specifications, performance comparisons and availability."
+            },
+            {
+              "role": "Context",
+              "takeaway": "Apple’s prior Mac Studio specifications show the M3 Ultra ceiling for CPU, GPU and memory bandwidth."
+            },
+            {
+              "role": "Support",
+              "takeaway": "Apple confirms that M6 or M5 Pro power Mac mini, while M5 Ultra belongs to Mac Studio."
+            },
+            {
+              "role": "Claim",
+              "takeaway": "Apple confirms M6 or M5 Pro Mac mini configurations and its stated AI, CPU, graphics and storage comparisons."
+            }
+          ]
+        },
         {
           "category": "Semiconductors",
           "eyebrow": "Product Signal",
@@ -90980,11 +91515,11 @@
     "en": "gpt-5.6-sol"
   },
   "incremental": {
-    "lastAddedAt": "2026-08-25T12:13:14.190Z",
-    "lastScanAt": "2026-08-25T12:08:15.028Z",
-    "lastAddedCount": 0,
-    "lastUpdatedCount": 2,
-    "totalAppended": 145,
+    "lastAddedAt": "2026-08-25T15:12:29.791Z",
+    "lastScanAt": "2026-08-25T15:06:41.319Z",
+    "lastAddedCount": 1,
+    "lastUpdatedCount": 0,
+    "totalAppended": 146,
     "totalUpdated": 168
   },
   "exploreDepth": {
