@@ -1,13 +1,447 @@
 {
-  "generatedAt": "2026-08-26T03:13:07.674Z",
-  "basedOnSnapshotAt": "2026-08-26T03:07:52.913Z",
+  "generatedAt": "2026-08-26T09:14:04.747Z",
+  "basedOnSnapshotAt": "2026-08-26T09:06:58.135Z",
   "model": "gpt-5.5",
   "analyzedItemCount": 180,
-  "totalFetchedItemCount": 2329,
+  "totalFetchedItemCount": 2317,
   "editorNote": "今日信息环境由代理安全事件、编码代理工具链分化、开放模型竞争和算力下沉共同主导。",
   "signalQuality": 86,
   "signalQualityChange": 8,
   "signals": [
+    {
+      "id": 157,
+      "editorialBucket": "dynamic",
+      "category": "算力",
+      "eyebrow": "产品信号",
+      "title": "OpenAI Jalapeño首秀挑战Blackwell",
+      "summary": "OpenAI首次公布Jalapeño推理芯片实测，称其在三种公开模型上较NVIDIA Blackwell实现更高每瓦工作量与更低端到端延迟。",
+      "why": "这把OpenAI自研芯片从工程样片推进到有公开性能口径的推理平台，可能影响其长期算力采购与供应链议价。",
+      "impact": "若生产部署复现测试结果，定制推理芯片可能成为前沿模型公司降低NVIDIA依赖、优化单位推理成本的实际路径。",
+      "shiftFrom": "Jalapeño仍是待测工程样片",
+      "shiftTo": "首次公开披露实测竞争数据",
+      "crossValidation": "OpenAI补充了模型、功耗、吞吐和延迟口径；SemiAnalysis现场见证部分运行，但指出全部结果由OpenAI提供，且比较未覆盖完整生产负载。",
+      "article": {
+        "lead": "OpenAI首次以公开实测数据展示其Jalapeño AI服务器芯片，并直接对比NVIDIA Blackwell。公司称，在GPT-OSS、DeepSeek和Kimi三种公开模型上，Jalapeño的峰值每瓦工作量提高1.5至1.9倍，端到端延迟降低1.7至3.6倍。这意味着其自研芯片路线已从2026年6月仍待测量性能的工程样片，进入可被外部讨论的推理竞争阶段。",
+        "sections": [
+          {
+            "heading": "从样片到公开性能口径",
+            "body": "OpenAI在6月与Broadcom公布Jalapeño时，将其描述为能够在目标频率和功耗下运行机器学习工作负载的工程样片，并预计2026年底开始初步部署。当时最终性能仍待测量。最新结果则给出700W标称功率、测试中不超过550W的持续功耗，以及针对三种公开模型的吞吐和延迟比较。芯片是否量产尚未改变，但其性能主张已由路线图前移为可核验的具体指标。"
+          },
+          {
+            "heading": "推理效率成为自研芯片的切入点",
+            "body": "Jalapeño瞄准的是模型部署后的推理环节，而非训练集群。对持续处理大量请求的模型服务而言，单位功耗可完成的工作量和端到端延迟会共同决定服务器数量、机房电力与用户体验。OpenAI把GPT-OSS、DeepSeek和Kimi列为测试对象，显示其希望证明这并非仅对内部模型有效。若这一性能能够在实际工作负载中成立，OpenAI可将部分推理需求从通用加速器采购转向围绕自身服务模式设计的平台。"
+          },
+          {
+            "heading": "Blackwell比较仍待生产环境检验",
+            "body": "SemiAnalysis称其在OpenAI实验室见证了InferenceX运行，但未运行完整测试套件，也未看到AgentX结果。该机构还指出，Jalapeño采用HBM4，和已开始出货的NVIDIA Rubin相比或更具可比性；8k输入、1k输出的单轮测试，也不能替代长上下文、多轮调用中缓存、路由与卸载机制承受压力后的表现。现阶段最稳妥的结论是，Jalapeño已提出有竞争力的推理效率主张，而非已完成全面替代验证。"
+          }
+        ],
+        "outlook": "下一步可观察的证据包括：OpenAI是否按计划在2026年底启动初步部署；是否公布更长上下文、多轮代理任务和不同并发规模下的结果；以及生产集群的实际功耗、可用率与单位token成本。若这些数据持续支持公开测试，Jalapeño对OpenAI采购结构的影响将更明确；若量产时间、稳定性或成本未达标，其意义将更接近技术验证。"
+      },
+      "validationType": "跨平台验证",
+      "publishedAt": "2026-08-26T04:29:59.000Z",
+      "updatedAt": "2026-08-26T04:29:59.000Z",
+      "sources": [
+        "Blog",
+        "Official",
+        "Research"
+      ],
+      "sourceNames": [
+        "The Information",
+        "OpenAI",
+        "SemiAnalysis"
+      ],
+      "sourceCount": 3,
+      "age": "5 小时前",
+      "score": 90,
+      "tone": "orange",
+      "evidence": [
+        {
+          "id": "236-2-https://www.theinformation.com/briefings/openai-says-jalapeno-ai-chip-better-nvidias-blackwell",
+          "sourceId": 236,
+          "sourceName": "The Information",
+          "sourcePublisher": "The Information",
+          "sourceKind": "Blog",
+          "title": "OpenAI Says Its Jalapeño AI Chip Is Better Than Nvidia’s Blackwell",
+          "url": "https://www.theinformation.com/briefings/openai-says-jalapeno-ai-chip-better-nvidias-blackwell",
+          "publishedAt": "2026-08-26T04:29:59.000Z",
+          "summary": "OpenAI on Tuesday released an evaluation of its new Jalapeño AI server chip, claiming it is faster and more powerful than Nvidia’s flagship Blackwell chips. The results appear promising for OpenAI, which hopes to reduce its reliance on Nvidia’s hardware someday, but it’s still early: The chips ...",
+          "fetchedAt": "2026-08-26T09:06:32.890Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-26T09:06:32.890Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "standard",
+            "reason": "fresh",
+            "ageHours": 4.616426388888889,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N1",
+          "role": "主张",
+          "takeaway": "报道称OpenAI公布Jalapeño评估，并称其性能优于NVIDIA旗舰Blackwell芯片。"
+        },
+        {
+          "id": "research-236-2-https://www.theinformation.com/briefings/openai-says-jalapeno-ai-chip-better-nvidias-blackwell-1-https://openai.com/index/jalapeno-first-results/",
+          "sourceId": 236,
+          "sourceName": "OpenAI",
+          "sourcePublisher": "OpenAI",
+          "sourceKind": "Official",
+          "title": "Jalapeño’s first results show industry-leading speed and efficiency in AI inference",
+          "url": "https://openai.com/index/jalapeno-first-results/",
+          "publishedAt": "2026-08-25T00:00:00.000Z",
+          "summary": "补齐本次实测的核心数字、模型范围和比较口径：三种公开模型上峰值每瓦工作量提高1.5至1.9倍、端到端延迟降低1.7至3.6倍；并披露GPT-OSS、DeepSeek和Kimi分别对GB200或GB300的吞吐及延迟数字，以及700W标称功率和不超过550W的测试持续功耗。",
+          "fetchedAt": "2026-08-26T09:06:58.135Z",
+          "researchedFrom": "N1",
+          "researchRole": "Primary",
+          "researchClaim": "OpenAI首次公布Jalapeño的推理测试结果：在GPT-OSS 120B、DeepSeek R1 670B和Kimi K2.5 1T上，它声称以峰值吞吐量计每瓦AI工作量高出1.5至1.9倍、端到端延迟低1.7至3.6倍；这支持其在特定LLM推理工作负载和功耗归一化指标上优于所比较Nvidia系统的说法，而非证明其全面取代Nvidia平台。",
+          "researchComparisons": "此前2026年6月，Jalapeño仍是运行实验室ML工作负载的工程样片，OpenAI称最终性能仍在测量、计划于2026年底初步部署；此次则给出InferenceX实测比较。具体而言，GPT-OSS 120B中，Jalapeño为85,448、GB200为44,960 mixed TPS/kW，约为1.9倍，端到端延迟为1.03秒对1.80秒；DeepSeek R1中，Jalapeño为19,641、GB300为11,781 mixed TPS/kW，约为1.7倍，延迟为1.65秒对5.99秒；Kimi K2.5中为18,195对11,862 mixed TPS/kW，约为1.5倍，延迟为1.56秒对5.31秒。比较采用标称芯片功率归一化，Jalapeño标称700W、测试持续功耗不超过550W；因此关键基准是每千瓦混合token吞吐量及匹配用户体验下的延迟，而不是每芯片峰值或训练性能。",
+          "researchUnresolved": "公开结果未提供完整独立复跑、长期生产稳定性、成本/TCO、可供货量或前沿闭源模型上的可比数据；Jalapeño尚在工程样片至部署爬坡阶段，且公开测试未覆盖长上下文、多轮AgentX工作负载。",
+          "ref": "R1",
+          "role": "佐证",
+          "takeaway": "OpenAI披露三种公开模型的峰值每瓦工作量提高1.5至1.9倍、端到端延迟降低1.7至3.6倍，以及功耗与测试口径。"
+        },
+        {
+          "id": "research-236-2-https://www.theinformation.com/briefings/openai-says-jalapeno-ai-chip-better-nvidias-blackwell-2-https://openai.com/index/openai-broadcom-jalapeno-inference-chip/",
+          "sourceId": 236,
+          "sourceName": "OpenAI",
+          "sourcePublisher": "OpenAI",
+          "sourceKind": "Official",
+          "title": "OpenAI and Broadcom unveil LLM-optimized inference chip",
+          "url": "https://openai.com/index/openai-broadcom-jalapeno-inference-chip/",
+          "publishedAt": "2026-06-24T00:00:00.000Z",
+          "summary": "建立此前状态：6月时Jalapeño仅为在生产目标频率和功耗下运行ML工作负载的工程样片，最终性能仍在测量；公司当时计划在2026年底开始初步部署，并将其定位为与Broadcom、Celestica共同建设的多代推理平台。",
+          "fetchedAt": "2026-08-26T09:06:58.135Z",
+          "researchedFrom": "N1",
+          "researchRole": "Comparison",
+          "researchClaim": "OpenAI首次公布Jalapeño的推理测试结果：在GPT-OSS 120B、DeepSeek R1 670B和Kimi K2.5 1T上，它声称以峰值吞吐量计每瓦AI工作量高出1.5至1.9倍、端到端延迟低1.7至3.6倍；这支持其在特定LLM推理工作负载和功耗归一化指标上优于所比较Nvidia系统的说法，而非证明其全面取代Nvidia平台。",
+          "researchComparisons": "此前2026年6月，Jalapeño仍是运行实验室ML工作负载的工程样片，OpenAI称最终性能仍在测量、计划于2026年底初步部署；此次则给出InferenceX实测比较。具体而言，GPT-OSS 120B中，Jalapeño为85,448、GB200为44,960 mixed TPS/kW，约为1.9倍，端到端延迟为1.03秒对1.80秒；DeepSeek R1中，Jalapeño为19,641、GB300为11,781 mixed TPS/kW，约为1.7倍，延迟为1.65秒对5.99秒；Kimi K2.5中为18,195对11,862 mixed TPS/kW，约为1.5倍，延迟为1.56秒对5.31秒。比较采用标称芯片功率归一化，Jalapeño标称700W、测试持续功耗不超过550W；因此关键基准是每千瓦混合token吞吐量及匹配用户体验下的延迟，而不是每芯片峰值或训练性能。",
+          "researchUnresolved": "公开结果未提供完整独立复跑、长期生产稳定性、成本/TCO、可供货量或前沿闭源模型上的可比数据；Jalapeño尚在工程样片至部署爬坡阶段，且公开测试未覆盖长上下文、多轮AgentX工作负载。",
+          "ref": "R2",
+          "role": "背景",
+          "takeaway": "6月公告显示Jalapeño当时仍是待测性能的工程样片，计划于2026年底开始初步部署。"
+        },
+        {
+          "id": "research-236-2-https://www.theinformation.com/briefings/openai-says-jalapeno-ai-chip-better-nvidias-blackwell-3-https://inferencex.semianalysis.com/blog/openai-jalapeno-better-than-nvidia",
+          "sourceId": 236,
+          "sourceName": "SemiAnalysis",
+          "sourcePublisher": "SemiAnalysis",
+          "sourceKind": "Research",
+          "title": "OpenAI Jalapeño: Better Than Nvidia Blackwell",
+          "url": "https://inferencex.semianalysis.com/blog/openai-jalapeno-better-than-nvidia",
+          "publishedAt": "2026-08-25T00:00:00.000Z",
+          "summary": "提供最强限定：SemiAnalysis称其在OpenAI实验室见证了InferenceX运行，但所有数字均由OpenAI提供，未运行完整InferenceX套件、未见AgentX结果；其认为与Blackwell的比较并不完整，因Jalapeño使用HBM4而更应同开始出货的Nvidia Rubin比较，且8k/1k单轮测试不能代表会压力测试缓存、路由和卸载机制的长上下文、多轮生产工作负载。",
+          "fetchedAt": "2026-08-26T09:06:58.135Z",
+          "researchedFrom": "N1",
+          "researchRole": "Counterevidence",
+          "researchClaim": "OpenAI首次公布Jalapeño的推理测试结果：在GPT-OSS 120B、DeepSeek R1 670B和Kimi K2.5 1T上，它声称以峰值吞吐量计每瓦AI工作量高出1.5至1.9倍、端到端延迟低1.7至3.6倍；这支持其在特定LLM推理工作负载和功耗归一化指标上优于所比较Nvidia系统的说法，而非证明其全面取代Nvidia平台。",
+          "researchComparisons": "此前2026年6月，Jalapeño仍是运行实验室ML工作负载的工程样片，OpenAI称最终性能仍在测量、计划于2026年底初步部署；此次则给出InferenceX实测比较。具体而言，GPT-OSS 120B中，Jalapeño为85,448、GB200为44,960 mixed TPS/kW，约为1.9倍，端到端延迟为1.03秒对1.80秒；DeepSeek R1中，Jalapeño为19,641、GB300为11,781 mixed TPS/kW，约为1.7倍，延迟为1.65秒对5.99秒；Kimi K2.5中为18,195对11,862 mixed TPS/kW，约为1.5倍，延迟为1.56秒对5.31秒。比较采用标称芯片功率归一化，Jalapeño标称700W、测试持续功耗不超过550W；因此关键基准是每千瓦混合token吞吐量及匹配用户体验下的延迟，而不是每芯片峰值或训练性能。",
+          "researchUnresolved": "公开结果未提供完整独立复跑、长期生产稳定性、成本/TCO、可供货量或前沿闭源模型上的可比数据；Jalapeño尚在工程样片至部署爬坡阶段，且公开测试未覆盖长上下文、多轮AgentX工作负载。",
+          "ref": "R3",
+          "role": "反例",
+          "takeaway": "SemiAnalysis指出结果由OpenAI提供，比较未覆盖完整套件和长上下文、多轮生产负载，且Rubin可能是更合适的代际参照。"
+        }
+      ],
+      "references": [
+        {
+          "id": "236-2-https://www.theinformation.com/briefings/openai-says-jalapeno-ai-chip-better-nvidias-blackwell",
+          "sourceId": 236,
+          "sourceName": "The Information",
+          "sourcePublisher": "The Information",
+          "sourceKind": "Blog",
+          "title": "OpenAI Says Its Jalapeño AI Chip Is Better Than Nvidia’s Blackwell",
+          "url": "https://www.theinformation.com/briefings/openai-says-jalapeno-ai-chip-better-nvidias-blackwell",
+          "publishedAt": "2026-08-26T04:29:59.000Z",
+          "summary": "OpenAI on Tuesday released an evaluation of its new Jalapeño AI server chip, claiming it is faster and more powerful than Nvidia’s flagship Blackwell chips. The results appear promising for OpenAI, which hopes to reduce its reliance on Nvidia’s hardware someday, but it’s still early: The chips ...",
+          "fetchedAt": "2026-08-26T09:06:32.890Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-26T09:06:32.890Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "standard",
+            "reason": "fresh",
+            "ageHours": 4.616426388888889,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N1"
+        },
+        {
+          "id": "research-236-2-https://www.theinformation.com/briefings/openai-says-jalapeno-ai-chip-better-nvidias-blackwell-1-https://openai.com/index/jalapeno-first-results/",
+          "sourceId": 236,
+          "sourceName": "OpenAI",
+          "sourcePublisher": "OpenAI",
+          "sourceKind": "Official",
+          "title": "Jalapeño’s first results show industry-leading speed and efficiency in AI inference",
+          "url": "https://openai.com/index/jalapeno-first-results/",
+          "publishedAt": "2026-08-25T00:00:00.000Z",
+          "summary": "补齐本次实测的核心数字、模型范围和比较口径：三种公开模型上峰值每瓦工作量提高1.5至1.9倍、端到端延迟降低1.7至3.6倍；并披露GPT-OSS、DeepSeek和Kimi分别对GB200或GB300的吞吐及延迟数字，以及700W标称功率和不超过550W的测试持续功耗。",
+          "fetchedAt": "2026-08-26T09:06:58.135Z",
+          "researchedFrom": "N1",
+          "researchRole": "Primary",
+          "researchClaim": "OpenAI首次公布Jalapeño的推理测试结果：在GPT-OSS 120B、DeepSeek R1 670B和Kimi K2.5 1T上，它声称以峰值吞吐量计每瓦AI工作量高出1.5至1.9倍、端到端延迟低1.7至3.6倍；这支持其在特定LLM推理工作负载和功耗归一化指标上优于所比较Nvidia系统的说法，而非证明其全面取代Nvidia平台。",
+          "researchComparisons": "此前2026年6月，Jalapeño仍是运行实验室ML工作负载的工程样片，OpenAI称最终性能仍在测量、计划于2026年底初步部署；此次则给出InferenceX实测比较。具体而言，GPT-OSS 120B中，Jalapeño为85,448、GB200为44,960 mixed TPS/kW，约为1.9倍，端到端延迟为1.03秒对1.80秒；DeepSeek R1中，Jalapeño为19,641、GB300为11,781 mixed TPS/kW，约为1.7倍，延迟为1.65秒对5.99秒；Kimi K2.5中为18,195对11,862 mixed TPS/kW，约为1.5倍，延迟为1.56秒对5.31秒。比较采用标称芯片功率归一化，Jalapeño标称700W、测试持续功耗不超过550W；因此关键基准是每千瓦混合token吞吐量及匹配用户体验下的延迟，而不是每芯片峰值或训练性能。",
+          "researchUnresolved": "公开结果未提供完整独立复跑、长期生产稳定性、成本/TCO、可供货量或前沿闭源模型上的可比数据；Jalapeño尚在工程样片至部署爬坡阶段，且公开测试未覆盖长上下文、多轮AgentX工作负载。",
+          "ref": "R1"
+        },
+        {
+          "id": "research-236-2-https://www.theinformation.com/briefings/openai-says-jalapeno-ai-chip-better-nvidias-blackwell-2-https://openai.com/index/openai-broadcom-jalapeno-inference-chip/",
+          "sourceId": 236,
+          "sourceName": "OpenAI",
+          "sourcePublisher": "OpenAI",
+          "sourceKind": "Official",
+          "title": "OpenAI and Broadcom unveil LLM-optimized inference chip",
+          "url": "https://openai.com/index/openai-broadcom-jalapeno-inference-chip/",
+          "publishedAt": "2026-06-24T00:00:00.000Z",
+          "summary": "建立此前状态：6月时Jalapeño仅为在生产目标频率和功耗下运行ML工作负载的工程样片，最终性能仍在测量；公司当时计划在2026年底开始初步部署，并将其定位为与Broadcom、Celestica共同建设的多代推理平台。",
+          "fetchedAt": "2026-08-26T09:06:58.135Z",
+          "researchedFrom": "N1",
+          "researchRole": "Comparison",
+          "researchClaim": "OpenAI首次公布Jalapeño的推理测试结果：在GPT-OSS 120B、DeepSeek R1 670B和Kimi K2.5 1T上，它声称以峰值吞吐量计每瓦AI工作量高出1.5至1.9倍、端到端延迟低1.7至3.6倍；这支持其在特定LLM推理工作负载和功耗归一化指标上优于所比较Nvidia系统的说法，而非证明其全面取代Nvidia平台。",
+          "researchComparisons": "此前2026年6月，Jalapeño仍是运行实验室ML工作负载的工程样片，OpenAI称最终性能仍在测量、计划于2026年底初步部署；此次则给出InferenceX实测比较。具体而言，GPT-OSS 120B中，Jalapeño为85,448、GB200为44,960 mixed TPS/kW，约为1.9倍，端到端延迟为1.03秒对1.80秒；DeepSeek R1中，Jalapeño为19,641、GB300为11,781 mixed TPS/kW，约为1.7倍，延迟为1.65秒对5.99秒；Kimi K2.5中为18,195对11,862 mixed TPS/kW，约为1.5倍，延迟为1.56秒对5.31秒。比较采用标称芯片功率归一化，Jalapeño标称700W、测试持续功耗不超过550W；因此关键基准是每千瓦混合token吞吐量及匹配用户体验下的延迟，而不是每芯片峰值或训练性能。",
+          "researchUnresolved": "公开结果未提供完整独立复跑、长期生产稳定性、成本/TCO、可供货量或前沿闭源模型上的可比数据；Jalapeño尚在工程样片至部署爬坡阶段，且公开测试未覆盖长上下文、多轮AgentX工作负载。",
+          "ref": "R2"
+        },
+        {
+          "id": "research-236-2-https://www.theinformation.com/briefings/openai-says-jalapeno-ai-chip-better-nvidias-blackwell-3-https://inferencex.semianalysis.com/blog/openai-jalapeno-better-than-nvidia",
+          "sourceId": 236,
+          "sourceName": "SemiAnalysis",
+          "sourcePublisher": "SemiAnalysis",
+          "sourceKind": "Research",
+          "title": "OpenAI Jalapeño: Better Than Nvidia Blackwell",
+          "url": "https://inferencex.semianalysis.com/blog/openai-jalapeno-better-than-nvidia",
+          "publishedAt": "2026-08-25T00:00:00.000Z",
+          "summary": "提供最强限定：SemiAnalysis称其在OpenAI实验室见证了InferenceX运行，但所有数字均由OpenAI提供，未运行完整InferenceX套件、未见AgentX结果；其认为与Blackwell的比较并不完整，因Jalapeño使用HBM4而更应同开始出货的Nvidia Rubin比较，且8k/1k单轮测试不能代表会压力测试缓存、路由和卸载机制的长上下文、多轮生产工作负载。",
+          "fetchedAt": "2026-08-26T09:06:58.135Z",
+          "researchedFrom": "N1",
+          "researchRole": "Counterevidence",
+          "researchClaim": "OpenAI首次公布Jalapeño的推理测试结果：在GPT-OSS 120B、DeepSeek R1 670B和Kimi K2.5 1T上，它声称以峰值吞吐量计每瓦AI工作量高出1.5至1.9倍、端到端延迟低1.7至3.6倍；这支持其在特定LLM推理工作负载和功耗归一化指标上优于所比较Nvidia系统的说法，而非证明其全面取代Nvidia平台。",
+          "researchComparisons": "此前2026年6月，Jalapeño仍是运行实验室ML工作负载的工程样片，OpenAI称最终性能仍在测量、计划于2026年底初步部署；此次则给出InferenceX实测比较。具体而言，GPT-OSS 120B中，Jalapeño为85,448、GB200为44,960 mixed TPS/kW，约为1.9倍，端到端延迟为1.03秒对1.80秒；DeepSeek R1中，Jalapeño为19,641、GB300为11,781 mixed TPS/kW，约为1.7倍，延迟为1.65秒对5.99秒；Kimi K2.5中为18,195对11,862 mixed TPS/kW，约为1.5倍，延迟为1.56秒对5.31秒。比较采用标称芯片功率归一化，Jalapeño标称700W、测试持续功耗不超过550W；因此关键基准是每千瓦混合token吞吐量及匹配用户体验下的延迟，而不是每芯片峰值或训练性能。",
+          "researchUnresolved": "公开结果未提供完整独立复跑、长期生产稳定性、成本/TCO、可供货量或前沿闭源模型上的可比数据；Jalapeño尚在工程样片至部署爬坡阶段，且公开测试未覆盖长上下文、多轮AgentX工作负载。",
+          "ref": "R3"
+        }
+      ],
+      "feedBatchAt": "2026-08-26T09:06:58.135Z"
+    },
+    {
+      "id": 158,
+      "editorialBucket": "dynamic",
+      "category": "AI & 模型",
+      "eyebrow": "产品信号",
+      "title": "Google把Gemini Enterprise推向法律业",
+      "summary": "Google Cloud发布Gemini Enterprise for Legal预览版，以法律技能、MCP连接器和预构建代理接入合同审阅、研究及案件工作流。",
+      "why": "产品把通用企业代理平台推进至高价值、强合规的法律工作流，竞争焦点从模型能力延伸到权限、数据和专业软件连接。",
+      "impact": "若律所和企业法务采用，法律AI的差异化可能更依赖系统集成、可追溯性与治理能力，而非基础模型本身。",
+      "shiftFrom": "通用企业代理与数据连接平台",
+      "shiftTo": "面向法律工作流的行业产品",
+      "crossValidation": "Google Cloud确认产品日期、预览状态、连接器和合作伙伴生态；The Decoder补充其合同与研究自动化定位；美国律师协会意见界定了专业审查责任。",
+      "article": {
+        "lead": "Google Cloud发布Gemini Enterprise for Legal，将既有的通用企业代理平台扩展至合同审阅、法律研究和相关专业工作流。该产品目前以preview提供，核心变化不在于推出一套独立基础模型，而在于把法律技能、继承原系统权限的MCP连接器、预构建代理和合作伙伴交付方式组合为行业入口。法律AI竞争因此更直接进入企业系统整合与责任控制层。",
+        "sections": [
+          {
+            "heading": "通用平台增加法律工作入口",
+            "body": "此前的Gemini Enterprise已提供聊天入口、无代码工作台、预构建或自建代理、企业数据连接与集中治理。Google Cloud最新发布的法律版本，在这一平台上增加了面向法律工作的技能与预构建代理，并连接iManage、NetDocuments、DocuSign、Everlaw、RelativityOne和HighQ等系统。对企业法务和律所而言，变化在于代理不再只停留在通用问答界面，而开始被置入文档、合同和案件资料所在的既有工作环境。"
+          },
+          {
+            "heading": "权限继承与连接器决定落地路径",
+            "body": "Google强调其MCP连接器继承原有系统权限，这使部署重点从“模型能否回答法律问题”转向“模型能否在正确的权限边界内调用材料”。The Decoder报道称，Deloitte等伙伴将销售合同审阅等现成代理。该结构意味着基础模型仍是底座，但价值捕获可能更多来自连接专有文档系统、把任务拆分为可配置流程，以及由咨询伙伴承担部署和变更管理。行业化产品由此成为云平台争夺高价值知识工作的分发方式。"
+          },
+          {
+            "heading": "专业责任限制自动化边界",
+            "body": "美国律师协会的正式意见指出，律师使用生成式AI时仍须理解工具能力与局限、保护客户保密信息，并审查AI生成内容。这个约束并不否定连接器或可追溯引用的作用，却限制了法律工作流能够完全自动化的范围。最强的反向情形是，客户数据治理、专业责任与人工复核成本若未显著下降，产品可能主要成为辅助检索和起草工具，而难以迅速替代高责任的法律判断。"
+          }
+        ],
+        "outlook": "后续可验证的信号包括：Google是否宣布正式可用与定价；连接器是否扩展至更多主流法律系统；合作伙伴是否披露可量化的部署数量、合同处理效率或客户案例；以及法务团队是否将该产品用于受监管或高风险事务。若这些采用信号出现，行业版企业代理的商业价值将更清晰；若长期停留在preview和演示阶段，其影响将主要限于产品定位。"
+      },
+      "validationType": "跨平台验证",
+      "publishedAt": "2026-08-25T16:21:09.000Z",
+      "updatedAt": "2026-08-25T16:21:09.000Z",
+      "sources": [
+        "Blog",
+        "Official",
+        "Research"
+      ],
+      "sourceNames": [
+        "The Decoder",
+        "Google Cloud",
+        "American Bar Association"
+      ],
+      "sourceCount": 3,
+      "age": "17 小时前",
+      "score": 83,
+      "tone": "blue",
+      "evidence": [
+        {
+          "id": "232-2-https://the-decoder.com/google-launches-gemini-for-legal-work-to-automate-contracts-and-research/",
+          "sourceId": 232,
+          "sourceName": "The Decoder AI",
+          "sourcePublisher": "The Decoder",
+          "sourceKind": "Blog",
+          "title": "Google launches Gemini for legal work to automate contracts and research",
+          "url": "https://the-decoder.com/google-launches-gemini-for-legal-work-to-automate-contracts-and-research/",
+          "publishedAt": "2026-08-25T16:21:09.000Z",
+          "summary": "With Gemini Enterprise for Legal, Google launches an AI solution for the legal industry that connects to systems like iManage, DocuSign, and Everlaw through MCP connectors. Partners like Deloitte sell ready-made AI agents for tasks like contract review. Anthropic already offers similar solutions. All providers use the same models as in their other products. ",
+          "fetchedAt": "2026-08-25T21:06:39.141Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-25T18:07:14.865Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "standard",
+            "reason": "fresh",
+            "ageHours": 16.763648611111112,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N9",
+          "role": "佐证",
+          "takeaway": "报道指出产品面向合同自动化和法律研究，并通过MCP连接器接入法律软件与数据系统。"
+        },
+        {
+          "id": "research-232-2-https://the-decoder.com/google-launches-gemini-for-legal-work-to-automate-contracts-and-research/-1-https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-for-legal",
+          "sourceId": 232,
+          "sourceName": "Google Cloud",
+          "sourcePublisher": "Google Cloud",
+          "sourceKind": "Official",
+          "title": "Now introducing Gemini Enterprise for Legal",
+          "url": "https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-for-legal",
+          "publishedAt": "2026-08-25T00:00:00.000Z",
+          "summary": "确认产品于 2026-08-25 发布、仅以 preview 提供；说明其由法律技能、继承原系统权限的 MCP 连接器、预构建代理和伙伴生态组成，并列出 iManage、NetDocuments、DocuSign、Everlaw、RelativityOne、HighQ 等连接对象。",
+          "fetchedAt": "2026-08-26T09:06:58.135Z",
+          "researchedFrom": "N9",
+          "researchRole": "Primary",
+          "researchClaim": "Google 于 2026-08-25 推出 Gemini Enterprise for Legal，作为现有 Gemini Enterprise 平台上的法律行业插件而非独立应用；产品目前仅处于 preview，主打继承既有权限的 MCP 连接器、法律工作流技能及第三方代理。",
+          "researchComparisons": "此前，Google 在 2025-10-09 发布的是面向全员、全工作流的通用 Gemini Enterprise 平台，可连接 Workspace、Microsoft 365、Salesforce 和 SAP 等企业数据并编排代理；此次变化是把该通用平台封装为法律垂直解决方案。Google 尚未公开法律版的定价、客户节省工时、合同审阅准确率、法律研究准确率或相对通用 Gemini Enterprise 的量化提升，因此没有可核验的 ROI 或性能基准。",
+          "researchUnresolved": "Google 未披露法律版所用的具体 Gemini 模型及版本，也未提供预览转正式可用的时间表、定价、独立准确率评测或客户生产部署指标；“所有供应商使用相同模型”的说法无法由本次 Google 一手材料证实。",
+          "ref": "R8",
+          "role": "主张",
+          "takeaway": "Google Cloud确认Gemini Enterprise for Legal于2026年8月25日发布为preview，并列出法律技能、连接器、代理与合作伙伴生态。"
+        },
+        {
+          "id": "research-232-2-https://the-decoder.com/google-launches-gemini-for-legal-work-to-automate-contracts-and-research/-2-https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise",
+          "sourceId": 232,
+          "sourceName": "Google Cloud",
+          "sourcePublisher": "Google Cloud",
+          "sourceKind": "Official",
+          "title": "Introducing Gemini Enterprise",
+          "url": "https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise",
+          "publishedAt": "2025-10-09T00:00:00.000Z",
+          "summary": "建立此前状态：Gemini Enterprise 原先是通用企业代理平台，提供聊天入口、无代码工作台、预构建及自建代理、企业数据连接和集中治理；法律版是在这一既有平台之上的行业化扩展。",
+          "fetchedAt": "2026-08-26T09:06:58.135Z",
+          "researchedFrom": "N9",
+          "researchRole": "Comparison",
+          "researchClaim": "Google 于 2026-08-25 推出 Gemini Enterprise for Legal，作为现有 Gemini Enterprise 平台上的法律行业插件而非独立应用；产品目前仅处于 preview，主打继承既有权限的 MCP 连接器、法律工作流技能及第三方代理。",
+          "researchComparisons": "此前，Google 在 2025-10-09 发布的是面向全员、全工作流的通用 Gemini Enterprise 平台，可连接 Workspace、Microsoft 365、Salesforce 和 SAP 等企业数据并编排代理；此次变化是把该通用平台封装为法律垂直解决方案。Google 尚未公开法律版的定价、客户节省工时、合同审阅准确率、法律研究准确率或相对通用 Gemini Enterprise 的量化提升，因此没有可核验的 ROI 或性能基准。",
+          "researchUnresolved": "Google 未披露法律版所用的具体 Gemini 模型及版本，也未提供预览转正式可用的时间表、定价、独立准确率评测或客户生产部署指标；“所有供应商使用相同模型”的说法无法由本次 Google 一手材料证实。",
+          "ref": "R9",
+          "role": "背景",
+          "takeaway": "Gemini Enterprise此前已是提供代理、企业数据连接和集中治理的通用企业平台。"
+        },
+        {
+          "id": "research-232-2-https://the-decoder.com/google-launches-gemini-for-legal-work-to-automate-contracts-and-research/-3-https://www.americanbar.org/content/dam/aba/administrative/professional_responsibility/ethics-opinions/aba-formal-opinion-512.pdf",
+          "sourceId": 232,
+          "sourceName": "American Bar Association",
+          "sourcePublisher": "American Bar Association",
+          "sourceKind": "Research",
+          "title": "Formal Opinion 512: Generative Artificial Intelligence Tools",
+          "url": "https://www.americanbar.org/content/dam/aba/administrative/professional_responsibility/ethics-opinions/aba-formal-opinion-512.pdf",
+          "publishedAt": "2024-07-29T00:00:00.000Z",
+          "summary": "提供采用法律 AI 的关键反面约束：律师须理解所用生成式 AI 的能力与局限、保护客户保密信息，并对 AI 生成内容进行审查；这意味着 Google 所称的可追溯引用和权限继承并不能替代律师的专业核验责任。",
+          "fetchedAt": "2026-08-26T09:06:58.135Z",
+          "researchedFrom": "N9",
+          "researchRole": "Counterevidence",
+          "researchClaim": "Google 于 2026-08-25 推出 Gemini Enterprise for Legal，作为现有 Gemini Enterprise 平台上的法律行业插件而非独立应用；产品目前仅处于 preview，主打继承既有权限的 MCP 连接器、法律工作流技能及第三方代理。",
+          "researchComparisons": "此前，Google 在 2025-10-09 发布的是面向全员、全工作流的通用 Gemini Enterprise 平台，可连接 Workspace、Microsoft 365、Salesforce 和 SAP 等企业数据并编排代理；此次变化是把该通用平台封装为法律垂直解决方案。Google 尚未公开法律版的定价、客户节省工时、合同审阅准确率、法律研究准确率或相对通用 Gemini Enterprise 的量化提升，因此没有可核验的 ROI 或性能基准。",
+          "researchUnresolved": "Google 未披露法律版所用的具体 Gemini 模型及版本，也未提供预览转正式可用的时间表、定价、独立准确率评测或客户生产部署指标；“所有供应商使用相同模型”的说法无法由本次 Google 一手材料证实。",
+          "ref": "R10",
+          "role": "反例",
+          "takeaway": "美国律师协会要求律师理解生成式AI局限、保护保密信息并审查输出内容。"
+        }
+      ],
+      "references": [
+        {
+          "id": "232-2-https://the-decoder.com/google-launches-gemini-for-legal-work-to-automate-contracts-and-research/",
+          "sourceId": 232,
+          "sourceName": "The Decoder AI",
+          "sourcePublisher": "The Decoder",
+          "sourceKind": "Blog",
+          "title": "Google launches Gemini for legal work to automate contracts and research",
+          "url": "https://the-decoder.com/google-launches-gemini-for-legal-work-to-automate-contracts-and-research/",
+          "publishedAt": "2026-08-25T16:21:09.000Z",
+          "summary": "With Gemini Enterprise for Legal, Google launches an AI solution for the legal industry that connects to systems like iManage, DocuSign, and Everlaw through MCP connectors. Partners like Deloitte sell ready-made AI agents for tasks like contract review. Anthropic already offers similar solutions. All providers use the same models as in their other products. ",
+          "fetchedAt": "2026-08-25T21:06:39.141Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-25T18:07:14.865Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "standard",
+            "reason": "fresh",
+            "ageHours": 16.763648611111112,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N9"
+        },
+        {
+          "id": "research-232-2-https://the-decoder.com/google-launches-gemini-for-legal-work-to-automate-contracts-and-research/-1-https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-for-legal",
+          "sourceId": 232,
+          "sourceName": "Google Cloud",
+          "sourcePublisher": "Google Cloud",
+          "sourceKind": "Official",
+          "title": "Now introducing Gemini Enterprise for Legal",
+          "url": "https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-for-legal",
+          "publishedAt": "2026-08-25T00:00:00.000Z",
+          "summary": "确认产品于 2026-08-25 发布、仅以 preview 提供；说明其由法律技能、继承原系统权限的 MCP 连接器、预构建代理和伙伴生态组成，并列出 iManage、NetDocuments、DocuSign、Everlaw、RelativityOne、HighQ 等连接对象。",
+          "fetchedAt": "2026-08-26T09:06:58.135Z",
+          "researchedFrom": "N9",
+          "researchRole": "Primary",
+          "researchClaim": "Google 于 2026-08-25 推出 Gemini Enterprise for Legal，作为现有 Gemini Enterprise 平台上的法律行业插件而非独立应用；产品目前仅处于 preview，主打继承既有权限的 MCP 连接器、法律工作流技能及第三方代理。",
+          "researchComparisons": "此前，Google 在 2025-10-09 发布的是面向全员、全工作流的通用 Gemini Enterprise 平台，可连接 Workspace、Microsoft 365、Salesforce 和 SAP 等企业数据并编排代理；此次变化是把该通用平台封装为法律垂直解决方案。Google 尚未公开法律版的定价、客户节省工时、合同审阅准确率、法律研究准确率或相对通用 Gemini Enterprise 的量化提升，因此没有可核验的 ROI 或性能基准。",
+          "researchUnresolved": "Google 未披露法律版所用的具体 Gemini 模型及版本，也未提供预览转正式可用的时间表、定价、独立准确率评测或客户生产部署指标；“所有供应商使用相同模型”的说法无法由本次 Google 一手材料证实。",
+          "ref": "R8"
+        },
+        {
+          "id": "research-232-2-https://the-decoder.com/google-launches-gemini-for-legal-work-to-automate-contracts-and-research/-2-https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise",
+          "sourceId": 232,
+          "sourceName": "Google Cloud",
+          "sourcePublisher": "Google Cloud",
+          "sourceKind": "Official",
+          "title": "Introducing Gemini Enterprise",
+          "url": "https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise",
+          "publishedAt": "2025-10-09T00:00:00.000Z",
+          "summary": "建立此前状态：Gemini Enterprise 原先是通用企业代理平台，提供聊天入口、无代码工作台、预构建及自建代理、企业数据连接和集中治理；法律版是在这一既有平台之上的行业化扩展。",
+          "fetchedAt": "2026-08-26T09:06:58.135Z",
+          "researchedFrom": "N9",
+          "researchRole": "Comparison",
+          "researchClaim": "Google 于 2026-08-25 推出 Gemini Enterprise for Legal，作为现有 Gemini Enterprise 平台上的法律行业插件而非独立应用；产品目前仅处于 preview，主打继承既有权限的 MCP 连接器、法律工作流技能及第三方代理。",
+          "researchComparisons": "此前，Google 在 2025-10-09 发布的是面向全员、全工作流的通用 Gemini Enterprise 平台，可连接 Workspace、Microsoft 365、Salesforce 和 SAP 等企业数据并编排代理；此次变化是把该通用平台封装为法律垂直解决方案。Google 尚未公开法律版的定价、客户节省工时、合同审阅准确率、法律研究准确率或相对通用 Gemini Enterprise 的量化提升，因此没有可核验的 ROI 或性能基准。",
+          "researchUnresolved": "Google 未披露法律版所用的具体 Gemini 模型及版本，也未提供预览转正式可用的时间表、定价、独立准确率评测或客户生产部署指标；“所有供应商使用相同模型”的说法无法由本次 Google 一手材料证实。",
+          "ref": "R9"
+        },
+        {
+          "id": "research-232-2-https://the-decoder.com/google-launches-gemini-for-legal-work-to-automate-contracts-and-research/-3-https://www.americanbar.org/content/dam/aba/administrative/professional_responsibility/ethics-opinions/aba-formal-opinion-512.pdf",
+          "sourceId": 232,
+          "sourceName": "American Bar Association",
+          "sourcePublisher": "American Bar Association",
+          "sourceKind": "Research",
+          "title": "Formal Opinion 512: Generative Artificial Intelligence Tools",
+          "url": "https://www.americanbar.org/content/dam/aba/administrative/professional_responsibility/ethics-opinions/aba-formal-opinion-512.pdf",
+          "publishedAt": "2024-07-29T00:00:00.000Z",
+          "summary": "提供采用法律 AI 的关键反面约束：律师须理解所用生成式 AI 的能力与局限、保护客户保密信息，并对 AI 生成内容进行审查；这意味着 Google 所称的可追溯引用和权限继承并不能替代律师的专业核验责任。",
+          "fetchedAt": "2026-08-26T09:06:58.135Z",
+          "researchedFrom": "N9",
+          "researchRole": "Counterevidence",
+          "researchClaim": "Google 于 2026-08-25 推出 Gemini Enterprise for Legal，作为现有 Gemini Enterprise 平台上的法律行业插件而非独立应用；产品目前仅处于 preview，主打继承既有权限的 MCP 连接器、法律工作流技能及第三方代理。",
+          "researchComparisons": "此前，Google 在 2025-10-09 发布的是面向全员、全工作流的通用 Gemini Enterprise 平台，可连接 Workspace、Microsoft 365、Salesforce 和 SAP 等企业数据并编排代理；此次变化是把该通用平台封装为法律垂直解决方案。Google 尚未公开法律版的定价、客户节省工时、合同审阅准确率、法律研究准确率或相对通用 Gemini Enterprise 的量化提升，因此没有可核验的 ROI 或性能基准。",
+          "researchUnresolved": "Google 未披露法律版所用的具体 Gemini 模型及版本，也未提供预览转正式可用的时间表、定价、独立准确率评测或客户生产部署指标；“所有供应商使用相同模型”的说法无法由本次 Google 一手材料证实。",
+          "ref": "R10"
+        }
+      ],
+      "feedBatchAt": "2026-08-26T09:06:58.135Z"
+    },
     {
       "id": 156,
       "editorialBucket": "explore",
@@ -655,14 +1089,18 @@
       "sources": [
         "Blog",
         "Official",
-        "Regulator"
+        "Regulator",
+        "Media"
       ],
       "sourceNames": [
         "The Information",
         "Louisiana Economic Development",
-        "Federal Aviation Administration"
+        "Federal Aviation Administration",
+        "Engadget",
+        "Space Exploration Technologies Corp.",
+        "Associated Press"
       ],
-      "sourceCount": 3,
+      "sourceCount": 6,
       "age": "1 小时前",
       "score": 89,
       "tone": "blue",
@@ -732,6 +1170,72 @@
           "ref": "R9",
           "role": "背景",
           "takeaway": "FAA文件显示，Boca Chica许可修改涉及每年最高25次Starship/Super Heavy轨道发射及相应着陆，且运营仍需FAA许可。"
+        },
+        {
+          "id": "235-0-https://www.engadget.com/2244379/spacex-is-building-a-100-billion-starbase-launch-site-in-louisiana/",
+          "sourceId": 235,
+          "sourceName": "Engadget",
+          "sourcePublisher": "Engadget",
+          "sourceKind": "Blog",
+          "title": "SpaceX is building a $100 billion 'Starbase' launch site in Louisiana",
+          "url": "https://www.engadget.com/2244379/spacex-is-building-a-100-billion-starbase-launch-site-in-louisiana/",
+          "publishedAt": "2026-08-26T07:05:00.000Z",
+          "summary": "'We're preparing to build a spaceport that, until now, has only existed in science fiction,'",
+          "fetchedAt": "2026-08-26T09:06:32.890Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-26T09:06:32.890Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 2.032815277777778,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N4",
+          "role": "最新进展",
+          "takeaway": "报道将SpaceX路易斯安那项目描述为1000亿美元Starbase发射基地建设计划。"
+        },
+        {
+          "id": "research-235-0-https://www.engadget.com/2244379/spacex-is-building-a-100-billion-starbase-launch-site-in-louisiana/-2-https://content.spacex.com/cms-assets/FINAL_Documents%20and%20Updates/SpaceX%20-%20EU%20Prospectus%20(Approved%20by%20Bafin)%20-%20June%205,%202026.pdf",
+          "sourceId": 235,
+          "sourceName": "Space Exploration Technologies Corp.",
+          "sourcePublisher": "Space Exploration Technologies Corp.",
+          "sourceKind": "Official",
+          "title": "SpaceX - EU Prospectus (Approved by BaFin) - June 5, 2026",
+          "url": "https://content.spacex.com/cms-assets/FINAL_Documents%20and%20Updates/SpaceX%20-%20EU%20Prospectus%20(Approved%20by%20Bafin)%20-%20June%205,%202026.pdf",
+          "publishedAt": "2026-06-05T00:00:00.000Z",
+          "summary": "公司文件说明在路易斯安那公告前，Starship的开发、制造、测试和发射目前均在得州Starbase进行；该地已有一个轨道发射台，第二个发射台在建，提供了新址从零建设与现有基地的直接比较。",
+          "fetchedAt": "2026-08-26T09:06:58.135Z",
+          "researchedFrom": "N4",
+          "researchRole": "Comparison",
+          "researchClaim": "SpaceX于2026年8月25日宣布拟在路易斯安那州Vermilion Parish建设“Starbase, Louisiana”：计划投资1000亿美元、建设五个发射综合体共10个发射台，并称满负荷可支持数千次年度发射；项目仍处于建设前阶段，州方预计2027年开工、最早2029年首次发射。",
+          "researchComparisons": "此前，Starship的研发、制造、测试和发射目前集中在得州Starbase；SpaceX的2026年官方文件称该地已有1个轨道发射台，另1个发射台在建。作为已获监管评估的实际基准，FAA对得州Starbase现有运营商许可的拟修改授权上限为每年25次Starship/Super Heavy轨道发射及各25次两级回收着陆。路易斯安那“数千次年度发射”是满负荷设计目标，而非已获许可的运营额度。州方承诺的激励以资本投资、创造就业及2500万美元慈善捐赠为条件；州方预测为10年内3000个直接岗位、平均年薪92600美元，另估算8100多个间接岗位。",
+          "researchUnresolved": "1000亿美元的分年资本开支、融资或约束性承诺文件尚未公开；路易斯安那项目的FAA发射许可、NEPA环境审查及其他联邦和州级许可状态未在州方公告中列明；“数千次年度发射”的具体容量定义、达产年份和监管可批准的实际发射频次未披露。独立环保组织质疑项目推进速度及其对脆弱海岸线的不可逆影响，构成最强反方论点。",
+          "ref": "R5",
+          "role": "背景",
+          "takeaway": "SpaceX此前文件显示Starship开发、制造、测试和发射集中在得州Starbase，当地已有一个轨道台且第二个在建。"
+        },
+        {
+          "id": "research-235-0-https://www.engadget.com/2244379/spacex-is-building-a-100-billion-starbase-launch-site-in-louisiana/-4-https://apnews.com/article/musk-spacex-louisiana-spaceport-rockets-201a0f8a7b479c8f2fff955495471162",
+          "sourceId": 235,
+          "sourceName": "Associated Press",
+          "sourcePublisher": "Associated Press",
+          "sourceKind": "Media",
+          "title": "Elon Musk’s space company to build new rocket launching site in Louisiana",
+          "url": "https://apnews.com/article/musk-spacex-louisiana-spaceport-rockets-201a0f8a7b479c8f2fff955495471162",
+          "publishedAt": "2026-08-25T18:29:24.000Z",
+          "summary": "独立现场报道补充该址为原Exxon持有的12.5万英亩土地、州议会已批准税收激励，并记录Louisiana Bucket Brigade对脆弱海岸线、透明公共程序和项目推进速度的反对意见，以及SpaceX拟举办市民沟通活动。",
+          "fetchedAt": "2026-08-26T09:06:58.135Z",
+          "researchedFrom": "N4",
+          "researchRole": "Context",
+          "researchClaim": "SpaceX于2026年8月25日宣布拟在路易斯安那州Vermilion Parish建设“Starbase, Louisiana”：计划投资1000亿美元、建设五个发射综合体共10个发射台，并称满负荷可支持数千次年度发射；项目仍处于建设前阶段，州方预计2027年开工、最早2029年首次发射。",
+          "researchComparisons": "此前，Starship的研发、制造、测试和发射目前集中在得州Starbase；SpaceX的2026年官方文件称该地已有1个轨道发射台，另1个发射台在建。作为已获监管评估的实际基准，FAA对得州Starbase现有运营商许可的拟修改授权上限为每年25次Starship/Super Heavy轨道发射及各25次两级回收着陆。路易斯安那“数千次年度发射”是满负荷设计目标，而非已获许可的运营额度。州方承诺的激励以资本投资、创造就业及2500万美元慈善捐赠为条件；州方预测为10年内3000个直接岗位、平均年薪92600美元，另估算8100多个间接岗位。",
+          "researchUnresolved": "1000亿美元的分年资本开支、融资或约束性承诺文件尚未公开；路易斯安那项目的FAA发射许可、NEPA环境审查及其他联邦和州级许可状态未在州方公告中列明；“数千次年度发射”的具体容量定义、达产年份和监管可批准的实际发射频次未披露。独立环保组织质疑项目推进速度及其对脆弱海岸线的不可逆影响，构成最强反方论点。",
+          "ref": "R7",
+          "role": "佐证",
+          "takeaway": "AP确认项目位于原Exxon持有土地，并记录税收激励、社区环境担忧和拟进行的市民沟通。"
         }
       ],
       "references": [
@@ -794,9 +1298,187 @@
           "researchComparisons": "项目宣称可支持“每年数千次”Starship发射，远高于FAA目前对SpaceX得州Boca Chica Starship/Super Heavy运营所评估并授权修改的最高每年25次轨道发射、25次Starship着陆和25次Super Heavy着陆。该对比表明，路易斯安那项目的核心变化是从既有单点、受年度许可上限约束的测试/运营能力，转向以多发射台支撑高频商业化的长期产能目标；但“数千次”是设计目标而非已获批的运行额度。",
           "researchUnresolved": "尚未公开可核验的路易斯安那州项目FAA发射/再入许可证、NEPA环境审查结论、湿地及其他建设许可、项目专属激励合同，以及1000亿美元资本开支的分期、融资和约束性承诺。上述审批和资金要素将决定2027年开工与2029年首飞目标是否可实现。",
           "ref": "R9"
+        },
+        {
+          "id": "235-0-https://www.engadget.com/2244379/spacex-is-building-a-100-billion-starbase-launch-site-in-louisiana/",
+          "sourceId": 235,
+          "sourceName": "Engadget",
+          "sourcePublisher": "Engadget",
+          "sourceKind": "Blog",
+          "title": "SpaceX is building a $100 billion 'Starbase' launch site in Louisiana",
+          "url": "https://www.engadget.com/2244379/spacex-is-building-a-100-billion-starbase-launch-site-in-louisiana/",
+          "publishedAt": "2026-08-26T07:05:00.000Z",
+          "summary": "'We're preparing to build a spaceport that, until now, has only existed in science fiction,'",
+          "fetchedAt": "2026-08-26T09:06:32.890Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-26T09:06:32.890Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "explore",
+            "reason": "fresh",
+            "ageHours": 2.032815277777778,
+            "maxAgeHours": 168
+          },
+          "deferredResearch": false,
+          "ref": "N4"
+        },
+        {
+          "id": "research-235-0-https://www.engadget.com/2244379/spacex-is-building-a-100-billion-starbase-launch-site-in-louisiana/-2-https://content.spacex.com/cms-assets/FINAL_Documents%20and%20Updates/SpaceX%20-%20EU%20Prospectus%20(Approved%20by%20Bafin)%20-%20June%205,%202026.pdf",
+          "sourceId": 235,
+          "sourceName": "Space Exploration Technologies Corp.",
+          "sourcePublisher": "Space Exploration Technologies Corp.",
+          "sourceKind": "Official",
+          "title": "SpaceX - EU Prospectus (Approved by BaFin) - June 5, 2026",
+          "url": "https://content.spacex.com/cms-assets/FINAL_Documents%20and%20Updates/SpaceX%20-%20EU%20Prospectus%20(Approved%20by%20Bafin)%20-%20June%205,%202026.pdf",
+          "publishedAt": "2026-06-05T00:00:00.000Z",
+          "summary": "公司文件说明在路易斯安那公告前，Starship的开发、制造、测试和发射目前均在得州Starbase进行；该地已有一个轨道发射台，第二个发射台在建，提供了新址从零建设与现有基地的直接比较。",
+          "fetchedAt": "2026-08-26T09:06:58.135Z",
+          "researchedFrom": "N4",
+          "researchRole": "Comparison",
+          "researchClaim": "SpaceX于2026年8月25日宣布拟在路易斯安那州Vermilion Parish建设“Starbase, Louisiana”：计划投资1000亿美元、建设五个发射综合体共10个发射台，并称满负荷可支持数千次年度发射；项目仍处于建设前阶段，州方预计2027年开工、最早2029年首次发射。",
+          "researchComparisons": "此前，Starship的研发、制造、测试和发射目前集中在得州Starbase；SpaceX的2026年官方文件称该地已有1个轨道发射台，另1个发射台在建。作为已获监管评估的实际基准，FAA对得州Starbase现有运营商许可的拟修改授权上限为每年25次Starship/Super Heavy轨道发射及各25次两级回收着陆。路易斯安那“数千次年度发射”是满负荷设计目标，而非已获许可的运营额度。州方承诺的激励以资本投资、创造就业及2500万美元慈善捐赠为条件；州方预测为10年内3000个直接岗位、平均年薪92600美元，另估算8100多个间接岗位。",
+          "researchUnresolved": "1000亿美元的分年资本开支、融资或约束性承诺文件尚未公开；路易斯安那项目的FAA发射许可、NEPA环境审查及其他联邦和州级许可状态未在州方公告中列明；“数千次年度发射”的具体容量定义、达产年份和监管可批准的实际发射频次未披露。独立环保组织质疑项目推进速度及其对脆弱海岸线的不可逆影响，构成最强反方论点。",
+          "ref": "R5"
+        },
+        {
+          "id": "research-235-0-https://www.engadget.com/2244379/spacex-is-building-a-100-billion-starbase-launch-site-in-louisiana/-4-https://apnews.com/article/musk-spacex-louisiana-spaceport-rockets-201a0f8a7b479c8f2fff955495471162",
+          "sourceId": 235,
+          "sourceName": "Associated Press",
+          "sourcePublisher": "Associated Press",
+          "sourceKind": "Media",
+          "title": "Elon Musk’s space company to build new rocket launching site in Louisiana",
+          "url": "https://apnews.com/article/musk-spacex-louisiana-spaceport-rockets-201a0f8a7b479c8f2fff955495471162",
+          "publishedAt": "2026-08-25T18:29:24.000Z",
+          "summary": "独立现场报道补充该址为原Exxon持有的12.5万英亩土地、州议会已批准税收激励，并记录Louisiana Bucket Brigade对脆弱海岸线、透明公共程序和项目推进速度的反对意见，以及SpaceX拟举办市民沟通活动。",
+          "fetchedAt": "2026-08-26T09:06:58.135Z",
+          "researchedFrom": "N4",
+          "researchRole": "Context",
+          "researchClaim": "SpaceX于2026年8月25日宣布拟在路易斯安那州Vermilion Parish建设“Starbase, Louisiana”：计划投资1000亿美元、建设五个发射综合体共10个发射台，并称满负荷可支持数千次年度发射；项目仍处于建设前阶段，州方预计2027年开工、最早2029年首次发射。",
+          "researchComparisons": "此前，Starship的研发、制造、测试和发射目前集中在得州Starbase；SpaceX的2026年官方文件称该地已有1个轨道发射台，另1个发射台在建。作为已获监管评估的实际基准，FAA对得州Starbase现有运营商许可的拟修改授权上限为每年25次Starship/Super Heavy轨道发射及各25次两级回收着陆。路易斯安那“数千次年度发射”是满负荷设计目标，而非已获许可的运营额度。州方承诺的激励以资本投资、创造就业及2500万美元慈善捐赠为条件；州方预测为10年内3000个直接岗位、平均年薪92600美元，另估算8100多个间接岗位。",
+          "researchUnresolved": "1000亿美元的分年资本开支、融资或约束性承诺文件尚未公开；路易斯安那项目的FAA发射许可、NEPA环境审查及其他联邦和州级许可状态未在州方公告中列明；“数千次年度发射”的具体容量定义、达产年份和监管可批准的实际发射频次未披露。独立环保组织质疑项目推进速度及其对脆弱海岸线的不可逆影响，构成最强反方论点。",
+          "ref": "R7"
         }
       ],
-      "feedBatchAt": "2026-08-25T18:07:39.851Z"
+      "feedBatchAt": "2026-08-25T18:07:39.851Z",
+      "updates": [
+        {
+          "addedAt": "2026-08-26T07:05:00.000Z",
+          "title": "路州Starbase获州方细节确认",
+          "summary": "Louisiana Economic Development确认1000亿美元拟投资、Vermilion Parish选址、2027年预计开工及最早2029年首发；AP补充土地、激励和社区反对情况。",
+          "evidence": [
+            {
+              "id": "235-0-https://www.engadget.com/2244379/spacex-is-building-a-100-billion-starbase-launch-site-in-louisiana/",
+              "sourceId": 235,
+              "sourceName": "Engadget",
+              "sourcePublisher": "Engadget",
+              "sourceKind": "Blog",
+              "title": "SpaceX is building a $100 billion 'Starbase' launch site in Louisiana",
+              "url": "https://www.engadget.com/2244379/spacex-is-building-a-100-billion-starbase-launch-site-in-louisiana/",
+              "publishedAt": "2026-08-26T07:05:00.000Z",
+              "summary": "'We're preparing to build a spaceport that, until now, has only existed in science fiction,'",
+              "fetchedAt": "2026-08-26T09:06:32.890Z",
+              "accessMethod": "public-feed",
+              "publicContentPolicy": "headline-source-link-only",
+              "firstSeenAt": "2026-08-26T09:06:32.890Z",
+              "freshness": {
+                "eligible": true,
+                "lane": "explore",
+                "reason": "fresh",
+                "ageHours": 2.032815277777778,
+                "maxAgeHours": 168
+              },
+              "deferredResearch": false,
+              "ref": "N4",
+              "role": "最新进展",
+              "takeaway": "报道将SpaceX路易斯安那项目描述为1000亿美元Starbase发射基地建设计划。"
+            },
+            {
+              "id": "research-235-0-https://www.engadget.com/2244379/spacex-is-building-a-100-billion-starbase-launch-site-in-louisiana/-1-https://www.opportunitylouisiana.gov/news/spacex-launches-new-era-of-commercial-spaceflight-with-100-billion-louisiana-campus",
+              "sourceId": 235,
+              "sourceName": "Louisiana Economic Development",
+              "sourcePublisher": "Louisiana Economic Development",
+              "sourceKind": "Official",
+              "title": "SpaceX Launches New Era of Commercial Spaceflight with $100 Billion Louisiana Campus",
+              "url": "https://www.opportunitylouisiana.gov/news/spacex-launches-new-era-of-commercial-spaceflight-with-100-billion-louisiana-campus",
+              "publishedAt": "2026-08-25T00:00:00.000Z",
+              "summary": "州政府公告确认1000亿美元拟投资、Vermilion Parish选址、五个发射综合体和10个发射台的满负荷设计、2027年预计开工及最早2029年首次发射；并给出3000个直接岗位、92600美元平均年薪、8100多个间接岗位和附条件激励安排。",
+              "fetchedAt": "2026-08-26T09:06:58.135Z",
+              "researchedFrom": "N4",
+              "researchRole": "Primary",
+              "researchClaim": "SpaceX于2026年8月25日宣布拟在路易斯安那州Vermilion Parish建设“Starbase, Louisiana”：计划投资1000亿美元、建设五个发射综合体共10个发射台，并称满负荷可支持数千次年度发射；项目仍处于建设前阶段，州方预计2027年开工、最早2029年首次发射。",
+              "researchComparisons": "此前，Starship的研发、制造、测试和发射目前集中在得州Starbase；SpaceX的2026年官方文件称该地已有1个轨道发射台，另1个发射台在建。作为已获监管评估的实际基准，FAA对得州Starbase现有运营商许可的拟修改授权上限为每年25次Starship/Super Heavy轨道发射及各25次两级回收着陆。路易斯安那“数千次年度发射”是满负荷设计目标，而非已获许可的运营额度。州方承诺的激励以资本投资、创造就业及2500万美元慈善捐赠为条件；州方预测为10年内3000个直接岗位、平均年薪92600美元，另估算8100多个间接岗位。",
+              "researchUnresolved": "1000亿美元的分年资本开支、融资或约束性承诺文件尚未公开；路易斯安那项目的FAA发射许可、NEPA环境审查及其他联邦和州级许可状态未在州方公告中列明；“数千次年度发射”的具体容量定义、达产年份和监管可批准的实际发射频次未披露。独立环保组织质疑项目推进速度及其对脆弱海岸线的不可逆影响，构成最强反方论点。",
+              "ref": "R4",
+              "role": "佐证",
+              "takeaway": "州政府确认拟投资额、选址、五个发射综合体和10个发射台设计、建设时间、就业预期及附条件激励。"
+            },
+            {
+              "id": "research-235-0-https://www.engadget.com/2244379/spacex-is-building-a-100-billion-starbase-launch-site-in-louisiana/-2-https://content.spacex.com/cms-assets/FINAL_Documents%20and%20Updates/SpaceX%20-%20EU%20Prospectus%20(Approved%20by%20Bafin)%20-%20June%205,%202026.pdf",
+              "sourceId": 235,
+              "sourceName": "Space Exploration Technologies Corp.",
+              "sourcePublisher": "Space Exploration Technologies Corp.",
+              "sourceKind": "Official",
+              "title": "SpaceX - EU Prospectus (Approved by BaFin) - June 5, 2026",
+              "url": "https://content.spacex.com/cms-assets/FINAL_Documents%20and%20Updates/SpaceX%20-%20EU%20Prospectus%20(Approved%20by%20Bafin)%20-%20June%205,%202026.pdf",
+              "publishedAt": "2026-06-05T00:00:00.000Z",
+              "summary": "公司文件说明在路易斯安那公告前，Starship的开发、制造、测试和发射目前均在得州Starbase进行；该地已有一个轨道发射台，第二个发射台在建，提供了新址从零建设与现有基地的直接比较。",
+              "fetchedAt": "2026-08-26T09:06:58.135Z",
+              "researchedFrom": "N4",
+              "researchRole": "Comparison",
+              "researchClaim": "SpaceX于2026年8月25日宣布拟在路易斯安那州Vermilion Parish建设“Starbase, Louisiana”：计划投资1000亿美元、建设五个发射综合体共10个发射台，并称满负荷可支持数千次年度发射；项目仍处于建设前阶段，州方预计2027年开工、最早2029年首次发射。",
+              "researchComparisons": "此前，Starship的研发、制造、测试和发射目前集中在得州Starbase；SpaceX的2026年官方文件称该地已有1个轨道发射台，另1个发射台在建。作为已获监管评估的实际基准，FAA对得州Starbase现有运营商许可的拟修改授权上限为每年25次Starship/Super Heavy轨道发射及各25次两级回收着陆。路易斯安那“数千次年度发射”是满负荷设计目标，而非已获许可的运营额度。州方承诺的激励以资本投资、创造就业及2500万美元慈善捐赠为条件；州方预测为10年内3000个直接岗位、平均年薪92600美元，另估算8100多个间接岗位。",
+              "researchUnresolved": "1000亿美元的分年资本开支、融资或约束性承诺文件尚未公开；路易斯安那项目的FAA发射许可、NEPA环境审查及其他联邦和州级许可状态未在州方公告中列明；“数千次年度发射”的具体容量定义、达产年份和监管可批准的实际发射频次未披露。独立环保组织质疑项目推进速度及其对脆弱海岸线的不可逆影响，构成最强反方论点。",
+              "ref": "R5",
+              "role": "背景",
+              "takeaway": "SpaceX此前文件显示Starship开发、制造、测试和发射集中在得州Starbase，当地已有一个轨道台且第二个在建。"
+            },
+            {
+              "id": "research-235-0-https://www.engadget.com/2244379/spacex-is-building-a-100-billion-starbase-launch-site-in-louisiana/-3-https://www.faa.gov/space/stakeholder_engagement/spacex_starship",
+              "sourceId": 235,
+              "sourceName": "Federal Aviation Administration",
+              "sourcePublisher": "Federal Aviation Administration",
+              "sourceKind": "Regulator",
+              "title": "SpaceX Starship Super Heavy Project at the Boca Chica Launch Site",
+              "url": "https://www.faa.gov/space/stakeholder_engagement/spacex_starship",
+              "publishedAt": "2026-08-26T07:05:00.000Z",
+              "summary": "FAA页面显示，对得州Boca Chica/Starbase现有许可的相关环境评估所覆盖的拟授权上限为每年25次Starship/Super Heavy轨道发射、25次Starship着陆和25次Super Heavy着陆；这为路易斯安那“数千次年度发射”的远期、未许可容量主张提供审慎基准。",
+              "fetchedAt": "2026-08-26T09:06:58.135Z",
+              "researchedFrom": "N4",
+              "researchRole": "Counterevidence",
+              "researchClaim": "SpaceX于2026年8月25日宣布拟在路易斯安那州Vermilion Parish建设“Starbase, Louisiana”：计划投资1000亿美元、建设五个发射综合体共10个发射台，并称满负荷可支持数千次年度发射；项目仍处于建设前阶段，州方预计2027年开工、最早2029年首次发射。",
+              "researchComparisons": "此前，Starship的研发、制造、测试和发射目前集中在得州Starbase；SpaceX的2026年官方文件称该地已有1个轨道发射台，另1个发射台在建。作为已获监管评估的实际基准，FAA对得州Starbase现有运营商许可的拟修改授权上限为每年25次Starship/Super Heavy轨道发射及各25次两级回收着陆。路易斯安那“数千次年度发射”是满负荷设计目标，而非已获许可的运营额度。州方承诺的激励以资本投资、创造就业及2500万美元慈善捐赠为条件；州方预测为10年内3000个直接岗位、平均年薪92600美元，另估算8100多个间接岗位。",
+              "researchUnresolved": "1000亿美元的分年资本开支、融资或约束性承诺文件尚未公开；路易斯安那项目的FAA发射许可、NEPA环境审查及其他联邦和州级许可状态未在州方公告中列明；“数千次年度发射”的具体容量定义、达产年份和监管可批准的实际发射频次未披露。独立环保组织质疑项目推进速度及其对脆弱海岸线的不可逆影响，构成最强反方论点。",
+              "ref": "R6",
+              "role": "背景",
+              "takeaway": "FAA页面显示得州Boca Chica现有环境评估覆盖的拟授权上限为每年25次轨道发射及相应着陆。"
+            },
+            {
+              "id": "research-235-0-https://www.engadget.com/2244379/spacex-is-building-a-100-billion-starbase-launch-site-in-louisiana/-4-https://apnews.com/article/musk-spacex-louisiana-spaceport-rockets-201a0f8a7b479c8f2fff955495471162",
+              "sourceId": 235,
+              "sourceName": "Associated Press",
+              "sourcePublisher": "Associated Press",
+              "sourceKind": "Media",
+              "title": "Elon Musk’s space company to build new rocket launching site in Louisiana",
+              "url": "https://apnews.com/article/musk-spacex-louisiana-spaceport-rockets-201a0f8a7b479c8f2fff955495471162",
+              "publishedAt": "2026-08-25T18:29:24.000Z",
+              "summary": "独立现场报道补充该址为原Exxon持有的12.5万英亩土地、州议会已批准税收激励，并记录Louisiana Bucket Brigade对脆弱海岸线、透明公共程序和项目推进速度的反对意见，以及SpaceX拟举办市民沟通活动。",
+              "fetchedAt": "2026-08-26T09:06:58.135Z",
+              "researchedFrom": "N4",
+              "researchRole": "Context",
+              "researchClaim": "SpaceX于2026年8月25日宣布拟在路易斯安那州Vermilion Parish建设“Starbase, Louisiana”：计划投资1000亿美元、建设五个发射综合体共10个发射台，并称满负荷可支持数千次年度发射；项目仍处于建设前阶段，州方预计2027年开工、最早2029年首次发射。",
+              "researchComparisons": "此前，Starship的研发、制造、测试和发射目前集中在得州Starbase；SpaceX的2026年官方文件称该地已有1个轨道发射台，另1个发射台在建。作为已获监管评估的实际基准，FAA对得州Starbase现有运营商许可的拟修改授权上限为每年25次Starship/Super Heavy轨道发射及各25次两级回收着陆。路易斯安那“数千次年度发射”是满负荷设计目标，而非已获许可的运营额度。州方承诺的激励以资本投资、创造就业及2500万美元慈善捐赠为条件；州方预测为10年内3000个直接岗位、平均年薪92600美元，另估算8100多个间接岗位。",
+              "researchUnresolved": "1000亿美元的分年资本开支、融资或约束性承诺文件尚未公开；路易斯安那项目的FAA发射许可、NEPA环境审查及其他联邦和州级许可状态未在州方公告中列明；“数千次年度发射”的具体容量定义、达产年份和监管可批准的实际发射频次未披露。独立环保组织质疑项目推进速度及其对脆弱海岸线的不可逆影响，构成最强反方论点。",
+              "ref": "R7",
+              "role": "佐证",
+              "takeaway": "AP确认项目位于原Exxon持有土地，并记录税收激励、社区环境担忧和拟进行的市民沟通。"
+            }
+          ],
+          "changeType": "corroboration",
+          "thesisImpact": "州政府公告与独立媒体确认项目选址、投资规模、建设时间和激励背景；FAA现有得州许可也凸显路州远期发射能力仍须经历监管落地。",
+          "revisionRequired": false
+        }
+      ]
     },
     {
       "id": 154,
@@ -62748,6 +63430,100 @@
       "editorNote": "今日信息环境由智能体安全事件、AI coding 工具链分化、open-weight 模型竞争与算力下沉共同主导。",
       "signals": [
         {
+          "category": "算力",
+          "eyebrow": "产品信号",
+          "title": "OpenAI Jalapeño首秀挑战Blackwell",
+          "summary": "OpenAI首次公布Jalapeño推理芯片实测，称其在三种公开模型上较NVIDIA Blackwell实现更高每瓦工作量与更低端到端延迟。",
+          "why": "这把OpenAI自研芯片从工程样片推进到有公开性能口径的推理平台，可能影响其长期算力采购与供应链议价。",
+          "impact": "若生产部署复现测试结果，定制推理芯片可能成为前沿模型公司降低NVIDIA依赖、优化单位推理成本的实际路径。",
+          "shiftFrom": "Jalapeño仍是待测工程样片",
+          "shiftTo": "首次公开披露实测竞争数据",
+          "crossValidation": "OpenAI补充了模型、功耗、吞吐和延迟口径；SemiAnalysis现场见证部分运行，但指出全部结果由OpenAI提供，且比较未覆盖完整生产负载。",
+          "article": {
+            "lead": "OpenAI首次以公开实测数据展示其Jalapeño AI服务器芯片，并直接对比NVIDIA Blackwell。公司称，在GPT-OSS、DeepSeek和Kimi三种公开模型上，Jalapeño的峰值每瓦工作量提高1.5至1.9倍，端到端延迟降低1.7至3.6倍。这意味着其自研芯片路线已从2026年6月仍待测量性能的工程样片，进入可被外部讨论的推理竞争阶段。",
+            "sections": [
+              {
+                "heading": "从样片到公开性能口径",
+                "body": "OpenAI在6月与Broadcom公布Jalapeño时，将其描述为能够在目标频率和功耗下运行机器学习工作负载的工程样片，并预计2026年底开始初步部署。当时最终性能仍待测量。最新结果则给出700W标称功率、测试中不超过550W的持续功耗，以及针对三种公开模型的吞吐和延迟比较。芯片是否量产尚未改变，但其性能主张已由路线图前移为可核验的具体指标。"
+              },
+              {
+                "heading": "推理效率成为自研芯片的切入点",
+                "body": "Jalapeño瞄准的是模型部署后的推理环节，而非训练集群。对持续处理大量请求的模型服务而言，单位功耗可完成的工作量和端到端延迟会共同决定服务器数量、机房电力与用户体验。OpenAI把GPT-OSS、DeepSeek和Kimi列为测试对象，显示其希望证明这并非仅对内部模型有效。若这一性能能够在实际工作负载中成立，OpenAI可将部分推理需求从通用加速器采购转向围绕自身服务模式设计的平台。"
+              },
+              {
+                "heading": "Blackwell比较仍待生产环境检验",
+                "body": "SemiAnalysis称其在OpenAI实验室见证了InferenceX运行，但未运行完整测试套件，也未看到AgentX结果。该机构还指出，Jalapeño采用HBM4，和已开始出货的NVIDIA Rubin相比或更具可比性；8k输入、1k输出的单轮测试，也不能替代长上下文、多轮调用中缓存、路由与卸载机制承受压力后的表现。现阶段最稳妥的结论是，Jalapeño已提出有竞争力的推理效率主张，而非已完成全面替代验证。"
+              }
+            ],
+            "outlook": "下一步可观察的证据包括：OpenAI是否按计划在2026年底启动初步部署；是否公布更长上下文、多轮代理任务和不同并发规模下的结果；以及生产集群的实际功耗、可用率与单位token成本。若这些数据持续支持公开测试，Jalapeño对OpenAI采购结构的影响将更明确；若量产时间、稳定性或成本未达标，其意义将更接近技术验证。"
+          },
+          "evidence": [
+            {
+              "role": "主张",
+              "takeaway": "报道称OpenAI公布Jalapeño评估，并称其性能优于NVIDIA旗舰Blackwell芯片。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "OpenAI披露三种公开模型的峰值每瓦工作量提高1.5至1.9倍、端到端延迟降低1.7至3.6倍，以及功耗与测试口径。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "6月公告显示Jalapeño当时仍是待测性能的工程样片，计划于2026年底开始初步部署。"
+            },
+            {
+              "role": "反例",
+              "takeaway": "SemiAnalysis指出结果由OpenAI提供，比较未覆盖完整套件和长上下文、多轮生产负载，且Rubin可能是更合适的代际参照。"
+            }
+          ]
+        },
+        {
+          "category": "AI & 模型",
+          "eyebrow": "产品信号",
+          "title": "Google把Gemini Enterprise推向法律业",
+          "summary": "Google Cloud发布Gemini Enterprise for Legal预览版，以法律技能、MCP连接器和预构建代理接入合同审阅、研究及案件工作流。",
+          "why": "产品把通用企业代理平台推进至高价值、强合规的法律工作流，竞争焦点从模型能力延伸到权限、数据和专业软件连接。",
+          "impact": "若律所和企业法务采用，法律AI的差异化可能更依赖系统集成、可追溯性与治理能力，而非基础模型本身。",
+          "shiftFrom": "通用企业代理与数据连接平台",
+          "shiftTo": "面向法律工作流的行业产品",
+          "crossValidation": "Google Cloud确认产品日期、预览状态、连接器和合作伙伴生态；The Decoder补充其合同与研究自动化定位；美国律师协会意见界定了专业审查责任。",
+          "article": {
+            "lead": "Google Cloud发布Gemini Enterprise for Legal，将既有的通用企业代理平台扩展至合同审阅、法律研究和相关专业工作流。该产品目前以preview提供，核心变化不在于推出一套独立基础模型，而在于把法律技能、继承原系统权限的MCP连接器、预构建代理和合作伙伴交付方式组合为行业入口。法律AI竞争因此更直接进入企业系统整合与责任控制层。",
+            "sections": [
+              {
+                "heading": "通用平台增加法律工作入口",
+                "body": "此前的Gemini Enterprise已提供聊天入口、无代码工作台、预构建或自建代理、企业数据连接与集中治理。Google Cloud最新发布的法律版本，在这一平台上增加了面向法律工作的技能与预构建代理，并连接iManage、NetDocuments、DocuSign、Everlaw、RelativityOne和HighQ等系统。对企业法务和律所而言，变化在于代理不再只停留在通用问答界面，而开始被置入文档、合同和案件资料所在的既有工作环境。"
+              },
+              {
+                "heading": "权限继承与连接器决定落地路径",
+                "body": "Google强调其MCP连接器继承原有系统权限，这使部署重点从“模型能否回答法律问题”转向“模型能否在正确的权限边界内调用材料”。The Decoder报道称，Deloitte等伙伴将销售合同审阅等现成代理。该结构意味着基础模型仍是底座，但价值捕获可能更多来自连接专有文档系统、把任务拆分为可配置流程，以及由咨询伙伴承担部署和变更管理。行业化产品由此成为云平台争夺高价值知识工作的分发方式。"
+              },
+              {
+                "heading": "专业责任限制自动化边界",
+                "body": "美国律师协会的正式意见指出，律师使用生成式AI时仍须理解工具能力与局限、保护客户保密信息，并审查AI生成内容。这个约束并不否定连接器或可追溯引用的作用，却限制了法律工作流能够完全自动化的范围。最强的反向情形是，客户数据治理、专业责任与人工复核成本若未显著下降，产品可能主要成为辅助检索和起草工具，而难以迅速替代高责任的法律判断。"
+              }
+            ],
+            "outlook": "后续可验证的信号包括：Google是否宣布正式可用与定价；连接器是否扩展至更多主流法律系统；合作伙伴是否披露可量化的部署数量、合同处理效率或客户案例；以及法务团队是否将该产品用于受监管或高风险事务。若这些采用信号出现，行业版企业代理的商业价值将更清晰；若长期停留在preview和演示阶段，其影响将主要限于产品定位。"
+          },
+          "evidence": [
+            {
+              "role": "佐证",
+              "takeaway": "报道指出产品面向合同自动化和法律研究，并通过MCP连接器接入法律软件与数据系统。"
+            },
+            {
+              "role": "主张",
+              "takeaway": "Google Cloud确认Gemini Enterprise for Legal于2026年8月25日发布为preview，并列出法律技能、连接器、代理与合作伙伴生态。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "Gemini Enterprise此前已是提供代理、企业数据连接和集中治理的通用企业平台。"
+            },
+            {
+              "role": "反例",
+              "takeaway": "美国律师协会要求律师理解生成式AI局限、保护保密信息并审查输出内容。"
+            }
+          ]
+        },
+        {
           "category": "科技",
           "eyebrow": "趋势变化",
           "title": "WiseTech把AI转成经营杠杆",
@@ -62931,6 +63707,50 @@
             {
               "role": "背景",
               "takeaway": "FAA文件显示，Boca Chica许可修改涉及每年最高25次Starship/Super Heavy轨道发射及相应着陆，且运营仍需FAA许可。"
+            },
+            {
+              "role": "最新进展",
+              "takeaway": "报道将SpaceX路易斯安那项目描述为1000亿美元Starbase发射基地建设计划。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "SpaceX此前文件显示Starship开发、制造、测试和发射集中在得州Starbase，当地已有一个轨道台且第二个在建。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "AP确认项目位于原Exxon持有土地，并记录税收激励、社区环境担忧和拟进行的市民沟通。"
+            }
+          ],
+          "updates": [
+            {
+              "addedAt": "2026-08-26T07:05:00.000Z",
+              "title": "路州Starbase获州方细节确认",
+              "summary": "Louisiana Economic Development确认1000亿美元拟投资、Vermilion Parish选址、2027年预计开工及最早2029年首发；AP补充土地、激励和社区反对情况。",
+              "evidence": [
+                {
+                  "role": "最新进展",
+                  "takeaway": "报道将SpaceX路易斯安那项目描述为1000亿美元Starbase发射基地建设计划。"
+                },
+                {
+                  "role": "佐证",
+                  "takeaway": "州政府确认拟投资额、选址、五个发射综合体和10个发射台设计、建设时间、就业预期及附条件激励。"
+                },
+                {
+                  "role": "背景",
+                  "takeaway": "SpaceX此前文件显示Starship开发、制造、测试和发射集中在得州Starbase，当地已有一个轨道台且第二个在建。"
+                },
+                {
+                  "role": "背景",
+                  "takeaway": "FAA页面显示得州Boca Chica现有环境评估覆盖的拟授权上限为每年25次轨道发射及相应着陆。"
+                },
+                {
+                  "role": "佐证",
+                  "takeaway": "AP确认项目位于原Exxon持有土地，并记录税收激励、社区环境担忧和拟进行的市民沟通。"
+                }
+              ],
+              "changeType": "corroboration",
+              "thesisImpact": "州政府公告与独立媒体确认项目选址、投资规模、建设时间和激励背景；FAA现有得州许可也凸显路州远期发射能力仍须经历监管落地。",
+              "revisionRequired": false
             }
           ]
         },
@@ -77615,6 +78435,100 @@
       "editorNote": "Today’s information environment is being shaped by agent security incidents, a split in coding-agent toolchains, open-model competition, and compute moving closer to the edge.",
       "signals": [
         {
+          "category": "Compute",
+          "eyebrow": "Product signal",
+          "title": "OpenAI’s Jalapeño Debuts Against Blackwell",
+          "summary": "OpenAI released initial Jalapeño inference-chip results, claiming higher work per watt and lower end-to-end latency than NVIDIA Blackwell across three public models.",
+          "why": "The disclosure moves Jalapeño from an engineering sample to an inference platform with public performance claims, potentially affecting OpenAI’s compute sourcing and leverage.",
+          "impact": "If production deployments reproduce the results, custom inference silicon could become a practical route for frontier labs to reduce NVIDIA dependence and optimize serving costs.",
+          "shiftFrom": "An engineering sample with performance pending",
+          "shiftTo": "Public competitive inference benchmarks",
+          "crossValidation": "OpenAI supplied model, power, throughput, and latency details. SemiAnalysis witnessed part of the run but said OpenAI supplied all figures and that production workloads were not fully tested.",
+          "article": {
+            "lead": "OpenAI has published its first public performance results for the Jalapeño AI server chip and compared it directly with NVIDIA Blackwell. The company says Jalapeño delivered 1.5x to 1.9x more peak work per watt and 1.7x to 3.6x lower end-to-end latency across GPT-OSS, DeepSeek, and Kimi. That moves the program beyond the engineering-sample stage described in June.",
+            "sections": [
+              {
+                "heading": "From sample to measurable platform",
+                "body": "When OpenAI and Broadcom introduced Jalapeño in June, they described an engineering sample running machine-learning workloads at target frequency and power, with final performance still being measured and initial deployment planned for late 2026. The new disclosure adds a 700W rated power figure, sustained test consumption of no more than 550W, and throughput and latency comparisons for three public models. Manufacturing deployment has not yet changed, but the performance claim is now specific enough for external scrutiny."
+              },
+              {
+                "heading": "Inference efficiency is the entry point",
+                "body": "Jalapeño targets inference rather than training. For services processing a sustained volume of model requests, work per watt and end-to-end latency shape server counts, data-center power demand, and user experience. By testing GPT-OSS, DeepSeek, and Kimi, OpenAI is attempting to show that the design is not limited to an internal model. If the results hold under operational loads, some inference demand could shift from general-purpose accelerator purchases toward infrastructure designed around OpenAI’s own serving patterns."
+              },
+              {
+                "heading": "Production validation remains incomplete",
+                "body": "SemiAnalysis said it witnessed InferenceX running at OpenAI but did not run the complete test suite or observe AgentX results. It also argued that HBM4 makes NVIDIA Rubin a more relevant comparison than Blackwell, while an 8k-input, 1k-output single-turn test cannot represent long-context and multi-turn workloads that stress cache, routing, and offload systems. The supported conclusion is that Jalapeño has made a competitive efficiency claim, not that it has completed a broad replacement test."
+              }
+            ],
+            "outlook": "Observable next evidence includes whether OpenAI begins initial deployment by late 2026, releases long-context and multi-turn agent results at different concurrency levels, and reports production power, availability, and cost per token. Continued support across those measures would strengthen the case that Jalapeño can alter OpenAI’s sourcing mix. Delays or weaker operating economics would make it primarily a technical validation."
+          },
+          "evidence": [
+            {
+              "role": "Claim",
+              "takeaway": "The report says OpenAI released a Jalapeño evaluation and claimed an advantage over NVIDIA Blackwell."
+            },
+            {
+              "role": "Support",
+              "takeaway": "OpenAI provided model-specific efficiency, latency, and power figures for its testing."
+            },
+            {
+              "role": "Context",
+              "takeaway": "June materials described Jalapeño as an engineering sample with performance still under measurement."
+            },
+            {
+              "role": "Counterpoint",
+              "takeaway": "SemiAnalysis says the supplied figures do not represent a complete production-workload comparison."
+            }
+          ]
+        },
+        {
+          "category": "AI & Models",
+          "eyebrow": "Product signal",
+          "title": "Google Takes Gemini Enterprise Into Legal Work",
+          "summary": "Google Cloud launched Gemini Enterprise for Legal in preview, combining legal skills, MCP connectors, and prebuilt agents for contract and research workflows.",
+          "why": "The release takes a general enterprise-agent platform into a high-value, regulated workflow where permissions, data connections, and professional software matter alongside models.",
+          "impact": "If adopted by legal departments and firms, differentiation in legal AI may depend increasingly on integration, traceability, and governance rather than the underlying model alone.",
+          "shiftFrom": "A general enterprise agent platform",
+          "shiftTo": "A legal-workflow vertical product",
+          "crossValidation": "Google Cloud confirms the date, preview status, connectors, and ecosystem. The Decoder describes the workflow positioning, while ABA guidance defines the professional-review constraint.",
+          "article": {
+            "lead": "Google Cloud has launched Gemini Enterprise for Legal, extending its general enterprise-agent platform into contract review, legal research, and related professional workflows. Available in preview, the product combines legal skills, MCP connectors that inherit source-system permissions, prebuilt agents, and partner delivery. The shift is less about a separate foundation model than about creating an industry entry point built around integration and responsibility controls.",
+            "sections": [
+              {
+                "heading": "A legal entry point for a general platform",
+                "body": "Gemini Enterprise previously offered a chat interface, a no-code workbench, prebuilt and custom agents, enterprise data connections, and centralized governance. The legal edition adds legal-oriented skills and prebuilt agents on that foundation, connecting with iManage, NetDocuments, DocuSign, Everlaw, RelativityOne, and HighQ. For corporate legal teams and law firms, the change is that agents can be placed closer to the documents, contracts, and case materials already used in daily work rather than remaining in a general-purpose question-answering interface."
+              },
+              {
+                "heading": "Permissions and connectors shape deployment",
+                "body": "Google emphasizes that its MCP connectors inherit existing source-system permissions. That shifts the deployment question from whether a model can answer a legal question to whether it can retrieve and act on materials within the right access boundary. The Decoder reports that partners including Deloitte will sell ready-made agents for tasks such as contract review. Foundation models remain the base layer, but value capture may increasingly come from connecting proprietary systems, configuring repeatable workflows, and using service partners for deployment and organizational change."
+              },
+              {
+                "heading": "Professional responsibility limits automation",
+                "body": "The American Bar Association’s formal guidance says lawyers using generative AI must understand its capabilities and limits, protect confidential client information, and review AI-generated output. That does not remove the value of permissions or traceable citations, but it constrains how far high-responsibility legal work can be automated. The strongest countercase is that if data-governance, liability, and human-review costs do not fall materially, the product may remain primarily an aid for research and drafting rather than rapidly replacing legal judgment."
+              }
+            ],
+            "outlook": "Next observable evidence includes general availability and pricing, expansion to more major legal systems, partner disclosures of deployments or measurable workflow outcomes, and use in regulated or high-risk legal matters. Those signals would clarify the commercial weight of vertical enterprise agents. If the product remains in preview and demonstration use, its near-term effect would be more about positioning than broad adoption."
+          },
+          "evidence": [
+            {
+              "role": "Support",
+              "takeaway": "The report describes contract and research automation through MCP-connected legal systems."
+            },
+            {
+              "role": "Claim",
+              "takeaway": "Google Cloud confirms the preview launch, legal skills, connectors, agents, and partner ecosystem."
+            },
+            {
+              "role": "Context",
+              "takeaway": "Gemini Enterprise was already a general platform for agents, enterprise data connections, and governance."
+            },
+            {
+              "role": "Counterpoint",
+              "takeaway": "ABA guidance requires lawyer understanding, confidentiality protections, and review of generated output."
+            }
+          ]
+        },
+        {
           "category": "Technology",
           "eyebrow": "Trend Shift",
           "title": "WiseTech Turns AI Into an Operating Lever",
@@ -77798,6 +78712,50 @@
             {
               "role": "Context",
               "takeaway": "FAA materials describe Boca Chica authorization changes covering up to 25 annual Starship/Super Heavy orbital launches and related landings, subject to FAA lice"
+            },
+            {
+              "role": "Update",
+              "takeaway": "The report describes SpaceX’s planned $100 billion Louisiana Starbase launch site."
+            },
+            {
+              "role": "Context",
+              "takeaway": "A prior SpaceX filing places current Starship development and launch operations at Texas Starbase."
+            },
+            {
+              "role": "Support",
+              "takeaway": "AP reports land ownership history, incentives, local environmental concerns, and planned public engagement."
+            }
+          ],
+          "updates": [
+            {
+              "addedAt": "2026-08-26T07:05:00.000Z",
+              "title": "Louisiana Adds Detail to Starbase Plan",
+              "summary": "Louisiana Economic Development confirmed the proposed $100 billion investment, Vermilion Parish site, expected 2027 start, and earliest 2029 launch; AP added land, incentives, and community-response details.",
+              "evidence": [
+                {
+                  "role": "Update",
+                  "takeaway": "The report describes SpaceX’s planned $100 billion Louisiana Starbase launch site."
+                },
+                {
+                  "role": "Support",
+                  "takeaway": "The state confirms the proposed investment, site, build schedule, design capacity, jobs, and conditional incentives."
+                },
+                {
+                  "role": "Context",
+                  "takeaway": "A prior SpaceX filing places current Starship development and launch operations at Texas Starbase."
+                },
+                {
+                  "role": "Context",
+                  "takeaway": "FAA materials show the environmental-review authorization ceiling associated with existing Boca Chica operations."
+                },
+                {
+                  "role": "Support",
+                  "takeaway": "AP reports land ownership history, incentives, local environmental concerns, and planned public engagement."
+                }
+              ],
+              "changeType": "corroboration",
+              "thesisImpact": "州政府公告与独立媒体确认项目选址、投资规模、建设时间和激励背景；FAA现有得州许可也凸显路州远期发射能力仍须经历监管落地。",
+              "revisionRequired": false
             }
           ]
         },
@@ -92482,12 +93440,12 @@
     "en": "gpt-5.6-sol"
   },
   "incremental": {
-    "lastAddedAt": "2026-08-26T03:13:07.674Z",
-    "lastScanAt": "2026-08-26T03:07:52.913Z",
-    "lastAddedCount": 1,
-    "lastUpdatedCount": 0,
-    "totalAppended": 148,
-    "totalUpdated": 170
+    "lastAddedAt": "2026-08-26T09:14:04.747Z",
+    "lastScanAt": "2026-08-26T09:06:58.135Z",
+    "lastAddedCount": 2,
+    "lastUpdatedCount": 1,
+    "totalAppended": 150,
+    "totalUpdated": 171
   },
   "exploreDepth": {
     "minimum": 50,
