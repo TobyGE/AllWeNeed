@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-26T00:06:44.025Z",
+  "generatedAt": "2026-08-26T03:07:52.913Z",
   "counts": {
-    "sources": 954,
-    "claims": 1130,
-    "events": 228,
-    "articles": 228,
+    "sources": 959,
+    "claims": 1135,
+    "events": 229,
+    "articles": 229,
     "updates": 170,
-    "edges": 3056,
+    "edges": 3067,
     "revisionsRequired": 16
   },
   "revisionQueue": [
@@ -173,6 +173,99 @@
     }
   ],
   "nodes": [
+    {
+      "id": "event_eca3e19eb72ed1f2",
+      "type": "event",
+      "signalId": 156,
+      "title": "WiseTech把AI转成经营杠杆",
+      "bucket": "explore",
+      "valueScore": 83,
+      "publishedAt": "2026-08-26T00:43:08.000Z",
+      "updatedAt": "2026-08-26T00:43:08.000Z"
+    },
+    {
+      "id": "article_42f625fe9b7eb09f",
+      "type": "article",
+      "signalId": 156,
+      "title": "WiseTech把AI转成经营杠杆",
+      "version": 1,
+      "publishedAt": "2026-08-26T03:07:52.913Z"
+    },
+    {
+      "id": "source_0a495c3ef36ce10d",
+      "type": "source",
+      "title": "Bloomberg Technology",
+      "url": "https://www.bloomberg.com/news/articles/2026-08-26/ai-revamp-at-wisetech-leads-to-output-surge-end-of-manual-code",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-26T00:43:08.000Z"
+    },
+    {
+      "id": "claim_8478fd0df10eb3ec",
+      "type": "claim",
+      "title": "Bloomberg报道WiseTech在裁员和AI改造后，部分业务领域的生产率出现上升。",
+      "role": "佐证",
+      "addedAt": "2026-08-26T03:07:52.913Z"
+    },
+    {
+      "id": "source_e64033459e1eba48",
+      "type": "source",
+      "title": "WiseTech Global",
+      "url": "https://www.wisetechglobal.com/media/zzhkiu0t/wtc-fy26-asx-release.pdf",
+      "sourceKind": "IR",
+      "publishedAt": "2026-08-26T00:00:00.000Z"
+    },
+    {
+      "id": "claim_2f4a1101e291c139",
+      "type": "claim",
+      "title": "WiseTech报告FY26收入13.959亿美元、报告EBITDA 5.584亿美元，并说明AI采用正带来生产率和产品成果，同时披露e2open的收入贡献。",
+      "role": "主张",
+      "addedAt": "2026-08-26T03:07:52.913Z"
+    },
+    {
+      "id": "source_a5685f94b8010b74",
+      "type": "source",
+      "title": "WiseTech Global",
+      "url": "https://www.wisetechglobal.com/media/4b5nmg0e/wtc-fy26-results-briefing-transcript.pdf",
+      "sourceKind": "IR",
+      "publishedAt": "2026-08-26T00:00:00.000Z"
+    },
+    {
+      "id": "claim_55a4b8a8236dd2bd",
+      "type": "claim",
+      "title": "WiseTech披露逾75%员工日常使用AI、逾90%代码由AI编写或辅助、工程生产率提高45%、客服工单完成速度提高22%，以及3,400万美元年度化EBITDA节省。",
+      "role": "主张",
+      "addedAt": "2026-08-26T03:07:52.913Z"
+    },
+    {
+      "id": "source_f8eb0fb401a8fbc0",
+      "type": "source",
+      "title": "Australian Securities Exchange",
+      "url": "https://announcements.asx.com.au/asxpdf/20260225/pdf/06wqj0kn4nvf3s.pdf",
+      "sourceKind": "Regulator",
+      "publishedAt": "2026-02-25T00:00:00.000Z"
+    },
+    {
+      "id": "claim_84caf87f9bf75b6c",
+      "type": "claim",
+      "title": "WiseTech此前计划通过分阶段重组削减产品开发和客服岗位，并预期在FY27末实现年度化节省。",
+      "role": "背景",
+      "addedAt": "2026-08-26T03:07:52.913Z"
+    },
+    {
+      "id": "source_c5de9ab57bc561c1",
+      "type": "source",
+      "title": "Dow Jones via MarketScreener",
+      "url": "https://au.marketscreener.com/news/wisetech-lifts-annual-earnings-46-flags-further-growth-ce7858d8d089fe27/",
+      "sourceKind": "Media",
+      "publishedAt": "2026-08-26T00:00:00.000Z"
+    },
+    {
+      "id": "claim_f2f74fe13a29c1d1",
+      "type": "claim",
+      "title": "Dow Jones援引Visible Alpha数据称，WiseTech报告EBITDA低于共识，而Underlying EBITDA高于平均预期。",
+      "role": "反例",
+      "addedAt": "2026-08-26T03:07:52.913Z"
+    },
     {
       "id": "event_84161566701e5520",
       "type": "event",
@@ -21545,6 +21638,77 @@
     }
   ],
   "edges": [
+    {
+      "id": "edge_18f3f927a74d8383",
+      "from": "event_eca3e19eb72ed1f2",
+      "to": "article_42f625fe9b7eb09f",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_fd24afb359038b58",
+      "from": "source_0a495c3ef36ce10d",
+      "to": "claim_8478fd0df10eb3ec",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_1e388e5e8d1c0d8a",
+      "from": "claim_8478fd0df10eb3ec",
+      "to": "event_eca3e19eb72ed1f2",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_2f2c44c06c8fe461",
+      "from": "source_e64033459e1eba48",
+      "to": "claim_2f4a1101e291c139",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_316caefecefe7ed0",
+      "from": "claim_2f4a1101e291c139",
+      "to": "event_eca3e19eb72ed1f2",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_1801129b385b7b5e",
+      "from": "source_a5685f94b8010b74",
+      "to": "claim_55a4b8a8236dd2bd",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_b3439d26f7cd9805",
+      "from": "claim_55a4b8a8236dd2bd",
+      "to": "event_eca3e19eb72ed1f2",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_804b7a7d18e3562b",
+      "from": "source_f8eb0fb401a8fbc0",
+      "to": "claim_84caf87f9bf75b6c",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_b714b625cbe41730",
+      "from": "claim_84caf87f9bf75b6c",
+      "to": "event_eca3e19eb72ed1f2",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_7d4a45481ffdc6fb",
+      "from": "source_c5de9ab57bc561c1",
+      "to": "claim_f2f74fe13a29c1d1",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_04383f6be848c24b",
+      "from": "claim_f2f74fe13a29c1d1",
+      "to": "event_eca3e19eb72ed1f2",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
     {
       "id": "edge_dfb1bf5974b73ba4",
       "from": "event_84161566701e5520",
