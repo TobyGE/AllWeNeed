@@ -1,16 +1,26 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-26T12:07:30.197Z",
+  "generatedAt": "2026-08-26T18:08:16.533Z",
   "counts": {
-    "sources": 977,
-    "claims": 1156,
-    "events": 233,
-    "articles": 233,
-    "updates": 172,
-    "edges": 3119,
+    "sources": 990,
+    "claims": 1169,
+    "events": 236,
+    "articles": 236,
+    "updates": 173,
+    "edges": 3150,
     "revisionsRequired": 16
   },
   "revisionQueue": [
+    {
+      "signalId": 117,
+      "eventId": "event_bd08267689227246",
+      "updateId": "update_3fb899c3c8fa4a0a",
+      "title": "Qwen开放3.8-27B代理模型",
+      "updateTitle": "Qwen 3.8-27B默认推理待调校",
+      "thesisImpact": "新材料强化了27B权重已正式发布，但提示其默认推理行为和相对性能仍会影响本地代理部署的实际价值。",
+      "detectedAt": "2026-08-16T22:00:39.000Z",
+      "status": "needs_editorial_revision"
+    },
     {
       "signalId": 99,
       "eventId": "event_f9986d0125f0f3d2",
@@ -142,16 +152,6 @@
       "status": "needs_editorial_revision"
     },
     {
-      "signalId": 117,
-      "eventId": "event_bd08267689227246",
-      "updateId": "update_3fb899c3c8fa4a0a",
-      "title": "Qwen开放3.8-27B代理模型",
-      "updateTitle": "Qwen 3.8-27B默认推理待调校",
-      "thesisImpact": "新材料强化了27B权重已正式发布，但提示其默认推理行为和相对性能仍会影响本地代理部署的实际价值。",
-      "detectedAt": "2026-08-16T22:00:39.000Z",
-      "status": "needs_editorial_revision"
-    },
-    {
       "signalId": 70,
       "eventId": "event_0d44a0f6406a45f3",
       "updateId": "update_3779ab6ebc379026",
@@ -173,6 +173,521 @@
     }
   ],
   "nodes": [
+    {
+      "id": "event_26e0d7b072124120",
+      "type": "event",
+      "signalId": 160,
+      "title": "阿里Qwen3.8-Flash-Next预览Qwen4",
+      "bucket": "dynamic",
+      "valueScore": 88,
+      "publishedAt": "2026-08-26T17:07:12.000Z",
+      "updatedAt": "2026-08-26T17:07:12.000Z"
+    },
+    {
+      "id": "article_d883e91eb1599626",
+      "type": "article",
+      "signalId": 160,
+      "title": "阿里Qwen3.8-Flash-Next预览Qwen4",
+      "version": 1,
+      "publishedAt": "2026-08-26T18:08:16.533Z"
+    },
+    {
+      "id": "source_6f055ad99cf10ae0",
+      "type": "source",
+      "title": "NVIDIA Technical Blog",
+      "url": "https://developer.nvidia.com/blog/experiment-with-qwen3-8-flash-next-176b-model-on-nvidia-gb300-nvl72-for-agentic-coding/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-26T17:07:12.000Z"
+    },
+    {
+      "id": "claim_15f9de36340d1767",
+      "type": "claim",
+      "title": "NVIDIA Technical Blog称Alibaba已发布Qwen3.8-Flash-Next预览权重，供开发者在GB300 NVL72上实验代理编码。",
+      "role": "主张",
+      "addedAt": "2026-08-26T18:08:16.533Z"
+    },
+    {
+      "id": "source_9495d1fb2a00356f",
+      "type": "source",
+      "title": "Qwen Team, Alibaba Group",
+      "url": "https://github.com/QwenLM/Qwen3.8-Flash-Next",
+      "sourceKind": "Repository",
+      "publishedAt": "2026-08-26T00:00:00.000Z"
+    },
+    {
+      "id": "claim_ff76d62dd44f64ed",
+      "type": "claim",
+      "title": "Qwen官方仓库确认模型于2026-08-26发布，为Qwen4架构早期预览；模型包含125B主模型、51B N-gram embedding和6B激活参数，并主张训练成本约为对照模型的1/9。",
+      "role": "佐证",
+      "addedAt": "2026-08-26T18:08:16.533Z"
+    },
+    {
+      "id": "source_eb79656c925ccbff",
+      "type": "source",
+      "title": "Qwen",
+      "url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
+      "sourceKind": "Repository",
+      "publishedAt": "2026-08-26T17:07:12.000Z"
+    },
+    {
+      "id": "claim_d75f4dec608e6b01",
+      "type": "claim",
+      "title": "Qwen官方模型卡提供原生262,144 token上下文及DeepSWE 1.1、SWE-bench Pro、NL2Repo-Bench和CoWorkBench对比。",
+      "role": "佐证",
+      "addedAt": "2026-08-26T18:08:16.533Z"
+    },
+    {
+      "id": "source_941cd3f250d651f1",
+      "type": "source",
+      "title": "Qwen Team",
+      "url": "https://qwen.ai/blog?id=qwen3-next",
+      "sourceKind": "Official",
+      "publishedAt": "2025-09-10T00:00:00.000Z"
+    },
+    {
+      "id": "claim_adc20ceec11f878a",
+      "type": "claim",
+      "title": "Qwen此前以80B总参数、3B激活参数的Qwen3-Next-80B-A3B展示过效率导向的混合注意力MoE路线。",
+      "role": "背景",
+      "addedAt": "2026-08-26T18:08:16.533Z"
+    },
+    {
+      "id": "event_cfdb93f601856a2a",
+      "type": "event",
+      "signalId": 161,
+      "title": "Z.ai将Ox Alpha确认为GLM-5.3-Flash",
+      "bucket": "dynamic",
+      "valueScore": 86,
+      "publishedAt": "2026-08-26T14:19:29.000Z",
+      "updatedAt": "2026-08-26T14:19:29.000Z"
+    },
+    {
+      "id": "article_0acdeba2c5e8bd30",
+      "type": "article",
+      "signalId": 161,
+      "title": "Z.ai将Ox Alpha确认为GLM-5.3-Flash",
+      "version": 1,
+      "publishedAt": "2026-08-26T18:08:16.533Z"
+    },
+    {
+      "id": "source_c5fcdc890274653f",
+      "type": "source",
+      "title": "TechCrunch AI",
+      "url": "https://techcrunch.com/2026/08/26/surprise-z-ai-is-the-ai-lab-behind-the-mysterious-ox-alpha-model/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-26T14:19:29.000Z"
+    },
+    {
+      "id": "claim_be3e77b6f40f742c",
+      "type": "claim",
+      "title": "TechCrunch报道Z.ai确认Ox Alpha由其开发，并称官方权重即将发布。",
+      "role": "主张",
+      "addedAt": "2026-08-26T18:08:16.533Z"
+    },
+    {
+      "id": "source_e800ee9ae57a1b53",
+      "type": "source",
+      "title": "Z.ai",
+      "url": "https://z.ai/blog/glm-5.3-flash",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-26T00:00:00.000Z"
+    },
+    {
+      "id": "claim_0fa93d6e7e1c788e",
+      "type": "claim",
+      "title": "Z.ai官方发布将GLM-5.3-Flash与匿名测试身份对应，并给出相对GLM-5.2的DeepSWE v1.1成绩63.4对46.2、AutomationBench成绩48.8对26.2。",
+      "role": "佐证",
+      "addedAt": "2026-08-26T18:08:16.533Z"
+    },
+    {
+      "id": "source_5302786105ea2e93",
+      "type": "source",
+      "title": "Z.ai / Hugging Face",
+      "url": "https://huggingface.co/zai-org/GLM-5.3-Flash",
+      "sourceKind": "Repository",
+      "publishedAt": "2026-08-26T14:19:29.000Z"
+    },
+    {
+      "id": "claim_98cbffed85c2f9fa",
+      "type": "claim",
+      "title": "Z.ai与Hugging Face官方仓库显示权重已公开、许可为MIT，模型约321B参数，并列出Terminal-Bench 2.1成绩84.3和HLE成绩55.3。",
+      "role": "佐证",
+      "addedAt": "2026-08-26T18:08:16.533Z"
+    },
+    {
+      "id": "source_97b8c543968a35bd",
+      "type": "source",
+      "title": "OpenRouter",
+      "url": "https://openrouter.ai/models?fmt=cards&input_modalities=image&q=glm-4.5",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-26T14:19:29.000Z"
+    },
+    {
+      "id": "claim_7ca4aff667035b28",
+      "type": "claim",
+      "title": "OpenRouter此前将Ox Alpha标注为匿名第三方模型，提供1.05M context和免费调用，并计划于2026-08-26下线。",
+      "role": "背景",
+      "addedAt": "2026-08-26T18:08:16.533Z"
+    },
+    {
+      "id": "source_b02205ef3bed091f",
+      "type": "source",
+      "title": "Artificial Analysis",
+      "url": "https://artificialanalysis.ai/models/glm-5-3-flash",
+      "sourceKind": "Research",
+      "publishedAt": "2026-08-26T00:00:00.000Z"
+    },
+    {
+      "id": "claim_4373811670706cd9",
+      "type": "claim",
+      "title": "Artificial Analysis给出Intelligence Index 57、同价位中位数18及每百万输入/输出token 0.15/0.50美元，同时记录400K context和proprietary等与官方资料不一致的规格。",
+      "role": "反例",
+      "addedAt": "2026-08-26T18:08:16.533Z"
+    },
+    {
+      "id": "event_bdec16a9821e7363",
+      "type": "event",
+      "signalId": 162,
+      "title": "Google发布Gemini 3.5 Transcribe",
+      "bucket": "dynamic",
+      "valueScore": 83,
+      "publishedAt": "2026-08-26T17:26:00.000Z",
+      "updatedAt": "2026-08-26T17:26:00.000Z"
+    },
+    {
+      "id": "article_72c8da066888a02d",
+      "type": "article",
+      "signalId": 162,
+      "title": "Google发布Gemini 3.5 Transcribe",
+      "version": 1,
+      "publishedAt": "2026-08-26T18:08:16.533Z"
+    },
+    {
+      "id": "source_b9b7e9271a29b3a2",
+      "type": "source",
+      "title": "The Verge",
+      "url": "https://www.theverge.com/tech/985186/google-gemini-3-5-transcribe-audio-ai",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-26T17:00:00.000Z"
+    },
+    {
+      "id": "claim_f3d2493d682c4ff5",
+      "type": "claim",
+      "title": "The Verge报道Google更新Gemini Audio并推出Gemini 3.5 Transcribe，新增术语识别、多语言转写和去除填充词。",
+      "role": "主张",
+      "addedAt": "2026-08-26T18:08:16.533Z"
+    },
+    {
+      "id": "source_16393a2351def440",
+      "type": "source",
+      "title": "Google LLC",
+      "url": "https://www.publicnow.com/view/57D0075DD9DB2D07EDE7B73485776AD2B9282BCD",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-26T17:26:00.000Z"
+    },
+    {
+      "id": "claim_eea2231f1202daa6",
+      "type": "claim",
+      "title": "Google官方称Gemini 3.5 Transcribe面向Gemini API和Gemini Enterprise Agent Platform，支持低于一秒延迟的双向流式转写、说话人归因、词级时间戳、85种以上语言、专有词表和最多三",
+      "role": "佐证",
+      "addedAt": "2026-08-26T18:08:16.533Z"
+    },
+    {
+      "id": "source_44b4447b718f7b20",
+      "type": "source",
+      "title": "Artificial Analysis",
+      "url": "https://artificialanalysis.ai/speech-to-text/non-streaming?api-benchmarks=word-error-rate-vs-speed",
+      "sourceKind": "Research",
+      "publishedAt": "2026-08-26T17:00:00.000Z"
+    },
+    {
+      "id": "claim_57626de9cba7af93",
+      "type": "claim",
+      "title": "Artificial Analysis榜单显示其他服务的非流式词错误率为2.2%、2.4%和2.8%，且检索时未列出Gemini 3.5 Transcribe，不能直接复核Google主张。",
+      "role": "反例",
+      "addedAt": "2026-08-26T18:08:16.533Z"
+    },
+    {
+      "id": "event_bd08267689227246",
+      "type": "event",
+      "signalId": 117,
+      "title": "Qwen开放3.8-27B代理模型",
+      "bucket": "dynamic",
+      "valueScore": 85,
+      "publishedAt": "2026-08-14T17:01:54.000Z",
+      "updatedAt": "2026-08-26T01:04:56.000Z"
+    },
+    {
+      "id": "article_d54b51ea68262f79",
+      "type": "article",
+      "signalId": 117,
+      "title": "Qwen开放3.8-27B代理模型",
+      "version": 1,
+      "publishedAt": "2026-08-26T18:08:16.533Z"
+    },
+    {
+      "id": "source_bf9169bc18a6de86",
+      "type": "source",
+      "title": "The Decoder AI",
+      "url": "https://the-decoder.com/alibabas-qwen-team-releases-qwen-3-8-models-with-open-weights-under-the-apache-2-0-license/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-14T17:01:54.000Z"
+    },
+    {
+      "id": "claim_5eafb63f883af615",
+      "type": "claim",
+      "title": "The Decoder报道Qwen发布Apache 2.0许可的Qwen3.8开放权重模型，并定位其服务本地与代理应用。",
+      "role": "佐证",
+      "addedAt": "2026-08-26T18:08:16.533Z"
+    },
+    {
+      "id": "source_ca26bca182f697df",
+      "type": "source",
+      "title": "Qwen",
+      "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
+      "sourceKind": "Repository",
+      "publishedAt": "2026-08-14T17:01:54.000Z"
+    },
+    {
+      "id": "claim_a9b9dfc5035f842c",
+      "type": "claim",
+      "title": "Qwen官方仓库确认Qwen3.8-27B权重、Apache 2.0许可、27B规模、262,144-token上下文及Terminal-Bench 2.1比较结果。",
+      "role": "主张",
+      "addedAt": "2026-08-26T18:08:16.533Z"
+    },
+    {
+      "id": "source_20e9d0e734a8fb4e",
+      "type": "source",
+      "title": "Qwen",
+      "url": "https://huggingface.co/Qwen/Qwen3.6-27B",
+      "sourceKind": "Repository",
+      "publishedAt": "2026-08-14T17:01:54.000Z"
+    },
+    {
+      "id": "claim_c12b37ac26a4153b",
+      "type": "claim",
+      "title": "Qwen3.6-27B官方模型卡确认此前27B开放型号已有Apache 2.0许可与262,144-token原生上下文。",
+      "role": "背景",
+      "addedAt": "2026-08-26T18:08:16.533Z"
+    },
+    {
+      "id": "source_40851b30c97009a7",
+      "type": "source",
+      "title": "QwenCloud",
+      "url": "https://docs.qwencloud.com/developer-guides/getting-started/text-generation-models",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-14T17:01:54.000Z"
+    },
+    {
+      "id": "claim_e7e5fec0ce6a14b3",
+      "type": "claim",
+      "title": "QwenCloud将qwen3.7-plus列为工具调用模型，并标注其1M-token上下文定位。",
+      "role": "背景",
+      "addedAt": "2026-08-26T18:08:16.533Z"
+    },
+    {
+      "id": "source_154d8a92182c5cce",
+      "type": "source",
+      "title": "arXiv",
+      "url": "https://arxiv.org/abs/2404.00599",
+      "sourceKind": "Research",
+      "publishedAt": "2024-04-05T00:00:00.000Z"
+    },
+    {
+      "id": "claim_2749faa4e2855e87",
+      "type": "claim",
+      "title": "EvoCodeBench研究指出传统代码生成基准与真实代码仓库任务的对齐存在局限。",
+      "role": "反例",
+      "addedAt": "2026-08-26T18:08:16.533Z"
+    },
+    {
+      "id": "source_034c2462b05d2238",
+      "type": "source",
+      "title": "Qwen",
+      "url": "https://huggingface.co/Qwen/Qwen3.8-27B-FP8",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-14T15:16:58.000Z"
+    },
+    {
+      "id": "claim_8e1258b51ef42c96",
+      "type": "claim",
+      "title": "Qwen官方模型卡确认Qwen3.8-27B-FP8权重存在，并说明其采用block size 128的fine-grained FP8量化。",
+      "role": "最新进展",
+      "addedAt": "2026-08-26T18:08:16.533Z"
+    },
+    {
+      "id": "source_4b1f7c337b97d982",
+      "type": "source",
+      "title": "ARahim3/mlx-dspark",
+      "url": "https://github.com/ARahim3/mlx-dspark/releases/tag/v0.10.0",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-14T21:54:36.000Z"
+    },
+    {
+      "id": "claim_677608a76e50e81a",
+      "type": "claim",
+      "title": "官方v0.10.0发布说明：在M4 Pro上，8-bit达到2.45×和20.3 tok/s，4-bit达到1.74×和25.3 tok/s，内存约29 GB和18 GB，输出与普通解码一致。",
+      "role": "最新进展",
+      "addedAt": "2026-08-26T18:08:16.533Z"
+    },
+    {
+      "id": "source_79efbb054d4af9fc",
+      "type": "source",
+      "title": "Simon Willison",
+      "url": "https://simonwillison.net/2026/Aug/16/qwen-38-27b/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-16T22:00:39.000Z"
+    },
+    {
+      "id": "claim_c3eb8197bd54281b",
+      "type": "claim",
+      "title": "Simon Willison在本地使用观察中称，Qwen3.8-27B表现出色，但默认会出现明显过度推理。",
+      "role": "最新进展",
+      "addedAt": "2026-08-26T18:08:16.533Z"
+    },
+    {
+      "id": "source_ec80c7719cfd26cf",
+      "type": "source",
+      "title": "mrpmorris/sparkrun-recipes",
+      "url": "https://github.com/mrpmorris/sparkrun-recipes/blob/72afabcfc8987eb221d18e2bacfd5f7a9ced2e2b/benchmarks/_Comparison.pdf",
+      "sourceKind": "Repository",
+      "publishedAt": "2026-08-16T22:00:39.000Z"
+    },
+    {
+      "id": "claim_8c0247ea1bed082e",
+      "type": "claim",
+      "title": "独立比较工件称Qwen3.8-27B在所测部分智能基准低于Qwen3.6-27B，但方法披露不足，不能单独定论。",
+      "role": "反例",
+      "addedAt": "2026-08-26T18:08:16.533Z"
+    },
+    {
+      "id": "source_398f0202def324e1",
+      "type": "source",
+      "title": "James Routley",
+      "url": "https://news.routley.io/posts/i-gave-qwen-3-8-27b-a-reverse-engineering-job-and-it-finished-in-30-minutes.html",
+      "sourceKind": "Media",
+      "publishedAt": "2026-08-23T10:02:51.000Z"
+    },
+    {
+      "id": "claim_65b733e9a0d79b1e",
+      "type": "claim",
+      "title": "作者记录Qwen3.8-27B完成商业应用许可验证的静态逆向分析，重建验证密钥、修正完整性哈希错误并生成认证绕过，称耗时约30分钟。",
+      "role": "佐证",
+      "addedAt": "2026-08-26T18:08:16.533Z"
+    },
+    {
+      "id": "source_751f34fb0cbe11fb",
+      "type": "source",
+      "title": "daily.dev",
+      "url": "https://daily.dev/posts/i-gave-qwen-3-8-27b-a-reverse-engineering-job-i-assumed-needed-a-frontier-model-and-it-finished-in--muit1qire",
+      "sourceKind": "Media",
+      "publishedAt": "2026-08-23T10:02:51.000Z"
+    },
+    {
+      "id": "claim_15f639b36eaea1c2",
+      "type": "claim",
+      "title": "转载内容确认该案例使用Qwen3.8-27B在Lenovo ThinkStation PGX离线执行ARM64静态分析，并称约30分钟完成许可验证绕过。",
+      "role": "佐证",
+      "addedAt": "2026-08-26T18:08:16.533Z"
+    },
+    {
+      "id": "source_6e25324350e4a68d",
+      "type": "source",
+      "title": "QUASAR-QAT / Hugging Face",
+      "url": "https://huggingface.co/QUASAR-QAT/Qwen3.8-27B-QUASAR-NVFP4",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-26T01:04:56.000Z"
+    },
+    {
+      "id": "claim_472223906dbe5c2b",
+      "type": "claim",
+      "title": "官方模型卡确认496个线性层均采用NVFP4 W4A4，由冻结BF16教师模型进行量化感知蒸馏，训练2446步，并要求Blackwell及compute capability 10.0以上。",
+      "role": "最新进展",
+      "addedAt": "2026-08-26T18:08:16.533Z"
+    },
+    {
+      "id": "update_19e9d1c420f94ea0",
+      "type": "update",
+      "signalId": 117,
+      "title": "Qwen3.8-27B新增NVFP4检查点",
+      "summary": "官方模型卡确认Qwen3.8-27B的全量NVFP4版本采用量化感知蒸馏，并提供vLLM与Blackwell部署路径。",
+      "addedAt": "2026-08-26T01:04:56.000Z",
+      "changeType": "progress",
+      "thesisImpact": "官方模型卡显示Qwen3.8-27B已有面向Blackwell的全量NVFP4部署检查点，推进了既有开放模型从权重发布到低精度本地运行的判断。",
+      "revisionRequired": false
+    },
+    {
+      "id": "update_0e7c7652bc588180",
+      "type": "update",
+      "signalId": 117,
+      "title": "Qwen3.8-27B出现逆向实测",
+      "summary": "外部作者称，Qwen3.8-27B在离线ARM64静态分析中发现并重建许可验证密钥、修正哈希错误，并在约30分钟内生成可工作的认证绕过。",
+      "addedAt": "2026-08-23T10:02:51.000Z",
+      "changeType": "corroboration",
+      "thesisImpact": "一项外部实测称，Qwen3.8-27B可在离线环境完成商业软件许可验证的静态分析与绕过，强化其代理与编码任务可用性的信号，但仍是单一案例的转载验证。",
+      "revisionRequired": false
+    },
+    {
+      "id": "update_3fb899c3c8fa4a0a",
+      "type": "update",
+      "signalId": 117,
+      "title": "Qwen 3.8-27B默认推理待调校",
+      "summary": "新评测观察称，Qwen3.8-27B默认会显著过度思考；官方仓库确认权重已发布。另有比较工件报告其部分测试低于前代，但方法披露不足。",
+      "addedAt": "2026-08-16T22:00:39.000Z",
+      "changeType": "thesis_change",
+      "thesisImpact": "新材料强化了27B权重已正式发布，但提示其默认推理行为和相对性能仍会影响本地代理部署的实际价值。",
+      "revisionRequired": true
+    },
+    {
+      "id": "claim_a7869c55b06b68f3",
+      "type": "claim",
+      "title": "Qwen官方Hugging Face仓库提供Qwen3.8-27B权重、模型卡、许可和部署信息，确认其正式发布。",
+      "role": "佐证",
+      "addedAt": "2026-08-16T22:00:39.000Z"
+    },
+    {
+      "id": "claim_6309f632fe76d4fd",
+      "type": "claim",
+      "title": "Qwen3.6-27B官方模型卡提供前代的许可、参数、上下文和开发方基准基线。",
+      "role": "背景",
+      "addedAt": "2026-08-16T22:00:39.000Z"
+    },
+    {
+      "id": "update_efa00e162f322af2",
+      "type": "update",
+      "signalId": 117,
+      "title": "Qwen3.8-27B本地推理提速",
+      "summary": "官方mlx-dspark更新加入Qwen3.8-27B的RadixArk推测解码器，在保持输出一致的条件下，为8-bit与4-bit本地运行提供更高吞吐和更低部署门槛。",
+      "addedAt": "2026-08-14T21:54:36.000Z",
+      "changeType": "progress",
+      "thesisImpact": "官方发布补充了Qwen3.8-27B在Apple Silicon上的本地推理效率证据，强化其可部署性判断，但仍属于既有模型的工具链进展而非新模型状态变化。",
+      "revisionRequired": false
+    },
+    {
+      "id": "update_b97eb8d70517b2ff",
+      "type": "update",
+      "signalId": 117,
+      "title": "Qwen补充27B的FP8权重",
+      "summary": "Qwen官方模型卡新增Qwen3.8-27B-FP8，采用block size 128的fine-grained FP8量化；Qwen3.6-27B公开配置可作为同级架构对照。",
+      "addedAt": "2026-08-14T16:12:35.000Z",
+      "changeType": "progress",
+      "thesisImpact": "官方新增FP8量化权重信息，并与Qwen3.6-27B的公开配置形成对照，强化该版本以训练改进和部署形态扩展为主的判断。",
+      "revisionRequired": false
+    },
+    {
+      "id": "claim_5a7ce412bad07e0b",
+      "type": "claim",
+      "title": "Qwen官方模型卡确认Qwen3.8-27B仓库提供模型权重与配置文件，并列出其27B参数规模和模型结构。",
+      "role": "最新进展",
+      "addedAt": "2026-08-14T16:12:35.000Z"
+    },
+    {
+      "id": "claim_3011d44f8bb452a5",
+      "type": "claim",
+      "title": "Qwen3.6-27B官方模型卡列出27B参数、64层、5120隐藏维度及262144原生上下文等公开配置。",
+      "role": "背景",
+      "addedAt": "2026-08-14T16:12:35.000Z"
+    },
     {
       "id": "event_9d7a7e2c063e7ba3",
       "type": "event",
@@ -9653,261 +10168,6 @@
       "title": "Z.ai公告称GLM-5.3与GLM-5.2使用相同基础模型，经后训练后内部编码表现提升50%，并计划在安全评估和加固后约两周开放权重。",
       "role": "最新进展",
       "addedAt": "2026-08-14T10:21:34.000Z"
-    },
-    {
-      "id": "event_bd08267689227246",
-      "type": "event",
-      "signalId": 117,
-      "title": "Qwen开放3.8-27B代理模型",
-      "bucket": "dynamic",
-      "valueScore": 85,
-      "publishedAt": "2026-08-14T17:01:54.000Z",
-      "updatedAt": "2026-08-16T22:00:39.000Z"
-    },
-    {
-      "id": "article_d54b51ea68262f79",
-      "type": "article",
-      "signalId": 117,
-      "title": "Qwen开放3.8-27B代理模型",
-      "version": 1,
-      "publishedAt": "2026-08-16T23:07:03.446Z"
-    },
-    {
-      "id": "source_bf9169bc18a6de86",
-      "type": "source",
-      "title": "The Decoder AI",
-      "url": "https://the-decoder.com/alibabas-qwen-team-releases-qwen-3-8-models-with-open-weights-under-the-apache-2-0-license/",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-14T17:01:54.000Z"
-    },
-    {
-      "id": "claim_5eafb63f883af615",
-      "type": "claim",
-      "title": "The Decoder报道Qwen发布Apache 2.0许可的Qwen3.8开放权重模型，并定位其服务本地与代理应用。",
-      "role": "佐证",
-      "addedAt": "2026-08-16T23:07:03.446Z"
-    },
-    {
-      "id": "source_ca26bca182f697df",
-      "type": "source",
-      "title": "Qwen",
-      "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
-      "sourceKind": "Repository",
-      "publishedAt": "2026-08-14T17:01:54.000Z"
-    },
-    {
-      "id": "claim_a9b9dfc5035f842c",
-      "type": "claim",
-      "title": "Qwen官方仓库确认Qwen3.8-27B权重、Apache 2.0许可、27B规模、262,144-token上下文及Terminal-Bench 2.1比较结果。",
-      "role": "主张",
-      "addedAt": "2026-08-16T23:07:03.446Z"
-    },
-    {
-      "id": "source_20e9d0e734a8fb4e",
-      "type": "source",
-      "title": "Qwen",
-      "url": "https://huggingface.co/Qwen/Qwen3.6-27B",
-      "sourceKind": "Repository",
-      "publishedAt": "2026-08-14T17:01:54.000Z"
-    },
-    {
-      "id": "claim_c12b37ac26a4153b",
-      "type": "claim",
-      "title": "Qwen3.6-27B官方模型卡确认此前27B开放型号已有Apache 2.0许可与262,144-token原生上下文。",
-      "role": "背景",
-      "addedAt": "2026-08-16T23:07:03.446Z"
-    },
-    {
-      "id": "source_40851b30c97009a7",
-      "type": "source",
-      "title": "QwenCloud",
-      "url": "https://docs.qwencloud.com/developer-guides/getting-started/text-generation-models",
-      "sourceKind": "Official",
-      "publishedAt": "2026-08-14T17:01:54.000Z"
-    },
-    {
-      "id": "claim_e7e5fec0ce6a14b3",
-      "type": "claim",
-      "title": "QwenCloud将qwen3.7-plus列为工具调用模型，并标注其1M-token上下文定位。",
-      "role": "背景",
-      "addedAt": "2026-08-16T23:07:03.446Z"
-    },
-    {
-      "id": "source_154d8a92182c5cce",
-      "type": "source",
-      "title": "arXiv",
-      "url": "https://arxiv.org/abs/2404.00599",
-      "sourceKind": "Research",
-      "publishedAt": "2024-04-05T00:00:00.000Z"
-    },
-    {
-      "id": "claim_2749faa4e2855e87",
-      "type": "claim",
-      "title": "EvoCodeBench研究指出传统代码生成基准与真实代码仓库任务的对齐存在局限。",
-      "role": "反例",
-      "addedAt": "2026-08-16T23:07:03.446Z"
-    },
-    {
-      "id": "source_034c2462b05d2238",
-      "type": "source",
-      "title": "Qwen",
-      "url": "https://huggingface.co/Qwen/Qwen3.8-27B-FP8",
-      "sourceKind": "Official",
-      "publishedAt": "2026-08-14T15:16:58.000Z"
-    },
-    {
-      "id": "claim_8e1258b51ef42c96",
-      "type": "claim",
-      "title": "Qwen官方模型卡确认Qwen3.8-27B-FP8权重存在，并说明其采用block size 128的fine-grained FP8量化。",
-      "role": "最新进展",
-      "addedAt": "2026-08-16T23:07:03.446Z"
-    },
-    {
-      "id": "source_4b1f7c337b97d982",
-      "type": "source",
-      "title": "ARahim3/mlx-dspark",
-      "url": "https://github.com/ARahim3/mlx-dspark/releases/tag/v0.10.0",
-      "sourceKind": "Official",
-      "publishedAt": "2026-08-14T21:54:36.000Z"
-    },
-    {
-      "id": "claim_677608a76e50e81a",
-      "type": "claim",
-      "title": "官方v0.10.0发布说明：在M4 Pro上，8-bit达到2.45×和20.3 tok/s，4-bit达到1.74×和25.3 tok/s，内存约29 GB和18 GB，输出与普通解码一致。",
-      "role": "最新进展",
-      "addedAt": "2026-08-16T23:07:03.446Z"
-    },
-    {
-      "id": "source_79efbb054d4af9fc",
-      "type": "source",
-      "title": "Simon Willison",
-      "url": "https://simonwillison.net/2026/Aug/16/qwen-38-27b/",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-16T22:00:39.000Z"
-    },
-    {
-      "id": "claim_c3eb8197bd54281b",
-      "type": "claim",
-      "title": "Simon Willison在本地使用观察中称，Qwen3.8-27B表现出色，但默认会出现明显过度推理。",
-      "role": "最新进展",
-      "addedAt": "2026-08-16T23:07:03.446Z"
-    },
-    {
-      "id": "source_ec80c7719cfd26cf",
-      "type": "source",
-      "title": "mrpmorris/sparkrun-recipes",
-      "url": "https://github.com/mrpmorris/sparkrun-recipes/blob/72afabcfc8987eb221d18e2bacfd5f7a9ced2e2b/benchmarks/_Comparison.pdf",
-      "sourceKind": "Repository",
-      "publishedAt": "2026-08-16T22:00:39.000Z"
-    },
-    {
-      "id": "claim_8c0247ea1bed082e",
-      "type": "claim",
-      "title": "独立比较工件称Qwen3.8-27B在所测部分智能基准低于Qwen3.6-27B，但方法披露不足，不能单独定论。",
-      "role": "反例",
-      "addedAt": "2026-08-16T23:07:03.446Z"
-    },
-    {
-      "id": "source_398f0202def324e1",
-      "type": "source",
-      "title": "James Routley",
-      "url": "https://news.routley.io/posts/i-gave-qwen-3-8-27b-a-reverse-engineering-job-and-it-finished-in-30-minutes.html",
-      "sourceKind": "Media",
-      "publishedAt": "2026-08-23T10:02:51.000Z"
-    },
-    {
-      "id": "claim_65b733e9a0d79b1e",
-      "type": "claim",
-      "title": "作者记录Qwen3.8-27B完成商业应用许可验证的静态逆向分析，重建验证密钥、修正完整性哈希错误并生成认证绕过，称耗时约30分钟。",
-      "role": "佐证",
-      "addedAt": "2026-08-16T23:07:03.446Z"
-    },
-    {
-      "id": "source_751f34fb0cbe11fb",
-      "type": "source",
-      "title": "daily.dev",
-      "url": "https://daily.dev/posts/i-gave-qwen-3-8-27b-a-reverse-engineering-job-i-assumed-needed-a-frontier-model-and-it-finished-in--muit1qire",
-      "sourceKind": "Media",
-      "publishedAt": "2026-08-23T10:02:51.000Z"
-    },
-    {
-      "id": "claim_15f639b36eaea1c2",
-      "type": "claim",
-      "title": "转载内容确认该案例使用Qwen3.8-27B在Lenovo ThinkStation PGX离线执行ARM64静态分析，并称约30分钟完成许可验证绕过。",
-      "role": "佐证",
-      "addedAt": "2026-08-16T23:07:03.446Z"
-    },
-    {
-      "id": "update_0e7c7652bc588180",
-      "type": "update",
-      "signalId": 117,
-      "title": "Qwen3.8-27B出现逆向实测",
-      "summary": "外部作者称，Qwen3.8-27B在离线ARM64静态分析中发现并重建许可验证密钥、修正哈希错误，并在约30分钟内生成可工作的认证绕过。",
-      "addedAt": "2026-08-23T10:02:51.000Z",
-      "changeType": "corroboration",
-      "thesisImpact": "一项外部实测称，Qwen3.8-27B可在离线环境完成商业软件许可验证的静态分析与绕过，强化其代理与编码任务可用性的信号，但仍是单一案例的转载验证。",
-      "revisionRequired": false
-    },
-    {
-      "id": "update_3fb899c3c8fa4a0a",
-      "type": "update",
-      "signalId": 117,
-      "title": "Qwen 3.8-27B默认推理待调校",
-      "summary": "新评测观察称，Qwen3.8-27B默认会显著过度思考；官方仓库确认权重已发布。另有比较工件报告其部分测试低于前代，但方法披露不足。",
-      "addedAt": "2026-08-16T22:00:39.000Z",
-      "changeType": "thesis_change",
-      "thesisImpact": "新材料强化了27B权重已正式发布，但提示其默认推理行为和相对性能仍会影响本地代理部署的实际价值。",
-      "revisionRequired": true
-    },
-    {
-      "id": "claim_a7869c55b06b68f3",
-      "type": "claim",
-      "title": "Qwen官方Hugging Face仓库提供Qwen3.8-27B权重、模型卡、许可和部署信息，确认其正式发布。",
-      "role": "佐证",
-      "addedAt": "2026-08-16T22:00:39.000Z"
-    },
-    {
-      "id": "claim_6309f632fe76d4fd",
-      "type": "claim",
-      "title": "Qwen3.6-27B官方模型卡提供前代的许可、参数、上下文和开发方基准基线。",
-      "role": "背景",
-      "addedAt": "2026-08-16T22:00:39.000Z"
-    },
-    {
-      "id": "update_efa00e162f322af2",
-      "type": "update",
-      "signalId": 117,
-      "title": "Qwen3.8-27B本地推理提速",
-      "summary": "官方mlx-dspark更新加入Qwen3.8-27B的RadixArk推测解码器，在保持输出一致的条件下，为8-bit与4-bit本地运行提供更高吞吐和更低部署门槛。",
-      "addedAt": "2026-08-14T21:54:36.000Z",
-      "changeType": "progress",
-      "thesisImpact": "官方发布补充了Qwen3.8-27B在Apple Silicon上的本地推理效率证据，强化其可部署性判断，但仍属于既有模型的工具链进展而非新模型状态变化。",
-      "revisionRequired": false
-    },
-    {
-      "id": "update_b97eb8d70517b2ff",
-      "type": "update",
-      "signalId": 117,
-      "title": "Qwen补充27B的FP8权重",
-      "summary": "Qwen官方模型卡新增Qwen3.8-27B-FP8，采用block size 128的fine-grained FP8量化；Qwen3.6-27B公开配置可作为同级架构对照。",
-      "addedAt": "2026-08-14T16:12:35.000Z",
-      "changeType": "progress",
-      "thesisImpact": "官方新增FP8量化权重信息，并与Qwen3.6-27B的公开配置形成对照，强化该版本以训练改进和部署形态扩展为主的判断。",
-      "revisionRequired": false
-    },
-    {
-      "id": "claim_5a7ce412bad07e0b",
-      "type": "claim",
-      "title": "Qwen官方模型卡确认Qwen3.8-27B仓库提供模型权重与配置文件，并列出其27B参数规模和模型结构。",
-      "role": "最新进展",
-      "addedAt": "2026-08-14T16:12:35.000Z"
-    },
-    {
-      "id": "claim_3011d44f8bb452a5",
-      "type": "claim",
-      "title": "Qwen3.6-27B官方模型卡列出27B参数、64层、5120隐藏维度及262144原生上下文等公开配置。",
-      "role": "背景",
-      "addedAt": "2026-08-14T16:12:35.000Z"
     },
     {
       "id": "event_e07eb4e044dd681a",
@@ -22022,6 +22282,473 @@
   ],
   "edges": [
     {
+      "id": "edge_f2bf58b25533b823",
+      "from": "event_26e0d7b072124120",
+      "to": "article_d883e91eb1599626",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_9f830408e580002a",
+      "from": "source_6f055ad99cf10ae0",
+      "to": "claim_15f9de36340d1767",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_bbbd0d6856216769",
+      "from": "claim_15f9de36340d1767",
+      "to": "event_26e0d7b072124120",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_9091c6aab1423072",
+      "from": "source_9495d1fb2a00356f",
+      "to": "claim_ff76d62dd44f64ed",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_9b45dd2572f803ee",
+      "from": "claim_ff76d62dd44f64ed",
+      "to": "event_26e0d7b072124120",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_c427fca1d25fc904",
+      "from": "source_eb79656c925ccbff",
+      "to": "claim_d75f4dec608e6b01",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_da1c3c697fa5cfcf",
+      "from": "claim_d75f4dec608e6b01",
+      "to": "event_26e0d7b072124120",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_58b2491ec8ab2d8a",
+      "from": "source_941cd3f250d651f1",
+      "to": "claim_adc20ceec11f878a",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_057cd43a41d54118",
+      "from": "claim_adc20ceec11f878a",
+      "to": "event_26e0d7b072124120",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_b391d14a06583e91",
+      "from": "event_cfdb93f601856a2a",
+      "to": "article_0acdeba2c5e8bd30",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_3d781d75b6116a40",
+      "from": "source_c5fcdc890274653f",
+      "to": "claim_be3e77b6f40f742c",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_beaf8540a420b033",
+      "from": "claim_be3e77b6f40f742c",
+      "to": "event_cfdb93f601856a2a",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_c24b117c81041dd8",
+      "from": "source_e800ee9ae57a1b53",
+      "to": "claim_0fa93d6e7e1c788e",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_a0a51eecc5ace4f8",
+      "from": "claim_0fa93d6e7e1c788e",
+      "to": "event_cfdb93f601856a2a",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_9a267e9831caab74",
+      "from": "source_5302786105ea2e93",
+      "to": "claim_98cbffed85c2f9fa",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_d525e8fe1c9f4a1f",
+      "from": "claim_98cbffed85c2f9fa",
+      "to": "event_cfdb93f601856a2a",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_273f6740db9944a4",
+      "from": "source_97b8c543968a35bd",
+      "to": "claim_7ca4aff667035b28",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_8096126c90ecc864",
+      "from": "claim_7ca4aff667035b28",
+      "to": "event_cfdb93f601856a2a",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_69fbb18c7cac92ae",
+      "from": "source_b02205ef3bed091f",
+      "to": "claim_4373811670706cd9",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_8552b9ebc6f15a0c",
+      "from": "claim_4373811670706cd9",
+      "to": "event_cfdb93f601856a2a",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_c285c2053b92a1dc",
+      "from": "event_bdec16a9821e7363",
+      "to": "article_72c8da066888a02d",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_4dacd2b4471581dc",
+      "from": "source_b9b7e9271a29b3a2",
+      "to": "claim_f3d2493d682c4ff5",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_fa2e64ebc4846b28",
+      "from": "claim_f3d2493d682c4ff5",
+      "to": "event_bdec16a9821e7363",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_8585727337af9102",
+      "from": "source_16393a2351def440",
+      "to": "claim_eea2231f1202daa6",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_47e6285f8ac72dad",
+      "from": "claim_eea2231f1202daa6",
+      "to": "event_bdec16a9821e7363",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_251d1d6daa9c5bc8",
+      "from": "source_44b4447b718f7b20",
+      "to": "claim_57626de9cba7af93",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_30117fb2c2a1b374",
+      "from": "claim_57626de9cba7af93",
+      "to": "event_bdec16a9821e7363",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_98a00f718302be0e",
+      "from": "event_bd08267689227246",
+      "to": "article_d54b51ea68262f79",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_7719ae56ae08c961",
+      "from": "source_bf9169bc18a6de86",
+      "to": "claim_5eafb63f883af615",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_b33d4fe6aea8dd3a",
+      "from": "claim_5eafb63f883af615",
+      "to": "event_bd08267689227246",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_f5c3d5dd9d6a152e",
+      "from": "source_ca26bca182f697df",
+      "to": "claim_a9b9dfc5035f842c",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_0313b99e49c7ba48",
+      "from": "claim_a9b9dfc5035f842c",
+      "to": "event_bd08267689227246",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_b72559bf493ce80d",
+      "from": "source_20e9d0e734a8fb4e",
+      "to": "claim_c12b37ac26a4153b",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_4fc3d6f9f93f6a95",
+      "from": "claim_c12b37ac26a4153b",
+      "to": "event_bd08267689227246",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_3593e598ba416e0c",
+      "from": "source_40851b30c97009a7",
+      "to": "claim_e7e5fec0ce6a14b3",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_339eef7623c25ab4",
+      "from": "claim_e7e5fec0ce6a14b3",
+      "to": "event_bd08267689227246",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_71b72a88e50b520c",
+      "from": "source_154d8a92182c5cce",
+      "to": "claim_2749faa4e2855e87",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_ef8f46b77e172d62",
+      "from": "claim_2749faa4e2855e87",
+      "to": "event_bd08267689227246",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_645a9eaa0ef9e219",
+      "from": "source_034c2462b05d2238",
+      "to": "claim_8e1258b51ef42c96",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_25d9f63e0b30666a",
+      "from": "claim_8e1258b51ef42c96",
+      "to": "event_bd08267689227246",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_58b5977a45702820",
+      "from": "source_4b1f7c337b97d982",
+      "to": "claim_677608a76e50e81a",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_2c0277f87c428d19",
+      "from": "claim_677608a76e50e81a",
+      "to": "event_bd08267689227246",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_18d65aed2d3529a9",
+      "from": "source_79efbb054d4af9fc",
+      "to": "claim_c3eb8197bd54281b",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_a3d5f3dbba3fdc9c",
+      "from": "claim_c3eb8197bd54281b",
+      "to": "event_bd08267689227246",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_deeb4fa34e264071",
+      "from": "source_ec80c7719cfd26cf",
+      "to": "claim_8c0247ea1bed082e",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_6146ee9935a0faff",
+      "from": "claim_8c0247ea1bed082e",
+      "to": "event_bd08267689227246",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_b98312eca329af64",
+      "from": "source_398f0202def324e1",
+      "to": "claim_65b733e9a0d79b1e",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_15cc62518c0a0283",
+      "from": "claim_65b733e9a0d79b1e",
+      "to": "event_bd08267689227246",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_b03df3c94cdd17c1",
+      "from": "source_751f34fb0cbe11fb",
+      "to": "claim_15f639b36eaea1c2",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_45f2124102c3cd43",
+      "from": "claim_15f639b36eaea1c2",
+      "to": "event_bd08267689227246",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_3752ad652b3f279b",
+      "from": "source_6e25324350e4a68d",
+      "to": "claim_472223906dbe5c2b",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_4dd9a91259515b24",
+      "from": "claim_472223906dbe5c2b",
+      "to": "event_bd08267689227246",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_7a114238d2933342",
+      "from": "update_19e9d1c420f94ea0",
+      "to": "event_bd08267689227246",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_1fa576ed7af0e4f4",
+      "from": "claim_472223906dbe5c2b",
+      "to": "event_bd08267689227246",
+      "relation": "update_evidence_for",
+      "updateTitle": "Qwen3.8-27B新增NVFP4检查点"
+    },
+    {
+      "id": "edge_464f863358d1d3c6",
+      "from": "update_0e7c7652bc588180",
+      "to": "event_bd08267689227246",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_fa126b435c67ead4",
+      "from": "claim_65b733e9a0d79b1e",
+      "to": "event_bd08267689227246",
+      "relation": "update_evidence_for",
+      "updateTitle": "Qwen3.8-27B出现逆向实测"
+    },
+    {
+      "id": "edge_fb1762e03fca0f48",
+      "from": "claim_15f639b36eaea1c2",
+      "to": "event_bd08267689227246",
+      "relation": "update_evidence_for",
+      "updateTitle": "Qwen3.8-27B出现逆向实测"
+    },
+    {
+      "id": "edge_ad7e0f0392d5ee53",
+      "from": "update_3fb899c3c8fa4a0a",
+      "to": "event_bd08267689227246",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_114d5ff7d805d785",
+      "from": "claim_c3eb8197bd54281b",
+      "to": "event_bd08267689227246",
+      "relation": "update_evidence_for",
+      "updateTitle": "Qwen 3.8-27B默认推理待调校"
+    },
+    {
+      "id": "edge_6b10c7a9c6c5c8ae",
+      "from": "source_ca26bca182f697df",
+      "to": "claim_a7869c55b06b68f3",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_ca8fd060b8239ca5",
+      "from": "claim_a7869c55b06b68f3",
+      "to": "event_bd08267689227246",
+      "relation": "update_evidence_for",
+      "updateTitle": "Qwen 3.8-27B默认推理待调校"
+    },
+    {
+      "id": "edge_5997ad8de5a4a2cc",
+      "from": "source_20e9d0e734a8fb4e",
+      "to": "claim_6309f632fe76d4fd",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_9802872a009defa8",
+      "from": "claim_6309f632fe76d4fd",
+      "to": "event_bd08267689227246",
+      "relation": "update_evidence_for",
+      "updateTitle": "Qwen 3.8-27B默认推理待调校"
+    },
+    {
+      "id": "edge_9be6e8b29c3fd36e",
+      "from": "claim_8c0247ea1bed082e",
+      "to": "event_bd08267689227246",
+      "relation": "update_evidence_for",
+      "updateTitle": "Qwen 3.8-27B默认推理待调校"
+    },
+    {
+      "id": "edge_114d0c9b43b7c541",
+      "from": "update_efa00e162f322af2",
+      "to": "event_bd08267689227246",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_1b01853e85ea138a",
+      "from": "claim_677608a76e50e81a",
+      "to": "event_bd08267689227246",
+      "relation": "update_evidence_for",
+      "updateTitle": "Qwen3.8-27B本地推理提速"
+    },
+    {
+      "id": "edge_80dda2f1460b3838",
+      "from": "update_b97eb8d70517b2ff",
+      "to": "event_bd08267689227246",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_785d59aadc422471",
+      "from": "source_ca26bca182f697df",
+      "to": "claim_5a7ce412bad07e0b",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_29dac5a80cf73b23",
+      "from": "claim_5a7ce412bad07e0b",
+      "to": "event_bd08267689227246",
+      "relation": "update_evidence_for",
+      "updateTitle": "Qwen补充27B的FP8权重"
+    },
+    {
+      "id": "edge_9161e757485514ac",
+      "from": "claim_8e1258b51ef42c96",
+      "to": "event_bd08267689227246",
+      "relation": "update_evidence_for",
+      "updateTitle": "Qwen补充27B的FP8权重"
+    },
+    {
+      "id": "edge_45530ca3004e5342",
+      "from": "source_20e9d0e734a8fb4e",
+      "to": "claim_3011d44f8bb452a5",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_783e1299ab73689d",
+      "from": "claim_3011d44f8bb452a5",
+      "to": "event_bd08267689227246",
+      "relation": "update_evidence_for",
+      "updateTitle": "Qwen补充27B的FP8权重"
+    },
+    {
       "id": "edge_643c6f6bd0810890",
       "from": "event_9d7a7e2c063e7ba3",
       "to": "article_a33d08ffaf91a03a",
@@ -32365,273 +33092,6 @@
       "to": "event_78547822baad4bb9",
       "relation": "update_evidence_for",
       "updateTitle": "GLM-5.3权重尚未开放"
-    },
-    {
-      "id": "edge_98a00f718302be0e",
-      "from": "event_bd08267689227246",
-      "to": "article_d54b51ea68262f79",
-      "relation": "rendered_as"
-    },
-    {
-      "id": "edge_7719ae56ae08c961",
-      "from": "source_bf9169bc18a6de86",
-      "to": "claim_5eafb63f883af615",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_b33d4fe6aea8dd3a",
-      "from": "claim_5eafb63f883af615",
-      "to": "event_bd08267689227246",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_f5c3d5dd9d6a152e",
-      "from": "source_ca26bca182f697df",
-      "to": "claim_a9b9dfc5035f842c",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_0313b99e49c7ba48",
-      "from": "claim_a9b9dfc5035f842c",
-      "to": "event_bd08267689227246",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_b72559bf493ce80d",
-      "from": "source_20e9d0e734a8fb4e",
-      "to": "claim_c12b37ac26a4153b",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_4fc3d6f9f93f6a95",
-      "from": "claim_c12b37ac26a4153b",
-      "to": "event_bd08267689227246",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_3593e598ba416e0c",
-      "from": "source_40851b30c97009a7",
-      "to": "claim_e7e5fec0ce6a14b3",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_339eef7623c25ab4",
-      "from": "claim_e7e5fec0ce6a14b3",
-      "to": "event_bd08267689227246",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_71b72a88e50b520c",
-      "from": "source_154d8a92182c5cce",
-      "to": "claim_2749faa4e2855e87",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_ef8f46b77e172d62",
-      "from": "claim_2749faa4e2855e87",
-      "to": "event_bd08267689227246",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_645a9eaa0ef9e219",
-      "from": "source_034c2462b05d2238",
-      "to": "claim_8e1258b51ef42c96",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_25d9f63e0b30666a",
-      "from": "claim_8e1258b51ef42c96",
-      "to": "event_bd08267689227246",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_58b5977a45702820",
-      "from": "source_4b1f7c337b97d982",
-      "to": "claim_677608a76e50e81a",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_2c0277f87c428d19",
-      "from": "claim_677608a76e50e81a",
-      "to": "event_bd08267689227246",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_18d65aed2d3529a9",
-      "from": "source_79efbb054d4af9fc",
-      "to": "claim_c3eb8197bd54281b",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_a3d5f3dbba3fdc9c",
-      "from": "claim_c3eb8197bd54281b",
-      "to": "event_bd08267689227246",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_deeb4fa34e264071",
-      "from": "source_ec80c7719cfd26cf",
-      "to": "claim_8c0247ea1bed082e",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_6146ee9935a0faff",
-      "from": "claim_8c0247ea1bed082e",
-      "to": "event_bd08267689227246",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_b98312eca329af64",
-      "from": "source_398f0202def324e1",
-      "to": "claim_65b733e9a0d79b1e",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_15cc62518c0a0283",
-      "from": "claim_65b733e9a0d79b1e",
-      "to": "event_bd08267689227246",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_b03df3c94cdd17c1",
-      "from": "source_751f34fb0cbe11fb",
-      "to": "claim_15f639b36eaea1c2",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_45f2124102c3cd43",
-      "from": "claim_15f639b36eaea1c2",
-      "to": "event_bd08267689227246",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_464f863358d1d3c6",
-      "from": "update_0e7c7652bc588180",
-      "to": "event_bd08267689227246",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_fa126b435c67ead4",
-      "from": "claim_65b733e9a0d79b1e",
-      "to": "event_bd08267689227246",
-      "relation": "update_evidence_for",
-      "updateTitle": "Qwen3.8-27B出现逆向实测"
-    },
-    {
-      "id": "edge_fb1762e03fca0f48",
-      "from": "claim_15f639b36eaea1c2",
-      "to": "event_bd08267689227246",
-      "relation": "update_evidence_for",
-      "updateTitle": "Qwen3.8-27B出现逆向实测"
-    },
-    {
-      "id": "edge_ad7e0f0392d5ee53",
-      "from": "update_3fb899c3c8fa4a0a",
-      "to": "event_bd08267689227246",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_114d5ff7d805d785",
-      "from": "claim_c3eb8197bd54281b",
-      "to": "event_bd08267689227246",
-      "relation": "update_evidence_for",
-      "updateTitle": "Qwen 3.8-27B默认推理待调校"
-    },
-    {
-      "id": "edge_6b10c7a9c6c5c8ae",
-      "from": "source_ca26bca182f697df",
-      "to": "claim_a7869c55b06b68f3",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_ca8fd060b8239ca5",
-      "from": "claim_a7869c55b06b68f3",
-      "to": "event_bd08267689227246",
-      "relation": "update_evidence_for",
-      "updateTitle": "Qwen 3.8-27B默认推理待调校"
-    },
-    {
-      "id": "edge_5997ad8de5a4a2cc",
-      "from": "source_20e9d0e734a8fb4e",
-      "to": "claim_6309f632fe76d4fd",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_9802872a009defa8",
-      "from": "claim_6309f632fe76d4fd",
-      "to": "event_bd08267689227246",
-      "relation": "update_evidence_for",
-      "updateTitle": "Qwen 3.8-27B默认推理待调校"
-    },
-    {
-      "id": "edge_9be6e8b29c3fd36e",
-      "from": "claim_8c0247ea1bed082e",
-      "to": "event_bd08267689227246",
-      "relation": "update_evidence_for",
-      "updateTitle": "Qwen 3.8-27B默认推理待调校"
-    },
-    {
-      "id": "edge_114d0c9b43b7c541",
-      "from": "update_efa00e162f322af2",
-      "to": "event_bd08267689227246",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_1b01853e85ea138a",
-      "from": "claim_677608a76e50e81a",
-      "to": "event_bd08267689227246",
-      "relation": "update_evidence_for",
-      "updateTitle": "Qwen3.8-27B本地推理提速"
-    },
-    {
-      "id": "edge_80dda2f1460b3838",
-      "from": "update_b97eb8d70517b2ff",
-      "to": "event_bd08267689227246",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_785d59aadc422471",
-      "from": "source_ca26bca182f697df",
-      "to": "claim_5a7ce412bad07e0b",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_29dac5a80cf73b23",
-      "from": "claim_5a7ce412bad07e0b",
-      "to": "event_bd08267689227246",
-      "relation": "update_evidence_for",
-      "updateTitle": "Qwen补充27B的FP8权重"
-    },
-    {
-      "id": "edge_9161e757485514ac",
-      "from": "claim_8e1258b51ef42c96",
-      "to": "event_bd08267689227246",
-      "relation": "update_evidence_for",
-      "updateTitle": "Qwen补充27B的FP8权重"
-    },
-    {
-      "id": "edge_45530ca3004e5342",
-      "from": "source_20e9d0e734a8fb4e",
-      "to": "claim_3011d44f8bb452a5",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_783e1299ab73689d",
-      "from": "claim_3011d44f8bb452a5",
-      "to": "event_bd08267689227246",
-      "relation": "update_evidence_for",
-      "updateTitle": "Qwen补充27B的FP8权重"
     },
     {
       "id": "edge_550356ec60c8c20d",
