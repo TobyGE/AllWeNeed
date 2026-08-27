@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-27T19:06:40.241Z",
+  "generatedAt": "2026-08-27T22:07:45.069Z",
   "counts": {
-    "sources": 1042,
-    "claims": 1234,
-    "events": 245,
-    "articles": 245,
+    "sources": 1046,
+    "claims": 1238,
+    "events": 246,
+    "articles": 246,
     "updates": 181,
-    "edges": 3323,
+    "edges": 3332,
     "revisionsRequired": 17
   },
   "revisionQueue": [
@@ -183,6 +183,84 @@
     }
   ],
   "nodes": [
+    {
+      "id": "event_8c2aebcdef16f127",
+      "type": "event",
+      "signalId": 168,
+      "title": "Marvell数据中心收入增46%",
+      "bucket": "dynamic",
+      "valueScore": 88,
+      "publishedAt": "2026-08-27T16:05:59.000Z",
+      "updatedAt": "2026-08-27T16:05:59.000Z"
+    },
+    {
+      "id": "article_8c5c710bb8f72e8f",
+      "type": "article",
+      "signalId": 168,
+      "title": "Marvell数据中心收入增46%",
+      "version": 1,
+      "publishedAt": "2026-08-27T22:07:45.069Z"
+    },
+    {
+      "id": "source_67a6151431a9274e",
+      "type": "source",
+      "title": "Marvell SEC Filings",
+      "url": "https://www.sec.gov/Archives/edgar/data/1835632/000183563226000022/mrvl-20260827.htm",
+      "sourceKind": "SEC",
+      "publishedAt": "2026-08-27T16:05:59.000Z"
+    },
+    {
+      "id": "claim_38964040d9a33123",
+      "type": "claim",
+      "title": "Marvell向SEC提交8-K，并附上2027财年第二财季业绩发布信息，披露收入27.39亿美元。",
+      "role": "主张",
+      "addedAt": "2026-08-27T22:07:45.069Z"
+    },
+    {
+      "id": "source_c40bd59892854deb",
+      "type": "source",
+      "title": "Marvell Technology, Inc.",
+      "url": "https://investor.marvell.com/news-events/press-releases/detail/1031/marvell-technology-inc-reports-second-quarter-of-fiscal-year-2027-financial-results",
+      "sourceKind": "IR",
+      "publishedAt": "2026-08-27T00:00:00.000Z"
+    },
+    {
+      "id": "claim_850f5516b8c5973e",
+      "type": "claim",
+      "title": "Marvell财报确认收入同比增长37%、数据中心收入增长46%、非GAAP EPS 0.94美元，并给出第三财季收入、EPS与毛利率指引。",
+      "role": "佐证",
+      "addedAt": "2026-08-27T22:07:45.069Z"
+    },
+    {
+      "id": "source_674f86b51de95fb0",
+      "type": "source",
+      "title": "Marvell Technology, Inc.",
+      "url": "https://investor.marvell.com/news-events/press-releases/detail/1023/marvell-technology-inc-reports-first-quarter-of-fiscal-year-2027-financial-results",
+      "sourceKind": "IR",
+      "publishedAt": "2026-05-27T00:00:00.000Z"
+    },
+    {
+      "id": "claim_60d5b8d25fd0dd3a",
+      "type": "claim",
+      "title": "Marvell第一财季财报提供24.18亿美元收入、28%同比增速，以及此前针对第二财季的27亿美元收入指引中值。",
+      "role": "背景",
+      "addedAt": "2026-08-27T22:07:45.069Z"
+    },
+    {
+      "id": "source_ca22f845278494e4",
+      "type": "source",
+      "title": "TipRanks",
+      "url": "https://www.tipranks.com/news/marvell-stock-mrvl-prediction-heres-what-to-expect-from-q2-earnings-tomorrow",
+      "sourceKind": "Media",
+      "publishedAt": "2026-08-26T13:39:00.000Z"
+    },
+    {
+      "id": "claim_82a2237535e2fc53",
+      "type": "claim",
+      "title": "TipRanks在财报前列出的Wall Street预期为第二财季收入约27.20亿美元、非GAAP EPS 0.93美元。",
+      "role": "背景",
+      "addedAt": "2026-08-27T22:07:45.069Z"
+    },
     {
       "id": "event_2d43024f742216b3",
       "type": "event",
@@ -23404,6 +23482,64 @@
     }
   ],
   "edges": [
+    {
+      "id": "edge_df5992633cea642f",
+      "from": "event_8c2aebcdef16f127",
+      "to": "article_8c5c710bb8f72e8f",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_6cbb45f253a329ff",
+      "from": "source_67a6151431a9274e",
+      "to": "claim_38964040d9a33123",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_e8be74e8cbdeaecd",
+      "from": "claim_38964040d9a33123",
+      "to": "event_8c2aebcdef16f127",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_23134c3949a8a253",
+      "from": "source_c40bd59892854deb",
+      "to": "claim_850f5516b8c5973e",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_fe200a6a9cbc7c68",
+      "from": "claim_850f5516b8c5973e",
+      "to": "event_8c2aebcdef16f127",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_734227bf48eaba51",
+      "from": "source_674f86b51de95fb0",
+      "to": "claim_60d5b8d25fd0dd3a",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_0411532321807642",
+      "from": "claim_60d5b8d25fd0dd3a",
+      "to": "event_8c2aebcdef16f127",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_3d1215902acbcb47",
+      "from": "source_ca22f845278494e4",
+      "to": "claim_82a2237535e2fc53",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_0766fd11fe39678a",
+      "from": "claim_82a2237535e2fc53",
+      "to": "event_8c2aebcdef16f127",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
     {
       "id": "edge_bbca1080e4576503",
       "from": "event_2d43024f742216b3",
