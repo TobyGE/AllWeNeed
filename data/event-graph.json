@@ -1,16 +1,26 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-27T07:08:23.825Z",
+  "generatedAt": "2026-08-27T10:07:44.313Z",
   "counts": {
-    "sources": 1028,
-    "claims": 1217,
-    "events": 240,
-    "articles": 240,
-    "updates": 180,
-    "edges": 3278,
-    "revisionsRequired": 16
+    "sources": 1037,
+    "claims": 1229,
+    "events": 244,
+    "articles": 244,
+    "updates": 181,
+    "edges": 3312,
+    "revisionsRequired": 17
   },
   "revisionQueue": [
+    {
+      "signalId": 166,
+      "eventId": "event_0fa09be8aea33fb3",
+      "updateId": "update_034da3c2f26bf839",
+      "title": "NVIDIA据报129亿美元收购Hugging Face",
+      "updateTitle": "Hugging Face交易仍待签署确认",
+      "thesisImpact": "新增报道强化了129亿美元交易价格及NVIDIA收购开源模型分发层的可能性，但TechCrunch援引Business Insider称协议尚未签署，原有“已同意收购”的确定性应下调为待确认交易。",
+      "detectedAt": "2026-08-27T07:17:29.000Z",
+      "status": "needs_editorial_revision"
+    },
     {
       "signalId": 1,
       "eventId": "event_0c9d4afc6715e91b",
@@ -173,6 +183,232 @@
     }
   ],
   "nodes": [
+    {
+      "id": "event_0fa09be8aea33fb3",
+      "type": "event",
+      "signalId": 166,
+      "title": "NVIDIA据报129亿美元收购Hugging Face",
+      "bucket": "dynamic",
+      "valueScore": 91,
+      "publishedAt": "2026-08-27T01:26:22.000Z",
+      "updatedAt": "2026-08-27T07:17:29.000Z"
+    },
+    {
+      "id": "article_b8a86a72d55e9abd",
+      "type": "article",
+      "signalId": 166,
+      "title": "NVIDIA据报129亿美元收购Hugging Face",
+      "version": 1,
+      "publishedAt": "2026-08-27T10:07:44.313Z"
+    },
+    {
+      "id": "source_0fad3411dc33324b",
+      "type": "source",
+      "title": "The Information",
+      "url": "https://www.theinformation.com/articles/nvidia-agrees-buy-open-source-model-repository-hugging-face-12-9-billion",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-27T01:26:22.000Z"
+    },
+    {
+      "id": "claim_7c4c3ed50d76b954",
+      "type": "claim",
+      "title": "The Information援引知情人士称，NVIDIA已同意以129亿美元收购开源模型平台Hugging Face，并将其定位为开源模型竞争中的战略资产。",
+      "role": "主张",
+      "addedAt": "2026-08-27T10:07:44.313Z"
+    },
+    {
+      "id": "source_48f9521226b49ebc",
+      "type": "source",
+      "title": "TechCrunch AI",
+      "url": "https://techcrunch.com/2026/08/26/nvidia-closes-in-on-hugging-face-acquisition/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-27T06:32:51.000Z"
+    },
+    {
+      "id": "claim_3884dd54a6a62312",
+      "type": "claim",
+      "title": "TechCrunch报道称NVIDIA已接近完成对Hugging Face的收购，交易将扩大其在开源模型分发与云业务中的布局。",
+      "role": "最新进展",
+      "addedAt": "2026-08-27T10:07:44.313Z"
+    },
+    {
+      "id": "source_00d7cfd4a82cb6b6",
+      "type": "source",
+      "title": "Reuters via StreetInsider",
+      "url": "https://www.streetinsider.com/Reuters/Nvidia%2Bagrees%2Bto%2Bbuy%2BHugging%2BFace%2Bfor%2B%2412.9%2Bbillion%2C%2BThe%2BInformation%2Breports/26983286.html",
+      "sourceKind": "Media",
+      "publishedAt": "2026-08-27T00:45:00.000Z"
+    },
+    {
+      "id": "claim_005fc34fc377ccd2",
+      "type": "claim",
+      "title": "Reuters转述The Information称交易已达成，双方未即时回应；Hugging Face年化收入为150百万美元，2023年估值为45亿美元，NVIDIA此前曾以70亿美元估值寻求投资但被拒。",
+      "role": "佐证",
+      "addedAt": "2026-08-27T10:07:44.313Z"
+    },
+    {
+      "id": "source_60f7e450bf0f60e6",
+      "type": "source",
+      "title": "NVIDIA",
+      "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Releases-New-Physical-AI-Models-as-Global-Partners-Unveil-Next-Generation-Robots/default.aspx",
+      "sourceKind": "IR",
+      "publishedAt": "2026-01-05T00:00:00.000Z"
+    },
+    {
+      "id": "claim_8655ebc7c224d0a5",
+      "type": "claim",
+      "title": "NVIDIA此前与Hugging Face合作整合Isaac和GR00T技术，连接NVIDIA的200万机器人开发者与Hugging Face的1300万AI开发者社区。",
+      "role": "背景",
+      "addedAt": "2026-08-27T10:07:44.313Z"
+    },
+    {
+      "id": "source_79c431447ce03d5f",
+      "type": "source",
+      "title": "IBM",
+      "url": "https://newsroom.ibm.com/2023-08-24-IBM-to-Participate-in-235M-Series-D-Funding-Round-of-Hugging-Face",
+      "sourceKind": "Official",
+      "publishedAt": "2023-08-24T00:00:00.000Z"
+    },
+    {
+      "id": "claim_437fc27209308b3e",
+      "type": "claim",
+      "title": "IBM披露参与Hugging Face的235百万美元D轮融资，为此次交易提供此前融资阶段基准。",
+      "role": "背景",
+      "addedAt": "2026-08-27T10:07:44.313Z"
+    },
+    {
+      "id": "source_9bc4950664f1773d",
+      "type": "source",
+      "title": "NVIDIA",
+      "url": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-second-quarter-fiscal-2027",
+      "sourceKind": "IR",
+      "publishedAt": "2026-08-26T00:00:00.000Z"
+    },
+    {
+      "id": "claim_d5e4b077605d9a42",
+      "type": "claim",
+      "title": "NVIDIA同期披露第二财季收入962亿美元，并给出下一财季1080亿美元指引，可用于衡量交易相对买方经营规模的大小。",
+      "role": "背景",
+      "addedAt": "2026-08-27T10:07:44.313Z"
+    },
+    {
+      "id": "source_619c1684ab8d35ba",
+      "type": "source",
+      "title": "The Decoder AI",
+      "url": "https://the-decoder.com/nvidia-snaps-up-hugging-face-for-12-9-billion-as-closed-ai-labs-pull-away/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-27T07:14:38.000Z"
+    },
+    {
+      "id": "claim_f0d00027adb5a6af",
+      "type": "claim",
+      "title": "The Decoder转述NVIDIA拟以129亿美元收购Hugging Face，并将交易置于NVIDIA扩展开放模型生态的背景中。",
+      "role": "佐证",
+      "addedAt": "2026-08-27T10:07:44.313Z"
+    },
+    {
+      "id": "source_3903185cd451d98d",
+      "type": "source",
+      "title": "The Information",
+      "url": "https://www.theinformation.com/briefings/nvidia-agrees-buy-hugging-face-12-9-billion",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-27T07:17:29.000Z"
+    },
+    {
+      "id": "claim_1fc49682dbeb2e5b",
+      "type": "claim",
+      "title": "The Information报道称NVIDIA已同意以129亿美元收购Hugging Face，并称价格约为其远期收入的80倍。",
+      "role": "最新进展",
+      "addedAt": "2026-08-27T10:07:44.313Z"
+    },
+    {
+      "id": "source_637c249bcbc8341c",
+      "type": "source",
+      "title": "Reuters（经 Boursorama 展示）",
+      "url": "https://www.boursorama.com/bourse/actualites-amp/nvidia-s-engage-a-racheter-hugging-face-pour-12-9-milliards-de-dollars-selon-the-information-ce5fc38597589e64f0ae08a28bbdaf81",
+      "sourceKind": "Media",
+      "publishedAt": "2026-08-27T05:15:00.000Z"
+    },
+    {
+      "id": "claim_4092ef0b47be1b29",
+      "type": "claim",
+      "title": "Reuters经Boursorama转述The Information报道，同时明确该交易信息来自知情人士。",
+      "role": "佐证",
+      "addedAt": "2026-08-27T10:07:44.313Z"
+    },
+    {
+      "id": "source_3765d5d1c13d4da7",
+      "type": "source",
+      "title": "TechCrunch",
+      "url": "https://techcrunch.com/2023/08/24/hugging-face-raises-235m-from-investors-including-salesforce-and-nvidia/",
+      "sourceKind": "Media",
+      "publishedAt": "2023-08-24T00:00:00.000Z"
+    },
+    {
+      "id": "claim_1f6e88a0c60fad94",
+      "type": "claim",
+      "title": "TechCrunch记录Hugging Face在2023年融资2.35亿美元时估值为45亿美元，NVIDIA是当轮投资方之一。",
+      "role": "背景",
+      "addedAt": "2026-08-27T10:07:44.313Z"
+    },
+    {
+      "id": "source_e254cbae0c264458",
+      "type": "source",
+      "title": "Hugging Face",
+      "url": "https://huggingface.co/blog/nvidia-training-cluster",
+      "sourceKind": "Official",
+      "publishedAt": "2025-06-11T00:00:00.000Z"
+    },
+    {
+      "id": "claim_b490edbf38f8b076",
+      "type": "claim",
+      "title": "Hugging Face在2025年宣布与NVIDIA合作推出Training Cluster as a Service，显示双方此前公开关系是算力合作。",
+      "role": "背景",
+      "addedAt": "2026-08-27T10:07:44.313Z"
+    },
+    {
+      "id": "update_034da3c2f26bf839",
+      "type": "update",
+      "signalId": 166,
+      "title": "Hugging Face交易仍待签署确认",
+      "summary": "The Information及其转述报道称NVIDIA拟以129亿美元收购Hugging Face；但TechCrunch称Business Insider所述交易尚未签署、谈判仍可能失败。双方此前已有云算力、开发者平台和融资层面的合作关系。",
+      "addedAt": "2026-08-27T07:17:29.000Z",
+      "changeType": "thesis_change",
+      "thesisImpact": "新增报道强化了129亿美元交易价格及NVIDIA收购开源模型分发层的可能性，但TechCrunch援引Business Insider称协议尚未签署，原有“已同意收购”的确定性应下调为待确认交易。",
+      "revisionRequired": true
+    },
+    {
+      "id": "claim_6dffba0a87f359dd",
+      "type": "claim",
+      "title": "The Information的公开转述将Hugging Face描述为开源AI模型平台，并重复129亿美元收购报道。",
+      "role": "佐证",
+      "addedAt": "2026-08-27T07:17:29.000Z"
+    },
+    {
+      "id": "claim_de9dfb3dfd74731f",
+      "type": "claim",
+      "title": "TechCrunch称Business Insider报道交易尚未签署且谈判可能失败，两家公司均未回应其置评请求。",
+      "role": "反例",
+      "addedAt": "2026-08-27T07:17:29.000Z"
+    },
+    {
+      "id": "claim_70dcf3fae8668f23",
+      "type": "claim",
+      "title": "NVIDIA截至2026年7月26日的最新官方季度财报披露收入和指引，但未宣布收购Hugging Face。",
+      "role": "背景",
+      "addedAt": "2026-08-27T07:17:29.000Z"
+    },
+    {
+      "id": "update_f28225f638e0b5a6",
+      "type": "update",
+      "signalId": 166,
+      "title": "NVIDIA收购Hugging Face获补充",
+      "summary": "新增报道确认交易据称已达成，并补齐Hugging Face收入、历史估值、双方开发者社区规模及NVIDIA买方财务尺度等比较信息。",
+      "addedAt": "2026-08-27T06:32:51.000Z",
+      "changeType": "corroboration",
+      "thesisImpact": "新增报道与补充材料强化了收购已达成的判断，但交易仍主要依赖单一知情人士来源，估值与执行细节尚待双方确认。",
+      "revisionRequired": false
+    },
     {
       "id": "event_73653cc3ec35d9ce",
       "type": "event",
@@ -2478,125 +2714,6 @@
       "addedAt": "2026-07-30T14:04:43.000Z",
       "changeType": "progress",
       "thesisImpact": null,
-      "revisionRequired": false
-    },
-    {
-      "id": "event_0fa09be8aea33fb3",
-      "type": "event",
-      "signalId": 166,
-      "title": "NVIDIA据报129亿美元收购Hugging Face",
-      "bucket": "dynamic",
-      "valueScore": 91,
-      "publishedAt": "2026-08-27T01:26:22.000Z",
-      "updatedAt": "2026-08-27T01:26:22.000Z"
-    },
-    {
-      "id": "article_b8a86a72d55e9abd",
-      "type": "article",
-      "signalId": 166,
-      "title": "NVIDIA据报129亿美元收购Hugging Face",
-      "version": 1,
-      "publishedAt": "2026-08-27T03:06:18.176Z"
-    },
-    {
-      "id": "source_0fad3411dc33324b",
-      "type": "source",
-      "title": "The Information",
-      "url": "https://www.theinformation.com/articles/nvidia-agrees-buy-open-source-model-repository-hugging-face-12-9-billion",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-27T01:26:22.000Z"
-    },
-    {
-      "id": "claim_7c4c3ed50d76b954",
-      "type": "claim",
-      "title": "The Information援引知情人士称，NVIDIA已同意以129亿美元收购开源模型平台Hugging Face，并将其定位为开源模型竞争中的战略资产。",
-      "role": "主张",
-      "addedAt": "2026-08-27T03:06:18.176Z"
-    },
-    {
-      "id": "source_48f9521226b49ebc",
-      "type": "source",
-      "title": "TechCrunch AI",
-      "url": "https://techcrunch.com/2026/08/26/nvidia-closes-in-on-hugging-face-acquisition/",
-      "sourceKind": "Blog",
-      "publishedAt": "2026-08-27T06:32:51.000Z"
-    },
-    {
-      "id": "claim_3884dd54a6a62312",
-      "type": "claim",
-      "title": "TechCrunch报道称NVIDIA已接近完成对Hugging Face的收购，交易将扩大其在开源模型分发与云业务中的布局。",
-      "role": "最新进展",
-      "addedAt": "2026-08-27T03:06:18.176Z"
-    },
-    {
-      "id": "source_00d7cfd4a82cb6b6",
-      "type": "source",
-      "title": "Reuters via StreetInsider",
-      "url": "https://www.streetinsider.com/Reuters/Nvidia%2Bagrees%2Bto%2Bbuy%2BHugging%2BFace%2Bfor%2B%2412.9%2Bbillion%2C%2BThe%2BInformation%2Breports/26983286.html",
-      "sourceKind": "Media",
-      "publishedAt": "2026-08-27T00:45:00.000Z"
-    },
-    {
-      "id": "claim_005fc34fc377ccd2",
-      "type": "claim",
-      "title": "Reuters转述The Information称交易已达成，双方未即时回应；Hugging Face年化收入为150百万美元，2023年估值为45亿美元，NVIDIA此前曾以70亿美元估值寻求投资但被拒。",
-      "role": "佐证",
-      "addedAt": "2026-08-27T03:06:18.176Z"
-    },
-    {
-      "id": "source_60f7e450bf0f60e6",
-      "type": "source",
-      "title": "NVIDIA",
-      "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Releases-New-Physical-AI-Models-as-Global-Partners-Unveil-Next-Generation-Robots/default.aspx",
-      "sourceKind": "IR",
-      "publishedAt": "2026-01-05T00:00:00.000Z"
-    },
-    {
-      "id": "claim_8655ebc7c224d0a5",
-      "type": "claim",
-      "title": "NVIDIA此前与Hugging Face合作整合Isaac和GR00T技术，连接NVIDIA的200万机器人开发者与Hugging Face的1300万AI开发者社区。",
-      "role": "背景",
-      "addedAt": "2026-08-27T03:06:18.176Z"
-    },
-    {
-      "id": "source_79c431447ce03d5f",
-      "type": "source",
-      "title": "IBM",
-      "url": "https://newsroom.ibm.com/2023-08-24-IBM-to-Participate-in-235M-Series-D-Funding-Round-of-Hugging-Face",
-      "sourceKind": "Official",
-      "publishedAt": "2023-08-24T00:00:00.000Z"
-    },
-    {
-      "id": "claim_437fc27209308b3e",
-      "type": "claim",
-      "title": "IBM披露参与Hugging Face的235百万美元D轮融资，为此次交易提供此前融资阶段基准。",
-      "role": "背景",
-      "addedAt": "2026-08-27T03:06:18.176Z"
-    },
-    {
-      "id": "source_9bc4950664f1773d",
-      "type": "source",
-      "title": "NVIDIA",
-      "url": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-second-quarter-fiscal-2027",
-      "sourceKind": "IR",
-      "publishedAt": "2026-08-26T00:00:00.000Z"
-    },
-    {
-      "id": "claim_d5e4b077605d9a42",
-      "type": "claim",
-      "title": "NVIDIA同期披露第二财季收入962亿美元，并给出下一财季1080亿美元指引，可用于衡量交易相对买方经营规模的大小。",
-      "role": "背景",
-      "addedAt": "2026-08-27T03:06:18.176Z"
-    },
-    {
-      "id": "update_f28225f638e0b5a6",
-      "type": "update",
-      "signalId": 166,
-      "title": "NVIDIA收购Hugging Face获补充",
-      "summary": "新增报道确认交易据称已达成，并补齐Hugging Face收入、历史估值、双方开发者社区规模及NVIDIA买方财务尺度等比较信息。",
-      "addedAt": "2026-08-27T06:32:51.000Z",
-      "changeType": "corroboration",
-      "thesisImpact": "新增报道与补充材料强化了收购已达成的判断，但交易仍主要依赖单一知情人士来源，估值与执行细节尚待双方确认。",
       "revisionRequired": false
     },
     {
@@ -20799,6 +20916,130 @@
       "addedAt": "2026-07-29T13:02:22.855Z"
     },
     {
+      "id": "event_f726407f699f5fd0",
+      "type": "event",
+      "conversationId": "conversation-20260827100744-1",
+      "title": "物理基础模型不会靠更多 token 自然出现",
+      "bucket": "conversation",
+      "publishedAt": "2026-08-26T15:15:00.000Z"
+    },
+    {
+      "id": "article_24c21ac3d55925bb",
+      "type": "article",
+      "conversationId": "conversation-20260827100744-1",
+      "title": "物理基础模型不会靠更多 token 自然出现",
+      "version": 1,
+      "publishedAt": "2026-08-27T10:07:44.313Z"
+    },
+    {
+      "id": "source_774c92e393ebe03e",
+      "type": "source",
+      "title": "Latent Space",
+      "url": "https://www.latent.space/p/anima",
+      "sourceKind": "YouTube",
+      "publishedAt": "2026-08-26T15:15:00.000Z"
+    },
+    {
+      "id": "claim_36caca78bbde05ec",
+      "type": "claim",
+      "title": "Anima Anandkumar 主张，天气、聚变与流体等连续物理系统的数据规模和分辨率要求，使语言模型式扩展难以直接迁移；通向物理基础模型的路径应是把物理结构、自然基底与学习方法结合起来。",
+      "role": "对谈",
+      "addedAt": "2026-08-27T10:07:44.313Z"
+    },
+    {
+      "id": "event_b879ac050c35d4b0",
+      "type": "event",
+      "conversationId": "conversation-20260827100744-2",
+      "title": "Kimi K3 的启示：MoE 扩展正在从堆容量转向重做信息流",
+      "bucket": "conversation",
+      "publishedAt": "2026-08-26T09:33:46.000Z"
+    },
+    {
+      "id": "article_ddc16b906c0b73eb",
+      "type": "article",
+      "conversationId": "conversation-20260827100744-2",
+      "title": "Kimi K3 的启示：MoE 扩展正在从堆容量转向重做信息流",
+      "version": 1,
+      "publishedAt": "2026-08-27T10:07:44.313Z"
+    },
+    {
+      "id": "source_02ea3053f41591c6",
+      "type": "source",
+      "title": "张小珺Jùn｜商业访谈录",
+      "url": "https://www.xiaoyuzhoufm.com/episode/6a8eadd61352af56ff3c6017?utm_source=rss",
+      "sourceKind": "Podcast",
+      "publishedAt": "2026-08-26T09:33:46.000Z"
+    },
+    {
+      "id": "claim_1381b5d5567753a6",
+      "type": "claim",
+      "title": "孙宇涛借 Kimi K3 技术报告提出，MoE 的下一步不只是增加参数或专家数量，而是同时重构 sequence、depth、width 三个维度的信息流，并让训练、通信、后训练和推理系统共同适配。",
+      "role": "对谈",
+      "addedAt": "2026-08-27T10:07:44.313Z"
+    },
+    {
+      "id": "event_e577262a89a4efe5",
+      "type": "event",
+      "conversationId": "conversation-20260827100744-3",
+      "title": "强化学习可能让思维链更像合规表演",
+      "bucket": "conversation",
+      "publishedAt": "2026-08-26T11:02:32.000Z"
+    },
+    {
+      "id": "article_b233718508b83225",
+      "type": "article",
+      "conversationId": "conversation-20260827100744-3",
+      "title": "强化学习可能让思维链更像合规表演",
+      "version": 1,
+      "publishedAt": "2026-08-27T10:07:44.313Z"
+    },
+    {
+      "id": "source_7ff3b696511501ec",
+      "type": "source",
+      "title": "Cognitive Revolution",
+      "url": "https://www.cognitiverevolution.ai/rl-s-a-hell-of-a-drug-metagaming-reward-seeking-motivated-cot-reasoning-bronson-schoen-apollo/",
+      "sourceKind": "YouTube",
+      "publishedAt": "2026-08-26T11:02:32.000Z"
+    },
+    {
+      "id": "claim_b63224839f9df558",
+      "type": "claim",
+      "title": "Bronson Schoen 认为，强化学习会促使前沿模型学习面向评分者和监督者的策略：思维链可能变得更整洁、更会解释，却未必更诚实地反映模型为何行动，因此不能把可读 CoT 直接当作可靠的安全监测窗口。",
+      "role": "对谈",
+      "addedAt": "2026-08-27T10:07:44.313Z"
+    },
+    {
+      "id": "event_62fa05d708eef2e1",
+      "type": "event",
+      "conversationId": "conversation-20260827100744-4",
+      "title": "AI 编程的分水岭不是少写代码，而是保留工程判断",
+      "bucket": "conversation",
+      "publishedAt": "2026-08-26T21:47:04.000Z"
+    },
+    {
+      "id": "article_297b65c2ccadd6d2",
+      "type": "article",
+      "conversationId": "conversation-20260827100744-4",
+      "title": "AI 编程的分水岭不是少写代码，而是保留工程判断",
+      "version": 1,
+      "publishedAt": "2026-08-27T10:07:44.313Z"
+    },
+    {
+      "id": "source_d76df25d4f91eba2",
+      "type": "source",
+      "title": "Lex Fridman Podcast",
+      "url": "https://lexfridman.com/dhh-2/?utm_source=rss&utm_medium=rss&utm_campaign=dhh-2",
+      "sourceKind": "YouTube",
+      "publishedAt": "2026-08-26T21:47:04.000Z"
+    },
+    {
+      "id": "claim_54fea272d59b3352",
+      "type": "claim",
+      "title": "DHH 认为，AI agent 会显著改变软件生产，但他区分了随意生成的 vibe coding 与由开发者设定边界、验证结果并维护系统完整性的 agentic engineering；未来程序员的价值将更多集中在判断、约束和品味。",
+      "role": "对谈",
+      "addedAt": "2026-08-27T10:07:44.313Z"
+    },
+    {
       "id": "event_cf73048dc84b470c",
       "type": "event",
       "conversationId": "conversation-20260826090658-1",
@@ -23070,6 +23311,276 @@
     }
   ],
   "edges": [
+    {
+      "id": "edge_d714b8951095bac4",
+      "from": "event_0fa09be8aea33fb3",
+      "to": "article_b8a86a72d55e9abd",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_2d7405cb7a02cca1",
+      "from": "source_0fad3411dc33324b",
+      "to": "claim_7c4c3ed50d76b954",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_28462e96f2d494c6",
+      "from": "claim_7c4c3ed50d76b954",
+      "to": "event_0fa09be8aea33fb3",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_8ce02c87ac43731a",
+      "from": "source_48f9521226b49ebc",
+      "to": "claim_3884dd54a6a62312",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_13b25c62bc37d827",
+      "from": "claim_3884dd54a6a62312",
+      "to": "event_0fa09be8aea33fb3",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_b6e04c7e1879efc0",
+      "from": "source_00d7cfd4a82cb6b6",
+      "to": "claim_005fc34fc377ccd2",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_b70cedbefb813ec5",
+      "from": "claim_005fc34fc377ccd2",
+      "to": "event_0fa09be8aea33fb3",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_c7d67eaef2d4b541",
+      "from": "source_60f7e450bf0f60e6",
+      "to": "claim_8655ebc7c224d0a5",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_d5cc6aa397d86f8e",
+      "from": "claim_8655ebc7c224d0a5",
+      "to": "event_0fa09be8aea33fb3",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_1be1dd8842453316",
+      "from": "source_79c431447ce03d5f",
+      "to": "claim_437fc27209308b3e",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_6370f464deedeaf4",
+      "from": "claim_437fc27209308b3e",
+      "to": "event_0fa09be8aea33fb3",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_ddc17ad0f0846b24",
+      "from": "source_9bc4950664f1773d",
+      "to": "claim_d5e4b077605d9a42",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_3a663e93b70d3774",
+      "from": "claim_d5e4b077605d9a42",
+      "to": "event_0fa09be8aea33fb3",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_10c61d46f0d8b30c",
+      "from": "source_619c1684ab8d35ba",
+      "to": "claim_f0d00027adb5a6af",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_63d23c20d80ce9cc",
+      "from": "claim_f0d00027adb5a6af",
+      "to": "event_0fa09be8aea33fb3",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_908c5da4e8ea287b",
+      "from": "source_3903185cd451d98d",
+      "to": "claim_1fc49682dbeb2e5b",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_8d5425fff1a0df3f",
+      "from": "claim_1fc49682dbeb2e5b",
+      "to": "event_0fa09be8aea33fb3",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_15e49adcd7733665",
+      "from": "source_637c249bcbc8341c",
+      "to": "claim_4092ef0b47be1b29",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_be2cb249a68c61ef",
+      "from": "claim_4092ef0b47be1b29",
+      "to": "event_0fa09be8aea33fb3",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_b119241098cfe6d8",
+      "from": "source_3765d5d1c13d4da7",
+      "to": "claim_1f6e88a0c60fad94",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_2c7a6be69da9e616",
+      "from": "claim_1f6e88a0c60fad94",
+      "to": "event_0fa09be8aea33fb3",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_b8857770d94de036",
+      "from": "source_e254cbae0c264458",
+      "to": "claim_b490edbf38f8b076",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_0d3ec3f0d0f3bb50",
+      "from": "claim_b490edbf38f8b076",
+      "to": "event_0fa09be8aea33fb3",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_327f81d01452c9e1",
+      "from": "update_034da3c2f26bf839",
+      "to": "event_0fa09be8aea33fb3",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_b0634ad7f91cebc3",
+      "from": "claim_f0d00027adb5a6af",
+      "to": "event_0fa09be8aea33fb3",
+      "relation": "update_evidence_for",
+      "updateTitle": "Hugging Face交易仍待签署确认"
+    },
+    {
+      "id": "edge_2666971691102381",
+      "from": "claim_1fc49682dbeb2e5b",
+      "to": "event_0fa09be8aea33fb3",
+      "relation": "update_evidence_for",
+      "updateTitle": "Hugging Face交易仍待签署确认"
+    },
+    {
+      "id": "edge_6c984decf3aa5887",
+      "from": "source_0fad3411dc33324b",
+      "to": "claim_6dffba0a87f359dd",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_462b7a64f8093556",
+      "from": "claim_6dffba0a87f359dd",
+      "to": "event_0fa09be8aea33fb3",
+      "relation": "update_evidence_for",
+      "updateTitle": "Hugging Face交易仍待签署确认"
+    },
+    {
+      "id": "edge_036bb26801125073",
+      "from": "claim_4092ef0b47be1b29",
+      "to": "event_0fa09be8aea33fb3",
+      "relation": "update_evidence_for",
+      "updateTitle": "Hugging Face交易仍待签署确认"
+    },
+    {
+      "id": "edge_ac6074d27cb3baa3",
+      "from": "source_48f9521226b49ebc",
+      "to": "claim_de9dfb3dfd74731f",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_1e41a059e0473130",
+      "from": "claim_de9dfb3dfd74731f",
+      "to": "event_0fa09be8aea33fb3",
+      "relation": "update_evidence_for",
+      "updateTitle": "Hugging Face交易仍待签署确认"
+    },
+    {
+      "id": "edge_d8df08bb16209854",
+      "from": "claim_1f6e88a0c60fad94",
+      "to": "event_0fa09be8aea33fb3",
+      "relation": "update_evidence_for",
+      "updateTitle": "Hugging Face交易仍待签署确认"
+    },
+    {
+      "id": "edge_7b6cba54da23bb4a",
+      "from": "claim_b490edbf38f8b076",
+      "to": "event_0fa09be8aea33fb3",
+      "relation": "update_evidence_for",
+      "updateTitle": "Hugging Face交易仍待签署确认"
+    },
+    {
+      "id": "edge_f06d3a340c2fbcd8",
+      "from": "source_9bc4950664f1773d",
+      "to": "claim_70dcf3fae8668f23",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_45ff4768d63ea1be",
+      "from": "claim_70dcf3fae8668f23",
+      "to": "event_0fa09be8aea33fb3",
+      "relation": "update_evidence_for",
+      "updateTitle": "Hugging Face交易仍待签署确认"
+    },
+    {
+      "id": "edge_1d6975394396cfe5",
+      "from": "update_f28225f638e0b5a6",
+      "to": "event_0fa09be8aea33fb3",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_436a441f278273d9",
+      "from": "claim_3884dd54a6a62312",
+      "to": "event_0fa09be8aea33fb3",
+      "relation": "update_evidence_for",
+      "updateTitle": "NVIDIA收购Hugging Face获补充"
+    },
+    {
+      "id": "edge_a2001e2b2fad4ee8",
+      "from": "claim_005fc34fc377ccd2",
+      "to": "event_0fa09be8aea33fb3",
+      "relation": "update_evidence_for",
+      "updateTitle": "NVIDIA收购Hugging Face获补充"
+    },
+    {
+      "id": "edge_8c3bc762fa4fb000",
+      "from": "claim_8655ebc7c224d0a5",
+      "to": "event_0fa09be8aea33fb3",
+      "relation": "update_evidence_for",
+      "updateTitle": "NVIDIA收购Hugging Face获补充"
+    },
+    {
+      "id": "edge_a72b629348340fd7",
+      "from": "claim_437fc27209308b3e",
+      "to": "event_0fa09be8aea33fb3",
+      "relation": "update_evidence_for",
+      "updateTitle": "NVIDIA收购Hugging Face获补充"
+    },
+    {
+      "id": "edge_8d624ac505c986b2",
+      "from": "claim_d5e4b077605d9a42",
+      "to": "event_0fa09be8aea33fb3",
+      "relation": "update_evidence_for",
+      "updateTitle": "NVIDIA收购Hugging Face获补充"
+    },
     {
       "id": "edge_9dd2bb19013c0c93",
       "from": "event_73653cc3ec35d9ce",
@@ -25916,131 +26427,6 @@
       "to": "event_0c9d4afc6715e91b",
       "relation": "update_evidence_for",
       "updateTitle": "Hugging Face披露1.76万次操作"
-    },
-    {
-      "id": "edge_d714b8951095bac4",
-      "from": "event_0fa09be8aea33fb3",
-      "to": "article_b8a86a72d55e9abd",
-      "relation": "rendered_as"
-    },
-    {
-      "id": "edge_2d7405cb7a02cca1",
-      "from": "source_0fad3411dc33324b",
-      "to": "claim_7c4c3ed50d76b954",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_28462e96f2d494c6",
-      "from": "claim_7c4c3ed50d76b954",
-      "to": "event_0fa09be8aea33fb3",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_8ce02c87ac43731a",
-      "from": "source_48f9521226b49ebc",
-      "to": "claim_3884dd54a6a62312",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_13b25c62bc37d827",
-      "from": "claim_3884dd54a6a62312",
-      "to": "event_0fa09be8aea33fb3",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_b6e04c7e1879efc0",
-      "from": "source_00d7cfd4a82cb6b6",
-      "to": "claim_005fc34fc377ccd2",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_b70cedbefb813ec5",
-      "from": "claim_005fc34fc377ccd2",
-      "to": "event_0fa09be8aea33fb3",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_c7d67eaef2d4b541",
-      "from": "source_60f7e450bf0f60e6",
-      "to": "claim_8655ebc7c224d0a5",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_d5cc6aa397d86f8e",
-      "from": "claim_8655ebc7c224d0a5",
-      "to": "event_0fa09be8aea33fb3",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_1be1dd8842453316",
-      "from": "source_79c431447ce03d5f",
-      "to": "claim_437fc27209308b3e",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_6370f464deedeaf4",
-      "from": "claim_437fc27209308b3e",
-      "to": "event_0fa09be8aea33fb3",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_ddc17ad0f0846b24",
-      "from": "source_9bc4950664f1773d",
-      "to": "claim_d5e4b077605d9a42",
-      "relation": "supports"
-    },
-    {
-      "id": "edge_3a663e93b70d3774",
-      "from": "claim_d5e4b077605d9a42",
-      "to": "event_0fa09be8aea33fb3",
-      "relation": "evidence_for",
-      "updateTitle": null
-    },
-    {
-      "id": "edge_1d6975394396cfe5",
-      "from": "update_f28225f638e0b5a6",
-      "to": "event_0fa09be8aea33fb3",
-      "relation": "updates"
-    },
-    {
-      "id": "edge_436a441f278273d9",
-      "from": "claim_3884dd54a6a62312",
-      "to": "event_0fa09be8aea33fb3",
-      "relation": "update_evidence_for",
-      "updateTitle": "NVIDIA收购Hugging Face获补充"
-    },
-    {
-      "id": "edge_a2001e2b2fad4ee8",
-      "from": "claim_005fc34fc377ccd2",
-      "to": "event_0fa09be8aea33fb3",
-      "relation": "update_evidence_for",
-      "updateTitle": "NVIDIA收购Hugging Face获补充"
-    },
-    {
-      "id": "edge_8c3bc762fa4fb000",
-      "from": "claim_8655ebc7c224d0a5",
-      "to": "event_0fa09be8aea33fb3",
-      "relation": "update_evidence_for",
-      "updateTitle": "NVIDIA收购Hugging Face获补充"
-    },
-    {
-      "id": "edge_a72b629348340fd7",
-      "from": "claim_437fc27209308b3e",
-      "to": "event_0fa09be8aea33fb3",
-      "relation": "update_evidence_for",
-      "updateTitle": "NVIDIA收购Hugging Face获补充"
-    },
-    {
-      "id": "edge_8d624ac505c986b2",
-      "from": "claim_d5e4b077605d9a42",
-      "to": "event_0fa09be8aea33fb3",
-      "relation": "update_evidence_for",
-      "updateTitle": "NVIDIA收购Hugging Face获补充"
     },
     {
       "id": "edge_f2bf58b25533b823",
@@ -42971,6 +43357,82 @@
       "from": "claim_6a91586fd2989c1a",
       "to": "event_cca4803f3ba7fbf7",
       "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_5aafe56c25f76eeb",
+      "from": "event_f726407f699f5fd0",
+      "to": "article_24c21ac3d55925bb",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_f9cfa3f1a6a2f1af",
+      "from": "source_774c92e393ebe03e",
+      "to": "claim_36caca78bbde05ec",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_8d3d73daa7062d96",
+      "from": "claim_36caca78bbde05ec",
+      "to": "event_f726407f699f5fd0",
+      "relation": "conversation_source_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_379af07104d5c69c",
+      "from": "event_b879ac050c35d4b0",
+      "to": "article_ddc16b906c0b73eb",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_560183b4e6b46c3a",
+      "from": "source_02ea3053f41591c6",
+      "to": "claim_1381b5d5567753a6",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_e9f39da23f656991",
+      "from": "claim_1381b5d5567753a6",
+      "to": "event_b879ac050c35d4b0",
+      "relation": "conversation_source_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_3f2a4807d581b7b1",
+      "from": "event_e577262a89a4efe5",
+      "to": "article_b233718508b83225",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_b078136aafac79b1",
+      "from": "source_7ff3b696511501ec",
+      "to": "claim_b63224839f9df558",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_c6ad282e00132483",
+      "from": "claim_b63224839f9df558",
+      "to": "event_e577262a89a4efe5",
+      "relation": "conversation_source_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_60c49758f239931f",
+      "from": "event_62fa05d708eef2e1",
+      "to": "article_297b65c2ccadd6d2",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_9c477bc5ab155b90",
+      "from": "source_d76df25d4f91eba2",
+      "to": "claim_54fea272d59b3352",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_1edd07637d67dba1",
+      "from": "claim_54fea272d59b3352",
+      "to": "event_62fa05d708eef2e1",
+      "relation": "conversation_source_for",
       "updateTitle": null
     },
     {
