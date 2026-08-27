@@ -1,13 +1,268 @@
 {
-  "generatedAt": "2026-08-27T10:14:45.575Z",
-  "basedOnSnapshotAt": "2026-08-27T10:07:44.313Z",
+  "generatedAt": "2026-08-27T19:11:46.262Z",
+  "basedOnSnapshotAt": "2026-08-27T19:06:40.241Z",
   "model": "gpt-5.5",
   "analyzedItemCount": 180,
-  "totalFetchedItemCount": 2320,
+  "totalFetchedItemCount": 2312,
   "editorNote": "今日信息环境由代理安全事件、编码代理工具链分化、开放模型竞争和算力下沉共同主导。",
   "signalQuality": 86,
   "signalQualityChange": 8,
   "signals": [
+    {
+      "id": 167,
+      "editorialBucket": "dynamic",
+      "category": "AI & 模型",
+      "eyebrow": "产品信号",
+      "title": "Google推出Gemini Omni 1.1 Flash",
+      "summary": "Google将Gemini Omni 1.1 Flash推向全球Flow订阅用户，新增40秒场景延展、视频引用和更快的低分辨率预览，把视频生成的控制能力进一步产品化。",
+      "why": "更新同时改变了视频编辑的可用范围、交互控制和预览成本，Flow正从生成工具向可反复修改的创作工作台推进。",
+      "impact": "若创作者在更低预览成本下增加迭代次数，视频模型竞争可能更看重编辑闭环和工作流效率，而不只是单次生成质量。",
+      "shiftFrom": "Omni Flash提供基础精确编辑",
+      "shiftTo": "更长、可引用且分层预览的编辑流程",
+      "crossValidation": "Google官方发布确认全球Flow订阅用户可用及具体功能；Google DeepMind提供内部评测口径，模型卡同时界定多轮一致性、复杂运动与文字渲染的限制，属于单一机构多材料佐证。",
+      "article": {
+        "lead": "Google已将Gemini Omni 1.1 Flash更新推向全球Google AI Plus、Pro和Ultra订阅者的Flow用户。相较5月进入Flow的Gemini Omni Flash，新版本把视频编辑从一次性生成进一步改造成可延展、引用素材并以不同分辨率反复预览的流程产品。",
+        "sections": [
+          {
+            "heading": "编辑能力与可用范围同步扩大",
+            "body": "Google称，Gemini Omni 1.1 Flash现可将场景延展至40秒，并允许用户引用最长3秒的视频作为编辑输入；输出可升至1080p或4K。更新不是仅限实验页面的演示：Google确认其已面向全球符合条件的Flow订阅用户开放。5月时，Gemini Omni Flash已被引入覆盖140多个国家的Flow，用于精确视频编辑；本次的变化在于把可控编辑的输入、时长和输出层级一起向前推进。"
+          },
+          {
+            "heading": "低成本预览改变创作迭代机制",
+            "body": "视频生成的实际使用成本通常不只取决于最终成片，还取决于用户为修正镜头、动作和构图所进行的试错次数。Google表示，360p预览相较720p最高可快60%，成本约为后者三分之一。结合素材引用和场景延展，这让创作者可以先以较低成本验证修改方向，再选择更高分辨率输出。Google DeepMind报告的内部人工偏好测试及基于MovieGenBench和VBench I2V的评测，则把其对编辑质量和指令遵循的性能主张放在可说明的方法口径之下。"
+          },
+          {
+            "heading": "竞争焦点或转向编辑闭环",
+            "body": "这次升级的核心后果，是将模型能力嵌入“生成、检查、局部调整、再输出”的创作闭环，而非只提高单条提示词的成片质量。对订阅型产品而言，更快的预览也可能提高用户可承受的迭代密度，并使分辨率分层成为服务设计的一部分。最强的反例来自Google自身模型卡：模型仍可能难以在多轮编辑中保持完全一致，复杂运动和文字渲染也仍不稳定；因此，功能扩展尚不能等同于专业视频制作中的可靠替代。"
+          }
+        ],
+        "outlook": "接下来可观察三类证据：Google是否公布Flow的使用频率、预览到高分辨率输出的转化或创作者留存数据；Omni 1.1 Flash是否扩展至API或企业创作工具；以及独立测评能否在多轮编辑一致性、复杂动作和文字渲染上复现其改进。若这些指标改善，编辑闭环而非单次生成将更有可能成为视频模型的主要竞争维度。"
+      },
+      "validationType": "跨平台验证",
+      "publishedAt": "2026-08-27T16:00:00.000Z",
+      "updatedAt": "2026-08-27T16:00:00.000Z",
+      "sources": [
+        "Blog",
+        "Official",
+        "Research"
+      ],
+      "sourceNames": [
+        "Google LLC",
+        "Google",
+        "Google DeepMind"
+      ],
+      "sourceCount": 3,
+      "age": "3 小时前",
+      "score": 84,
+      "tone": "blue",
+      "evidence": [
+        {
+          "id": "10002-3-https://blog.google/innovation-and-ai/models-and-research/google-labs/new-creative-controls-google-flow/",
+          "sourceId": 10002,
+          "sourceName": "Google AI",
+          "sourcePublisher": "Google LLC",
+          "sourceKind": "Blog",
+          "title": "Google Flow brings new creative control features to enhance video editing.",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/new-creative-controls-google-flow/",
+          "publishedAt": "2026-08-27T16:00:00.000Z",
+          "summary": "At Google I/O, we launched Gemini Omni Flash in Google Flow, bringing new video editing capabilities to creatives. Today we’re rolling out updates via Gemini Omni 1.1 Fl…",
+          "fetchedAt": "2026-08-27T19:06:15.318Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-27T19:06:15.318Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "fast",
+            "reason": "fresh",
+            "ageHours": 3.1111780555555555,
+            "maxAgeHours": 72
+          },
+          "deferredResearch": false,
+          "ref": "N4",
+          "role": "主张",
+          "takeaway": "Google AI宣布在Flow中推出基于Gemini Omni 1.1 Flash的新创意控制功能。"
+        },
+        {
+          "id": "research-10002-3-https://blog.google/innovation-and-ai/models-and-research/google-labs/new-creative-controls-google-flow/-1-https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-omni-1-1-flash/",
+          "sourceId": 10002,
+          "sourceName": "Google",
+          "sourcePublisher": "Google",
+          "sourceKind": "Official",
+          "title": "Gemini Omni 1.1 Flash lets you build with more control",
+          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-omni-1-1-flash/",
+          "publishedAt": "2026-08-27T00:00:00.000Z",
+          "summary": "补齐 Omni 1.1 Flash 的具体新增能力与量化口径：场景可延展至 40 秒、360p 预览相对 720p 最高快 60%且成本为三分之一、输出可升至 1080p 或 4K、可引用最长 3 秒视频；并确认其当日向全球 Google AI Plus、Pro 和 Ultra 订阅者的 Flow 用户开放。",
+          "fetchedAt": "2026-08-27T19:06:40.241Z",
+          "researchedFrom": "N4",
+          "researchRole": "Primary",
+          "researchClaim": "Google Flow 已从 5 月上线的 Gemini Omni Flash 升级至 Gemini Omni 1.1 Flash；新增镜头延展、首尾帧插值、最多 4K 输出、360p 低成本预览及视频参考输入等控制项，定位从对话式生成与编辑进一步转向可用于制作流程的视频工具。",
+          "researchComparisons": "此前，Google 于 2026 年 5 月 19 日在 Flow 向全球 Google AI Plus、Pro 和 Ultra 订阅者提供 Gemini Omni Flash，重点是以图像、音频、视频和文字为输入进行对话式视频生成和编辑。8 月 27 日的 Omni 1.1 Flash 新增可将场景延展至最长 40 秒、首尾帧指定、1080p/4K 升采样及最长 3 秒的视频参考；Google 称 360p 预览相对该版本标准 720p 生成吞吐量最高快 60%、成本为三分之一。Google 的公开性能页称，Omni 在内部人工偏好比较及 MovieGenBench、VBench I2V 等评测中居领先或并列领先，但未公布可直接复现的完整分数、竞争模型配置或置信区间。",
+          "researchUnresolved": "Google 未在公开材料中披露 Flow 各订阅档位对 Omni 1.1 Flash 的实际生成额度、4K/场景延展的信用消耗、地区例外，或独立第三方对新版一致性、复杂运动和文本渲染的复现实测。",
+          "ref": "R9",
+          "role": "佐证",
+          "takeaway": "Google确认40秒场景延展、最长3秒视频引用、360p预览的速度与成本变化，以及面向全球Flow订阅用户开放。"
+        },
+        {
+          "id": "research-10002-3-https://blog.google/innovation-and-ai/models-and-research/google-labs/new-creative-controls-google-flow/-2-https://blog.google/innovation-and-ai/models-and-research/google-labs/flow-updates/",
+          "sourceId": 10002,
+          "sourceName": "Google",
+          "sourcePublisher": "Google",
+          "sourceKind": "Official",
+          "title": "New agents, mobile apps and Gemini Omni for Google Flow and Google Flow Music",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/flow-updates/",
+          "publishedAt": "2026-05-19T00:00:00.000Z",
+          "summary": "补齐此前状态：Google 在 2026 年 5 月 19 日将 Gemini Omni Flash 引入 Flow，称其可提供精确视频编辑；Flow 当时已扩展为 AI 创意工作室并覆盖 140 多个国家，Omni Flash 面向全球 Google AI 订阅者开放。",
+          "fetchedAt": "2026-08-27T19:06:40.241Z",
+          "researchedFrom": "N4",
+          "researchRole": "Comparison",
+          "researchClaim": "Google Flow 已从 5 月上线的 Gemini Omni Flash 升级至 Gemini Omni 1.1 Flash；新增镜头延展、首尾帧插值、最多 4K 输出、360p 低成本预览及视频参考输入等控制项，定位从对话式生成与编辑进一步转向可用于制作流程的视频工具。",
+          "researchComparisons": "此前，Google 于 2026 年 5 月 19 日在 Flow 向全球 Google AI Plus、Pro 和 Ultra 订阅者提供 Gemini Omni Flash，重点是以图像、音频、视频和文字为输入进行对话式视频生成和编辑。8 月 27 日的 Omni 1.1 Flash 新增可将场景延展至最长 40 秒、首尾帧指定、1080p/4K 升采样及最长 3 秒的视频参考；Google 称 360p 预览相对该版本标准 720p 生成吞吐量最高快 60%、成本为三分之一。Google 的公开性能页称，Omni 在内部人工偏好比较及 MovieGenBench、VBench I2V 等评测中居领先或并列领先，但未公布可直接复现的完整分数、竞争模型配置或置信区间。",
+          "researchUnresolved": "Google 未在公开材料中披露 Flow 各订阅档位对 Omni 1.1 Flash 的实际生成额度、4K/场景延展的信用消耗、地区例外，或独立第三方对新版一致性、复杂运动和文本渲染的复现实测。",
+          "ref": "R10",
+          "role": "背景",
+          "takeaway": "Google记录了Gemini Omni Flash于5月进入Flow时的初始可用范围和精确编辑定位。"
+        },
+        {
+          "id": "research-10002-3-https://blog.google/innovation-and-ai/models-and-research/google-labs/new-creative-controls-google-flow/-3-https://deepmind.google/models/gemini-omni/",
+          "sourceId": 10002,
+          "sourceName": "Google DeepMind",
+          "sourcePublisher": "Google DeepMind",
+          "sourceKind": "Official",
+          "title": "Gemini Omni",
+          "url": "https://deepmind.google/models/gemini-omni/",
+          "publishedAt": "2026-08-27T16:00:00.000Z",
+          "summary": "补齐 Google 给出的性能基准：视频编辑的内部人工两两比较覆盖 504 个样例；文生视频使用 Meta 发布的 MovieGenBench 的 1,003 个提示词；图生视频使用 VBench I2V 的 355 个图文对，Google 报告 Omni 在多项总体偏好和指令遵循指标上领先或并列领先。",
+          "fetchedAt": "2026-08-27T19:06:40.241Z",
+          "researchedFrom": "N4",
+          "researchRole": "Comparison",
+          "researchClaim": "Google Flow 已从 5 月上线的 Gemini Omni Flash 升级至 Gemini Omni 1.1 Flash；新增镜头延展、首尾帧插值、最多 4K 输出、360p 低成本预览及视频参考输入等控制项，定位从对话式生成与编辑进一步转向可用于制作流程的视频工具。",
+          "researchComparisons": "此前，Google 于 2026 年 5 月 19 日在 Flow 向全球 Google AI Plus、Pro 和 Ultra 订阅者提供 Gemini Omni Flash，重点是以图像、音频、视频和文字为输入进行对话式视频生成和编辑。8 月 27 日的 Omni 1.1 Flash 新增可将场景延展至最长 40 秒、首尾帧指定、1080p/4K 升采样及最长 3 秒的视频参考；Google 称 360p 预览相对该版本标准 720p 生成吞吐量最高快 60%、成本为三分之一。Google 的公开性能页称，Omni 在内部人工偏好比较及 MovieGenBench、VBench I2V 等评测中居领先或并列领先，但未公布可直接复现的完整分数、竞争模型配置或置信区间。",
+          "researchUnresolved": "Google 未在公开材料中披露 Flow 各订阅档位对 Omni 1.1 Flash 的实际生成额度、4K/场景延展的信用消耗、地区例外，或独立第三方对新版一致性、复杂运动和文本渲染的复现实测。",
+          "ref": "R11",
+          "role": "佐证",
+          "takeaway": "Google DeepMind披露视频编辑、文生视频和图生视频评测所使用的样例与提示词口径。"
+        },
+        {
+          "id": "research-10002-3-https://blog.google/innovation-and-ai/models-and-research/google-labs/new-creative-controls-google-flow/-4-https://deepmind.google/models/model-cards/gemini-omni-flash/",
+          "sourceId": 10002,
+          "sourceName": "Google DeepMind",
+          "sourcePublisher": "Google DeepMind",
+          "sourceKind": "Research",
+          "title": "Gemini Omni Flash - Model Card",
+          "url": "https://deepmind.google/models/model-cards/gemini-omni-flash/",
+          "publishedAt": "2026-05-19T00:00:00.000Z",
+          "summary": "提供最强的官方限制性证据：Google 明确承认该模型仍难以在多轮编辑中保持完全一致性、生成复杂运动场景以及准确渲染文字；视频编辑还能改变人物语音，但该能力目前受到限制。",
+          "fetchedAt": "2026-08-27T19:06:40.241Z",
+          "researchedFrom": "N4",
+          "researchRole": "Counterevidence",
+          "researchClaim": "Google Flow 已从 5 月上线的 Gemini Omni Flash 升级至 Gemini Omni 1.1 Flash；新增镜头延展、首尾帧插值、最多 4K 输出、360p 低成本预览及视频参考输入等控制项，定位从对话式生成与编辑进一步转向可用于制作流程的视频工具。",
+          "researchComparisons": "此前，Google 于 2026 年 5 月 19 日在 Flow 向全球 Google AI Plus、Pro 和 Ultra 订阅者提供 Gemini Omni Flash，重点是以图像、音频、视频和文字为输入进行对话式视频生成和编辑。8 月 27 日的 Omni 1.1 Flash 新增可将场景延展至最长 40 秒、首尾帧指定、1080p/4K 升采样及最长 3 秒的视频参考；Google 称 360p 预览相对该版本标准 720p 生成吞吐量最高快 60%、成本为三分之一。Google 的公开性能页称，Omni 在内部人工偏好比较及 MovieGenBench、VBench I2V 等评测中居领先或并列领先，但未公布可直接复现的完整分数、竞争模型配置或置信区间。",
+          "researchUnresolved": "Google 未在公开材料中披露 Flow 各订阅档位对 Omni 1.1 Flash 的实际生成额度、4K/场景延展的信用消耗、地区例外，或独立第三方对新版一致性、复杂运动和文本渲染的复现实测。",
+          "ref": "R12",
+          "role": "反例",
+          "takeaway": "Gemini Omni Flash模型卡列出多轮编辑一致性、复杂运动和文字渲染等现有限制。"
+        }
+      ],
+      "references": [
+        {
+          "id": "10002-3-https://blog.google/innovation-and-ai/models-and-research/google-labs/new-creative-controls-google-flow/",
+          "sourceId": 10002,
+          "sourceName": "Google AI",
+          "sourcePublisher": "Google LLC",
+          "sourceKind": "Blog",
+          "title": "Google Flow brings new creative control features to enhance video editing.",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/new-creative-controls-google-flow/",
+          "publishedAt": "2026-08-27T16:00:00.000Z",
+          "summary": "At Google I/O, we launched Gemini Omni Flash in Google Flow, bringing new video editing capabilities to creatives. Today we’re rolling out updates via Gemini Omni 1.1 Fl…",
+          "fetchedAt": "2026-08-27T19:06:15.318Z",
+          "accessMethod": "public-feed",
+          "publicContentPolicy": "headline-source-link-only",
+          "firstSeenAt": "2026-08-27T19:06:15.318Z",
+          "freshness": {
+            "eligible": true,
+            "lane": "fast",
+            "reason": "fresh",
+            "ageHours": 3.1111780555555555,
+            "maxAgeHours": 72
+          },
+          "deferredResearch": false,
+          "ref": "N4"
+        },
+        {
+          "id": "research-10002-3-https://blog.google/innovation-and-ai/models-and-research/google-labs/new-creative-controls-google-flow/-1-https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-omni-1-1-flash/",
+          "sourceId": 10002,
+          "sourceName": "Google",
+          "sourcePublisher": "Google",
+          "sourceKind": "Official",
+          "title": "Gemini Omni 1.1 Flash lets you build with more control",
+          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-omni-1-1-flash/",
+          "publishedAt": "2026-08-27T00:00:00.000Z",
+          "summary": "补齐 Omni 1.1 Flash 的具体新增能力与量化口径：场景可延展至 40 秒、360p 预览相对 720p 最高快 60%且成本为三分之一、输出可升至 1080p 或 4K、可引用最长 3 秒视频；并确认其当日向全球 Google AI Plus、Pro 和 Ultra 订阅者的 Flow 用户开放。",
+          "fetchedAt": "2026-08-27T19:06:40.241Z",
+          "researchedFrom": "N4",
+          "researchRole": "Primary",
+          "researchClaim": "Google Flow 已从 5 月上线的 Gemini Omni Flash 升级至 Gemini Omni 1.1 Flash；新增镜头延展、首尾帧插值、最多 4K 输出、360p 低成本预览及视频参考输入等控制项，定位从对话式生成与编辑进一步转向可用于制作流程的视频工具。",
+          "researchComparisons": "此前，Google 于 2026 年 5 月 19 日在 Flow 向全球 Google AI Plus、Pro 和 Ultra 订阅者提供 Gemini Omni Flash，重点是以图像、音频、视频和文字为输入进行对话式视频生成和编辑。8 月 27 日的 Omni 1.1 Flash 新增可将场景延展至最长 40 秒、首尾帧指定、1080p/4K 升采样及最长 3 秒的视频参考；Google 称 360p 预览相对该版本标准 720p 生成吞吐量最高快 60%、成本为三分之一。Google 的公开性能页称，Omni 在内部人工偏好比较及 MovieGenBench、VBench I2V 等评测中居领先或并列领先，但未公布可直接复现的完整分数、竞争模型配置或置信区间。",
+          "researchUnresolved": "Google 未在公开材料中披露 Flow 各订阅档位对 Omni 1.1 Flash 的实际生成额度、4K/场景延展的信用消耗、地区例外，或独立第三方对新版一致性、复杂运动和文本渲染的复现实测。",
+          "ref": "R9"
+        },
+        {
+          "id": "research-10002-3-https://blog.google/innovation-and-ai/models-and-research/google-labs/new-creative-controls-google-flow/-2-https://blog.google/innovation-and-ai/models-and-research/google-labs/flow-updates/",
+          "sourceId": 10002,
+          "sourceName": "Google",
+          "sourcePublisher": "Google",
+          "sourceKind": "Official",
+          "title": "New agents, mobile apps and Gemini Omni for Google Flow and Google Flow Music",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/flow-updates/",
+          "publishedAt": "2026-05-19T00:00:00.000Z",
+          "summary": "补齐此前状态：Google 在 2026 年 5 月 19 日将 Gemini Omni Flash 引入 Flow，称其可提供精确视频编辑；Flow 当时已扩展为 AI 创意工作室并覆盖 140 多个国家，Omni Flash 面向全球 Google AI 订阅者开放。",
+          "fetchedAt": "2026-08-27T19:06:40.241Z",
+          "researchedFrom": "N4",
+          "researchRole": "Comparison",
+          "researchClaim": "Google Flow 已从 5 月上线的 Gemini Omni Flash 升级至 Gemini Omni 1.1 Flash；新增镜头延展、首尾帧插值、最多 4K 输出、360p 低成本预览及视频参考输入等控制项，定位从对话式生成与编辑进一步转向可用于制作流程的视频工具。",
+          "researchComparisons": "此前，Google 于 2026 年 5 月 19 日在 Flow 向全球 Google AI Plus、Pro 和 Ultra 订阅者提供 Gemini Omni Flash，重点是以图像、音频、视频和文字为输入进行对话式视频生成和编辑。8 月 27 日的 Omni 1.1 Flash 新增可将场景延展至最长 40 秒、首尾帧指定、1080p/4K 升采样及最长 3 秒的视频参考；Google 称 360p 预览相对该版本标准 720p 生成吞吐量最高快 60%、成本为三分之一。Google 的公开性能页称，Omni 在内部人工偏好比较及 MovieGenBench、VBench I2V 等评测中居领先或并列领先，但未公布可直接复现的完整分数、竞争模型配置或置信区间。",
+          "researchUnresolved": "Google 未在公开材料中披露 Flow 各订阅档位对 Omni 1.1 Flash 的实际生成额度、4K/场景延展的信用消耗、地区例外，或独立第三方对新版一致性、复杂运动和文本渲染的复现实测。",
+          "ref": "R10"
+        },
+        {
+          "id": "research-10002-3-https://blog.google/innovation-and-ai/models-and-research/google-labs/new-creative-controls-google-flow/-3-https://deepmind.google/models/gemini-omni/",
+          "sourceId": 10002,
+          "sourceName": "Google DeepMind",
+          "sourcePublisher": "Google DeepMind",
+          "sourceKind": "Official",
+          "title": "Gemini Omni",
+          "url": "https://deepmind.google/models/gemini-omni/",
+          "publishedAt": "2026-08-27T16:00:00.000Z",
+          "summary": "补齐 Google 给出的性能基准：视频编辑的内部人工两两比较覆盖 504 个样例；文生视频使用 Meta 发布的 MovieGenBench 的 1,003 个提示词；图生视频使用 VBench I2V 的 355 个图文对，Google 报告 Omni 在多项总体偏好和指令遵循指标上领先或并列领先。",
+          "fetchedAt": "2026-08-27T19:06:40.241Z",
+          "researchedFrom": "N4",
+          "researchRole": "Comparison",
+          "researchClaim": "Google Flow 已从 5 月上线的 Gemini Omni Flash 升级至 Gemini Omni 1.1 Flash；新增镜头延展、首尾帧插值、最多 4K 输出、360p 低成本预览及视频参考输入等控制项，定位从对话式生成与编辑进一步转向可用于制作流程的视频工具。",
+          "researchComparisons": "此前，Google 于 2026 年 5 月 19 日在 Flow 向全球 Google AI Plus、Pro 和 Ultra 订阅者提供 Gemini Omni Flash，重点是以图像、音频、视频和文字为输入进行对话式视频生成和编辑。8 月 27 日的 Omni 1.1 Flash 新增可将场景延展至最长 40 秒、首尾帧指定、1080p/4K 升采样及最长 3 秒的视频参考；Google 称 360p 预览相对该版本标准 720p 生成吞吐量最高快 60%、成本为三分之一。Google 的公开性能页称，Omni 在内部人工偏好比较及 MovieGenBench、VBench I2V 等评测中居领先或并列领先，但未公布可直接复现的完整分数、竞争模型配置或置信区间。",
+          "researchUnresolved": "Google 未在公开材料中披露 Flow 各订阅档位对 Omni 1.1 Flash 的实际生成额度、4K/场景延展的信用消耗、地区例外，或独立第三方对新版一致性、复杂运动和文本渲染的复现实测。",
+          "ref": "R11"
+        },
+        {
+          "id": "research-10002-3-https://blog.google/innovation-and-ai/models-and-research/google-labs/new-creative-controls-google-flow/-4-https://deepmind.google/models/model-cards/gemini-omni-flash/",
+          "sourceId": 10002,
+          "sourceName": "Google DeepMind",
+          "sourcePublisher": "Google DeepMind",
+          "sourceKind": "Research",
+          "title": "Gemini Omni Flash - Model Card",
+          "url": "https://deepmind.google/models/model-cards/gemini-omni-flash/",
+          "publishedAt": "2026-05-19T00:00:00.000Z",
+          "summary": "提供最强的官方限制性证据：Google 明确承认该模型仍难以在多轮编辑中保持完全一致性、生成复杂运动场景以及准确渲染文字；视频编辑还能改变人物语音，但该能力目前受到限制。",
+          "fetchedAt": "2026-08-27T19:06:40.241Z",
+          "researchedFrom": "N4",
+          "researchRole": "Counterevidence",
+          "researchClaim": "Google Flow 已从 5 月上线的 Gemini Omni Flash 升级至 Gemini Omni 1.1 Flash；新增镜头延展、首尾帧插值、最多 4K 输出、360p 低成本预览及视频参考输入等控制项，定位从对话式生成与编辑进一步转向可用于制作流程的视频工具。",
+          "researchComparisons": "此前，Google 于 2026 年 5 月 19 日在 Flow 向全球 Google AI Plus、Pro 和 Ultra 订阅者提供 Gemini Omni Flash，重点是以图像、音频、视频和文字为输入进行对话式视频生成和编辑。8 月 27 日的 Omni 1.1 Flash 新增可将场景延展至最长 40 秒、首尾帧指定、1080p/4K 升采样及最长 3 秒的视频参考；Google 称 360p 预览相对该版本标准 720p 生成吞吐量最高快 60%、成本为三分之一。Google 的公开性能页称，Omni 在内部人工偏好比较及 MovieGenBench、VBench I2V 等评测中居领先或并列领先，但未公布可直接复现的完整分数、竞争模型配置或置信区间。",
+          "researchUnresolved": "Google 未在公开材料中披露 Flow 各订阅档位对 Omni 1.1 Flash 的实际生成额度、4K/场景延展的信用消耗、地区例外，或独立第三方对新版一致性、复杂运动和文本渲染的复现实测。",
+          "ref": "R12"
+        }
+      ],
+      "feedBatchAt": "2026-08-27T19:06:40.241Z"
+    },
     {
       "id": 166,
       "editorialBucket": "dynamic",
@@ -67415,6 +67670,57 @@
       "editorNote": "今日信息环境由智能体安全事件、AI coding 工具链分化、open-weight 模型竞争与算力下沉共同主导。",
       "signals": [
         {
+          "category": "AI & 模型",
+          "eyebrow": "产品信号",
+          "title": "Google推出Gemini Omni 1.1 Flash",
+          "summary": "Google将Gemini Omni 1.1 Flash推向全球Flow订阅用户，新增40秒场景延展、视频引用和更快的低分辨率预览，把视频生成的控制能力进一步产品化。",
+          "why": "更新同时改变了视频编辑的可用范围、交互控制和预览成本，Flow正从生成工具向可反复修改的创作工作台推进。",
+          "impact": "若创作者在更低预览成本下增加迭代次数，视频模型竞争可能更看重编辑闭环和工作流效率，而不只是单次生成质量。",
+          "shiftFrom": "Omni Flash提供基础精确编辑",
+          "shiftTo": "更长、可引用且分层预览的编辑流程",
+          "crossValidation": "Google官方发布确认全球Flow订阅用户可用及具体功能；Google DeepMind提供内部评测口径，模型卡同时界定多轮一致性、复杂运动与文字渲染的限制，属于单一机构多材料佐证。",
+          "article": {
+            "lead": "Google已将Gemini Omni 1.1 Flash更新推向全球Google AI Plus、Pro和Ultra订阅者的Flow用户。相较5月进入Flow的Gemini Omni Flash，新版本把视频编辑从一次性生成进一步改造成可延展、引用素材并以不同分辨率反复预览的流程产品。",
+            "sections": [
+              {
+                "heading": "编辑能力与可用范围同步扩大",
+                "body": "Google称，Gemini Omni 1.1 Flash现可将场景延展至40秒，并允许用户引用最长3秒的视频作为编辑输入；输出可升至1080p或4K。更新不是仅限实验页面的演示：Google确认其已面向全球符合条件的Flow订阅用户开放。5月时，Gemini Omni Flash已被引入覆盖140多个国家的Flow，用于精确视频编辑；本次的变化在于把可控编辑的输入、时长和输出层级一起向前推进。"
+              },
+              {
+                "heading": "低成本预览改变创作迭代机制",
+                "body": "视频生成的实际使用成本通常不只取决于最终成片，还取决于用户为修正镜头、动作和构图所进行的试错次数。Google表示，360p预览相较720p最高可快60%，成本约为后者三分之一。结合素材引用和场景延展，这让创作者可以先以较低成本验证修改方向，再选择更高分辨率输出。Google DeepMind报告的内部人工偏好测试及基于MovieGenBench和VBench I2V的评测，则把其对编辑质量和指令遵循的性能主张放在可说明的方法口径之下。"
+              },
+              {
+                "heading": "竞争焦点或转向编辑闭环",
+                "body": "这次升级的核心后果，是将模型能力嵌入“生成、检查、局部调整、再输出”的创作闭环，而非只提高单条提示词的成片质量。对订阅型产品而言，更快的预览也可能提高用户可承受的迭代密度，并使分辨率分层成为服务设计的一部分。最强的反例来自Google自身模型卡：模型仍可能难以在多轮编辑中保持完全一致，复杂运动和文字渲染也仍不稳定；因此，功能扩展尚不能等同于专业视频制作中的可靠替代。"
+              }
+            ],
+            "outlook": "接下来可观察三类证据：Google是否公布Flow的使用频率、预览到高分辨率输出的转化或创作者留存数据；Omni 1.1 Flash是否扩展至API或企业创作工具；以及独立测评能否在多轮编辑一致性、复杂动作和文字渲染上复现其改进。若这些指标改善，编辑闭环而非单次生成将更有可能成为视频模型的主要竞争维度。"
+          },
+          "evidence": [
+            {
+              "role": "主张",
+              "takeaway": "Google AI宣布在Flow中推出基于Gemini Omni 1.1 Flash的新创意控制功能。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "Google确认40秒场景延展、最长3秒视频引用、360p预览的速度与成本变化，以及面向全球Flow订阅用户开放。"
+            },
+            {
+              "role": "背景",
+              "takeaway": "Google记录了Gemini Omni Flash于5月进入Flow时的初始可用范围和精确编辑定位。"
+            },
+            {
+              "role": "佐证",
+              "takeaway": "Google DeepMind披露视频编辑、文生视频和图生视频评测所使用的样例与提示词口径。"
+            },
+            {
+              "role": "反例",
+              "takeaway": "Gemini Omni Flash模型卡列出多轮编辑一致性、复杂运动和文字渲染等现有限制。"
+            }
+          ]
+        },
+        {
           "category": "投资",
           "eyebrow": "资本信号",
           "title": "NVIDIA据报129亿美元收购Hugging Face",
@@ -83191,6 +83497,57 @@
     "en": {
       "editorNote": "Today’s information environment is being shaped by agent security incidents, a split in coding-agent toolchains, open-model competition, and compute moving closer to the edge.",
       "signals": [
+        {
+          "category": "AI & Models",
+          "eyebrow": "Product signal",
+          "title": "Google launches Gemini Omni 1.1 Flash",
+          "summary": "Google has rolled Gemini Omni 1.1 Flash out to eligible Flow subscribers globally, adding longer scene extension, video references, and faster low-resolution previews to make video editing more iterative.",
+          "why": "The update changes both the availability and economics of video editing, pushing Flow beyond one-shot generation toward a repeatable creative workspace.",
+          "impact": "If cheaper previews lead creators to iterate more often, video-model competition may increasingly turn on editing loops and workflow efficiency rather than single-pass output quality.",
+          "shiftFrom": "Omni Flash offered basic precise editing",
+          "shiftTo": "Longer, reference-based, tiered-preview editing",
+          "crossValidation": "Google’s official materials confirm availability and feature details; Google DeepMind provides evaluation methodology, while the model card defines limits on consistency, motion, and text rendering. This is single-organization, multi-document support.",
+          "article": {
+            "lead": "Google has rolled out Gemini Omni 1.1 Flash to eligible Google AI Plus, Pro, and Ultra subscribers using Flow globally. Compared with Gemini Omni Flash’s May introduction to Flow, the update turns video editing more clearly into a workflow built around extension, reference inputs, and repeated previews at different resolutions.",
+            "sections": [
+              {
+                "heading": "Editing capability and availability both expand",
+                "body": "Google says Gemini Omni 1.1 Flash can extend scenes to 40 seconds and use video references of up to three seconds as editing inputs, with output available at 1080p or 4K. This is more than a limited demonstration: Google says the release is available to eligible Flow subscribers globally. Gemini Omni Flash entered Flow in May as a precise editing tool across more than 140 countries. The new change advances the available inputs, duration, and output tiers together."
+              },
+              {
+                "heading": "Cheaper previews change the iteration mechanism",
+                "body": "The practical cost of video generation depends not only on a final render but on how many attempts are needed to correct framing, movement, and composition. Google says 360p previews can be up to 60% faster and cost one-third as much as 720p previews. Combined with reference inputs and scene extension, that enables lower-cost testing before higher-resolution output. Google DeepMind’s human-preference and benchmark-based evaluations provide methodological context for the company’s quality and instruction-following claims."
+              },
+              {
+                "heading": "The competitive focus may shift to editing loops",
+                "body": "The consequence is to place model capability inside a generate-review-adjust-render loop rather than merely improve a single prompt’s output. Faster previews may raise the amount of iteration users can afford and make resolution tiers part of product design. The strongest countercase comes from Google’s own model card: the model can still struggle with full consistency across multiple edits, complex motion, and accurate text rendering, so broader functionality does not yet establish reliable substitution for professional video production."
+              }
+            ],
+            "outlook": "The next observable evidence is whether Google releases Flow usage, preview-to-final-render conversion, or creator-retention data; whether Omni 1.1 Flash reaches APIs or enterprise creative tools; and whether independent tests reproduce gains in multi-turn consistency, complex motion, and text rendering. Improvement on those measures would strengthen the case that editing loops, rather than one-shot generation, are becoming the key video-model battleground."
+          },
+          "evidence": [
+            {
+              "role": "Claim",
+              "takeaway": "Google AI announced new creative controls in Flow built on Gemini Omni 1.1 Flash."
+            },
+            {
+              "role": "Support",
+              "takeaway": "Google confirmed 40-second scene extension, video references, preview economics, and global availability for eligible Flow subscribers."
+            },
+            {
+              "role": "Context",
+              "takeaway": "Google documented the initial May rollout and positioning of Gemini Omni Flash in Flow."
+            },
+            {
+              "role": "Support",
+              "takeaway": "Google DeepMind described the evaluation samples and benchmark inputs used for video editing and generation."
+            },
+            {
+              "role": "Counterpoint",
+              "takeaway": "The model card identifies limits in multi-turn consistency, complex motion, and text rendering."
+            }
+          ]
+        },
         {
           "category": "Investment",
           "eyebrow": "Capital signal",
@@ -98969,11 +99326,11 @@
     "en": "gpt-5.6-sol"
   },
   "incremental": {
-    "lastAddedAt": "2026-08-27T10:14:45.575Z",
-    "lastScanAt": "2026-08-27T10:07:44.313Z",
-    "lastAddedCount": 0,
-    "lastUpdatedCount": 1,
-    "totalAppended": 158,
+    "lastAddedAt": "2026-08-27T19:11:46.262Z",
+    "lastScanAt": "2026-08-27T19:06:40.241Z",
+    "lastAddedCount": 1,
+    "lastUpdatedCount": 0,
+    "totalAppended": 159,
     "totalUpdated": 181
   },
   "exploreDepth": {

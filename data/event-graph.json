@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-27T10:07:44.313Z",
+  "generatedAt": "2026-08-27T19:06:40.241Z",
   "counts": {
-    "sources": 1037,
-    "claims": 1229,
-    "events": 244,
-    "articles": 244,
+    "sources": 1042,
+    "claims": 1234,
+    "events": 245,
+    "articles": 245,
     "updates": 181,
-    "edges": 3312,
+    "edges": 3323,
     "revisionsRequired": 17
   },
   "revisionQueue": [
@@ -183,6 +183,99 @@
     }
   ],
   "nodes": [
+    {
+      "id": "event_2d43024f742216b3",
+      "type": "event",
+      "signalId": 167,
+      "title": "Google推出Gemini Omni 1.1 Flash",
+      "bucket": "dynamic",
+      "valueScore": 84,
+      "publishedAt": "2026-08-27T16:00:00.000Z",
+      "updatedAt": "2026-08-27T16:00:00.000Z"
+    },
+    {
+      "id": "article_075c71a2b163ed92",
+      "type": "article",
+      "signalId": 167,
+      "title": "Google推出Gemini Omni 1.1 Flash",
+      "version": 1,
+      "publishedAt": "2026-08-27T19:06:40.241Z"
+    },
+    {
+      "id": "source_7da178756c06c683",
+      "type": "source",
+      "title": "Google AI",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/new-creative-controls-google-flow/",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-27T16:00:00.000Z"
+    },
+    {
+      "id": "claim_9ee58c32097cbb7b",
+      "type": "claim",
+      "title": "Google AI宣布在Flow中推出基于Gemini Omni 1.1 Flash的新创意控制功能。",
+      "role": "主张",
+      "addedAt": "2026-08-27T19:06:40.241Z"
+    },
+    {
+      "id": "source_7d8f7d49cd6deab3",
+      "type": "source",
+      "title": "Google",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-omni-1-1-flash/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-27T00:00:00.000Z"
+    },
+    {
+      "id": "claim_7eb7720795f37ec2",
+      "type": "claim",
+      "title": "Google确认40秒场景延展、最长3秒视频引用、360p预览的速度与成本变化，以及面向全球Flow订阅用户开放。",
+      "role": "佐证",
+      "addedAt": "2026-08-27T19:06:40.241Z"
+    },
+    {
+      "id": "source_7dd52ac65313809a",
+      "type": "source",
+      "title": "Google",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/flow-updates/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-05-19T00:00:00.000Z"
+    },
+    {
+      "id": "claim_8095a09e7aef7a18",
+      "type": "claim",
+      "title": "Google记录了Gemini Omni Flash于5月进入Flow时的初始可用范围和精确编辑定位。",
+      "role": "背景",
+      "addedAt": "2026-08-27T19:06:40.241Z"
+    },
+    {
+      "id": "source_9d85e3d7fde1de0c",
+      "type": "source",
+      "title": "Google DeepMind",
+      "url": "https://deepmind.google/models/gemini-omni/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-27T16:00:00.000Z"
+    },
+    {
+      "id": "claim_adf760a87676b851",
+      "type": "claim",
+      "title": "Google DeepMind披露视频编辑、文生视频和图生视频评测所使用的样例与提示词口径。",
+      "role": "佐证",
+      "addedAt": "2026-08-27T19:06:40.241Z"
+    },
+    {
+      "id": "source_f00844eefbcfd2ce",
+      "type": "source",
+      "title": "Google DeepMind",
+      "url": "https://deepmind.google/models/model-cards/gemini-omni-flash/",
+      "sourceKind": "Research",
+      "publishedAt": "2026-05-19T00:00:00.000Z"
+    },
+    {
+      "id": "claim_c8cceb67c8ac1e15",
+      "type": "claim",
+      "title": "Gemini Omni Flash模型卡列出多轮编辑一致性、复杂运动和文字渲染等现有限制。",
+      "role": "反例",
+      "addedAt": "2026-08-27T19:06:40.241Z"
+    },
     {
       "id": "event_0fa09be8aea33fb3",
       "type": "event",
@@ -23311,6 +23404,77 @@
     }
   ],
   "edges": [
+    {
+      "id": "edge_bbca1080e4576503",
+      "from": "event_2d43024f742216b3",
+      "to": "article_075c71a2b163ed92",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_547846f7f4496632",
+      "from": "source_7da178756c06c683",
+      "to": "claim_9ee58c32097cbb7b",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_38f5748884a839e8",
+      "from": "claim_9ee58c32097cbb7b",
+      "to": "event_2d43024f742216b3",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_5935906aa45c2167",
+      "from": "source_7d8f7d49cd6deab3",
+      "to": "claim_7eb7720795f37ec2",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_0dafecc7ef2d70fa",
+      "from": "claim_7eb7720795f37ec2",
+      "to": "event_2d43024f742216b3",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_dc7444a7f491e1ce",
+      "from": "source_7dd52ac65313809a",
+      "to": "claim_8095a09e7aef7a18",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_69ede0008e3d31c3",
+      "from": "claim_8095a09e7aef7a18",
+      "to": "event_2d43024f742216b3",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_46fb76b9b99ac1f8",
+      "from": "source_9d85e3d7fde1de0c",
+      "to": "claim_adf760a87676b851",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_3826baf2ffba649d",
+      "from": "claim_adf760a87676b851",
+      "to": "event_2d43024f742216b3",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_7986c5f14d124b17",
+      "from": "source_f00844eefbcfd2ce",
+      "to": "claim_c8cceb67c8ac1e15",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_72e08940b203179c",
+      "from": "claim_c8cceb67c8ac1e15",
+      "to": "event_2d43024f742216b3",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
     {
       "id": "edge_d714b8951095bac4",
       "from": "event_0fa09be8aea33fb3",
