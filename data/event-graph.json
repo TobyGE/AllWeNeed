@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-26T21:06:41.244Z",
+  "generatedAt": "2026-08-27T00:07:12.097Z",
   "counts": {
-    "sources": 1004,
-    "claims": 1183,
-    "events": 238,
-    "articles": 238,
-    "updates": 173,
-    "edges": 3180,
+    "sources": 1008,
+    "claims": 1188,
+    "events": 239,
+    "articles": 239,
+    "updates": 174,
+    "edges": 3193,
     "revisionsRequired": 16
   },
   "revisionQueue": [
@@ -173,6 +173,69 @@
     }
   ],
   "nodes": [
+    {
+      "id": "event_b3e5b68cbaf5fe74",
+      "type": "event",
+      "signalId": 165,
+      "title": "AWS将NVIDIA GPU计划扩至逾300万块",
+      "bucket": "dynamic",
+      "valueScore": 91,
+      "publishedAt": "2026-08-26T21:05:00.000Z",
+      "updatedAt": "2026-08-26T21:05:00.000Z"
+    },
+    {
+      "id": "article_6f691e085f9503a6",
+      "type": "article",
+      "signalId": 165,
+      "title": "AWS将NVIDIA GPU计划扩至逾300万块",
+      "version": 1,
+      "publishedAt": "2026-08-27T00:07:12.097Z"
+    },
+    {
+      "id": "source_b9ec799d769b0f4b",
+      "type": "source",
+      "title": "NVIDIA Newsroom",
+      "url": "https://nvidianews.nvidia.com/news/aws-and-nvidia-to-deliver-2-million-additional-gpus-and-next-generation-infrastructure-for-agentic-and-physical-ai",
+      "sourceKind": "Blog",
+      "publishedAt": "2026-08-26T21:05:00.000Z"
+    },
+    {
+      "id": "claim_b547973c644bae41",
+      "type": "claim",
+      "title": "NVIDIA公告称，AWS与NVIDIA将扩大战略合作，以满足AI基础设施需求。",
+      "role": "主张",
+      "addedAt": "2026-08-27T00:07:12.097Z"
+    },
+    {
+      "id": "source_9f43a79e9c23b1f3",
+      "type": "source",
+      "title": "Amazon Web Services and NVIDIA",
+      "url": "https://press.aboutamazon.com/aws/2026/8/aws-and-nvidia-to-deliver-2-million-additional-gpus-and-next-generation-infrastructure-for-agentic-and-physical-ai",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-26T00:00:00.000Z"
+    },
+    {
+      "id": "claim_abde77c3bb9aedf6",
+      "type": "claim",
+      "title": "AWS与NVIDIA联合公告确认，AWS将在2027至2028年额外部署200万块GPU，涵盖Blackwell Ultra、Rubin和Rubin Ultra。",
+      "role": "主张",
+      "addedAt": "2026-08-27T00:07:12.097Z"
+    },
+    {
+      "id": "source_a74d2a45880e3859",
+      "type": "source",
+      "title": "Amazon Web Services",
+      "url": "https://aws.amazon.com/blogs/machine-learning/aws-and-nvidia-deepen-strategic-collaboration-to-accelerate-ai-from-pilot-to-production/",
+      "sourceKind": "Official",
+      "publishedAt": "2026-03-16T00:00:00.000Z"
+    },
+    {
+      "id": "claim_59e1ce15293b2d87",
+      "type": "claim",
+      "title": "AWS今年3月公告称，计划自2026年起在全球云区域增加超过100万块NVIDIA GPU。",
+      "role": "背景",
+      "addedAt": "2026-08-27T00:07:12.097Z"
+    },
     {
       "id": "event_73653cc3ec35d9ce",
       "type": "event",
@@ -496,6 +559,39 @@
       "title": "Qwen此前以80B总参数、3B激活参数的Qwen3-Next-80B-A3B展示过效率导向的混合注意力MoE路线。",
       "role": "背景",
       "addedAt": "2026-08-26T18:08:16.533Z"
+    },
+    {
+      "id": "source_b90ce025dc5cb981",
+      "type": "source",
+      "title": "Qwen",
+      "url": "https://qwen.ai/blog?id=qwen3.8-flash-next",
+      "sourceKind": "Official",
+      "publishedAt": "2026-08-26T00:00:00.000Z"
+    },
+    {
+      "id": "claim_2729cfed71dfcfd5",
+      "type": "claim",
+      "title": "Qwen称模型新增51B N-gram Embedding参数，查找位置可预先确定，并支持Host Memory异步预取。",
+      "role": "佐证",
+      "addedAt": "2026-08-26T18:08:16.533Z"
+    },
+    {
+      "id": "update_eb1d68e5ba3b24a1",
+      "type": "update",
+      "signalId": 160,
+      "title": "Qwen补充Flash-Next内存机制",
+      "summary": "Qwen称Qwen3.8-Flash-Next新增51B N-gram Embedding参数，可放入Host Memory并与计算并行异步预取；官方仓库同时确认模型已公开权重。",
+      "addedAt": "2026-08-26T00:00:00.000Z",
+      "changeType": "corroboration",
+      "thesisImpact": "官方模型页与仓库补充了Flash-Next的N-gram参数机制和开放权重状态，强化其作为Qwen下一代架构预览的技术依据。",
+      "revisionRequired": false
+    },
+    {
+      "id": "claim_868be387969ab52b",
+      "type": "claim",
+      "title": "QwenLM官方仓库确认Qwen3.8-Flash-Next是公开权重的多模态MoE模型，并提供技术报告与资料链接。",
+      "role": "佐证",
+      "addedAt": "2026-08-26T00:00:00.000Z"
     },
     {
       "id": "event_cfdb93f601856a2a",
@@ -22528,6 +22624,51 @@
   ],
   "edges": [
     {
+      "id": "edge_00c173d3fae5dfeb",
+      "from": "event_b3e5b68cbaf5fe74",
+      "to": "article_6f691e085f9503a6",
+      "relation": "rendered_as"
+    },
+    {
+      "id": "edge_5d283cfe16335399",
+      "from": "source_b9ec799d769b0f4b",
+      "to": "claim_b547973c644bae41",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_f5e86ba25f8d0f90",
+      "from": "claim_b547973c644bae41",
+      "to": "event_b3e5b68cbaf5fe74",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_f559763624aa5a43",
+      "from": "source_9f43a79e9c23b1f3",
+      "to": "claim_abde77c3bb9aedf6",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_b296e9954ef477bc",
+      "from": "claim_abde77c3bb9aedf6",
+      "to": "event_b3e5b68cbaf5fe74",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_641e5a8c053b4fe3",
+      "from": "source_a74d2a45880e3859",
+      "to": "claim_59e1ce15293b2d87",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_60fbf76706a00257",
+      "from": "claim_59e1ce15293b2d87",
+      "to": "event_b3e5b68cbaf5fe74",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
       "id": "edge_9dd2bb19013c0c93",
       "from": "event_73653cc3ec35d9ce",
       "to": "article_a2f136849c1d5392",
@@ -22778,6 +22919,45 @@
       "to": "event_26e0d7b072124120",
       "relation": "evidence_for",
       "updateTitle": null
+    },
+    {
+      "id": "edge_ae3d912c7a6a41ca",
+      "from": "source_b90ce025dc5cb981",
+      "to": "claim_2729cfed71dfcfd5",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_ae2656220eab3637",
+      "from": "claim_2729cfed71dfcfd5",
+      "to": "event_26e0d7b072124120",
+      "relation": "evidence_for",
+      "updateTitle": null
+    },
+    {
+      "id": "edge_7da29a87a5c125c4",
+      "from": "update_eb1d68e5ba3b24a1",
+      "to": "event_26e0d7b072124120",
+      "relation": "updates"
+    },
+    {
+      "id": "edge_b21bd85cbf23abcb",
+      "from": "claim_2729cfed71dfcfd5",
+      "to": "event_26e0d7b072124120",
+      "relation": "update_evidence_for",
+      "updateTitle": "Qwen补充Flash-Next内存机制"
+    },
+    {
+      "id": "edge_9c3e1c892f38eab9",
+      "from": "source_9495d1fb2a00356f",
+      "to": "claim_868be387969ab52b",
+      "relation": "supports"
+    },
+    {
+      "id": "edge_93a2fc0e9cde181e",
+      "from": "claim_868be387969ab52b",
+      "to": "event_26e0d7b072124120",
+      "relation": "update_evidence_for",
+      "updateTitle": "Qwen补充Flash-Next内存机制"
     },
     {
       "id": "edge_b391d14a06583e91",
